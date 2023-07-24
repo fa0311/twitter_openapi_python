@@ -1,0 +1,49 @@
+# TweetLegacy
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**bookmark_count** | **int** |  | 
+**bookmarked** | **bool** |  | 
+**conversation_id_str** | **str** |  | 
+**created_at** | **str** |  | 
+**display_text_range** | **List[int]** |  | 
+**entities** | [**Entities**](Entities.md) |  | 
+**extended_entities** | [**ExtendedEntities**](ExtendedEntities.md) |  | [optional] 
+**favorite_count** | **int** |  | 
+**favorited** | **bool** |  | 
+**full_text** | **str** |  | 
+**id_str** | **str** |  | 
+**is_quote_status** | **bool** |  | 
+**lang** | **str** |  | 
+**possibly_sensitive** | **bool** |  | [optional] [default to False]
+**possibly_sensitive_editable** | **bool** |  | [optional] [default to False]
+**quote_count** | **int** |  | 
+**reply_count** | **int** |  | 
+**retweet_count** | **int** |  | 
+**retweeted** | **bool** |  | 
+**retweeted_status_result** | [**ItemResult**](ItemResult.md) |  | [optional] 
+**self_thread** | [**TweetLegacySelfThread**](TweetLegacySelfThread.md) |  | [optional] 
+**user_id_str** | **str** |  | 
+
+## Example
+
+```python
+from twitter_openapi_python_generated.models.tweet_legacy import TweetLegacy
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of TweetLegacy from a JSON string
+tweet_legacy_instance = TweetLegacy.from_json(json)
+# print the JSON string representation of the object
+print TweetLegacy.to_json()
+
+# convert the object into a dict
+tweet_legacy_dict = tweet_legacy_instance.to_dict()
+# create an instance of TweetLegacy from a dict
+tweet_legacy_form_dict = tweet_legacy.from_dict(tweet_legacy_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
