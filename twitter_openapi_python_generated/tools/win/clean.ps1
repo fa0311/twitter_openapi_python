@@ -1,8 +1,11 @@
 Remove-Item -Recurse .github
 Remove-Item -Recurse .openapi-generator
+Remove-Item -Recurse build
 Remove-Item -Recurse docs
 Remove-Item -Recurse openapi_client
 Remove-Item -Recurse test
+Remove-Item -Recurse twitter_openapi_python_generated
+Remove-Item -Recurse twitter_openapi_python_generated.egg-info
 Remove-Item -Recurse .gitignore
 Remove-Item -Recurse .gitlab-ci.yml
 Remove-Item -Recurse .travis.yml
