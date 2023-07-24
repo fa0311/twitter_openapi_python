@@ -1,0 +1,16 @@
+Remove-Item -Recurse .github
+Remove-Item -Recurse .openapi-generator
+Remove-Item -Recurse docs
+Remove-Item -Recurse openapi_client
+Remove-Item -Recurse test
+Remove-Item -Recurse .gitignore
+Remove-Item -Recurse .gitlab-ci.yml
+Remove-Item -Recurse .travis.yml
+Remove-Item -Recurse git_push.sh
+Remove-Item -Recurse pyproject.toml
+Remove-Item -Recurse README.md
+Remove-Item -Recurse requirements.txt
+Remove-Item -Recurse setup.cfg
+Remove-Item -Recurse setup.py
+Remove-Item -Recurse test-requirements.txt
+Remove-Item -Recurse tox.ini
