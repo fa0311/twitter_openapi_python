@@ -1,10 +1,14 @@
 import twitter_openapi_python_generated as twitter
-import twitter_openapi_python_generated.configuration as twitter_conf
+import twitter_openapi_python_generated.configuration as conf
+import twitter_openapi_python_generated.models as models
+from twitter_openapi_python_generated.api_response import ApiResponse
 import urllib3
 import json
 from pathlib import Path
 from requests.cookies import RequestsCookieJar
 from tweepy_authlib import CookieSessionUserHandler
+from typing import Any, Callable, List, Optional, Type, TypeVar
+
 
 HASH = "29e05d162f600933fdbf633e992d2d0a249c9413"
 PLACEHOLDER = f"https://raw.githubusercontent.com/fa0311/twitter-openapi/{HASH}/src/config/placeholder.json"
@@ -26,7 +30,7 @@ else:
 
 str_cookie = "; ".join([f"{key}={value}" for key, value in cookies.get_dict().items()])
 
-api_conf = twitter_conf.Configuration(
+api_conf = conf.Configuration(
     api_key={
         "ClientLanguage": "en",
         "ActiveUser": "yes",
@@ -47,8 +51,60 @@ api_instance = twitter.TweetApi(api_client)
 http = urllib3.PoolManager()
 flag = http.request("GET", PLACEHOLDER).json()
 
-api_instance.get_tweet_detail(
-    path_query_id=flag["TweetDetail"]["queryId"],
-    variables=json.dumps(flag["TweetDetail"]["variables"]),
-    features=json.dumps(flag["TweetDetail"]["features"]),
+res = api_instance.get_home_timeline(
+    path_query_id=flag["HomeTimeline"]["queryId"],
+    variables=json.dumps(flag["HomeTimeline"]["variables"]),
+    features=json.dumps(flag["HomeTimeline"]["features"]),
 )
+
+a = api_instance.get_home_timeline
+
+
+T = TypeVar("T")
+
+
+def request(
+    apiFn: Callable[[str, str, str], ApiResponse],
+    type: Type[T],
+    convertFn: Callable[[T], Type[List[models.InstructionUnion]]],
+    key: str,
+    param: dict[str, Any],
+):
+    flag = http.request("GET", PLACEHOLDER).json()
+    res = apiFn(
+        flag[key]["queryId"],
+        json.dumps(dict(flag[key]["variables"], **param)),
+        json.dumps(flag[key]["features"]),
+    )
+    return convertFn(res.data)
+
+
+def getHomeTimeline(
+    cursor: Optional[str] = None,
+    count: Optional[int] = None,
+    extraParam: Optional[dict[str, Any]] = None,
+):
+    param: dict[str, Any] = {}
+    if cursor is not None:
+        param["cursor"] = cursor
+    if count is not None:
+        param["count"] = count
+    if extraParam is not None:
+        param.update(extraParam)
+    return request(
+        apiFn=api_instance.get_home_timeline_with_http_info,
+        type=models.TimelineResponse,
+        convertFn=lambda x: x.data.home.home_timeline_urt.instructions,
+        key="HomeTimeline",
+        param=param,
+    )
+
+
+aa = getHomeTimeline()[0]
+
+print(aa.additional_properties["type"])
+
+if aa.additional_properties["type"] == "TimelineAddEntries":
+    aa = models.TimelineAddEntries.from_dict(aa.additional_properties)
+
+    print(aa.entries)
