@@ -23,13 +23,12 @@ from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
 from twitter_openapi_python_generated.models.module_item import ModuleItem
-from twitter_openapi_python_generated.models.type_name import TypeName
 
 class TimelineTimelineModule(BaseModel):
     """
     TimelineTimelineModule
     """
-    typename: TypeName = Field(..., alias="__typename")
+    typename: StrictStr = Field(..., alias="__typename")
     client_event_info: Dict[str, Any] = Field(..., alias="clientEventInfo")
     display_type: StrictStr = Field(..., alias="displayType")
     entry_type: ContentEntryType = Field(..., alias="entryType")
@@ -91,6 +90,4 @@ class TimelineTimelineModule(BaseModel):
         })
         return _obj
 
-from twitter_openapi_python_generated.models.module_item import ModuleItem
-TimelineTimelineModule.update_forward_refs()
 

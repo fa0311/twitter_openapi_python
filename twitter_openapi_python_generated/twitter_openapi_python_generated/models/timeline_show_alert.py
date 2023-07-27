@@ -118,6 +118,4 @@ class TimelineShowAlert(BaseModel):
         })
         return _obj
 
-from twitter_openapi_python_generated.models.user_results import UserResults
-TimelineShowAlert.update_forward_refs()
 

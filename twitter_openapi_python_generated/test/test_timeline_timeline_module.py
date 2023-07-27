@@ -39,7 +39,7 @@ class TestTimelineTimelineModule(unittest.TestCase):
         model = twitter_openapi_python_generated.models.timeline_timeline_module.TimelineTimelineModule()  # noqa: E501
         if include_optional :
             return TimelineTimelineModule(
-                typename = 'TimelineTweet', 
+                typename = '', 
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(), 
                 display_type = '', 
                 entry_type = 'TimelineTimelineItem', 
@@ -55,7 +55,7 @@ class TestTimelineTimelineModule(unittest.TestCase):
             )
         else :
             return TimelineTimelineModule(
-                typename = 'TimelineTweet',
+                typename = '',
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(),
                 display_type = '',
                 entry_type = 'TimelineTimelineItem',

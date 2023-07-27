@@ -22,7 +22,7 @@ import re  # noqa: F401
 from typing import Any, List, Optional
 from pydantic import BaseModel, Field, StrictStr, ValidationError, validator
 from twitter_openapi_python_generated.models.tweet_tombstone import TweetTombstone
-from typing import Any, List
+from typing import Union, List
 from pydantic import StrictStr, Field
 
 TWEETUNION_ONE_OF_SCHEMAS = ["Tweet", "TweetTombstone", "TweetWithVisibilityResults"]
@@ -37,7 +37,7 @@ class TweetUnion(BaseModel):
     oneof_schema_2_validator: Optional[TweetWithVisibilityResults] = None
     # data type: TweetTombstone
     oneof_schema_3_validator: Optional[TweetTombstone] = None
-    actual_instance: Any
+    actual_instance: Union[Tweet, TweetTombstone, TweetWithVisibilityResults]
     one_of_schemas: List[str] = Field(TWEETUNION_ONE_OF_SCHEMAS, const=True)
 
     class Config:
@@ -96,6 +96,26 @@ class TweetUnion(BaseModel):
         error_messages = []
         match = 0
 
+        # use oneOf discriminator to lookup the data type
+        _data_type = json.loads(json_str).get("__typename")
+        if not _data_type:
+            raise ValueError("Failed to lookup data type from the field `__typename` in the input.")
+
+        # check if data type is `Tweet`
+        if _data_type == "Tweet":
+            instance.actual_instance = Tweet.from_json(json_str)
+            return instance
+
+        # check if data type is `TweetTombstone`
+        if _data_type == "TweetTombstone":
+            instance.actual_instance = TweetTombstone.from_json(json_str)
+            return instance
+
+        # check if data type is `TweetWithVisibilityResults`
+        if _data_type == "TweetWithVisibilityResults":
+            instance.actual_instance = TweetWithVisibilityResults.from_json(json_str)
+            return instance
+
         # deserialize data into Tweet
         try:
             instance.actual_instance = Tweet.from_json(json_str)
@@ -151,4 +171,7 @@ class TweetUnion(BaseModel):
         """Returns the string representation of the actual instance"""
         return pprint.pformat(self.dict())
 
+from twitter_openapi_python_generated.models.tweet import Tweet
+from twitter_openapi_python_generated.models.tweet_with_visibility_results import TweetWithVisibilityResults
+TweetUnion.update_forward_refs()
 

@@ -24,7 +24,7 @@ from pydantic import BaseModel, Field, StrictStr, ValidationError, validator
 from twitter_openapi_python_generated.models.timeline_timeline_cursor import TimelineTimelineCursor
 from twitter_openapi_python_generated.models.timeline_timeline_item import TimelineTimelineItem
 from twitter_openapi_python_generated.models.timeline_timeline_module import TimelineTimelineModule
-from typing import Any, List
+from typing import Union, List
 from pydantic import StrictStr, Field
 
 CONTENTUNION_ONE_OF_SCHEMAS = ["TimelineTimelineCursor", "TimelineTimelineItem", "TimelineTimelineModule"]
@@ -39,7 +39,7 @@ class ContentUnion(BaseModel):
     oneof_schema_2_validator: Optional[TimelineTimelineModule] = None
     # data type: TimelineTimelineCursor
     oneof_schema_3_validator: Optional[TimelineTimelineCursor] = None
-    actual_instance: Any
+    actual_instance: Union[TimelineTimelineCursor, TimelineTimelineItem, TimelineTimelineModule]
     one_of_schemas: List[str] = Field(CONTENTUNION_ONE_OF_SCHEMAS, const=True)
 
     class Config:
@@ -97,6 +97,26 @@ class ContentUnion(BaseModel):
         instance = ContentUnion.construct()
         error_messages = []
         match = 0
+
+        # use oneOf discriminator to lookup the data type
+        _data_type = json.loads(json_str).get("entryType")
+        if not _data_type:
+            raise ValueError("Failed to lookup data type from the field `entryType` in the input.")
+
+        # check if data type is `TimelineTimelineCursor`
+        if _data_type == "TimelineTimelineCursor":
+            instance.actual_instance = TimelineTimelineCursor.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineTimelineItem`
+        if _data_type == "TimelineTimelineItem":
+            instance.actual_instance = TimelineTimelineItem.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineTimelineModule`
+        if _data_type == "TimelineTimelineModule":
+            instance.actual_instance = TimelineTimelineModule.from_json(json_str)
+            return instance
 
         # deserialize data into TimelineTimelineItem
         try:

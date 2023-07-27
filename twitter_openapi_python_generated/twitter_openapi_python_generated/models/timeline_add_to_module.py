@@ -84,6 +84,4 @@ class TimelineAddToModule(BaseModel):
         })
         return _obj
 
-from twitter_openapi_python_generated.models.module_item import ModuleItem
-TimelineAddToModule.update_forward_refs()
 

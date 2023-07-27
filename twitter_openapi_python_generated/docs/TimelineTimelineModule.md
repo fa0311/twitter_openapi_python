@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**typename** | [**TypeName**](TypeName.md) |  | 
+**typename** | **str** |  | 
 **client_event_info** | **object** |  | 
 **display_type** | **str** |  | 
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | 

@@ -154,4 +154,6 @@ class TweetLegacy(BaseModel):
         })
         return _obj
 
+from twitter_openapi_python_generated.models.item_result import ItemResult
+TweetLegacy.update_forward_refs()
 

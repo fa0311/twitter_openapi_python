@@ -77,6 +77,4 @@ class UsersResponseData(BaseModel):
         })
         return _obj
 
-from twitter_openapi_python_generated.models.user_results import UserResults
-UsersResponseData.update_forward_refs()
 

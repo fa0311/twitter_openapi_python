@@ -75,4 +75,6 @@ class TweetWithVisibilityResults(BaseModel):
         })
         return _obj
 
+from twitter_openapi_python_generated.models.tweet import Tweet
+TweetWithVisibilityResults.update_forward_refs()
 

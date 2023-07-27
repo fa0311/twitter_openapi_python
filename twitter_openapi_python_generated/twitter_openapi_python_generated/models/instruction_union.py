@@ -28,7 +28,7 @@ from twitter_openapi_python_generated.models.timeline_pin_entry import TimelineP
 from twitter_openapi_python_generated.models.timeline_replace_entry import TimelineReplaceEntry
 from twitter_openapi_python_generated.models.timeline_show_alert import TimelineShowAlert
 from twitter_openapi_python_generated.models.timeline_terminate_timeline import TimelineTerminateTimeline
-from typing import Any, List
+from typing import Union, List
 from pydantic import StrictStr, Field
 
 INSTRUCTIONUNION_ONE_OF_SCHEMAS = ["TimelineAddEntries", "TimelineAddToModule", "TimelineClearCache", "TimelinePinEntry", "TimelineReplaceEntry", "TimelineShowAlert", "TimelineTerminateTimeline"]
@@ -51,7 +51,7 @@ class InstructionUnion(BaseModel):
     oneof_schema_6_validator: Optional[TimelineShowAlert] = None
     # data type: TimelineTerminateTimeline
     oneof_schema_7_validator: Optional[TimelineTerminateTimeline] = None
-    actual_instance: Any
+    actual_instance: Union[TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineTerminateTimeline]
     one_of_schemas: List[str] = Field(INSTRUCTIONUNION_ONE_OF_SCHEMAS, const=True)
 
     class Config:
@@ -129,6 +129,46 @@ class InstructionUnion(BaseModel):
         instance = InstructionUnion.construct()
         error_messages = []
         match = 0
+
+        # use oneOf discriminator to lookup the data type
+        _data_type = json.loads(json_str).get("type")
+        if not _data_type:
+            raise ValueError("Failed to lookup data type from the field `type` in the input.")
+
+        # check if data type is `TimelineAddEntries`
+        if _data_type == "TimelineAddEntries":
+            instance.actual_instance = TimelineAddEntries.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineAddToModule`
+        if _data_type == "TimelineAddToModule":
+            instance.actual_instance = TimelineAddToModule.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineClearCache`
+        if _data_type == "TimelineClearCache":
+            instance.actual_instance = TimelineClearCache.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelinePinEntry`
+        if _data_type == "TimelinePinEntry":
+            instance.actual_instance = TimelinePinEntry.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineReplaceEntry`
+        if _data_type == "TimelineReplaceEntry":
+            instance.actual_instance = TimelineReplaceEntry.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineShowAlert`
+        if _data_type == "TimelineShowAlert":
+            instance.actual_instance = TimelineShowAlert.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineTerminateTimeline`
+        if _data_type == "TimelineTerminateTimeline":
+            instance.actual_instance = TimelineTerminateTimeline.from_json(json_str)
+            return instance
 
         # deserialize data into TimelineAddEntries
         try:

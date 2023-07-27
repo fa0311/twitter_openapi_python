@@ -80,6 +80,4 @@ class TimelineAddEntries(BaseModel):
         })
         return _obj
 
-from twitter_openapi_python_generated.models.timeline_add_entry import TimelineAddEntry
-TimelineAddEntries.update_forward_refs()
 

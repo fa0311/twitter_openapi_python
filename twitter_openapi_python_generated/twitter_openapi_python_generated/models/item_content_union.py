@@ -26,7 +26,7 @@ from twitter_openapi_python_generated.models.timeline_prompt import TimelineProm
 from twitter_openapi_python_generated.models.timeline_timeline_cursor import TimelineTimelineCursor
 from twitter_openapi_python_generated.models.timeline_tweet import TimelineTweet
 from twitter_openapi_python_generated.models.timeline_user import TimelineUser
-from typing import Any, List
+from typing import Union, List
 from pydantic import StrictStr, Field
 
 ITEMCONTENTUNION_ONE_OF_SCHEMAS = ["TimelineMessagePrompt", "TimelinePrompt", "TimelineTimelineCursor", "TimelineTweet", "TimelineUser"]
@@ -45,7 +45,7 @@ class ItemContentUnion(BaseModel):
     oneof_schema_4_validator: Optional[TimelinePrompt] = None
     # data type: TimelineMessagePrompt
     oneof_schema_5_validator: Optional[TimelineMessagePrompt] = None
-    actual_instance: Any
+    actual_instance: Union[TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser]
     one_of_schemas: List[str] = Field(ITEMCONTENTUNION_ONE_OF_SCHEMAS, const=True)
 
     class Config:
@@ -113,6 +113,36 @@ class ItemContentUnion(BaseModel):
         instance = ItemContentUnion.construct()
         error_messages = []
         match = 0
+
+        # use oneOf discriminator to lookup the data type
+        _data_type = json.loads(json_str).get("itemType")
+        if not _data_type:
+            raise ValueError("Failed to lookup data type from the field `itemType` in the input.")
+
+        # check if data type is `TimelineMessagePrompt`
+        if _data_type == "TimelineMessagePrompt":
+            instance.actual_instance = TimelineMessagePrompt.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelinePrompt`
+        if _data_type == "TimelinePrompt":
+            instance.actual_instance = TimelinePrompt.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineTimelineCursor`
+        if _data_type == "TimelineTimelineCursor":
+            instance.actual_instance = TimelineTimelineCursor.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineTweet`
+        if _data_type == "TimelineTweet":
+            instance.actual_instance = TimelineTweet.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineUser`
+        if _data_type == "TimelineUser":
+            instance.actual_instance = TimelineUser.from_json(json_str)
+            return instance
 
         # deserialize data into TimelineTweet
         try:
