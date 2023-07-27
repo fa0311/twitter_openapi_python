@@ -1,5 +1,5 @@
 
-Move-Item "\\wsl.localhost\Ubuntu-22.04\home\yuki\openapi-generator\modules\openapi-generator-cli\target\openapi-generator-cli.jar" "tools/openapi-generator-cli.jar" -Force
+# Move-Item "\\wsl.localhost\Ubuntu-22.04\home\yuki\openapi-generator\modules\openapi-generator-cli\target\openapi-generator-cli.jar" "tools/openapi-generator-cli.jar" -Force
 
 
 ./twitter-openapi/.venv/Scripts/Activate.ps1

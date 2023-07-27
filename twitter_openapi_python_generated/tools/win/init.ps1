@@ -1,0 +1,2 @@
+# Invoke-WebRequest -OutFile tool/openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/6.6.0/openapi-generator-cli-6.6.0.jar
+Invoke-WebRequest -OutFile tool/openapi-generator-cli.jar https://github.com/fa0311/openapi-generator/releases/download/twitter_openapi_python_1.0.0/openapi-generator-cli.jar
