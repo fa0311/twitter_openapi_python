@@ -20,7 +20,8 @@ import json
 
 
 from typing import List
-from pydantic import BaseModel, Field, StrictStr, conlist
+from pydantic import BaseModel, Field, conlist
+from twitter_openapi_python_generated.models.instruction_type import InstructionType
 from twitter_openapi_python_generated.models.timeline_add_entry import TimelineAddEntry
 
 class TimelineAddEntries(BaseModel):
@@ -28,7 +29,7 @@ class TimelineAddEntries(BaseModel):
     TimelineAddEntries
     """
     entries: conlist(TimelineAddEntry) = Field(...)
-    type: StrictStr = Field(...)
+    type: InstructionType = Field(...)
     __properties = ["entries", "type"]
 
     class Config:
@@ -78,4 +79,7 @@ class TimelineAddEntries(BaseModel):
             "type": obj.get("type")
         })
         return _obj
+
+from twitter_openapi_python_generated.models.timeline_add_entry import TimelineAddEntry
+TimelineAddEntries.update_forward_refs()
 

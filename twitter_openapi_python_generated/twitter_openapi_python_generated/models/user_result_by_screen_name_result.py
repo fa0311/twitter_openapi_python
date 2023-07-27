@@ -96,3 +96,4 @@ class UserResultByScreenNameResult(BaseModel):
         })
         return _obj
 
+

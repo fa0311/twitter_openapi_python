@@ -73,3 +73,4 @@ class BookmarksResponse(BaseModel):
         })
         return _obj
 
+

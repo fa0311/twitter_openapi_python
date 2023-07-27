@@ -93,3 +93,7 @@ class Entities(BaseModel):
         })
         return _obj
 
+from twitter_openapi_python_generated.models.media import Media
+from twitter_openapi_python_generated.models.url import Url
+Entities.update_forward_refs()
+

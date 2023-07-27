@@ -21,6 +21,7 @@ import json
 
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist, validator
+from twitter_openapi_python_generated.models.instruction_type import InstructionType
 from twitter_openapi_python_generated.models.timeline_show_alert_rich_text import TimelineShowAlertRichText
 from twitter_openapi_python_generated.models.user_results import UserResults
 
@@ -35,7 +36,7 @@ class TimelineShowAlert(BaseModel):
     icon_display_info: Optional[Dict[str, Any]] = Field(None, alias="iconDisplayInfo")
     rich_text: TimelineShowAlertRichText = Field(..., alias="richText")
     trigger_delay_ms: Optional[StrictInt] = Field(None, alias="triggerDelayMs")
-    type: StrictStr = Field(...)
+    type: InstructionType = Field(...)
     users_results: conlist(UserResults) = Field(..., alias="usersResults")
     __properties = ["alertType", "colorConfig", "displayDurationMs", "displayLocation", "iconDisplayInfo", "richText", "triggerDelayMs", "type", "usersResults"]
 
@@ -116,4 +117,7 @@ class TimelineShowAlert(BaseModel):
             "users_results": [UserResults.from_dict(_item) for _item in obj.get("usersResults")] if obj.get("usersResults") is not None else None
         })
         return _obj
+
+from twitter_openapi_python_generated.models.user_results import UserResults
+TimelineShowAlert.update_forward_refs()
 

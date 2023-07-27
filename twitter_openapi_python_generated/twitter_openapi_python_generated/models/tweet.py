@@ -36,7 +36,7 @@ class Tweet(BaseModel):
     card: Optional[TweetCard] = None
     core: UserResultCore = Field(...)
     edit_control: TweetEditControl = Field(...)
-    edit_prespective: TweetEditPrespective = Field(...)
+    edit_prespective: Optional[TweetEditPrespective] = None
     is_translatable: StrictBool = Field(...)
     legacy: TweetLegacy = Field(...)
     quoted_status_result: Optional[ItemResult] = None
@@ -122,4 +122,5 @@ class Tweet(BaseModel):
             "views": TweetViews.from_dict(obj.get("views")) if obj.get("views") is not None else None
         })
         return _obj
+
 

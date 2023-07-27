@@ -124,6 +124,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -257,6 +258,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling TweetApi->get_home_latest_timeline: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -394,6 +396,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -529,6 +532,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -662,6 +666,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling TweetApi->get_list_latest_tweets_timeline: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -800,6 +805,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -934,6 +940,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling TweetApi->get_tweet_detail: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -1072,6 +1079,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -1206,6 +1214,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling TweetApi->get_user_media: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -1343,6 +1352,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -1476,6 +1486,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling TweetApi->get_user_tweets_and_replies: %s\n" % e)
 ```
+
 
 
 ### Parameters

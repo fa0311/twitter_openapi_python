@@ -66,7 +66,7 @@ class TestCreateTweetResponse(unittest.TestCase):
                                             business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
                                             has_graduated_access = True, 
                                             has_nft_avatar = True, 
-                                            id = 'q072888001528021798096225500850762068629', 
+                                            id = '', 
                                             is_blue_verified = True, 
                                             legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                                                 blocked_by = True, 
@@ -244,7 +244,7 @@ class TestCreateTweetResponse(unittest.TestCase):
                                             business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
                                             has_graduated_access = True, 
                                             has_nft_avatar = True, 
-                                            id = 'q072888001528021798096225500850762068629', 
+                                            id = '', 
                                             is_blue_verified = True, 
                                             legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                                                 blocked_by = True, 

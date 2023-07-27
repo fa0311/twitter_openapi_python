@@ -21,6 +21,7 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
+from twitter_openapi_python_generated.models.content_item_type import ContentItemType
 from twitter_openapi_python_generated.models.social_context import SocialContext
 from twitter_openapi_python_generated.models.type_name import TypeName
 from twitter_openapi_python_generated.models.user_results import UserResults
@@ -31,7 +32,7 @@ class TimelineUser(BaseModel):
     """
     social_context: Optional[SocialContext] = Field(None, alias="SocialContext")
     typename: TypeName = Field(..., alias="__typename")
-    item_type: StrictStr = Field(..., alias="itemType")
+    item_type: ContentItemType = Field(..., alias="itemType")
     user_display_type: StrictStr = Field(..., alias="userDisplayType")
     user_results: UserResults = Field(...)
     __properties = ["SocialContext", "__typename", "itemType", "userDisplayType", "user_results"]
@@ -85,4 +86,5 @@ class TimelineUser(BaseModel):
             "user_results": UserResults.from_dict(obj.get("user_results")) if obj.get("user_results") is not None else None
         })
         return _obj
+
 

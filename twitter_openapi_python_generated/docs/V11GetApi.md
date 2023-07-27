@@ -126,6 +126,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -273,6 +274,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling V11GetApi->get_search_typeahead: %s\n" % e)
 ```
+
 
 
 ### Parameters

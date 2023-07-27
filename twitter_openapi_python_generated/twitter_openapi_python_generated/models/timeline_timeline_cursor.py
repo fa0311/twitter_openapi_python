@@ -21,6 +21,7 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr, validator
+from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
 from twitter_openapi_python_generated.models.type_name import TypeName
 
 class TimelineTimelineCursor(BaseModel):
@@ -29,8 +30,8 @@ class TimelineTimelineCursor(BaseModel):
     """
     typename: TypeName = Field(..., alias="__typename")
     cursor_type: StrictStr = Field(..., alias="cursorType")
-    entry_type: Optional[StrictStr] = Field(None, alias="entryType")
-    item_type: Optional[StrictStr] = Field(None, alias="itemType")
+    entry_type: Optional[ContentEntryType] = Field(None, alias="entryType")
+    item_type: Optional[ContentEntryType] = Field(None, alias="itemType")
     value: StrictStr = Field(...)
     __properties = ["__typename", "cursorType", "entryType", "itemType", "value"]
 
@@ -84,4 +85,5 @@ class TimelineTimelineCursor(BaseModel):
             "value": obj.get("value")
         })
         return _obj
+
 

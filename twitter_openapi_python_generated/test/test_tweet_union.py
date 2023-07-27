@@ -62,7 +62,7 @@ class TestTweetUnion(unittest.TestCase):
                             business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
                             has_graduated_access = True, 
                             has_nft_avatar = True, 
-                            id = 'q072888001528021798096225500850762068629', 
+                            id = '', 
                             is_blue_verified = True, 
                             legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                                 blocked_by = True, 
@@ -236,7 +236,7 @@ class TestTweetUnion(unittest.TestCase):
                                 business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
                                 has_graduated_access = True, 
                                 has_nft_avatar = True, 
-                                id = 'q072888001528021798096225500850762068629', 
+                                id = '', 
                                 is_blue_verified = True, 
                                 legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                                     blocked_by = True, 
@@ -396,7 +396,7 @@ class TestTweetUnion(unittest.TestCase):
                             business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
                             has_graduated_access = True, 
                             has_nft_avatar = True, 
-                            id = 'q072888001528021798096225500850762068629', 
+                            id = '', 
                             is_blue_verified = True, 
                             legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                                 blocked_by = True, 
@@ -451,9 +451,6 @@ class TestTweetUnion(unittest.TestCase):
                     editable_until_msecs = '4', 
                     edits_remaining = '4', 
                     is_edit_eligible = True, ),
-                edit_prespective = twitter_openapi_python_generated.models.tweet_edit_prespective.Tweet_edit_prespective(
-                    favorited = True, 
-                    retweeted = True, ),
                 is_translatable = True,
                 legacy = twitter_openapi_python_generated.models.tweet_legacy.TweetLegacy(
                     bookmark_count = 56, 
@@ -566,7 +563,7 @@ class TestTweetUnion(unittest.TestCase):
                                 business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
                                 has_graduated_access = True, 
                                 has_nft_avatar = True, 
-                                id = 'q072888001528021798096225500850762068629', 
+                                id = '', 
                                 is_blue_verified = True, 
                                 legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                                     blocked_by = True, 

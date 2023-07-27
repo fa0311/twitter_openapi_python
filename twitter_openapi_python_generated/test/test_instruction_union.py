@@ -42,7 +42,7 @@ class TestInstructionUnion(unittest.TestCase):
                 entries = [
                     twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                         content = null, 
-                        entry_id = 'q072888001528021798096225500850762068629', 
+                        entry_id = '', 
                         sort_index = '4', )
                     ], 
                 type = 'TimelineAddEntries', 
@@ -57,7 +57,7 @@ class TestInstructionUnion(unittest.TestCase):
                 prepend = True, 
                 entry = twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                     content = null, 
-                    entry_id = 'q072888001528021798096225500850762068629', 
+                    entry_id = '', 
                     sort_index = '4', ), 
                 entry_id_to_replace = '', 
                 alert_type = 'NewTweets', 
@@ -79,7 +79,7 @@ class TestInstructionUnion(unittest.TestCase):
                             business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
                             has_graduated_access = True, 
                             has_nft_avatar = True, 
-                            id = 'q072888001528021798096225500850762068629', 
+                            id = '', 
                             is_blue_verified = True, 
                             legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                                 blocked_by = True, 
@@ -135,7 +135,7 @@ class TestInstructionUnion(unittest.TestCase):
                 entries = [
                     twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                         content = null, 
-                        entry_id = 'q072888001528021798096225500850762068629', 
+                        entry_id = '', 
                         sort_index = '4', )
                     ],
                 type = 'TimelineAddEntries',
@@ -149,7 +149,7 @@ class TestInstructionUnion(unittest.TestCase):
                     ],
                 entry = twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                     content = null, 
-                    entry_id = 'q072888001528021798096225500850762068629', 
+                    entry_id = '', 
                     sort_index = '4', ),
                 entry_id_to_replace = '',
                 rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlert_richText(
@@ -165,7 +165,7 @@ class TestInstructionUnion(unittest.TestCase):
                             business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
                             has_graduated_access = True, 
                             has_nft_avatar = True, 
-                            id = 'q072888001528021798096225500850762068629', 
+                            id = '', 
                             is_blue_verified = True, 
                             legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                                 blocked_by = True, 

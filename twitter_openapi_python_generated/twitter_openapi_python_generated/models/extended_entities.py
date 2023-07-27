@@ -77,3 +77,6 @@ class ExtendedEntities(BaseModel):
         })
         return _obj
 
+from twitter_openapi_python_generated.models.media import Media
+ExtendedEntities.update_forward_refs()
+

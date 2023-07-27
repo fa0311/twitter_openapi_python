@@ -152,3 +152,4 @@ class UserLegacy(BaseModel):
         })
         return _obj
 
+

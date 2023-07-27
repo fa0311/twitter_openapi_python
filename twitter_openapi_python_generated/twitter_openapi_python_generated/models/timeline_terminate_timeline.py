@@ -21,13 +21,14 @@ import json
 
 
 from pydantic import BaseModel, Field, StrictStr, validator
+from twitter_openapi_python_generated.models.instruction_type import InstructionType
 
 class TimelineTerminateTimeline(BaseModel):
     """
     TimelineTerminateTimeline
     """
     direction: StrictStr = Field(...)
-    type: StrictStr = Field(...)
+    type: InstructionType = Field(...)
     __properties = ["direction", "type"]
 
     @validator('direction')
@@ -77,4 +78,5 @@ class TimelineTerminateTimeline(BaseModel):
             "type": obj.get("type")
         })
         return _obj
+
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **card** | [**TweetCard**](TweetCard.md) |  | [optional] 
 **core** | [**UserResultCore**](UserResultCore.md) |  | 
 **edit_control** | [**TweetEditControl**](TweetEditControl.md) |  | 
-**edit_prespective** | [**TweetEditPrespective**](TweetEditPrespective.md) |  | 
+**edit_prespective** | [**TweetEditPrespective**](TweetEditPrespective.md) |  | [optional] 
 **is_translatable** | **bool** |  | [default to False]
 **legacy** | [**TweetLegacy**](TweetLegacy.md) |  | 
 **quoted_status_result** | [**ItemResult**](ItemResult.md) |  | [optional] 

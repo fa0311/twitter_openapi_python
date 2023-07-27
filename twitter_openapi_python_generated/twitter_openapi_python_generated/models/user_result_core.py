@@ -73,3 +73,4 @@ class UserResultCore(BaseModel):
         })
         return _obj
 
+

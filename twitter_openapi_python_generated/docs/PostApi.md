@@ -119,6 +119,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -251,6 +252,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling PostApi->post_create_tweet: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -387,6 +389,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -519,6 +522,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling PostApi->post_delete_tweet: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -655,6 +659,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -787,6 +792,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling PostApi->post_unfavorite_tweet: %s\n" % e)
 ```
+
 
 
 ### Parameters

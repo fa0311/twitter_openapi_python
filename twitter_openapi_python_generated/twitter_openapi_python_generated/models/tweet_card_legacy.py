@@ -81,3 +81,6 @@ class TweetCardLegacy(BaseModel):
         })
         return _obj
 
+from twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner import TweetCardLegacyBindingValuesInner
+TweetCardLegacy.update_forward_refs()
+

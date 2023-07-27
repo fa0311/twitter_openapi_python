@@ -21,6 +21,7 @@ import json
 
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
+from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
 from twitter_openapi_python_generated.models.module_item import ModuleItem
 from twitter_openapi_python_generated.models.type_name import TypeName
 
@@ -31,7 +32,7 @@ class TimelineTimelineModule(BaseModel):
     typename: TypeName = Field(..., alias="__typename")
     client_event_info: Dict[str, Any] = Field(..., alias="clientEventInfo")
     display_type: StrictStr = Field(..., alias="displayType")
-    entry_type: StrictStr = Field(..., alias="entryType")
+    entry_type: ContentEntryType = Field(..., alias="entryType")
     footer: Optional[Dict[str, Any]] = None
     header: Optional[Dict[str, Any]] = None
     items: Optional[conlist(ModuleItem)] = None
@@ -89,4 +90,7 @@ class TimelineTimelineModule(BaseModel):
             "items": [ModuleItem.from_dict(_item) for _item in obj.get("items")] if obj.get("items") is not None else None
         })
         return _obj
+
+from twitter_openapi_python_generated.models.module_item import ModuleItem
+TimelineTimelineModule.update_forward_refs()
 

@@ -125,9 +125,6 @@ conf = twitter_openapi_python_generated.Configuration(
         self.access_token = access_token
         """Access token
         """
-        self.access_token = None
-        """access token for OAuth/Bearer
-        """
         self.logger = {}
         """Logging Settings
         """

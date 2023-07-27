@@ -432,4 +432,5 @@ twitter_openapi_python_generated/models/user_tweets_result.py
 twitter_openapi_python_generated/models/user_tweets_user.py
 twitter_openapi_python_generated/models/users_response.py
 twitter_openapi_python_generated/models/users_response_data.py
+twitter_openapi_python_generated/py.typed
 twitter_openapi_python_generated/rest.py

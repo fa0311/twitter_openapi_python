@@ -20,13 +20,14 @@ import json
 
 
 
-from pydantic import BaseModel, Field, StrictStr
+from pydantic import BaseModel, Field
+from twitter_openapi_python_generated.models.instruction_type import InstructionType
 
 class TimelineClearCache(BaseModel):
     """
     TimelineClearCache
     """
-    type: StrictStr = Field(...)
+    type: InstructionType = Field(...)
     __properties = ["type"]
 
     class Config:
@@ -68,4 +69,5 @@ class TimelineClearCache(BaseModel):
             "type": obj.get("type")
         })
         return _obj
+
 

@@ -20,7 +20,8 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic import BaseModel, Field, StrictStr
+from pydantic import BaseModel, Field
+from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
 from twitter_openapi_python_generated.models.item_content_union import ItemContentUnion
 from twitter_openapi_python_generated.models.type_name import TypeName
 
@@ -30,7 +31,7 @@ class TimelineTimelineItem(BaseModel):
     """
     typename: TypeName = Field(..., alias="__typename")
     client_event_info: Optional[Dict[str, Any]] = Field(None, alias="clientEventInfo")
-    entry_type: StrictStr = Field(..., alias="entryType")
+    entry_type: ContentEntryType = Field(..., alias="entryType")
     feedback_info: Optional[Dict[str, Any]] = Field(None, alias="feedbackInfo")
     item_content: ItemContentUnion = Field(..., alias="itemContent")
     __properties = ["__typename", "clientEventInfo", "entryType", "feedbackInfo", "itemContent"]
@@ -81,4 +82,5 @@ class TimelineTimelineItem(BaseModel):
             "item_content": ItemContentUnion.from_dict(obj.get("itemContent")) if obj.get("itemContent") is not None else None
         })
         return _obj
+
 

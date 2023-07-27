@@ -40,13 +40,13 @@ class TestTimelineAddEntry(unittest.TestCase):
         if include_optional :
             return TimelineAddEntry(
                 content = None, 
-                entry_id = 'q072888001528021798096225500850762068629', 
+                entry_id = '', 
                 sort_index = '4'
             )
         else :
             return TimelineAddEntry(
                 content = None,
-                entry_id = 'q072888001528021798096225500850762068629',
+                entry_id = '',
                 sort_index = '4',
         )
         """

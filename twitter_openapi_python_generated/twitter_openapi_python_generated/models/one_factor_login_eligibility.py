@@ -69,3 +69,4 @@ class OneFactorLoginEligibility(BaseModel):
         })
         return _obj
 
+

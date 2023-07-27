@@ -123,6 +123,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -275,6 +276,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling V11PostApi->post_destroy_friendships: %s\n" % e)
 ```
+
 
 
 ### Parameters

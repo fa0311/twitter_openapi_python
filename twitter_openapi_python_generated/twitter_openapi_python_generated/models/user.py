@@ -20,7 +20,7 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic import BaseModel, Field, StrictBool, constr, validator
+from pydantic import BaseModel, Field, StrictBool, StrictStr, constr, validator
 from twitter_openapi_python_generated.models.type_name import TypeName
 from twitter_openapi_python_generated.models.user_legacy import UserLegacy
 
@@ -33,7 +33,7 @@ class User(BaseModel):
     business_account: Optional[Dict[str, Any]] = None
     has_graduated_access: Optional[StrictBool] = None
     has_nft_avatar: Optional[StrictBool] = False
-    id: constr(strict=True) = Field(...)
+    id: StrictStr = Field(...)
     is_blue_verified: StrictBool = Field(...)
     legacy: UserLegacy = Field(...)
     rest_id: constr(strict=True) = Field(...)
@@ -41,13 +41,6 @@ class User(BaseModel):
     super_followed_by: StrictBool = Field(...)
     super_following: StrictBool = Field(...)
     __properties = ["__typename", "affiliates_highlighted_label", "business_account", "has_graduated_access", "has_nft_avatar", "id", "is_blue_verified", "legacy", "rest_id", "super_follow_eligible", "super_followed_by", "super_following"]
-
-    @validator('id')
-    def id_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^[a-z\-]+[0-9]+$", value):
-            raise ValueError(r"must validate the regular expression /^[a-z\-]+[0-9]+$/")
-        return value
 
     @validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
@@ -109,4 +102,5 @@ class User(BaseModel):
             "super_following": obj.get("super_following") if obj.get("super_following") is not None else False
         })
         return _obj
+
 

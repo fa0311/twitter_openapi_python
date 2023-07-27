@@ -20,7 +20,8 @@ import json
 
 
 
-from pydantic import BaseModel, Field, StrictStr
+from pydantic import BaseModel, Field
+from twitter_openapi_python_generated.models.instruction_type import InstructionType
 from twitter_openapi_python_generated.models.timeline_add_entry import TimelineAddEntry
 
 class TimelinePinEntry(BaseModel):
@@ -28,7 +29,7 @@ class TimelinePinEntry(BaseModel):
     TimelinePinEntry
     """
     entry: TimelineAddEntry = Field(...)
-    type: StrictStr = Field(...)
+    type: InstructionType = Field(...)
     __properties = ["entry", "type"]
 
     class Config:
@@ -74,4 +75,5 @@ class TimelinePinEntry(BaseModel):
             "type": obj.get("type")
         })
         return _obj
+
 

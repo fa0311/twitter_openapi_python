@@ -41,7 +41,7 @@ class TestTimelineReplaceEntry(unittest.TestCase):
             return TimelineReplaceEntry(
                 entry = twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                     content = null, 
-                    entry_id = 'q072888001528021798096225500850762068629', 
+                    entry_id = '', 
                     sort_index = '4', ), 
                 entry_id_to_replace = '', 
                 type = 'TimelineAddEntries'
@@ -50,7 +50,7 @@ class TestTimelineReplaceEntry(unittest.TestCase):
             return TimelineReplaceEntry(
                 entry = twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                     content = null, 
-                    entry_id = 'q072888001528021798096225500850762068629', 
+                    entry_id = '', 
                     sort_index = '4', ),
                 entry_id_to_replace = '',
                 type = 'TimelineAddEntries',

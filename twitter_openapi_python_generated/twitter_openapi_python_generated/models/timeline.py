@@ -81,3 +81,6 @@ class Timeline(BaseModel):
         })
         return _obj
 
+from twitter_openapi_python_generated.models.instruction_union import InstructionUnion
+Timeline.update_forward_refs()
+

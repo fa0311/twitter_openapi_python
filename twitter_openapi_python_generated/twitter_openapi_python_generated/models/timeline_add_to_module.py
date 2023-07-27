@@ -21,6 +21,7 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
+from twitter_openapi_python_generated.models.instruction_type import InstructionType
 from twitter_openapi_python_generated.models.module_item import ModuleItem
 
 class TimelineAddToModule(BaseModel):
@@ -30,7 +31,7 @@ class TimelineAddToModule(BaseModel):
     module_entry_id: StrictStr = Field(..., alias="moduleEntryId")
     module_items: conlist(ModuleItem) = Field(..., alias="moduleItems")
     prepend: Optional[StrictBool] = None
-    type: StrictStr = Field(...)
+    type: InstructionType = Field(...)
     __properties = ["moduleEntryId", "moduleItems", "prepend", "type"]
 
     class Config:
@@ -82,4 +83,7 @@ class TimelineAddToModule(BaseModel):
             "type": obj.get("type")
         })
         return _obj
+
+from twitter_openapi_python_generated.models.module_item import ModuleItem
+TimelineAddToModule.update_forward_refs()
 
