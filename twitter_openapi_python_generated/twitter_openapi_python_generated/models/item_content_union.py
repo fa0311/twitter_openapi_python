@@ -26,7 +26,7 @@ from twitter_openapi_python_generated.models.timeline_prompt import TimelineProm
 from twitter_openapi_python_generated.models.timeline_timeline_cursor import TimelineTimelineCursor
 from twitter_openapi_python_generated.models.timeline_tweet import TimelineTweet
 from twitter_openapi_python_generated.models.timeline_user import TimelineUser
-from typing import Union, List
+from typing import Union, Any, List, TYPE_CHECKING
 from pydantic import StrictStr, Field
 
 ITEMCONTENTUNION_ONE_OF_SCHEMAS = ["TimelineMessagePrompt", "TimelinePrompt", "TimelineTimelineCursor", "TimelineTweet", "TimelineUser"]
@@ -45,7 +45,10 @@ class ItemContentUnion(BaseModel):
     oneof_schema_4_validator: Optional[TimelinePrompt] = None
     # data type: TimelineMessagePrompt
     oneof_schema_5_validator: Optional[TimelineMessagePrompt] = None
-    actual_instance: Union[TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser]
+    if TYPE_CHECKING:
+        actual_instance: Union[TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser]
+    else:
+        actual_instance: Any
     one_of_schemas: List[str] = Field(ITEMCONTENTUNION_ONE_OF_SCHEMAS, const=True)
 
     class Config:

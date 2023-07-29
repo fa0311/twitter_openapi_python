@@ -24,7 +24,7 @@ from pydantic import BaseModel, Field, StrictStr, ValidationError, validator
 from twitter_openapi_python_generated.models.timeline_timeline_cursor import TimelineTimelineCursor
 from twitter_openapi_python_generated.models.timeline_timeline_item import TimelineTimelineItem
 from twitter_openapi_python_generated.models.timeline_timeline_module import TimelineTimelineModule
-from typing import Union, List
+from typing import Union, Any, List, TYPE_CHECKING
 from pydantic import StrictStr, Field
 
 CONTENTUNION_ONE_OF_SCHEMAS = ["TimelineTimelineCursor", "TimelineTimelineItem", "TimelineTimelineModule"]
@@ -39,7 +39,10 @@ class ContentUnion(BaseModel):
     oneof_schema_2_validator: Optional[TimelineTimelineModule] = None
     # data type: TimelineTimelineCursor
     oneof_schema_3_validator: Optional[TimelineTimelineCursor] = None
-    actual_instance: Union[TimelineTimelineCursor, TimelineTimelineItem, TimelineTimelineModule]
+    if TYPE_CHECKING:
+        actual_instance: Union[TimelineTimelineCursor, TimelineTimelineItem, TimelineTimelineModule]
+    else:
+        actual_instance: Any
     one_of_schemas: List[str] = Field(CONTENTUNION_ONE_OF_SCHEMAS, const=True)
 
     class Config:

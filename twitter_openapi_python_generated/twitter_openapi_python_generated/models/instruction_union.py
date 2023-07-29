@@ -28,7 +28,7 @@ from twitter_openapi_python_generated.models.timeline_pin_entry import TimelineP
 from twitter_openapi_python_generated.models.timeline_replace_entry import TimelineReplaceEntry
 from twitter_openapi_python_generated.models.timeline_show_alert import TimelineShowAlert
 from twitter_openapi_python_generated.models.timeline_terminate_timeline import TimelineTerminateTimeline
-from typing import Union, List
+from typing import Union, Any, List, TYPE_CHECKING
 from pydantic import StrictStr, Field
 
 INSTRUCTIONUNION_ONE_OF_SCHEMAS = ["TimelineAddEntries", "TimelineAddToModule", "TimelineClearCache", "TimelinePinEntry", "TimelineReplaceEntry", "TimelineShowAlert", "TimelineTerminateTimeline"]
@@ -51,7 +51,10 @@ class InstructionUnion(BaseModel):
     oneof_schema_6_validator: Optional[TimelineShowAlert] = None
     # data type: TimelineTerminateTimeline
     oneof_schema_7_validator: Optional[TimelineTerminateTimeline] = None
-    actual_instance: Union[TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineTerminateTimeline]
+    if TYPE_CHECKING:
+        actual_instance: Union[TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineTerminateTimeline]
+    else:
+        actual_instance: Any
     one_of_schemas: List[str] = Field(INSTRUCTIONUNION_ONE_OF_SCHEMAS, const=True)
 
     class Config:
