@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**typename** | **str** |  | 
-**client_event_info** | **object** |  | 
+**typename** | [**TypeName**](TypeName.md) |  | 
+**client_event_info** | **Dict[str, object]** |  | 
 **display_type** | **str** |  | 
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | 
-**footer** | **object** |  | [optional] 
-**header** | **object** |  | [optional] 
+**footer** | **Dict[str, object]** |  | [optional] 
+**header** | **Dict[str, object]** |  | [optional] 
 **items** | [**List[ModuleItem]**](ModuleItem.md) |  | [optional] 
 
 ## Example

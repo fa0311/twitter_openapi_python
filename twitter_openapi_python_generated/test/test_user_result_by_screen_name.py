@@ -39,7 +39,7 @@ class TestUserResultByScreenName(unittest.TestCase):
         model = twitter_openapi_python_generated.models.user_result_by_screen_name.UserResultByScreenName()  # noqa: E501
         if include_optional :
             return UserResultByScreenName(
-                id = 'C', 
+                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                 result = twitter_openapi_python_generated.models.user_result_by_screen_name_result.UserResultByScreenNameResult(
                     __typename = 'TimelineTweet', 
                     id = 'G', 
@@ -51,12 +51,12 @@ class TestUserResultByScreenName(unittest.TestCase):
                         name = '', 
                         protected = True, 
                         screen_name = '', ), 
-                    profilemodules = twitter_openapi_python_generated.models.profilemodules.profilemodules(), 
+                    profilemodules = { }, 
                     rest_id = '4', )
             )
         else :
             return UserResultByScreenName(
-                id = 'C',
+                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=',
                 result = twitter_openapi_python_generated.models.user_result_by_screen_name_result.UserResultByScreenNameResult(
                     __typename = 'TimelineTweet', 
                     id = 'G', 
@@ -68,7 +68,7 @@ class TestUserResultByScreenName(unittest.TestCase):
                         name = '', 
                         protected = True, 
                         screen_name = '', ), 
-                    profilemodules = twitter_openapi_python_generated.models.profilemodules.profilemodules(), 
+                    profilemodules = { }, 
                     rest_id = '4', ),
         )
         """

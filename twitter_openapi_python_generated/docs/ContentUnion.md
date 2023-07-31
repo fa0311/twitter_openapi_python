@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**client_event_info** | **object** |  | 
+**client_event_info** | **Dict[str, object]** |  | 
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | 
-**feedback_info** | **object** |  | [optional] 
+**feedback_info** | **Dict[str, object]** |  | [optional] 
 **item_content** | [**ItemContentUnion**](ItemContentUnion.md) |  | 
 **display_type** | **str** |  | 
-**footer** | **object** |  | [optional] 
-**header** | **object** |  | [optional] 
+**footer** | **Dict[str, object]** |  | [optional] 
+**header** | **Dict[str, object]** |  | [optional] 
 **items** | [**List[ModuleItem]**](ModuleItem.md) |  | [optional] 
 **cursor_type** | **str** |  | 
 **item_type** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 

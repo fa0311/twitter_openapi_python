@@ -22,8 +22,8 @@ from typing_extensions import Annotated
 
 from pydantic import StrictStr
 
-from twitter_openapi_python_generated.models.user_response import UserResponse
-from twitter_openapi_python_generated.models.users_response import UsersResponse
+from twitter_openapi_python_generated.models.get_user_by_rest_id200_response import GetUserByRestId200Response
+from twitter_openapi_python_generated.models.get_users_by_rest_ids200_response import GetUsersByRestIds200Response
 
 from twitter_openapi_python_generated.api_client import ApiClient
 from twitter_openapi_python_generated.api_response import ApiResponse
@@ -46,7 +46,7 @@ class UserApi(object):
         self.api_client = api_client
 
     @validate_arguments
-    def get_user_by_rest_id(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> UserResponse:  # noqa: E501
+    def get_user_by_rest_id(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetUserByRestId200Response:  # noqa: E501
         """get_user_by_rest_id  # noqa: E501
 
         get user by rest id  # noqa: E501
@@ -71,7 +71,7 @@ class UserApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: UserResponse
+        :rtype: GetUserByRestId200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -117,7 +117,7 @@ class UserApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(UserResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetUserByRestId200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -180,7 +180,7 @@ class UserApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "UserResponse",
+            '200': "GetUserByRestId200Response",
         }
 
         return self.api_client.call_api(
@@ -201,7 +201,7 @@ class UserApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_user_by_screen_name(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> UserResponse:  # noqa: E501
+    def get_user_by_screen_name(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetUserByRestId200Response:  # noqa: E501
         """get_user_by_screen_name  # noqa: E501
 
         get user by screen name  # noqa: E501
@@ -226,7 +226,7 @@ class UserApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: UserResponse
+        :rtype: GetUserByRestId200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -272,7 +272,7 @@ class UserApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(UserResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetUserByRestId200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -335,7 +335,7 @@ class UserApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "UserResponse",
+            '200': "GetUserByRestId200Response",
         }
 
         return self.api_client.call_api(
@@ -356,7 +356,7 @@ class UserApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_users_by_rest_ids(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> UsersResponse:  # noqa: E501
+    def get_users_by_rest_ids(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetUsersByRestIds200Response:  # noqa: E501
         """get_users_by_rest_ids  # noqa: E501
 
         get users by rest ids  # noqa: E501
@@ -381,7 +381,7 @@ class UserApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: UsersResponse
+        :rtype: GetUsersByRestIds200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -427,7 +427,7 @@ class UserApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(UsersResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetUsersByRestIds200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -490,7 +490,7 @@ class UserApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "UsersResponse",
+            '200': "GetUsersByRestIds200Response",
         }
 
         return self.api_client.call_api(

@@ -41,7 +41,7 @@ class TestMedia(unittest.TestCase):
             return Media(
                 display_url = '', 
                 expanded_url = '', 
-                ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.ext_media_availability(), 
+                ext_media_availability = { }, 
                 id_str = '4', 
                 indices = [
                     56
@@ -50,11 +50,11 @@ class TestMedia(unittest.TestCase):
                 media_url_https = '', 
                 original_info = twitter_openapi_python_generated.models.media_original_info.Media_original_info(
                     focus_rects = [
-                        None
+                        { }
                         ], 
                     height = 56, 
                     width = 56, ), 
-                sizes = twitter_openapi_python_generated.models.sizes.sizes(), 
+                sizes = { }, 
                 type = '', 
                 url = ''
             )
@@ -69,11 +69,11 @@ class TestMedia(unittest.TestCase):
                 media_url_https = '',
                 original_info = twitter_openapi_python_generated.models.media_original_info.Media_original_info(
                     focus_rects = [
-                        None
+                        { }
                         ], 
                     height = 56, 
                     width = 56, ),
-                sizes = twitter_openapi_python_generated.models.sizes.sizes(),
+                sizes = { },
                 type = '',
                 url = '',
         )

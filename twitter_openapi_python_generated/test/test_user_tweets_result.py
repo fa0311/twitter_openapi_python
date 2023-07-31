@@ -45,8 +45,8 @@ class TestUserTweetsResult(unittest.TestCase):
                         instructions = [
                             null
                             ], 
-                        metadata = twitter_openapi_python_generated.models.metadata.metadata(), 
-                        response_objects = twitter_openapi_python_generated.models.response_objects.responseObjects(), ), )
+                        metadata = { }, 
+                        response_objects = { }, ), )
             )
         else :
             return UserTweetsResult(
@@ -56,8 +56,8 @@ class TestUserTweetsResult(unittest.TestCase):
                         instructions = [
                             null
                             ], 
-                        metadata = twitter_openapi_python_generated.models.metadata.metadata(), 
-                        response_objects = twitter_openapi_python_generated.models.response_objects.responseObjects(), ), ),
+                        metadata = { }, 
+                        response_objects = { }, ), ),
         )
         """
 

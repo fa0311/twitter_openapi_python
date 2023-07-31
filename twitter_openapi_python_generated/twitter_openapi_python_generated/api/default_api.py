@@ -22,7 +22,7 @@ from typing_extensions import Annotated
 
 from pydantic import StrictStr
 
-from twitter_openapi_python_generated.models.profile_response import ProfileResponse
+from twitter_openapi_python_generated.models.get_profile_spotlights_query200_response import GetProfileSpotlightsQuery200Response
 
 from twitter_openapi_python_generated.api_client import ApiClient
 from twitter_openapi_python_generated.api_response import ApiResponse
@@ -45,7 +45,7 @@ class DefaultApi(object):
         self.api_client = api_client
 
     @validate_arguments
-    def get_profile_spotlights_query(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> ProfileResponse:  # noqa: E501
+    def get_profile_spotlights_query(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetProfileSpotlightsQuery200Response:  # noqa: E501
         """get_profile_spotlights_query  # noqa: E501
 
         get user by screen name  # noqa: E501
@@ -70,7 +70,7 @@ class DefaultApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: ProfileResponse
+        :rtype: GetProfileSpotlightsQuery200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -116,7 +116,7 @@ class DefaultApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ProfileResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetProfileSpotlightsQuery200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -179,7 +179,7 @@ class DefaultApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "ProfileResponse",
+            '200': "GetProfileSpotlightsQuery200Response",
         }
 
         return self.api_client.call_api(

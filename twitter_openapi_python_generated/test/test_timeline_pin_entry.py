@@ -41,7 +41,7 @@ class TestTimelinePinEntry(unittest.TestCase):
             return TimelinePinEntry(
                 entry = twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                     content = null, 
-                    entry_id = '', 
+                    entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                     sort_index = '4', ), 
                 type = 'TimelineAddEntries'
             )
@@ -49,7 +49,7 @@ class TestTimelinePinEntry(unittest.TestCase):
             return TimelinePinEntry(
                 entry = twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                     content = null, 
-                    entry_id = '', 
+                    entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                     sort_index = '4', ),
                 type = 'TimelineAddEntries',
         )

@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hashtags** | **List[object]** |  | 
+**hashtags** | **List[Dict]** |  | 
 **media** | [**List[Media]**](Media.md) |  | [optional] 
-**symbols** | **List[object]** |  | 
+**symbols** | **List[Dict]** |  | 
 **urls** | [**List[Url]**](Url.md) |  | 
-**user_mentions** | **List[object]** |  | 
+**user_mentions** | **List[Dict]** |  | 
 
 ## Example
 

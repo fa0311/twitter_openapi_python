@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **legacy** | [**TweetLegacy**](TweetLegacy.md) |  | 
 **quoted_status_result** | [**ItemResult**](ItemResult.md) |  | [optional] 
 **rest_id** | **str** |  | 
-**unmention_data** | **object** |  | [optional] 
+**unmention_data** | **Dict[str, object]** |  | [optional] 
 **views** | [**TweetViews**](TweetViews.md) |  | 
 **tweet** | [**Tweet**](Tweet.md) |  | 
 

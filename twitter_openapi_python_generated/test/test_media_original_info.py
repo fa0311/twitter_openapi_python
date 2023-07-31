@@ -40,7 +40,7 @@ class TestMediaOriginalInfo(unittest.TestCase):
         if include_optional :
             return MediaOriginalInfo(
                 focus_rects = [
-                    None
+                    { }
                     ], 
                 height = 56, 
                 width = 56

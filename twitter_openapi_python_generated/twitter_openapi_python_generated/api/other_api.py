@@ -20,7 +20,7 @@ import warnings
 from pydantic import validate_arguments, ValidationError
 from typing_extensions import Annotated
 
-from twitter_openapi_python_generated.models.other_response import OtherResponse
+from twitter_openapi_python_generated.models.other200_response import Other200Response
 
 from twitter_openapi_python_generated.api_client import ApiClient
 from twitter_openapi_python_generated.api_response import ApiResponse
@@ -43,7 +43,7 @@ class OtherApi(object):
         self.api_client = api_client
 
     @validate_arguments
-    def other(self, **kwargs) -> OtherResponse:  # noqa: E501
+    def other(self, **kwargs) -> Other200Response:  # noqa: E501
         """other  # noqa: E501
 
         This is not an actual endpoint  # noqa: E501
@@ -62,7 +62,7 @@ class OtherApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: OtherResponse
+        :rtype: Other200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -102,7 +102,7 @@ class OtherApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(OtherResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(Other200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -153,7 +153,7 @@ class OtherApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "OtherResponse",
+            '200': "Other200Response",
         }
 
         return self.api_client.call_api(

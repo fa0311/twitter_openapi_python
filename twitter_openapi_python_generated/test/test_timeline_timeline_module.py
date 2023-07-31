@@ -39,24 +39,24 @@ class TestTimelineTimelineModule(unittest.TestCase):
         model = twitter_openapi_python_generated.models.timeline_timeline_module.TimelineTimelineModule()  # noqa: E501
         if include_optional :
             return TimelineTimelineModule(
-                typename = '', 
-                client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(), 
+                typename = 'TimelineTweet', 
+                client_event_info = { }, 
                 display_type = '', 
                 entry_type = 'TimelineTimelineItem', 
-                footer = twitter_openapi_python_generated.models.footer.footer(), 
-                header = twitter_openapi_python_generated.models.header.header(), 
+                footer = { }, 
+                header = { }, 
                 items = [
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
-                        entry_id = 'q072888001528021798096225500850762068629', 
+                        entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
-                            client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(), 
+                            client_event_info = { }, 
                             item_content = null, ), )
                     ]
             )
         else :
             return TimelineTimelineModule(
-                typename = '',
-                client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(),
+                typename = 'TimelineTweet',
+                client_event_info = { },
                 display_type = '',
                 entry_type = 'TimelineTimelineItem',
         )

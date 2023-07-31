@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **typename** | [**TypeName**](TypeName.md) |  | 
 **id** | **str** |  | 
 **legacy** | [**UserResultByScreenNameLegacy**](UserResultByScreenNameLegacy.md) |  | 
-**profilemodules** | **object** |  | 
+**profilemodules** | **Dict[str, object]** |  | 
 **rest_id** | **str** |  | 
 
 ## Example

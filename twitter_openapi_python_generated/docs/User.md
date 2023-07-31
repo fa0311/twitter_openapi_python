@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**affiliates_highlighted_label** | **object** |  | 
-**business_account** | **object** |  | [optional] 
+**affiliates_highlighted_label** | **Dict[str, object]** |  | 
+**business_account** | **Dict[str, object]** |  | [optional] 
 **has_graduated_access** | **bool** |  | [optional] 
 **has_nft_avatar** | **bool** |  | [optional] [default to False]
 **id** | **str** |  | 

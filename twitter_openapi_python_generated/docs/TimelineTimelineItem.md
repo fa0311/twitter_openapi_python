@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**client_event_info** | **object** |  | [optional] 
+**client_event_info** | **Dict[str, object]** |  | [optional] 
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | 
-**feedback_info** | **object** |  | [optional] 
+**feedback_info** | **Dict[str, object]** |  | [optional] 
 **item_content** | [**ItemContentUnion**](ItemContentUnion.md) |  | 
 
 ## Example

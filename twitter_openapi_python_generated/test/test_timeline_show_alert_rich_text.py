@@ -40,7 +40,7 @@ class TestTimelineShowAlertRichText(unittest.TestCase):
         if include_optional :
             return TimelineShowAlertRichText(
                 entities = [
-                    None
+                    { }
                     ], 
                 text = ''
             )

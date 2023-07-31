@@ -165,11 +165,11 @@ Class | Method | HTTP request | Description
 *UserApi* | [**get_user_by_rest_id**](docs\UserApi.md#get_user_by_rest_id) | **GET** /graphql/{pathQueryId}/UserByRestId | 
 *UserApi* | [**get_user_by_screen_name**](docs\UserApi.md#get_user_by_screen_name) | **GET** /graphql/{pathQueryId}/UserByScreenName | 
 *UserApi* | [**get_users_by_rest_ids**](docs\UserApi.md#get_users_by_rest_ids) | **GET** /graphql/{pathQueryId}/UsersByRestIds | 
+*UserListApi* | [**get_favoriters**](docs\UserListApi.md#get_favoriters) | **GET** /graphql/{pathQueryId}/Favoriters | 
 *UserListApi* | [**get_followers**](docs\UserListApi.md#get_followers) | **GET** /graphql/{pathQueryId}/Followers | 
 *UserListApi* | [**get_followers_you_know**](docs\UserListApi.md#get_followers_you_know) | **GET** /graphql/{pathQueryId}/FollowersYouKnow | 
 *UserListApi* | [**get_following**](docs\UserListApi.md#get_following) | **GET** /graphql/{pathQueryId}/Following | 
-*UserListApi* | [**get_tweet_favoriters**](docs\UserListApi.md#get_tweet_favoriters) | **GET** /graphql/{pathQueryId}/Favoriters | 
-*UserListApi* | [**get_tweet_retweeters**](docs\UserListApi.md#get_tweet_retweeters) | **GET** /graphql/{pathQueryId}/Retweeters | 
+*UserListApi* | [**get_retweeters**](docs\UserListApi.md#get_retweeters) | **GET** /graphql/{pathQueryId}/Retweeters | 
 *V11GetApi* | [**get_friends_following_list**](docs\V11GetApi.md#get_friends_following_list) | **GET** /1.1/friends/following/list.json | 
 *V11GetApi* | [**get_search_typeahead**](docs\V11GetApi.md#get_search_typeahead) | **GET** /1.1/search/typeahead.json | 
 *V11PostApi* | [**post_create_friendships**](docs\V11PostApi.md#post_create_friendships) | **POST** /1.1/friendships/create.json | 
@@ -200,6 +200,9 @@ Class | Method | HTTP request | Description
  - [DeleteTweetResponseData](docs\DeleteTweetResponseData.md)
  - [DeleteTweetResponseResult](docs\DeleteTweetResponseResult.md)
  - [Entities](docs\Entities.md)
+ - [Error](docs\Error.md)
+ - [ErrorExtensions](docs\ErrorExtensions.md)
+ - [Errors](docs\Errors.md)
  - [ExtendedEntities](docs\ExtendedEntities.md)
  - [FavoriteTweet](docs\FavoriteTweet.md)
  - [FavoriteTweetResponseData](docs\FavoriteTweetResponseData.md)
@@ -208,6 +211,19 @@ Class | Method | HTTP request | Description
  - [FollowResponseResult](docs\FollowResponseResult.md)
  - [FollowResponseUser](docs\FollowResponseUser.md)
  - [FollowTimeline](docs\FollowTimeline.md)
+ - [GetBookmarks200Response](docs\GetBookmarks200Response.md)
+ - [GetFavoriters200Response](docs\GetFavoriters200Response.md)
+ - [GetFollowers200Response](docs\GetFollowers200Response.md)
+ - [GetHomeLatestTimeline200Response](docs\GetHomeLatestTimeline200Response.md)
+ - [GetLikes200Response](docs\GetLikes200Response.md)
+ - [GetListLatestTweetsTimeline200Response](docs\GetListLatestTweetsTimeline200Response.md)
+ - [GetProfileSpotlightsQuery200Response](docs\GetProfileSpotlightsQuery200Response.md)
+ - [GetRetweeters200Response](docs\GetRetweeters200Response.md)
+ - [GetSearchTimeline200Response](docs\GetSearchTimeline200Response.md)
+ - [GetTweetDetail200Response](docs\GetTweetDetail200Response.md)
+ - [GetUserByRestId200Response](docs\GetUserByRestId200Response.md)
+ - [GetUserHighlightsTweets200Response](docs\GetUserHighlightsTweets200Response.md)
+ - [GetUsersByRestIds200Response](docs\GetUsersByRestIds200Response.md)
  - [HomeTimelineHome](docs\HomeTimelineHome.md)
  - [HomeTimelineResponseData](docs\HomeTimelineResponseData.md)
  - [InstructionType](docs\InstructionType.md)
@@ -218,22 +234,30 @@ Class | Method | HTTP request | Description
  - [ListTweetsTimeline](docs\ListTweetsTimeline.md)
  - [ListTweetsTimelineData](docs\ListTweetsTimelineData.md)
  - [ListTweetsTimelineList](docs\ListTweetsTimelineList.md)
+ - [Location](docs\Location.md)
  - [Media](docs\Media.md)
  - [MediaOriginalInfo](docs\MediaOriginalInfo.md)
  - [ModuleEntry](docs\ModuleEntry.md)
  - [ModuleItem](docs\ModuleItem.md)
  - [OneFactorLoginEligibility](docs\OneFactorLoginEligibility.md)
+ - [Other200Response](docs\Other200Response.md)
  - [OtherResponse](docs\OtherResponse.md)
+ - [PostCreateRetweet200Response](docs\PostCreateRetweet200Response.md)
  - [PostCreateRetweetRequest](docs\PostCreateRetweetRequest.md)
  - [PostCreateRetweetRequestVariables](docs\PostCreateRetweetRequestVariables.md)
+ - [PostCreateTweet200Response](docs\PostCreateTweet200Response.md)
  - [PostCreateTweetRequest](docs\PostCreateTweetRequest.md)
  - [PostCreateTweetRequestFeatures](docs\PostCreateTweetRequestFeatures.md)
  - [PostCreateTweetRequestVariables](docs\PostCreateTweetRequestVariables.md)
  - [PostCreateTweetRequestVariablesMedia](docs\PostCreateTweetRequestVariablesMedia.md)
+ - [PostDeleteRetweet200Response](docs\PostDeleteRetweet200Response.md)
  - [PostDeleteRetweetRequest](docs\PostDeleteRetweetRequest.md)
  - [PostDeleteRetweetRequestVariables](docs\PostDeleteRetweetRequestVariables.md)
+ - [PostDeleteTweet200Response](docs\PostDeleteTweet200Response.md)
  - [PostDeleteTweetRequest](docs\PostDeleteTweetRequest.md)
+ - [PostFavoriteTweet200Response](docs\PostFavoriteTweet200Response.md)
  - [PostFavoriteTweetRequest](docs\PostFavoriteTweetRequest.md)
+ - [PostUnfavoriteTweet200Response](docs\PostUnfavoriteTweet200Response.md)
  - [PostUnfavoriteTweetRequest](docs\PostUnfavoriteTweetRequest.md)
  - [ProfileResponse](docs\ProfileResponse.md)
  - [ProfileResponseData](docs\ProfileResponseData.md)
@@ -264,6 +288,7 @@ Class | Method | HTTP request | Description
  - [TimelineTweet](docs\TimelineTweet.md)
  - [TimelineUser](docs\TimelineUser.md)
  - [TimelineV2](docs\TimelineV2.md)
+ - [Tracing](docs\Tracing.md)
  - [Tweet](docs\Tweet.md)
  - [TweetCard](docs\TweetCard.md)
  - [TweetCardLegacy](docs\TweetCardLegacy.md)

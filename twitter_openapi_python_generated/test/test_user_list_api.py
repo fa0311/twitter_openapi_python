@@ -29,6 +29,12 @@ class TestUserListApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_get_favoriters(self):
+        """Test case for get_favoriters
+
+        """
+        pass
+
     def test_get_followers(self):
         """Test case for get_followers
 
@@ -47,14 +53,8 @@ class TestUserListApi(unittest.TestCase):
         """
         pass
 
-    def test_get_tweet_favoriters(self):
-        """Test case for get_tweet_favoriters
-
-        """
-        pass
-
-    def test_get_tweet_retweeters(self):
-        """Test case for get_tweet_retweeters
+    def test_get_retweeters(self):
+        """Test case for get_retweeters
 
         """
         pass

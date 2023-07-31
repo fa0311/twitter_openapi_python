@@ -40,9 +40,9 @@ class TestTimelineTimelineItem(unittest.TestCase):
         if include_optional :
             return TimelineTimelineItem(
                 typename = 'TimelineTweet', 
-                client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(), 
+                client_event_info = { }, 
                 entry_type = 'TimelineTimelineItem', 
-                feedback_info = twitter_openapi_python_generated.models.feedback_info.feedbackInfo(), 
+                feedback_info = { }, 
                 item_content = None
             )
         else :

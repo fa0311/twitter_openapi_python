@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entities** | **List[object]** |  | [optional] 
+**entities** | **List[Dict[str, object]]** |  | [optional] 
 **text** | **str** |  | [optional] 
 
 ## Example

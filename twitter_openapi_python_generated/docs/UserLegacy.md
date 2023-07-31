@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **default_profile** | **bool** |  | [default to False]
 **default_profile_image** | **bool** |  | [default to False]
 **description** | **str** |  | 
-**entities** | **object** |  | 
+**entities** | **Dict[str, object]** |  | 
 **fast_followers_count** | **int** |  | 
 **favourites_count** | **int** |  | [default to 0]
 **follow_request_sent** | **bool** |  | [default to False]

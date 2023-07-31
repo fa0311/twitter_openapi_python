@@ -22,18 +22,18 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
 
-from twitter_openapi_python_generated.models.create_retweet_response import CreateRetweetResponse
-from twitter_openapi_python_generated.models.create_tweet_response import CreateTweetResponse
-from twitter_openapi_python_generated.models.delete_retweet_response import DeleteRetweetResponse
-from twitter_openapi_python_generated.models.delete_tweet_response import DeleteTweetResponse
-from twitter_openapi_python_generated.models.favorite_tweet_response_data import FavoriteTweetResponseData
+from twitter_openapi_python_generated.models.post_create_retweet200_response import PostCreateRetweet200Response
 from twitter_openapi_python_generated.models.post_create_retweet_request import PostCreateRetweetRequest
+from twitter_openapi_python_generated.models.post_create_tweet200_response import PostCreateTweet200Response
 from twitter_openapi_python_generated.models.post_create_tweet_request import PostCreateTweetRequest
+from twitter_openapi_python_generated.models.post_delete_retweet200_response import PostDeleteRetweet200Response
 from twitter_openapi_python_generated.models.post_delete_retweet_request import PostDeleteRetweetRequest
+from twitter_openapi_python_generated.models.post_delete_tweet200_response import PostDeleteTweet200Response
 from twitter_openapi_python_generated.models.post_delete_tweet_request import PostDeleteTweetRequest
+from twitter_openapi_python_generated.models.post_favorite_tweet200_response import PostFavoriteTweet200Response
 from twitter_openapi_python_generated.models.post_favorite_tweet_request import PostFavoriteTweetRequest
+from twitter_openapi_python_generated.models.post_unfavorite_tweet200_response import PostUnfavoriteTweet200Response
 from twitter_openapi_python_generated.models.post_unfavorite_tweet_request import PostUnfavoriteTweetRequest
-from twitter_openapi_python_generated.models.unfavorite_tweet_response_data import UnfavoriteTweetResponseData
 
 from twitter_openapi_python_generated.api_client import ApiClient
 from twitter_openapi_python_generated.api_response import ApiResponse
@@ -56,7 +56,7 @@ class PostApi(object):
         self.api_client = api_client
 
     @validate_arguments
-    def post_create_retweet(self, path_query_id : StrictStr, post_create_retweet_request : Annotated[PostCreateRetweetRequest, Field(..., description="body")], **kwargs) -> CreateRetweetResponse:  # noqa: E501
+    def post_create_retweet(self, path_query_id : StrictStr, post_create_retweet_request : Annotated[PostCreateRetweetRequest, Field(..., description="body")], **kwargs) -> PostCreateRetweet200Response:  # noqa: E501
         """post_create_retweet  # noqa: E501
 
         create Retweet  # noqa: E501
@@ -79,7 +79,7 @@ class PostApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: CreateRetweetResponse
+        :rtype: PostCreateRetweet200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -123,7 +123,7 @@ class PostApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(CreateRetweetResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(PostCreateRetweet200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -189,7 +189,7 @@ class PostApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "CreateRetweetResponse",
+            '200': "PostCreateRetweet200Response",
         }
 
         return self.api_client.call_api(
@@ -210,7 +210,7 @@ class PostApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def post_create_tweet(self, path_query_id : StrictStr, post_create_tweet_request : Annotated[PostCreateTweetRequest, Field(..., description="body")], **kwargs) -> CreateTweetResponse:  # noqa: E501
+    def post_create_tweet(self, path_query_id : StrictStr, post_create_tweet_request : Annotated[PostCreateTweetRequest, Field(..., description="body")], **kwargs) -> PostCreateTweet200Response:  # noqa: E501
         """post_create_tweet  # noqa: E501
 
         create Tweet  # noqa: E501
@@ -233,7 +233,7 @@ class PostApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: CreateTweetResponse
+        :rtype: PostCreateTweet200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -277,7 +277,7 @@ class PostApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(CreateTweetResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(PostCreateTweet200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -343,7 +343,7 @@ class PostApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "CreateTweetResponse",
+            '200': "PostCreateTweet200Response",
         }
 
         return self.api_client.call_api(
@@ -364,7 +364,7 @@ class PostApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def post_delete_retweet(self, path_query_id : StrictStr, post_delete_retweet_request : Annotated[PostDeleteRetweetRequest, Field(..., description="body")], **kwargs) -> DeleteRetweetResponse:  # noqa: E501
+    def post_delete_retweet(self, path_query_id : StrictStr, post_delete_retweet_request : Annotated[PostDeleteRetweetRequest, Field(..., description="body")], **kwargs) -> PostDeleteRetweet200Response:  # noqa: E501
         """post_delete_retweet  # noqa: E501
 
         delete Retweet  # noqa: E501
@@ -387,7 +387,7 @@ class PostApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: DeleteRetweetResponse
+        :rtype: PostDeleteRetweet200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -431,7 +431,7 @@ class PostApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(DeleteRetweetResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(PostDeleteRetweet200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -497,7 +497,7 @@ class PostApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "DeleteRetweetResponse",
+            '200': "PostDeleteRetweet200Response",
         }
 
         return self.api_client.call_api(
@@ -518,7 +518,7 @@ class PostApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def post_delete_tweet(self, path_query_id : StrictStr, post_delete_tweet_request : Annotated[PostDeleteTweetRequest, Field(..., description="body")], **kwargs) -> DeleteTweetResponse:  # noqa: E501
+    def post_delete_tweet(self, path_query_id : StrictStr, post_delete_tweet_request : Annotated[PostDeleteTweetRequest, Field(..., description="body")], **kwargs) -> PostDeleteTweet200Response:  # noqa: E501
         """post_delete_tweet  # noqa: E501
 
         delete Retweet  # noqa: E501
@@ -541,7 +541,7 @@ class PostApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: DeleteTweetResponse
+        :rtype: PostDeleteTweet200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -585,7 +585,7 @@ class PostApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(DeleteTweetResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(PostDeleteTweet200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -651,7 +651,7 @@ class PostApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "DeleteTweetResponse",
+            '200': "PostDeleteTweet200Response",
         }
 
         return self.api_client.call_api(
@@ -672,7 +672,7 @@ class PostApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def post_favorite_tweet(self, path_query_id : StrictStr, post_favorite_tweet_request : Annotated[PostFavoriteTweetRequest, Field(..., description="body")], **kwargs) -> FavoriteTweetResponseData:  # noqa: E501
+    def post_favorite_tweet(self, path_query_id : StrictStr, post_favorite_tweet_request : Annotated[PostFavoriteTweetRequest, Field(..., description="body")], **kwargs) -> PostFavoriteTweet200Response:  # noqa: E501
         """post_favorite_tweet  # noqa: E501
 
         favorite Tweet  # noqa: E501
@@ -695,7 +695,7 @@ class PostApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: FavoriteTweetResponseData
+        :rtype: PostFavoriteTweet200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -739,7 +739,7 @@ class PostApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(FavoriteTweetResponseData, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(PostFavoriteTweet200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -805,7 +805,7 @@ class PostApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "FavoriteTweetResponseData",
+            '200': "PostFavoriteTweet200Response",
         }
 
         return self.api_client.call_api(
@@ -826,7 +826,7 @@ class PostApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def post_unfavorite_tweet(self, path_query_id : StrictStr, post_unfavorite_tweet_request : Annotated[PostUnfavoriteTweetRequest, Field(..., description="body")], **kwargs) -> UnfavoriteTweetResponseData:  # noqa: E501
+    def post_unfavorite_tweet(self, path_query_id : StrictStr, post_unfavorite_tweet_request : Annotated[PostUnfavoriteTweetRequest, Field(..., description="body")], **kwargs) -> PostUnfavoriteTweet200Response:  # noqa: E501
         """post_unfavorite_tweet  # noqa: E501
 
         unfavorite Tweet  # noqa: E501
@@ -849,7 +849,7 @@ class PostApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: UnfavoriteTweetResponseData
+        :rtype: PostUnfavoriteTweet200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -893,7 +893,7 @@ class PostApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(UnfavoriteTweetResponseData, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(PostUnfavoriteTweet200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -959,7 +959,7 @@ class PostApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "UnfavoriteTweetResponseData",
+            '200': "PostUnfavoriteTweet200Response",
         }
 
         return self.api_client.call_api(

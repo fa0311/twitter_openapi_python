@@ -43,8 +43,8 @@ class TestTimelineV2(unittest.TestCase):
                     instructions = [
                         null
                         ], 
-                    metadata = twitter_openapi_python_generated.models.metadata.metadata(), 
-                    response_objects = twitter_openapi_python_generated.models.response_objects.responseObjects(), )
+                    metadata = { }, 
+                    response_objects = { }, )
             )
         else :
             return TimelineV2(
@@ -52,8 +52,8 @@ class TestTimelineV2(unittest.TestCase):
                     instructions = [
                         null
                         ], 
-                    metadata = twitter_openapi_python_generated.models.metadata.metadata(), 
-                    response_objects = twitter_openapi_python_generated.models.response_objects.responseObjects(), ),
+                    metadata = { }, 
+                    response_objects = { }, ),
         )
         """
 

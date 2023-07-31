@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**focus_rects** | **List[object]** |  | [optional] 
+**focus_rects** | **List[Dict[str, object]]** |  | [optional] 
 **height** | **int** |  | [optional] 
 **width** | **int** |  | [optional] 
 

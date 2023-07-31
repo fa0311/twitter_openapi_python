@@ -20,7 +20,7 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, constr, validator
+from pydantic import BaseModel, Field, StrictBool, constr, validator
 from twitter_openapi_python_generated.models.type_name import TypeName
 from twitter_openapi_python_generated.models.user_legacy import UserLegacy
 
@@ -33,7 +33,7 @@ class User(BaseModel):
     business_account: Optional[Dict[str, Any]] = None
     has_graduated_access: Optional[StrictBool] = None
     has_nft_avatar: Optional[StrictBool] = False
-    id: StrictStr = Field(...)
+    id: constr(strict=True) = Field(...)
     is_blue_verified: StrictBool = Field(...)
     legacy: UserLegacy = Field(...)
     rest_id: constr(strict=True) = Field(...)
@@ -41,6 +41,13 @@ class User(BaseModel):
     super_followed_by: StrictBool = Field(...)
     super_following: StrictBool = Field(...)
     __properties = ["__typename", "affiliates_highlighted_label", "business_account", "has_graduated_access", "has_nft_avatar", "id", "is_blue_verified", "legacy", "rest_id", "super_follow_eligible", "super_followed_by", "super_following"]
+
+    @validator('id')
+    def id_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^([A-Za-z0-9+\/]{4})*([A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}==)?$", value):
+            raise ValueError(r"must validate the regular expression /^([A-Za-z0-9+\/]{4})*([A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}==)?$/")
+        return value
 
     @validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):

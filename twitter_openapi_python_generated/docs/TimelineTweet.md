@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **social_context** | [**SocialContext**](SocialContext.md) |  | [optional] 
 **typename** | [**TypeName**](TypeName.md) |  | 
 **item_type** | [**ContentItemType**](ContentItemType.md) |  | 
-**promoted_metadata** | **object** |  | [optional] 
+**promoted_metadata** | **Dict[str, object]** |  | [optional] 
 **tweet_display_type** | **str** |  | 
 **tweet_results** | [**ItemResult**](ItemResult.md) |  | 
 

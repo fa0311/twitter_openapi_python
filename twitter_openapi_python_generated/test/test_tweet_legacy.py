@@ -48,13 +48,13 @@ class TestTweetLegacy(unittest.TestCase):
                     ], 
                 entities = twitter_openapi_python_generated.models.entities.Entities(
                     hashtags = [
-                        twitter_openapi_python_generated.models.hashtag.Hashtag()
+                        { }
                         ], 
                     media = [
                         twitter_openapi_python_generated.models.media.Media(
                             display_url = '', 
                             expanded_url = '', 
-                            ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.ext_media_availability(), 
+                            ext_media_availability = { }, 
                             id_str = '4', 
                             indices = [
                                 56
@@ -63,16 +63,16 @@ class TestTweetLegacy(unittest.TestCase):
                             media_url_https = '', 
                             original_info = twitter_openapi_python_generated.models.media_original_info.Media_original_info(
                                 focus_rects = [
-                                    None
+                                    { }
                                     ], 
                                 height = 56, 
                                 width = 56, ), 
-                            sizes = twitter_openapi_python_generated.models.sizes.sizes(), 
+                            sizes = { }, 
                             type = '', 
                             url = '', )
                         ], 
                     symbols = [
-                        twitter_openapi_python_generated.models.symbol.Symbol()
+                        { }
                         ], 
                     urls = [
                         twitter_openapi_python_generated.models.url.Url(
@@ -84,14 +84,14 @@ class TestTweetLegacy(unittest.TestCase):
                             url = '', )
                         ], 
                     user_mentions = [
-                        twitter_openapi_python_generated.models.user_mention.UserMention()
+                        { }
                         ], ), 
                 extended_entities = twitter_openapi_python_generated.models.extended_entities.ExtendedEntities(
                     media = [
                         twitter_openapi_python_generated.models.media.Media(
                             display_url = '', 
                             expanded_url = '', 
-                            ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.ext_media_availability(), 
+                            ext_media_availability = { }, 
                             id_str = '4', 
                             indices = [
                                 56
@@ -100,11 +100,11 @@ class TestTweetLegacy(unittest.TestCase):
                             media_url_https = '', 
                             original_info = twitter_openapi_python_generated.models.media_original_info.Media_original_info(
                                 focus_rects = [
-                                    None
+                                    { }
                                     ], 
                                 height = 56, 
                                 width = 56, ), 
-                            sizes = twitter_openapi_python_generated.models.sizes.sizes(), 
+                            sizes = { }, 
                             type = '', 
                             url = '', )
                         ], ), 
@@ -138,13 +138,13 @@ class TestTweetLegacy(unittest.TestCase):
                     ],
                 entities = twitter_openapi_python_generated.models.entities.Entities(
                     hashtags = [
-                        twitter_openapi_python_generated.models.hashtag.Hashtag()
+                        { }
                         ], 
                     media = [
                         twitter_openapi_python_generated.models.media.Media(
                             display_url = '', 
                             expanded_url = '', 
-                            ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.ext_media_availability(), 
+                            ext_media_availability = { }, 
                             id_str = '4', 
                             indices = [
                                 56
@@ -153,16 +153,16 @@ class TestTweetLegacy(unittest.TestCase):
                             media_url_https = '', 
                             original_info = twitter_openapi_python_generated.models.media_original_info.Media_original_info(
                                 focus_rects = [
-                                    None
+                                    { }
                                     ], 
                                 height = 56, 
                                 width = 56, ), 
-                            sizes = twitter_openapi_python_generated.models.sizes.sizes(), 
+                            sizes = { }, 
                             type = '', 
                             url = '', )
                         ], 
                     symbols = [
-                        twitter_openapi_python_generated.models.symbol.Symbol()
+                        { }
                         ], 
                     urls = [
                         twitter_openapi_python_generated.models.url.Url(
@@ -174,7 +174,7 @@ class TestTweetLegacy(unittest.TestCase):
                             url = '', )
                         ], 
                     user_mentions = [
-                        twitter_openapi_python_generated.models.user_mention.UserMention()
+                        { }
                         ], ),
                 favorite_count = 56,
                 favorited = True,

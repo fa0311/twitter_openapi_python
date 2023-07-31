@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **get_bookmarks**
-> BookmarksResponse get_bookmarks(path_query_id, variables, features)
+> GetBookmarks200Response get_bookmarks(path_query_id, variables, features)
 
 
 
@@ -39,7 +39,7 @@ get bookmarks
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.bookmarks_response import BookmarksResponse
+from twitter_openapi_python_generated.models.get_bookmarks200_response import GetBookmarks200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BookmarksResponse**](BookmarksResponse.md)
+[**GetBookmarks200Response**](GetBookmarks200Response.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_home_latest_timeline**
-> TimelineResponse get_home_latest_timeline(path_query_id, variables, features)
+> GetHomeLatestTimeline200Response get_home_latest_timeline(path_query_id, variables, features)
 
 
 
@@ -175,7 +175,7 @@ get tweet list of timeline
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.timeline_response import TimelineResponse
+from twitter_openapi_python_generated.models.get_home_latest_timeline200_response import GetHomeLatestTimeline200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TimelineResponse**](TimelineResponse.md)
+[**GetHomeLatestTimeline200Response**](GetHomeLatestTimeline200Response.md)
 
 ### Authorization
 
@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_home_timeline**
-> TimelineResponse get_home_timeline(path_query_id, variables, features)
+> GetHomeLatestTimeline200Response get_home_timeline(path_query_id, variables, features)
 
 
 
@@ -311,7 +311,7 @@ get tweet list of timeline
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.timeline_response import TimelineResponse
+from twitter_openapi_python_generated.models.get_home_latest_timeline200_response import GetHomeLatestTimeline200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TimelineResponse**](TimelineResponse.md)
+[**GetHomeLatestTimeline200Response**](GetHomeLatestTimeline200Response.md)
 
 ### Authorization
 
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_likes**
-> UserTweetsResponse get_likes(path_query_id, variables, features)
+> GetLikes200Response get_likes(path_query_id, variables, features)
 
 
 
@@ -447,7 +447,7 @@ get user likes tweets
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_tweets_response import UserTweetsResponse
+from twitter_openapi_python_generated.models.get_likes200_response import GetLikes200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -543,7 +543,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserTweetsResponse**](UserTweetsResponse.md)
+[**GetLikes200Response**](GetLikes200Response.md)
 
 ### Authorization
 
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_list_latest_tweets_timeline**
-> ListLatestTweetsTimelineResponse get_list_latest_tweets_timeline(path_query_id, variables, features)
+> GetListLatestTweetsTimeline200Response get_list_latest_tweets_timeline(path_query_id, variables, features)
 
 
 
@@ -583,7 +583,7 @@ get tweet list of timeline
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.list_latest_tweets_timeline_response import ListLatestTweetsTimelineResponse
+from twitter_openapi_python_generated.models.get_list_latest_tweets_timeline200_response import GetListLatestTweetsTimeline200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -679,7 +679,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListLatestTweetsTimelineResponse**](ListLatestTweetsTimelineResponse.md)
+[**GetListLatestTweetsTimeline200Response**](GetListLatestTweetsTimeline200Response.md)
 
 ### Authorization
 
@@ -698,7 +698,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_timeline**
-> SearchTimelineResponse get_search_timeline(path_query_id, variables, features, field_toggles)
+> GetSearchTimeline200Response get_search_timeline(path_query_id, variables, features, field_toggles)
 
 
 
@@ -719,7 +719,7 @@ search tweet list. product:[Top, Latest, People, Photos, Videos]
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.search_timeline_response import SearchTimelineResponse
+from twitter_openapi_python_generated.models.get_search_timeline200_response import GetSearchTimeline200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -817,7 +817,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchTimelineResponse**](SearchTimelineResponse.md)
+[**GetSearchTimeline200Response**](GetSearchTimeline200Response.md)
 
 ### Authorization
 
@@ -836,7 +836,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tweet_detail**
-> TweetDetailResponse get_tweet_detail(path_query_id, variables, features)
+> GetTweetDetail200Response get_tweet_detail(path_query_id, variables, features)
 
 
 
@@ -857,7 +857,7 @@ get TweetDetail
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_detail_response import TweetDetailResponse
+from twitter_openapi_python_generated.models.get_tweet_detail200_response import GetTweetDetail200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -953,7 +953,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TweetDetailResponse**](TweetDetailResponse.md)
+[**GetTweetDetail200Response**](GetTweetDetail200Response.md)
 
 ### Authorization
 
@@ -972,7 +972,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_highlights_tweets**
-> UserHighlightsTweetsResponse get_user_highlights_tweets(path_query_id, variables, features, field_toggles)
+> GetUserHighlightsTweets200Response get_user_highlights_tweets(path_query_id, variables, features, field_toggles)
 
 
 
@@ -993,7 +993,7 @@ get user highlights tweets
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_highlights_tweets_response import UserHighlightsTweetsResponse
+from twitter_openapi_python_generated.models.get_user_highlights_tweets200_response import GetUserHighlightsTweets200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -1091,7 +1091,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserHighlightsTweetsResponse**](UserHighlightsTweetsResponse.md)
+[**GetUserHighlightsTweets200Response**](GetUserHighlightsTweets200Response.md)
 
 ### Authorization
 
@@ -1110,7 +1110,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_media**
-> UserTweetsResponse get_user_media(path_query_id, variables, features)
+> GetLikes200Response get_user_media(path_query_id, variables, features)
 
 
 
@@ -1131,7 +1131,7 @@ get user media tweets
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_tweets_response import UserTweetsResponse
+from twitter_openapi_python_generated.models.get_likes200_response import GetLikes200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -1227,7 +1227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserTweetsResponse**](UserTweetsResponse.md)
+[**GetLikes200Response**](GetLikes200Response.md)
 
 ### Authorization
 
@@ -1246,7 +1246,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_tweets**
-> UserTweetsResponse get_user_tweets(path_query_id, variables, features)
+> GetLikes200Response get_user_tweets(path_query_id, variables, features)
 
 
 
@@ -1267,7 +1267,7 @@ get user tweets
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_tweets_response import UserTweetsResponse
+from twitter_openapi_python_generated.models.get_likes200_response import GetLikes200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -1363,7 +1363,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserTweetsResponse**](UserTweetsResponse.md)
+[**GetLikes200Response**](GetLikes200Response.md)
 
 ### Authorization
 
@@ -1382,7 +1382,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_tweets_and_replies**
-> UserTweetsResponse get_user_tweets_and_replies(path_query_id, variables, features)
+> GetLikes200Response get_user_tweets_and_replies(path_query_id, variables, features)
 
 
 
@@ -1403,7 +1403,7 @@ get user replies tweets
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_tweets_response import UserTweetsResponse
+from twitter_openapi_python_generated.models.get_likes200_response import GetLikes200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -1499,7 +1499,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserTweetsResponse**](UserTweetsResponse.md)
+[**GetLikes200Response**](GetLikes200Response.md)
 
 ### Authorization
 

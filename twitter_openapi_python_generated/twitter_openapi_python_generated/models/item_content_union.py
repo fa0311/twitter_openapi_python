@@ -118,9 +118,9 @@ class ItemContentUnion(BaseModel):
         match = 0
 
         # use oneOf discriminator to lookup the data type
-        _data_type = json.loads(json_str).get("itemType")
+        _data_type = json.loads(json_str).get("__typename")
         if not _data_type:
-            raise ValueError("Failed to lookup data type from the field `itemType` in the input.")
+            raise ValueError("Failed to lookup data type from the field `__typename` in the input.")
 
         # check if data type is `TimelineMessagePrompt`
         if _data_type == "TimelineMessagePrompt":

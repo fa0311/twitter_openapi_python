@@ -49,7 +49,7 @@ class TestUserResultByScreenNameResult(unittest.TestCase):
                     name = '', 
                     protected = True, 
                     screen_name = '', ), 
-                profilemodules = twitter_openapi_python_generated.models.profilemodules.profilemodules(), 
+                profilemodules = { }, 
                 rest_id = '4'
             )
         else :
@@ -64,7 +64,7 @@ class TestUserResultByScreenNameResult(unittest.TestCase):
                     name = '', 
                     protected = True, 
                     screen_name = '', ),
-                profilemodules = twitter_openapi_python_generated.models.profilemodules.profilemodules(),
+                profilemodules = { },
                 rest_id = '4',
         )
         """

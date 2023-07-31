@@ -39,12 +39,12 @@ class TestModuleEntry(unittest.TestCase):
         model = twitter_openapi_python_generated.models.module_entry.ModuleEntry()  # noqa: E501
         if include_optional :
             return ModuleEntry(
-                client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(), 
+                client_event_info = { }, 
                 item_content = None
             )
         else :
             return ModuleEntry(
-                client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(),
+                client_event_info = { },
                 item_content = None,
         )
         """

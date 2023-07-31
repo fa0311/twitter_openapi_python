@@ -42,9 +42,9 @@ class TestTimelineAddToModule(unittest.TestCase):
                 module_entry_id = '', 
                 module_items = [
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
-                        entry_id = 'q072888001528021798096225500850762068629', 
+                        entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
-                            client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(), 
+                            client_event_info = { }, 
                             item_content = null, ), )
                     ], 
                 prepend = True, 
@@ -55,9 +55,9 @@ class TestTimelineAddToModule(unittest.TestCase):
                 module_entry_id = '',
                 module_items = [
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
-                        entry_id = 'q072888001528021798096225500850762068629', 
+                        entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
-                            client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(), 
+                            client_event_info = { }, 
                             item_content = null, ), )
                     ],
                 type = 'TimelineAddEntries',

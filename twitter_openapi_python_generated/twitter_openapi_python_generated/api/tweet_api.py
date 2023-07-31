@@ -22,13 +22,13 @@ from typing_extensions import Annotated
 
 from pydantic import StrictStr
 
-from twitter_openapi_python_generated.models.bookmarks_response import BookmarksResponse
-from twitter_openapi_python_generated.models.list_latest_tweets_timeline_response import ListLatestTweetsTimelineResponse
-from twitter_openapi_python_generated.models.search_timeline_response import SearchTimelineResponse
-from twitter_openapi_python_generated.models.timeline_response import TimelineResponse
-from twitter_openapi_python_generated.models.tweet_detail_response import TweetDetailResponse
-from twitter_openapi_python_generated.models.user_highlights_tweets_response import UserHighlightsTweetsResponse
-from twitter_openapi_python_generated.models.user_tweets_response import UserTweetsResponse
+from twitter_openapi_python_generated.models.get_bookmarks200_response import GetBookmarks200Response
+from twitter_openapi_python_generated.models.get_home_latest_timeline200_response import GetHomeLatestTimeline200Response
+from twitter_openapi_python_generated.models.get_likes200_response import GetLikes200Response
+from twitter_openapi_python_generated.models.get_list_latest_tweets_timeline200_response import GetListLatestTweetsTimeline200Response
+from twitter_openapi_python_generated.models.get_search_timeline200_response import GetSearchTimeline200Response
+from twitter_openapi_python_generated.models.get_tweet_detail200_response import GetTweetDetail200Response
+from twitter_openapi_python_generated.models.get_user_highlights_tweets200_response import GetUserHighlightsTweets200Response
 
 from twitter_openapi_python_generated.api_client import ApiClient
 from twitter_openapi_python_generated.api_response import ApiResponse
@@ -51,7 +51,7 @@ class TweetApi(object):
         self.api_client = api_client
 
     @validate_arguments
-    def get_bookmarks(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> BookmarksResponse:  # noqa: E501
+    def get_bookmarks(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetBookmarks200Response:  # noqa: E501
         """get_bookmarks  # noqa: E501
 
         get bookmarks  # noqa: E501
@@ -76,7 +76,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: BookmarksResponse
+        :rtype: GetBookmarks200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -122,7 +122,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(BookmarksResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetBookmarks200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -185,7 +185,7 @@ class TweetApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "BookmarksResponse",
+            '200': "GetBookmarks200Response",
         }
 
         return self.api_client.call_api(
@@ -206,7 +206,7 @@ class TweetApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_home_latest_timeline(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> TimelineResponse:  # noqa: E501
+    def get_home_latest_timeline(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetHomeLatestTimeline200Response:  # noqa: E501
         """get_home_latest_timeline  # noqa: E501
 
         get tweet list of timeline  # noqa: E501
@@ -231,7 +231,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: TimelineResponse
+        :rtype: GetHomeLatestTimeline200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -277,7 +277,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(TimelineResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetHomeLatestTimeline200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -340,7 +340,7 @@ class TweetApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "TimelineResponse",
+            '200': "GetHomeLatestTimeline200Response",
         }
 
         return self.api_client.call_api(
@@ -361,7 +361,7 @@ class TweetApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_home_timeline(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> TimelineResponse:  # noqa: E501
+    def get_home_timeline(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetHomeLatestTimeline200Response:  # noqa: E501
         """get_home_timeline  # noqa: E501
 
         get tweet list of timeline  # noqa: E501
@@ -386,7 +386,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: TimelineResponse
+        :rtype: GetHomeLatestTimeline200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -432,7 +432,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(TimelineResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetHomeLatestTimeline200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -495,7 +495,7 @@ class TweetApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "TimelineResponse",
+            '200': "GetHomeLatestTimeline200Response",
         }
 
         return self.api_client.call_api(
@@ -516,7 +516,7 @@ class TweetApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_likes(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> UserTweetsResponse:  # noqa: E501
+    def get_likes(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetLikes200Response:  # noqa: E501
         """get_likes  # noqa: E501
 
         get user likes tweets  # noqa: E501
@@ -541,7 +541,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: UserTweetsResponse
+        :rtype: GetLikes200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -587,7 +587,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(UserTweetsResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetLikes200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -650,7 +650,7 @@ class TweetApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "UserTweetsResponse",
+            '200': "GetLikes200Response",
         }
 
         return self.api_client.call_api(
@@ -671,7 +671,7 @@ class TweetApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_list_latest_tweets_timeline(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> ListLatestTweetsTimelineResponse:  # noqa: E501
+    def get_list_latest_tweets_timeline(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetListLatestTweetsTimeline200Response:  # noqa: E501
         """get_list_latest_tweets_timeline  # noqa: E501
 
         get tweet list of timeline  # noqa: E501
@@ -696,7 +696,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: ListLatestTweetsTimelineResponse
+        :rtype: GetListLatestTweetsTimeline200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -742,7 +742,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ListLatestTweetsTimelineResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetListLatestTweetsTimeline200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -805,7 +805,7 @@ class TweetApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "ListLatestTweetsTimelineResponse",
+            '200': "GetListLatestTweetsTimeline200Response",
         }
 
         return self.api_client.call_api(
@@ -826,7 +826,7 @@ class TweetApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_search_timeline(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, field_toggles : StrictStr, **kwargs) -> SearchTimelineResponse:  # noqa: E501
+    def get_search_timeline(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, field_toggles : StrictStr, **kwargs) -> GetSearchTimeline200Response:  # noqa: E501
         """get_search_timeline  # noqa: E501
 
         search tweet list. product:[Top, Latest, People, Photos, Videos]  # noqa: E501
@@ -853,7 +853,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: SearchTimelineResponse
+        :rtype: GetSearchTimeline200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -901,7 +901,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(SearchTimelineResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetSearchTimeline200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -968,7 +968,7 @@ class TweetApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "SearchTimelineResponse",
+            '200': "GetSearchTimeline200Response",
         }
 
         return self.api_client.call_api(
@@ -989,7 +989,7 @@ class TweetApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_tweet_detail(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> TweetDetailResponse:  # noqa: E501
+    def get_tweet_detail(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetTweetDetail200Response:  # noqa: E501
         """get_tweet_detail  # noqa: E501
 
         get TweetDetail  # noqa: E501
@@ -1014,7 +1014,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: TweetDetailResponse
+        :rtype: GetTweetDetail200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -1060,7 +1060,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(TweetDetailResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetTweetDetail200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -1123,7 +1123,7 @@ class TweetApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "TweetDetailResponse",
+            '200': "GetTweetDetail200Response",
         }
 
         return self.api_client.call_api(
@@ -1144,7 +1144,7 @@ class TweetApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_user_highlights_tweets(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, field_toggles : StrictStr, **kwargs) -> UserHighlightsTweetsResponse:  # noqa: E501
+    def get_user_highlights_tweets(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, field_toggles : StrictStr, **kwargs) -> GetUserHighlightsTweets200Response:  # noqa: E501
         """get_user_highlights_tweets  # noqa: E501
 
         get user highlights tweets  # noqa: E501
@@ -1171,7 +1171,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: UserHighlightsTweetsResponse
+        :rtype: GetUserHighlightsTweets200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -1219,7 +1219,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(UserHighlightsTweetsResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetUserHighlightsTweets200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -1286,7 +1286,7 @@ class TweetApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "UserHighlightsTweetsResponse",
+            '200': "GetUserHighlightsTweets200Response",
         }
 
         return self.api_client.call_api(
@@ -1307,7 +1307,7 @@ class TweetApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_user_media(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> UserTweetsResponse:  # noqa: E501
+    def get_user_media(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetLikes200Response:  # noqa: E501
         """get_user_media  # noqa: E501
 
         get user media tweets  # noqa: E501
@@ -1332,7 +1332,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: UserTweetsResponse
+        :rtype: GetLikes200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -1378,7 +1378,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(UserTweetsResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetLikes200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -1441,7 +1441,7 @@ class TweetApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "UserTweetsResponse",
+            '200': "GetLikes200Response",
         }
 
         return self.api_client.call_api(
@@ -1462,7 +1462,7 @@ class TweetApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_user_tweets(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> UserTweetsResponse:  # noqa: E501
+    def get_user_tweets(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetLikes200Response:  # noqa: E501
         """get_user_tweets  # noqa: E501
 
         get user tweets  # noqa: E501
@@ -1487,7 +1487,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: UserTweetsResponse
+        :rtype: GetLikes200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -1533,7 +1533,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(UserTweetsResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetLikes200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -1596,7 +1596,7 @@ class TweetApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "UserTweetsResponse",
+            '200': "GetLikes200Response",
         }
 
         return self.api_client.call_api(
@@ -1617,7 +1617,7 @@ class TweetApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_user_tweets_and_replies(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> UserTweetsResponse:  # noqa: E501
+    def get_user_tweets_and_replies(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetLikes200Response:  # noqa: E501
         """get_user_tweets_and_replies  # noqa: E501
 
         get user replies tweets  # noqa: E501
@@ -1642,7 +1642,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: UserTweetsResponse
+        :rtype: GetLikes200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -1688,7 +1688,7 @@ class TweetApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(UserTweetsResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetLikes200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -1751,7 +1751,7 @@ class TweetApi(object):
         _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "UserTweetsResponse",
+            '200': "GetLikes200Response",
         }
 
         return self.api_client.call_api(

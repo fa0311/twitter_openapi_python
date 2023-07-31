@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alert_type** | **str** |  | [optional] 
-**color_config** | **object** |  | [optional] 
+**color_config** | **Dict[str, object]** |  | [optional] 
 **display_duration_ms** | **int** |  | [optional] 
 **display_location** | **str** |  | [optional] 
-**icon_display_info** | **object** |  | [optional] 
+**icon_display_info** | **Dict[str, object]** |  | [optional] 
 **rich_text** | [**TimelineShowAlertRichText**](TimelineShowAlertRichText.md) |  | 
 **trigger_delay_ms** | **int** |  | [optional] 
 **type** | [**InstructionType**](InstructionType.md) |  | 

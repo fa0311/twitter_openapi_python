@@ -40,13 +40,13 @@ class TestTimelineShowAlert(unittest.TestCase):
         if include_optional :
             return TimelineShowAlert(
                 alert_type = 'NewTweets', 
-                color_config = twitter_openapi_python_generated.models.color_config.colorConfig(), 
+                color_config = { }, 
                 display_duration_ms = 56, 
                 display_location = 'Top', 
-                icon_display_info = twitter_openapi_python_generated.models.icon_display_info.iconDisplayInfo(), 
+                icon_display_info = { }, 
                 rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlert_richText(
                     entities = [
-                        None
+                        { }
                         ], 
                     text = '', ), 
                 trigger_delay_ms = 56, 
@@ -55,11 +55,11 @@ class TestTimelineShowAlert(unittest.TestCase):
                     twitter_openapi_python_generated.models.user_results.UserResults(
                         result = twitter_openapi_python_generated.models.user.User(
                             __typename = 'TimelineTweet', 
-                            affiliates_highlighted_label = twitter_openapi_python_generated.models.affiliates_highlighted_label.affiliates_highlighted_label(), 
-                            business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
+                            affiliates_highlighted_label = { }, 
+                            business_account = { }, 
                             has_graduated_access = True, 
                             has_nft_avatar = True, 
-                            id = '', 
+                            id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                             is_blue_verified = True, 
                             legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                                 blocked_by = True, 
@@ -70,7 +70,7 @@ class TestTimelineShowAlert(unittest.TestCase):
                                 default_profile = True, 
                                 default_profile_image = True, 
                                 description = '', 
-                                entities = twitter_openapi_python_generated.models.entities.entities(), 
+                                entities = { }, 
                                 fast_followers_count = 56, 
                                 favourites_count = 56, 
                                 follow_request_sent = True, 
@@ -113,7 +113,7 @@ class TestTimelineShowAlert(unittest.TestCase):
             return TimelineShowAlert(
                 rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlert_richText(
                     entities = [
-                        None
+                        { }
                         ], 
                     text = '', ),
                 type = 'TimelineAddEntries',
@@ -121,11 +121,11 @@ class TestTimelineShowAlert(unittest.TestCase):
                     twitter_openapi_python_generated.models.user_results.UserResults(
                         result = twitter_openapi_python_generated.models.user.User(
                             __typename = 'TimelineTweet', 
-                            affiliates_highlighted_label = twitter_openapi_python_generated.models.affiliates_highlighted_label.affiliates_highlighted_label(), 
-                            business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
+                            affiliates_highlighted_label = { }, 
+                            business_account = { }, 
                             has_graduated_access = True, 
                             has_nft_avatar = True, 
-                            id = '', 
+                            id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                             is_blue_verified = True, 
                             legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                                 blocked_by = True, 
@@ -136,7 +136,7 @@ class TestTimelineShowAlert(unittest.TestCase):
                                 default_profile = True, 
                                 default_profile_image = True, 
                                 description = '', 
-                                entities = twitter_openapi_python_generated.models.entities.entities(), 
+                                entities = { }, 
                                 fast_followers_count = 56, 
                                 favourites_count = 56, 
                                 follow_request_sent = True, 

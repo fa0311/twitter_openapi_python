@@ -45,7 +45,7 @@ class TestTimelineTweet(unittest.TestCase):
                     type = '', ), 
                 typename = 'TimelineTweet', 
                 item_type = 'TimelineTweet', 
-                promoted_metadata = twitter_openapi_python_generated.models.promoted_metadata.promotedMetadata(), 
+                promoted_metadata = { }, 
                 tweet_display_type = '', 
                 tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 

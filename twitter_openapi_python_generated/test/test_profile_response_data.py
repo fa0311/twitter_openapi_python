@@ -40,7 +40,7 @@ class TestProfileResponseData(unittest.TestCase):
         if include_optional :
             return ProfileResponseData(
                 user_result_by_screen_name = twitter_openapi_python_generated.models.user_result_by_screen_name.UserResultByScreenName(
-                    id = 'C', 
+                    id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                     result = twitter_openapi_python_generated.models.user_result_by_screen_name_result.UserResultByScreenNameResult(
                         __typename = 'TimelineTweet', 
                         id = 'G', 
@@ -52,13 +52,13 @@ class TestProfileResponseData(unittest.TestCase):
                             name = '', 
                             protected = True, 
                             screen_name = '', ), 
-                        profilemodules = twitter_openapi_python_generated.models.profilemodules.profilemodules(), 
+                        profilemodules = { }, 
                         rest_id = '4', ), )
             )
         else :
             return ProfileResponseData(
                 user_result_by_screen_name = twitter_openapi_python_generated.models.user_result_by_screen_name.UserResultByScreenName(
-                    id = 'C', 
+                    id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                     result = twitter_openapi_python_generated.models.user_result_by_screen_name_result.UserResultByScreenNameResult(
                         __typename = 'TimelineTweet', 
                         id = 'G', 
@@ -70,7 +70,7 @@ class TestProfileResponseData(unittest.TestCase):
                             name = '', 
                             protected = True, 
                             screen_name = '', ), 
-                        profilemodules = twitter_openapi_python_generated.models.profilemodules.profilemodules(), 
+                        profilemodules = { }, 
                         rest_id = '4', ), ),
         )
         """

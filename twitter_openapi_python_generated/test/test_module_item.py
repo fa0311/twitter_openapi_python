@@ -39,16 +39,16 @@ class TestModuleItem(unittest.TestCase):
         model = twitter_openapi_python_generated.models.module_item.ModuleItem()  # noqa: E501
         if include_optional :
             return ModuleItem(
-                entry_id = 'q072888001528021798096225500850762068629', 
+                entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                 item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
-                    client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(), 
+                    client_event_info = { }, 
                     item_content = null, )
             )
         else :
             return ModuleItem(
-                entry_id = 'q072888001528021798096225500850762068629',
+                entry_id = '25375e030fccba00917317c574773100bf03b5f',
                 item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
-                    client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(), 
+                    client_event_info = { }, 
                     item_content = null, ),
         )
         """

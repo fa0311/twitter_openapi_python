@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **post_create_retweet**
-> CreateRetweetResponse post_create_retweet(path_query_id, post_create_retweet_request)
+> PostCreateRetweet200Response post_create_retweet(path_query_id, post_create_retweet_request)
 
 
 
@@ -34,7 +34,7 @@ create Retweet
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.create_retweet_response import CreateRetweetResponse
+from twitter_openapi_python_generated.models.post_create_retweet200_response import PostCreateRetweet200Response
 from twitter_openapi_python_generated.models.post_create_retweet_request import PostCreateRetweetRequest
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateRetweetResponse**](CreateRetweetResponse.md)
+[**PostCreateRetweet200Response**](PostCreateRetweet200Response.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_create_tweet**
-> CreateTweetResponse post_create_tweet(path_query_id, post_create_tweet_request)
+> PostCreateTweet200Response post_create_tweet(path_query_id, post_create_tweet_request)
 
 
 
@@ -169,7 +169,7 @@ create Tweet
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.create_tweet_response import CreateTweetResponse
+from twitter_openapi_python_generated.models.post_create_tweet200_response import PostCreateTweet200Response
 from twitter_openapi_python_generated.models.post_create_tweet_request import PostCreateTweetRequest
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTweetResponse**](CreateTweetResponse.md)
+[**PostCreateTweet200Response**](PostCreateTweet200Response.md)
 
 ### Authorization
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_delete_retweet**
-> DeleteRetweetResponse post_delete_retweet(path_query_id, post_delete_retweet_request)
+> PostDeleteRetweet200Response post_delete_retweet(path_query_id, post_delete_retweet_request)
 
 
 
@@ -304,7 +304,7 @@ delete Retweet
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.delete_retweet_response import DeleteRetweetResponse
+from twitter_openapi_python_generated.models.post_delete_retweet200_response import PostDeleteRetweet200Response
 from twitter_openapi_python_generated.models.post_delete_retweet_request import PostDeleteRetweetRequest
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteRetweetResponse**](DeleteRetweetResponse.md)
+[**PostDeleteRetweet200Response**](PostDeleteRetweet200Response.md)
 
 ### Authorization
 
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_delete_tweet**
-> DeleteTweetResponse post_delete_tweet(path_query_id, post_delete_tweet_request)
+> PostDeleteTweet200Response post_delete_tweet(path_query_id, post_delete_tweet_request)
 
 
 
@@ -439,7 +439,7 @@ delete Retweet
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.delete_tweet_response import DeleteTweetResponse
+from twitter_openapi_python_generated.models.post_delete_tweet200_response import PostDeleteTweet200Response
 from twitter_openapi_python_generated.models.post_delete_tweet_request import PostDeleteTweetRequest
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -534,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteTweetResponse**](DeleteTweetResponse.md)
+[**PostDeleteTweet200Response**](PostDeleteTweet200Response.md)
 
 ### Authorization
 
@@ -553,7 +553,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_favorite_tweet**
-> FavoriteTweetResponseData post_favorite_tweet(path_query_id, post_favorite_tweet_request)
+> PostFavoriteTweet200Response post_favorite_tweet(path_query_id, post_favorite_tweet_request)
 
 
 
@@ -574,7 +574,7 @@ favorite Tweet
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.favorite_tweet_response_data import FavoriteTweetResponseData
+from twitter_openapi_python_generated.models.post_favorite_tweet200_response import PostFavoriteTweet200Response
 from twitter_openapi_python_generated.models.post_favorite_tweet_request import PostFavoriteTweetRequest
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -669,7 +669,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FavoriteTweetResponseData**](FavoriteTweetResponseData.md)
+[**PostFavoriteTweet200Response**](PostFavoriteTweet200Response.md)
 
 ### Authorization
 
@@ -688,7 +688,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_unfavorite_tweet**
-> UnfavoriteTweetResponseData post_unfavorite_tweet(path_query_id, post_unfavorite_tweet_request)
+> PostUnfavoriteTweet200Response post_unfavorite_tweet(path_query_id, post_unfavorite_tweet_request)
 
 
 
@@ -709,8 +709,8 @@ unfavorite Tweet
 import time
 import os
 import twitter_openapi_python_generated
+from twitter_openapi_python_generated.models.post_unfavorite_tweet200_response import PostUnfavoriteTweet200Response
 from twitter_openapi_python_generated.models.post_unfavorite_tweet_request import PostUnfavoriteTweetRequest
-from twitter_openapi_python_generated.models.unfavorite_tweet_response_data import UnfavoriteTweetResponseData
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -804,7 +804,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UnfavoriteTweetResponseData**](UnfavoriteTweetResponseData.md)
+[**PostUnfavoriteTweet200Response**](PostUnfavoriteTweet200Response.md)
 
 ### Authorization
 

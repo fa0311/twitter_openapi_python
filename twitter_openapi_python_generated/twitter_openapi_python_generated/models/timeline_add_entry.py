@@ -20,7 +20,7 @@ import json
 
 
 
-from pydantic import BaseModel, Field, StrictStr, constr, validator
+from pydantic import BaseModel, Field, constr, validator
 from twitter_openapi_python_generated.models.content_union import ContentUnion
 
 class TimelineAddEntry(BaseModel):
@@ -28,9 +28,16 @@ class TimelineAddEntry(BaseModel):
     TimelineAddEntry
     """
     content: ContentUnion = Field(...)
-    entry_id: StrictStr = Field(..., alias="entryId")
+    entry_id: constr(strict=True) = Field(..., alias="entryId")
     sort_index: constr(strict=True) = Field(..., alias="sortIndex")
     __properties = ["content", "entryId", "sortIndex"]
+
+    @validator('entry_id')
+    def entry_id_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^(([a-z]+|[0-9]+|[0-9a-f]+)(-|$))+", value):
+            raise ValueError(r"must validate the regular expression /^(([a-z]+|[0-9]+|[0-9a-f]+)(-|$))+/")
+        return value
 
     @validator('sort_index')
     def sort_index_validate_regular_expression(cls, value):

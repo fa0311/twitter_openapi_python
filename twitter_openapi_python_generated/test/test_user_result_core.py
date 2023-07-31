@@ -42,11 +42,11 @@ class TestUserResultCore(unittest.TestCase):
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                     result = twitter_openapi_python_generated.models.user.User(
                         __typename = 'TimelineTweet', 
-                        affiliates_highlighted_label = twitter_openapi_python_generated.models.affiliates_highlighted_label.affiliates_highlighted_label(), 
-                        business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
+                        affiliates_highlighted_label = { }, 
+                        business_account = { }, 
                         has_graduated_access = True, 
                         has_nft_avatar = True, 
-                        id = '', 
+                        id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                         is_blue_verified = True, 
                         legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                             blocked_by = True, 
@@ -57,7 +57,7 @@ class TestUserResultCore(unittest.TestCase):
                             default_profile = True, 
                             default_profile_image = True, 
                             description = '', 
-                            entities = twitter_openapi_python_generated.models.entities.entities(), 
+                            entities = { }, 
                             fast_followers_count = 56, 
                             favourites_count = 56, 
                             follow_request_sent = True, 
@@ -100,11 +100,11 @@ class TestUserResultCore(unittest.TestCase):
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                     result = twitter_openapi_python_generated.models.user.User(
                         __typename = 'TimelineTweet', 
-                        affiliates_highlighted_label = twitter_openapi_python_generated.models.affiliates_highlighted_label.affiliates_highlighted_label(), 
-                        business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
+                        affiliates_highlighted_label = { }, 
+                        business_account = { }, 
                         has_graduated_access = True, 
                         has_nft_avatar = True, 
-                        id = '', 
+                        id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                         is_blue_verified = True, 
                         legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                             blocked_by = True, 
@@ -115,7 +115,7 @@ class TestUserResultCore(unittest.TestCase):
                             default_profile = True, 
                             default_profile_image = True, 
                             description = '', 
-                            entities = twitter_openapi_python_generated.models.entities.entities(), 
+                            entities = { }, 
                             fast_followers_count = 56, 
                             favourites_count = 56, 
                             follow_request_sent = True, 

@@ -34,8 +34,8 @@ class ModuleItem(BaseModel):
     @validator('entry_id')
     def entry_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not re.match(r"^[a-z\-]+[0-9]+$", value):
-            raise ValueError(r"must validate the regular expression /^[a-z\-]+[0-9]+$/")
+        if not re.match(r"^(([a-z]+|[0-9]+|[0-9a-f]+)(-|$))+", value):
+            raise ValueError(r"must validate the regular expression /^(([a-z]+|[0-9]+|[0-9a-f]+)(-|$))+/")
         return value
 
     class Config:

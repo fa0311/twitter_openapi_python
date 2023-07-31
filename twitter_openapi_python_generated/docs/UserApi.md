@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_user_by_rest_id**
-> UserResponse get_user_by_rest_id(path_query_id, variables, features)
+> GetUserByRestId200Response get_user_by_rest_id(path_query_id, variables, features)
 
 
 
@@ -31,7 +31,7 @@ get user by rest id
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_response import UserResponse
+from twitter_openapi_python_generated.models.get_user_by_rest_id200_response import GetUserByRestId200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserResponse**](UserResponse.md)
+[**GetUserByRestId200Response**](GetUserByRestId200Response.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_by_screen_name**
-> UserResponse get_user_by_screen_name(path_query_id, variables, features)
+> GetUserByRestId200Response get_user_by_screen_name(path_query_id, variables, features)
 
 
 
@@ -167,7 +167,7 @@ get user by screen name
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_response import UserResponse
+from twitter_openapi_python_generated.models.get_user_by_rest_id200_response import GetUserByRestId200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserResponse**](UserResponse.md)
+[**GetUserByRestId200Response**](GetUserByRestId200Response.md)
 
 ### Authorization
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_users_by_rest_ids**
-> UsersResponse get_users_by_rest_ids(path_query_id, variables, features)
+> GetUsersByRestIds200Response get_users_by_rest_ids(path_query_id, variables, features)
 
 
 
@@ -303,7 +303,7 @@ get users by rest ids
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.users_response import UsersResponse
+from twitter_openapi_python_generated.models.get_users_by_rest_ids200_response import GetUsersByRestIds200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UsersResponse**](UsersResponse.md)
+[**GetUsersByRestIds200Response**](GetUsersByRestIds200Response.md)
 
 ### Authorization
 

@@ -42,32 +42,32 @@ class TestInstructionUnion(unittest.TestCase):
                 entries = [
                     twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                         content = null, 
-                        entry_id = '', 
+                        entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                         sort_index = '4', )
                     ], 
                 type = 'TimelineAddEntries', 
                 module_entry_id = '', 
                 module_items = [
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
-                        entry_id = 'q072888001528021798096225500850762068629', 
+                        entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
-                            client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(), 
+                            client_event_info = { }, 
                             item_content = null, ), )
                     ], 
                 prepend = True, 
                 entry = twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                     content = null, 
-                    entry_id = '', 
+                    entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                     sort_index = '4', ), 
                 entry_id_to_replace = '', 
                 alert_type = 'NewTweets', 
-                color_config = twitter_openapi_python_generated.models.color_config.colorConfig(), 
+                color_config = { }, 
                 display_duration_ms = 56, 
                 display_location = 'Top', 
-                icon_display_info = twitter_openapi_python_generated.models.icon_display_info.iconDisplayInfo(), 
+                icon_display_info = { }, 
                 rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlert_richText(
                     entities = [
-                        None
+                        { }
                         ], 
                     text = '', ), 
                 trigger_delay_ms = 56, 
@@ -75,11 +75,11 @@ class TestInstructionUnion(unittest.TestCase):
                     twitter_openapi_python_generated.models.user_results.UserResults(
                         result = twitter_openapi_python_generated.models.user.User(
                             __typename = 'TimelineTweet', 
-                            affiliates_highlighted_label = twitter_openapi_python_generated.models.affiliates_highlighted_label.affiliates_highlighted_label(), 
-                            business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
+                            affiliates_highlighted_label = { }, 
+                            business_account = { }, 
                             has_graduated_access = True, 
                             has_nft_avatar = True, 
-                            id = '', 
+                            id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                             is_blue_verified = True, 
                             legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                                 blocked_by = True, 
@@ -90,7 +90,7 @@ class TestInstructionUnion(unittest.TestCase):
                                 default_profile = True, 
                                 default_profile_image = True, 
                                 description = '', 
-                                entities = twitter_openapi_python_generated.models.entities.entities(), 
+                                entities = { }, 
                                 fast_followers_count = 56, 
                                 favourites_count = 56, 
                                 follow_request_sent = True, 
@@ -135,37 +135,37 @@ class TestInstructionUnion(unittest.TestCase):
                 entries = [
                     twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                         content = null, 
-                        entry_id = '', 
+                        entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                         sort_index = '4', )
                     ],
                 type = 'TimelineAddEntries',
                 module_entry_id = '',
                 module_items = [
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
-                        entry_id = 'q072888001528021798096225500850762068629', 
+                        entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
-                            client_event_info = twitter_openapi_python_generated.models.client_event_info.clientEventInfo(), 
+                            client_event_info = { }, 
                             item_content = null, ), )
                     ],
                 entry = twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                     content = null, 
-                    entry_id = '', 
+                    entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                     sort_index = '4', ),
                 entry_id_to_replace = '',
                 rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlert_richText(
                     entities = [
-                        None
+                        { }
                         ], 
                     text = '', ),
                 users_results = [
                     twitter_openapi_python_generated.models.user_results.UserResults(
                         result = twitter_openapi_python_generated.models.user.User(
                             __typename = 'TimelineTweet', 
-                            affiliates_highlighted_label = twitter_openapi_python_generated.models.affiliates_highlighted_label.affiliates_highlighted_label(), 
-                            business_account = twitter_openapi_python_generated.models.business_account.business_account(), 
+                            affiliates_highlighted_label = { }, 
+                            business_account = { }, 
                             has_graduated_access = True, 
                             has_nft_avatar = True, 
-                            id = '', 
+                            id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                             is_blue_verified = True, 
                             legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                                 blocked_by = True, 
@@ -176,7 +176,7 @@ class TestInstructionUnion(unittest.TestCase):
                                 default_profile = True, 
                                 default_profile_image = True, 
                                 description = '', 
-                                entities = twitter_openapi_python_generated.models.entities.entities(), 
+                                entities = { }, 
                                 fast_followers_count = 56, 
                                 favourites_count = 56, 
                                 follow_request_sent = True, 

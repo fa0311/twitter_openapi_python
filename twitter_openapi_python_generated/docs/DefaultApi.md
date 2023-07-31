@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_profile_spotlights_query**
-> ProfileResponse get_profile_spotlights_query(path_query_id, variables, features)
+> GetProfileSpotlightsQuery200Response get_profile_spotlights_query(path_query_id, variables, features)
 
 
 
@@ -29,7 +29,7 @@ get user by screen name
 import time
 import os
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.profile_response import ProfileResponse
+from twitter_openapi_python_generated.models.get_profile_spotlights_query200_response import GetProfileSpotlightsQuery200Response
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProfileResponse**](ProfileResponse.md)
+[**GetProfileSpotlightsQuery200Response**](GetProfileSpotlightsQuery200Response.md)
 
 ### Authorization
 
