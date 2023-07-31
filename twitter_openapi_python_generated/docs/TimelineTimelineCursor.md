@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**cursor_type** | **str** |  | 
+**cursor_type** | [**CursorType**](CursorType.md) |  | 
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
 **item_type** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
 **value** | **str** |  | 

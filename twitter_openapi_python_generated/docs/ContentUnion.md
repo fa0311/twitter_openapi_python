@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **footer** | **Dict[str, object]** |  | [optional] 
 **header** | **Dict[str, object]** |  | [optional] 
 **items** | [**List[ModuleItem]**](ModuleItem.md) |  | [optional] 
-**cursor_type** | **str** |  | 
+**cursor_type** | [**CursorType**](CursorType.md) |  | 
 **item_type** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
 **value** | **str** |  | 
 

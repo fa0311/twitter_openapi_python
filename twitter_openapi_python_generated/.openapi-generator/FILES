@@ -18,6 +18,7 @@ docs/CreateTweet.md
 docs/CreateTweetResponse.md
 docs/CreateTweetResponseData.md
 docs/CreateTweetResponseResult.md
+docs/CursorType.md
 docs/DefaultApi.md
 docs/DeleteRetweetResponse.md
 docs/DeleteRetweetResponseData.md
@@ -188,6 +189,7 @@ test/test_create_tweet.py
 test/test_create_tweet_response.py
 test/test_create_tweet_response_data.py
 test/test_create_tweet_response_result.py
+test/test_cursor_type.py
 test/test_default_api.py
 test/test_delete_retweet_response.py
 test/test_delete_retweet_response_data.py
@@ -368,6 +370,7 @@ twitter_openapi_python_generated/models/create_tweet.py
 twitter_openapi_python_generated/models/create_tweet_response.py
 twitter_openapi_python_generated/models/create_tweet_response_data.py
 twitter_openapi_python_generated/models/create_tweet_response_result.py
+twitter_openapi_python_generated/models/cursor_type.py
 twitter_openapi_python_generated/models/delete_retweet_response.py
 twitter_openapi_python_generated/models/delete_retweet_response_data.py
 twitter_openapi_python_generated/models/delete_tweet_response.py

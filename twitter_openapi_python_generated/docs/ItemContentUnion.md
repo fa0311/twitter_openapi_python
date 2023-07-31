@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **promoted_metadata** | **Dict[str, object]** |  | [optional] 
 **tweet_display_type** | **str** |  | 
 **tweet_results** | [**ItemResult**](ItemResult.md) |  | 
-**cursor_type** | **str** |  | 
+**cursor_type** | [**CursorType**](CursorType.md) |  | 
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
 **value** | **str** |  | 
 **user_display_type** | **str** |  | 

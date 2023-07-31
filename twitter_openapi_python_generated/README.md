@@ -194,6 +194,7 @@ Class | Method | HTTP request | Description
  - [CreateTweetResponse](docs\CreateTweetResponse.md)
  - [CreateTweetResponseData](docs\CreateTweetResponseData.md)
  - [CreateTweetResponseResult](docs\CreateTweetResponseResult.md)
+ - [CursorType](docs\CursorType.md)
  - [DeleteRetweetResponse](docs\DeleteRetweetResponse.md)
  - [DeleteRetweetResponseData](docs\DeleteRetweetResponseData.md)
  - [DeleteTweetResponse](docs\DeleteTweetResponse.md)

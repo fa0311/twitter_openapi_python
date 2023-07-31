@@ -20,8 +20,9 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel, Field, StrictStr, validator
+from pydantic import BaseModel, Field, StrictStr
 from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
+from twitter_openapi_python_generated.models.cursor_type import CursorType
 from twitter_openapi_python_generated.models.type_name import TypeName
 
 class TimelineTimelineCursor(BaseModel):
@@ -29,18 +30,11 @@ class TimelineTimelineCursor(BaseModel):
     TimelineTimelineCursor
     """
     typename: TypeName = Field(..., alias="__typename")
-    cursor_type: StrictStr = Field(..., alias="cursorType")
+    cursor_type: CursorType = Field(..., alias="cursorType")
     entry_type: Optional[ContentEntryType] = Field(None, alias="entryType")
     item_type: Optional[ContentEntryType] = Field(None, alias="itemType")
     value: StrictStr = Field(...)
     __properties = ["__typename", "cursorType", "entryType", "itemType", "value"]
-
-    @validator('cursor_type')
-    def cursor_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in ('Top', 'Bottom', 'ShowMore', 'ShowMoreThreads', 'Gap'):
-            raise ValueError("must be one of enum values ('Top', 'Bottom', 'ShowMore', 'ShowMoreThreads', 'Gap')")
-        return value
 
     class Config:
         """Pydantic configuration"""
