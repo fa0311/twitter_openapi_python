@@ -1,7 +1,7 @@
 from typing import List, Optional
 from pydantic import Field
-from twitter_openapi_python_generated.api_response import ApiResponse
 import twitter_openapi_python_generated.models as models
+from twitter_openapi_python_generated.api_response import ApiResponse
 from twitter_openapi_python.model.base import BaseModel
 
 

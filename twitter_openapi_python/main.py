@@ -8,6 +8,15 @@ from pathlib import Path
 from requests.cookies import RequestsCookieJar
 from tweepy_authlib import CookieSessionUserHandler
 from typing import Any, Callable, List, Optional, Type, TypeVar
+from twitter_openapi_python.model.timeline import ApiUtilsRaw
+from twitter_openapi_python.model.tweet import TweetListApiUtilsResponse
+
+from twitter_openapi_python.utils import (
+    buildHeader,
+    entriesCursor,
+    instructionToEntry,
+    tweetEntriesConverter,
+)
 
 
 HASH = "29e05d162f600933fdbf633e992d2d0a249c9413"
@@ -23,7 +32,9 @@ if Path("cookie.json").exists():
         cookies.set(key, value)
     auth_handler = CookieSessionUserHandler(cookies=cookies)
 else:
-    auth_handler = CookieSessionUserHandler(screen_name="", password="")
+    auth_handler = CookieSessionUserHandler(
+        screen_name=input("screen_name: "), password=input("password: ")
+    )
     cookies = auth_handler.get_cookies()
     with open("cookie.json", "w") as f:
         json.dump(cookies.get_dict(), f, ensure_ascii=False, indent=4)
@@ -66,17 +77,37 @@ T = TypeVar("T")
 def request(
     apiFn: Callable[[str, str, str], ApiResponse],
     type: Type[T],
-    convertFn: Callable[[T], Type[List[models.InstructionUnion]]],
+    convertFn: Callable[[T], List[models.InstructionUnion]],
     key: str,
     param: dict[str, Any],
-):
+) -> TweetListApiUtilsResponse:
     flag = http.request("GET", PLACEHOLDER).json()
     res = apiFn(
         flag[key]["queryId"],
         json.dumps(dict(flag[key]["variables"], **param)),
         json.dumps(flag[key]["features"]),
     )
-    return convertFn(res.data)
+
+    if isinstance(res.data.actual_instance, models.Error):
+        error: models.Error = res.data.actual_instance
+        raise Exception(error)
+
+    instruction = convertFn(res.data.actual_instance)
+    entry = instructionToEntry(instruction)
+    data = tweetEntriesConverter(entry)
+
+    raw = ApiUtilsRaw(
+        response=res,
+        instruction=instruction,
+        entry=entry,
+    )
+
+    return TweetListApiUtilsResponse(
+        raw=raw,
+        header=buildHeader(res.headers),
+        cursor=entriesCursor(entry),
+        data=data,
+    )
 
 
 def getHomeTimeline(
@@ -91,6 +122,7 @@ def getHomeTimeline(
         param["count"] = count
     if extraParam is not None:
         param.update(extraParam)
+
     return request(
         apiFn=api_instance.get_home_timeline_with_http_info,
         type=models.TimelineResponse,
@@ -100,11 +132,5 @@ def getHomeTimeline(
     )
 
 
-aa = getHomeTimeline()[0]
-
-print(aa.additional_properties["type"])
-
-if aa.additional_properties["type"] == "TimelineAddEntries":
-    aa = models.TimelineAddEntries.from_dict(aa.additional_properties)
-
-    print(aa.entries)
+aa = getHomeTimeline()
+print(aa)
