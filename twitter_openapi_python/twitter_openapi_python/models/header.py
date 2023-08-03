@@ -1,7 +1,7 @@
 from pydantic import Field
 from urllib3 import HTTPHeaderDict
 
-from twitter_openapi_python.model import BaseModel
+from twitter_openapi_python.models import BaseModel
 
 
 class ApiUtilsHeader(BaseModel):

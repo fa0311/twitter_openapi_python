@@ -3,7 +3,7 @@ from typing import List, TypeGuard, TypeVar, Optional, Any
 
 from urllib3 import HTTPHeaderDict
 
-from twitter_openapi_python.model import (
+from twitter_openapi_python.models import (
     ApiUtilsHeader,
     CursorApiUtilsResponse,
     TweetApiUtilsData,
