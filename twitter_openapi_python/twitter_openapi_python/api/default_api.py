@@ -1,11 +1,17 @@
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
-from twitter_openapi_python_generated.api_response import ApiResponse
 from typing import Any, Callable, Optional, Type, TypeVar
 import json
 
+from twitter_openapi_python.models.response import (
+    TwitterApiUtilsRaw,
+    TwitterApiUtilsResponse,
+)
+from twitter_openapi_python.utils.api import buildHeader
 
-T = TypeVar("T")
+
+T1 = TypeVar("T1")
+T2 = TypeVar("T2")
 
 
 class DefaultApiUtils:
@@ -18,11 +24,13 @@ class DefaultApiUtils:
 
     def request(
         self,
-        apiFn: Callable[[str, str, str], ApiResponse],
-        type: Type[T],
+        apiFn: Callable[[str, str, str], twitter.ApiResponse],
+        convertFn: Callable[[T1], T2],
+        type1: Type[T1],
+        type2: Type[T2],
         key: str,
         param: dict[str, Any],
-    ) -> T:
+    ) -> TwitterApiUtilsResponse[T2]:
         res = apiFn(
             self.flag[key]["queryId"],
             json.dumps(self.flag[key]["variables"] | param),
@@ -31,22 +39,32 @@ class DefaultApiUtils:
         if isinstance(res.data.actual_instance, models.Error):
             error: models.Error = res.data.actual_instance
             raise Exception(error)
-        return res.data.actual_instance
+
+        data = convertFn(res.data.actual_instance)
+
+        return TwitterApiUtilsResponse(
+            raw=TwitterApiUtilsRaw(response=res),
+            header=buildHeader(res.headers),
+            data=data,
+        )
 
     def get_profile_spotlights_query(
         self,
         screen_name: Optional[str] = None,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> models.UserResultByScreenName:
+    ) -> TwitterApiUtilsResponse[models.UserResultByScreenName]:
         param: dict[str, Any] = {}
         if screen_name is not None:
             param["screen_name"] = screen_name
         if extra_param is not None:
             param.update(extra_param)
 
-        return self.request(
+        response = self.request(
             apiFn=self.api.get_profile_spotlights_query_with_http_info,
-            type=models.ProfileResponse,
+            convertFn=lambda x: x.data.user_result_by_screen_name,
+            type1=models.ProfileResponse,
+            type2=models.UserResultByScreenName,
             key="ProfileSpotlightsQuery",
             param=param,
         )
+        return response

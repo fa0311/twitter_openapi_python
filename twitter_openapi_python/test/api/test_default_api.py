@@ -12,7 +12,7 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_get_profile_spotlights_query(self):
         result = self.client.get_profile_spotlights_query(screen_name="elonmusk")
-        legacy = result.result.legacy
+        legacy = result.data.result.legacy
 
         logging.info(legacy.screen_name)
         logging.info(f"followed_by: {legacy.followed_by} following: {legacy.following}")
