@@ -17,3 +17,14 @@ class ApiUtilsHeader(BaseModel):
     transaction_id: str = Field()
     twitter_response_tags: str = Field()
     xss_protection: int = Field()
+
+
+class PostApiUtilsHeader(BaseModel):
+    raw: HTTPHeaderDict = Field()
+    connection_hash: str = Field()
+    content_type_options: str = Field()
+    frame_options: str = Field()
+    response_time: int = Field()
+    tfe_preserve_body: bool = Field()
+    transaction_id: str = Field()
+    xss_protection: int = Field()
