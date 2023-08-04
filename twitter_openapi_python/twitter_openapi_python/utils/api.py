@@ -5,6 +5,7 @@ from urllib3 import HTTPHeaderDict
 
 from twitter_openapi_python.models import (
     ApiUtilsHeader,
+    PostApiUtilsHeader,
     CursorApiUtilsResponse,
     TweetApiUtilsData,
     UserApiUtilsData,
@@ -174,5 +175,18 @@ def buildHeader(headers: HTTPHeaderDict) -> ApiUtilsHeader:
         tfe_preserve_body=headers.get("x-tfe-preserve-body") == "true",
         transaction_id=headers.get("x-transaction-id"),
         twitter_response_tags=headers.get("x-twitter-response-tags"),
+        xss_protection=int(headers.get("x-xss-protection")),
+    )
+
+
+def postBuildHeader(headers: HTTPHeaderDict) -> PostApiUtilsHeader:
+    return PostApiUtilsHeader(
+        raw=headers,
+        connection_hash=headers.get("x-connection-hash"),
+        content_type_options=headers.get("x-content-type-options"),
+        frame_options=headers.get("x-frame-options"),
+        response_time=int(headers.get("x-response-time")),
+        tfe_preserve_body=headers.get("x-tfe-preserve-body") == "true",
+        transaction_id=headers.get("x-transaction-id"),
         xss_protection=int(headers.get("x-xss-protection")),
     )

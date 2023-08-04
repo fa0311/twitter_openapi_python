@@ -3,7 +3,7 @@ from typing import Any
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.configuration as conf
-from twitter_openapi_python.api.default_api import DefaultApiUtils
+from twitter_openapi_python.api import DefaultApiUtils, PostApiUtils
 
 
 class TwitterOpenapiPythonClient:
@@ -16,6 +16,9 @@ class TwitterOpenapiPythonClient:
 
     def get_default_api(self):
         return DefaultApiUtils(twitter.DefaultApi(self.api), self.placeholder)
+
+    def get_post_api(self):
+        return PostApiUtils(twitter.PostApi(self.api), self.placeholder)
 
 
 class TwitterOpenapiPython:
