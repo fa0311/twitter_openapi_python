@@ -1,17 +1,16 @@
 from pydantic import Field
 
-from pydantic.generics import GenericModel
 from twitter_openapi_python.models.header import ApiUtilsHeader, PostApiUtilsHeader
 from typing import Generic, TypeVar
-from twitter_openapi_python_generated.api_response import ApiResponse
-from twitter_openapi_python.models.base import BaseModel
+import twitter_openapi_python_generated as twitter
+from twitter_openapi_python.models import BaseModel, GenericModel
 
 
 T = TypeVar("T")
 
 
 class TwitterApiUtilsRaw(BaseModel):
-    response: ApiResponse = Field()
+    response: twitter.ApiResponse = Field()
 
 
 class TwitterApiUtilsResponse(GenericModel, Generic[T]):
