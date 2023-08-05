@@ -7,7 +7,7 @@ from twitter_openapi_python.models.response import (
     TwitterApiUtilsRaw,
     TwitterApiUtilsResponse,
 )
-from twitter_openapi_python.utils.api import buildHeader
+from twitter_openapi_python.utils.api import build_header
 
 
 T1 = TypeVar("T1")
@@ -44,7 +44,7 @@ class DefaultApiUtils:
 
         return TwitterApiUtilsResponse(
             raw=TwitterApiUtilsRaw(response=res),
-            header=buildHeader(res.headers),
+            header=build_header(res.headers),
             data=data,
         )
 

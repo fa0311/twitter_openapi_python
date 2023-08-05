@@ -6,7 +6,7 @@ from twitter_openapi_python.models import (
     TwitterPostApiUtilsResponse,
     TwitterApiUtilsRaw,
 )
-from twitter_openapi_python.utils import postBuildHeader
+from twitter_openapi_python.utils import post_build_header
 
 
 class PostApiUtils:
@@ -24,7 +24,7 @@ class PostApiUtils:
 
         return TwitterPostApiUtilsResponse(
             raw=TwitterApiUtilsRaw(response=response),
-            header=postBuildHeader(response.headers),
+            header=post_build_header(response.headers),
             data=response.data.actual_instance,
         )
 
