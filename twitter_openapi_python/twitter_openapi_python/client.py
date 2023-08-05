@@ -3,7 +3,12 @@ from typing import Any
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.configuration as conf
-from twitter_openapi_python.api import DefaultApiUtils, PostApiUtils
+from twitter_openapi_python.api import (
+    DefaultApiUtils,
+    PostApiUtils,
+    InitialStateApiUtils,
+    TweetApiUtils,
+)
 
 
 class TwitterOpenapiPythonClient:
@@ -14,11 +19,17 @@ class TwitterOpenapiPythonClient:
         self.api = api
         self.placeholder = placeholder
 
-    def get_default_api(self):
+    def get_default_api(self) -> DefaultApiUtils:
         return DefaultApiUtils(twitter.DefaultApi(self.api), self.placeholder)
 
-    def get_post_api(self):
+    def get_initial_state_api(self) -> InitialStateApiUtils:
+        return InitialStateApiUtils(self.placeholder)
+
+    def get_post_api(self) -> PostApiUtils:
         return PostApiUtils(twitter.PostApi(self.api), self.placeholder)
+
+    def get_tweet_api(self) -> TweetApiUtils:
+        return TweetApiUtils(twitter.TweetApi(self.api), self.placeholder)
 
 
 class TwitterOpenapiPython:
