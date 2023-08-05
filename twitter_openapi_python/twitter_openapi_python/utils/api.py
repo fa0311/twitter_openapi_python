@@ -1,9 +1,6 @@
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
-from typing import List, Type, TypeGuard, TypeVar, Optional, Any
-
-from urllib3 import HTTPHeaderDict
-
+from typing import Dict, List, Type, TypeGuard, TypeVar, Optional, Any
 from twitter_openapi_python.models import (
     ApiUtilsHeader,
     PostApiUtilsHeader,
@@ -36,12 +33,12 @@ def instruction_to_entry(
     input: List[models.InstructionUnion],
 ) -> List[models.TimelineAddEntry]:
     def map_fn(x: models.InstructionUnion) -> List[models.TimelineAddEntry]:
-        if x.actual_instance.type == models.InstructionType.TIMELINEADDENTRIES:
-            res = x.actual_instance.entries
-            return res
-        elif x.actual_instance.type == models.InstructionType.TIMELINEREPLACEENTRY:
-            res = [x.actual_instance.entry]
-            return res
+        one_of = x.actual_instance
+
+        if isinstance(one_of, models.TimelineAddEntries):
+            return one_of.entries
+        elif isinstance(one_of, models.TimelineReplaceEntry):
+            return [one_of.entry]
         else:
             return []
 
@@ -53,18 +50,16 @@ def tweet_entries_converter(
 ) -> List[TweetApiUtilsData]:
     def map_fn(x: models.TimelineAddEntry) -> Optional[TweetApiUtilsData]:
         one_of = x.content.actual_instance
-        if one_of.entry_type == models.ContentEntryType.TIMELINETIMELINEITEM:
-            item = one_of.item_content
-            if item.actual_instance.typename == models.TypeName.TIMELINETWEET:
-                timeline = item.actual_instance
+
+        if isinstance(one_of, models.TimelineTimelineItem):
+            item = one_of.item_content.actual_instance
+            if isinstance(item, models.TimelineTweet):
                 return buildTweetApiUtils(
-                    result=timeline.tweet_results,
-                    promoted_metadata=timeline.promoted_metadata,
+                    result=item.tweet_results,
+                    promoted_metadata=item.promoted_metadata,
                     reply=[],
                 )
-            else:
-                return None
-        elif one_of.entry_type == models.ContentEntryType.TIMELINETIMELINEMODULE:
+        elif isinstance(one_of, models.TimelineTimelineModule):
             module = one_of.items or []
             timelineList = non_nullable_list(list(map(map_fn_2, module)))
             if len(timelineList) == 0:
@@ -75,14 +70,11 @@ def tweet_entries_converter(
                 promoted_metadata=timeline.promoted_metadata,
                 reply=timelineList[1:],
             )
-        else:
-            return None
 
     def map_fn_2(x: models.ModuleItem) -> Optional[models.TimelineTweet]:
         item = x.item.item_content.actual_instance
-        if item.typename == models.TypeName.TIMELINETWEET:
+        if isinstance(item, models.TimelineTweet):
             return item
-        return None
 
     return non_nullable_list(list(map(map_fn, input)))
 
@@ -114,11 +106,11 @@ def buildTweetApiUtils(
 
 def tweetResultsConverter(tweetResults: models.ItemResult) -> Optional[models.Tweet]:
     properties = tweetResults.result.actual_instance
-    if properties.typename == models.TypeName.TWEET:
+    if isinstance(properties, models.Tweet):
         return properties
-    elif properties.typename == models.TypeName.TWEETWITHVISIBILITYRESULTS:
+    elif isinstance(properties, models.TweetWithVisibilityResults):
         return properties.tweet
-    elif properties.typename == models.TypeName.TWEETTOMBSTONE:
+    elif isinstance(properties, models.TweetTombstone):
         return None
     raise Exception()
 
@@ -128,10 +120,10 @@ def user_entries_converter(
 ) -> list[models.TimelineUser]:
     def map_fn(x: models.TimelineAddEntry) -> Optional[models.TimelineUser]:
         one_of = x.content.actual_instance
-        if one_of.typename == models.TypeName.TIMELINETIMELINEITEM:
-            item = one_of.item_content
-            if item.actual_instance.typename == models.TypeName.TIMELINEUSER:
-                return item.actual_instance
+        if isinstance(one_of, models.TimelineTimelineItem):
+            item = one_of.item_content.actual_instance
+            if isinstance(item, models.TimelineUser):
+                return item
 
     return non_nullable_list(list(map(map_fn, item)))
 
@@ -143,14 +135,14 @@ def build_user_response(user: models.TimelineUser) -> UserApiUtilsData:
     )
 
 
-def entries_cursor(item: models.TimelineAddEntry) -> CursorApiUtilsResponse:
+def entries_cursor(item: List[models.TimelineAddEntry]) -> CursorApiUtilsResponse:
     def map_fn(x: models.TimelineAddEntry) -> Optional[models.TimelineTimelineCursor]:
         item = x.content.actual_instance
-        if item.entry_type == models.ContentEntryType.TIMELINETIMELINECURSOR:
+        if isinstance(item, models.TimelineTimelineCursor):
             return item
-        elif item.entry_type == models.ContentEntryType.TIMELINETIMELINEITEM:
+        elif isinstance(item, models.TimelineTimelineItem):
             content = item.item_content.actual_instance
-            if content.item_type == models.ContentItemType.TIMELINETIMELINECURSOR:
+            if isinstance(content, models.TimelineTimelineCursor):
                 return content
 
     return build_cursor(non_nullable_list(list(map(map_fn, item))))
@@ -169,33 +161,33 @@ def build_cursor(list: list[models.TimelineTimelineCursor]) -> CursorApiUtilsRes
     )
 
 
-def build_header(headers: HTTPHeaderDict) -> ApiUtilsHeader:
+def build_header(headers: Dict[str, str]) -> ApiUtilsHeader:
     return ApiUtilsHeader(
         raw=headers,
-        connection_hash=headers.get("x-connection-hash"),
-        content_type_options=headers.get("x-content-type-options"),
-        frame_options=headers.get("x-frame-options"),
-        rate_limit_limit=int(headers.get("x-rate-limit-limit")),
-        rate_limit_remaining=int(headers.get("x-rate-limit-remaining")),
-        rate_limit_reset=int(headers.get("x-rate-limit-reset")),
-        response_time=int(headers.get("x-response-time")),
-        tfe_preserve_body=headers.get("x-tfe-preserve-body") == "true",
-        transaction_id=headers.get("x-transaction-id"),
-        twitter_response_tags=headers.get("x-twitter-response-tags"),
-        xss_protection=int(headers.get("x-xss-protection")),
+        connection_hash=headers["x-connection-hash"],
+        content_type_options=headers["x-content-type-options"],
+        frame_options=headers["x-frame-options"],
+        rate_limit_limit=int(headers["x-rate-limit-limit"]),
+        rate_limit_remaining=int(headers["x-rate-limit-remaining"]),
+        rate_limit_reset=int(headers["x-rate-limit-reset"]),
+        response_time=int(headers["x-response-time"]),
+        tfe_preserve_body=headers["x-tfe-preserve-body"] == "true",
+        transaction_id=headers["x-transaction-id"],
+        twitter_response_tags=headers["x-twitter-response-tags"],
+        xss_protection=int(headers["x-xss-protection"]),
     )
 
 
-def post_build_header(headers: HTTPHeaderDict) -> PostApiUtilsHeader:
+def post_build_header(headers: Dict[str, str]) -> PostApiUtilsHeader:
     return PostApiUtilsHeader(
         raw=headers,
-        connection_hash=headers.get("x-connection-hash"),
-        content_type_options=headers.get("x-content-type-options"),
-        frame_options=headers.get("x-frame-options"),
-        response_time=int(headers.get("x-response-time")),
-        tfe_preserve_body=headers.get("x-tfe-preserve-body") == "true",
-        transaction_id=headers.get("x-transaction-id"),
-        xss_protection=int(headers.get("x-xss-protection")),
+        connection_hash=headers["x-connection-hash"],
+        content_type_options=headers["x-content-type-options"],
+        frame_options=headers["x-frame-options"],
+        response_time=int(headers["x-response-time"]),
+        tfe_preserve_body=headers["x-tfe-preserve-body"] == "true",
+        transaction_id=headers["x-transaction-id"],
+        xss_protection=int(headers["x-xss-protection"]),
     )
 
 
@@ -204,6 +196,9 @@ def build_response(
     data: T1,
     type: Type[T2],
 ) -> TwitterApiUtilsResponse[T1, T2]:
+    if response.headers is None:
+        raise Exception("headers is None")
+
     if type == ApiUtilsHeader:
         header = build_header(response.headers)
     elif type == PostApiUtilsHeader:
@@ -215,4 +210,4 @@ def build_response(
         raw=TwitterApiUtilsRaw(response=response),
         header=header,
         data=data,
-    )
+    )  # type: ignore

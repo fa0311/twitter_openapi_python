@@ -13,7 +13,7 @@ from twitter_openapi_python.utils.api import (
     instruction_to_entry,
     user_entries_converter,
 )
-from typing import Any, Callable, Type, TypeVar, Optional, List
+from typing import Any, Callable, Type, TypeVar, Optional, List, Union
 import json
 
 T = TypeVar("T")
@@ -22,6 +22,11 @@ T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[
     TimelineApiUtilsResponse[UserApiUtilsData],
     ApiUtilsHeader,
+]
+
+ApiFnType = Union[
+    Callable[[str, str, str], twitter.ApiResponse],
+    Callable[[str, str, str, str], twitter.ApiResponse],
 ]
 
 
@@ -35,7 +40,7 @@ class UserListApiUtils:
 
     def request(
         self,
-        apiFn: Callable[[str, str, str], twitter.ApiResponse],
+        apiFn: ApiFnType,
         convertFn: Callable[[T], List[models.InstructionUnion]],
         type: Type[T],
         key: str,
@@ -43,18 +48,23 @@ class UserListApiUtils:
     ) -> ResponseType:
         assert key in self.flag.keys()
 
-        kwargs = {
-            "path_query_id": self.flag[key]["queryId"],
-            "variables": json.dumps(self.flag[key]["variables"] | param),
-            "features": json.dumps(self.flag[key]["features"]),
-        }
-        if "fieldToggles" in self.flag[key].keys():
-            kwargs["field_toggles"] = json.dumps(self.flag[key]["fieldToggles"])
+        args: list[str] = [
+            self.flag[key]["queryId"],
+            json.dumps(self.flag[key]["variables"] | param),
+            json.dumps(self.flag[key]["features"]),
+        ]
 
-        res = apiFn(**kwargs)
+        if "fieldToggles" in self.flag[key].keys():
+            args.append(json.dumps(self.flag[key]["fieldToggles"]))
+
+        res = apiFn(*args)
+        if res.data is None:
+            raise Exception("No data")
+
         if isinstance(res.data.actual_instance, models.Errors):
             errors: models.Errors = res.data.actual_instance
             raise Exception(errors)
+
         instruction = convertFn(res.data.actual_instance)
         entry = instruction_to_entry(instruction)
         user_list = user_entries_converter(entry)

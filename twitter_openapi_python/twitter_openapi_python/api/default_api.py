@@ -1,6 +1,6 @@
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
-from typing import Any, Callable, Optional, Type, TypeVar
+from typing import Any, Callable, Optional, Type, TypeVar, Union
 import json
 
 from twitter_openapi_python.models import (
@@ -14,6 +14,12 @@ T1 = TypeVar("T1")
 T2 = TypeVar("T2")
 
 
+ApiFnType = Union[
+    Callable[[str, str, str], twitter.ApiResponse],
+    Callable[[str, str, str, str], twitter.ApiResponse],
+]
+
+
 class DefaultApiUtils:
     api: twitter.DefaultApi
     flag: dict[str, Any]
@@ -24,7 +30,7 @@ class DefaultApiUtils:
 
     def request(
         self,
-        apiFn: Callable[[str, str, str], twitter.ApiResponse],
+        apiFn: ApiFnType,
         convertFn: Callable[[T1], T2],
         type1: Type[T1],
         type2: Type[T2],
@@ -32,11 +38,19 @@ class DefaultApiUtils:
         param: dict[str, Any],
     ) -> TwitterApiUtilsResponse[T2, ApiUtilsHeader]:
         assert key in self.flag.keys()
-        res = apiFn(
+
+        args: list[str] = [
             self.flag[key]["queryId"],
             json.dumps(self.flag[key]["variables"] | param),
             json.dumps(self.flag[key]["features"]),
-        )
+        ]
+
+        if "fieldToggles" in self.flag[key].keys():
+            args.append(json.dumps(self.flag[key]["fieldToggles"]))
+
+        res = apiFn(*args)
+        if res.data is None:
+            raise Exception("No data")
         if isinstance(res.data.actual_instance, models.Errors):
             errors: models.Errors = res.data.actual_instance
             raise Exception(errors)

@@ -1,11 +1,11 @@
+from typing import Dict
 from pydantic import Field
-from urllib3 import HTTPHeaderDict
 
 from twitter_openapi_python.models import BaseModel
 
 
 class PostApiUtilsHeader(BaseModel):
-    raw: HTTPHeaderDict = Field()
+    raw: Dict[str, str] = Field()
     connection_hash: str = Field()
     content_type_options: str = Field()
     frame_options: str = Field()
