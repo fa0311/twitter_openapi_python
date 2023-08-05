@@ -31,6 +31,7 @@ class DefaultApiUtils:
         key: str,
         param: dict[str, Any],
     ) -> TwitterApiUtilsResponse[T2, ApiUtilsHeader]:
+        assert key in self.flag.keys()
         res = apiFn(
             self.flag[key]["queryId"],
             json.dumps(self.flag[key]["variables"] | param),

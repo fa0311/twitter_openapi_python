@@ -37,7 +37,7 @@ class TweetApiUtils:
         key: str,
         param: dict[str, Any],
     ) -> TwitterApiUtilsResponse[TweetListApiUtilsResponse, ApiUtilsHeader]:
-        assert self.flag[key] is not None
+        assert key in self.flag.keys()
 
         res = apiFn(
             self.flag[key]["queryId"],
