@@ -6,6 +6,7 @@ from typing import Any, Callable, Type, TypeVar, Optional
 import json
 
 T = TypeVar("T")
+ResponseType = TwitterApiUtilsResponse[models.User, ApiUtilsHeader]
 
 
 class UserApiUtils:
@@ -23,7 +24,7 @@ class UserApiUtils:
         type: Type[T],
         key: str,
         param: dict[str, Any],
-    ) -> TwitterApiUtilsResponse[models.User, ApiUtilsHeader]:
+    ) -> ResponseType:
         assert key in self.flag.keys()
 
         res = apiFn(
@@ -46,7 +47,7 @@ class UserApiUtils:
         self,
         screen_name: str,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[models.User, ApiUtilsHeader]:
+    ) -> ResponseType:
         param: dict[str, Any] = {
             "screen_name": screen_name,
         }
@@ -64,7 +65,7 @@ class UserApiUtils:
         self,
         user_id: str,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[models.User, ApiUtilsHeader]:
+    ) -> ResponseType:
         param: dict[str, Any] = {
             "userId": user_id,
         }
@@ -78,20 +79,20 @@ class UserApiUtils:
             param=param,
         )
 
-    # def get_users_by_rest_ids(
-    #     self,
-    #     user_ids: list[str],
-    #     extra_param: Optional[dict[str, Any]] = None,
-    # ) -> TwitterApiUtilsResponse[list[models.User], ApiUtilsHeader]:
-    #     param: dict[str, Any] = {
-    #         "userIds": user_ids,
-    #     }
-    #     if extra_param is not None:
-    #         param.update(extra_param)
-    #     return self.request(
-    #         apiFn=self.api.get_users_by_rest_ids_with_http_info,
-    #         convertFn=lambda e: e.data.users,
-    #         type=models.UsersResponse,
-    #         key="UsersByRestIds",
-    #         param=param,
-    #     )
+    def get_users_by_rest_ids(
+        self,
+        user_ids: list[str],
+        extra_param: Optional[dict[str, Any]] = None,
+    ) -> ResponseType:
+        param: dict[str, Any] = {
+            "userIds": user_ids,
+        }
+        if extra_param is not None:
+            param.update(extra_param)
+        return self.request(
+            apiFn=self.api.get_users_by_rest_ids_with_http_info,
+            convertFn=lambda e: e.data.users[0],
+            type=models.UsersResponse,
+            key="UsersByRestIds",
+            param=param,
+        )

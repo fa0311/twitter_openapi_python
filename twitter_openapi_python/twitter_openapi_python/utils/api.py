@@ -107,7 +107,7 @@ def buildTweetApiUtils(
         promoted_metadata=promoted_metadata,
         tweet=tweet,
         user=tweet.core.user_results.result,
-        reply=non_nullable_list(list(map(reply_fn, reply))),
+        replies=non_nullable_list(list(map(reply_fn, reply))),
         quoted=buildTweetApiUtils(quoted, None, []) if quoted else None,
     )
 

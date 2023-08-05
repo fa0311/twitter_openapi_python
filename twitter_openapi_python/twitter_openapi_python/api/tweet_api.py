@@ -4,9 +4,10 @@ import twitter_openapi_python_generated.models as models
 from twitter_openapi_python.models import (
     ApiUtilsRaw,
     TwitterApiUtilsResponse,
-    TweetListApiUtilsResponse,
+    TimelineApiUtilsResponse,
 )
-from twitter_openapi_python.models.header import ApiUtilsHeader
+from twitter_openapi_python.models import ApiUtilsHeader
+from twitter_openapi_python.models import TweetApiUtilsData
 
 from twitter_openapi_python.utils.api import (
     instruction_to_entry,
@@ -18,7 +19,13 @@ from twitter_openapi_python.utils.api import (
 from typing import Any, Callable, Type, TypeVar, List, Optional
 import json
 
+
 T = TypeVar("T")
+
+ResponseType = TwitterApiUtilsResponse[
+    TimelineApiUtilsResponse[TweetApiUtilsData],
+    ApiUtilsHeader,
+]
 
 
 class TweetApiUtils:
@@ -36,7 +43,7 @@ class TweetApiUtils:
         type: Type[T],
         key: str,
         param: dict[str, Any],
-    ) -> TwitterApiUtilsResponse[TweetListApiUtilsResponse, ApiUtilsHeader]:
+    ) -> ResponseType:
         assert key in self.flag.keys()
 
         res = apiFn(
@@ -54,7 +61,7 @@ class TweetApiUtils:
             instruction=instruction,
             entry=entry,
         )
-        data = TweetListApiUtilsResponse(
+        data = TimelineApiUtilsResponse[TweetApiUtilsData](
             raw=raw,
             cursor=entries_cursor(entry),
             data=tweet_list,
@@ -72,7 +79,7 @@ class TweetApiUtils:
         cursor: Optional[str] = None,
         controller_data: Optional[str] = None,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[TweetListApiUtilsResponse, ApiUtilsHeader]:
+    ) -> ResponseType:
         param: dict[str, Any] = {
             "focalTweetId": focal_tweet_id,
         }
@@ -99,7 +106,7 @@ class TweetApiUtils:
         cursor: Optional[str] = None,
         count: Optional[int] = None,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[TweetListApiUtilsResponse, ApiUtilsHeader]:
+    ) -> ResponseType:
         param: dict[str, Any] = {
             "rawQuery": raw_query,
         }
@@ -126,7 +133,7 @@ class TweetApiUtils:
         cursor: Optional[str] = None,
         count: Optional[int] = None,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[TweetListApiUtilsResponse, ApiUtilsHeader]:
+    ) -> ResponseType:
         param: dict[str, Any] = {}
         if cursor is not None:
             param["cursor"] = cursor
@@ -149,7 +156,7 @@ class TweetApiUtils:
         cursor: Optional[str] = None,
         count: Optional[int] = None,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[TweetListApiUtilsResponse, ApiUtilsHeader]:
+    ) -> ResponseType:
         param: dict[str, Any] = {}
         if cursor is not None:
             param["cursor"] = cursor
@@ -173,7 +180,7 @@ class TweetApiUtils:
         cursor: Optional[str] = None,
         count: Optional[int] = None,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[TweetListApiUtilsResponse, ApiUtilsHeader]:
+    ) -> ResponseType:
         param: dict[str, Any] = {
             "listId": list_id,
         }
@@ -199,7 +206,7 @@ class TweetApiUtils:
         cursor: Optional[str] = None,
         count: Optional[int] = None,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[TweetListApiUtilsResponse, ApiUtilsHeader]:
+    ) -> ResponseType:
         param: dict[str, Any] = {
             "userId": user_id,
         }
@@ -225,7 +232,7 @@ class TweetApiUtils:
         cursor: Optional[str] = None,
         count: Optional[int] = None,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[TweetListApiUtilsResponse, ApiUtilsHeader]:
+    ) -> ResponseType:
         param: dict[str, Any] = {
             "userId": user_id,
         }
@@ -251,7 +258,7 @@ class TweetApiUtils:
         cursor: Optional[str] = None,
         count: Optional[int] = None,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[TweetListApiUtilsResponse, ApiUtilsHeader]:
+    ) -> ResponseType:
         param: dict[str, Any] = {
             "userId": user_id,
         }
@@ -277,7 +284,7 @@ class TweetApiUtils:
         cursor: Optional[str] = None,
         count: Optional[int] = None,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[TweetListApiUtilsResponse, ApiUtilsHeader]:
+    ) -> ResponseType:
         param: dict[str, Any] = {
             "userId": user_id,
         }
@@ -302,7 +309,7 @@ class TweetApiUtils:
         cursor: Optional[str] = None,
         count: Optional[int] = None,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[TweetListApiUtilsResponse, ApiUtilsHeader]:
+    ) -> ResponseType:
         param: dict[str, Any] = {}
         if cursor is not None:
             param["cursor"] = cursor
