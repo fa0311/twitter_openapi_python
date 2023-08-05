@@ -1,6 +1,6 @@
+import logging
 import unittest
 import twitter_openapi_python as api
-import logging
 from test.api import get_client
 
 
