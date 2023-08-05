@@ -8,6 +8,7 @@ from twitter_openapi_python.api import (
     PostApiUtils,
     InitialStateApiUtils,
     TweetApiUtils,
+    UserApiUtils,
 )
 
 
@@ -30,6 +31,9 @@ class TwitterOpenapiPythonClient:
 
     def get_tweet_api(self) -> TweetApiUtils:
         return TweetApiUtils(twitter.TweetApi(self.api), self.placeholder)
+
+    def get_user_api(self) -> UserApiUtils:
+        return UserApiUtils(twitter.UserApi(self.api), self.placeholder)
 
 
 class TwitterOpenapiPython:
