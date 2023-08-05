@@ -22,14 +22,11 @@ class TestUserApi(unittest.TestCase):
         logging.info(legacy.screen_name)
         logging.info(f"followed_by: {legacy.followed_by} following: {legacy.following}")
 
-    # def test_get_users_by_rest_ids(self):
-    #     result = self.client.get_users_by_rest_ids(user_ids=["44196397", "44196397"])
-    #     for user in result.data:
-    #         legacy = user.legacy
-    #         logging.info(legacy.screen_name)
-    #         logging.info(
-    #             f"followed_by: {legacy.followed_by} following: {legacy.following}"
-    #         )
+    def test_get_users_by_rest_ids(self):
+        result = self.client.get_users_by_rest_ids(user_ids=["44196397", "44196397"])
+        legacy = result.data.legacy
+        logging.info(legacy.screen_name)
+        logging.info(f"followed_by: {legacy.followed_by} following: {legacy.following}")
 
 
 if __name__ == "__main__":
