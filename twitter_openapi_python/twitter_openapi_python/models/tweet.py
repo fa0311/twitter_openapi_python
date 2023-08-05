@@ -3,7 +3,8 @@ from pydantic import Field
 import twitter_openapi_python_generated.models as models
 
 from twitter_openapi_python.models.base import BaseModel
-from twitter_openapi_python.models.header import ApiUtilsHeader
+
+# from twitter_openapi_python.models.header import ApiUtilsHeader
 from twitter_openapi_python.models.timeline import ApiUtilsRaw, CursorApiUtilsResponse
 
 
@@ -19,6 +20,6 @@ class TweetApiUtilsData(BaseModel):
 
 class TweetListApiUtilsResponse(BaseModel):
     raw: ApiUtilsRaw = Field()
-    header: ApiUtilsHeader = Field()
+    # header: ApiUtilsHeader = Field()
     cursor: CursorApiUtilsResponse = Field()
     data: List[TweetApiUtilsData] = Field(default_factory=list)

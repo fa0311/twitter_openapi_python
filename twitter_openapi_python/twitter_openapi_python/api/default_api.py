@@ -3,11 +3,11 @@ import twitter_openapi_python_generated.models as models
 from typing import Any, Callable, Optional, Type, TypeVar
 import json
 
-from twitter_openapi_python.models.response import (
-    TwitterApiUtilsRaw,
+from twitter_openapi_python.models import (
+    ApiUtilsHeader,
     TwitterApiUtilsResponse,
 )
-from twitter_openapi_python.utils.api import build_header
+from twitter_openapi_python.utils.api import build_response
 
 
 T1 = TypeVar("T1")
@@ -30,29 +30,29 @@ class DefaultApiUtils:
         type2: Type[T2],
         key: str,
         param: dict[str, Any],
-    ) -> TwitterApiUtilsResponse[T2]:
+    ) -> TwitterApiUtilsResponse[T2, ApiUtilsHeader]:
         res = apiFn(
             self.flag[key]["queryId"],
             json.dumps(self.flag[key]["variables"] | param),
             json.dumps(self.flag[key]["features"]),
         )
-        if isinstance(res.data.actual_instance, models.Error):
-            error: models.Error = res.data.actual_instance
-            raise Exception(error)
+        if isinstance(res.data.actual_instance, models.Errors):
+            errors: models.Errors = res.data.actual_instance
+            raise Exception(errors)
 
         data = convertFn(res.data.actual_instance)
 
-        return TwitterApiUtilsResponse(
-            raw=TwitterApiUtilsRaw(response=res),
-            header=build_header(res.headers),
+        return build_response(
+            response=res,
             data=data,
+            type=ApiUtilsHeader,
         )
 
     def get_profile_spotlights_query(
         self,
         screen_name: Optional[str] = None,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[models.UserResultByScreenName]:
+    ) -> TwitterApiUtilsResponse[models.UserResultByScreenName, ApiUtilsHeader]:
         param: dict[str, Any] = {}
         if screen_name is not None:
             param["screen_name"] = screen_name

@@ -1,5 +1,6 @@
+import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
-from typing import List, TypeGuard, TypeVar, Optional, Any
+from typing import List, Type, TypeGuard, TypeVar, Optional, Any
 
 from urllib3 import HTTPHeaderDict
 
@@ -10,8 +11,14 @@ from twitter_openapi_python.models import (
     TweetApiUtilsData,
     UserApiUtilsData,
 )
+from twitter_openapi_python.models.response import (
+    TwitterApiUtilsRaw,
+    TwitterApiUtilsResponse,
+)
 
 T = TypeVar("T")
+T1 = TypeVar("T1")
+T2 = TypeVar("T2")
 
 
 def flat(matrix: List[List[T]]) -> List[T]:
@@ -136,7 +143,7 @@ def build_user_response(user: models.TimelineUser) -> UserApiUtilsData:
     )
 
 
-def entriesCursor(item: models.TimelineAddEntry) -> CursorApiUtilsResponse:
+def entries_cursor(item: models.TimelineAddEntry) -> CursorApiUtilsResponse:
     def map_fn(x: models.TimelineAddEntry) -> Optional[models.TimelineTimelineCursor]:
         item = x.content.actual_instance
         if item.entry_type == models.ContentEntryType.TIMELINETIMELINECURSOR:
@@ -189,4 +196,23 @@ def post_build_header(headers: HTTPHeaderDict) -> PostApiUtilsHeader:
         tfe_preserve_body=headers.get("x-tfe-preserve-body") == "true",
         transaction_id=headers.get("x-transaction-id"),
         xss_protection=int(headers.get("x-xss-protection")),
+    )
+
+
+def build_response(
+    response: twitter.ApiResponse,
+    data: T1,
+    type: Type[T2],
+) -> TwitterApiUtilsResponse[T1, T2]:
+    if type == ApiUtilsHeader:
+        header = build_header(response.headers)
+    elif type == PostApiUtilsHeader:
+        header = post_build_header(response.headers)
+    else:
+        raise Exception("type must be ApiUtilsHeader or PostApiUtilsHeader")
+
+    return TwitterApiUtilsResponse(
+        raw=TwitterApiUtilsRaw(response=response),
+        header=header,
+        data=data,
     )

@@ -2,11 +2,8 @@ import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
 from typing import Any
 
-from twitter_openapi_python.models import (
-    TwitterPostApiUtilsResponse,
-    TwitterApiUtilsRaw,
-)
-from twitter_openapi_python.utils import post_build_header
+from twitter_openapi_python.models import PostApiUtilsHeader, TwitterApiUtilsResponse
+from twitter_openapi_python.utils import build_response
 
 
 class PostApiUtils:
@@ -17,21 +14,24 @@ class PostApiUtils:
         self.api = api
         self.flag = flag
 
-    def builder(self, response: twitter.ApiResponse) -> TwitterPostApiUtilsResponse:
+    def builder(
+        self,
+        response: twitter.ApiResponse,
+    ) -> TwitterApiUtilsResponse[models.CreateTweetResponse, PostApiUtilsHeader]:
         if isinstance(response.data.actual_instance, twitter.Error):
             error: twitter.Error = response.data.actual_instance
             raise Exception(error)
 
-        return TwitterPostApiUtilsResponse(
-            raw=TwitterApiUtilsRaw(response=response),
-            header=post_build_header(response.headers),
+        return build_response(
+            response=response,
             data=response.data.actual_instance,
+            type=PostApiUtilsHeader,
         )
 
     def post_create_tweet(
         self,
         tweet_text: str,
-    ) -> TwitterPostApiUtilsResponse[models.CreateTweetResponse]:
+    ) -> TwitterApiUtilsResponse[models.CreateTweetResponse, PostApiUtilsHeader]:
         variables = twitter.PostCreateTweetRequestVariables.from_dict(
             self.flag["CreateTweet"]["variables"]
         )
@@ -54,7 +54,7 @@ class PostApiUtils:
     def post_delete_tweet(
         self,
         tweet_id: str,
-    ) -> TwitterPostApiUtilsResponse[models.DeleteTweetResponse]:
+    ) -> TwitterApiUtilsResponse[models.DeleteTweetResponse, PostApiUtilsHeader]:
         variables = twitter.PostCreateRetweetRequestVariables.from_dict(
             self.flag["DeleteTweet"]["variables"]
         )
@@ -73,7 +73,7 @@ class PostApiUtils:
     def post_create_retweet(
         self,
         tweet_id: str,
-    ) -> TwitterPostApiUtilsResponse[models.CreateRetweetResponse]:
+    ) -> TwitterApiUtilsResponse[models.CreateRetweetResponse, PostApiUtilsHeader]:
         variables = twitter.PostCreateRetweetRequestVariables.from_dict(
             self.flag["CreateRetweet"]["variables"]
         )
@@ -92,7 +92,7 @@ class PostApiUtils:
     def post_delete_retweet(
         self,
         source_tweet_id: str,
-    ) -> TwitterPostApiUtilsResponse[models.DeleteRetweetResponse]:
+    ) -> TwitterApiUtilsResponse[models.DeleteRetweetResponse, PostApiUtilsHeader]:
         variables = twitter.PostDeleteRetweetRequestVariables.from_dict(
             self.flag["DeleteRetweet"]["variables"]
         )
@@ -112,7 +112,7 @@ class PostApiUtils:
     def post_favorite_tweet(
         self,
         tweet_id: str,
-    ) -> TwitterPostApiUtilsResponse[models.FavoriteTweetResponseData]:
+    ) -> TwitterApiUtilsResponse[models.FavoriteTweetResponseData, PostApiUtilsHeader]:
         variables = twitter.PostCreateRetweetRequestVariables.from_dict(
             self.flag["FavoriteTweet"]["variables"]
         )
@@ -131,7 +131,10 @@ class PostApiUtils:
     def post_unfavorite_tweet(
         self,
         tweet_id: str,
-    ) -> TwitterPostApiUtilsResponse[models.UnfavoriteTweetResponseData]:
+    ) -> TwitterApiUtilsResponse[
+        models.UnfavoriteTweetResponseData,
+        PostApiUtilsHeader,
+    ]:
         variables = twitter.PostCreateRetweetRequestVariables.from_dict(
             self.flag["UnfavoriteTweet"]["variables"]
         )
