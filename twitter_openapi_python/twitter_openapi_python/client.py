@@ -9,6 +9,7 @@ from twitter_openapi_python.api import (
     InitialStateApiUtils,
     TweetApiUtils,
     UserApiUtils,
+    UsersApiUtils,
     UserListApiUtils,
 )
 
@@ -36,6 +37,9 @@ class TwitterOpenapiPythonClient:
     def get_user_api(self) -> UserApiUtils:
         return UserApiUtils(twitter.UserApi(self.api), self.placeholder)
 
+    def get_users_api(self) -> UsersApiUtils:
+        return UsersApiUtils(twitter.UsersApi(self.api), self.placeholder)
+
     def get_user_list_api(self) -> UserListApiUtils:
         return UserListApiUtils(twitter.UserListApi(self.api), self.placeholder)
 
@@ -52,7 +56,7 @@ class TwitterOpenapiPython:
         return TwitterOpenapiPythonClient(api, flag)
 
     def get_client(self, api_client: twitter.ApiClient) -> TwitterOpenapiPythonClient:
-        return self.get_twitter_openapi_python_client(twitter.TweetApi(api_client))
+        return self.get_twitter_openapi_python_client(api_client)
 
     def get_client_from_cookies(
         self,

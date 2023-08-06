@@ -1,7 +1,6 @@
 import unittest
-import logging
 import twitter_openapi_python as api
-from test.api import get_client
+from test.api import get_client, print_user
 
 
 class TestUserApi(unittest.TestCase):
@@ -12,21 +11,11 @@ class TestUserApi(unittest.TestCase):
 
     def test_get_user_by_screen_name(self):
         result = self.client.get_user_by_screen_name(screen_name="elonmusk")
-        legacy = result.data.legacy
-        logging.info(legacy.screen_name)
-        logging.info(f"followed_by: {legacy.followed_by} following: {legacy.following}")
+        print_user(result.data)
 
     def test_get_user_by_rest_id(self):
         result = self.client.get_user_by_rest_id(user_id="44196397")
-        legacy = result.data.legacy
-        logging.info(legacy.screen_name)
-        logging.info(f"followed_by: {legacy.followed_by} following: {legacy.following}")
-
-    def test_get_users_by_rest_ids(self):
-        result = self.client.get_users_by_rest_ids(user_ids=["44196397", "44196397"])
-        legacy = result.data.legacy
-        logging.info(legacy.screen_name)
-        logging.info(f"followed_by: {legacy.followed_by} following: {legacy.following}")
+        print_user(result.data)
 
 
 if __name__ == "__main__":

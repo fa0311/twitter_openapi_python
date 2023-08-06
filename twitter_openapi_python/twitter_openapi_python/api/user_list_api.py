@@ -8,13 +8,14 @@ from twitter_openapi_python.models.timeline import (
 )
 from twitter_openapi_python.utils.api import (
     build_response,
-    build_user_response,
+    check_error,
     entries_cursor,
+    get_kwargs,
     instruction_to_entry,
     user_entries_converter,
+    user_result_converter,
 )
 from typing import Any, Callable, Type, TypeVar, Optional, List, Union
-import json
 
 T = TypeVar("T")
 
@@ -46,30 +47,14 @@ class UserListApiUtils:
         key: str,
         param: dict[str, Any],
     ) -> ResponseType:
-        assert key in self.flag.keys()
+        args = get_kwargs(flag=self.flag[key], additional=param)
+        res = apiFn(*args.values())
+        checked = check_error(data=res, type=type)
 
-        args: list[str] = [
-            self.flag[key]["queryId"],
-            json.dumps(self.flag[key]["variables"] | param),
-            json.dumps(self.flag[key]["features"]),
-        ]
-
-        if "fieldToggles" in self.flag[key].keys():
-            args.append(json.dumps(self.flag[key]["fieldToggles"]))
-
-        res = apiFn(*args)
-        if res.data is None:
-            raise Exception("No data")
-
-        if isinstance(res.data.actual_instance, models.Errors):
-            errors: models.Errors = res.data.actual_instance
-            raise Exception(errors)
-
-        instruction = convertFn(res.data.actual_instance)
+        instruction = convertFn(checked)
         entry = instruction_to_entry(instruction)
         user_list = user_entries_converter(entry)
-
-        user = list(map(lambda x: build_user_response(x), user_list))
+        user = user_result_converter(user_list)
 
         raw = ApiUtilsRaw(
             instruction=instruction,

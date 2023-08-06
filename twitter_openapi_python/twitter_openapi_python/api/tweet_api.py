@@ -10,6 +10,8 @@ from twitter_openapi_python.models import ApiUtilsHeader
 from twitter_openapi_python.models import TweetApiUtilsData
 
 from twitter_openapi_python.utils.api import (
+    check_error,
+    get_kwargs,
     instruction_to_entry,
     tweet_entries_converter,
     entries_cursor,
@@ -17,7 +19,6 @@ from twitter_openapi_python.utils.api import (
 )
 
 from typing import Any, Callable, Type, TypeVar, List, Optional, Union
-import json
 
 
 T = TypeVar("T")
@@ -49,24 +50,11 @@ class TweetApiUtils:
         key: str,
         param: dict[str, Any],
     ) -> ResponseType:
-        assert key in self.flag.keys()
+        args = get_kwargs(flag=self.flag[key], additional=param)
+        res = apiFn(*args.values())
+        checked = check_error(data=res, type=type)
 
-        args: list[str] = [
-            self.flag[key]["queryId"],
-            json.dumps(self.flag[key]["variables"] | param),
-            json.dumps(self.flag[key]["features"]),
-        ]
-
-        if "fieldToggles" in self.flag[key].keys():
-            args.append(json.dumps(self.flag[key]["fieldToggles"]))
-
-        res = apiFn(*args)
-        if res.data is None:
-            raise Exception("No data")
-        if isinstance(res.data.actual_instance, models.Errors):
-            errors: models.Errors = res.data.actual_instance
-            raise Exception(errors)
-        instruction = convertFn(res.data.actual_instance)
+        instruction = convertFn(checked)
         entry = instruction_to_entry(instruction)
         tweet_list = tweet_entries_converter(entry)
         raw = ApiUtilsRaw(

@@ -1,3 +1,4 @@
+import json
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
 from typing import Dict, List, Type, TypeGuard, TypeVar, Optional, Any
@@ -27,6 +28,29 @@ def non_nullable_list(x: List[Optional[T]]) -> List[T]:
         return x is not None
 
     return list(filter(filter_fn, x))
+
+
+def get_kwargs(flag: dict[str, Any], additional: dict[str, Any]) -> dict[str, Any]:
+    assert flag is not None
+    kwargs = {"path_query_id": flag["queryId"]}
+    if flag.get("variables") is not None:
+        kwargs["variables"] = json.dumps(flag["variables"] | additional)
+    if flag.get("features") is not None:
+        kwargs["features"] = json.dumps(flag["features"])
+    if flag.get("fieldToggles") is not None:
+        kwargs["field_toggles"] = json.dumps(flag["fieldToggles"])
+    return kwargs
+
+
+def check_error(data: twitter.ApiResponse, type: type[T]) -> T:
+    if data.data is None:
+        raise Exception("No data")
+    oneOf = data.data.actual_instance
+    if isinstance(oneOf, models.Errors):
+        raise Exception(oneOf)
+    if isinstance(oneOf, type):
+        return oneOf
+    raise Exception("Error")
 
 
 def instruction_to_entry(
@@ -79,6 +103,11 @@ def tweet_entries_converter(
     return non_nullable_list(list(map(map_fn, input)))
 
 
+def user_or_null_converter(user: models.UserUnion) -> Optional[models.User]:
+    if isinstance(user.actual_instance, models.User):
+        return user.actual_instance
+
+
 def buildTweetApiUtils(
     result: models.ItemResult,
     promoted_metadata: Optional[dict[str, Any]],
@@ -86,6 +115,9 @@ def buildTweetApiUtils(
 ) -> Optional[TweetApiUtilsData]:
     tweet = tweetResultsConverter(result)
     if tweet is None:
+        return None
+    user = user_or_null_converter(tweet.core.user_results.result)
+    if user is None:
         return None
 
     quoted = tweet.quoted_status_result
@@ -98,7 +130,7 @@ def buildTweetApiUtils(
         raw=result,
         promoted_metadata=promoted_metadata,
         tweet=tweet,
-        user=tweet.core.user_results.result,
+        user=user,
         replies=non_nullable_list(list(map(reply_fn, reply))),
         quoted=buildTweetApiUtils(quoted, None, []) if quoted else None,
     )
@@ -117,22 +149,29 @@ def tweetResultsConverter(tweetResults: models.ItemResult) -> Optional[models.Tw
 
 def user_entries_converter(
     item: list[models.TimelineAddEntry],
-) -> list[models.TimelineUser]:
-    def map_fn(x: models.TimelineAddEntry) -> Optional[models.TimelineUser]:
+) -> list[models.UserResults]:
+    def map_fn(x: models.TimelineAddEntry) -> Optional[models.UserResults]:
         one_of = x.content.actual_instance
         if isinstance(one_of, models.TimelineTimelineItem):
             item = one_of.item_content.actual_instance
             if isinstance(item, models.TimelineUser):
-                return item
+                return item.user_results
 
     return non_nullable_list(list(map(map_fn, item)))
 
 
-def build_user_response(user: models.TimelineUser) -> UserApiUtilsData:
-    return UserApiUtilsData(
-        raw=user,
-        user=user.user_results.result,
-    )
+def user_result_converter(item: list[models.UserResults]) -> List[UserApiUtilsData]:
+    def map_fn(raw: models.UserResults) -> Optional[UserApiUtilsData]:
+        user = user_or_null_converter(raw.result)
+        if user is None:
+            return None
+
+        return UserApiUtilsData(
+            raw=raw,
+            user=user,
+        )
+
+    return non_nullable_list(list(map(map_fn, item)))
 
 
 def entries_cursor(item: List[models.TimelineAddEntry]) -> CursorApiUtilsResponse:

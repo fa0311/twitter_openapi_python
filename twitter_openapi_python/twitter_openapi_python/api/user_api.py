@@ -1,12 +1,20 @@
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
-from twitter_openapi_python.models import TwitterApiUtilsResponse, ApiUtilsHeader
-from twitter_openapi_python.utils.api import build_response
+from twitter_openapi_python.models import (
+    TwitterApiUtilsResponse,
+    ApiUtilsHeader,
+    UserApiUtilsData,
+)
+from twitter_openapi_python.utils.api import (
+    build_response,
+    check_error,
+    get_kwargs,
+    user_or_null_converter,
+)
 from typing import Any, Callable, Type, TypeVar, Optional, Union
-import json
 
 T = TypeVar("T")
-ResponseType = TwitterApiUtilsResponse[models.User, ApiUtilsHeader]
+ResponseType = TwitterApiUtilsResponse[UserApiUtilsData, ApiUtilsHeader]
 
 
 ApiFnType = Union[
@@ -31,29 +39,24 @@ class UserApiUtils:
         key: str,
         param: dict[str, Any],
     ) -> ResponseType:
-        assert key in self.flag.keys()
+        args = get_kwargs(flag=self.flag[key], additional=param)
+        res = apiFn(*args.values())
+        checked = check_error(data=res, type=type)
 
-        args: list[str] = [
-            self.flag[key]["queryId"],
-            json.dumps(self.flag[key]["variables"] | param),
-            json.dumps(self.flag[key]["features"]),
-        ]
+        result = convertFn(checked)
+        user = user_or_null_converter(result.result)
 
-        if "fieldToggles" in self.flag[key].keys():
-            args.append(json.dumps(self.flag[key]["fieldToggles"]))
+        if user is None:
+            raise Exception("No user")
 
-        res = apiFn(*args)
-        if res.data is None:
-            raise Exception("No data")
-
-        if isinstance(res.data.actual_instance, models.Errors):
-            errors: models.Errors = res.data.actual_instance
-            raise Exception(errors)
-        user = convertFn(res.data.actual_instance).result
+        data = UserApiUtilsData(
+            raw=result,
+            user=user,
+        )
 
         return build_response(
             response=res,
-            data=user,
+            data=data,
             type=ApiUtilsHeader,
         )
 
@@ -90,23 +93,5 @@ class UserApiUtils:
             convertFn=lambda e: e.data.user,
             type=models.UserResponse,
             key="UserByRestId",
-            param=param,
-        )
-
-    def get_users_by_rest_ids(
-        self,
-        user_ids: list[str],
-        extra_param: Optional[dict[str, Any]] = None,
-    ) -> ResponseType:
-        param: dict[str, Any] = {
-            "userIds": user_ids,
-        }
-        if extra_param is not None:
-            param.update(extra_param)
-        return self.request(
-            apiFn=self.api.get_users_by_rest_ids_with_http_info,
-            convertFn=lambda e: e.data.users[0],
-            type=models.UsersResponse,
-            key="UsersByRestIds",
             param=param,
         )

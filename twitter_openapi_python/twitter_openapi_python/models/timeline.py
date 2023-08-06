@@ -29,7 +29,7 @@ class TweetApiUtilsData(BaseModel):
 
 
 class UserApiUtilsData(BaseModel):
-    raw: models.TimelineUser = Field()
+    raw: models.UserResults = Field()
     user: models.User = Field()
 
 

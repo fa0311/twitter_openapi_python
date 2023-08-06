@@ -48,7 +48,7 @@ class DefaultApiUtils:
         if "fieldToggles" in self.flag[key].keys():
             args.append(json.dumps(self.flag[key]["fieldToggles"]))
 
-        res = apiFn(*args)
+        res = apiFn(*args.values())
         if res.data is None:
             raise Exception("No data")
         if isinstance(res.data.actual_instance, models.Errors):

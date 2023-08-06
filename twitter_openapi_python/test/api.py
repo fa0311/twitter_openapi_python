@@ -2,6 +2,8 @@ import json
 from pathlib import Path
 import twitter_openapi_python as api
 import logging
+
+import twitter_openapi_python_generated.models as models
 from twitter_openapi_python.models import TweetApiUtilsData
 from twitter_openapi_python.models.timeline import UserApiUtilsData
 
@@ -22,18 +24,24 @@ def get_client() -> api.TwitterOpenapiPythonClient:
 
 
 def print_tweet(tweet: TweetApiUtilsData) -> None:
-    text = f"{tweet.user.legacy.screen_name.rjust(20)}: {tweet.tweet.legacy.full_text}"
-    logging.info(text.replace("\n", " "))
+    print_legacy_tweet(tweet.user.legacy, tweet.tweet.legacy)
     for reply in tweet.replies:
-        t = f"{reply.user.legacy.screen_name.rjust(20)}: {reply.tweet.legacy.full_text}"
-        logging.info(t.replace("\n", " "))
+        print_legacy_tweet(reply.user.legacy, reply.tweet.legacy)
+
+
+def print_legacy_tweet(u: models.UserLegacy, t: models.TweetLegacy) -> None:
+    text = f"{u.screen_name.rjust(20)}: {t.full_text}"
+    logging.info(text.replace("\n", " "))
 
 
 def print_user(user: UserApiUtilsData) -> None:
-    legacy = user.user.legacy
-    logging.info(legacy.screen_name)
-    logging.info(f"listedCount: {legacy.listed_count}")
-    logging.info(f"followedBy: {legacy.followed_by} following: {legacy.following}")
-    text = f"friends_count: {legacy.friends_count} followers_count: {legacy.followers_count}"
+    print_legacy_user(user.user.legacy)
+
+
+def print_legacy_user(u: models.UserLegacy) -> None:
+    logging.info(u.screen_name)
+    logging.info(f"listedCount: {u.listed_count}")
+    logging.info(f"followedBy: {u.followed_by} following: {u.following}")
+    text = f"friends_count: {u.friends_count} followers_count: {u.followers_count}"
     logging.info(text)
     logging.info("┄" * 50)
