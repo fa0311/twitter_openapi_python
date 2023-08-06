@@ -1,13 +1,12 @@
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
 from typing import Any, Callable, Optional, Type, TypeVar, Union
-import json
 
 from twitter_openapi_python.models import (
     ApiUtilsHeader,
     TwitterApiUtilsResponse,
 )
-from twitter_openapi_python.utils.api import build_response
+from twitter_openapi_python.utils.api import build_response, check_error, get_kwargs
 
 
 T1 = TypeVar("T1")
@@ -37,25 +36,11 @@ class DefaultApiUtils:
         key: str,
         param: dict[str, Any],
     ) -> TwitterApiUtilsResponse[T2, ApiUtilsHeader]:
-        assert key in self.flag.keys()
-
-        args: list[str] = [
-            self.flag[key]["queryId"],
-            json.dumps(self.flag[key]["variables"] | param),
-            json.dumps(self.flag[key]["features"]),
-        ]
-
-        if "fieldToggles" in self.flag[key].keys():
-            args.append(json.dumps(self.flag[key]["fieldToggles"]))
-
+        args = get_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(*args.values())
-        if res.data is None:
-            raise Exception("No data")
-        if isinstance(res.data.actual_instance, models.Errors):
-            errors: models.Errors = res.data.actual_instance
-            raise Exception(errors)
+        checked = check_error(data=res, type=type1)
 
-        data = convertFn(res.data.actual_instance)
+        data = convertFn(checked)
 
         return build_response(
             response=res,
