@@ -15,10 +15,7 @@ def get_client() -> api.TwitterOpenapiPythonClient:
     else:
         raise Exception("cookie.json not found")
 
-    client = api.TwitterOpenapiPython().get_client_from_cookies(
-        ct0=cookies_dict["ct0"],
-        authToken=cookies_dict["auth_token"],
-    )
+    client = api.TwitterOpenapiPython().get_client_from_cookies(cookies_dict)
 
     return client
 

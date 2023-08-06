@@ -26,7 +26,7 @@ class TwitterOpenapiPythonClient:
         return DefaultApiUtils(twitter.DefaultApi(self.api), self.placeholder)
 
     def get_initial_state_api(self) -> InitialStateApiUtils:
-        return InitialStateApiUtils(self.placeholder)
+        return InitialStateApiUtils(self.api)
 
     def get_post_api(self) -> PostApiUtils:
         return PostApiUtils(twitter.PostApi(self.api), self.placeholder)
@@ -60,24 +60,16 @@ class TwitterOpenapiPython:
 
     def get_client_from_cookies(
         self,
-        ct0: str,
-        authToken: str,
+        cookies: dict[str, str],
     ) -> TwitterOpenapiPythonClient:
         api_conf = conf.Configuration(
             api_key={
                 "ClientLanguage": "en",
                 "ActiveUser": "yes",
                 "AuthType": "OAuth2Session",
-                # "CookieAuthToken": cookies.get_dict()["auth_token"],
-                # "CookieCt0": cookies.get_dict()["ct0"],
-                "CsrfToken": ct0,
-                # "GuestToken": cookies.get_dict()["gt"],
+                "CsrfToken": cookies.get("ct0", ""),
             },
         )
-        cookies = {
-            "auth_token": authToken,
-            "ct0": ct0,
-        }
         api_conf.access_token = "AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA"
         str_cookie = "; ".join([f"{key}={value}" for key, value in cookies.items()])
         api_client = twitter.ApiClient(configuration=api_conf, cookie=str_cookie)
