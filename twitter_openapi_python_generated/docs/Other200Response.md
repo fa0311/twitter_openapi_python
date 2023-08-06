@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **session** | [**Session**](Session.md) |  | [optional] 
-**errors** | [**List[Error]**](Error.md) |  | 
 
 ## Example
 

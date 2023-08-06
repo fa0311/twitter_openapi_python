@@ -162,6 +162,9 @@ docs/UserTweetsData.md
 docs/UserTweetsResponse.md
 docs/UserTweetsResult.md
 docs/UserTweetsUser.md
+docs/UserUnavailable.md
+docs/UserUnion.md
+docs/UsersApi.md
 docs/UsersResponse.md
 docs/UsersResponseData.md
 docs/V11GetApi.md
@@ -333,6 +336,9 @@ test/test_user_tweets_data.py
 test/test_user_tweets_response.py
 test/test_user_tweets_result.py
 test/test_user_tweets_user.py
+test/test_user_unavailable.py
+test/test_user_union.py
+test/test_users_api.py
 test/test_users_response.py
 test/test_users_response_data.py
 test/test_v11_get_api.py
@@ -347,6 +353,7 @@ twitter_openapi_python_generated/api/post_api.py
 twitter_openapi_python_generated/api/tweet_api.py
 twitter_openapi_python_generated/api/user_api.py
 twitter_openapi_python_generated/api/user_list_api.py
+twitter_openapi_python_generated/api/users_api.py
 twitter_openapi_python_generated/api/v11_get_api.py
 twitter_openapi_python_generated/api/v11_post_api.py
 twitter_openapi_python_generated/api/v20_get_api.py
@@ -508,6 +515,8 @@ twitter_openapi_python_generated/models/user_tweets_data.py
 twitter_openapi_python_generated/models/user_tweets_response.py
 twitter_openapi_python_generated/models/user_tweets_result.py
 twitter_openapi_python_generated/models/user_tweets_user.py
+twitter_openapi_python_generated/models/user_unavailable.py
+twitter_openapi_python_generated/models/user_union.py
 twitter_openapi_python_generated/models/users_response.py
 twitter_openapi_python_generated/models/users_response_data.py
 twitter_openapi_python_generated/py.typed

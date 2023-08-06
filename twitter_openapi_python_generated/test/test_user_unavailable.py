@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.users_response_data import UsersResponseData  # noqa: E501
+from twitter_openapi_python_generated.models.user_unavailable import UserUnavailable  # noqa: E501
 from twitter_openapi_python_generated.rest import ApiException
 
-class TestUsersResponseData(unittest.TestCase):
-    """UsersResponseData unit test stubs"""
+class TestUserUnavailable(unittest.TestCase):
+    """UserUnavailable unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,31 +30,27 @@ class TestUsersResponseData(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test UsersResponseData
+        """Test UserUnavailable
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `UsersResponseData`
+        # uncomment below to create an instance of `UserUnavailable`
         """
-        model = twitter_openapi_python_generated.models.users_response_data.UsersResponseData()  # noqa: E501
+        model = twitter_openapi_python_generated.models.user_unavailable.UserUnavailable()  # noqa: E501
         if include_optional :
-            return UsersResponseData(
-                users = [
-                    twitter_openapi_python_generated.models.user_results.UserResults(
-                        result = null, )
-                    ]
+            return UserUnavailable(
+                typename = 'TimelineTweet', 
+                reason = ''
             )
         else :
-            return UsersResponseData(
-                users = [
-                    twitter_openapi_python_generated.models.user_results.UserResults(
-                        result = null, )
-                    ],
+            return UserUnavailable(
+                typename = 'TimelineTweet',
+                reason = '',
         )
         """
 
-    def testUsersResponseData(self):
-        """Test UsersResponseData"""
+    def testUserUnavailable(self):
+        """Test UserUnavailable"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

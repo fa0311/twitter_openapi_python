@@ -41,6 +41,7 @@ class TypeName(str, Enum):
     TIMELINEMESSAGEPROMPT = 'TimelineMessagePrompt'
     TWEET = 'Tweet'
     USER = 'User'
+    USERUNAVAILABLE = 'UserUnavailable'
 
     @classmethod
     def from_json(cls, json_str: str) -> TypeName:

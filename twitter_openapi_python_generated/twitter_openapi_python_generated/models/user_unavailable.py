@@ -20,15 +20,16 @@ import json
 
 
 
-from pydantic import BaseModel, Field
-from twitter_openapi_python_generated.models.user_union import UserUnion
+from pydantic import BaseModel, Field, StrictStr
+from twitter_openapi_python_generated.models.type_name import TypeName
 
-class UserResults(BaseModel):
+class UserUnavailable(BaseModel):
     """
-    UserResults
+    UserUnavailable
     """
-    result: UserUnion = Field(...)
-    __properties = ["result"]
+    typename: TypeName = Field(..., alias="__typename")
+    reason: StrictStr = Field(...)
+    __properties = ["__typename", "reason"]
 
     class Config:
         """Pydantic configuration"""
@@ -44,8 +45,8 @@ class UserResults(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> UserResults:
-        """Create an instance of UserResults from a JSON string"""
+    def from_json(cls, json_str: str) -> UserUnavailable:
+        """Create an instance of UserUnavailable from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -54,22 +55,20 @@ class UserResults(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of result
-        if self.result:
-            _dict['result'] = self.result.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> UserResults:
-        """Create an instance of UserResults from a dict"""
+    def from_dict(cls, obj: dict) -> UserUnavailable:
+        """Create an instance of UserUnavailable from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return UserResults.parse_obj(obj)
+            return UserUnavailable.parse_obj(obj)
 
-        _obj = UserResults.parse_obj({
-            "result": UserUnion.from_dict(obj.get("result")) if obj.get("result") is not None else None
+        _obj = UserUnavailable.parse_obj({
+            "typename": obj.get("__typename"),
+            "reason": obj.get("reason")
         })
         return _obj
 

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**result** | [**User**](User.md) |  | 
+**result** | [**UserUnion**](UserUnion.md) |  | 
 
 ## Example
 

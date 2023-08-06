@@ -21,26 +21,32 @@ import re  # noqa: F401
 
 from typing import Any, List, Optional
 from pydantic import BaseModel, Field, StrictStr, ValidationError, validator
-from twitter_openapi_python_generated.models.other_response import OtherResponse
+from twitter_openapi_python_generated.models.user import User
+from twitter_openapi_python_generated.models.user_unavailable import UserUnavailable
 from typing import Union, Any, List, TYPE_CHECKING
 from pydantic import StrictStr, Field
 
-OTHER200RESPONSE_ONE_OF_SCHEMAS = ["OtherResponse"]
+USERUNION_ONE_OF_SCHEMAS = ["User", "UserUnavailable"]
 
-class Other200Response(BaseModel):
+class UserUnion(BaseModel):
     """
-    Other200Response
+    UserUnion
     """
-    # data type: OtherResponse
-    oneof_schema_1_validator: Optional[OtherResponse] = None
+    # data type: User
+    oneof_schema_1_validator: Optional[User] = None
+    # data type: UserUnavailable
+    oneof_schema_2_validator: Optional[UserUnavailable] = None
     if TYPE_CHECKING:
-        actual_instance: Union[OtherResponse]
+        actual_instance: Union[User, UserUnavailable]
     else:
         actual_instance: Any
-    one_of_schemas: List[str] = Field(OTHER200RESPONSE_ONE_OF_SCHEMAS, const=True)
+    one_of_schemas: List[str] = Field(USERUNION_ONE_OF_SCHEMAS, const=True)
 
     class Config:
         validate_assignment = True
+
+    discriminator_value_class_map = {
+    }
 
     def __init__(self, *args, **kwargs):
         if args:
@@ -54,47 +60,73 @@ class Other200Response(BaseModel):
 
     @validator('actual_instance')
     def actual_instance_must_validate_oneof(cls, v):
-        instance = Other200Response.construct()
+        instance = UserUnion.construct()
         error_messages = []
         match = 0
-        # validate data type: OtherResponse
-        if not isinstance(v, OtherResponse):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `OtherResponse`")
+        # validate data type: User
+        if not isinstance(v, User):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `User`")
+        else:
+            match += 1
+        # validate data type: UserUnavailable
+        if not isinstance(v, UserUnavailable):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `UserUnavailable`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in Other200Response with oneOf schemas: OtherResponse. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in UserUnion with oneOf schemas: User, UserUnavailable. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in Other200Response with oneOf schemas: OtherResponse. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in UserUnion with oneOf schemas: User, UserUnavailable. Details: " + ", ".join(error_messages))
         else:
             return v
 
     @classmethod
-    def from_dict(cls, obj: dict) -> Other200Response:
+    def from_dict(cls, obj: dict) -> UserUnion:
         return cls.from_json(json.dumps(obj))
 
     @classmethod
-    def from_json(cls, json_str: str) -> Other200Response:
+    def from_json(cls, json_str: str) -> UserUnion:
         """Returns the object represented by the json string"""
-        instance = Other200Response.construct()
+        instance = UserUnion.construct()
         error_messages = []
         match = 0
 
-        # deserialize data into OtherResponse
+        # use oneOf discriminator to lookup the data type
+        _data_type = json.loads(json_str).get("__typename")
+        if not _data_type:
+            raise ValueError("Failed to lookup data type from the field `__typename` in the input.")
+
+        # check if data type is `User`
+        if _data_type == "User":
+            instance.actual_instance = User.from_json(json_str)
+            return instance
+
+        # check if data type is `UserUnavailable`
+        if _data_type == "UserUnavailable":
+            instance.actual_instance = UserUnavailable.from_json(json_str)
+            return instance
+
+        # deserialize data into User
         try:
-            instance.actual_instance = OtherResponse.from_json(json_str)
+            instance.actual_instance = User.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into UserUnavailable
+        try:
+            instance.actual_instance = UserUnavailable.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into Other200Response with oneOf schemas: OtherResponse. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into UserUnion with oneOf schemas: User, UserUnavailable. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into Other200Response with oneOf schemas: OtherResponse. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into UserUnion with oneOf schemas: User, UserUnavailable. Details: " + ", ".join(error_messages))
         else:
             return instance
 

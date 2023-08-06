@@ -164,12 +164,12 @@ Class | Method | HTTP request | Description
 *TweetApi* | [**get_user_tweets_and_replies**](docs\TweetApi.md#get_user_tweets_and_replies) | **GET** /graphql/{pathQueryId}/UserTweetsAndReplies | 
 *UserApi* | [**get_user_by_rest_id**](docs\UserApi.md#get_user_by_rest_id) | **GET** /graphql/{pathQueryId}/UserByRestId | 
 *UserApi* | [**get_user_by_screen_name**](docs\UserApi.md#get_user_by_screen_name) | **GET** /graphql/{pathQueryId}/UserByScreenName | 
-*UserApi* | [**get_users_by_rest_ids**](docs\UserApi.md#get_users_by_rest_ids) | **GET** /graphql/{pathQueryId}/UsersByRestIds | 
 *UserListApi* | [**get_favoriters**](docs\UserListApi.md#get_favoriters) | **GET** /graphql/{pathQueryId}/Favoriters | 
 *UserListApi* | [**get_followers**](docs\UserListApi.md#get_followers) | **GET** /graphql/{pathQueryId}/Followers | 
 *UserListApi* | [**get_followers_you_know**](docs\UserListApi.md#get_followers_you_know) | **GET** /graphql/{pathQueryId}/FollowersYouKnow | 
 *UserListApi* | [**get_following**](docs\UserListApi.md#get_following) | **GET** /graphql/{pathQueryId}/Following | 
 *UserListApi* | [**get_retweeters**](docs\UserListApi.md#get_retweeters) | **GET** /graphql/{pathQueryId}/Retweeters | 
+*UsersApi* | [**get_users_by_rest_ids**](docs\UsersApi.md#get_users_by_rest_ids) | **GET** /graphql/{pathQueryId}/UsersByRestIds | 
 *V11GetApi* | [**get_friends_following_list**](docs\V11GetApi.md#get_friends_following_list) | **GET** /1.1/friends/following/list.json | 
 *V11GetApi* | [**get_search_typeahead**](docs\V11GetApi.md#get_search_typeahead) | **GET** /1.1/search/typeahead.json | 
 *V11PostApi* | [**post_create_friendships**](docs\V11PostApi.md#post_create_friendships) | **POST** /1.1/friendships/create.json | 
@@ -332,6 +332,8 @@ Class | Method | HTTP request | Description
  - [UserTweetsResponse](docs\UserTweetsResponse.md)
  - [UserTweetsResult](docs\UserTweetsResult.md)
  - [UserTweetsUser](docs\UserTweetsUser.md)
+ - [UserUnavailable](docs\UserUnavailable.md)
+ - [UserUnion](docs\UserUnion.md)
  - [UsersResponse](docs\UsersResponse.md)
  - [UsersResponseData](docs\UsersResponseData.md)
 
