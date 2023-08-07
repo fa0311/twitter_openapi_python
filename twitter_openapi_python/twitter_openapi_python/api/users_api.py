@@ -8,16 +8,13 @@ from twitter_openapi_python.utils.api import (
     user_result_converter,
     check_error,
 )
-from typing import Any, Callable, Type, TypeVar, Optional, Union
+from typing import Any, Callable, Type, TypeVar, Optional
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[list[UserApiUtilsData]]
 
 
-ApiFnType = Union[
-    Callable[[str, str, str], twitter.ApiResponse],
-    Callable[[str, str, str, str], twitter.ApiResponse],
-]
+ApiFnType = Callable[..., twitter.ApiResponse]
 
 
 class UsersApiUtils:
@@ -37,7 +34,7 @@ class UsersApiUtils:
         param: dict[str, Any],
     ) -> ResponseType:
         args = get_kwargs(flag=self.flag[key], additional=param)
-        res = apiFn(*args.values())
+        res = apiFn(**args)
         checked = check_error(data=res, type=type)
 
         user_result = convertFn(checked)

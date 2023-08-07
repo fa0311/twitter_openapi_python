@@ -15,17 +15,14 @@ from twitter_openapi_python.utils.api import (
     user_entries_converter,
     user_result_converter,
 )
-from typing import Any, Callable, Type, TypeVar, Optional, List, Union
+from typing import Any, Callable, Type, TypeVar, Optional, List
 
 T = TypeVar("T")
 
 
 ResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[UserApiUtilsData]]
 
-ApiFnType = Union[
-    Callable[[str, str, str], twitter.ApiResponse],
-    Callable[[str, str, str, str], twitter.ApiResponse],
-]
+ApiFnType = Callable[..., twitter.ApiResponse]
 
 
 class UserListApiUtils:
@@ -45,7 +42,7 @@ class UserListApiUtils:
         param: dict[str, Any],
     ) -> ResponseType:
         args = get_kwargs(flag=self.flag[key], additional=param)
-        res = apiFn(*args.values())
+        res = apiFn(**args)
         checked = check_error(data=res, type=type)
 
         instruction = convertFn(checked)

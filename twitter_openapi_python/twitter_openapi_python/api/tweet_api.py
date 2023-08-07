@@ -44,7 +44,7 @@ class TweetApiUtils:
         param: dict[str, Any],
     ) -> ResponseType:
         args = get_kwargs(flag=self.flag[key], additional=param)
-        res = apiFn(*args.values())
+        res = apiFn(**args)
         checked = check_error(data=res, type=type)
 
         instruction = convertFn(checked)

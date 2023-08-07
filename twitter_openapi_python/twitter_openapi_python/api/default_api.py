@@ -31,7 +31,7 @@ class DefaultApiUtils:
         param: dict[str, Any],
     ) -> TwitterApiUtilsResponse[T2]:
         args = get_kwargs(flag=self.flag[key], additional=param)
-        res = apiFn(*args.values())
+        res = apiFn(**args)
         checked = check_error(data=res, type=type1)
 
         data = convertFn(checked)
