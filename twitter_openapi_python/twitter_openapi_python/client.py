@@ -12,16 +12,18 @@ from twitter_openapi_python.api import (
     UsersApiUtils,
     UserListApiUtils,
     V11GetApiUtils,  # type: ignore
-    V11PostUtils,  # type: ignore
+    V11PostApiUtils,  # type: ignore
     V20GetApiUtils,  # type: ignore
 )
+
+ParamType = dict[str, Any]
 
 
 class TwitterOpenapiPythonClient:
     api: twitter.ApiClient
-    placeholder: dict[str, Any]
+    placeholder: ParamType
 
-    def __init__(self, api: twitter.ApiClient, placeholder: dict[str, Any]):
+    def __init__(self, api: twitter.ApiClient, placeholder: ParamType):
         self.api = api
         self.placeholder = placeholder
 
@@ -49,8 +51,8 @@ class TwitterOpenapiPythonClient:
     def get_v11_get_api(self) -> V11GetApiUtils:
         return V11GetApiUtils(twitter.V11GetApi(self.api), self.placeholder)
 
-    def get_v11_post_api(self) -> V11PostUtils:
-        return V11PostUtils(twitter.V11PostApi(self.api), self.placeholder)
+    def get_v11_post_api(self) -> V11PostApiUtils:
+        return V11PostApiUtils(twitter.V11PostApi(self.api), self.placeholder)
 
     def get_v20_get_api(self) -> V20GetApiUtils:
         return V20GetApiUtils(twitter.V20GetApi(self.api), self.placeholder)
@@ -59,7 +61,7 @@ class TwitterOpenapiPythonClient:
 class TwitterOpenapiPython:
     hash: str = "2d477a0fb84d249a30b5af535b467efc25b34923"
     placeholder_url = "https://raw.githubusercontent.com/fa0311/twitter-openapi/{hash}/src/config/placeholder.json"
-    placeholder: dict[str, Any]
+    placeholder: ParamType
     user_agent: str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 
     def get_twitter_openapi_python_client(self, api: twitter.ApiClient):

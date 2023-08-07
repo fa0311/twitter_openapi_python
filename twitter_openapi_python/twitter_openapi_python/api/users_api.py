@@ -12,16 +12,15 @@ from typing import Any, Callable, Type, TypeVar, Optional
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[list[UserApiUtilsData]]
-
-
 ApiFnType = Callable[..., twitter.ApiResponse]
+ParamType = dict[str, Any]
 
 
 class UsersApiUtils:
     api: twitter.UsersApi
-    flag: dict[str, Any]
+    flag: ParamType
 
-    def __init__(self, api: twitter.UsersApi, flag: dict[str, Any]):
+    def __init__(self, api: twitter.UsersApi, flag: ParamType):
         self.api = api
         self.flag = flag
 
@@ -31,7 +30,7 @@ class UsersApiUtils:
         convertFn: Callable[[T], list[models.UserResults]],
         type: Type[T],
         key: str,
-        param: dict[str, Any],
+        param: ParamType,
     ) -> ResponseType:
         args = get_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(**args)
@@ -44,11 +43,9 @@ class UsersApiUtils:
     def get_users_by_rest_ids(
         self,
         user_ids: list[str],
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: dict[str, Any] = {
-            "userIds": user_ids,
-        }
+        param: ParamType = {"userIds": user_ids}
         if extra_param is not None:
             param.update(extra_param)
         return self.request(

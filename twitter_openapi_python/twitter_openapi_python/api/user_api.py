@@ -14,16 +14,15 @@ from typing import Any, Callable, Type, TypeVar, Optional
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[UserApiUtilsData]
-
-
 ApiFnType = Callable[..., twitter.ApiResponse]
+ParamType = dict[str, Any]
 
 
 class UserApiUtils:
     api: twitter.UserApi
-    flag: dict[str, Any]
+    flag: ParamType
 
-    def __init__(self, api: twitter.UserApi, flag: dict[str, Any]):
+    def __init__(self, api: twitter.UserApi, flag: ParamType):
         self.api = api
         self.flag = flag
 
@@ -33,7 +32,7 @@ class UserApiUtils:
         convertFn: Callable[[T], models.UserResults],
         type: Type[T],
         key: str,
-        param: dict[str, Any],
+        param: ParamType,
     ) -> ResponseType:
         args = get_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(**args)
@@ -55,11 +54,9 @@ class UserApiUtils:
     def get_user_by_screen_name(
         self,
         screen_name: str,
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: dict[str, Any] = {
-            "screen_name": screen_name,
-        }
+        param: ParamType = {"screen_name": screen_name}
         if extra_param is not None:
             param.update(extra_param)
         return self.request(
@@ -73,11 +70,9 @@ class UserApiUtils:
     def get_user_by_rest_id(
         self,
         user_id: str,
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: dict[str, Any] = {
-            "userId": user_id,
-        }
+        param: ParamType = {"userId": user_id}
         if extra_param is not None:
             param.update(extra_param)
         return self.request(

@@ -16,6 +16,7 @@ from twitter_openapi_python.models.response import (
 T = TypeVar("T")
 T1 = TypeVar("T1")
 T2 = TypeVar("T2")
+ParamType = dict[str, Any]
 
 
 def flat(matrix: List[List[T]]) -> List[T]:
@@ -29,7 +30,7 @@ def non_nullable_list(x: List[Optional[T]]) -> List[T]:
     return list(filter(filter_fn, x))
 
 
-def get_kwargs(flag: dict[str, Any], additional: dict[str, Any]) -> dict[str, Any]:
+def get_kwargs(flag: ParamType, additional: ParamType) -> ParamType:
     assert flag is not None
     kwargs = {"path_query_id": flag["queryId"]}
     if flag.get("variables") is not None:

@@ -21,17 +21,16 @@ from typing import Any, Callable, Type, TypeVar, List, Optional
 
 
 T = TypeVar("T")
-
 ResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[TweetApiUtilsData]]
-
 ApiFnType = Callable[..., twitter.ApiResponse]
+ParamType = dict[str, Any]
 
 
 class TweetApiUtils:
     api: twitter.TweetApi
-    flag: dict[str, Any]
+    flag: ParamType
 
-    def __init__(self, api: twitter.TweetApi, flag: dict[str, Any]):
+    def __init__(self, api: twitter.TweetApi, flag: ParamType):
         self.api = api
         self.flag = flag
 
@@ -41,7 +40,7 @@ class TweetApiUtils:
         convertFn: Callable[[T], List[models.InstructionUnion]],
         type: Type[T],
         key: str,
-        param: dict[str, Any],
+        param: ParamType,
     ) -> ResponseType:
         args = get_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(**args)
@@ -67,11 +66,9 @@ class TweetApiUtils:
         focal_tweet_id: str,
         cursor: Optional[str] = None,
         controller_data: Optional[str] = None,
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: dict[str, Any] = {
-            "focalTweetId": focal_tweet_id,
-        }
+        param: ParamType = {"focalTweetId": focal_tweet_id}
         if cursor is not None:
             param["cursor"] = cursor
         if controller_data is not None:
@@ -94,11 +91,9 @@ class TweetApiUtils:
         product: Optional[str] = None,
         cursor: Optional[str] = None,
         count: Optional[int] = None,
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: dict[str, Any] = {
-            "rawQuery": raw_query,
-        }
+        param: ParamType = {"rawQuery": raw_query}
         if product is not None:
             param["product"] = product
         if cursor is not None:
@@ -121,9 +116,9 @@ class TweetApiUtils:
         self,
         cursor: Optional[str] = None,
         count: Optional[int] = None,
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: dict[str, Any] = {}
+        param: ParamType = {}
         if cursor is not None:
             param["cursor"] = cursor
         if count is not None:
@@ -144,9 +139,9 @@ class TweetApiUtils:
         self,
         cursor: Optional[str] = None,
         count: Optional[int] = None,
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: dict[str, Any] = {}
+        param: ParamType = {}
         if cursor is not None:
             param["cursor"] = cursor
         if count is not None:
@@ -168,11 +163,9 @@ class TweetApiUtils:
         list_id: str,
         cursor: Optional[str] = None,
         count: Optional[int] = None,
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: dict[str, Any] = {
-            "listId": list_id,
-        }
+        param: ParamType = {"listId": list_id}
         if cursor is not None:
             param["cursor"] = cursor
         if count is not None:
@@ -194,11 +187,9 @@ class TweetApiUtils:
         user_id: str,
         cursor: Optional[str] = None,
         count: Optional[int] = None,
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: dict[str, Any] = {
-            "userId": user_id,
-        }
+        param: ParamType = {"userId": user_id}
         if cursor is not None:
             param["cursor"] = cursor
         if count is not None:
@@ -220,11 +211,9 @@ class TweetApiUtils:
         user_id: str,
         cursor: Optional[str] = None,
         count: Optional[int] = None,
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: dict[str, Any] = {
-            "userId": user_id,
-        }
+        param: ParamType = {"userId": user_id}
         if cursor is not None:
             param["cursor"] = cursor
         if count is not None:
@@ -246,11 +235,9 @@ class TweetApiUtils:
         user_id: str,
         cursor: Optional[str] = None,
         count: Optional[int] = None,
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: dict[str, Any] = {
-            "userId": user_id,
-        }
+        param: ParamType = {"userId": user_id}
         if cursor is not None:
             param["cursor"] = cursor
         if count is not None:
@@ -272,11 +259,9 @@ class TweetApiUtils:
         user_id: str,
         cursor: Optional[str] = None,
         count: Optional[int] = None,
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: dict[str, Any] = {
-            "userId": user_id,
-        }
+        param: ParamType = {"userId": user_id}
         if cursor is not None:
             param["cursor"] = cursor
         if count is not None:
@@ -297,9 +282,9 @@ class TweetApiUtils:
         self,
         cursor: Optional[str] = None,
         count: Optional[int] = None,
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: dict[str, Any] = {}
+        param: ParamType = {}
         if cursor is not None:
             param["cursor"] = cursor
         if count is not None:

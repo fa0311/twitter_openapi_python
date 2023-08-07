@@ -8,16 +8,15 @@ from twitter_openapi_python.utils.api import build_response, check_error, get_kw
 
 T1 = TypeVar("T1")
 T2 = TypeVar("T2")
-
-
 ApiFnType = Callable[..., twitter.ApiResponse]
+ParamType = dict[str, Any]
 
 
 class DefaultApiUtils:
     api: twitter.DefaultApi
-    flag: dict[str, Any]
+    flag: ParamType
 
-    def __init__(self, api: twitter.DefaultApi, flag: dict[str, Any]):
+    def __init__(self, api: twitter.DefaultApi, flag: ParamType):
         self.api = api
         self.flag = flag
 
@@ -28,7 +27,7 @@ class DefaultApiUtils:
         type1: Type[T1],
         type2: Type[T2],
         key: str,
-        param: dict[str, Any],
+        param: ParamType,
     ) -> TwitterApiUtilsResponse[T2]:
         args = get_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(**args)
@@ -41,9 +40,9 @@ class DefaultApiUtils:
     def get_profile_spotlights_query(
         self,
         screen_name: Optional[str] = None,
-        extra_param: Optional[dict[str, Any]] = None,
+        extra_param: Optional[ParamType] = None,
     ) -> TwitterApiUtilsResponse[models.UserResultByScreenName]:
-        param: dict[str, Any] = {}
+        param: ParamType = {}
         if screen_name is not None:
             param["screen_name"] = screen_name
         if extra_param is not None:
