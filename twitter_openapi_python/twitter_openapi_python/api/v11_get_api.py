@@ -1,9 +1,8 @@
 import twitter_openapi_python_generated as twitter
 from twitter_openapi_python.models import TwitterApiUtilsResponse
+from twitter_openapi_python.utils.api import build_response
 from typing import Any, Callable, Type, TypeVar, Optional
 from types import NoneType
-
-from twitter_openapi_python.utils.api import build_response
 
 
 T = TypeVar("T")
@@ -11,11 +10,11 @@ ApiFnType = Callable[..., twitter.ApiResponse]
 ParamType = dict[str, Any]
 
 
-class V11PostApiUtils:
-    api: twitter.V11PostApi
+class V11GetApiUtils:
+    api: twitter.V11GetApi
     flag: ParamType
 
-    def __init__(self, api: twitter.V11PostApi, flag: ParamType):
+    def __init__(self, api: twitter.V11GetApi, flag: ParamType):
         self.api = api
         self.flag = flag
 
@@ -26,7 +25,7 @@ class V11PostApiUtils:
         key: str,
         param: ParamType,
     ) -> TwitterApiUtilsResponse[T]:
-        args = self.flag[key] | param
+        args: ParamType = self.flag[key] | param
         res = apiFn(**args)
         data = res.data
 
@@ -35,36 +34,42 @@ class V11PostApiUtils:
 
         return build_response(response=res, data=data)
 
-    def post_create_friendships(
+    def get_friends_following_list(
         self,
         user_id: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
         extra_param: Optional[ParamType] = None,
     ) -> TwitterApiUtilsResponse[None]:
-        param = {"user_id": user_id}
+        param: ParamType = {"user_id": user_id}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
         if extra_param is not None:
             param.update(extra_param)
 
         response = self.request(
-            apiFn=self.api.post_create_friendships_with_http_info,
+            apiFn=self.api.get_friends_following_list_with_http_info,
             type=NoneType,
             param=param,
-            key="friendships/create.json",
+            key="friends/following/list.json",
         )
         return response
 
-    def post_destroy_friendships(
+    def get_search_typeahead(
         self,
-        user_id: str,
+        q: str,
         extra_param: Optional[ParamType] = None,
     ) -> TwitterApiUtilsResponse[None]:
-        param = {"user_id": user_id}
+        param = {"q": q}
         if extra_param is not None:
             param.update(extra_param)
 
         response = self.request(
-            apiFn=self.api.post_destroy_friendships_with_http_info,
+            apiFn=self.api.get_search_typeahead_with_http_info,
             type=NoneType,
             param=param,
-            key="friendships/destroy.json",
+            key="search/typeahead.json",
         )
         return response
