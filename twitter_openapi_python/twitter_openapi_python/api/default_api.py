@@ -1,11 +1,8 @@
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
-from typing import Any, Callable, Optional, Type, TypeVar, Union
+from typing import Any, Callable, Optional, Type, TypeVar
 
-from twitter_openapi_python.models import (
-    ApiUtilsHeader,
-    TwitterApiUtilsResponse,
-)
+from twitter_openapi_python.models import TwitterApiUtilsResponse
 from twitter_openapi_python.utils.api import build_response, check_error, get_kwargs
 
 
@@ -13,10 +10,7 @@ T1 = TypeVar("T1")
 T2 = TypeVar("T2")
 
 
-ApiFnType = Union[
-    Callable[[str, str, str], twitter.ApiResponse],
-    Callable[[str, str, str, str], twitter.ApiResponse],
-]
+ApiFnType = Callable[..., twitter.ApiResponse]
 
 
 class DefaultApiUtils:
@@ -35,24 +29,20 @@ class DefaultApiUtils:
         type2: Type[T2],
         key: str,
         param: dict[str, Any],
-    ) -> TwitterApiUtilsResponse[T2, ApiUtilsHeader]:
+    ) -> TwitterApiUtilsResponse[T2]:
         args = get_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(*args.values())
         checked = check_error(data=res, type=type1)
 
         data = convertFn(checked)
 
-        return build_response(
-            response=res,
-            data=data,
-            type=ApiUtilsHeader,
-        )
+        return build_response(response=res, data=data)
 
     def get_profile_spotlights_query(
         self,
         screen_name: Optional[str] = None,
         extra_param: Optional[dict[str, Any]] = None,
-    ) -> TwitterApiUtilsResponse[models.UserResultByScreenName, ApiUtilsHeader]:
+    ) -> TwitterApiUtilsResponse[models.UserResultByScreenName]:
         param: dict[str, Any] = {}
         if screen_name is not None:
             param["screen_name"] = screen_name

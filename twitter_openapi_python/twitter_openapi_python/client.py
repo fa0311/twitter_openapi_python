@@ -11,6 +11,9 @@ from twitter_openapi_python.api import (
     UserApiUtils,
     UsersApiUtils,
     UserListApiUtils,
+    V11GetApiUtils,  # type: ignore
+    V11PostUtils,  # type: ignore
+    V20GetApiUtils,  # type: ignore
 )
 
 
@@ -42,6 +45,15 @@ class TwitterOpenapiPythonClient:
 
     def get_user_list_api(self) -> UserListApiUtils:
         return UserListApiUtils(twitter.UserListApi(self.api), self.placeholder)
+
+    def get_v11_get_api(self) -> V11GetApiUtils:
+        return V11GetApiUtils(twitter.V11GetApi(self.api), self.placeholder)
+
+    def get_v11_post_api(self) -> V11PostUtils:
+        return V11PostUtils(twitter.V11PostApi(self.api), self.placeholder)
+
+    def get_v20_get_api(self) -> V20GetApiUtils:
+        return V20GetApiUtils(twitter.V20GetApi(self.api), self.placeholder)
 
 
 class TwitterOpenapiPython:

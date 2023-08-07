@@ -6,7 +6,6 @@ from twitter_openapi_python.models import (
     TwitterApiUtilsResponse,
     TimelineApiUtilsResponse,
 )
-from twitter_openapi_python.models import ApiUtilsHeader
 from twitter_openapi_python.models import TweetApiUtilsData
 
 from twitter_openapi_python.utils.api import (
@@ -18,20 +17,14 @@ from twitter_openapi_python.utils.api import (
     build_response,
 )
 
-from typing import Any, Callable, Type, TypeVar, List, Optional, Union
+from typing import Any, Callable, Type, TypeVar, List, Optional
 
 
 T = TypeVar("T")
 
-ResponseType = TwitterApiUtilsResponse[
-    TimelineApiUtilsResponse[TweetApiUtilsData],
-    ApiUtilsHeader,
-]
+ResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[TweetApiUtilsData]]
 
-ApiFnType = Union[
-    Callable[[str, str, str], twitter.ApiResponse],
-    Callable[[str, str, str, str], twitter.ApiResponse],
-]
+ApiFnType = Callable[..., twitter.ApiResponse]
 
 
 class TweetApiUtils:
@@ -67,11 +60,7 @@ class TweetApiUtils:
             data=tweet_list,
         )
 
-        return build_response(
-            response=res,
-            data=data,
-            type=ApiUtilsHeader,
-        )
+        return build_response(response=res, data=data)
 
     def get_tweet_detail(
         self,

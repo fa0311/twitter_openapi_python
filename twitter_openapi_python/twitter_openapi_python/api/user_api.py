@@ -2,7 +2,6 @@ import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
 from twitter_openapi_python.models import (
     TwitterApiUtilsResponse,
-    ApiUtilsHeader,
     UserApiUtilsData,
 )
 from twitter_openapi_python.utils.api import (
@@ -11,16 +10,13 @@ from twitter_openapi_python.utils.api import (
     get_kwargs,
     user_or_null_converter,
 )
-from typing import Any, Callable, Type, TypeVar, Optional, Union
+from typing import Any, Callable, Type, TypeVar, Optional
 
 T = TypeVar("T")
-ResponseType = TwitterApiUtilsResponse[UserApiUtilsData, ApiUtilsHeader]
+ResponseType = TwitterApiUtilsResponse[UserApiUtilsData]
 
 
-ApiFnType = Union[
-    Callable[[str, str, str], twitter.ApiResponse],
-    Callable[[str, str, str, str], twitter.ApiResponse],
-]
+ApiFnType = Callable[..., twitter.ApiResponse]
 
 
 class UserApiUtils:
@@ -54,11 +50,7 @@ class UserApiUtils:
             user=user,
         )
 
-        return build_response(
-            response=res,
-            data=data,
-            type=ApiUtilsHeader,
-        )
+        return build_response(response=res, data=data)
 
     def get_user_by_screen_name(
         self,

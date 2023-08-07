@@ -1,10 +1,9 @@
 import json
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
-from typing import Dict, List, Type, TypeGuard, TypeVar, Optional, Any
+from typing import Dict, List, TypeGuard, TypeVar, Optional, Any
 from twitter_openapi_python.models import (
     ApiUtilsHeader,
-    PostApiUtilsHeader,
     CursorApiUtilsResponse,
     TweetApiUtilsData,
     UserApiUtilsData,
@@ -206,47 +205,27 @@ def build_header(headers: Dict[str, str]) -> ApiUtilsHeader:
         connection_hash=headers["x-connection-hash"],
         content_type_options=headers["x-content-type-options"],
         frame_options=headers["x-frame-options"],
-        rate_limit_limit=int(headers["x-rate-limit-limit"]),
-        rate_limit_remaining=int(headers["x-rate-limit-remaining"]),
-        rate_limit_reset=int(headers["x-rate-limit-reset"]),
+        rate_limit_limit=int(headers.get("x-rate-limit-limit", 0)),
+        rate_limit_remaining=int(headers.get("x-rate-limit-remaining", 0)),
+        rate_limit_reset=int(headers.get("x-rate-limit-reset", 0)),
         response_time=int(headers["x-response-time"]),
-        tfe_preserve_body=headers["x-tfe-preserve-body"] == "true",
+        tfe_preserve_body=headers.get("x-tfe-preserve-body") == "true",
         transaction_id=headers["x-transaction-id"],
         twitter_response_tags=headers["x-twitter-response-tags"],
         xss_protection=int(headers["x-xss-protection"]),
     )
 
 
-def post_build_header(headers: Dict[str, str]) -> PostApiUtilsHeader:
-    return PostApiUtilsHeader(
-        raw=headers,
-        connection_hash=headers["x-connection-hash"],
-        content_type_options=headers["x-content-type-options"],
-        frame_options=headers["x-frame-options"],
-        response_time=int(headers["x-response-time"]),
-        tfe_preserve_body=headers["x-tfe-preserve-body"] == "true",
-        transaction_id=headers["x-transaction-id"],
-        xss_protection=int(headers["x-xss-protection"]),
-    )
-
-
 def build_response(
-    response: twitter.ApiResponse,
-    data: T1,
-    type: Type[T2],
-) -> TwitterApiUtilsResponse[T1, T2]:
+    response: twitter.ApiResponse, data: T1
+) -> TwitterApiUtilsResponse[T1]:
     if response.headers is None:
         raise Exception("headers is None")
 
-    if type == ApiUtilsHeader:
-        header = build_header(response.headers)
-    elif type == PostApiUtilsHeader:
-        header = post_build_header(response.headers)
-    else:
-        raise Exception("type must be ApiUtilsHeader or PostApiUtilsHeader")
+    header = build_header(response.headers)
 
     return TwitterApiUtilsResponse(
         raw=TwitterApiUtilsRaw(response=response),
         header=header,
         data=data,
-    )  # type: ignore
+    )

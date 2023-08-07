@@ -1,6 +1,6 @@
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
-from twitter_openapi_python.models import TwitterApiUtilsResponse, ApiUtilsHeader
+from twitter_openapi_python.models import TwitterApiUtilsResponse
 from twitter_openapi_python.models.timeline import (
     ApiUtilsRaw,
     TimelineApiUtilsResponse,
@@ -20,10 +20,7 @@ from typing import Any, Callable, Type, TypeVar, Optional, List, Union
 T = TypeVar("T")
 
 
-ResponseType = TwitterApiUtilsResponse[
-    TimelineApiUtilsResponse[UserApiUtilsData],
-    ApiUtilsHeader,
-]
+ResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[UserApiUtilsData]]
 
 ApiFnType = Union[
     Callable[[str, str, str], twitter.ApiResponse],
@@ -66,11 +63,7 @@ class UserListApiUtils:
             data=user,
         )
 
-        return build_response(
-            response=res,
-            data=data,
-            type=ApiUtilsHeader,
-        )
+        return build_response(response=res, data=data)
 
     def get_followers(
         self,

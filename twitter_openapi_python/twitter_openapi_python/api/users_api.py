@@ -1,6 +1,6 @@
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
-from twitter_openapi_python.models import TwitterApiUtilsResponse, ApiUtilsHeader
+from twitter_openapi_python.models import TwitterApiUtilsResponse
 from twitter_openapi_python.models.timeline import UserApiUtilsData
 from twitter_openapi_python.utils.api import (
     build_response,
@@ -11,7 +11,7 @@ from twitter_openapi_python.utils.api import (
 from typing import Any, Callable, Type, TypeVar, Optional, Union
 
 T = TypeVar("T")
-ResponseType = TwitterApiUtilsResponse[list[UserApiUtilsData], ApiUtilsHeader]
+ResponseType = TwitterApiUtilsResponse[list[UserApiUtilsData]]
 
 
 ApiFnType = Union[
@@ -42,11 +42,7 @@ class UsersApiUtils:
 
         user_result = convertFn(checked)
         user = user_result_converter(user_result)
-        return build_response(
-            response=res,
-            data=user,
-            type=ApiUtilsHeader,
-        )
+        return build_response(response=res, data=user)
 
     def get_users_by_rest_ids(
         self,

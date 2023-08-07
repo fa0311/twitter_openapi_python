@@ -2,7 +2,7 @@ import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
 from typing import Any, TypeVar
 
-from twitter_openapi_python.models import PostApiUtilsHeader, TwitterApiUtilsResponse
+from twitter_openapi_python.models import TwitterApiUtilsResponse
 from twitter_openapi_python.utils import build_response
 from twitter_openapi_python.utils.api import check_error
 
@@ -10,7 +10,7 @@ from twitter_openapi_python.utils.api import check_error
 T = TypeVar("T")
 
 
-ResponseType = TwitterApiUtilsResponse[T, PostApiUtilsHeader]
+ResponseType = TwitterApiUtilsResponse[T]
 
 
 class PostApiUtils:
@@ -27,11 +27,7 @@ class PostApiUtils:
         type: type[T],
     ) -> ResponseType[T]:
         checked = check_error(data=res, type=type)
-        return build_response(
-            response=res,
-            data=checked,
-            type=PostApiUtilsHeader,
-        )
+        return build_response(response=res, data=checked)
 
     def post_create_tweet(
         self,
