@@ -3,7 +3,7 @@ from twitter_openapi_python.models import TwitterApiUtilsResponse
 from typing import Any, Callable, Type, TypeVar, Optional
 from types import NoneType
 
-from twitter_openapi_python.utils.api import build_response
+from twitter_openapi_python.utils.api import build_response, get_legacy_kwargs
 
 
 T = TypeVar("T")
@@ -26,7 +26,7 @@ class V11PostApiUtils:
         key: str,
         param: ParamType,
     ) -> TwitterApiUtilsResponse[T]:
-        args = self.flag[key] | param
+        args = get_legacy_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(**args)
         data = res.data
 

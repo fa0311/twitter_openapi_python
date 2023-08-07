@@ -8,16 +8,15 @@ from twitter_openapi_python.utils.api import check_error
 
 
 T = TypeVar("T")
-
-
 ResponseType = TwitterApiUtilsResponse[T]
+ParamType = dict[str, Any]
 
 
 class PostApiUtils:
     api: twitter.PostApi
-    flag: dict[str, Any]
+    flag: ParamType
 
-    def __init__(self, api: twitter.PostApi, flag: dict[str, Any]):
+    def __init__(self, api: twitter.PostApi, flag: ParamType):
         self.api = api
         self.flag = flag
 

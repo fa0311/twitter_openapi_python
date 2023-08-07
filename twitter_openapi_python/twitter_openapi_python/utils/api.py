@@ -42,6 +42,17 @@ def get_kwargs(flag: ParamType, additional: ParamType) -> ParamType:
     return kwargs
 
 
+def get_legacy_kwargs(flag: ParamType, additional: ParamType) -> ParamType:
+    assert flag is not None
+
+    def to_snake_case(x: str) -> str:
+        return "".join(["_" + i.lower() if i.isupper() else i for i in x]).lstrip("_")
+
+    res = {to_snake_case(k): v for k, v in flag.items()}
+
+    return res | additional
+
+
 def check_error(data: twitter.ApiResponse, type: type[T]) -> T:
     if data.data is None:
         raise Exception("No data")
