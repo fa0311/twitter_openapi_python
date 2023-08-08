@@ -1,4 +1,5 @@
 from typing import Dict
+
 from pydantic import Field
 
 from twitter_openapi_python.models import BaseModel

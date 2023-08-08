@@ -1,7 +1,8 @@
-import unittest
 import datetime
-import twitter_openapi_python as api
+import unittest
 from test.api import get_client
+
+import twitter_openapi_python as api
 
 
 class TestPostApi(unittest.TestCase):

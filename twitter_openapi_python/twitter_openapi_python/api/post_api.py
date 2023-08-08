@@ -1,11 +1,11 @@
+from typing import Any, TypeVar
+
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
-from typing import Any, TypeVar
 
 from twitter_openapi_python.models import TwitterApiUtilsResponse
 from twitter_openapi_python.utils import build_response
 from twitter_openapi_python.utils.api import check_error
-
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[T]

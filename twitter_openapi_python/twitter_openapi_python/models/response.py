@@ -1,9 +1,9 @@
+from typing import Generic, TypeVar
+
+import twitter_openapi_python_generated as twitter
 from pydantic import Field
 
-from typing import Generic, TypeVar
-import twitter_openapi_python_generated as twitter
-from twitter_openapi_python.models import BaseModel, GenericModel
-from twitter_openapi_python.models.header import ApiUtilsHeader
+from twitter_openapi_python.models import ApiUtilsHeader, BaseModel, GenericModel
 
 T1 = TypeVar("T1")
 T2 = TypeVar("T2")

@@ -1,9 +1,10 @@
-from typing import List, Optional, TypeVar, Any, Generic
-from pydantic import Field
-import twitter_openapi_python_generated.models as models
+from typing import Any, Generic, List, Optional, TypeVar
 
 # from twitter_openapi_python_generated.api_response import ApiResponse
-from twitter_openapi_python.models.base import BaseModel, GenericModel
+import twitter_openapi_python_generated.models as models
+from pydantic import Field
+
+from twitter_openapi_python.models import BaseModel, GenericModel
 
 T = TypeVar("T")
 

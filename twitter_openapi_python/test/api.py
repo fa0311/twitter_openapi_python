@@ -1,9 +1,10 @@
 import json
-from pathlib import Path
-import twitter_openapi_python as api
 import logging
+from pathlib import Path
 
 import twitter_openapi_python_generated.models as models
+
+import twitter_openapi_python as api
 from twitter_openapi_python.models import TweetApiUtilsData
 from twitter_openapi_python.models.timeline import UserApiUtilsData
 

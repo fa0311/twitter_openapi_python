@@ -1,19 +1,20 @@
-import urllib3
 from typing import Any
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.configuration as conf
+import urllib3
+
+from twitter_openapi_python.api import V11GetApiUtils  # type: ignore
+from twitter_openapi_python.api import V11PostApiUtils  # type: ignore
+from twitter_openapi_python.api import V20GetApiUtils  # type: ignore
 from twitter_openapi_python.api import (
     DefaultApiUtils,
-    PostApiUtils,
     InitialStateApiUtils,
+    PostApiUtils,
     TweetApiUtils,
     UserApiUtils,
-    UsersApiUtils,
     UserListApiUtils,
-    V11GetApiUtils,  # type: ignore
-    V11PostApiUtils,  # type: ignore
-    V20GetApiUtils,  # type: ignore
+    UsersApiUtils,
 )
 
 ParamType = dict[str, Any]

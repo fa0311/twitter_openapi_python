@@ -1,10 +1,10 @@
-import twitter_openapi_python_generated as twitter
-import twitter_openapi_python_generated.models as models
 from typing import Any, Callable, Optional, Type, TypeVar
 
-from twitter_openapi_python.models import TwitterApiUtilsResponse
-from twitter_openapi_python.utils.api import build_response, check_error, get_kwargs
+import twitter_openapi_python_generated as twitter
+import twitter_openapi_python_generated.models as models
 
+from twitter_openapi_python.models import TwitterApiUtilsResponse
+from twitter_openapi_python.utils import build_response, check_error, get_kwargs
 
 T1 = TypeVar("T1")
 T2 = TypeVar("T2")

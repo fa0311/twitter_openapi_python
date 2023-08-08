@@ -1,24 +1,22 @@
-import twitter_openapi_python_generated as twitter
+from typing import Any, Callable, List, Optional, Type, TypeVar
 
+import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
+
 from twitter_openapi_python.models import (
     ApiUtilsRaw,
-    TwitterApiUtilsResponse,
     TimelineApiUtilsResponse,
+    TweetApiUtilsData,
+    TwitterApiUtilsResponse,
 )
-from twitter_openapi_python.models import TweetApiUtilsData
-
 from twitter_openapi_python.utils.api import (
+    build_response,
     check_error,
+    entries_cursor,
     get_kwargs,
     instruction_to_entry,
     tweet_entries_converter,
-    entries_cursor,
-    build_response,
 )
-
-from typing import Any, Callable, Type, TypeVar, List, Optional
-
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[TweetApiUtilsData]]

@@ -1,7 +1,9 @@
 import json
+from typing import Any, Dict, List, Optional, TypeGuard, TypeVar
+
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
-from typing import Dict, List, TypeGuard, TypeVar, Optional, Any
+
 from twitter_openapi_python.models import (
     ApiUtilsHeader,
     CursorApiUtilsResponse,

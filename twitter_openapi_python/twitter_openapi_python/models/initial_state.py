@@ -1,8 +1,9 @@
-from typing import Dict, Any, Optional
+from typing import Any, Dict, Optional
+
+import twitter_openapi_python_generated as twitter
 from pydantic import Field
 
 from twitter_openapi_python.models import BaseModel
-import twitter_openapi_python_generated as twitter
 
 
 class InitialStateApiUtilsRaw(BaseModel):
