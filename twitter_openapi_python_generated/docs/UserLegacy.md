@@ -15,10 +15,10 @@ Name | Type | Description | Notes
 **entities** | **Dict[str, object]** |  | 
 **fast_followers_count** | **int** |  | 
 **favourites_count** | **int** |  | [default to 0]
-**follow_request_sent** | **bool** |  | [default to False]
-**followed_by** | **bool** |  | [default to False]
+**follow_request_sent** | **bool** |  | [optional] [default to False]
+**followed_by** | **bool** |  | [optional] [default to False]
 **followers_count** | **int** |  | [default to 0]
-**following** | **bool** |  | [default to False]
+**following** | **bool** |  | [optional] [default to False]
 **friends_count** | **int** |  | [default to 0]
 **has_custom_timelines** | **bool** |  | [default to False]
 **is_translator** | **bool** |  | [default to False]
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **muting** | **bool** |  | [default to False]
 **name** | **str** |  | 
 **normal_followers_count** | **int** |  | [default to 0]
-**notifications** | **bool** |  | [default to False]
+**notifications** | **bool** |  | [optional] [default to False]
 **pinned_tweet_ids_str** | **List[str]** |  | 
 **possibly_sensitive** | **bool** |  | [default to False]
 **profile_banner_extensions** | **object** |  | [optional] 
@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 **profile_image_extensions** | **object** |  | [optional] 
 **profile_image_url_https** | **str** |  | 
 **profile_interstitial_type** | **str** |  | 
-**protected** | **bool** |  | [default to False]
+**protected** | **bool** |  | [optional] [default to False]
 **screen_name** | **str** |  | 
 **statuses_count** | **int** |  | [default to 0]
 **translator_type** | **str** |  | 
