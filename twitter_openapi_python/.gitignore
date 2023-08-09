@@ -2,3 +2,5 @@
 cookie.json
 __pycache__
 logs/
+build/
+*.egg-info/
