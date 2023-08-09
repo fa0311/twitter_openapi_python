@@ -1,10 +1,11 @@
 [tool.poetry]
 name = "twitter_openapi_python"
-version = "0.0.1"
+version = "0.0.2"
 description = "Twitter OpenAPI"
-authors = ["OpenAPI Generator Community <yuki@yuki0311.com>"]
+authors = ["fa0311 <yuki@yuki0311.com>"]
 license = "GNU Affero General Public License v3."
 readme = "README.md"
+license_file = "LICENSE.txt"
 repository = "https://github.com/fa0311/twitter_openapi_python"
 keywords = ["twitter", "api", "python", "scraper"]
 include = ["twitter_openapi_python/py.typed"]

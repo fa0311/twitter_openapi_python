@@ -24,7 +24,7 @@ setup(
     license="GNU Affero General Public License v3.",
     long_description_content_type="text/markdown",
     long_description="""\
-    Twitter OpenAPI(Swagger) specification
+        Twitter scraping with data validation by pydantic.
     """,  # noqa: E501
     package_data={"twitter_openapi_python": ["py.typed"]},
 )
