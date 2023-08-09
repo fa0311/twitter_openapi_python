@@ -5,6 +5,7 @@ packageName: twitter_openapi_python_generated
 packageVersion: 0.0.1
 packageUrl: https://github.com/fa0311/twitter_openapi_python_generated
 projectName: twitter_openapi_python_generated
+projectKeywords: twitter_openapi_python_generated
 # disallowAdditionalPropertiesIfNotPresent: false
 
 useOneOfDiscriminatorLookup: true

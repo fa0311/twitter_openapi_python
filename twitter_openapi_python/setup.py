@@ -14,7 +14,7 @@ setup(
     name=NAME,
     version=VERSION,
     description="Twitter OpenAPI",
-    author="OpenAPI Generator community",
+    author="fa0311",
     author_email="yuki@yuki0311.com",
     url="https://github.com/fa0311/twitter_openapi_python",
     keywords=["OpenAPI", "OpenAPI-Generator", "Twitter OpenAPI"],

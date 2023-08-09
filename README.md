@@ -39,7 +39,9 @@ openapi-generator-cli generate -g python -c tools/openapi-generator-config.yaml
 
 ### Setup
 
-todo
+```shell
+pip install twitter-openapi-python-generated
+```
 
 ### Usage
 
