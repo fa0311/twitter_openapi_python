@@ -3,8 +3,20 @@
 # flake8: noqa
 
 
-from twitter_openapi_python.models.base import *
-from twitter_openapi_python.models.header import *
-from twitter_openapi_python.models.initial_state import *
-from twitter_openapi_python.models.response import *
-from twitter_openapi_python.models.timeline import *
+from twitter_openapi_python.models.base import BaseModel, GenericModel
+from twitter_openapi_python.models.header import ApiUtilsHeader, PostApiUtilsHeader
+from twitter_openapi_python.models.initial_state import (
+    InitialStateApiUtilsRaw,
+    InitialStateApiUtilsResponse,
+)
+from twitter_openapi_python.models.response import (
+    TwitterApiUtilsRaw,
+    TwitterApiUtilsResponse,
+)
+from twitter_openapi_python.models.timeline import (
+    ApiUtilsRaw,
+    CursorApiUtilsResponse,
+    TimelineApiUtilsResponse,
+    TweetApiUtilsData,
+    UserApiUtilsData,
+)

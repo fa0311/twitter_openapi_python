@@ -3,9 +3,8 @@ from typing import Any, Callable, Optional, Type, TypeVar
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
 
-from twitter_openapi_python.models import TwitterApiUtilsResponse
-from twitter_openapi_python.models.timeline import UserApiUtilsData
-from twitter_openapi_python.utils.api import (
+from twitter_openapi_python.models import TwitterApiUtilsResponse, UserApiUtilsData
+from twitter_openapi_python.utils import (
     build_response,
     check_error,
     get_kwargs,

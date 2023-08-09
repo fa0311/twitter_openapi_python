@@ -8,11 +8,9 @@ from twitter_openapi_python.models import (
     ApiUtilsHeader,
     CursorApiUtilsResponse,
     TweetApiUtilsData,
-    UserApiUtilsData,
-)
-from twitter_openapi_python.models.response import (
     TwitterApiUtilsRaw,
     TwitterApiUtilsResponse,
+    UserApiUtilsData,
 )
 
 T = TypeVar("T")
@@ -126,7 +124,7 @@ def buildTweetApiUtils(
     promoted_metadata: Optional[dict[str, Any]],
     reply: List[models.TimelineTweet],
 ) -> Optional[TweetApiUtilsData]:
-    tweet = tweetResultsConverter(result)
+    tweet = tweet_results_converter(result)
     if tweet is None:
         return None
     user = user_or_null_converter(tweet.core.user_results.result)
@@ -149,7 +147,7 @@ def buildTweetApiUtils(
     )
 
 
-def tweetResultsConverter(tweetResults: models.ItemResult) -> Optional[models.Tweet]:
+def tweet_results_converter(tweetResults: models.ItemResult) -> Optional[models.Tweet]:
     properties = tweetResults.result.actual_instance
     if isinstance(properties, models.Tweet):
         return properties
