@@ -7,7 +7,7 @@ from twitter_openapi_python.utils.api import (
     build_cursor,
     build_header,
     build_response,
-    buildTweetApiUtils,
+    build_tweet_api_utils,
     check_error,
     entries_cursor,
     get_kwargs,

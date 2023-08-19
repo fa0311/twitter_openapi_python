@@ -89,7 +89,7 @@ def tweet_entries_converter(
         if isinstance(one_of, models.TimelineTimelineItem):
             item = one_of.item_content.actual_instance
             if isinstance(item, models.TimelineTweet):
-                return buildTweetApiUtils(
+                return build_tweet_api_utils(
                     result=item.tweet_results,
                     promoted_metadata=item.promoted_metadata,
                     reply=[],
@@ -100,7 +100,7 @@ def tweet_entries_converter(
             if len(timelineList) == 0:
                 return None
             timeline = timelineList[0]
-            return buildTweetApiUtils(
+            return build_tweet_api_utils(
                 result=timeline.tweet_results,
                 promoted_metadata=timeline.promoted_metadata,
                 reply=timelineList[1:],
@@ -119,7 +119,7 @@ def user_or_null_converter(user: models.UserUnion) -> Optional[models.User]:
         return user.actual_instance
 
 
-def buildTweetApiUtils(
+def build_tweet_api_utils(
     result: models.ItemResult,
     promoted_metadata: Optional[dict[str, Any]],
     reply: List[models.TimelineTweet],
@@ -132,10 +132,10 @@ def buildTweetApiUtils(
         return None
 
     quoted = tweet.quoted_status_result
+    retweeted = tweet.legacy.retweeted_status_result
 
-    # retweeted = tweet.legacy.retweeted_status_result
     def reply_fn(x: models.TimelineTweet) -> Optional[TweetApiUtilsData]:
-        return buildTweetApiUtils(x.tweet_results, x.promoted_metadata, [])
+        return build_tweet_api_utils(x.tweet_results, x.promoted_metadata, [])
 
     return TweetApiUtilsData(
         raw=result,
@@ -143,7 +143,8 @@ def buildTweetApiUtils(
         tweet=tweet,
         user=user,
         replies=non_nullable_list(list(map(reply_fn, reply))),
-        quoted=buildTweetApiUtils(quoted, None, []) if quoted else None,
+        retweeted=build_tweet_api_utils(retweeted, None, []) if retweeted else None,
+        quoted=build_tweet_api_utils(quoted, None, []) if quoted else None,
     )
 
 
