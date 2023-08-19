@@ -2,10 +2,10 @@ from typing import Dict
 
 from pydantic import Field
 
-from twitter_openapi_python.models import BaseModel
+from twitter_openapi_python.models.base import BaseModel
 
 
-class PostApiUtilsHeader(BaseModel):
+class ApiUtilsHeader(BaseModel):
     raw: Dict[str, str] = Field()
     connection_hash: str = Field()
     content_type_options: str = Field()
@@ -14,9 +14,6 @@ class PostApiUtilsHeader(BaseModel):
     tfe_preserve_body: bool = Field()
     transaction_id: str = Field()
     xss_protection: int = Field()
-
-
-class ApiUtilsHeader(PostApiUtilsHeader):
     rate_limit_limit: int = Field()
     rate_limit_remaining: int = Field()
     rate_limit_reset: int = Field()
