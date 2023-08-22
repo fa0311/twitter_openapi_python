@@ -2,7 +2,7 @@ from typing import Dict
 
 from pydantic import Field
 
-from twitter_openapi_python.models.base import BaseModel
+from twitter_openapi_python.models import BaseModel
 
 
 class ApiUtilsHeader(BaseModel):

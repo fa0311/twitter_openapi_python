@@ -4,7 +4,7 @@
 
 
 from twitter_openapi_python.models.base import BaseModel, GenericModel
-from twitter_openapi_python.models.header import ApiUtilsHeader, PostApiUtilsHeader
+from twitter_openapi_python.models.header import ApiUtilsHeader
 from twitter_openapi_python.models.initial_state import (
     InitialStateApiUtilsRaw,
     InitialStateApiUtilsResponse,
