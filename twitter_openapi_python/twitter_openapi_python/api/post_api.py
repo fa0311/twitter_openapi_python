@@ -4,8 +4,7 @@ import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
 
 from twitter_openapi_python.models import TwitterApiUtilsResponse
-from twitter_openapi_python.utils import build_response
-from twitter_openapi_python.utils.api import check_error
+from twitter_openapi_python.utils import build_response, check_error
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[T]

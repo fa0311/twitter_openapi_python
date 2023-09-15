@@ -9,7 +9,7 @@ from twitter_openapi_python.models import (
     TweetApiUtilsData,
     TwitterApiUtilsResponse,
 )
-from twitter_openapi_python.utils.api import (
+from twitter_openapi_python.utils import (
     build_response,
     check_error,
     entries_cursor,

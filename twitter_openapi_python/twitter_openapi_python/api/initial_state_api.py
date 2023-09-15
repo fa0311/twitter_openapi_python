@@ -6,7 +6,7 @@ import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
 from urllib3 import HTTPResponse
 
-from twitter_openapi_python.models.initial_state import (
+from twitter_openapi_python.models import (
     InitialStateApiUtilsRaw,
     InitialStateApiUtilsResponse,
 )

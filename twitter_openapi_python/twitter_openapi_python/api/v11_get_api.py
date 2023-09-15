@@ -4,7 +4,7 @@ from typing import Any, Callable, Optional, Type, TypeVar
 import twitter_openapi_python_generated as twitter
 
 from twitter_openapi_python.models import TwitterApiUtilsResponse
-from twitter_openapi_python.utils.api import build_response, get_legacy_kwargs
+from twitter_openapi_python.utils import build_response, get_legacy_kwargs
 
 T = TypeVar("T")
 ApiFnType = Callable[..., twitter.ApiResponse]

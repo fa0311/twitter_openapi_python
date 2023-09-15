@@ -1,2 +1,29 @@
+[tool.poetry]
+name = "twitter_openapi_python"
+version = "0.0.4"
+description = "Twitter OpenAPI"
+authors = ["fa0311 <yuki@yuki0311.com>"]
+license = "GNU Affero General Public License v3."
+readme = "README.md"
+license_file = "LICENSE.txt"
+repository = "https://github.com/fa0311/twitter_openapi_python"
+keywords = ["twitter", "api", "python", "scraper"]
+include = ["twitter_openapi_python/py.typed"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pydantic = "^1.10.5, <2"
+
+twitter-openapi-python-generated = ">= 0.0.1, < 1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.pylint.'MESSAGES CONTROL']
+extension-pkg-whitelist = "pydantic"
+
 [tool.pyright]
 reportPrivateImportUsage = false
