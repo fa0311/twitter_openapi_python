@@ -127,12 +127,15 @@ def build_tweet_api_utils(
     tweet = tweet_results_converter(result)
     if tweet is None:
         return None
+    if tweet.core is None:
+        return None
     user = user_or_null_converter(tweet.core.user_results.result)
     if user is None:
         return None
 
     quoted = tweet.quoted_status_result
-    retweeted = tweet.legacy.retweeted_status_result
+
+    retweeted = None if tweet.legacy is None else tweet.legacy.retweeted_status_result
 
     def reply_fn(x: models.TimelineTweet) -> Optional[TweetApiUtilsData]:
         return build_tweet_api_utils(x.tweet_results, x.promoted_metadata, [])
@@ -149,6 +152,8 @@ def build_tweet_api_utils(
 
 
 def tweet_results_converter(tweetResults: models.ItemResult) -> Optional[models.Tweet]:
+    if tweetResults.result is None:
+        return None
     properties = tweetResults.result.actual_instance
     if isinstance(properties, models.Tweet):
         return properties

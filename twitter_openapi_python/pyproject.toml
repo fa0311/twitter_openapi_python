@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "twitter_openapi_python"
-version = "0.0.4"
+version = "0.0.5"
 description = "Twitter OpenAPI"
 authors = ["fa0311 <yuki@yuki0311.com>"]
-license = "GNU Affero General Public License v3."
+license = "proprietary" # or "AGPL-3.0-only"
 readme = "README.md"
-license_file = "LICENSE.txt"
+license_file = "LICENSE"
 repository = "https://github.com/fa0311/twitter_openapi_python"
 keywords = ["twitter", "api", "python", "scraper"]
 include = ["twitter_openapi_python/py.typed"]
@@ -14,7 +14,7 @@ include = ["twitter_openapi_python/py.typed"]
 python = "^3.7"
 pydantic = "^1.10.5, <2"
 
-twitter-openapi-python-generated = ">= 0.0.1, < 1"
+twitter-openapi-python-generated = "0.0.4"
 
 [tool.poetry.dev-dependencies]
 

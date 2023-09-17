@@ -3,10 +3,10 @@
 from setuptools import find_packages, setup
 
 NAME = "twitter_openapi_python"
-VERSION = "0.0.4"
+VERSION = "0.0.5"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
-    "twitter_openapi_python_generated >= 0.0.1, < 1",
+    "twitter_openapi_python_generated == 0.0.4",
     "pydantic >= 1.10.5, < 2",
 ]
 
@@ -21,7 +21,7 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
-    license="GNU Affero General Public License v3.",
+    license="proprietary or AGPL-3.0-or-later",
     long_description_content_type="text/markdown",
     long_description="""\
         Twitter scraping with data validation by pydantic.
