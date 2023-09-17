@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **trigger_delay_ms** | **int** |  | [optional] 
 **users_results** | [**List[UserResults]**](UserResults.md) |  | 
 **direction** | **str** |  | 
+**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | 
+**cover** | [**TimelineHalfCover**](TimelineHalfCover.md) |  | 
 
 ## Example
 

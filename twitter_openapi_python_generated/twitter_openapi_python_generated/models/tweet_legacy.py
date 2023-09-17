@@ -23,7 +23,7 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist, constr, validator
 from twitter_openapi_python_generated.models.entities import Entities
 from twitter_openapi_python_generated.models.extended_entities import ExtendedEntities
-from twitter_openapi_python_generated.models.tweet_legacy_self_thread import TweetLegacySelfThread
+from twitter_openapi_python_generated.models.self_thread import SelfThread
 
 class TweetLegacy(BaseModel):
     """
@@ -49,7 +49,7 @@ class TweetLegacy(BaseModel):
     retweet_count: StrictInt = Field(...)
     retweeted: StrictBool = Field(...)
     retweeted_status_result: Optional[ItemResult] = None
-    self_thread: Optional[TweetLegacySelfThread] = None
+    self_thread: Optional[SelfThread] = None
     user_id_str: constr(strict=True) = Field(...)
     __properties = ["bookmark_count", "bookmarked", "conversation_id_str", "created_at", "display_text_range", "entities", "extended_entities", "favorite_count", "favorited", "full_text", "id_str", "is_quote_status", "lang", "possibly_sensitive", "possibly_sensitive_editable", "quote_count", "reply_count", "retweet_count", "retweeted", "retweeted_status_result", "self_thread", "user_id_str"]
 
@@ -149,7 +149,7 @@ class TweetLegacy(BaseModel):
             "retweet_count": obj.get("retweet_count"),
             "retweeted": obj.get("retweeted"),
             "retweeted_status_result": ItemResult.from_dict(obj.get("retweeted_status_result")) if obj.get("retweeted_status_result") is not None else None,
-            "self_thread": TweetLegacySelfThread.from_dict(obj.get("self_thread")) if obj.get("self_thread") is not None else None,
+            "self_thread": SelfThread.from_dict(obj.get("self_thread")) if obj.get("self_thread") is not None else None,
             "user_id_str": obj.get("user_id_str")
         })
         return _obj

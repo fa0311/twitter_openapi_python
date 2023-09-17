@@ -19,25 +19,30 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, StrictStr, constr, validator
 
-class TweetViews(BaseModel):
+from pydantic import BaseModel, Field, StrictStr, validator
+
+class TextEntityRef(BaseModel):
     """
-    TweetViews
+    TextEntityRef
     """
-    count: Optional[constr(strict=True)] = None
-    state: Optional[StrictStr] = None
-    __properties = ["count", "state"]
+    type: StrictStr = Field(...)
+    url: StrictStr = Field(...)
+    url_type: StrictStr = Field(..., alias="urlType")
+    __properties = ["type", "url", "urlType"]
 
-    @validator('count')
-    def count_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
+    @validator('type')
+    def type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in ('TimelineUrl'):
+            raise ValueError("must be one of enum values ('TimelineUrl')")
+        return value
 
-        if not re.match(r"^[0-9]+$", value):
-            raise ValueError(r"must validate the regular expression /^[0-9]+$/")
+    @validator('url_type')
+    def url_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in ('ExternalUrl'):
+            raise ValueError("must be one of enum values ('ExternalUrl')")
         return value
 
     class Config:
@@ -54,8 +59,8 @@ class TweetViews(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> TweetViews:
-        """Create an instance of TweetViews from a JSON string"""
+    def from_json(cls, json_str: str) -> TextEntityRef:
+        """Create an instance of TextEntityRef from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -67,17 +72,18 @@ class TweetViews(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> TweetViews:
-        """Create an instance of TweetViews from a dict"""
+    def from_dict(cls, obj: dict) -> TextEntityRef:
+        """Create an instance of TextEntityRef from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return TweetViews.parse_obj(obj)
+            return TextEntityRef.parse_obj(obj)
 
-        _obj = TweetViews.parse_obj({
-            "count": obj.get("count"),
-            "state": obj.get("state")
+        _obj = TextEntityRef.parse_obj({
+            "type": obj.get("type"),
+            "url": obj.get("url"),
+            "url_type": obj.get("urlType")
         })
         return _obj
 

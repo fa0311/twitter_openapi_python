@@ -39,11 +39,11 @@ class TestTweetCard(unittest.TestCase):
         model = twitter_openapi_python_generated.models.tweet_card.TweetCard()  # noqa: E501
         if include_optional :
             return TweetCard(
-                legacy = twitter_openapi_python_generated.models.tweet_card_legacy.Tweet_card_legacy(
+                legacy = twitter_openapi_python_generated.models.tweet_card_legacy.TweetCardLegacy(
                     binding_values = [
-                        twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner.Tweet_card_legacy_binding_values_inner(
+                        twitter_openapi_python_generated.models.tweet_card_legacy_binding_value.TweetCardLegacyBindingValue(
                             key = '', 
-                            value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner_value.Tweet_card_legacy_binding_values_inner_value(
+                            value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data.TweetCardLegacyBindingValueData(
                                 boolean_value = True, 
                                 scribe_key = '', 
                                 string_value = '', 

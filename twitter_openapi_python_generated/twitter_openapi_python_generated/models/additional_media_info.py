@@ -19,18 +19,15 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr
 
-class TweetCardLegacyBindingValuesInnerValue(BaseModel):
+from pydantic import BaseModel, Field, StrictBool
+
+class AdditionalMediaInfo(BaseModel):
     """
-    TweetCardLegacyBindingValuesInnerValue
+    AdditionalMediaInfo
     """
-    boolean_value: Optional[StrictBool] = None
-    scribe_key: Optional[StrictStr] = None
-    string_value: Optional[StrictStr] = None
-    type: StrictStr = Field(...)
-    __properties = ["boolean_value", "scribe_key", "string_value", "type"]
+    monetizable: StrictBool = Field(...)
+    __properties = ["monetizable"]
 
     class Config:
         """Pydantic configuration"""
@@ -46,8 +43,8 @@ class TweetCardLegacyBindingValuesInnerValue(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> TweetCardLegacyBindingValuesInnerValue:
-        """Create an instance of TweetCardLegacyBindingValuesInnerValue from a JSON string"""
+    def from_json(cls, json_str: str) -> AdditionalMediaInfo:
+        """Create an instance of AdditionalMediaInfo from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -59,19 +56,16 @@ class TweetCardLegacyBindingValuesInnerValue(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> TweetCardLegacyBindingValuesInnerValue:
-        """Create an instance of TweetCardLegacyBindingValuesInnerValue from a dict"""
+    def from_dict(cls, obj: dict) -> AdditionalMediaInfo:
+        """Create an instance of AdditionalMediaInfo from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return TweetCardLegacyBindingValuesInnerValue.parse_obj(obj)
+            return AdditionalMediaInfo.parse_obj(obj)
 
-        _obj = TweetCardLegacyBindingValuesInnerValue.parse_obj({
-            "boolean_value": obj.get("boolean_value"),
-            "scribe_key": obj.get("scribe_key"),
-            "string_value": obj.get("string_value"),
-            "type": obj.get("type")
+        _obj = AdditionalMediaInfo.parse_obj({
+            "monetizable": obj.get("monetizable")
         })
         return _obj
 

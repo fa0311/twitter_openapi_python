@@ -21,6 +21,7 @@ import json
 
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field
+from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo
 from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
 from twitter_openapi_python_generated.models.item_content_union import ItemContentUnion
 from twitter_openapi_python_generated.models.type_name import TypeName
@@ -30,7 +31,7 @@ class TimelineTimelineItem(BaseModel):
     TimelineTimelineItem
     """
     typename: TypeName = Field(..., alias="__typename")
-    client_event_info: Optional[Dict[str, Any]] = Field(None, alias="clientEventInfo")
+    client_event_info: Optional[ClientEventInfo] = Field(None, alias="clientEventInfo")
     entry_type: ContentEntryType = Field(..., alias="entryType")
     feedback_info: Optional[Dict[str, Any]] = Field(None, alias="feedbackInfo")
     item_content: ItemContentUnion = Field(..., alias="itemContent")
@@ -60,6 +61,9 @@ class TimelineTimelineItem(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of client_event_info
+        if self.client_event_info:
+            _dict['clientEventInfo'] = self.client_event_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of item_content
         if self.item_content:
             _dict['itemContent'] = self.item_content.to_dict()
@@ -76,7 +80,7 @@ class TimelineTimelineItem(BaseModel):
 
         _obj = TimelineTimelineItem.parse_obj({
             "typename": obj.get("__typename"),
-            "client_event_info": obj.get("clientEventInfo"),
+            "client_event_info": ClientEventInfo.from_dict(obj.get("clientEventInfo")) if obj.get("clientEventInfo") is not None else None,
             "entry_type": obj.get("entryType"),
             "feedback_info": obj.get("feedbackInfo"),
             "item_content": ItemContentUnion.from_dict(obj.get("itemContent")) if obj.get("itemContent") is not None else None

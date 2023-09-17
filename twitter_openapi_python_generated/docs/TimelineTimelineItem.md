@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**client_event_info** | **Dict[str, object]** |  | [optional] 
+**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | [optional] 
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | 
 **feedback_info** | **Dict[str, object]** |  | [optional] 
 **item_content** | [**ItemContentUnion**](ItemContentUnion.md) |  | 

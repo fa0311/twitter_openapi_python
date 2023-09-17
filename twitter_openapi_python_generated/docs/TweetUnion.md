@@ -6,15 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
 **card** | [**TweetCard**](TweetCard.md) |  | [optional] 
-**core** | [**UserResultCore**](UserResultCore.md) |  | 
+**core** | [**UserResultCore**](UserResultCore.md) |  | [optional] 
 **edit_control** | [**TweetEditControl**](TweetEditControl.md) |  | 
 **edit_prespective** | [**TweetEditPrespective**](TweetEditPrespective.md) |  | [optional] 
 **is_translatable** | **bool** |  | [default to False]
-**legacy** | [**TweetLegacy**](TweetLegacy.md) |  | 
+**legacy** | [**TweetLegacy**](TweetLegacy.md) |  | [optional] 
 **quoted_status_result** | [**ItemResult**](ItemResult.md) |  | [optional] 
 **rest_id** | **str** |  | 
+**source** | **str** |  | [optional] 
 **unmention_data** | **Dict[str, object]** |  | [optional] 
-**views** | [**TweetViews**](TweetViews.md) |  | 
+**views** | [**TweetView**](TweetView.md) |  | 
 **tweet** | [**Tweet**](Tweet.md) |  | 
 
 ## Example

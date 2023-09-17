@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | [optional] 
-**result** | [**TweetUnion**](TweetUnion.md) |  | 
+**result** | [**TweetUnion**](TweetUnion.md) |  | [optional] 
 
 ## Example
 

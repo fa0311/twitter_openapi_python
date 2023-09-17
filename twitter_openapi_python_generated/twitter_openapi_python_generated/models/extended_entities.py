@@ -21,13 +21,13 @@ import json
 
 from typing import List
 from pydantic import BaseModel, Field, conlist
-from twitter_openapi_python_generated.models.media import Media
+from twitter_openapi_python_generated.models.media_extended import MediaExtended
 
 class ExtendedEntities(BaseModel):
     """
     ExtendedEntities
     """
-    media: conlist(Media) = Field(...)
+    media: conlist(MediaExtended) = Field(...)
     __properties = ["media"]
 
     class Config:
@@ -73,7 +73,7 @@ class ExtendedEntities(BaseModel):
             return ExtendedEntities.parse_obj(obj)
 
         _obj = ExtendedEntities.parse_obj({
-            "media": [Media.from_dict(_item) for _item in obj.get("media")] if obj.get("media") is not None else None
+            "media": [MediaExtended.from_dict(_item) for _item in obj.get("media")] if obj.get("media") is not None else None
         })
         return _obj
 

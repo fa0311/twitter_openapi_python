@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **retweet_count** | **int** |  | 
 **retweeted** | **bool** |  | 
 **retweeted_status_result** | [**ItemResult**](ItemResult.md) |  | [optional] 
-**self_thread** | [**TweetLegacySelfThread**](TweetLegacySelfThread.md) |  | [optional] 
+**self_thread** | [**SelfThread**](SelfThread.md) |  | [optional] 
 **user_id_str** | **str** |  | 
 
 ## Example

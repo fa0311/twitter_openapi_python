@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_views import TweetViews  # noqa: E501
+from twitter_openapi_python_generated.models.media_original_info_focus_rect import MediaOriginalInfoFocusRect  # noqa: E501
 from twitter_openapi_python_generated.rest import ApiException
 
-class TestTweetViews(unittest.TestCase):
-    """TweetViews unit test stubs"""
+class TestMediaOriginalInfoFocusRect(unittest.TestCase):
+    """MediaOriginalInfoFocusRect unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,25 +30,31 @@ class TestTweetViews(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test TweetViews
+        """Test MediaOriginalInfoFocusRect
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `TweetViews`
+        # uncomment below to create an instance of `MediaOriginalInfoFocusRect`
         """
-        model = twitter_openapi_python_generated.models.tweet_views.TweetViews()  # noqa: E501
+        model = twitter_openapi_python_generated.models.media_original_info_focus_rect.MediaOriginalInfoFocusRect()  # noqa: E501
         if include_optional :
-            return TweetViews(
-                count = '4', 
-                state = ''
+            return MediaOriginalInfoFocusRect(
+                h = 56, 
+                w = 56, 
+                x = 56, 
+                y = 56
             )
         else :
-            return TweetViews(
+            return MediaOriginalInfoFocusRect(
+                h = 56,
+                w = 56,
+                x = 56,
+                y = 56,
         )
         """
 
-    def testTweetViews(self):
-        """Test TweetViews"""
+    def testMediaOriginalInfoFocusRect(self):
+        """Test MediaOriginalInfoFocusRect"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -41,7 +41,7 @@ class TestTimelineTimelineModule(unittest.TestCase):
             return TimelineTimelineModule(
                 typename = 'TimelineTweet', 
                 client_event_info = { }, 
-                display_type = '', 
+                display_type = 'Vertical', 
                 entry_type = 'TimelineTimelineItem', 
                 footer = { }, 
                 header = { }, 
@@ -49,7 +49,10 @@ class TestTimelineTimelineModule(unittest.TestCase):
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
                         entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
-                            client_event_info = { }, 
+                            client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                                component = '', 
+                                details = { }, 
+                                element = '', ), 
                             item_content = null, ), )
                     ]
             )
@@ -57,7 +60,7 @@ class TestTimelineTimelineModule(unittest.TestCase):
             return TimelineTimelineModule(
                 typename = 'TimelineTweet',
                 client_event_info = { },
-                display_type = '',
+                display_type = 'Vertical',
                 entry_type = 'TimelineTimelineItem',
         )
         """

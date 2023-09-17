@@ -21,13 +21,13 @@ import json
 
 from typing import List
 from pydantic import BaseModel, Field, StrictStr, conlist
-from twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner import TweetCardLegacyBindingValuesInner
+from twitter_openapi_python_generated.models.tweet_card_legacy_binding_value import TweetCardLegacyBindingValue
 
 class TweetCardLegacy(BaseModel):
     """
     TweetCardLegacy
     """
-    binding_values: conlist(TweetCardLegacyBindingValuesInner) = Field(...)
+    binding_values: conlist(TweetCardLegacyBindingValue) = Field(...)
     name: StrictStr = Field(...)
     url: StrictStr = Field(...)
     __properties = ["binding_values", "name", "url"]
@@ -75,7 +75,7 @@ class TweetCardLegacy(BaseModel):
             return TweetCardLegacy.parse_obj(obj)
 
         _obj = TweetCardLegacy.parse_obj({
-            "binding_values": [TweetCardLegacyBindingValuesInner.from_dict(_item) for _item in obj.get("binding_values")] if obj.get("binding_values") is not None else None,
+            "binding_values": [TweetCardLegacyBindingValue.from_dict(_item) for _item in obj.get("binding_values")] if obj.get("binding_values") is not None else None,
             "name": obj.get("name"),
             "url": obj.get("url")
         })

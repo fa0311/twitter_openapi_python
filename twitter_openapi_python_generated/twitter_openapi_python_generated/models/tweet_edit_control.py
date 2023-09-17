@@ -21,16 +21,19 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, StrictBool, conlist, constr, validator
+from twitter_openapi_python_generated.models.tweet_edit_control_initial import TweetEditControlInitial
 
 class TweetEditControl(BaseModel):
     """
     TweetEditControl
     """
+    edit_control_initial: Optional[TweetEditControlInitial] = None
     edit_tweet_ids: Optional[conlist(constr(strict=True))] = None
     editable_until_msecs: Optional[constr(strict=True)] = None
     edits_remaining: Optional[constr(strict=True)] = None
+    initial_tweet_id: Optional[constr(strict=True)] = None
     is_edit_eligible: Optional[StrictBool] = None
-    __properties = ["edit_tweet_ids", "editable_until_msecs", "edits_remaining", "is_edit_eligible"]
+    __properties = ["edit_control_initial", "edit_tweet_ids", "editable_until_msecs", "edits_remaining", "initial_tweet_id", "is_edit_eligible"]
 
     @validator('editable_until_msecs')
     def editable_until_msecs_validate_regular_expression(cls, value):
@@ -44,6 +47,16 @@ class TweetEditControl(BaseModel):
 
     @validator('edits_remaining')
     def edits_remaining_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[0-9]+$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]+$/")
+        return value
+
+    @validator('initial_tweet_id')
+    def initial_tweet_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
@@ -76,6 +89,9 @@ class TweetEditControl(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of edit_control_initial
+        if self.edit_control_initial:
+            _dict['edit_control_initial'] = self.edit_control_initial.to_dict()
         return _dict
 
     @classmethod
@@ -88,9 +104,11 @@ class TweetEditControl(BaseModel):
             return TweetEditControl.parse_obj(obj)
 
         _obj = TweetEditControl.parse_obj({
+            "edit_control_initial": TweetEditControlInitial.from_dict(obj.get("edit_control_initial")) if obj.get("edit_control_initial") is not None else None,
             "edit_tweet_ids": obj.get("edit_tweet_ids"),
             "editable_until_msecs": obj.get("editable_until_msecs"),
             "edits_remaining": obj.get("edits_remaining"),
+            "initial_tweet_id": obj.get("initial_tweet_id"),
             "is_edit_eligible": obj.get("is_edit_eligible")
         })
         return _obj

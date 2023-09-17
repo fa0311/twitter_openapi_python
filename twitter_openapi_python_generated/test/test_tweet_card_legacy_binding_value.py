@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner import TweetCardLegacyBindingValuesInner  # noqa: E501
+from twitter_openapi_python_generated.models.tweet_card_legacy_binding_value import TweetCardLegacyBindingValue  # noqa: E501
 from twitter_openapi_python_generated.rest import ApiException
 
-class TestTweetCardLegacyBindingValuesInner(unittest.TestCase):
-    """TweetCardLegacyBindingValuesInner unit test stubs"""
+class TestTweetCardLegacyBindingValue(unittest.TestCase):
+    """TweetCardLegacyBindingValue unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,26 +30,26 @@ class TestTweetCardLegacyBindingValuesInner(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test TweetCardLegacyBindingValuesInner
+        """Test TweetCardLegacyBindingValue
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `TweetCardLegacyBindingValuesInner`
+        # uncomment below to create an instance of `TweetCardLegacyBindingValue`
         """
-        model = twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner.TweetCardLegacyBindingValuesInner()  # noqa: E501
+        model = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value.TweetCardLegacyBindingValue()  # noqa: E501
         if include_optional :
-            return TweetCardLegacyBindingValuesInner(
+            return TweetCardLegacyBindingValue(
                 key = '', 
-                value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner_value.Tweet_card_legacy_binding_values_inner_value(
+                value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data.TweetCardLegacyBindingValueData(
                     boolean_value = True, 
                     scribe_key = '', 
                     string_value = '', 
                     type = '', )
             )
         else :
-            return TweetCardLegacyBindingValuesInner(
+            return TweetCardLegacyBindingValue(
                 key = '',
-                value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner_value.Tweet_card_legacy_binding_values_inner_value(
+                value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data.TweetCardLegacyBindingValueData(
                     boolean_value = True, 
                     scribe_key = '', 
                     string_value = '', 
@@ -57,8 +57,8 @@ class TestTweetCardLegacyBindingValuesInner(unittest.TestCase):
         )
         """
 
-    def testTweetCardLegacyBindingValuesInner(self):
-        """Test TweetCardLegacyBindingValuesInner"""
+    def testTweetCardLegacyBindingValue(self):
+        """Test TweetCardLegacyBindingValue"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

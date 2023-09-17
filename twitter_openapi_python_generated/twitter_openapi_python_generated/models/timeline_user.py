@@ -20,7 +20,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel, Field, StrictStr
+from pydantic import BaseModel, Field, StrictStr, validator
 from twitter_openapi_python_generated.models.content_item_type import ContentItemType
 from twitter_openapi_python_generated.models.social_context import SocialContext
 from twitter_openapi_python_generated.models.type_name import TypeName
@@ -36,6 +36,13 @@ class TimelineUser(BaseModel):
     user_display_type: StrictStr = Field(..., alias="userDisplayType")
     user_results: UserResults = Field(...)
     __properties = ["SocialContext", "__typename", "itemType", "userDisplayType", "user_results"]
+
+    @validator('user_display_type')
+    def user_display_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in ('User', 'UserDetailed', 'SubscribableUser'):
+            raise ValueError("must be one of enum values ('User', 'UserDetailed', 'SubscribableUser')")
+        return value
 
     class Config:
         """Pydantic configuration"""

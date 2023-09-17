@@ -53,7 +53,7 @@ class TestItemContentUnion(unittest.TestCase):
                 cursor_type = 'Top', 
                 entry_type = 'TimelineTimelineItem', 
                 value = '', 
-                user_display_type = '', 
+                user_display_type = 'User', 
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                     result = null, )
             )
@@ -67,7 +67,7 @@ class TestItemContentUnion(unittest.TestCase):
                     result = null, ),
                 cursor_type = 'Top',
                 value = '',
-                user_display_type = '',
+                user_display_type = 'User',
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                     result = null, ),
         )

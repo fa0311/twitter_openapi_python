@@ -28,7 +28,7 @@ class ItemResult(BaseModel):
     ItemResult
     """
     typename: Optional[TypeName] = Field(None, alias="__typename")
-    result: TweetUnion = Field(...)
+    result: Optional[TweetUnion] = None
     __properties = ["__typename", "result"]
 
     class Config:

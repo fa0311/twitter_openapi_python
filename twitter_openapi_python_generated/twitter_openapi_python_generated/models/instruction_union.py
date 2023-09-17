@@ -27,11 +27,12 @@ from twitter_openapi_python_generated.models.timeline_clear_cache import Timelin
 from twitter_openapi_python_generated.models.timeline_pin_entry import TimelinePinEntry
 from twitter_openapi_python_generated.models.timeline_replace_entry import TimelineReplaceEntry
 from twitter_openapi_python_generated.models.timeline_show_alert import TimelineShowAlert
+from twitter_openapi_python_generated.models.timeline_show_cover import TimelineShowCover
 from twitter_openapi_python_generated.models.timeline_terminate_timeline import TimelineTerminateTimeline
 from typing import Union, Any, List, TYPE_CHECKING
 from pydantic import StrictStr, Field
 
-INSTRUCTIONUNION_ONE_OF_SCHEMAS = ["TimelineAddEntries", "TimelineAddToModule", "TimelineClearCache", "TimelinePinEntry", "TimelineReplaceEntry", "TimelineShowAlert", "TimelineTerminateTimeline"]
+INSTRUCTIONUNION_ONE_OF_SCHEMAS = ["TimelineAddEntries", "TimelineAddToModule", "TimelineClearCache", "TimelinePinEntry", "TimelineReplaceEntry", "TimelineShowAlert", "TimelineShowCover", "TimelineTerminateTimeline"]
 
 class InstructionUnion(BaseModel):
     """
@@ -51,8 +52,10 @@ class InstructionUnion(BaseModel):
     oneof_schema_6_validator: Optional[TimelineShowAlert] = None
     # data type: TimelineTerminateTimeline
     oneof_schema_7_validator: Optional[TimelineTerminateTimeline] = None
+    # data type: TimelineShowCover
+    oneof_schema_8_validator: Optional[TimelineShowCover] = None
     if TYPE_CHECKING:
-        actual_instance: Union[TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineTerminateTimeline]
+        actual_instance: Union[TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline]
     else:
         actual_instance: Any
     one_of_schemas: List[str] = Field(INSTRUCTIONUNION_ONE_OF_SCHEMAS, const=True)
@@ -113,12 +116,17 @@ class InstructionUnion(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `TimelineTerminateTimeline`")
         else:
             match += 1
+        # validate data type: TimelineShowCover
+        if not isinstance(v, TimelineShowCover):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `TimelineShowCover`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -168,6 +176,11 @@ class InstructionUnion(BaseModel):
             instance.actual_instance = TimelineShowAlert.from_json(json_str)
             return instance
 
+        # check if data type is `TimelineShowCover`
+        if _data_type == "TimelineShowCover":
+            instance.actual_instance = TimelineShowCover.from_json(json_str)
+            return instance
+
         # check if data type is `TimelineTerminateTimeline`
         if _data_type == "TimelineTerminateTimeline":
             instance.actual_instance = TimelineTerminateTimeline.from_json(json_str)
@@ -215,13 +228,19 @@ class InstructionUnion(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into TimelineShowCover
+        try:
+            instance.actual_instance = TimelineShowCover.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
         else:
             return instance
 

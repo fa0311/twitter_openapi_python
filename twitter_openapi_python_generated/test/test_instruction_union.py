@@ -51,7 +51,10 @@ class TestInstructionUnion(unittest.TestCase):
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
                         entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
-                            client_event_info = { }, 
+                            client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                                component = '', 
+                                details = { }, 
+                                element = '', ), 
                             item_content = null, ), )
                     ], 
                 prepend = True, 
@@ -75,7 +78,52 @@ class TestInstructionUnion(unittest.TestCase):
                     twitter_openapi_python_generated.models.user_results.UserResults(
                         result = null, )
                     ], 
-                direction = 'Top'
+                direction = 'Top', 
+                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                    component = '', 
+                    details = { }, 
+                    element = '', ), 
+                cover = twitter_openapi_python_generated.models.timeline_half_cover.TimelineHalfCover(
+                    dismissible = True, 
+                    half_cover_display_type = 'Cover', 
+                    impression_callbacks = [
+                        twitter_openapi_python_generated.models.callback.Callback(
+                            endpoint = '', )
+                        ], 
+                    primary_cover_cta = twitter_openapi_python_generated.models.cover_cta.CoverCta(
+                        text = '', 
+                        button_style = 'Primary', 
+                        callbacks = [
+                            twitter_openapi_python_generated.models.callback.Callback(
+                                endpoint = '', )
+                            ], 
+                        client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
+                            action = 'primary_cta', ), 
+                        cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
+                            type = 'TimelineCoverBehaviorDismiss', ), ), 
+                    primary_text = twitter_openapi_python_generated.models.text.Text(
+                        entities = [
+                            twitter_openapi_python_generated.models.text_entity.TextEntity(
+                                from_index = 56, 
+                                ref = twitter_openapi_python_generated.models.text_entity_ref.TextEntityRef(
+                                    type = 'TimelineUrl', 
+                                    url = '', 
+                                    url_type = 'ExternalUrl', ), 
+                                to_index = 56, )
+                            ], 
+                        text = '', ), 
+                    secondary_text = twitter_openapi_python_generated.models.text.Text(
+                        entities = [
+                            twitter_openapi_python_generated.models.text_entity.TextEntity(
+                                from_index = 56, 
+                                ref = twitter_openapi_python_generated.models.text_entity_ref.TextEntityRef(
+                                    type = 'TimelineUrl', 
+                                    url = '', 
+                                    url_type = 'ExternalUrl', ), 
+                                to_index = 56, )
+                            ], 
+                        text = '', ), 
+                    type = 'TimelineHalfCover', )
             )
         else :
             return InstructionUnion(
@@ -91,7 +139,10 @@ class TestInstructionUnion(unittest.TestCase):
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
                         entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
-                            client_event_info = { }, 
+                            client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                                component = '', 
+                                details = { }, 
+                                element = '', ), 
                             item_content = null, ), )
                     ],
                 entry = twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
@@ -109,6 +160,51 @@ class TestInstructionUnion(unittest.TestCase):
                         result = null, )
                     ],
                 direction = 'Top',
+                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                    component = '', 
+                    details = { }, 
+                    element = '', ),
+                cover = twitter_openapi_python_generated.models.timeline_half_cover.TimelineHalfCover(
+                    dismissible = True, 
+                    half_cover_display_type = 'Cover', 
+                    impression_callbacks = [
+                        twitter_openapi_python_generated.models.callback.Callback(
+                            endpoint = '', )
+                        ], 
+                    primary_cover_cta = twitter_openapi_python_generated.models.cover_cta.CoverCta(
+                        text = '', 
+                        button_style = 'Primary', 
+                        callbacks = [
+                            twitter_openapi_python_generated.models.callback.Callback(
+                                endpoint = '', )
+                            ], 
+                        client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
+                            action = 'primary_cta', ), 
+                        cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
+                            type = 'TimelineCoverBehaviorDismiss', ), ), 
+                    primary_text = twitter_openapi_python_generated.models.text.Text(
+                        entities = [
+                            twitter_openapi_python_generated.models.text_entity.TextEntity(
+                                from_index = 56, 
+                                ref = twitter_openapi_python_generated.models.text_entity_ref.TextEntityRef(
+                                    type = 'TimelineUrl', 
+                                    url = '', 
+                                    url_type = 'ExternalUrl', ), 
+                                to_index = 56, )
+                            ], 
+                        text = '', ), 
+                    secondary_text = twitter_openapi_python_generated.models.text.Text(
+                        entities = [
+                            twitter_openapi_python_generated.models.text_entity.TextEntity(
+                                from_index = 56, 
+                                ref = twitter_openapi_python_generated.models.text_entity_ref.TextEntityRef(
+                                    type = 'TimelineUrl', 
+                                    url = '', 
+                                    url_type = 'ExternalUrl', ), 
+                                to_index = 56, )
+                            ], 
+                        text = '', ), 
+                    type = 'TimelineHalfCover', ),
         )
         """
 

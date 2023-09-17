@@ -39,11 +39,19 @@ class TestTweetEditControl(unittest.TestCase):
         model = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl()  # noqa: E501
         if include_optional :
             return TweetEditControl(
+                edit_control_initial = twitter_openapi_python_generated.models.tweet_edit_control_initial.TweetEditControlInitial(
+                    edit_tweet_ids = [
+                        '4'
+                        ], 
+                    editable_until_msecs = '4', 
+                    edits_remaining = '4', 
+                    is_edit_eligible = True, ), 
                 edit_tweet_ids = [
                     '4'
                     ], 
                 editable_until_msecs = '4', 
                 edits_remaining = '4', 
+                initial_tweet_id = '4', 
                 is_edit_eligible = True
             )
         else :

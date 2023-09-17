@@ -22,6 +22,7 @@ import json
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist, constr, validator
 from twitter_openapi_python_generated.models.media_original_info import MediaOriginalInfo
+from twitter_openapi_python_generated.models.media_sizes import MediaSizes
 
 class Media(BaseModel):
     """
@@ -29,16 +30,15 @@ class Media(BaseModel):
     """
     display_url: StrictStr = Field(...)
     expanded_url: StrictStr = Field(...)
-    ext_media_availability: Optional[Dict[str, Any]] = None
+    features: Optional[Dict[str, Any]] = None
     id_str: constr(strict=True) = Field(...)
     indices: conlist(StrictInt) = Field(...)
-    media_key: Optional[constr(strict=True)] = None
     media_url_https: StrictStr = Field(...)
     original_info: MediaOriginalInfo = Field(...)
-    sizes: Dict[str, Any] = Field(...)
+    sizes: MediaSizes = Field(...)
     type: StrictStr = Field(...)
     url: StrictStr = Field(...)
-    __properties = ["display_url", "expanded_url", "ext_media_availability", "id_str", "indices", "media_key", "media_url_https", "original_info", "sizes", "type", "url"]
+    __properties = ["display_url", "expanded_url", "features", "id_str", "indices", "media_url_https", "original_info", "sizes", "type", "url"]
 
     @validator('id_str')
     def id_str_validate_regular_expression(cls, value):
@@ -47,14 +47,11 @@ class Media(BaseModel):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    @validator('media_key')
-    def media_key_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^[0-9]+_[0-9]+$", value):
-            raise ValueError(r"must validate the regular expression /^[0-9]+_[0-9]+$/")
+    @validator('type')
+    def type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in ('photo', 'video', 'animated_gif'):
+            raise ValueError("must be one of enum values ('photo', 'video', 'animated_gif')")
         return value
 
     class Config:
@@ -84,6 +81,9 @@ class Media(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of original_info
         if self.original_info:
             _dict['original_info'] = self.original_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of sizes
+        if self.sizes:
+            _dict['sizes'] = self.sizes.to_dict()
         return _dict
 
     @classmethod
@@ -98,13 +98,12 @@ class Media(BaseModel):
         _obj = Media.parse_obj({
             "display_url": obj.get("display_url"),
             "expanded_url": obj.get("expanded_url"),
-            "ext_media_availability": obj.get("ext_media_availability"),
+            "features": obj.get("features"),
             "id_str": obj.get("id_str"),
             "indices": obj.get("indices"),
-            "media_key": obj.get("media_key"),
             "media_url_https": obj.get("media_url_https"),
             "original_info": MediaOriginalInfo.from_dict(obj.get("original_info")) if obj.get("original_info") is not None else None,
-            "sizes": obj.get("sizes"),
+            "sizes": MediaSizes.from_dict(obj.get("sizes")) if obj.get("sizes") is not None else None,
             "type": obj.get("type"),
             "url": obj.get("url")
         })

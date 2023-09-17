@@ -6,13 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **display_url** | **str** |  | 
 **expanded_url** | **str** |  | 
-**ext_media_availability** | **Dict[str, object]** |  | [optional] 
+**features** | **object** |  | [optional] 
 **id_str** | **str** |  | 
 **indices** | **List[int]** |  | 
-**media_key** | **str** |  | [optional] 
 **media_url_https** | **str** |  | 
 **original_info** | [**MediaOriginalInfo**](MediaOriginalInfo.md) |  | 
-**sizes** | **Dict[str, object]** |  | 
+**sizes** | [**MediaSizes**](MediaSizes.md) |  | 
 **type** | **str** |  | 
 **url** | **str** |  | 
 

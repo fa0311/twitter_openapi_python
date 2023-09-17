@@ -22,9 +22,9 @@ import json
 
 from pydantic import BaseModel, Field, constr, validator
 
-class TweetLegacySelfThread(BaseModel):
+class SelfThread(BaseModel):
     """
-    TweetLegacySelfThread
+    SelfThread
     """
     id_str: constr(strict=True) = Field(...)
     __properties = ["id_str"]
@@ -50,8 +50,8 @@ class TweetLegacySelfThread(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> TweetLegacySelfThread:
-        """Create an instance of TweetLegacySelfThread from a JSON string"""
+    def from_json(cls, json_str: str) -> SelfThread:
+        """Create an instance of SelfThread from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -63,15 +63,15 @@ class TweetLegacySelfThread(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> TweetLegacySelfThread:
-        """Create an instance of TweetLegacySelfThread from a dict"""
+    def from_dict(cls, obj: dict) -> SelfThread:
+        """Create an instance of SelfThread from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return TweetLegacySelfThread.parse_obj(obj)
+            return SelfThread.parse_obj(obj)
 
-        _obj = TweetLegacySelfThread.parse_obj({
+        _obj = SelfThread.parse_obj({
             "id_str": obj.get("id_str")
         })
         return _obj

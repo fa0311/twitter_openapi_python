@@ -66,6 +66,13 @@ class Session(BaseModel):
             raise ValueError(r"must validate the regular expression /^[a-z]{2}$/")
         return value
 
+    @validator('super_follows_application_status')
+    def super_follows_application_status_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in ('NotStarted'):
+            raise ValueError("must be one of enum values ('NotStarted')")
+        return value
+
     @validator('user_id')
     def user_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""

@@ -4,9 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**edit_control_initial** | [**TweetEditControlInitial**](TweetEditControlInitial.md) |  | [optional] 
 **edit_tweet_ids** | **List[str]** |  | [optional] 
 **editable_until_msecs** | **str** |  | [optional] 
 **edits_remaining** | **str** |  | [optional] 
+**initial_tweet_id** | **str** |  | [optional] 
 **is_edit_eligible** | **bool** |  | [optional] 
 
 ## Example

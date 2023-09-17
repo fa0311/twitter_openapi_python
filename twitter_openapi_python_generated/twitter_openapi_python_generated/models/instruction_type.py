@@ -37,6 +37,7 @@ class InstructionType(str, Enum):
     TIMELINEREPLACEENTRY = 'TimelineReplaceEntry'
     TIMELINESHOWALERT = 'TimelineShowAlert'
     TIMELINETERMINATETIMELINE = 'TimelineTerminateTimeline'
+    TIMELINESHOWCOVER = 'TimelineShowCover'
 
     @classmethod
     def from_json(cls, json_str: str) -> InstructionType:

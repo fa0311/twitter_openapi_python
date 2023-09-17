@@ -19,17 +19,17 @@ import re  # noqa: F401
 import json
 
 
+from typing import Optional
+from pydantic import BaseModel, Field, StrictInt, StrictStr
 
-from pydantic import BaseModel, Field, StrictStr
-from twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner_value import TweetCardLegacyBindingValuesInnerValue
-
-class TweetCardLegacyBindingValuesInner(BaseModel):
+class MediaVideoInfoVariant(BaseModel):
     """
-    TweetCardLegacyBindingValuesInner
+    MediaVideoInfoVariant
     """
-    key: StrictStr = Field(...)
-    value: TweetCardLegacyBindingValuesInnerValue = Field(...)
-    __properties = ["key", "value"]
+    bitrate: Optional[StrictInt] = None
+    content_type: StrictStr = Field(...)
+    url: StrictStr = Field(...)
+    __properties = ["bitrate", "content_type", "url"]
 
     class Config:
         """Pydantic configuration"""
@@ -45,8 +45,8 @@ class TweetCardLegacyBindingValuesInner(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> TweetCardLegacyBindingValuesInner:
-        """Create an instance of TweetCardLegacyBindingValuesInner from a JSON string"""
+    def from_json(cls, json_str: str) -> MediaVideoInfoVariant:
+        """Create an instance of MediaVideoInfoVariant from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -55,23 +55,21 @@ class TweetCardLegacyBindingValuesInner(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of value
-        if self.value:
-            _dict['value'] = self.value.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> TweetCardLegacyBindingValuesInner:
-        """Create an instance of TweetCardLegacyBindingValuesInner from a dict"""
+    def from_dict(cls, obj: dict) -> MediaVideoInfoVariant:
+        """Create an instance of MediaVideoInfoVariant from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return TweetCardLegacyBindingValuesInner.parse_obj(obj)
+            return MediaVideoInfoVariant.parse_obj(obj)
 
-        _obj = TweetCardLegacyBindingValuesInner.parse_obj({
-            "key": obj.get("key"),
-            "value": TweetCardLegacyBindingValuesInnerValue.from_dict(obj.get("value")) if obj.get("value") is not None else None
+        _obj = MediaVideoInfoVariant.parse_obj({
+            "bitrate": obj.get("bitrate"),
+            "content_type": obj.get("content_type"),
+            "url": obj.get("url")
         })
         return _obj
 

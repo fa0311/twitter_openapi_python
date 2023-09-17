@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**binding_values** | [**List[TweetCardLegacyBindingValuesInner]**](TweetCardLegacyBindingValuesInner.md) |  | 
+**binding_values** | [**List[TweetCardLegacyBindingValue]**](TweetCardLegacyBindingValue.md) |  | 
 **name** | **str** |  | 
 **url** | **str** |  | 
 

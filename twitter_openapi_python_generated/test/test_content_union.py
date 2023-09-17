@@ -44,14 +44,17 @@ class TestContentUnion(unittest.TestCase):
                 entry_type = 'TimelineTimelineItem', 
                 feedback_info = { }, 
                 item_content = None, 
-                display_type = '', 
+                display_type = 'Vertical', 
                 footer = { }, 
                 header = { }, 
                 items = [
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
                         entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
-                            client_event_info = { }, 
+                            client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                                component = '', 
+                                details = { }, 
+                                element = '', ), 
                             item_content = null, ), )
                     ], 
                 cursor_type = 'Top', 
@@ -64,7 +67,7 @@ class TestContentUnion(unittest.TestCase):
                 client_event_info = { },
                 entry_type = 'TimelineTimelineItem',
                 item_content = None,
-                display_type = '',
+                display_type = 'Vertical',
                 cursor_type = 'Top',
                 value = '',
         )

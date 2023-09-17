@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**client_event_info** | **Dict[str, object]** |  | 
+**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | 
 **item_content** | [**ItemContentUnion**](ItemContentUnion.md) |  | 
 
 ## Example

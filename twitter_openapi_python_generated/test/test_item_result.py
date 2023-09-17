@@ -44,7 +44,6 @@ class TestItemResult(unittest.TestCase):
             )
         else :
             return ItemResult(
-                result = None,
         )
         """
 

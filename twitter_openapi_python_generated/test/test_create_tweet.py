@@ -41,12 +41,12 @@ class TestCreateTweet(unittest.TestCase):
             return CreateTweet(
                 result = twitter_openapi_python_generated.models.tweet.Tweet(
                     __typename = 'TimelineTweet', 
-                    card = twitter_openapi_python_generated.models.tweet_card.Tweet_card(
-                        legacy = twitter_openapi_python_generated.models.tweet_card_legacy.Tweet_card_legacy(
+                    card = twitter_openapi_python_generated.models.tweet_card.TweetCard(
+                        legacy = twitter_openapi_python_generated.models.tweet_card_legacy.TweetCardLegacy(
                             binding_values = [
-                                twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner.Tweet_card_legacy_binding_values_inner(
+                                twitter_openapi_python_generated.models.tweet_card_legacy_binding_value.TweetCardLegacyBindingValue(
                                     key = '', 
-                                    value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner_value.Tweet_card_legacy_binding_values_inner_value(
+                                    value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data.TweetCardLegacyBindingValueData(
                                         boolean_value = True, 
                                         scribe_key = '', 
                                         string_value = '', 
@@ -58,14 +58,22 @@ class TestCreateTweet(unittest.TestCase):
                     core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
                         user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                             result = null, ), ), 
-                    edit_control = twitter_openapi_python_generated.models.tweet_edit_control.Tweet_edit_control(
+                    edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(
+                        edit_control_initial = twitter_openapi_python_generated.models.tweet_edit_control_initial.TweetEditControlInitial(
+                            edit_tweet_ids = [
+                                '4'
+                                ], 
+                            editable_until_msecs = '4', 
+                            edits_remaining = '4', 
+                            is_edit_eligible = True, ), 
                         edit_tweet_ids = [
                             '4'
                             ], 
                         editable_until_msecs = '4', 
                         edits_remaining = '4', 
+                        initial_tweet_id = '4', 
                         is_edit_eligible = True, ), 
-                    edit_prespective = twitter_openapi_python_generated.models.tweet_edit_prespective.Tweet_edit_prespective(
+                    edit_prespective = twitter_openapi_python_generated.models.tweet_edit_prespective.TweetEditPrespective(
                         favorited = True, 
                         retweeted = True, ), 
                     is_translatable = True, 
@@ -85,21 +93,34 @@ class TestCreateTweet(unittest.TestCase):
                                 twitter_openapi_python_generated.models.media.Media(
                                     display_url = '', 
                                     expanded_url = '', 
-                                    ext_media_availability = { }, 
+                                    features = twitter_openapi_python_generated.models.features.features(), 
                                     id_str = '4', 
                                     indices = [
                                         56
                                         ], 
-                                    media_key = '4_072888001528021798096225500850762068629', 
                                     media_url_https = '', 
-                                    original_info = twitter_openapi_python_generated.models.media_original_info.Media_original_info(
+                                    original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                                         focus_rects = [
-                                            { }
+                                            twitter_openapi_python_generated.models.media_original_info_focus_rect.MediaOriginalInfoFocusRect(
+                                                h = 56, 
+                                                w = 56, 
+                                                x = 56, 
+                                                y = 56, )
                                             ], 
                                         height = 56, 
                                         width = 56, ), 
-                                    sizes = { }, 
-                                    type = '', 
+                                    sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
+                                        large = twitter_openapi_python_generated.models.media_size.MediaSize(
+                                            h = 56, 
+                                            resize = 'crop', 
+                                            w = 56, ), 
+                                        medium = twitter_openapi_python_generated.models.media_size.MediaSize(
+                                            h = 56, 
+                                            resize = 'crop', 
+                                            w = 56, ), 
+                                        small = , 
+                                        thumb = , ), 
+                                    type = 'photo', 
                                     url = '', )
                                 ], 
                             symbols = [
@@ -119,19 +140,41 @@ class TestCreateTweet(unittest.TestCase):
                                 ], ), 
                         extended_entities = twitter_openapi_python_generated.models.extended_entities.ExtendedEntities(
                             media = [
-                                twitter_openapi_python_generated.models.media.Media(
+                                twitter_openapi_python_generated.models.media_extended.MediaExtended(
+                                    additional_media_info = twitter_openapi_python_generated.models.additional_media_info.AdditionalMediaInfo(
+                                        monetizable = True, ), 
                                     display_url = '', 
                                     expanded_url = '', 
+                                    ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.extMediaAvailability(
+                                        status = 'Available', ), 
+                                    features = twitter_openapi_python_generated.models.features.features(), 
                                     id_str = '4', 
                                     indices = , 
-                                    media_key = '4_072888001528021798096225500850762068629', 
+                                    media_stats = twitter_openapi_python_generated.models.media_stats.mediaStats(
+                                        view_count = 56, ), 
+                                    media_key = '', 
                                     media_url_https = '', 
-                                    original_info = twitter_openapi_python_generated.models.media_original_info.Media_original_info(
+                                    original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                                         height = 56, 
                                         width = 56, ), 
-                                    sizes = { }, 
-                                    type = '', 
-                                    url = '', )
+                                    sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
+                                        large = , 
+                                        medium = , 
+                                        small = , 
+                                        thumb = , ), 
+                                    type = 'photo', 
+                                    url = '', 
+                                    video_info = twitter_openapi_python_generated.models.media_video_info.MediaVideoInfo(
+                                        aspect_ratio = [
+                                            56
+                                            ], 
+                                        duration_millis = 56, 
+                                        variants = [
+                                            twitter_openapi_python_generated.models.media_video_info_variant.MediaVideoInfoVariant(
+                                                bitrate = 56, 
+                                                content_type = '', 
+                                                url = '', )
+                                            ], ), )
                                 ], ), 
                         favorite_count = 56, 
                         favorited = True, 
@@ -145,29 +188,28 @@ class TestCreateTweet(unittest.TestCase):
                         reply_count = 56, 
                         retweet_count = 56, 
                         retweeted = True, 
-                        retweeted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(
-                            result = null, ), 
-                        self_thread = twitter_openapi_python_generated.models.tweet_legacy_self_thread.TweetLegacy_self_thread(
+                        retweeted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(), 
+                        self_thread = twitter_openapi_python_generated.models.self_thread.SelfThread(
                             id_str = '4', ), 
                         user_id_str = '4', ), 
-                    quoted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(
-                        result = null, ), 
+                    quoted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(), 
                     rest_id = '4', 
+                    source = '', 
                     unmention_data = { }, 
-                    views = twitter_openapi_python_generated.models.tweet_views.Tweet_views(
+                    views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                         count = '4', 
-                        state = '', ), )
+                        state = 'EnabledWithCount', ), )
             )
         else :
             return CreateTweet(
                 result = twitter_openapi_python_generated.models.tweet.Tweet(
                     __typename = 'TimelineTweet', 
-                    card = twitter_openapi_python_generated.models.tweet_card.Tweet_card(
-                        legacy = twitter_openapi_python_generated.models.tweet_card_legacy.Tweet_card_legacy(
+                    card = twitter_openapi_python_generated.models.tweet_card.TweetCard(
+                        legacy = twitter_openapi_python_generated.models.tweet_card_legacy.TweetCardLegacy(
                             binding_values = [
-                                twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner.Tweet_card_legacy_binding_values_inner(
+                                twitter_openapi_python_generated.models.tweet_card_legacy_binding_value.TweetCardLegacyBindingValue(
                                     key = '', 
-                                    value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner_value.Tweet_card_legacy_binding_values_inner_value(
+                                    value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data.TweetCardLegacyBindingValueData(
                                         boolean_value = True, 
                                         scribe_key = '', 
                                         string_value = '', 
@@ -179,14 +221,22 @@ class TestCreateTweet(unittest.TestCase):
                     core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
                         user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                             result = null, ), ), 
-                    edit_control = twitter_openapi_python_generated.models.tweet_edit_control.Tweet_edit_control(
+                    edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(
+                        edit_control_initial = twitter_openapi_python_generated.models.tweet_edit_control_initial.TweetEditControlInitial(
+                            edit_tweet_ids = [
+                                '4'
+                                ], 
+                            editable_until_msecs = '4', 
+                            edits_remaining = '4', 
+                            is_edit_eligible = True, ), 
                         edit_tweet_ids = [
                             '4'
                             ], 
                         editable_until_msecs = '4', 
                         edits_remaining = '4', 
+                        initial_tweet_id = '4', 
                         is_edit_eligible = True, ), 
-                    edit_prespective = twitter_openapi_python_generated.models.tweet_edit_prespective.Tweet_edit_prespective(
+                    edit_prespective = twitter_openapi_python_generated.models.tweet_edit_prespective.TweetEditPrespective(
                         favorited = True, 
                         retweeted = True, ), 
                     is_translatable = True, 
@@ -206,21 +256,34 @@ class TestCreateTweet(unittest.TestCase):
                                 twitter_openapi_python_generated.models.media.Media(
                                     display_url = '', 
                                     expanded_url = '', 
-                                    ext_media_availability = { }, 
+                                    features = twitter_openapi_python_generated.models.features.features(), 
                                     id_str = '4', 
                                     indices = [
                                         56
                                         ], 
-                                    media_key = '4_072888001528021798096225500850762068629', 
                                     media_url_https = '', 
-                                    original_info = twitter_openapi_python_generated.models.media_original_info.Media_original_info(
+                                    original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                                         focus_rects = [
-                                            { }
+                                            twitter_openapi_python_generated.models.media_original_info_focus_rect.MediaOriginalInfoFocusRect(
+                                                h = 56, 
+                                                w = 56, 
+                                                x = 56, 
+                                                y = 56, )
                                             ], 
                                         height = 56, 
                                         width = 56, ), 
-                                    sizes = { }, 
-                                    type = '', 
+                                    sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
+                                        large = twitter_openapi_python_generated.models.media_size.MediaSize(
+                                            h = 56, 
+                                            resize = 'crop', 
+                                            w = 56, ), 
+                                        medium = twitter_openapi_python_generated.models.media_size.MediaSize(
+                                            h = 56, 
+                                            resize = 'crop', 
+                                            w = 56, ), 
+                                        small = , 
+                                        thumb = , ), 
+                                    type = 'photo', 
                                     url = '', )
                                 ], 
                             symbols = [
@@ -240,19 +303,41 @@ class TestCreateTweet(unittest.TestCase):
                                 ], ), 
                         extended_entities = twitter_openapi_python_generated.models.extended_entities.ExtendedEntities(
                             media = [
-                                twitter_openapi_python_generated.models.media.Media(
+                                twitter_openapi_python_generated.models.media_extended.MediaExtended(
+                                    additional_media_info = twitter_openapi_python_generated.models.additional_media_info.AdditionalMediaInfo(
+                                        monetizable = True, ), 
                                     display_url = '', 
                                     expanded_url = '', 
+                                    ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.extMediaAvailability(
+                                        status = 'Available', ), 
+                                    features = twitter_openapi_python_generated.models.features.features(), 
                                     id_str = '4', 
                                     indices = , 
-                                    media_key = '4_072888001528021798096225500850762068629', 
+                                    media_stats = twitter_openapi_python_generated.models.media_stats.mediaStats(
+                                        view_count = 56, ), 
+                                    media_key = '', 
                                     media_url_https = '', 
-                                    original_info = twitter_openapi_python_generated.models.media_original_info.Media_original_info(
+                                    original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                                         height = 56, 
                                         width = 56, ), 
-                                    sizes = { }, 
-                                    type = '', 
-                                    url = '', )
+                                    sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
+                                        large = , 
+                                        medium = , 
+                                        small = , 
+                                        thumb = , ), 
+                                    type = 'photo', 
+                                    url = '', 
+                                    video_info = twitter_openapi_python_generated.models.media_video_info.MediaVideoInfo(
+                                        aspect_ratio = [
+                                            56
+                                            ], 
+                                        duration_millis = 56, 
+                                        variants = [
+                                            twitter_openapi_python_generated.models.media_video_info_variant.MediaVideoInfoVariant(
+                                                bitrate = 56, 
+                                                content_type = '', 
+                                                url = '', )
+                                            ], ), )
                                 ], ), 
                         favorite_count = 56, 
                         favorited = True, 
@@ -266,18 +351,17 @@ class TestCreateTweet(unittest.TestCase):
                         reply_count = 56, 
                         retweet_count = 56, 
                         retweeted = True, 
-                        retweeted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(
-                            result = null, ), 
-                        self_thread = twitter_openapi_python_generated.models.tweet_legacy_self_thread.TweetLegacy_self_thread(
+                        retweeted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(), 
+                        self_thread = twitter_openapi_python_generated.models.self_thread.SelfThread(
                             id_str = '4', ), 
                         user_id_str = '4', ), 
-                    quoted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(
-                        result = null, ), 
+                    quoted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(), 
                     rest_id = '4', 
+                    source = '', 
                     unmention_data = { }, 
-                    views = twitter_openapi_python_generated.models.tweet_views.Tweet_views(
+                    views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                         count = '4', 
-                        state = '', ), ),
+                        state = 'EnabledWithCount', ), ),
         )
         """
 

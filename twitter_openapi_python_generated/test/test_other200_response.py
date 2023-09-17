@@ -53,7 +53,7 @@ class TestOther200Response(unittest.TestCase):
                     one_factor_login_eligibility = twitter_openapi_python_generated.models.one_factor_login_eligibility.OneFactorLoginEligibility(
                         fetch_status = '', ), 
                     super_followers_count = 56, 
-                    super_follows_application_status = '', 
+                    super_follows_application_status = 'NotStarted', 
                     user_features = twitter_openapi_python_generated.models.user_features.UserFeatures(
                         mediatool_studio_library = True, ), 
                     user_id = '4', )

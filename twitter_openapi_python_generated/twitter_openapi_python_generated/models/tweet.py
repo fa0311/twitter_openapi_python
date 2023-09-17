@@ -20,11 +20,11 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic import BaseModel, Field, StrictBool, constr, validator
+from pydantic import BaseModel, Field, StrictBool, StrictStr, constr, validator
 from twitter_openapi_python_generated.models.tweet_card import TweetCard
 from twitter_openapi_python_generated.models.tweet_edit_control import TweetEditControl
 from twitter_openapi_python_generated.models.tweet_edit_prespective import TweetEditPrespective
-from twitter_openapi_python_generated.models.tweet_views import TweetViews
+from twitter_openapi_python_generated.models.tweet_view import TweetView
 from twitter_openapi_python_generated.models.type_name import TypeName
 from twitter_openapi_python_generated.models.user_result_core import UserResultCore
 
@@ -34,16 +34,17 @@ class Tweet(BaseModel):
     """
     typename: Optional[TypeName] = Field(None, alias="__typename")
     card: Optional[TweetCard] = None
-    core: UserResultCore = Field(...)
+    core: Optional[UserResultCore] = None
     edit_control: TweetEditControl = Field(...)
     edit_prespective: Optional[TweetEditPrespective] = None
     is_translatable: StrictBool = Field(...)
-    legacy: TweetLegacy = Field(...)
+    legacy: Optional[TweetLegacy] = None
     quoted_status_result: Optional[ItemResult] = None
     rest_id: constr(strict=True) = Field(...)
+    source: Optional[StrictStr] = None
     unmention_data: Optional[Dict[str, Any]] = None
-    views: TweetViews = Field(...)
-    __properties = ["__typename", "card", "core", "edit_control", "edit_prespective", "is_translatable", "legacy", "quoted_status_result", "rest_id", "unmention_data", "views"]
+    views: TweetView = Field(...)
+    __properties = ["__typename", "card", "core", "edit_control", "edit_prespective", "is_translatable", "legacy", "quoted_status_result", "rest_id", "source", "unmention_data", "views"]
 
     @validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
@@ -118,8 +119,9 @@ class Tweet(BaseModel):
             "legacy": TweetLegacy.from_dict(obj.get("legacy")) if obj.get("legacy") is not None else None,
             "quoted_status_result": ItemResult.from_dict(obj.get("quoted_status_result")) if obj.get("quoted_status_result") is not None else None,
             "rest_id": obj.get("rest_id"),
+            "source": obj.get("source"),
             "unmention_data": obj.get("unmention_data"),
-            "views": TweetViews.from_dict(obj.get("views")) if obj.get("views") is not None else None
+            "views": TweetView.from_dict(obj.get("views")) if obj.get("views") is not None else None
         })
         return _obj
 

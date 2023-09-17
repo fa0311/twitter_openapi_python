@@ -41,21 +41,34 @@ class TestMedia(unittest.TestCase):
             return Media(
                 display_url = '', 
                 expanded_url = '', 
-                ext_media_availability = { }, 
+                features = twitter_openapi_python_generated.models.features.features(), 
                 id_str = '4', 
                 indices = [
                     56
                     ], 
-                media_key = '4_072888001528021798096225500850762068629', 
                 media_url_https = '', 
-                original_info = twitter_openapi_python_generated.models.media_original_info.Media_original_info(
+                original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                     focus_rects = [
-                        { }
+                        twitter_openapi_python_generated.models.media_original_info_focus_rect.MediaOriginalInfoFocusRect(
+                            h = 56, 
+                            w = 56, 
+                            x = 56, 
+                            y = 56, )
                         ], 
                     height = 56, 
                     width = 56, ), 
-                sizes = { }, 
-                type = '', 
+                sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
+                    large = twitter_openapi_python_generated.models.media_size.MediaSize(
+                        h = 56, 
+                        resize = 'crop', 
+                        w = 56, ), 
+                    medium = twitter_openapi_python_generated.models.media_size.MediaSize(
+                        h = 56, 
+                        resize = 'crop', 
+                        w = 56, ), 
+                    small = , 
+                    thumb = , ), 
+                type = 'photo', 
                 url = ''
             )
         else :
@@ -67,14 +80,28 @@ class TestMedia(unittest.TestCase):
                     56
                     ],
                 media_url_https = '',
-                original_info = twitter_openapi_python_generated.models.media_original_info.Media_original_info(
+                original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                     focus_rects = [
-                        { }
+                        twitter_openapi_python_generated.models.media_original_info_focus_rect.MediaOriginalInfoFocusRect(
+                            h = 56, 
+                            w = 56, 
+                            x = 56, 
+                            y = 56, )
                         ], 
                     height = 56, 
                     width = 56, ),
-                sizes = { },
-                type = '',
+                sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
+                    large = twitter_openapi_python_generated.models.media_size.MediaSize(
+                        h = 56, 
+                        resize = 'crop', 
+                        w = 56, ), 
+                    medium = twitter_openapi_python_generated.models.media_size.MediaSize(
+                        h = 56, 
+                        resize = 'crop', 
+                        w = 56, ), 
+                    small = , 
+                    thumb = , ),
+                type = 'photo',
                 url = '',
         )
         """

@@ -40,13 +40,19 @@ class TestMediaOriginalInfo(unittest.TestCase):
         if include_optional :
             return MediaOriginalInfo(
                 focus_rects = [
-                    { }
+                    twitter_openapi_python_generated.models.media_original_info_focus_rect.MediaOriginalInfoFocusRect(
+                        h = 56, 
+                        w = 56, 
+                        x = 56, 
+                        y = 56, )
                     ], 
                 height = 56, 
                 width = 56
             )
         else :
             return MediaOriginalInfo(
+                height = 56,
+                width = 56,
         )
         """
 

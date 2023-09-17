@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**focus_rects** | **List[Dict[str, object]]** |  | [optional] 
-**height** | **int** |  | [optional] 
-**width** | **int** |  | [optional] 
+**focus_rects** | [**List[MediaOriginalInfoFocusRect]**](MediaOriginalInfoFocusRect.md) |  | [optional] 
+**height** | **int** |  | 
+**width** | **int** |  | 
 
 ## Example
 

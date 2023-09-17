@@ -45,7 +45,7 @@ class TestTimelineUser(unittest.TestCase):
                     type = '', ), 
                 typename = 'TimelineTweet', 
                 item_type = 'TimelineTweet', 
-                user_display_type = '', 
+                user_display_type = 'User', 
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                     result = null, )
             )
@@ -53,7 +53,7 @@ class TestTimelineUser(unittest.TestCase):
             return TimelineUser(
                 typename = 'TimelineTweet',
                 item_type = 'TimelineTweet',
-                user_display_type = '',
+                user_display_type = 'User',
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                     result = null, ),
         )

@@ -20,7 +20,7 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field, StrictStr, conlist
+from pydantic import BaseModel, Field, StrictStr, conlist, validator
 from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
 from twitter_openapi_python_generated.models.module_item import ModuleItem
 
@@ -36,6 +36,13 @@ class TimelineTimelineModule(BaseModel):
     header: Optional[Dict[str, Any]] = None
     items: Optional[conlist(ModuleItem)] = None
     __properties = ["__typename", "clientEventInfo", "displayType", "entryType", "footer", "header", "items"]
+
+    @validator('display_type')
+    def display_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in ('Vertical', 'VerticalConversation'):
+            raise ValueError("must be one of enum values ('Vertical', 'VerticalConversation')")
+        return value
 
     class Config:
         """Pydantic configuration"""

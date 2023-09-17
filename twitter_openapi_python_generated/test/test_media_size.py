@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_legacy_self_thread import TweetLegacySelfThread  # noqa: E501
+from twitter_openapi_python_generated.models.media_size import MediaSize  # noqa: E501
 from twitter_openapi_python_generated.rest import ApiException
 
-class TestTweetLegacySelfThread(unittest.TestCase):
-    """TweetLegacySelfThread unit test stubs"""
+class TestMediaSize(unittest.TestCase):
+    """MediaSize unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,25 +30,29 @@ class TestTweetLegacySelfThread(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test TweetLegacySelfThread
+        """Test MediaSize
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `TweetLegacySelfThread`
+        # uncomment below to create an instance of `MediaSize`
         """
-        model = twitter_openapi_python_generated.models.tweet_legacy_self_thread.TweetLegacySelfThread()  # noqa: E501
+        model = twitter_openapi_python_generated.models.media_size.MediaSize()  # noqa: E501
         if include_optional :
-            return TweetLegacySelfThread(
-                id_str = '4'
+            return MediaSize(
+                h = 56, 
+                resize = 'crop', 
+                w = 56
             )
         else :
-            return TweetLegacySelfThread(
-                id_str = '4',
+            return MediaSize(
+                h = 56,
+                resize = 'crop',
+                w = 56,
         )
         """
 
-    def testTweetLegacySelfThread(self):
-        """Test TweetLegacySelfThread"""
+    def testMediaSize(self):
+        """Test MediaSize"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

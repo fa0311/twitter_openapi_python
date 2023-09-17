@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner_value import TweetCardLegacyBindingValuesInnerValue  # noqa: E501
+from twitter_openapi_python_generated.models.tweet_result_by_rest_id_data import TweetResultByRestIdData  # noqa: E501
 from twitter_openapi_python_generated.rest import ApiException
 
-class TestTweetCardLegacyBindingValuesInnerValue(unittest.TestCase):
-    """TweetCardLegacyBindingValuesInnerValue unit test stubs"""
+class TestTweetResultByRestIdData(unittest.TestCase):
+    """TweetResultByRestIdData unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,28 +30,29 @@ class TestTweetCardLegacyBindingValuesInnerValue(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test TweetCardLegacyBindingValuesInnerValue
+        """Test TweetResultByRestIdData
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `TweetCardLegacyBindingValuesInnerValue`
+        # uncomment below to create an instance of `TweetResultByRestIdData`
         """
-        model = twitter_openapi_python_generated.models.tweet_card_legacy_binding_values_inner_value.TweetCardLegacyBindingValuesInnerValue()  # noqa: E501
+        model = twitter_openapi_python_generated.models.tweet_result_by_rest_id_data.TweetResultByRestIdData()  # noqa: E501
         if include_optional :
-            return TweetCardLegacyBindingValuesInnerValue(
-                boolean_value = True, 
-                scribe_key = '', 
-                string_value = '', 
-                type = ''
+            return TweetResultByRestIdData(
+                tweet_result = twitter_openapi_python_generated.models.item_result.ItemResult(
+                    __typename = 'TimelineTweet', 
+                    result = null, )
             )
         else :
-            return TweetCardLegacyBindingValuesInnerValue(
-                type = '',
+            return TweetResultByRestIdData(
+                tweet_result = twitter_openapi_python_generated.models.item_result.ItemResult(
+                    __typename = 'TimelineTweet', 
+                    result = null, ),
         )
         """
 
-    def testTweetCardLegacyBindingValuesInnerValue(self):
-        """Test TweetCardLegacyBindingValuesInnerValue"""
+    def testTweetResultByRestIdData(self):
+        """Test TweetResultByRestIdData"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

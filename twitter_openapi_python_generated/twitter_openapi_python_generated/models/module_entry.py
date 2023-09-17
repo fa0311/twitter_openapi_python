@@ -19,15 +19,16 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict
+
 from pydantic import BaseModel, Field
+from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo
 from twitter_openapi_python_generated.models.item_content_union import ItemContentUnion
 
 class ModuleEntry(BaseModel):
     """
     ModuleEntry
     """
-    client_event_info: Dict[str, Any] = Field(..., alias="clientEventInfo")
+    client_event_info: ClientEventInfo = Field(..., alias="clientEventInfo")
     item_content: ItemContentUnion = Field(..., alias="itemContent")
     __properties = ["clientEventInfo", "itemContent"]
 
@@ -55,6 +56,9 @@ class ModuleEntry(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of client_event_info
+        if self.client_event_info:
+            _dict['clientEventInfo'] = self.client_event_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of item_content
         if self.item_content:
             _dict['itemContent'] = self.item_content.to_dict()
@@ -70,7 +74,7 @@ class ModuleEntry(BaseModel):
             return ModuleEntry.parse_obj(obj)
 
         _obj = ModuleEntry.parse_obj({
-            "client_event_info": obj.get("clientEventInfo"),
+            "client_event_info": ClientEventInfo.from_dict(obj.get("clientEventInfo")) if obj.get("clientEventInfo") is not None else None,
             "item_content": ItemContentUnion.from_dict(obj.get("itemContent")) if obj.get("itemContent") is not None else None
         })
         return _obj

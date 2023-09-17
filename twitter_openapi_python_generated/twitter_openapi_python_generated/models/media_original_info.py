@@ -19,16 +19,17 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, StrictInt, conlist
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictInt, conlist
+from twitter_openapi_python_generated.models.media_original_info_focus_rect import MediaOriginalInfoFocusRect
 
 class MediaOriginalInfo(BaseModel):
     """
     MediaOriginalInfo
     """
-    focus_rects: Optional[conlist(Dict[str, Any])] = None
-    height: Optional[StrictInt] = None
-    width: Optional[StrictInt] = None
+    focus_rects: Optional[conlist(MediaOriginalInfoFocusRect)] = None
+    height: StrictInt = Field(...)
+    width: StrictInt = Field(...)
     __properties = ["focus_rects", "height", "width"]
 
     class Config:
@@ -55,6 +56,13 @@ class MediaOriginalInfo(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of each item in focus_rects (list)
+        _items = []
+        if self.focus_rects:
+            for _item in self.focus_rects:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['focus_rects'] = _items
         return _dict
 
     @classmethod
@@ -67,7 +75,7 @@ class MediaOriginalInfo(BaseModel):
             return MediaOriginalInfo.parse_obj(obj)
 
         _obj = MediaOriginalInfo.parse_obj({
-            "focus_rects": obj.get("focus_rects"),
+            "focus_rects": [MediaOriginalInfoFocusRect.from_dict(_item) for _item in obj.get("focus_rects")] if obj.get("focus_rects") is not None else None,
             "height": obj.get("height"),
             "width": obj.get("width")
         })
