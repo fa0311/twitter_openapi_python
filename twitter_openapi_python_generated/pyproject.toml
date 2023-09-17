@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "twitter_openapi_python_generated"
-version = "0.0.3"
+version = "0.0.4"
 description = "Twitter OpenAPI"
 authors = ["OpenAPI Generator Community <yuki@yuki0311.com>"]
-license = "GNU Affero General Public License v3."
+license = "custom license or AGPL-3.0-or-later"
 readme = "README.md"
 repository = "https://github.com/fa0311/twitter_openapi_python"
 keywords = ["OpenAPI", "OpenAPI-Generator", "Twitter OpenAPI"]
