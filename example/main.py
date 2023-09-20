@@ -1,21 +1,9 @@
-import json
 import datetime
-
-from pathlib import Path
-from tweepy_authlib import CookieSessionUserHandler
 from twitter_openapi_python import TwitterOpenapiPython
 
+import login
 
-if Path("cookie.json").exists():
-    with open("cookie.json", "r") as f:
-        cookies_dict = json.load(f)
-else:
-    auth_handler = CookieSessionUserHandler(
-        screen_name=input("screen_name: "),
-        password=input("password: "),
-    )
-    cookies_dict = auth_handler.get_cookies().get_dict()
-
+cookies_dict = login.login().get_cookies().get_dict()
 
 𝕏 = TwitterOpenapiPython().get_client_from_cookies(cookies=cookies_dict)
 
