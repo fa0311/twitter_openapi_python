@@ -14,7 +14,6 @@ from twitter_openapi_python.api import (
     UsersApiUtils,
     V11GetApiUtils,
     V11PostApiUtils,
-    V20GetApiUtils,
 )
 
 ParamType = dict[str, Any]
@@ -55,9 +54,6 @@ class TwitterOpenapiPythonClient:
     def get_v11_post_api(self) -> V11PostApiUtils:
         return V11PostApiUtils(twitter.V11PostApi(self.api), self.placeholder)
 
-    def get_v20_get_api(self) -> V20GetApiUtils:
-        return V20GetApiUtils(twitter.V20GetApi(self.api), self.placeholder)
-
 
 class TwitterOpenapiPython:
     hash: str = "2d477a0fb84d249a30b5af535b467efc25b34923"
@@ -79,6 +75,17 @@ class TwitterOpenapiPython:
     ) -> TwitterOpenapiPythonClient:
         api_conf = conf.Configuration(
             api_key={
+                "Accept": "*/*",
+                "AcceptEncoding": "gzip, deflate, br",
+                "AcceptLanguage": "en-US,en;q=0.9",
+                "CacheControl": "no-cache",
+                "Pragma": "no-cache",
+                "SecChUa": '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
+                "SecChUaMobile": "?0",
+                "SecChUaPlatform": '"Windows"',
+                "SecFetchDest": "empty",
+                "SecFetchMode": "cors",
+                "SecFetchSite": "same-origin",
                 "ClientLanguage": "en",
                 "ActiveUser": "yes",
                 "AuthType": "OAuth2Session",

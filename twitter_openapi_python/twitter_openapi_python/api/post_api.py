@@ -1,4 +1,4 @@
-from typing import Any, TypeVar
+from typing import Any, Optional, TypeVar
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
@@ -30,6 +30,7 @@ class PostApiUtils:
     def post_create_tweet(
         self,
         tweet_text: str,
+        media_ids: Optional[list[str]] = None,
     ) -> ResponseType[models.CreateTweetResponse]:
         variables = twitter.PostCreateTweetRequestVariables.from_dict(
             self.flag["CreateTweet"]["variables"]
@@ -38,6 +39,13 @@ class PostApiUtils:
             self.flag["CreateTweet"]["features"]
         )
         variables.tweet_text = tweet_text
+        variables.media.media_entities = [
+            twitter.PostCreateTweetRequestVariablesMediaMediaEntitiesInner(
+                media_id=media_id,
+                tagged_users=[],
+            )
+            for media_id in media_ids or []
+        ]
 
         res = self.api.post_create_tweet_with_http_info(
             path_query_id=self.flag["CreateTweet"]["queryId"],

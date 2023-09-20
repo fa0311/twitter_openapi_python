@@ -1,6 +1,7 @@
 import json
 import logging
 from pathlib import Path
+from typing import Optional
 
 import twitter_openapi_python as api
 
@@ -23,8 +24,8 @@ def print_tweet(tweet: api.TweetApiUtilsData) -> None:
         print_legacy_tweet(reply.user.legacy, reply.tweet.legacy)
 
 
-def print_legacy_tweet(u: api.UserLegacy, t: api.TweetLegacy) -> None:
-    text = f"{u.screen_name.rjust(20)}: {t.full_text}"
+def print_legacy_tweet(u: api.UserLegacy, t: Optional[api.TweetLegacy]) -> None:
+    text = f"{u.screen_name.rjust(20)}: {t.full_text if t else 'Deleted Tweet'}"
     logging.info(text.replace("\n", " "))
 
 
