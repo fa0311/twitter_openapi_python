@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**media_entities** | **List[object]** |  | 
+**media_entities** | [**List[PostCreateTweetRequestVariablesMediaMediaEntitiesInner]**](PostCreateTweetRequestVariablesMediaMediaEntitiesInner.md) |  | 
 **possibly_sensitive** | **bool** |  | [default to False]
 
 ## Example

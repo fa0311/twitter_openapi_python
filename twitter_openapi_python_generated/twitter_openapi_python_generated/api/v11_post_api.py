@@ -266,7 +266,7 @@ class V11PostApi(object):
                 _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
+        _auth_settings = ['ClientLanguage', 'Accept', 'SecFetchDest', 'Pragma', 'SecChUaPlatform', 'SecFetchMode', 'CsrfToken', 'GuestToken', 'BearerAuth', 'SecChUa', 'CookieCt0', 'ActiveUser', 'UserAgent', 'AcceptLanguage', 'SecFetchSite', 'CookieAuthToken', 'AuthType', 'CacheControl', 'SecChUaMobile', 'AcceptEncoding']  # noqa: E501
 
         _response_types_map = {}
 
@@ -510,7 +510,7 @@ class V11PostApi(object):
                 _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
+        _auth_settings = ['ClientLanguage', 'Accept', 'SecFetchDest', 'Pragma', 'SecChUaPlatform', 'SecFetchMode', 'CsrfToken', 'GuestToken', 'BearerAuth', 'SecChUa', 'CookieCt0', 'ActiveUser', 'UserAgent', 'AcceptLanguage', 'SecFetchSite', 'CookieAuthToken', 'AuthType', 'CacheControl', 'SecChUaMobile', 'AcceptEncoding']  # noqa: E501
 
         _response_types_map = {}
 

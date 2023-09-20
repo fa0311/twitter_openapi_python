@@ -42,7 +42,11 @@ class TestPostCreateTweetRequestVariables(unittest.TestCase):
                 dark_request = False, 
                 media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(
                     media_entities = [
-                        None
+                        twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(
+                            media_id = '1111111111111111111', 
+                            tagged_users = [
+                                None
+                                ], )
                         ], 
                     possibly_sensitive = False, ), 
                 semantic_annotation_ids = [
@@ -55,7 +59,11 @@ class TestPostCreateTweetRequestVariables(unittest.TestCase):
                 dark_request = False,
                 media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(
                     media_entities = [
-                        None
+                        twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(
+                            media_id = '1111111111111111111', 
+                            tagged_users = [
+                                None
+                                ], )
                         ], 
                     possibly_sensitive = False, ),
                 semantic_annotation_ids = [

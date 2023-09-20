@@ -72,6 +72,59 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
 
+# Configure API key authorization: Accept
+configuration.api_key['Accept'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Accept'] = 'Bearer'
+
+# Configure API key authorization: SecFetchDest
+configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
+
+# Configure API key authorization: Pragma
+configuration.api_key['Pragma'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Pragma'] = 'Bearer'
+
+# Configure API key authorization: SecChUaPlatform
+configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaPlatform'] = 'Bearer'
+
+# Configure API key authorization: SecFetchMode
+configuration.api_key['SecFetchMode'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchMode'] = 'Bearer'
+
+# Configure API key authorization: CsrfToken
+configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+
+# Configure API key authorization: GuestToken
+configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+
+# Configure Bearer authorization: BearerAuth
+configuration = twitter_openapi_python_generated.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Configure API key authorization: SecChUa
+configuration.api_key['SecChUa'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUa'] = 'Bearer'
+
 # Configure API key authorization: CookieCt0
 configuration.api_key['CookieCt0'] = os.environ["API_KEY"]
 
@@ -90,6 +143,18 @@ configuration.api_key['UserAgent'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['UserAgent'] = 'Bearer'
 
+# Configure API key authorization: AcceptLanguage
+configuration.api_key['AcceptLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptLanguage'] = 'Bearer'
+
+# Configure API key authorization: SecFetchSite
+configuration.api_key['SecFetchSite'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchSite'] = 'Bearer'
+
 # Configure API key authorization: CookieAuthToken
 configuration.api_key['CookieAuthToken'] = os.environ["API_KEY"]
 
@@ -102,22 +167,23 @@ configuration.api_key['AuthType'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['AuthType'] = 'Bearer'
 
-# Configure API key authorization: CsrfToken
-configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+# Configure API key authorization: CacheControl
+configuration.api_key['CacheControl'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+# configuration.api_key_prefix['CacheControl'] = 'Bearer'
 
-# Configure API key authorization: GuestToken
-configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+# Configure API key authorization: SecChUaMobile
+configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+# configuration.api_key_prefix['SecChUaMobile'] = 'Bearer'
 
-# Configure Bearer authorization: BearerAuth
-configuration = twitter_openapi_python_generated.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
+# Configure API key authorization: AcceptEncoding
+configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptEncoding'] = 'Bearer'
 
 
 # Enter a context with an instance of the API client
@@ -201,17 +267,21 @@ Class | Method | HTTP request | Description
  - [CreateTweetResponseResult](docs/CreateTweetResponseResult.md)
  - [CtaClientEventInfo](docs/CtaClientEventInfo.md)
  - [CursorType](docs/CursorType.md)
+ - [DeleteRetweet](docs/DeleteRetweet.md)
  - [DeleteRetweetResponse](docs/DeleteRetweetResponse.md)
  - [DeleteRetweetResponseData](docs/DeleteRetweetResponseData.md)
+ - [DeleteRetweetResponseResult](docs/DeleteRetweetResponseResult.md)
  - [DeleteTweetResponse](docs/DeleteTweetResponse.md)
  - [DeleteTweetResponseData](docs/DeleteTweetResponseData.md)
  - [DeleteTweetResponseResult](docs/DeleteTweetResponseResult.md)
  - [Entities](docs/Entities.md)
  - [Error](docs/Error.md)
  - [ErrorExtensions](docs/ErrorExtensions.md)
+ - [ErrorResponse](docs/ErrorResponse.md)
  - [Errors](docs/Errors.md)
  - [ExtMediaAvailability](docs/ExtMediaAvailability.md)
  - [ExtendedEntities](docs/ExtendedEntities.md)
+ - [Extensions](docs/Extensions.md)
  - [FavoriteTweet](docs/FavoriteTweet.md)
  - [FavoriteTweetResponseData](docs/FavoriteTweetResponseData.md)
  - [FollowResponse](docs/FollowResponse.md)
@@ -266,6 +336,7 @@ Class | Method | HTTP request | Description
  - [PostCreateTweetRequestFeatures](docs/PostCreateTweetRequestFeatures.md)
  - [PostCreateTweetRequestVariables](docs/PostCreateTweetRequestVariables.md)
  - [PostCreateTweetRequestVariablesMedia](docs/PostCreateTweetRequestVariablesMedia.md)
+ - [PostCreateTweetRequestVariablesMediaMediaEntitiesInner](docs/PostCreateTweetRequestVariablesMediaMediaEntitiesInner.md)
  - [PostDeleteRetweet200Response](docs/PostDeleteRetweet200Response.md)
  - [PostDeleteRetweetRequest](docs/PostDeleteRetweetRequest.md)
  - [PostDeleteRetweetRequestVariables](docs/PostDeleteRetweetRequestVariables.md)
@@ -367,6 +438,27 @@ Class | Method | HTTP request | Description
 
 
 Authentication schemes defined for the API:
+<a id="Accept"></a>
+### Accept
+
+- **Type**: API key
+- **API key parameter name**: Accept
+- **Location**: HTTP header
+
+<a id="AcceptEncoding"></a>
+### AcceptEncoding
+
+- **Type**: API key
+- **API key parameter name**: Accept-Encoding
+- **Location**: HTTP header
+
+<a id="AcceptLanguage"></a>
+### AcceptLanguage
+
+- **Type**: API key
+- **API key parameter name**: Accept-Language
+- **Location**: HTTP header
+
 <a id="ActiveUser"></a>
 ### ActiveUser
 
@@ -385,6 +477,13 @@ Authentication schemes defined for the API:
 ### BearerAuth
 
 - **Type**: Bearer authentication
+
+<a id="CacheControl"></a>
+### CacheControl
+
+- **Type**: API key
+- **API key parameter name**: Cache-Control
+- **Location**: HTTP header
 
 <a id="ClientLanguage"></a>
 ### ClientLanguage
@@ -419,6 +518,55 @@ Authentication schemes defined for the API:
 
 - **Type**: API key
 - **API key parameter name**: x-guest-token
+- **Location**: HTTP header
+
+<a id="Pragma"></a>
+### Pragma
+
+- **Type**: API key
+- **API key parameter name**: Pragma
+- **Location**: HTTP header
+
+<a id="SecChUa"></a>
+### SecChUa
+
+- **Type**: API key
+- **API key parameter name**: Sec-Ch-Ua
+- **Location**: HTTP header
+
+<a id="SecChUaMobile"></a>
+### SecChUaMobile
+
+- **Type**: API key
+- **API key parameter name**: Sec-Ch-Ua-Mobile
+- **Location**: HTTP header
+
+<a id="SecChUaPlatform"></a>
+### SecChUaPlatform
+
+- **Type**: API key
+- **API key parameter name**: Sec-Ch-Ua-Platform
+- **Location**: HTTP header
+
+<a id="SecFetchDest"></a>
+### SecFetchDest
+
+- **Type**: API key
+- **API key parameter name**: Sec-Fetch-Dest
+- **Location**: HTTP header
+
+<a id="SecFetchMode"></a>
+### SecFetchMode
+
+- **Type**: API key
+- **API key parameter name**: Sec-Fetch-Mode
+- **Location**: HTTP header
+
+<a id="SecFetchSite"></a>
+### SecFetchSite
+
+- **Type**: API key
+- **API key parameter name**: Sec-Fetch-Site
 - **Location**: HTTP header
 
 <a id="UserAgent"></a>

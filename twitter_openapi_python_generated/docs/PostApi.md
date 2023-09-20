@@ -22,14 +22,25 @@ create Retweet
 ### Example
 
 * Api Key Authentication (ClientLanguage):
-* Api Key Authentication (CookieCt0):
-* Api Key Authentication (ActiveUser):
-* Api Key Authentication (UserAgent):
-* Api Key Authentication (CookieAuthToken):
-* Api Key Authentication (AuthType):
+* Api Key Authentication (Accept):
+* Api Key Authentication (SecFetchDest):
+* Api Key Authentication (Pragma):
+* Api Key Authentication (SecChUaPlatform):
+* Api Key Authentication (SecFetchMode):
 * Api Key Authentication (CsrfToken):
 * Api Key Authentication (GuestToken):
 * Bearer Authentication (BearerAuth):
+* Api Key Authentication (SecChUa):
+* Api Key Authentication (CookieCt0):
+* Api Key Authentication (ActiveUser):
+* Api Key Authentication (UserAgent):
+* Api Key Authentication (AcceptLanguage):
+* Api Key Authentication (SecFetchSite):
+* Api Key Authentication (CookieAuthToken):
+* Api Key Authentication (AuthType):
+* Api Key Authentication (CacheControl):
+* Api Key Authentication (SecChUaMobile):
+* Api Key Authentication (AcceptEncoding):
 ```python
 import time
 import os
@@ -56,6 +67,59 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
 
+# Configure API key authorization: Accept
+configuration.api_key['Accept'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Accept'] = 'Bearer'
+
+# Configure API key authorization: SecFetchDest
+configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
+
+# Configure API key authorization: Pragma
+configuration.api_key['Pragma'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Pragma'] = 'Bearer'
+
+# Configure API key authorization: SecChUaPlatform
+configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaPlatform'] = 'Bearer'
+
+# Configure API key authorization: SecFetchMode
+configuration.api_key['SecFetchMode'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchMode'] = 'Bearer'
+
+# Configure API key authorization: CsrfToken
+configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+
+# Configure API key authorization: GuestToken
+configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+
+# Configure Bearer authorization: BearerAuth
+configuration = twitter_openapi_python_generated.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Configure API key authorization: SecChUa
+configuration.api_key['SecChUa'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUa'] = 'Bearer'
+
 # Configure API key authorization: CookieCt0
 configuration.api_key['CookieCt0'] = os.environ["API_KEY"]
 
@@ -74,6 +138,18 @@ configuration.api_key['UserAgent'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['UserAgent'] = 'Bearer'
 
+# Configure API key authorization: AcceptLanguage
+configuration.api_key['AcceptLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptLanguage'] = 'Bearer'
+
+# Configure API key authorization: SecFetchSite
+configuration.api_key['SecFetchSite'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchSite'] = 'Bearer'
+
 # Configure API key authorization: CookieAuthToken
 configuration.api_key['CookieAuthToken'] = os.environ["API_KEY"]
 
@@ -86,22 +162,23 @@ configuration.api_key['AuthType'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['AuthType'] = 'Bearer'
 
-# Configure API key authorization: CsrfToken
-configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+# Configure API key authorization: CacheControl
+configuration.api_key['CacheControl'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+# configuration.api_key_prefix['CacheControl'] = 'Bearer'
 
-# Configure API key authorization: GuestToken
-configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+# Configure API key authorization: SecChUaMobile
+configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+# configuration.api_key_prefix['SecChUaMobile'] = 'Bearer'
 
-# Configure Bearer authorization: BearerAuth
-configuration = twitter_openapi_python_generated.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
+# Configure API key authorization: AcceptEncoding
+configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptEncoding'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
@@ -133,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ClientLanguage](../README.md#ClientLanguage), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth)
+[ClientLanguage](../README.md#ClientLanguage), [Accept](../README.md#Accept), [SecFetchDest](../README.md#SecFetchDest), [Pragma](../README.md#Pragma), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth), [SecChUa](../README.md#SecChUa), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CacheControl](../README.md#CacheControl), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 
@@ -157,14 +234,25 @@ create Tweet
 ### Example
 
 * Api Key Authentication (ClientLanguage):
-* Api Key Authentication (CookieCt0):
-* Api Key Authentication (ActiveUser):
-* Api Key Authentication (UserAgent):
-* Api Key Authentication (CookieAuthToken):
-* Api Key Authentication (AuthType):
+* Api Key Authentication (Accept):
+* Api Key Authentication (SecFetchDest):
+* Api Key Authentication (Pragma):
+* Api Key Authentication (SecChUaPlatform):
+* Api Key Authentication (SecFetchMode):
 * Api Key Authentication (CsrfToken):
 * Api Key Authentication (GuestToken):
 * Bearer Authentication (BearerAuth):
+* Api Key Authentication (SecChUa):
+* Api Key Authentication (CookieCt0):
+* Api Key Authentication (ActiveUser):
+* Api Key Authentication (UserAgent):
+* Api Key Authentication (AcceptLanguage):
+* Api Key Authentication (SecFetchSite):
+* Api Key Authentication (CookieAuthToken):
+* Api Key Authentication (AuthType):
+* Api Key Authentication (CacheControl):
+* Api Key Authentication (SecChUaMobile):
+* Api Key Authentication (AcceptEncoding):
 ```python
 import time
 import os
@@ -191,6 +279,59 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
 
+# Configure API key authorization: Accept
+configuration.api_key['Accept'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Accept'] = 'Bearer'
+
+# Configure API key authorization: SecFetchDest
+configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
+
+# Configure API key authorization: Pragma
+configuration.api_key['Pragma'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Pragma'] = 'Bearer'
+
+# Configure API key authorization: SecChUaPlatform
+configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaPlatform'] = 'Bearer'
+
+# Configure API key authorization: SecFetchMode
+configuration.api_key['SecFetchMode'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchMode'] = 'Bearer'
+
+# Configure API key authorization: CsrfToken
+configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+
+# Configure API key authorization: GuestToken
+configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+
+# Configure Bearer authorization: BearerAuth
+configuration = twitter_openapi_python_generated.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Configure API key authorization: SecChUa
+configuration.api_key['SecChUa'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUa'] = 'Bearer'
+
 # Configure API key authorization: CookieCt0
 configuration.api_key['CookieCt0'] = os.environ["API_KEY"]
 
@@ -209,6 +350,18 @@ configuration.api_key['UserAgent'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['UserAgent'] = 'Bearer'
 
+# Configure API key authorization: AcceptLanguage
+configuration.api_key['AcceptLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptLanguage'] = 'Bearer'
+
+# Configure API key authorization: SecFetchSite
+configuration.api_key['SecFetchSite'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchSite'] = 'Bearer'
+
 # Configure API key authorization: CookieAuthToken
 configuration.api_key['CookieAuthToken'] = os.environ["API_KEY"]
 
@@ -221,22 +374,23 @@ configuration.api_key['AuthType'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['AuthType'] = 'Bearer'
 
-# Configure API key authorization: CsrfToken
-configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+# Configure API key authorization: CacheControl
+configuration.api_key['CacheControl'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+# configuration.api_key_prefix['CacheControl'] = 'Bearer'
 
-# Configure API key authorization: GuestToken
-configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+# Configure API key authorization: SecChUaMobile
+configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+# configuration.api_key_prefix['SecChUaMobile'] = 'Bearer'
 
-# Configure Bearer authorization: BearerAuth
-configuration = twitter_openapi_python_generated.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
+# Configure API key authorization: AcceptEncoding
+configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptEncoding'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
@@ -268,7 +422,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ClientLanguage](../README.md#ClientLanguage), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth)
+[ClientLanguage](../README.md#ClientLanguage), [Accept](../README.md#Accept), [SecFetchDest](../README.md#SecFetchDest), [Pragma](../README.md#Pragma), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth), [SecChUa](../README.md#SecChUa), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CacheControl](../README.md#CacheControl), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 
@@ -292,14 +446,25 @@ delete Retweet
 ### Example
 
 * Api Key Authentication (ClientLanguage):
-* Api Key Authentication (CookieCt0):
-* Api Key Authentication (ActiveUser):
-* Api Key Authentication (UserAgent):
-* Api Key Authentication (CookieAuthToken):
-* Api Key Authentication (AuthType):
+* Api Key Authentication (Accept):
+* Api Key Authentication (SecFetchDest):
+* Api Key Authentication (Pragma):
+* Api Key Authentication (SecChUaPlatform):
+* Api Key Authentication (SecFetchMode):
 * Api Key Authentication (CsrfToken):
 * Api Key Authentication (GuestToken):
 * Bearer Authentication (BearerAuth):
+* Api Key Authentication (SecChUa):
+* Api Key Authentication (CookieCt0):
+* Api Key Authentication (ActiveUser):
+* Api Key Authentication (UserAgent):
+* Api Key Authentication (AcceptLanguage):
+* Api Key Authentication (SecFetchSite):
+* Api Key Authentication (CookieAuthToken):
+* Api Key Authentication (AuthType):
+* Api Key Authentication (CacheControl):
+* Api Key Authentication (SecChUaMobile):
+* Api Key Authentication (AcceptEncoding):
 ```python
 import time
 import os
@@ -326,6 +491,59 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
 
+# Configure API key authorization: Accept
+configuration.api_key['Accept'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Accept'] = 'Bearer'
+
+# Configure API key authorization: SecFetchDest
+configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
+
+# Configure API key authorization: Pragma
+configuration.api_key['Pragma'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Pragma'] = 'Bearer'
+
+# Configure API key authorization: SecChUaPlatform
+configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaPlatform'] = 'Bearer'
+
+# Configure API key authorization: SecFetchMode
+configuration.api_key['SecFetchMode'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchMode'] = 'Bearer'
+
+# Configure API key authorization: CsrfToken
+configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+
+# Configure API key authorization: GuestToken
+configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+
+# Configure Bearer authorization: BearerAuth
+configuration = twitter_openapi_python_generated.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Configure API key authorization: SecChUa
+configuration.api_key['SecChUa'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUa'] = 'Bearer'
+
 # Configure API key authorization: CookieCt0
 configuration.api_key['CookieCt0'] = os.environ["API_KEY"]
 
@@ -344,6 +562,18 @@ configuration.api_key['UserAgent'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['UserAgent'] = 'Bearer'
 
+# Configure API key authorization: AcceptLanguage
+configuration.api_key['AcceptLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptLanguage'] = 'Bearer'
+
+# Configure API key authorization: SecFetchSite
+configuration.api_key['SecFetchSite'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchSite'] = 'Bearer'
+
 # Configure API key authorization: CookieAuthToken
 configuration.api_key['CookieAuthToken'] = os.environ["API_KEY"]
 
@@ -356,22 +586,23 @@ configuration.api_key['AuthType'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['AuthType'] = 'Bearer'
 
-# Configure API key authorization: CsrfToken
-configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+# Configure API key authorization: CacheControl
+configuration.api_key['CacheControl'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+# configuration.api_key_prefix['CacheControl'] = 'Bearer'
 
-# Configure API key authorization: GuestToken
-configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+# Configure API key authorization: SecChUaMobile
+configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+# configuration.api_key_prefix['SecChUaMobile'] = 'Bearer'
 
-# Configure Bearer authorization: BearerAuth
-configuration = twitter_openapi_python_generated.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
+# Configure API key authorization: AcceptEncoding
+configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptEncoding'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
@@ -403,7 +634,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ClientLanguage](../README.md#ClientLanguage), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth)
+[ClientLanguage](../README.md#ClientLanguage), [Accept](../README.md#Accept), [SecFetchDest](../README.md#SecFetchDest), [Pragma](../README.md#Pragma), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth), [SecChUa](../README.md#SecChUa), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CacheControl](../README.md#CacheControl), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 
@@ -427,14 +658,25 @@ delete Retweet
 ### Example
 
 * Api Key Authentication (ClientLanguage):
-* Api Key Authentication (CookieCt0):
-* Api Key Authentication (ActiveUser):
-* Api Key Authentication (UserAgent):
-* Api Key Authentication (CookieAuthToken):
-* Api Key Authentication (AuthType):
+* Api Key Authentication (Accept):
+* Api Key Authentication (SecFetchDest):
+* Api Key Authentication (Pragma):
+* Api Key Authentication (SecChUaPlatform):
+* Api Key Authentication (SecFetchMode):
 * Api Key Authentication (CsrfToken):
 * Api Key Authentication (GuestToken):
 * Bearer Authentication (BearerAuth):
+* Api Key Authentication (SecChUa):
+* Api Key Authentication (CookieCt0):
+* Api Key Authentication (ActiveUser):
+* Api Key Authentication (UserAgent):
+* Api Key Authentication (AcceptLanguage):
+* Api Key Authentication (SecFetchSite):
+* Api Key Authentication (CookieAuthToken):
+* Api Key Authentication (AuthType):
+* Api Key Authentication (CacheControl):
+* Api Key Authentication (SecChUaMobile):
+* Api Key Authentication (AcceptEncoding):
 ```python
 import time
 import os
@@ -461,6 +703,59 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
 
+# Configure API key authorization: Accept
+configuration.api_key['Accept'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Accept'] = 'Bearer'
+
+# Configure API key authorization: SecFetchDest
+configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
+
+# Configure API key authorization: Pragma
+configuration.api_key['Pragma'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Pragma'] = 'Bearer'
+
+# Configure API key authorization: SecChUaPlatform
+configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaPlatform'] = 'Bearer'
+
+# Configure API key authorization: SecFetchMode
+configuration.api_key['SecFetchMode'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchMode'] = 'Bearer'
+
+# Configure API key authorization: CsrfToken
+configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+
+# Configure API key authorization: GuestToken
+configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+
+# Configure Bearer authorization: BearerAuth
+configuration = twitter_openapi_python_generated.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Configure API key authorization: SecChUa
+configuration.api_key['SecChUa'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUa'] = 'Bearer'
+
 # Configure API key authorization: CookieCt0
 configuration.api_key['CookieCt0'] = os.environ["API_KEY"]
 
@@ -479,6 +774,18 @@ configuration.api_key['UserAgent'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['UserAgent'] = 'Bearer'
 
+# Configure API key authorization: AcceptLanguage
+configuration.api_key['AcceptLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptLanguage'] = 'Bearer'
+
+# Configure API key authorization: SecFetchSite
+configuration.api_key['SecFetchSite'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchSite'] = 'Bearer'
+
 # Configure API key authorization: CookieAuthToken
 configuration.api_key['CookieAuthToken'] = os.environ["API_KEY"]
 
@@ -491,22 +798,23 @@ configuration.api_key['AuthType'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['AuthType'] = 'Bearer'
 
-# Configure API key authorization: CsrfToken
-configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+# Configure API key authorization: CacheControl
+configuration.api_key['CacheControl'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+# configuration.api_key_prefix['CacheControl'] = 'Bearer'
 
-# Configure API key authorization: GuestToken
-configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+# Configure API key authorization: SecChUaMobile
+configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+# configuration.api_key_prefix['SecChUaMobile'] = 'Bearer'
 
-# Configure Bearer authorization: BearerAuth
-configuration = twitter_openapi_python_generated.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
+# Configure API key authorization: AcceptEncoding
+configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptEncoding'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
@@ -538,7 +846,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ClientLanguage](../README.md#ClientLanguage), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth)
+[ClientLanguage](../README.md#ClientLanguage), [Accept](../README.md#Accept), [SecFetchDest](../README.md#SecFetchDest), [Pragma](../README.md#Pragma), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth), [SecChUa](../README.md#SecChUa), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CacheControl](../README.md#CacheControl), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 
@@ -562,14 +870,25 @@ favorite Tweet
 ### Example
 
 * Api Key Authentication (ClientLanguage):
-* Api Key Authentication (CookieCt0):
-* Api Key Authentication (ActiveUser):
-* Api Key Authentication (UserAgent):
-* Api Key Authentication (CookieAuthToken):
-* Api Key Authentication (AuthType):
+* Api Key Authentication (Accept):
+* Api Key Authentication (SecFetchDest):
+* Api Key Authentication (Pragma):
+* Api Key Authentication (SecChUaPlatform):
+* Api Key Authentication (SecFetchMode):
 * Api Key Authentication (CsrfToken):
 * Api Key Authentication (GuestToken):
 * Bearer Authentication (BearerAuth):
+* Api Key Authentication (SecChUa):
+* Api Key Authentication (CookieCt0):
+* Api Key Authentication (ActiveUser):
+* Api Key Authentication (UserAgent):
+* Api Key Authentication (AcceptLanguage):
+* Api Key Authentication (SecFetchSite):
+* Api Key Authentication (CookieAuthToken):
+* Api Key Authentication (AuthType):
+* Api Key Authentication (CacheControl):
+* Api Key Authentication (SecChUaMobile):
+* Api Key Authentication (AcceptEncoding):
 ```python
 import time
 import os
@@ -596,6 +915,59 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
 
+# Configure API key authorization: Accept
+configuration.api_key['Accept'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Accept'] = 'Bearer'
+
+# Configure API key authorization: SecFetchDest
+configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
+
+# Configure API key authorization: Pragma
+configuration.api_key['Pragma'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Pragma'] = 'Bearer'
+
+# Configure API key authorization: SecChUaPlatform
+configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaPlatform'] = 'Bearer'
+
+# Configure API key authorization: SecFetchMode
+configuration.api_key['SecFetchMode'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchMode'] = 'Bearer'
+
+# Configure API key authorization: CsrfToken
+configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+
+# Configure API key authorization: GuestToken
+configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+
+# Configure Bearer authorization: BearerAuth
+configuration = twitter_openapi_python_generated.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Configure API key authorization: SecChUa
+configuration.api_key['SecChUa'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUa'] = 'Bearer'
+
 # Configure API key authorization: CookieCt0
 configuration.api_key['CookieCt0'] = os.environ["API_KEY"]
 
@@ -614,6 +986,18 @@ configuration.api_key['UserAgent'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['UserAgent'] = 'Bearer'
 
+# Configure API key authorization: AcceptLanguage
+configuration.api_key['AcceptLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptLanguage'] = 'Bearer'
+
+# Configure API key authorization: SecFetchSite
+configuration.api_key['SecFetchSite'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchSite'] = 'Bearer'
+
 # Configure API key authorization: CookieAuthToken
 configuration.api_key['CookieAuthToken'] = os.environ["API_KEY"]
 
@@ -626,22 +1010,23 @@ configuration.api_key['AuthType'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['AuthType'] = 'Bearer'
 
-# Configure API key authorization: CsrfToken
-configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+# Configure API key authorization: CacheControl
+configuration.api_key['CacheControl'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+# configuration.api_key_prefix['CacheControl'] = 'Bearer'
 
-# Configure API key authorization: GuestToken
-configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+# Configure API key authorization: SecChUaMobile
+configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+# configuration.api_key_prefix['SecChUaMobile'] = 'Bearer'
 
-# Configure Bearer authorization: BearerAuth
-configuration = twitter_openapi_python_generated.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
+# Configure API key authorization: AcceptEncoding
+configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptEncoding'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
@@ -673,7 +1058,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ClientLanguage](../README.md#ClientLanguage), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth)
+[ClientLanguage](../README.md#ClientLanguage), [Accept](../README.md#Accept), [SecFetchDest](../README.md#SecFetchDest), [Pragma](../README.md#Pragma), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth), [SecChUa](../README.md#SecChUa), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CacheControl](../README.md#CacheControl), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 
@@ -697,14 +1082,25 @@ unfavorite Tweet
 ### Example
 
 * Api Key Authentication (ClientLanguage):
-* Api Key Authentication (CookieCt0):
-* Api Key Authentication (ActiveUser):
-* Api Key Authentication (UserAgent):
-* Api Key Authentication (CookieAuthToken):
-* Api Key Authentication (AuthType):
+* Api Key Authentication (Accept):
+* Api Key Authentication (SecFetchDest):
+* Api Key Authentication (Pragma):
+* Api Key Authentication (SecChUaPlatform):
+* Api Key Authentication (SecFetchMode):
 * Api Key Authentication (CsrfToken):
 * Api Key Authentication (GuestToken):
 * Bearer Authentication (BearerAuth):
+* Api Key Authentication (SecChUa):
+* Api Key Authentication (CookieCt0):
+* Api Key Authentication (ActiveUser):
+* Api Key Authentication (UserAgent):
+* Api Key Authentication (AcceptLanguage):
+* Api Key Authentication (SecFetchSite):
+* Api Key Authentication (CookieAuthToken):
+* Api Key Authentication (AuthType):
+* Api Key Authentication (CacheControl):
+* Api Key Authentication (SecChUaMobile):
+* Api Key Authentication (AcceptEncoding):
 ```python
 import time
 import os
@@ -731,6 +1127,59 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
 
+# Configure API key authorization: Accept
+configuration.api_key['Accept'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Accept'] = 'Bearer'
+
+# Configure API key authorization: SecFetchDest
+configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
+
+# Configure API key authorization: Pragma
+configuration.api_key['Pragma'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Pragma'] = 'Bearer'
+
+# Configure API key authorization: SecChUaPlatform
+configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaPlatform'] = 'Bearer'
+
+# Configure API key authorization: SecFetchMode
+configuration.api_key['SecFetchMode'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchMode'] = 'Bearer'
+
+# Configure API key authorization: CsrfToken
+configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+
+# Configure API key authorization: GuestToken
+configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+
+# Configure Bearer authorization: BearerAuth
+configuration = twitter_openapi_python_generated.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Configure API key authorization: SecChUa
+configuration.api_key['SecChUa'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUa'] = 'Bearer'
+
 # Configure API key authorization: CookieCt0
 configuration.api_key['CookieCt0'] = os.environ["API_KEY"]
 
@@ -749,6 +1198,18 @@ configuration.api_key['UserAgent'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['UserAgent'] = 'Bearer'
 
+# Configure API key authorization: AcceptLanguage
+configuration.api_key['AcceptLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptLanguage'] = 'Bearer'
+
+# Configure API key authorization: SecFetchSite
+configuration.api_key['SecFetchSite'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchSite'] = 'Bearer'
+
 # Configure API key authorization: CookieAuthToken
 configuration.api_key['CookieAuthToken'] = os.environ["API_KEY"]
 
@@ -761,22 +1222,23 @@ configuration.api_key['AuthType'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['AuthType'] = 'Bearer'
 
-# Configure API key authorization: CsrfToken
-configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+# Configure API key authorization: CacheControl
+configuration.api_key['CacheControl'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+# configuration.api_key_prefix['CacheControl'] = 'Bearer'
 
-# Configure API key authorization: GuestToken
-configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+# Configure API key authorization: SecChUaMobile
+configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+# configuration.api_key_prefix['SecChUaMobile'] = 'Bearer'
 
-# Configure Bearer authorization: BearerAuth
-configuration = twitter_openapi_python_generated.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
+# Configure API key authorization: AcceptEncoding
+configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptEncoding'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
@@ -808,7 +1270,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ClientLanguage](../README.md#ClientLanguage), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth)
+[ClientLanguage](../README.md#ClientLanguage), [Accept](../README.md#Accept), [SecFetchDest](../README.md#SecFetchDest), [Pragma](../README.md#Pragma), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth), [SecChUa](../README.md#SecChUa), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CacheControl](../README.md#CacheControl), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 

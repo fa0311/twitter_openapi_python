@@ -186,7 +186,7 @@ class PostApi(object):
                 _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
+        _auth_settings = ['ClientLanguage', 'Accept', 'SecFetchDest', 'Pragma', 'SecChUaPlatform', 'SecFetchMode', 'CsrfToken', 'GuestToken', 'BearerAuth', 'SecChUa', 'CookieCt0', 'ActiveUser', 'UserAgent', 'AcceptLanguage', 'SecFetchSite', 'CookieAuthToken', 'AuthType', 'CacheControl', 'SecChUaMobile', 'AcceptEncoding']  # noqa: E501
 
         _response_types_map = {
             '200': "PostCreateRetweet200Response",
@@ -340,7 +340,7 @@ class PostApi(object):
                 _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
+        _auth_settings = ['ClientLanguage', 'Accept', 'SecFetchDest', 'Pragma', 'SecChUaPlatform', 'SecFetchMode', 'CsrfToken', 'GuestToken', 'BearerAuth', 'SecChUa', 'CookieCt0', 'ActiveUser', 'UserAgent', 'AcceptLanguage', 'SecFetchSite', 'CookieAuthToken', 'AuthType', 'CacheControl', 'SecChUaMobile', 'AcceptEncoding']  # noqa: E501
 
         _response_types_map = {
             '200': "PostCreateTweet200Response",
@@ -494,7 +494,7 @@ class PostApi(object):
                 _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
+        _auth_settings = ['ClientLanguage', 'Accept', 'SecFetchDest', 'Pragma', 'SecChUaPlatform', 'SecFetchMode', 'CsrfToken', 'GuestToken', 'BearerAuth', 'SecChUa', 'CookieCt0', 'ActiveUser', 'UserAgent', 'AcceptLanguage', 'SecFetchSite', 'CookieAuthToken', 'AuthType', 'CacheControl', 'SecChUaMobile', 'AcceptEncoding']  # noqa: E501
 
         _response_types_map = {
             '200': "PostDeleteRetweet200Response",
@@ -648,7 +648,7 @@ class PostApi(object):
                 _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
+        _auth_settings = ['ClientLanguage', 'Accept', 'SecFetchDest', 'Pragma', 'SecChUaPlatform', 'SecFetchMode', 'CsrfToken', 'GuestToken', 'BearerAuth', 'SecChUa', 'CookieCt0', 'ActiveUser', 'UserAgent', 'AcceptLanguage', 'SecFetchSite', 'CookieAuthToken', 'AuthType', 'CacheControl', 'SecChUaMobile', 'AcceptEncoding']  # noqa: E501
 
         _response_types_map = {
             '200': "PostDeleteTweet200Response",
@@ -802,7 +802,7 @@ class PostApi(object):
                 _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
+        _auth_settings = ['ClientLanguage', 'Accept', 'SecFetchDest', 'Pragma', 'SecChUaPlatform', 'SecFetchMode', 'CsrfToken', 'GuestToken', 'BearerAuth', 'SecChUa', 'CookieCt0', 'ActiveUser', 'UserAgent', 'AcceptLanguage', 'SecFetchSite', 'CookieAuthToken', 'AuthType', 'CacheControl', 'SecChUaMobile', 'AcceptEncoding']  # noqa: E501
 
         _response_types_map = {
             '200': "PostFavoriteTweet200Response",
@@ -956,7 +956,7 @@ class PostApi(object):
                 _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
+        _auth_settings = ['ClientLanguage', 'Accept', 'SecFetchDest', 'Pragma', 'SecChUaPlatform', 'SecFetchMode', 'CsrfToken', 'GuestToken', 'BearerAuth', 'SecChUa', 'CookieCt0', 'ActiveUser', 'UserAgent', 'AcceptLanguage', 'SecFetchSite', 'CookieAuthToken', 'AuthType', 'CacheControl', 'SecChUaMobile', 'AcceptEncoding']  # noqa: E501
 
         _response_types_map = {
             '200': "PostUnfavoriteTweet200Response",

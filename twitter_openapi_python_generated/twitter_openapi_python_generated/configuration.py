@@ -378,6 +378,33 @@ conf = twitter_openapi_python_generated.Configuration(
         :return: The Auth Settings information dict.
         """
         auth = {}
+        if 'Accept' in self.api_key:
+            auth['Accept'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Accept',
+                'value': self.get_api_key_with_prefix(
+                    'Accept',
+                ),
+            }
+        if 'AcceptEncoding' in self.api_key:
+            auth['AcceptEncoding'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Accept-Encoding',
+                'value': self.get_api_key_with_prefix(
+                    'AcceptEncoding',
+                ),
+            }
+        if 'AcceptLanguage' in self.api_key:
+            auth['AcceptLanguage'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Accept-Language',
+                'value': self.get_api_key_with_prefix(
+                    'AcceptLanguage',
+                ),
+            }
         if 'ActiveUser' in self.api_key:
             auth['ActiveUser'] = {
                 'type': 'api_key',
@@ -402,6 +429,15 @@ conf = twitter_openapi_python_generated.Configuration(
                 'in': 'header',
                 'key': 'Authorization',
                 'value': 'Bearer ' + self.access_token
+            }
+        if 'CacheControl' in self.api_key:
+            auth['CacheControl'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Cache-Control',
+                'value': self.get_api_key_with_prefix(
+                    'CacheControl',
+                ),
             }
         if 'ClientLanguage' in self.api_key:
             auth['ClientLanguage'] = {
@@ -446,6 +482,69 @@ conf = twitter_openapi_python_generated.Configuration(
                 'key': 'x-guest-token',
                 'value': self.get_api_key_with_prefix(
                     'GuestToken',
+                ),
+            }
+        if 'Pragma' in self.api_key:
+            auth['Pragma'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Pragma',
+                'value': self.get_api_key_with_prefix(
+                    'Pragma',
+                ),
+            }
+        if 'SecChUa' in self.api_key:
+            auth['SecChUa'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Sec-Ch-Ua',
+                'value': self.get_api_key_with_prefix(
+                    'SecChUa',
+                ),
+            }
+        if 'SecChUaMobile' in self.api_key:
+            auth['SecChUaMobile'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Sec-Ch-Ua-Mobile',
+                'value': self.get_api_key_with_prefix(
+                    'SecChUaMobile',
+                ),
+            }
+        if 'SecChUaPlatform' in self.api_key:
+            auth['SecChUaPlatform'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Sec-Ch-Ua-Platform',
+                'value': self.get_api_key_with_prefix(
+                    'SecChUaPlatform',
+                ),
+            }
+        if 'SecFetchDest' in self.api_key:
+            auth['SecFetchDest'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Sec-Fetch-Dest',
+                'value': self.get_api_key_with_prefix(
+                    'SecFetchDest',
+                ),
+            }
+        if 'SecFetchMode' in self.api_key:
+            auth['SecFetchMode'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Sec-Fetch-Mode',
+                'value': self.get_api_key_with_prefix(
+                    'SecFetchMode',
+                ),
+            }
+        if 'SecFetchSite' in self.api_key:
+            auth['SecFetchSite'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Sec-Fetch-Site',
+                'value': self.get_api_key_with_prefix(
+                    'SecFetchSite',
                 ),
             }
         if 'UserAgent' in self.api_key:

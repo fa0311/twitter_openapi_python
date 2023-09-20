@@ -178,7 +178,7 @@ class UserListApi(object):
             ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
+        _auth_settings = ['ClientLanguage', 'Accept', 'SecFetchDest', 'Pragma', 'SecChUaPlatform', 'SecFetchMode', 'CsrfToken', 'GuestToken', 'BearerAuth', 'SecChUa', 'CookieCt0', 'ActiveUser', 'UserAgent', 'AcceptLanguage', 'SecFetchSite', 'CookieAuthToken', 'AuthType', 'CacheControl', 'SecChUaMobile', 'AcceptEncoding']  # noqa: E501
 
         _response_types_map = {
             '200': "GetFavoriters200Response",
@@ -333,7 +333,7 @@ class UserListApi(object):
             ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
+        _auth_settings = ['ClientLanguage', 'Accept', 'SecFetchDest', 'Pragma', 'SecChUaPlatform', 'SecFetchMode', 'CsrfToken', 'GuestToken', 'BearerAuth', 'SecChUa', 'CookieCt0', 'ActiveUser', 'UserAgent', 'AcceptLanguage', 'SecFetchSite', 'CookieAuthToken', 'AuthType', 'CacheControl', 'SecChUaMobile', 'AcceptEncoding']  # noqa: E501
 
         _response_types_map = {
             '200': "GetFollowers200Response",
@@ -496,7 +496,7 @@ class UserListApi(object):
             ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
+        _auth_settings = ['ClientLanguage', 'Accept', 'SecFetchDest', 'Pragma', 'SecChUaPlatform', 'SecFetchMode', 'CsrfToken', 'GuestToken', 'BearerAuth', 'SecChUa', 'CookieCt0', 'ActiveUser', 'UserAgent', 'AcceptLanguage', 'SecFetchSite', 'CookieAuthToken', 'AuthType', 'CacheControl', 'SecChUaMobile', 'AcceptEncoding']  # noqa: E501
 
         _response_types_map = {
             '200': "GetFollowers200Response",
@@ -651,7 +651,7 @@ class UserListApi(object):
             ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
+        _auth_settings = ['ClientLanguage', 'Accept', 'SecFetchDest', 'Pragma', 'SecChUaPlatform', 'SecFetchMode', 'CsrfToken', 'GuestToken', 'BearerAuth', 'SecChUa', 'CookieCt0', 'ActiveUser', 'UserAgent', 'AcceptLanguage', 'SecFetchSite', 'CookieAuthToken', 'AuthType', 'CacheControl', 'SecChUaMobile', 'AcceptEncoding']  # noqa: E501
 
         _response_types_map = {
             '200': "GetFollowers200Response",
@@ -806,7 +806,7 @@ class UserListApi(object):
             ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['ClientLanguage', 'CookieCt0', 'ActiveUser', 'UserAgent', 'CookieAuthToken', 'AuthType', 'CsrfToken', 'GuestToken', 'BearerAuth']  # noqa: E501
+        _auth_settings = ['ClientLanguage', 'Accept', 'SecFetchDest', 'Pragma', 'SecChUaPlatform', 'SecFetchMode', 'CsrfToken', 'GuestToken', 'BearerAuth', 'SecChUa', 'CookieCt0', 'ActiveUser', 'UserAgent', 'AcceptLanguage', 'SecFetchSite', 'CookieAuthToken', 'AuthType', 'CacheControl', 'SecChUaMobile', 'AcceptEncoding']  # noqa: E501
 
         _response_types_map = {
             '200': "GetRetweeters200Response",

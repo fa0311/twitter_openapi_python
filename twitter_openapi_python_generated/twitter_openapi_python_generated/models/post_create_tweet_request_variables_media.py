@@ -19,14 +19,15 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List
+from typing import List
 from pydantic import BaseModel, Field, StrictBool, conlist
+from twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner import PostCreateTweetRequestVariablesMediaMediaEntitiesInner
 
 class PostCreateTweetRequestVariablesMedia(BaseModel):
     """
     PostCreateTweetRequestVariablesMedia
     """
-    media_entities: conlist(Dict[str, Any]) = Field(...)
+    media_entities: conlist(PostCreateTweetRequestVariablesMediaMediaEntitiesInner) = Field(...)
     possibly_sensitive: StrictBool = Field(...)
     __properties = ["media_entities", "possibly_sensitive"]
 
@@ -54,6 +55,13 @@ class PostCreateTweetRequestVariablesMedia(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of each item in media_entities (list)
+        _items = []
+        if self.media_entities:
+            for _item in self.media_entities:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['media_entities'] = _items
         return _dict
 
     @classmethod
@@ -66,7 +74,7 @@ class PostCreateTweetRequestVariablesMedia(BaseModel):
             return PostCreateTweetRequestVariablesMedia.parse_obj(obj)
 
         _obj = PostCreateTweetRequestVariablesMedia.parse_obj({
-            "media_entities": obj.get("media_entities"),
+            "media_entities": [PostCreateTweetRequestVariablesMediaMediaEntitiesInner.from_dict(_item) for _item in obj.get("media_entities")] if obj.get("media_entities") is not None else None,
             "possibly_sensitive": obj.get("possibly_sensitive") if obj.get("possibly_sensitive") is not None else False
         })
         return _obj
