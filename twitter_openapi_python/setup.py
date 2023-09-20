@@ -6,7 +6,7 @@ NAME = "twitter_openapi_python"
 VERSION = "0.0.5"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
-    "twitter_openapi_python_generated == 0.0.4",
+    "twitter_openapi_python_generated == 0.0.5",
     "pydantic >= 1.10.5, < 2",
 ]
 
