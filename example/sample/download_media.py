@@ -15,7 +15,7 @@ cookies_dict = login.login().get_cookies().get_dict()
 𝕏 = TwitterOpenapiPython().get_client_from_cookies(cookies=cookies_dict)
 
 
-def media_download(tweet: TweetApiUtilsData) -> Optional[list[MediaExtended]]:
+def media_download(tweet: TweetApiUtilsData):
     if tweet.tweet.legacy is None:
         return
     if tweet.tweet.legacy.extended_entities is None:
