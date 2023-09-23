@@ -115,6 +115,8 @@ def tweet_entries_converter(
 
 
 def user_or_null_converter(user: models.UserUnion) -> Optional[models.User]:
+    if user is None:
+        return None
     if isinstance(user.actual_instance, models.User):
         return user.actual_instance
 
