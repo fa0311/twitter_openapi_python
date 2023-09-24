@@ -114,7 +114,7 @@ def tweet_entries_converter(
     return non_nullable_list(list(map(map_fn, input)))
 
 
-def user_or_null_converter(user: models.UserUnion) -> Optional[models.User]:
+def user_or_null_converter(user: Optional[models.UserUnion]) -> Optional[models.User]:
     if user is None:
         return None
     if isinstance(user.actual_instance, models.User):

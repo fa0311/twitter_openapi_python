@@ -826,14 +826,14 @@ class TweetApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_search_timeline(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, field_toggles : StrictStr, **kwargs) -> GetSearchTimeline200Response:  # noqa: E501
+    def get_search_timeline(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetSearchTimeline200Response:  # noqa: E501
         """get_search_timeline  # noqa: E501
 
         search tweet list. product:[Top, Latest, People, Photos, Videos]  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_search_timeline(path_query_id, variables, features, field_toggles, async_req=True)
+        >>> thread = api.get_search_timeline(path_query_id, variables, features, async_req=True)
         >>> result = thread.get()
 
         :param path_query_id: (required)
@@ -842,8 +842,6 @@ class TweetApi(object):
         :type variables: str
         :param features: (required)
         :type features: str
-        :param field_toggles: (required)
-        :type field_toggles: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request. If one
@@ -858,17 +856,17 @@ class TweetApi(object):
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
             raise ValueError("Error! Please call the get_search_timeline_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data")
-        return self.get_search_timeline_with_http_info(path_query_id, variables, features, field_toggles, **kwargs)  # noqa: E501
+        return self.get_search_timeline_with_http_info(path_query_id, variables, features, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_search_timeline_with_http_info(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, field_toggles : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_search_timeline_with_http_info(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """get_search_timeline  # noqa: E501
 
         search tweet list. product:[Top, Latest, People, Photos, Videos]  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_search_timeline_with_http_info(path_query_id, variables, features, field_toggles, async_req=True)
+        >>> thread = api.get_search_timeline_with_http_info(path_query_id, variables, features, async_req=True)
         >>> result = thread.get()
 
         :param path_query_id: (required)
@@ -877,8 +875,6 @@ class TweetApi(object):
         :type variables: str
         :param features: (required)
         :type features: str
-        :param field_toggles: (required)
-        :type field_toggles: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -909,8 +905,7 @@ class TweetApi(object):
         _all_params = [
             'path_query_id',
             'variables',
-            'features',
-            'field_toggles'
+            'features'
         ]
         _all_params.extend(
             [
@@ -950,9 +945,6 @@ class TweetApi(object):
         if _params.get('features') is not None:  # noqa: E501
             _query_params.append(('features', _params['features']))
 
-        if _params.get('field_toggles') is not None:  # noqa: E501
-            _query_params.append(('fieldToggles', _params['field_toggles']))
-
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
@@ -989,14 +981,14 @@ class TweetApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_tweet_detail(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetTweetDetail200Response:  # noqa: E501
+    def get_tweet_detail(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, field_toggles : StrictStr, **kwargs) -> GetTweetDetail200Response:  # noqa: E501
         """get_tweet_detail  # noqa: E501
 
         get TweetDetail  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_tweet_detail(path_query_id, variables, features, async_req=True)
+        >>> thread = api.get_tweet_detail(path_query_id, variables, features, field_toggles, async_req=True)
         >>> result = thread.get()
 
         :param path_query_id: (required)
@@ -1005,6 +997,8 @@ class TweetApi(object):
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request. If one
@@ -1019,17 +1013,17 @@ class TweetApi(object):
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
             raise ValueError("Error! Please call the get_tweet_detail_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data")
-        return self.get_tweet_detail_with_http_info(path_query_id, variables, features, **kwargs)  # noqa: E501
+        return self.get_tweet_detail_with_http_info(path_query_id, variables, features, field_toggles, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_tweet_detail_with_http_info(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_tweet_detail_with_http_info(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, field_toggles : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """get_tweet_detail  # noqa: E501
 
         get TweetDetail  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_tweet_detail_with_http_info(path_query_id, variables, features, async_req=True)
+        >>> thread = api.get_tweet_detail_with_http_info(path_query_id, variables, features, field_toggles, async_req=True)
         >>> result = thread.get()
 
         :param path_query_id: (required)
@@ -1038,6 +1032,8 @@ class TweetApi(object):
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -1068,7 +1064,8 @@ class TweetApi(object):
         _all_params = [
             'path_query_id',
             'variables',
-            'features'
+            'features',
+            'field_toggles'
         ]
         _all_params.extend(
             [
@@ -1108,6 +1105,9 @@ class TweetApi(object):
         if _params.get('features') is not None:  # noqa: E501
             _query_params.append(('features', _params['features']))
 
+        if _params.get('field_toggles') is not None:  # noqa: E501
+            _query_params.append(('fieldToggles', _params['field_toggles']))
+
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
@@ -1144,14 +1144,14 @@ class TweetApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_user_highlights_tweets(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, field_toggles : StrictStr, **kwargs) -> GetUserHighlightsTweets200Response:  # noqa: E501
+    def get_user_highlights_tweets(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetUserHighlightsTweets200Response:  # noqa: E501
         """get_user_highlights_tweets  # noqa: E501
 
         get user highlights tweets  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_user_highlights_tweets(path_query_id, variables, features, field_toggles, async_req=True)
+        >>> thread = api.get_user_highlights_tweets(path_query_id, variables, features, async_req=True)
         >>> result = thread.get()
 
         :param path_query_id: (required)
@@ -1160,8 +1160,6 @@ class TweetApi(object):
         :type variables: str
         :param features: (required)
         :type features: str
-        :param field_toggles: (required)
-        :type field_toggles: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request. If one
@@ -1176,17 +1174,17 @@ class TweetApi(object):
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
             raise ValueError("Error! Please call the get_user_highlights_tweets_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data")
-        return self.get_user_highlights_tweets_with_http_info(path_query_id, variables, features, field_toggles, **kwargs)  # noqa: E501
+        return self.get_user_highlights_tweets_with_http_info(path_query_id, variables, features, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_user_highlights_tweets_with_http_info(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, field_toggles : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_user_highlights_tweets_with_http_info(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """get_user_highlights_tweets  # noqa: E501
 
         get user highlights tweets  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_user_highlights_tweets_with_http_info(path_query_id, variables, features, field_toggles, async_req=True)
+        >>> thread = api.get_user_highlights_tweets_with_http_info(path_query_id, variables, features, async_req=True)
         >>> result = thread.get()
 
         :param path_query_id: (required)
@@ -1195,8 +1193,6 @@ class TweetApi(object):
         :type variables: str
         :param features: (required)
         :type features: str
-        :param field_toggles: (required)
-        :type field_toggles: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -1227,8 +1223,7 @@ class TweetApi(object):
         _all_params = [
             'path_query_id',
             'variables',
-            'features',
-            'field_toggles'
+            'features'
         ]
         _all_params.extend(
             [
@@ -1267,9 +1262,6 @@ class TweetApi(object):
 
         if _params.get('features') is not None:  # noqa: E501
             _query_params.append(('features', _params['features']))
-
-        if _params.get('field_toggles') is not None:  # noqa: E501
-            _query_params.append(('fieldToggles', _params['field_toggles']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))

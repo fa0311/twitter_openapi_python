@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **additional_media_info** | [**AdditionalMediaInfo**](AdditionalMediaInfo.md) |  | [optional] 
 **display_url** | **str** |  | 
 **expanded_url** | **str** |  | 
-**ext_media_availability** | [**ExtMediaAvailability**](ExtMediaAvailability.md) |  | 
+**ext_media_availability** | [**ExtMediaAvailability**](ExtMediaAvailability.md) |  | [optional] 
 **features** | **object** |  | [optional] 
 **id_str** | **str** |  | 
 **indices** | **List[int]** |  | 

@@ -19,15 +19,15 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field
+from typing import Optional
+from pydantic import BaseModel
 from twitter_openapi_python_generated.models.timeline import Timeline
 
 class ListTweetsTimeline(BaseModel):
     """
     ListTweetsTimeline
     """
-    timeline: Timeline = Field(...)
+    timeline: Optional[Timeline] = None
     __properties = ["timeline"]
 
     class Config:

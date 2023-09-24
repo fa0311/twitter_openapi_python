@@ -43,7 +43,6 @@ class TestUserResults(unittest.TestCase):
             )
         else :
             return UserResults(
-                result = None,
         )
         """
 

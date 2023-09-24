@@ -93,8 +93,6 @@ class TestMediaExtended(unittest.TestCase):
             return MediaExtended(
                 display_url = '',
                 expanded_url = '',
-                ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.extMediaAvailability(
-                    status = 'Available', ),
                 id_str = '4',
                 indices = [
                     56

@@ -76,7 +76,7 @@ class PostCreateTweetRequest(BaseModel):
 
         _obj = PostCreateTweetRequest.parse_obj({
             "features": PostCreateTweetRequestFeatures.from_dict(obj.get("features")) if obj.get("features") is not None else None,
-            "query_id": obj.get("queryId") if obj.get("queryId") is not None else '1RyAhNwby-gzGCRVsMxKbQ',
+            "query_id": obj.get("queryId") if obj.get("queryId") is not None else 'PIZtQLRIYtSa9AtW_fI2Mw',
             "variables": PostCreateTweetRequestVariables.from_dict(obj.get("variables")) if obj.get("variables") is not None else None
         })
         return _obj

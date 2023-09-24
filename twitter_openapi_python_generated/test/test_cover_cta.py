@@ -52,7 +52,6 @@ class TestCoverCta(unittest.TestCase):
             )
         else :
             return CoverCta(
-                button_style = 'Primary',
                 callbacks = [
                     twitter_openapi_python_generated.models.callback.Callback(
                         endpoint = '', )

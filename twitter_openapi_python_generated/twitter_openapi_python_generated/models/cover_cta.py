@@ -30,7 +30,7 @@ class CoverCta(BaseModel):
     CoverCta
     """
     text: Optional[StrictStr] = Field(None, alias="Text")
-    button_style: StrictStr = Field(..., alias="buttonStyle")
+    button_style: Optional[StrictStr] = Field(None, alias="buttonStyle")
     callbacks: conlist(Callback) = Field(...)
     client_event_info: CtaClientEventInfo = Field(..., alias="clientEventInfo")
     cta_behavior: TimelineCoverBehavior = Field(..., alias="ctaBehavior")
@@ -39,6 +39,9 @@ class CoverCta(BaseModel):
     @validator('button_style')
     def button_style_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in ('Primary'):
             raise ValueError("must be one of enum values ('Primary')")
         return value
