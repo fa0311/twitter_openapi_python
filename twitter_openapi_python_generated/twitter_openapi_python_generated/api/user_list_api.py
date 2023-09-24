@@ -357,14 +357,14 @@ class UserListApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_followers_you_know(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, field_toggles : StrictStr, **kwargs) -> GetFollowers200Response:  # noqa: E501
+    def get_followers_you_know(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> GetFollowers200Response:  # noqa: E501
         """get_followers_you_know  # noqa: E501
 
         get followers you know  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_followers_you_know(path_query_id, variables, features, field_toggles, async_req=True)
+        >>> thread = api.get_followers_you_know(path_query_id, variables, features, async_req=True)
         >>> result = thread.get()
 
         :param path_query_id: (required)
@@ -373,8 +373,6 @@ class UserListApi(object):
         :type variables: str
         :param features: (required)
         :type features: str
-        :param field_toggles: (required)
-        :type field_toggles: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request. If one
@@ -389,17 +387,17 @@ class UserListApi(object):
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
             raise ValueError("Error! Please call the get_followers_you_know_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data")
-        return self.get_followers_you_know_with_http_info(path_query_id, variables, features, field_toggles, **kwargs)  # noqa: E501
+        return self.get_followers_you_know_with_http_info(path_query_id, variables, features, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_followers_you_know_with_http_info(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, field_toggles : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_followers_you_know_with_http_info(self, path_query_id : StrictStr, variables : StrictStr, features : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """get_followers_you_know  # noqa: E501
 
         get followers you know  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_followers_you_know_with_http_info(path_query_id, variables, features, field_toggles, async_req=True)
+        >>> thread = api.get_followers_you_know_with_http_info(path_query_id, variables, features, async_req=True)
         >>> result = thread.get()
 
         :param path_query_id: (required)
@@ -408,8 +406,6 @@ class UserListApi(object):
         :type variables: str
         :param features: (required)
         :type features: str
-        :param field_toggles: (required)
-        :type field_toggles: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -440,8 +436,7 @@ class UserListApi(object):
         _all_params = [
             'path_query_id',
             'variables',
-            'features',
-            'field_toggles'
+            'features'
         ]
         _all_params.extend(
             [
@@ -480,9 +475,6 @@ class UserListApi(object):
 
         if _params.get('features') is not None:  # noqa: E501
             _query_params.append(('features', _params['features']))
-
-        if _params.get('field_toggles') is not None:  # noqa: E501
-            _query_params.append(('fieldToggles', _params['field_toggles']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))

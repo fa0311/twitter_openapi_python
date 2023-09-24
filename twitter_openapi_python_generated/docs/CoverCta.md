@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **text** | **str** |  | [optional] 
-**button_style** | **str** |  | 
+**button_style** | **str** |  | [optional] 
 **callbacks** | [**List[Callback]**](Callback.md) |  | 
 **client_event_info** | [**CtaClientEventInfo**](CtaClientEventInfo.md) |  | 
 **cta_behavior** | [**TimelineCoverBehavior**](TimelineCoverBehavior.md) |  | 

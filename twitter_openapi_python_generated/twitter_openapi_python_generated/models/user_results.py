@@ -19,15 +19,15 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field
+from typing import Optional
+from pydantic import BaseModel
 from twitter_openapi_python_generated.models.user_union import UserUnion
 
 class UserResults(BaseModel):
     """
     UserResults
     """
-    result: UserUnion = Field(...)
+    result: Optional[UserUnion] = None
     __properties = ["result"]
 
     class Config:

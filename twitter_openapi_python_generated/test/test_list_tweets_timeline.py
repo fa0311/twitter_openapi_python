@@ -48,12 +48,6 @@ class TestListTweetsTimeline(unittest.TestCase):
             )
         else :
             return ListTweetsTimeline(
-                timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                    instructions = [
-                        null
-                        ], 
-                    metadata = { }, 
-                    response_objects = { }, ),
         )
         """
 

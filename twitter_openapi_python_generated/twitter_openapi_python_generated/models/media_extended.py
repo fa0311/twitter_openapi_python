@@ -35,7 +35,7 @@ class MediaExtended(BaseModel):
     additional_media_info: Optional[AdditionalMediaInfo] = None
     display_url: StrictStr = Field(...)
     expanded_url: StrictStr = Field(...)
-    ext_media_availability: ExtMediaAvailability = Field(...)
+    ext_media_availability: Optional[ExtMediaAvailability] = None
     features: Optional[Dict[str, Any]] = None
     id_str: constr(strict=True) = Field(...)
     indices: conlist(StrictInt) = Field(...)

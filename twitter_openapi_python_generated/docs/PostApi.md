@@ -396,7 +396,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.PostApi(api_client)
-    path_query_id = '1RyAhNwby-gzGCRVsMxKbQ' # str |  (default to '1RyAhNwby-gzGCRVsMxKbQ')
+    path_query_id = 'PIZtQLRIYtSa9AtW_fI2Mw' # str |  (default to 'PIZtQLRIYtSa9AtW_fI2Mw')
     post_create_tweet_request = twitter_openapi_python_generated.PostCreateTweetRequest() # PostCreateTweetRequest | body
 
     try:
@@ -413,7 +413,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;1RyAhNwby-gzGCRVsMxKbQ&#39;]
+ **path_query_id** | **str**|  | [default to &#39;PIZtQLRIYtSa9AtW_fI2Mw&#39;]
  **post_create_tweet_request** | [**PostCreateTweetRequest**](PostCreateTweetRequest.md)| body | 
 
 ### Return type

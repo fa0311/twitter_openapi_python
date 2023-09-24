@@ -57,8 +57,7 @@ class TestCreateTweetResponseResult(unittest.TestCase):
                                 url = '', ), 
                             rest_id = '', ), 
                         core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
-                            user_results = twitter_openapi_python_generated.models.user_results.UserResults(
-                                result = null, ), ), 
+                            user_results = twitter_openapi_python_generated.models.user_results.UserResults(), ), 
                         edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(
                             edit_control_initial = twitter_openapi_python_generated.models.tweet_edit_control_initial.TweetEditControlInitial(
                                 edit_tweet_ids = [
@@ -221,8 +220,7 @@ class TestCreateTweetResponseResult(unittest.TestCase):
                                 url = '', ), 
                             rest_id = '', ), 
                         core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
-                            user_results = twitter_openapi_python_generated.models.user_results.UserResults(
-                                result = null, ), ), 
+                            user_results = twitter_openapi_python_generated.models.user_results.UserResults(), ), 
                         edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(
                             edit_control_initial = twitter_openapi_python_generated.models.tweet_edit_control_initial.TweetEditControlInitial(
                                 edit_tweet_ids = [
