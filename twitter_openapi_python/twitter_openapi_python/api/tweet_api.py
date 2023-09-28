@@ -173,7 +173,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_list_latest_tweets_timeline_with_http_info,
-            convertFn=lambda e: e.data.list.tweets_timeline.timeline.instructions,
+            convertFn=lambda e: []
+            if (x := e.data.list.tweets_timeline.timeline) is None
+            else x.instructions,
             type=models.ListLatestTweetsTimelineResponse,
             key="ListLatestTweetsTimeline",
             param=param,

@@ -129,6 +129,8 @@ def build_tweet_api_utils(
         return None
     if tweet.core is None:
         return None
+    if tweet.core.user_results.result is None:
+        return None
     user = user_or_null_converter(tweet.core.user_results.result)
     if user is None:
         return None
@@ -179,6 +181,8 @@ def user_entries_converter(
 
 def user_result_converter(item: list[models.UserResults]) -> List[UserApiUtilsData]:
     def map_fn(raw: models.UserResults) -> Optional[UserApiUtilsData]:
+        if raw.result is None:
+            return None
         user = user_or_null_converter(raw.result)
         if user is None:
             return None
@@ -235,7 +239,8 @@ def build_header(headers: Dict[str, str]) -> ApiUtilsHeader:
 
 
 def build_response(
-    response: twitter.ApiResponse, data: T1
+    response: twitter.ApiResponse,
+    data: T1,
 ) -> TwitterApiUtilsResponse[T1]:
     if response.headers is None:
         raise Exception("headers is None")
