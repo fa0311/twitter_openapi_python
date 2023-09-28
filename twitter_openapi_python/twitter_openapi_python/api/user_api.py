@@ -38,9 +38,14 @@ class UserApiUtils:
         checked = check_error(data=res, type=type)
 
         result = convertFn(checked)
+        if result.result is None:
+            # never reach this point.
+            raise Exception("No user")
+
         user = user_or_null_converter(result.result)
 
         if user is None:
+            # never reach this point.
             raise Exception("No user")
 
         data = UserApiUtilsData(

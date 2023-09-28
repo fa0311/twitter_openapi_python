@@ -67,7 +67,7 @@ class DefaultApiUtils:
         self,
         tweet_id: str,
         extra_param: Optional[ParamType] = None,
-    ) -> TwitterApiUtilsResponse[TweetApiUtilsData | None]:
+    ) -> TwitterApiUtilsResponse[TweetApiUtilsData]:
         param: ParamType = {"tweetId": tweet_id}
         if extra_param is not None:
             param.update(extra_param)
@@ -80,4 +80,6 @@ class DefaultApiUtils:
             key="TweetResultByRestId",
             param=param,
         )
-        return response
+        if response.data is None:
+            raise Exception("No tweet")
+        return response  # type: ignore
