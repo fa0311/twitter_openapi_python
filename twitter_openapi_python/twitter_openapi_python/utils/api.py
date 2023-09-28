@@ -114,17 +114,15 @@ def tweet_entries_converter(
     return non_nullable_list(list(map(map_fn, input)))
 
 
-def user_or_null_converter(user: Optional[models.UserUnion]) -> Optional[models.User]:
-    if user is None:
-        return None
+def user_or_null_converter(user: models.UserUnion) -> Optional[models.User]:
     if isinstance(user.actual_instance, models.User):
         return user.actual_instance
 
 
 def build_tweet_api_utils(
     result: models.ItemResult,
-    promoted_metadata: Optional[dict[str, Any]],
-    reply: List[models.TimelineTweet],
+    promoted_metadata: Optional[dict[str, Any]] = None,
+    reply: Optional[List[models.TimelineTweet]] = None,
 ) -> Optional[TweetApiUtilsData]:
     tweet = tweet_results_converter(result)
     if tweet is None:
@@ -147,7 +145,7 @@ def build_tweet_api_utils(
         promoted_metadata=promoted_metadata,
         tweet=tweet,
         user=user,
-        replies=non_nullable_list(list(map(reply_fn, reply))),
+        replies=non_nullable_list(list(map(reply_fn, reply or []))),
         retweeted=build_tweet_api_utils(retweeted, None, []) if retweeted else None,
         quoted=build_tweet_api_utils(quoted, None, []) if quoted else None,
     )

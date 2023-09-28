@@ -38,3 +38,14 @@ time = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
 # get user info
 response = 𝕏.get_user_api().get_user_by_screen_name("elonmusk")
 ```
+
+```python
+from twitter_openapi_python import TwitterOpenapiPython
+
+# guest client
+𝕏 = TwitterOpenapiPython().get_guest_client()
+tweet = 𝕏.get_default_api().get_tweet_result_by_rest_id("1349129669258448897")
+assert tweet.data is not None
+assert tweet.data.tweet.legacy is not None
+print(tweet.data.tweet.legacy.full_text)
+``````

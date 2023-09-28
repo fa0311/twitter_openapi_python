@@ -3,8 +3,13 @@ from typing import Any, Callable, Optional, Type, TypeVar
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
 
-from twitter_openapi_python.models import TwitterApiUtilsResponse
-from twitter_openapi_python.utils import build_response, check_error, get_kwargs
+from twitter_openapi_python.models import TweetApiUtilsData, TwitterApiUtilsResponse
+from twitter_openapi_python.utils import (
+    build_response,
+    build_tweet_api_utils,
+    check_error,
+    get_kwargs,
+)
 
 T1 = TypeVar("T1")
 T2 = TypeVar("T2")
@@ -54,6 +59,25 @@ class DefaultApiUtils:
             type1=models.ProfileResponse,
             type2=models.UserResultByScreenName,
             key="ProfileSpotlightsQuery",
+            param=param,
+        )
+        return response
+
+    def get_tweet_result_by_rest_id(
+        self,
+        tweet_id: str,
+        extra_param: Optional[ParamType] = None,
+    ) -> TwitterApiUtilsResponse[TweetApiUtilsData | None]:
+        param: ParamType = {"tweetId": tweet_id}
+        if extra_param is not None:
+            param.update(extra_param)
+
+        response = self.request(
+            apiFn=self.api.get_tweet_result_by_rest_id_with_http_info,
+            convertFn=lambda x: build_tweet_api_utils(x.data.tweet_result),
+            type1=models.TweetResultByRestIdResponse,
+            type2=TweetApiUtilsData,
+            key="TweetResultByRestId",
             param=param,
         )
         return response
