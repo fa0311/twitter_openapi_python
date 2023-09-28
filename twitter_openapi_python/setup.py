@@ -3,7 +3,7 @@
 from setuptools import find_packages, setup
 
 NAME = "twitter_openapi_python"
-VERSION = "0.0.7"
+VERSION = "0.0.8"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
     "twitter_openapi_python_generated == 0.0.6",
