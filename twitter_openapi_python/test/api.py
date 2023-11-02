@@ -18,6 +18,11 @@ def get_client() -> api.TwitterOpenapiPythonClient:
     return client
 
 
+def get_guest_client() -> api.TwitterOpenapiPythonClient:
+    client = api.TwitterOpenapiPython().get_guest_client()
+    return client
+
+
 def print_tweet(tweet: api.TweetApiUtilsData) -> None:
     print_legacy_tweet(tweet.user.legacy, tweet.tweet.legacy)
     for reply in tweet.replies:
