@@ -1,4 +1,4 @@
-import random
+import json
 import re
 from typing import Any
 
@@ -120,12 +120,10 @@ class TwitterOpenapiPython:
 
         if cookies.get("ct0"):
             api_key.update({"AuthType": "OAuth2Session"})
-        ct0 = cookies.get("ct0", "".join(random.choices("0123456789abcdef", k=32)))
-        api_key.update({"CsrfToken": ct0})
+            api_key.update({"CsrfToken": cookies["ct0"]})
 
-        gt = cookies.get("gt")
-        if gt is not None:
-            api_key.update({"GuestToken": gt})
+        if cookies.get("gt") is not None:
+            api_key.update({"GuestToken": cookies["gt"]})
 
         api_conf = conf.Configuration(api_key=api_key)
         api_conf.access_token = self.access_token
@@ -157,4 +155,23 @@ class TwitterOpenapiPython:
 
         find = re.findall(r'document.cookie="(.*?)";', res_2.data.decode())
         session.update(self.cookie_normalize(find))
+
+        session.pop("ct0")
+
+        if not session.get("gt"):
+            activate_header = self.browser_headers | {
+                "authorization": "Bearer {}".format(self.access_token),
+                "x-twitter-active-user": "yes",
+                "x-twitter-client-language": "en",
+            }
+            res_3 = http.request(
+                "POST",
+                "https://api.twitter.com/1.1/guest/activate.json",
+                headers=activate_header | {"Cookie": self.cookie_to_str(session)},
+            )
+            gt = json.loads(res_3.data.decode())["guest_token"]
+            session.update({"gt": gt})
+
+        # ct0 = cookies.get("ct0", "".join(random.choices("0123456789abcdef", k=32)))
+
         return self.get_client_from_cookies(session)
