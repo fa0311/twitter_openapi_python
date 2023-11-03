@@ -2,7 +2,7 @@
 
 Typed Twitter scrapers by Pydantic.
 
-[issues](https://github.com/fa0311/twitter_openapi_python/issues) / [discussion](https://github.com/fa0311/twitter-openapi/discussions)
+[issues](https://github.com/fa0311/twitter_openapi_python/issues) / [discussions](https://github.com/fa0311/twitter-openapi/discussions)
 
 ## Table of Contents
 
