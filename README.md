@@ -2,6 +2,8 @@
 
 Typed Twitter scrapers by Pydantic.
 
+[issues](https://github.com/fa0311/twitter_openapi_python/issues) / [discussion](https://github.com/fa0311/twitter-openapi/discussions)
+
 ## Table of Contents
 
 This repository contains two packages.
