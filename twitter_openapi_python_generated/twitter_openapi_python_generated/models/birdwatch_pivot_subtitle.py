@@ -19,26 +19,17 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, StrictStr, validator
+from typing import List
+from pydantic import BaseModel, Field, StrictStr, conlist
+from twitter_openapi_python_generated.models.birdwatch_entity import BirdwatchEntity
 
-class ExtMediaAvailability(BaseModel):
+class BirdwatchPivotSubtitle(BaseModel):
     """
-    ExtMediaAvailability
+    BirdwatchPivotSubtitle
     """
-    reason: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
-    __properties = ["reason", "status"]
-
-    @validator('status')
-    def status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in ('Available', 'Unavailable'):
-            raise ValueError("must be one of enum values ('Available', 'Unavailable')")
-        return value
+    entities: conlist(BirdwatchEntity) = Field(...)
+    text: StrictStr = Field(...)
+    __properties = ["entities", "text"]
 
     class Config:
         """Pydantic configuration"""
@@ -54,8 +45,8 @@ class ExtMediaAvailability(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ExtMediaAvailability:
-        """Create an instance of ExtMediaAvailability from a JSON string"""
+    def from_json(cls, json_str: str) -> BirdwatchPivotSubtitle:
+        """Create an instance of BirdwatchPivotSubtitle from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -64,20 +55,27 @@ class ExtMediaAvailability(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of each item in entities (list)
+        _items = []
+        if self.entities:
+            for _item in self.entities:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['entities'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ExtMediaAvailability:
-        """Create an instance of ExtMediaAvailability from a dict"""
+    def from_dict(cls, obj: dict) -> BirdwatchPivotSubtitle:
+        """Create an instance of BirdwatchPivotSubtitle from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ExtMediaAvailability.parse_obj(obj)
+            return BirdwatchPivotSubtitle.parse_obj(obj)
 
-        _obj = ExtMediaAvailability.parse_obj({
-            "reason": obj.get("reason"),
-            "status": obj.get("status")
+        _obj = BirdwatchPivotSubtitle.parse_obj({
+            "entities": [BirdwatchEntity.from_dict(_item) for _item in obj.get("entities")] if obj.get("entities") is not None else None,
+            "text": obj.get("text")
         })
         return _obj
 

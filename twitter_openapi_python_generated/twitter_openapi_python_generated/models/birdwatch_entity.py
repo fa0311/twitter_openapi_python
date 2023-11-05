@@ -19,26 +19,18 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, StrictStr, validator
 
-class ExtMediaAvailability(BaseModel):
+from pydantic import BaseModel, Field, StrictInt
+from twitter_openapi_python_generated.models.birdwatch_entity_ref import BirdwatchEntityRef
+
+class BirdwatchEntity(BaseModel):
     """
-    ExtMediaAvailability
+    BirdwatchEntity
     """
-    reason: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
-    __properties = ["reason", "status"]
-
-    @validator('status')
-    def status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in ('Available', 'Unavailable'):
-            raise ValueError("must be one of enum values ('Available', 'Unavailable')")
-        return value
+    from_index: StrictInt = Field(..., alias="fromIndex")
+    ref: BirdwatchEntityRef = Field(...)
+    to_index: StrictInt = Field(..., alias="toIndex")
+    __properties = ["fromIndex", "ref", "toIndex"]
 
     class Config:
         """Pydantic configuration"""
@@ -54,8 +46,8 @@ class ExtMediaAvailability(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ExtMediaAvailability:
-        """Create an instance of ExtMediaAvailability from a JSON string"""
+    def from_json(cls, json_str: str) -> BirdwatchEntity:
+        """Create an instance of BirdwatchEntity from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -64,20 +56,24 @@ class ExtMediaAvailability(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of ref
+        if self.ref:
+            _dict['ref'] = self.ref.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ExtMediaAvailability:
-        """Create an instance of ExtMediaAvailability from a dict"""
+    def from_dict(cls, obj: dict) -> BirdwatchEntity:
+        """Create an instance of BirdwatchEntity from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ExtMediaAvailability.parse_obj(obj)
+            return BirdwatchEntity.parse_obj(obj)
 
-        _obj = ExtMediaAvailability.parse_obj({
-            "reason": obj.get("reason"),
-            "status": obj.get("status")
+        _obj = BirdwatchEntity.parse_obj({
+            "from_index": obj.get("fromIndex"),
+            "ref": BirdwatchEntityRef.from_dict(obj.get("ref")) if obj.get("ref") is not None else None,
+            "to_index": obj.get("toIndex")
         })
         return _obj
 

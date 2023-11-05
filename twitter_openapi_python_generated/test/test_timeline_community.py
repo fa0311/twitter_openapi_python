@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.ext_media_availability import ExtMediaAvailability  # noqa: E501
+from twitter_openapi_python_generated.models.timeline_community import TimelineCommunity  # noqa: E501
 from twitter_openapi_python_generated.rest import ApiException
 
-class TestExtMediaAvailability(unittest.TestCase):
-    """ExtMediaAvailability unit test stubs"""
+class TestTimelineCommunity(unittest.TestCase):
+    """TimelineCommunity unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,25 +30,24 @@ class TestExtMediaAvailability(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test ExtMediaAvailability
+        """Test TimelineCommunity
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ExtMediaAvailability`
+        # uncomment below to create an instance of `TimelineCommunity`
         """
-        model = twitter_openapi_python_generated.models.ext_media_availability.ExtMediaAvailability()  # noqa: E501
+        model = twitter_openapi_python_generated.models.timeline_community.TimelineCommunity()  # noqa: E501
         if include_optional :
-            return ExtMediaAvailability(
-                reason = '', 
-                status = 'Available'
+            return TimelineCommunity(
+                typename = 'TimelineTweet'
             )
         else :
-            return ExtMediaAvailability(
+            return TimelineCommunity(
         )
         """
 
-    def testExtMediaAvailability(self):
-        """Test ExtMediaAvailability"""
+    def testTimelineCommunity(self):
+        """Test TimelineCommunity"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

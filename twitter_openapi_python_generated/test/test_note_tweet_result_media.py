@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.ext_media_availability import ExtMediaAvailability  # noqa: E501
+from twitter_openapi_python_generated.models.note_tweet_result_media import NoteTweetResultMedia  # noqa: E501
 from twitter_openapi_python_generated.rest import ApiException
 
-class TestExtMediaAvailability(unittest.TestCase):
-    """ExtMediaAvailability unit test stubs"""
+class TestNoteTweetResultMedia(unittest.TestCase):
+    """NoteTweetResultMedia unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,25 +30,29 @@ class TestExtMediaAvailability(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test ExtMediaAvailability
+        """Test NoteTweetResultMedia
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ExtMediaAvailability`
+        # uncomment below to create an instance of `NoteTweetResultMedia`
         """
-        model = twitter_openapi_python_generated.models.ext_media_availability.ExtMediaAvailability()  # noqa: E501
+        model = twitter_openapi_python_generated.models.note_tweet_result_media.NoteTweetResultMedia()  # noqa: E501
         if include_optional :
-            return ExtMediaAvailability(
-                reason = '', 
-                status = 'Available'
+            return NoteTweetResultMedia(
+                inline_media = [
+                    None
+                    ]
             )
         else :
-            return ExtMediaAvailability(
+            return NoteTweetResultMedia(
+                inline_media = [
+                    None
+                    ],
         )
         """
 
-    def testExtMediaAvailability(self):
-        """Test ExtMediaAvailability"""
+    def testNoteTweetResultMedia(self):
+        """Test NoteTweetResultMedia"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

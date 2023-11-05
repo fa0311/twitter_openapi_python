@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_legacy import TweetLegacy  # noqa: E501
+from twitter_openapi_python_generated.models.note_tweet_result_data import NoteTweetResultData  # noqa: E501
 from twitter_openapi_python_generated.rest import ApiException
 
-class TestTweetLegacy(unittest.TestCase):
-    """TweetLegacy unit test stubs"""
+class TestNoteTweetResultData(unittest.TestCase):
+    """NoteTweetResultData unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,23 +30,16 @@ class TestTweetLegacy(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test TweetLegacy
+        """Test NoteTweetResultData
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `TweetLegacy`
+        # uncomment below to create an instance of `NoteTweetResultData`
         """
-        model = twitter_openapi_python_generated.models.tweet_legacy.TweetLegacy()  # noqa: E501
+        model = twitter_openapi_python_generated.models.note_tweet_result_data.NoteTweetResultData()  # noqa: E501
         if include_optional :
-            return TweetLegacy(
-                bookmark_count = 56, 
-                bookmarked = True, 
-                conversation_id_str = '4', 
-                created_at = 'Sat Dec 31 23:59:59 +0000 2023', 
-                display_text_range = [
-                    56
-                    ], 
-                entities = twitter_openapi_python_generated.models.entities.Entities(
+            return NoteTweetResultData(
+                entity_set = twitter_openapi_python_generated.models.entities.Entities(
                     hashtags = [
                         { }
                         ], 
@@ -99,89 +92,25 @@ class TestTweetLegacy(unittest.TestCase):
                     user_mentions = [
                         { }
                         ], ), 
-                extended_entities = twitter_openapi_python_generated.models.extended_entities.ExtendedEntities(
-                    media = [
-                        twitter_openapi_python_generated.models.media_extended.MediaExtended(
-                            additional_media_info = twitter_openapi_python_generated.models.additional_media_info.AdditionalMediaInfo(
-                                monetizable = True, ), 
-                            display_url = '', 
-                            expanded_url = '', 
-                            ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.extMediaAvailability(
-                                reason = '', 
-                                status = 'Available', ), 
-                            features = twitter_openapi_python_generated.models.features.features(), 
-                            id_str = '4', 
-                            indices = [
-                                56
-                                ], 
-                            media_stats = twitter_openapi_python_generated.models.media_stats.mediaStats(
-                                view_count = 56, ), 
-                            media_key = '', 
-                            media_url_https = '', 
-                            original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
-                                focus_rects = [
-                                    twitter_openapi_python_generated.models.media_original_info_focus_rect.MediaOriginalInfoFocusRect(
-                                        h = 56, 
-                                        w = 56, 
-                                        x = 56, 
-                                        y = 56, )
-                                    ], 
-                                height = 56, 
-                                width = 56, ), 
-                            sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
-                                large = twitter_openapi_python_generated.models.media_size.MediaSize(
-                                    h = 56, 
-                                    resize = 'crop', 
-                                    w = 56, ), 
-                                medium = twitter_openapi_python_generated.models.media_size.MediaSize(
-                                    h = 56, 
-                                    resize = 'crop', 
-                                    w = 56, ), 
-                                small = , 
-                                thumb = , ), 
-                            type = 'photo', 
-                            url = '', 
-                            video_info = twitter_openapi_python_generated.models.media_video_info.MediaVideoInfo(
-                                aspect_ratio = [
-                                    56
-                                    ], 
-                                duration_millis = 56, 
-                                variants = [
-                                    twitter_openapi_python_generated.models.media_video_info_variant.MediaVideoInfoVariant(
-                                        bitrate = 56, 
-                                        content_type = '', 
-                                        url = '', )
-                                    ], ), )
+                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
+                media = twitter_openapi_python_generated.models.note_tweet_result_media.NoteTweetResultMedia(
+                    inline_media = [
+                        None
                         ], ), 
-                favorite_count = 56, 
-                favorited = True, 
-                full_text = '', 
-                id_str = '4', 
-                is_quote_status = True, 
-                lang = '', 
-                possibly_sensitive = True, 
-                possibly_sensitive_editable = True, 
-                quote_count = 56, 
-                reply_count = 56, 
-                retweet_count = 56, 
-                retweeted = True, 
-                retweeted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(
-                    __typename = 'TimelineTweet', 
-                    result = null, ), 
-                self_thread = twitter_openapi_python_generated.models.self_thread.SelfThread(
-                    id_str = '4', ), 
-                user_id_str = '4'
+                richtext = twitter_openapi_python_generated.models.note_tweet_result_rich_text.NoteTweetResultRichText(
+                    richtext_tags = [
+                        twitter_openapi_python_generated.models.note_tweet_result_rich_text_tag.NoteTweetResultRichTextTag(
+                            from_index = 56, 
+                            richtext_types = [
+                                'Bold'
+                                ], 
+                            to_index = 56, )
+                        ], ), 
+                text = ''
             )
         else :
-            return TweetLegacy(
-                bookmark_count = 56,
-                bookmarked = True,
-                conversation_id_str = '4',
-                created_at = 'Sat Dec 31 23:59:59 +0000 2023',
-                display_text_range = [
-                    56
-                    ],
-                entities = twitter_openapi_python_generated.models.entities.Entities(
+            return NoteTweetResultData(
+                entity_set = twitter_openapi_python_generated.models.entities.Entities(
                     hashtags = [
                         { }
                         ], 
@@ -234,22 +163,13 @@ class TestTweetLegacy(unittest.TestCase):
                     user_mentions = [
                         { }
                         ], ),
-                favorite_count = 56,
-                favorited = True,
-                full_text = '',
-                id_str = '4',
-                is_quote_status = True,
-                lang = '',
-                quote_count = 56,
-                reply_count = 56,
-                retweet_count = 56,
-                retweeted = True,
-                user_id_str = '4',
+                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=',
+                text = '',
         )
         """
 
-    def testTweetLegacy(self):
-        """Test TweetLegacy"""
+    def testNoteTweetResultData(self):
+        """Test NoteTweetResultData"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

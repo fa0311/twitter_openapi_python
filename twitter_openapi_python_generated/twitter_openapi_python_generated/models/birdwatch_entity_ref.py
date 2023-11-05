@@ -19,25 +19,30 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, StrictStr, validator
 
-class ExtMediaAvailability(BaseModel):
-    """
-    ExtMediaAvailability
-    """
-    reason: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
-    __properties = ["reason", "status"]
+from pydantic import BaseModel, Field, StrictStr, validator
 
-    @validator('status')
-    def status_validate_enum(cls, value):
+class BirdwatchEntityRef(BaseModel):
+    """
+    BirdwatchEntityRef
+    """
+    type: StrictStr = Field(...)
+    url: StrictStr = Field(...)
+    url_type: StrictStr = Field(..., alias="urlType")
+    __properties = ["type", "url", "urlType"]
+
+    @validator('type')
+    def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
+        if value not in ('TimelineUrl'):
+            raise ValueError("must be one of enum values ('TimelineUrl')")
+        return value
 
-        if value not in ('Available', 'Unavailable'):
-            raise ValueError("must be one of enum values ('Available', 'Unavailable')")
+    @validator('url_type')
+    def url_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in ('ExternalUrl'):
+            raise ValueError("must be one of enum values ('ExternalUrl')")
         return value
 
     class Config:
@@ -54,8 +59,8 @@ class ExtMediaAvailability(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ExtMediaAvailability:
-        """Create an instance of ExtMediaAvailability from a JSON string"""
+    def from_json(cls, json_str: str) -> BirdwatchEntityRef:
+        """Create an instance of BirdwatchEntityRef from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -67,17 +72,18 @@ class ExtMediaAvailability(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ExtMediaAvailability:
-        """Create an instance of ExtMediaAvailability from a dict"""
+    def from_dict(cls, obj: dict) -> BirdwatchEntityRef:
+        """Create an instance of BirdwatchEntityRef from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ExtMediaAvailability.parse_obj(obj)
+            return BirdwatchEntityRef.parse_obj(obj)
 
-        _obj = ExtMediaAvailability.parse_obj({
-            "reason": obj.get("reason"),
-            "status": obj.get("status")
+        _obj = BirdwatchEntityRef.parse_obj({
+            "type": obj.get("type"),
+            "url": obj.get("url"),
+            "url_type": obj.get("urlType")
         })
         return _obj
 

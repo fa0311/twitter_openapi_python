@@ -19,26 +19,15 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, StrictStr, validator
+from typing import Any, Dict, List
+from pydantic import BaseModel, Field, conlist
 
-class ExtMediaAvailability(BaseModel):
+class NoteTweetResultMedia(BaseModel):
     """
-    ExtMediaAvailability
+    NoteTweetResultMedia
     """
-    reason: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
-    __properties = ["reason", "status"]
-
-    @validator('status')
-    def status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in ('Available', 'Unavailable'):
-            raise ValueError("must be one of enum values ('Available', 'Unavailable')")
-        return value
+    inline_media: conlist(Dict[str, Any]) = Field(...)
+    __properties = ["inline_media"]
 
     class Config:
         """Pydantic configuration"""
@@ -54,8 +43,8 @@ class ExtMediaAvailability(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ExtMediaAvailability:
-        """Create an instance of ExtMediaAvailability from a JSON string"""
+    def from_json(cls, json_str: str) -> NoteTweetResultMedia:
+        """Create an instance of NoteTweetResultMedia from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -67,17 +56,16 @@ class ExtMediaAvailability(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ExtMediaAvailability:
-        """Create an instance of ExtMediaAvailability from a dict"""
+    def from_dict(cls, obj: dict) -> NoteTweetResultMedia:
+        """Create an instance of NoteTweetResultMedia from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ExtMediaAvailability.parse_obj(obj)
+            return NoteTweetResultMedia.parse_obj(obj)
 
-        _obj = ExtMediaAvailability.parse_obj({
-            "reason": obj.get("reason"),
-            "status": obj.get("status")
+        _obj = NoteTweetResultMedia.parse_obj({
+            "inline_media": obj.get("inline_media")
         })
         return _obj
 

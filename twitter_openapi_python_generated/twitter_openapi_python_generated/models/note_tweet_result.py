@@ -19,26 +19,16 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, StrictStr, validator
 
-class ExtMediaAvailability(BaseModel):
+from pydantic import BaseModel, Field
+from twitter_openapi_python_generated.models.note_tweet_result_data import NoteTweetResultData
+
+class NoteTweetResult(BaseModel):
     """
-    ExtMediaAvailability
+    NoteTweetResult
     """
-    reason: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
-    __properties = ["reason", "status"]
-
-    @validator('status')
-    def status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in ('Available', 'Unavailable'):
-            raise ValueError("must be one of enum values ('Available', 'Unavailable')")
-        return value
+    result: NoteTweetResultData = Field(...)
+    __properties = ["result"]
 
     class Config:
         """Pydantic configuration"""
@@ -54,8 +44,8 @@ class ExtMediaAvailability(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ExtMediaAvailability:
-        """Create an instance of ExtMediaAvailability from a JSON string"""
+    def from_json(cls, json_str: str) -> NoteTweetResult:
+        """Create an instance of NoteTweetResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -64,20 +54,22 @@ class ExtMediaAvailability(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of result
+        if self.result:
+            _dict['result'] = self.result.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ExtMediaAvailability:
-        """Create an instance of ExtMediaAvailability from a dict"""
+    def from_dict(cls, obj: dict) -> NoteTweetResult:
+        """Create an instance of NoteTweetResult from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ExtMediaAvailability.parse_obj(obj)
+            return NoteTweetResult.parse_obj(obj)
 
-        _obj = ExtMediaAvailability.parse_obj({
-            "reason": obj.get("reason"),
-            "status": obj.get("status")
+        _obj = NoteTweetResult.parse_obj({
+            "result": NoteTweetResultData.from_dict(obj.get("result")) if obj.get("result") is not None else None
         })
         return _obj
 

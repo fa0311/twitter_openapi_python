@@ -39,6 +39,7 @@ class TypeName(str, Enum):
     TWEETTOMBSTONE = 'TweetTombstone'
     TIMELINEPROMPT = 'TimelinePrompt'
     TIMELINEMESSAGEPROMPT = 'TimelineMessagePrompt'
+    TIMELINECOMMUNITY = 'TimelineCommunity'
     TWEETUNAVAILABLE = 'TweetUnavailable'
     TWEET = 'Tweet'
     USER = 'User'

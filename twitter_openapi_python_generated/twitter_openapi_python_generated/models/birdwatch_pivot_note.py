@@ -19,25 +19,21 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, StrictStr, validator
 
-class ExtMediaAvailability(BaseModel):
+from pydantic import BaseModel, Field, constr, validator
+
+class BirdwatchPivotNote(BaseModel):
     """
-    ExtMediaAvailability
+    BirdwatchPivotNote
     """
-    reason: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
-    __properties = ["reason", "status"]
+    rest_id: constr(strict=True) = Field(...)
+    __properties = ["rest_id"]
 
-    @validator('status')
-    def status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in ('Available', 'Unavailable'):
-            raise ValueError("must be one of enum values ('Available', 'Unavailable')")
+    @validator('rest_id')
+    def rest_id_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^[0-9]+$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
     class Config:
@@ -54,8 +50,8 @@ class ExtMediaAvailability(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ExtMediaAvailability:
-        """Create an instance of ExtMediaAvailability from a JSON string"""
+    def from_json(cls, json_str: str) -> BirdwatchPivotNote:
+        """Create an instance of BirdwatchPivotNote from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -67,17 +63,16 @@ class ExtMediaAvailability(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ExtMediaAvailability:
-        """Create an instance of ExtMediaAvailability from a dict"""
+    def from_dict(cls, obj: dict) -> BirdwatchPivotNote:
+        """Create an instance of BirdwatchPivotNote from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ExtMediaAvailability.parse_obj(obj)
+            return BirdwatchPivotNote.parse_obj(obj)
 
-        _obj = ExtMediaAvailability.parse_obj({
-            "reason": obj.get("reason"),
-            "status": obj.get("status")
+        _obj = BirdwatchPivotNote.parse_obj({
+            "rest_id": obj.get("rest_id")
         })
         return _obj
 

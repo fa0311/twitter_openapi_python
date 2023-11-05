@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.ext_media_availability import ExtMediaAvailability  # noqa: E501
+from twitter_openapi_python_generated.models.birdwatch_pivot_note import BirdwatchPivotNote  # noqa: E501
 from twitter_openapi_python_generated.rest import ApiException
 
-class TestExtMediaAvailability(unittest.TestCase):
-    """ExtMediaAvailability unit test stubs"""
+class TestBirdwatchPivotNote(unittest.TestCase):
+    """BirdwatchPivotNote unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,25 +30,25 @@ class TestExtMediaAvailability(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test ExtMediaAvailability
+        """Test BirdwatchPivotNote
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ExtMediaAvailability`
+        # uncomment below to create an instance of `BirdwatchPivotNote`
         """
-        model = twitter_openapi_python_generated.models.ext_media_availability.ExtMediaAvailability()  # noqa: E501
+        model = twitter_openapi_python_generated.models.birdwatch_pivot_note.BirdwatchPivotNote()  # noqa: E501
         if include_optional :
-            return ExtMediaAvailability(
-                reason = '', 
-                status = 'Available'
+            return BirdwatchPivotNote(
+                rest_id = '4'
             )
         else :
-            return ExtMediaAvailability(
+            return BirdwatchPivotNote(
+                rest_id = '4',
         )
         """
 
-    def testExtMediaAvailability(self):
-        """Test ExtMediaAvailability"""
+    def testBirdwatchPivotNote(self):
+        """Test BirdwatchPivotNote"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
