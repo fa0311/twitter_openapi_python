@@ -122,7 +122,7 @@ class TwitterOpenapiPython:
             api_key.update({"AuthType": "OAuth2Session"})
             api_key.update({"CsrfToken": cookies["ct0"]})
 
-        if cookies.get("gt") is not None:
+        if cookies.get("gt"):
             api_key.update({"GuestToken": cookies["gt"]})
 
         api_conf = conf.Configuration(api_key=api_key)
