@@ -26,8 +26,9 @@ class ExtMediaAvailability(BaseModel):
     """
     ExtMediaAvailability
     """
+    reason: Optional[StrictStr] = None
     status: Optional[StrictStr] = None
-    __properties = ["status"]
+    __properties = ["reason", "status"]
 
     @validator('status')
     def status_validate_enum(cls, value):
@@ -35,8 +36,8 @@ class ExtMediaAvailability(BaseModel):
         if value is None:
             return value
 
-        if value not in ('Available'):
-            raise ValueError("must be one of enum values ('Available')")
+        if value not in ('Available', 'Unavailable'):
+            raise ValueError("must be one of enum values ('Available', 'Unavailable')")
         return value
 
     class Config:
@@ -75,6 +76,7 @@ class ExtMediaAvailability(BaseModel):
             return ExtMediaAvailability.parse_obj(obj)
 
         _obj = ExtMediaAvailability.parse_obj({
+            "reason": obj.get("reason"),
             "status": obj.get("status")
         })
         return _obj

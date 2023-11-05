@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**reason** | **str** |  | [optional] 
 **status** | **str** |  | [optional] 
 
 ## Example

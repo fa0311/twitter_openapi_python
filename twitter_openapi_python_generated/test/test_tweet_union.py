@@ -40,6 +40,36 @@ class TestTweetUnion(unittest.TestCase):
         if include_optional :
             return TweetUnion(
                 typename = 'TimelineTweet', 
+                birdwatch_pivot = twitter_openapi_python_generated.models.birdwatch_pivot.BirdwatchPivot(
+                    destination_url = '', 
+                    footer = twitter_openapi_python_generated.models.birdwatch_pivot_footer.BirdwatchPivotFooter(
+                        entities = [
+                            twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
+                                from_index = 56, 
+                                ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                    type = 'TimelineUrl', 
+                                    url = '', 
+                                    url_type = 'ExternalUrl', ), 
+                                to_index = 56, )
+                            ], 
+                        text = '', ), 
+                    icon_type = 'BirdwatchV1Icon', 
+                    note = twitter_openapi_python_generated.models.birdwatch_pivot_note.BirdwatchPivotNote(
+                        rest_id = '4', ), 
+                    shorttitle = '', 
+                    subtitle = twitter_openapi_python_generated.models.birdwatch_pivot_subtitle.BirdwatchPivotSubtitle(
+                        entities = [
+                            twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
+                                from_index = 56, 
+                                ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                    type = 'TimelineUrl', 
+                                    url = '', 
+                                    url_type = 'ExternalUrl', ), 
+                                to_index = 56, )
+                            ], 
+                        text = '', ), 
+                    title = '', 
+                    visual_style = 'Default', ), 
                 card = twitter_openapi_python_generated.models.tweet_card.TweetCard(
                     legacy = twitter_openapi_python_generated.models.tweet_card_legacy.TweetCardLegacy(
                         binding_values = [
@@ -145,6 +175,7 @@ class TestTweetUnion(unittest.TestCase):
                                 display_url = '', 
                                 expanded_url = '', 
                                 ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.extMediaAvailability(
+                                    reason = '', 
                                     status = 'Available', ), 
                                 features = twitter_openapi_python_generated.models.features.features(), 
                                 id_str = '4', 
@@ -193,6 +224,79 @@ class TestTweetUnion(unittest.TestCase):
                     self_thread = twitter_openapi_python_generated.models.self_thread.SelfThread(
                         id_str = '4', ), 
                     user_id_str = '4', ), 
+                note_tweet = twitter_openapi_python_generated.models.note_tweet.NoteTweet(
+                    is_expandable = True, 
+                    note_tweet_results = twitter_openapi_python_generated.models.note_tweet_result.NoteTweetResult(
+                        result = twitter_openapi_python_generated.models.note_tweet_result_data.NoteTweetResultData(
+                            entity_set = twitter_openapi_python_generated.models.entities.Entities(
+                                hashtags = [
+                                    { }
+                                    ], 
+                                media = [
+                                    twitter_openapi_python_generated.models.media.Media(
+                                        display_url = '', 
+                                        expanded_url = '', 
+                                        features = twitter_openapi_python_generated.models.features.features(), 
+                                        id_str = '4', 
+                                        indices = [
+                                            56
+                                            ], 
+                                        media_url_https = '', 
+                                        original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
+                                            focus_rects = [
+                                                twitter_openapi_python_generated.models.media_original_info_focus_rect.MediaOriginalInfoFocusRect(
+                                                    h = 56, 
+                                                    w = 56, 
+                                                    x = 56, 
+                                                    y = 56, )
+                                                ], 
+                                            height = 56, 
+                                            width = 56, ), 
+                                        sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
+                                            large = twitter_openapi_python_generated.models.media_size.MediaSize(
+                                                h = 56, 
+                                                resize = 'crop', 
+                                                w = 56, ), 
+                                            medium = twitter_openapi_python_generated.models.media_size.MediaSize(
+                                                h = 56, 
+                                                resize = 'crop', 
+                                                w = 56, ), 
+                                            small = , 
+                                            thumb = , ), 
+                                        type = 'photo', 
+                                        url = '', )
+                                    ], 
+                                symbols = [
+                                    { }
+                                    ], 
+                                urls = [
+                                    twitter_openapi_python_generated.models.url.Url(
+                                        display_url = '', 
+                                        expanded_url = '', 
+                                        indices = [
+                                            56
+                                            ], 
+                                        url = '', )
+                                    ], 
+                                user_mentions = [
+                                    { }
+                                    ], ), 
+                            id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
+                            media = twitter_openapi_python_generated.models.note_tweet_result_media.NoteTweetResultMedia(
+                                inline_media = [
+                                    None
+                                    ], ), 
+                            richtext = twitter_openapi_python_generated.models.note_tweet_result_rich_text.NoteTweetResultRichText(
+                                richtext_tags = [
+                                    twitter_openapi_python_generated.models.note_tweet_result_rich_text_tag.NoteTweetResultRichTextTag(
+                                        from_index = 56, 
+                                        richtext_types = [
+                                            'Bold'
+                                            ], 
+                                        to_index = 56, )
+                                    ], ), 
+                            text = '', ), ), ), 
+                quick_promote_eligibility = twitter_openapi_python_generated.models.quick_promote_eligibility.quick_promote_eligibility(), 
                 quoted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 
                     result = null, ), 
@@ -204,6 +308,36 @@ class TestTweetUnion(unittest.TestCase):
                     state = 'EnabledWithCount', ), 
                 tweet = twitter_openapi_python_generated.models.tweet.Tweet(
                     __typename = 'TimelineTweet', 
+                    birdwatch_pivot = twitter_openapi_python_generated.models.birdwatch_pivot.BirdwatchPivot(
+                        destination_url = '', 
+                        footer = twitter_openapi_python_generated.models.birdwatch_pivot_footer.BirdwatchPivotFooter(
+                            entities = [
+                                twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
+                                    from_index = 56, 
+                                    ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                        type = 'TimelineUrl', 
+                                        url = '', 
+                                        url_type = 'ExternalUrl', ), 
+                                    to_index = 56, )
+                                ], 
+                            text = '', ), 
+                        icon_type = 'BirdwatchV1Icon', 
+                        note = twitter_openapi_python_generated.models.birdwatch_pivot_note.BirdwatchPivotNote(
+                            rest_id = '4', ), 
+                        shorttitle = '', 
+                        subtitle = twitter_openapi_python_generated.models.birdwatch_pivot_subtitle.BirdwatchPivotSubtitle(
+                            entities = [
+                                twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
+                                    from_index = 56, 
+                                    ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                        type = 'TimelineUrl', 
+                                        url = '', 
+                                        url_type = 'ExternalUrl', ), 
+                                    to_index = 56, )
+                                ], 
+                            text = '', ), 
+                        title = '', 
+                        visual_style = 'Default', ), 
                     card = twitter_openapi_python_generated.models.tweet_card.TweetCard(
                         legacy = twitter_openapi_python_generated.models.tweet_card_legacy.TweetCardLegacy(
                             binding_values = [
@@ -309,6 +443,7 @@ class TestTweetUnion(unittest.TestCase):
                                     display_url = '', 
                                     expanded_url = '', 
                                     ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.extMediaAvailability(
+                                        reason = '', 
                                         status = 'Available', ), 
                                     features = twitter_openapi_python_generated.models.features.features(), 
                                     id_str = '4', 
@@ -355,6 +490,39 @@ class TestTweetUnion(unittest.TestCase):
                         self_thread = twitter_openapi_python_generated.models.self_thread.SelfThread(
                             id_str = '4', ), 
                         user_id_str = '4', ), 
+                    note_tweet = twitter_openapi_python_generated.models.note_tweet.NoteTweet(
+                        is_expandable = True, 
+                        note_tweet_results = twitter_openapi_python_generated.models.note_tweet_result.NoteTweetResult(
+                            result = twitter_openapi_python_generated.models.note_tweet_result_data.NoteTweetResultData(
+                                entity_set = twitter_openapi_python_generated.models.entities.Entities(
+                                    hashtags = [
+                                        { }
+                                        ], 
+                                    symbols = [
+                                        { }
+                                        ], 
+                                    urls = [
+                                        twitter_openapi_python_generated.models.url.Url(
+                                            display_url = '', 
+                                            expanded_url = '', 
+                                            indices = , 
+                                            url = '', )
+                                        ], 
+                                    user_mentions = [
+                                        { }
+                                        ], ), 
+                                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
+                                richtext = twitter_openapi_python_generated.models.note_tweet_result_rich_text.NoteTweetResultRichText(
+                                    richtext_tags = [
+                                        twitter_openapi_python_generated.models.note_tweet_result_rich_text_tag.NoteTweetResultRichTextTag(
+                                            from_index = 56, 
+                                            richtext_types = [
+                                                'Bold'
+                                                ], 
+                                            to_index = 56, )
+                                        ], ), 
+                                text = '', ), ), ), 
+                    quick_promote_eligibility = twitter_openapi_python_generated.models.quick_promote_eligibility.quick_promote_eligibility(), 
                     quoted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(), 
                     rest_id = '4', 
                     source = '', 
@@ -388,6 +556,36 @@ class TestTweetUnion(unittest.TestCase):
                     state = 'EnabledWithCount', ),
                 tweet = twitter_openapi_python_generated.models.tweet.Tweet(
                     __typename = 'TimelineTweet', 
+                    birdwatch_pivot = twitter_openapi_python_generated.models.birdwatch_pivot.BirdwatchPivot(
+                        destination_url = '', 
+                        footer = twitter_openapi_python_generated.models.birdwatch_pivot_footer.BirdwatchPivotFooter(
+                            entities = [
+                                twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
+                                    from_index = 56, 
+                                    ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                        type = 'TimelineUrl', 
+                                        url = '', 
+                                        url_type = 'ExternalUrl', ), 
+                                    to_index = 56, )
+                                ], 
+                            text = '', ), 
+                        icon_type = 'BirdwatchV1Icon', 
+                        note = twitter_openapi_python_generated.models.birdwatch_pivot_note.BirdwatchPivotNote(
+                            rest_id = '4', ), 
+                        shorttitle = '', 
+                        subtitle = twitter_openapi_python_generated.models.birdwatch_pivot_subtitle.BirdwatchPivotSubtitle(
+                            entities = [
+                                twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
+                                    from_index = 56, 
+                                    ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                        type = 'TimelineUrl', 
+                                        url = '', 
+                                        url_type = 'ExternalUrl', ), 
+                                    to_index = 56, )
+                                ], 
+                            text = '', ), 
+                        title = '', 
+                        visual_style = 'Default', ), 
                     card = twitter_openapi_python_generated.models.tweet_card.TweetCard(
                         legacy = twitter_openapi_python_generated.models.tweet_card_legacy.TweetCardLegacy(
                             binding_values = [
@@ -493,6 +691,7 @@ class TestTweetUnion(unittest.TestCase):
                                     display_url = '', 
                                     expanded_url = '', 
                                     ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.extMediaAvailability(
+                                        reason = '', 
                                         status = 'Available', ), 
                                     features = twitter_openapi_python_generated.models.features.features(), 
                                     id_str = '4', 
@@ -539,6 +738,39 @@ class TestTweetUnion(unittest.TestCase):
                         self_thread = twitter_openapi_python_generated.models.self_thread.SelfThread(
                             id_str = '4', ), 
                         user_id_str = '4', ), 
+                    note_tweet = twitter_openapi_python_generated.models.note_tweet.NoteTweet(
+                        is_expandable = True, 
+                        note_tweet_results = twitter_openapi_python_generated.models.note_tweet_result.NoteTweetResult(
+                            result = twitter_openapi_python_generated.models.note_tweet_result_data.NoteTweetResultData(
+                                entity_set = twitter_openapi_python_generated.models.entities.Entities(
+                                    hashtags = [
+                                        { }
+                                        ], 
+                                    symbols = [
+                                        { }
+                                        ], 
+                                    urls = [
+                                        twitter_openapi_python_generated.models.url.Url(
+                                            display_url = '', 
+                                            expanded_url = '', 
+                                            indices = , 
+                                            url = '', )
+                                        ], 
+                                    user_mentions = [
+                                        { }
+                                        ], ), 
+                                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
+                                richtext = twitter_openapi_python_generated.models.note_tweet_result_rich_text.NoteTweetResultRichText(
+                                    richtext_tags = [
+                                        twitter_openapi_python_generated.models.note_tweet_result_rich_text_tag.NoteTweetResultRichTextTag(
+                                            from_index = 56, 
+                                            richtext_types = [
+                                                'Bold'
+                                                ], 
+                                            to_index = 56, )
+                                        ], ), 
+                                text = '', ), ), ), 
+                    quick_promote_eligibility = twitter_openapi_python_generated.models.quick_promote_eligibility.quick_promote_eligibility(), 
                     quoted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(), 
                     rest_id = '4', 
                     source = '', 

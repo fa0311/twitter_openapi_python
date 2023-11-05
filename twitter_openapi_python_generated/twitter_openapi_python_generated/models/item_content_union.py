@@ -21,6 +21,7 @@ import re  # noqa: F401
 
 from typing import Any, List, Optional
 from pydantic import BaseModel, Field, StrictStr, ValidationError, validator
+from twitter_openapi_python_generated.models.timeline_community import TimelineCommunity
 from twitter_openapi_python_generated.models.timeline_message_prompt import TimelineMessagePrompt
 from twitter_openapi_python_generated.models.timeline_prompt import TimelinePrompt
 from twitter_openapi_python_generated.models.timeline_timeline_cursor import TimelineTimelineCursor
@@ -29,7 +30,7 @@ from twitter_openapi_python_generated.models.timeline_user import TimelineUser
 from typing import Union, Any, List, TYPE_CHECKING
 from pydantic import StrictStr, Field
 
-ITEMCONTENTUNION_ONE_OF_SCHEMAS = ["TimelineMessagePrompt", "TimelinePrompt", "TimelineTimelineCursor", "TimelineTweet", "TimelineUser"]
+ITEMCONTENTUNION_ONE_OF_SCHEMAS = ["TimelineCommunity", "TimelineMessagePrompt", "TimelinePrompt", "TimelineTimelineCursor", "TimelineTweet", "TimelineUser"]
 
 class ItemContentUnion(BaseModel):
     """
@@ -45,8 +46,10 @@ class ItemContentUnion(BaseModel):
     oneof_schema_4_validator: Optional[TimelinePrompt] = None
     # data type: TimelineMessagePrompt
     oneof_schema_5_validator: Optional[TimelineMessagePrompt] = None
+    # data type: TimelineCommunity
+    oneof_schema_6_validator: Optional[TimelineCommunity] = None
     if TYPE_CHECKING:
-        actual_instance: Union[TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser]
+        actual_instance: Union[TimelineCommunity, TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser]
     else:
         actual_instance: Any
     one_of_schemas: List[str] = Field(ITEMCONTENTUNION_ONE_OF_SCHEMAS, const=True)
@@ -97,12 +100,17 @@ class ItemContentUnion(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `TimelineMessagePrompt`")
         else:
             match += 1
+        # validate data type: TimelineCommunity
+        if not isinstance(v, TimelineCommunity):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `TimelineCommunity`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in ItemContentUnion with oneOf schemas: TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in ItemContentUnion with oneOf schemas: TimelineCommunity, TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in ItemContentUnion with oneOf schemas: TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in ItemContentUnion with oneOf schemas: TimelineCommunity, TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -121,6 +129,11 @@ class ItemContentUnion(BaseModel):
         _data_type = json.loads(json_str).get("__typename")
         if not _data_type:
             raise ValueError("Failed to lookup data type from the field `__typename` in the input.")
+
+        # check if data type is `TimelineCommunity`
+        if _data_type == "TimelineCommunity":
+            instance.actual_instance = TimelineCommunity.from_json(json_str)
+            return instance
 
         # check if data type is `TimelineMessagePrompt`
         if _data_type == "TimelineMessagePrompt":
@@ -177,13 +190,19 @@ class ItemContentUnion(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into TimelineCommunity
+        try:
+            instance.actual_instance = TimelineCommunity.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into ItemContentUnion with oneOf schemas: TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into ItemContentUnion with oneOf schemas: TimelineCommunity, TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into ItemContentUnion with oneOf schemas: TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ItemContentUnion with oneOf schemas: TimelineCommunity, TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser. Details: " + ", ".join(error_messages))
         else:
             return instance
 

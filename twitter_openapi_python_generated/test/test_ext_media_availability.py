@@ -39,6 +39,7 @@ class TestExtMediaAvailability(unittest.TestCase):
         model = twitter_openapi_python_generated.models.ext_media_availability.ExtMediaAvailability()  # noqa: E501
         if include_optional :
             return ExtMediaAvailability(
+                reason = '', 
                 status = 'Available'
             )
         else :

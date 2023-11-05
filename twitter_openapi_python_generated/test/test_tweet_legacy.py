@@ -107,6 +107,7 @@ class TestTweetLegacy(unittest.TestCase):
                             display_url = '', 
                             expanded_url = '', 
                             ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.extMediaAvailability(
+                                reason = '', 
                                 status = 'Available', ), 
                             features = twitter_openapi_python_generated.models.features.features(), 
                             id_str = '4', 

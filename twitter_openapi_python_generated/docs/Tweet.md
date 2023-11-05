@@ -5,12 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | [optional] 
+**birdwatch_pivot** | [**BirdwatchPivot**](BirdwatchPivot.md) |  | [optional] 
 **card** | [**TweetCard**](TweetCard.md) |  | [optional] 
 **core** | [**UserResultCore**](UserResultCore.md) |  | [optional] 
 **edit_control** | [**TweetEditControl**](TweetEditControl.md) |  | 
 **edit_prespective** | [**TweetEditPrespective**](TweetEditPrespective.md) |  | [optional] 
 **is_translatable** | **bool** |  | [default to False]
 **legacy** | [**TweetLegacy**](TweetLegacy.md) |  | [optional] 
+**note_tweet** | [**NoteTweet**](NoteTweet.md) |  | [optional] 
+**quick_promote_eligibility** | **object** |  | [optional] 
 **quoted_status_result** | [**ItemResult**](ItemResult.md) |  | [optional] 
 **rest_id** | **str** |  | 
 **source** | **str** |  | [optional] 

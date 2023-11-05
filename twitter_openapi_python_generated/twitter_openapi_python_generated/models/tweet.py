@@ -21,6 +21,8 @@ import json
 
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, constr, validator
+from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot
+from twitter_openapi_python_generated.models.note_tweet import NoteTweet
 from twitter_openapi_python_generated.models.tweet_card import TweetCard
 from twitter_openapi_python_generated.models.tweet_edit_control import TweetEditControl
 from twitter_openapi_python_generated.models.tweet_edit_prespective import TweetEditPrespective
@@ -33,18 +35,21 @@ class Tweet(BaseModel):
     Tweet
     """
     typename: Optional[TypeName] = Field(None, alias="__typename")
+    birdwatch_pivot: Optional[BirdwatchPivot] = None
     card: Optional[TweetCard] = None
     core: Optional[UserResultCore] = None
     edit_control: TweetEditControl = Field(...)
     edit_prespective: Optional[TweetEditPrespective] = None
     is_translatable: StrictBool = Field(...)
     legacy: Optional[TweetLegacy] = None
+    note_tweet: Optional[NoteTweet] = None
+    quick_promote_eligibility: Optional[Dict[str, Any]] = None
     quoted_status_result: Optional[ItemResult] = None
     rest_id: constr(strict=True) = Field(...)
     source: Optional[StrictStr] = None
     unmention_data: Optional[Dict[str, Any]] = None
     views: TweetView = Field(...)
-    __properties = ["__typename", "card", "core", "edit_control", "edit_prespective", "is_translatable", "legacy", "quoted_status_result", "rest_id", "source", "unmention_data", "views"]
+    __properties = ["__typename", "birdwatch_pivot", "card", "core", "edit_control", "edit_prespective", "is_translatable", "legacy", "note_tweet", "quick_promote_eligibility", "quoted_status_result", "rest_id", "source", "unmention_data", "views"]
 
     @validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
@@ -77,6 +82,9 @@ class Tweet(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of birdwatch_pivot
+        if self.birdwatch_pivot:
+            _dict['birdwatch_pivot'] = self.birdwatch_pivot.to_dict()
         # override the default output from pydantic by calling `to_dict()` of card
         if self.card:
             _dict['card'] = self.card.to_dict()
@@ -92,6 +100,9 @@ class Tweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of legacy
         if self.legacy:
             _dict['legacy'] = self.legacy.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of note_tweet
+        if self.note_tweet:
+            _dict['note_tweet'] = self.note_tweet.to_dict()
         # override the default output from pydantic by calling `to_dict()` of quoted_status_result
         if self.quoted_status_result:
             _dict['quoted_status_result'] = self.quoted_status_result.to_dict()
@@ -111,12 +122,15 @@ class Tweet(BaseModel):
 
         _obj = Tweet.parse_obj({
             "typename": obj.get("__typename"),
+            "birdwatch_pivot": BirdwatchPivot.from_dict(obj.get("birdwatch_pivot")) if obj.get("birdwatch_pivot") is not None else None,
             "card": TweetCard.from_dict(obj.get("card")) if obj.get("card") is not None else None,
             "core": UserResultCore.from_dict(obj.get("core")) if obj.get("core") is not None else None,
             "edit_control": TweetEditControl.from_dict(obj.get("edit_control")) if obj.get("edit_control") is not None else None,
             "edit_prespective": TweetEditPrespective.from_dict(obj.get("edit_prespective")) if obj.get("edit_prespective") is not None else None,
             "is_translatable": obj.get("is_translatable") if obj.get("is_translatable") is not None else False,
             "legacy": TweetLegacy.from_dict(obj.get("legacy")) if obj.get("legacy") is not None else None,
+            "note_tweet": NoteTweet.from_dict(obj.get("note_tweet")) if obj.get("note_tweet") is not None else None,
+            "quick_promote_eligibility": obj.get("quick_promote_eligibility"),
             "quoted_status_result": ItemResult.from_dict(obj.get("quoted_status_result")) if obj.get("quoted_status_result") is not None else None,
             "rest_id": obj.get("rest_id"),
             "source": obj.get("source"),
