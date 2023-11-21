@@ -70,6 +70,11 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                                     ], )
                             ], 
                         possibly_sensitive = False, ), 
+                    reply = twitter_openapi_python_generated.models.post_create_tweet_request_variables_reply.postCreateTweet_request_variables_reply(
+                        exclude_reply_user_ids = [
+                            None
+                            ], 
+                        in_reply_to_tweet_id = '1111111111111111111', ), 
                     semantic_annotation_ids = [
                         None
                         ], 
@@ -108,6 +113,11 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                                     ], )
                             ], 
                         possibly_sensitive = False, ), 
+                    reply = twitter_openapi_python_generated.models.post_create_tweet_request_variables_reply.postCreateTweet_request_variables_reply(
+                        exclude_reply_user_ids = [
+                            None
+                            ], 
+                        in_reply_to_tweet_id = '1111111111111111111', ), 
                     semantic_annotation_ids = [
                         None
                         ], 

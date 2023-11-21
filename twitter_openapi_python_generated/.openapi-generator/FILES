@@ -93,6 +93,7 @@ docs/NoteTweet.md
 docs/NoteTweetResult.md
 docs/NoteTweetResultData.md
 docs/NoteTweetResultMedia.md
+docs/NoteTweetResultMediaInlineMedia.md
 docs/NoteTweetResultRichText.md
 docs/NoteTweetResultRichTextTag.md
 docs/OneFactorLoginEligibility.md
@@ -109,6 +110,7 @@ docs/PostCreateTweetRequestFeatures.md
 docs/PostCreateTweetRequestVariables.md
 docs/PostCreateTweetRequestVariablesMedia.md
 docs/PostCreateTweetRequestVariablesMediaMediaEntitiesInner.md
+docs/PostCreateTweetRequestVariablesReply.md
 docs/PostDeleteRetweet200Response.md
 docs/PostDeleteRetweetRequest.md
 docs/PostDeleteRetweetRequestVariables.md
@@ -308,6 +310,7 @@ test/test_note_tweet.py
 test/test_note_tweet_result.py
 test/test_note_tweet_result_data.py
 test/test_note_tweet_result_media.py
+test/test_note_tweet_result_media_inline_media.py
 test/test_note_tweet_result_rich_text.py
 test/test_note_tweet_result_rich_text_tag.py
 test/test_one_factor_login_eligibility.py
@@ -324,6 +327,7 @@ test/test_post_create_tweet_request_features.py
 test/test_post_create_tweet_request_variables.py
 test/test_post_create_tweet_request_variables_media.py
 test/test_post_create_tweet_request_variables_media_media_entities_inner.py
+test/test_post_create_tweet_request_variables_reply.py
 test/test_post_delete_retweet200_response.py
 test/test_post_delete_retweet_request.py
 test/test_post_delete_retweet_request_variables.py
@@ -533,6 +537,7 @@ twitter_openapi_python_generated/models/note_tweet.py
 twitter_openapi_python_generated/models/note_tweet_result.py
 twitter_openapi_python_generated/models/note_tweet_result_data.py
 twitter_openapi_python_generated/models/note_tweet_result_media.py
+twitter_openapi_python_generated/models/note_tweet_result_media_inline_media.py
 twitter_openapi_python_generated/models/note_tweet_result_rich_text.py
 twitter_openapi_python_generated/models/note_tweet_result_rich_text_tag.py
 twitter_openapi_python_generated/models/one_factor_login_eligibility.py
@@ -547,6 +552,7 @@ twitter_openapi_python_generated/models/post_create_tweet_request_features.py
 twitter_openapi_python_generated/models/post_create_tweet_request_variables.py
 twitter_openapi_python_generated/models/post_create_tweet_request_variables_media.py
 twitter_openapi_python_generated/models/post_create_tweet_request_variables_media_media_entities_inner.py
+twitter_openapi_python_generated/models/post_create_tweet_request_variables_reply.py
 twitter_openapi_python_generated/models/post_delete_retweet200_response.py
 twitter_openapi_python_generated/models/post_delete_retweet_request.py
 twitter_openapi_python_generated/models/post_delete_retweet_request_variables.py

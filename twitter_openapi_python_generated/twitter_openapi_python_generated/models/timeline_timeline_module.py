@@ -40,8 +40,8 @@ class TimelineTimelineModule(BaseModel):
     @validator('display_type')
     def display_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('Vertical', 'VerticalConversation'):
-            raise ValueError("must be one of enum values ('Vertical', 'VerticalConversation')")
+        if value not in ('Vertical', 'VerticalConversation', 'Carousel'):
+            raise ValueError("must be one of enum values ('Vertical', 'VerticalConversation', 'Carousel')")
         return value
 
     class Config:

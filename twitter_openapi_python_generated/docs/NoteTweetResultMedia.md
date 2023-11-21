@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**inline_media** | **List[object]** |  | 
+**inline_media** | [**List[NoteTweetResultMediaInlineMedia]**](NoteTweetResultMediaInlineMedia.md) |  | 
 
 ## Example
 

@@ -19,9 +19,10 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 from twitter_openapi_python_generated.models.post_create_tweet_request_variables_media import PostCreateTweetRequestVariablesMedia
+from twitter_openapi_python_generated.models.post_create_tweet_request_variables_reply import PostCreateTweetRequestVariablesReply
 
 class PostCreateTweetRequestVariables(BaseModel):
     """
@@ -29,9 +30,10 @@ class PostCreateTweetRequestVariables(BaseModel):
     """
     dark_request: StrictBool = Field(...)
     media: PostCreateTweetRequestVariablesMedia = Field(...)
+    reply: Optional[PostCreateTweetRequestVariablesReply] = None
     semantic_annotation_ids: conlist(Dict[str, Any]) = Field(...)
     tweet_text: StrictStr = Field(...)
-    __properties = ["dark_request", "media", "semantic_annotation_ids", "tweet_text"]
+    __properties = ["dark_request", "media", "reply", "semantic_annotation_ids", "tweet_text"]
 
     class Config:
         """Pydantic configuration"""
@@ -60,6 +62,9 @@ class PostCreateTweetRequestVariables(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of media
         if self.media:
             _dict['media'] = self.media.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of reply
+        if self.reply:
+            _dict['reply'] = self.reply.to_dict()
         return _dict
 
     @classmethod
@@ -74,6 +79,7 @@ class PostCreateTweetRequestVariables(BaseModel):
         _obj = PostCreateTweetRequestVariables.parse_obj({
             "dark_request": obj.get("dark_request") if obj.get("dark_request") is not None else False,
             "media": PostCreateTweetRequestVariablesMedia.from_dict(obj.get("media")) if obj.get("media") is not None else None,
+            "reply": PostCreateTweetRequestVariablesReply.from_dict(obj.get("reply")) if obj.get("reply") is not None else None,
             "semantic_annotation_ids": obj.get("semantic_annotation_ids"),
             "tweet_text": obj.get("tweet_text") if obj.get("tweet_text") is not None else 'test'
         })

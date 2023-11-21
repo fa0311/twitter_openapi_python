@@ -96,7 +96,9 @@ class TestNoteTweetResult(unittest.TestCase):
                     id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                     media = twitter_openapi_python_generated.models.note_tweet_result_media.NoteTweetResultMedia(
                         inline_media = [
-                            None
+                            twitter_openapi_python_generated.models.note_tweet_result_media_inline_media.NoteTweetResultMediaInlineMedia(
+                                index = 56, 
+                                media_id = '4', )
                             ], ), 
                     richtext = twitter_openapi_python_generated.models.note_tweet_result_rich_text.NoteTweetResultRichText(
                         richtext_tags = [
@@ -168,7 +170,9 @@ class TestNoteTweetResult(unittest.TestCase):
                     id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                     media = twitter_openapi_python_generated.models.note_tweet_result_media.NoteTweetResultMedia(
                         inline_media = [
-                            None
+                            twitter_openapi_python_generated.models.note_tweet_result_media_inline_media.NoteTweetResultMediaInlineMedia(
+                                index = 56, 
+                                media_id = '4', )
                             ], ), 
                     richtext = twitter_openapi_python_generated.models.note_tweet_result_rich_text.NoteTweetResultRichText(
                         richtext_tags = [

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **dark_request** | **bool** |  | [default to False]
 **media** | [**PostCreateTweetRequestVariablesMedia**](PostCreateTweetRequestVariablesMedia.md) |  | 
+**reply** | [**PostCreateTweetRequestVariablesReply**](PostCreateTweetRequestVariablesReply.md) |  | [optional] 
 **semantic_annotation_ids** | **List[object]** |  | 
 **tweet_text** | **str** |  | [default to 'test']
 

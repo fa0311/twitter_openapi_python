@@ -40,13 +40,17 @@ class TestNoteTweetResultMedia(unittest.TestCase):
         if include_optional :
             return NoteTweetResultMedia(
                 inline_media = [
-                    None
+                    twitter_openapi_python_generated.models.note_tweet_result_media_inline_media.NoteTweetResultMediaInlineMedia(
+                        index = 56, 
+                        media_id = '4', )
                     ]
             )
         else :
             return NoteTweetResultMedia(
                 inline_media = [
-                    None
+                    twitter_openapi_python_generated.models.note_tweet_result_media_inline_media.NoteTweetResultMediaInlineMedia(
+                        index = 56, 
+                        media_id = '4', )
                     ],
         )
         """

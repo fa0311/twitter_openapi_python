@@ -19,16 +19,16 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, conlist
-from twitter_openapi_python_generated.models.note_tweet_result_media_inline_media import NoteTweetResultMediaInlineMedia
+from typing import Any, Dict, List
+from pydantic import BaseModel, Field, StrictStr, conlist
 
-class NoteTweetResultMedia(BaseModel):
+class PostCreateTweetRequestVariablesReply(BaseModel):
     """
-    NoteTweetResultMedia
+    PostCreateTweetRequestVariablesReply
     """
-    inline_media: conlist(NoteTweetResultMediaInlineMedia) = Field(...)
-    __properties = ["inline_media"]
+    exclude_reply_user_ids: conlist(Dict[str, Any]) = Field(...)
+    in_reply_to_tweet_id: StrictStr = Field(...)
+    __properties = ["exclude_reply_user_ids", "in_reply_to_tweet_id"]
 
     class Config:
         """Pydantic configuration"""
@@ -44,8 +44,8 @@ class NoteTweetResultMedia(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> NoteTweetResultMedia:
-        """Create an instance of NoteTweetResultMedia from a JSON string"""
+    def from_json(cls, json_str: str) -> PostCreateTweetRequestVariablesReply:
+        """Create an instance of PostCreateTweetRequestVariablesReply from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -54,26 +54,20 @@ class NoteTweetResultMedia(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in inline_media (list)
-        _items = []
-        if self.inline_media:
-            for _item in self.inline_media:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['inline_media'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> NoteTweetResultMedia:
-        """Create an instance of NoteTweetResultMedia from a dict"""
+    def from_dict(cls, obj: dict) -> PostCreateTweetRequestVariablesReply:
+        """Create an instance of PostCreateTweetRequestVariablesReply from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return NoteTweetResultMedia.parse_obj(obj)
+            return PostCreateTweetRequestVariablesReply.parse_obj(obj)
 
-        _obj = NoteTweetResultMedia.parse_obj({
-            "inline_media": [NoteTweetResultMediaInlineMedia.from_dict(_item) for _item in obj.get("inline_media")] if obj.get("inline_media") is not None else None
+        _obj = PostCreateTweetRequestVariablesReply.parse_obj({
+            "exclude_reply_user_ids": obj.get("exclude_reply_user_ids"),
+            "in_reply_to_tweet_id": obj.get("in_reply_to_tweet_id") if obj.get("in_reply_to_tweet_id") is not None else '1111111111111111111'
         })
         return _obj
 
