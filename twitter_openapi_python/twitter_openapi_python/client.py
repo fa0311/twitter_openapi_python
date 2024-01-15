@@ -116,7 +116,7 @@ class TwitterOpenapiPython:
         self,
         cookies: dict[str, str],
     ) -> TwitterOpenapiPythonClient:
-        api_key = self.api_key
+        api_key = self.api_key.copy()
 
         if cookies.get("ct0"):
             api_key.update({"AuthType": "OAuth2Session"})
@@ -142,7 +142,7 @@ class TwitterOpenapiPython:
             "GET",
             "https://twitter.com",
             redirect=False,
-            headers=self.browser_headers,
+            headers=self.browser_headers.copy(),
         )
         cookie = res_1.headers._container["set-cookie"][1:]
         session.update(self.cookie_normalize(cookie))
@@ -150,7 +150,7 @@ class TwitterOpenapiPython:
             "GET",
             "https://twitter.com",
             redirect=False,
-            headers=self.browser_headers | {"Cookie": self.cookie_to_str(session)},
+            headers=self.browser_headers.copy() | {"Cookie": self.cookie_to_str(session)},
         )
 
         find = re.findall(r'document.cookie="(.*?)";', res_2.data.decode())
@@ -159,7 +159,7 @@ class TwitterOpenapiPython:
         session.pop("ct0")
 
         if not session.get("gt"):
-            activate_header = self.browser_headers | {
+            activate_header = self.browser_headers.copy() | {
                 "authorization": "Bearer {}".format(self.access_token),
                 "x-twitter-active-user": "yes",
                 "x-twitter-client-language": "en",
