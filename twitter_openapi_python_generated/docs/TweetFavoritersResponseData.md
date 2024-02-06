@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **favoriters_timeline** | [**TimelineV2**](TimelineV2.md) |  | 

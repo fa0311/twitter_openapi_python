@@ -2,9 +2,10 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | 
+**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | [optional] 
 **item_content** | [**ItemContentUnion**](ItemContentUnion.md) |  | 
 
 ## Example

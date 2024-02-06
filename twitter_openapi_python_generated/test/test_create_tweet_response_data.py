@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.create_tweet_response_data import CreateTweetResponseData  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.create_tweet_response_data import CreateTweetResponseData
 
 class TestCreateTweetResponseData(unittest.TestCase):
     """CreateTweetResponseData unit test stubs"""
@@ -29,15 +27,15 @@ class TestCreateTweetResponseData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> CreateTweetResponseData:
         """Test CreateTweetResponseData
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CreateTweetResponseData`
         """
-        model = twitter_openapi_python_generated.models.create_tweet_response_data.CreateTweetResponseData()  # noqa: E501
-        if include_optional :
+        model = CreateTweetResponseData()
+        if include_optional:
             return CreateTweetResponseData(
                 create_tweet = twitter_openapi_python_generated.models.create_tweet_response_result.CreateTweetResponseResult(
                     tweet_results = twitter_openapi_python_generated.models.create_tweet.CreateTweet(
@@ -265,7 +263,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                 count = '4', 
                                 state = 'EnabledWithCount', ), ), ), )
             )
-        else :
+        else:
             return CreateTweetResponseData(
                 create_tweet = twitter_openapi_python_generated.models.create_tweet_response_result.CreateTweetResponseResult(
                     tweet_results = twitter_openapi_python_generated.models.create_tweet.CreateTweet(

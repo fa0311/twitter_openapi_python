@@ -15,27 +15,25 @@
 
 import unittest
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.api.default_api import DefaultApi  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.api.default_api import DefaultApi
 
 
 class TestDefaultApi(unittest.TestCase):
     """DefaultApi unit test stubs"""
 
-    def setUp(self):
-        self.api = twitter_openapi_python_generated.api.default_api.DefaultApi()  # noqa: E501
+    def setUp(self) -> None:
+        self.api = DefaultApi()
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         pass
 
-    def test_get_profile_spotlights_query(self):
+    def test_get_profile_spotlights_query(self) -> None:
         """Test case for get_profile_spotlights_query
 
         """
         pass
 
-    def test_get_tweet_result_by_rest_id(self):
+    def test_get_tweet_result_by_rest_id(self) -> None:
         """Test case for get_tweet_result_by_rest_id
 
         """

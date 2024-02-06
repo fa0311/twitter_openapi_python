@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_delete_retweet_request_variables import PostDeleteRetweetRequestVariables  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.post_delete_retweet_request_variables import PostDeleteRetweetRequestVariables
 
 class TestPostDeleteRetweetRequestVariables(unittest.TestCase):
     """PostDeleteRetweetRequestVariables unit test stubs"""
@@ -29,20 +27,20 @@ class TestPostDeleteRetweetRequestVariables(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> PostDeleteRetweetRequestVariables:
         """Test PostDeleteRetweetRequestVariables
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostDeleteRetweetRequestVariables`
         """
-        model = twitter_openapi_python_generated.models.post_delete_retweet_request_variables.PostDeleteRetweetRequestVariables()  # noqa: E501
-        if include_optional :
+        model = PostDeleteRetweetRequestVariables()
+        if include_optional:
             return PostDeleteRetweetRequestVariables(
-                dark_request = False, 
+                dark_request = False,
                 source_tweet_id = '1349129669258448897'
             )
-        else :
+        else:
             return PostDeleteRetweetRequestVariables(
                 dark_request = False,
                 source_tweet_id = '1349129669258448897',

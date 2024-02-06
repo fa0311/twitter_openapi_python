@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.profile_response import ProfileResponse  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.profile_response import ProfileResponse
 
 class TestProfileResponse(unittest.TestCase):
     """ProfileResponse unit test stubs"""
@@ -29,15 +27,15 @@ class TestProfileResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> ProfileResponse:
         """Test ProfileResponse
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ProfileResponse`
         """
-        model = twitter_openapi_python_generated.models.profile_response.ProfileResponse()  # noqa: E501
-        if include_optional :
+        model = ProfileResponse()
+        if include_optional:
             return ProfileResponse(
                 data = twitter_openapi_python_generated.models.profile_response_data.ProfileResponseData(
                     user_result_by_screen_name = twitter_openapi_python_generated.models.user_result_by_screen_name.UserResultByScreenName(
@@ -56,7 +54,7 @@ class TestProfileResponse(unittest.TestCase):
                             profilemodules = { }, 
                             rest_id = '4', ), ), )
             )
-        else :
+        else:
             return ProfileResponse(
                 data = twitter_openapi_python_generated.models.profile_response_data.ProfileResponseData(
                     user_result_by_screen_name = twitter_openapi_python_generated.models.user_result_by_screen_name.UserResultByScreenName(

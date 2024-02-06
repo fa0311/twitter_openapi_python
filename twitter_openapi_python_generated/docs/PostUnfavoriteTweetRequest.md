@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **query_id** | **str** |  | [default to 'ZYKSe-w7KEslx3JhSIk5LA']

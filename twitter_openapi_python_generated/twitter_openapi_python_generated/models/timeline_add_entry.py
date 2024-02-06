@@ -19,75 +19,94 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, constr, validator
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.content_union import ContentUnion
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class TimelineAddEntry(BaseModel):
     """
     TimelineAddEntry
-    """
-    content: ContentUnion = Field(...)
-    entry_id: constr(strict=True) = Field(..., alias="entryId")
-    sort_index: constr(strict=True) = Field(..., alias="sortIndex")
-    __properties = ["content", "entryId", "sortIndex"]
+    """ # noqa: E501
+    content: ContentUnion
+    entry_id: Annotated[str, Field(strict=True)] = Field(alias="entryId")
+    sort_index: Annotated[str, Field(strict=True)] = Field(alias="sortIndex")
+    __properties: ClassVar[List[str]] = ["content", "entryId", "sortIndex"]
 
-    @validator('entry_id')
+    @field_validator('entry_id')
     def entry_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^(([a-z]+|[0-9]+|[0-9a-f]+)(-|$))+", value):
             raise ValueError(r"must validate the regular expression /^(([a-z]+|[0-9]+|[0-9a-f]+)(-|$))+/")
         return value
 
-    @validator('sort_index')
+    @field_validator('sort_index')
     def sort_index_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /[0-9]+$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> TimelineAddEntry:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of TimelineAddEntry from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of content
         if self.content:
             _dict['content'] = self.content.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> TimelineAddEntry:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of TimelineAddEntry from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return TimelineAddEntry.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = TimelineAddEntry.parse_obj({
+        _obj = cls.model_validate({
             "content": ContentUnion.from_dict(obj.get("content")) if obj.get("content") is not None else None,
-            "entry_id": obj.get("entryId"),
-            "sort_index": obj.get("sortIndex")
+            "entryId": obj.get("entryId"),
+            "sortIndex": obj.get("sortIndex")
         })
         return _obj
 

@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.get_favoriters200_response import GetFavoriters200Response  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.get_favoriters200_response import GetFavoriters200Response
 
 class TestGetFavoriters200Response(unittest.TestCase):
     """GetFavoriters200Response unit test stubs"""
@@ -29,15 +27,15 @@ class TestGetFavoriters200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> GetFavoriters200Response:
         """Test GetFavoriters200Response
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetFavoriters200Response`
         """
-        model = twitter_openapi_python_generated.models.get_favoriters200_response.GetFavoriters200Response()  # noqa: E501
-        if include_optional :
+        model = GetFavoriters200Response()
+        if include_optional:
             return GetFavoriters200Response(
                 data = twitter_openapi_python_generated.models.tweet_favoriters_response_data.TweetFavoritersResponseData(
                     favoriters_timeline = twitter_openapi_python_generated.models.timeline_v2.TimelineV2(
@@ -46,7 +44,7 @@ class TestGetFavoriters200Response(unittest.TestCase):
                                 null
                                 ], 
                             metadata = { }, 
-                            response_objects = { }, ), ), ), 
+                            response_objects = { }, ), ), ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -75,7 +73,7 @@ class TestGetFavoriters200Response(unittest.TestCase):
                             trace_id = 'bf325375e030fccb', ), )
                     ]
             )
-        else :
+        else:
             return GetFavoriters200Response(
                 data = twitter_openapi_python_generated.models.tweet_favoriters_response_data.TweetFavoritersResponseData(
                     favoriters_timeline = twitter_openapi_python_generated.models.timeline_v2.TimelineV2(

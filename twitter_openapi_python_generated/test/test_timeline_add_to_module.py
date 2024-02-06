@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.timeline_add_to_module import TimelineAddToModule  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.timeline_add_to_module import TimelineAddToModule
 
 class TestTimelineAddToModule(unittest.TestCase):
     """TimelineAddToModule unit test stubs"""
@@ -29,17 +27,17 @@ class TestTimelineAddToModule(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TimelineAddToModule:
         """Test TimelineAddToModule
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TimelineAddToModule`
         """
-        model = twitter_openapi_python_generated.models.timeline_add_to_module.TimelineAddToModule()  # noqa: E501
-        if include_optional :
+        model = TimelineAddToModule()
+        if include_optional:
             return TimelineAddToModule(
-                module_entry_id = '', 
+                module_entry_id = '',
                 module_items = [
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
                         entry_id = '25375e030fccba00917317c574773100bf03b5f', 
@@ -49,11 +47,11 @@ class TestTimelineAddToModule(unittest.TestCase):
                                 details = { }, 
                                 element = '', ), 
                             item_content = null, ), )
-                    ], 
-                prepend = True, 
+                    ],
+                prepend = True,
                 type = 'TimelineAddEntries'
             )
-        else :
+        else:
             return TimelineAddToModule(
                 module_entry_id = '',
                 module_items = [

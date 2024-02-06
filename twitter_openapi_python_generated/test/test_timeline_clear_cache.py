@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.timeline_clear_cache import TimelineClearCache  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.timeline_clear_cache import TimelineClearCache
 
 class TestTimelineClearCache(unittest.TestCase):
     """TimelineClearCache unit test stubs"""
@@ -29,19 +27,19 @@ class TestTimelineClearCache(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TimelineClearCache:
         """Test TimelineClearCache
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TimelineClearCache`
         """
-        model = twitter_openapi_python_generated.models.timeline_clear_cache.TimelineClearCache()  # noqa: E501
-        if include_optional :
+        model = TimelineClearCache()
+        if include_optional:
             return TimelineClearCache(
                 type = 'TimelineAddEntries'
             )
-        else :
+        else:
             return TimelineClearCache(
                 type = 'TimelineAddEntries',
         )

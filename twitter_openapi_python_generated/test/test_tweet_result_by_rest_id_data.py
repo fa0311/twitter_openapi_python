@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_result_by_rest_id_data import TweetResultByRestIdData  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.tweet_result_by_rest_id_data import TweetResultByRestIdData
 
 class TestTweetResultByRestIdData(unittest.TestCase):
     """TweetResultByRestIdData unit test stubs"""
@@ -29,21 +27,21 @@ class TestTweetResultByRestIdData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TweetResultByRestIdData:
         """Test TweetResultByRestIdData
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TweetResultByRestIdData`
         """
-        model = twitter_openapi_python_generated.models.tweet_result_by_rest_id_data.TweetResultByRestIdData()  # noqa: E501
-        if include_optional :
+        model = TweetResultByRestIdData()
+        if include_optional:
             return TweetResultByRestIdData(
                 tweet_result = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 
                     result = null, )
             )
-        else :
+        else:
             return TweetResultByRestIdData(
                 tweet_result = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 

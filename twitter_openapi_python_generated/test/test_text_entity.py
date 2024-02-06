@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.text_entity import TextEntity  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.text_entity import TextEntity
 
 class TestTextEntity(unittest.TestCase):
     """TextEntity unit test stubs"""
@@ -29,24 +27,24 @@ class TestTextEntity(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TextEntity:
         """Test TextEntity
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TextEntity`
         """
-        model = twitter_openapi_python_generated.models.text_entity.TextEntity()  # noqa: E501
-        if include_optional :
+        model = TextEntity()
+        if include_optional:
             return TextEntity(
-                from_index = 56, 
+                from_index = 56,
                 ref = twitter_openapi_python_generated.models.text_entity_ref.TextEntityRef(
                     type = 'TimelineUrl', 
                     url = '', 
-                    url_type = 'ExternalUrl', ), 
+                    url_type = 'ExternalUrl', ),
                 to_index = 56
             )
-        else :
+        else:
             return TextEntity(
                 from_index = 56,
                 ref = twitter_openapi_python_generated.models.text_entity_ref.TextEntityRef(

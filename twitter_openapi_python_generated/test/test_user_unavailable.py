@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_unavailable import UserUnavailable  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.user_unavailable import UserUnavailable
 
 class TestUserUnavailable(unittest.TestCase):
     """UserUnavailable unit test stubs"""
@@ -29,20 +27,20 @@ class TestUserUnavailable(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> UserUnavailable:
         """Test UserUnavailable
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserUnavailable`
         """
-        model = twitter_openapi_python_generated.models.user_unavailable.UserUnavailable()  # noqa: E501
-        if include_optional :
+        model = UserUnavailable()
+        if include_optional:
             return UserUnavailable(
-                typename = 'TimelineTweet', 
+                typename = 'TimelineTweet',
                 reason = ''
             )
-        else :
+        else:
             return UserUnavailable(
                 typename = 'TimelineTweet',
                 reason = '',

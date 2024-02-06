@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.media_stats import MediaStats  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.media_stats import MediaStats
 
 class TestMediaStats(unittest.TestCase):
     """MediaStats unit test stubs"""
@@ -29,19 +27,19 @@ class TestMediaStats(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> MediaStats:
         """Test MediaStats
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `MediaStats`
         """
-        model = twitter_openapi_python_generated.models.media_stats.MediaStats()  # noqa: E501
-        if include_optional :
+        model = MediaStats()
+        if include_optional:
             return MediaStats(
                 view_count = 56
             )
-        else :
+        else:
             return MediaStats(
                 view_count = 56,
         )

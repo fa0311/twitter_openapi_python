@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user import User  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.user import User
 
 class TestUser(unittest.TestCase):
     """User unit test stubs"""
@@ -29,23 +27,23 @@ class TestUser(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> User:
         """Test User
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `User`
         """
-        model = twitter_openapi_python_generated.models.user.User()  # noqa: E501
-        if include_optional :
+        model = User()
+        if include_optional:
             return User(
-                typename = 'TimelineTweet', 
-                affiliates_highlighted_label = { }, 
-                business_account = { }, 
-                has_graduated_access = True, 
-                has_nft_avatar = True, 
-                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
-                is_blue_verified = True, 
+                typename = 'TimelineTweet',
+                affiliates_highlighted_label = { },
+                business_account = { },
+                has_graduated_access = True,
+                has_nft_avatar = True,
+                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=',
+                is_blue_verified = True,
                 legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                     blocked_by = True, 
                     blocking = True, 
@@ -87,13 +85,13 @@ class TestUser(unittest.TestCase):
                     translator_type = '', 
                     url = '', 
                     verified = True, 
-                    want_retweets = True, ), 
-                rest_id = '4', 
-                super_follow_eligible = True, 
-                super_followed_by = True, 
+                    want_retweets = True, ),
+                rest_id = '4',
+                super_follow_eligible = True,
+                super_followed_by = True,
                 super_following = True
             )
-        else :
+        else:
             return User(
                 typename = 'TimelineTweet',
                 affiliates_highlighted_label = { },

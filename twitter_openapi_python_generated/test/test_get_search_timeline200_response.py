@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.get_search_timeline200_response import GetSearchTimeline200Response  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.get_search_timeline200_response import GetSearchTimeline200Response
 
 class TestGetSearchTimeline200Response(unittest.TestCase):
     """GetSearchTimeline200Response unit test stubs"""
@@ -29,15 +27,15 @@ class TestGetSearchTimeline200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> GetSearchTimeline200Response:
         """Test GetSearchTimeline200Response
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetSearchTimeline200Response`
         """
-        model = twitter_openapi_python_generated.models.get_search_timeline200_response.GetSearchTimeline200Response()  # noqa: E501
-        if include_optional :
+        model = GetSearchTimeline200Response()
+        if include_optional:
             return GetSearchTimeline200Response(
                 data = twitter_openapi_python_generated.models.search_timeline_data.SearchTimelineData(
                     search_by_raw_query = twitter_openapi_python_generated.models.search_by_raw_query.SearchByRawQuery(
@@ -47,7 +45,7 @@ class TestGetSearchTimeline200Response(unittest.TestCase):
                                     null
                                     ], 
                                 metadata = { }, 
-                                response_objects = { }, ), ), ), ), 
+                                response_objects = { }, ), ), ), ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -76,7 +74,7 @@ class TestGetSearchTimeline200Response(unittest.TestCase):
                             trace_id = 'bf325375e030fccb', ), )
                     ]
             )
-        else :
+        else:
             return GetSearchTimeline200Response(
                 data = twitter_openapi_python_generated.models.search_timeline_data.SearchTimelineData(
                     search_by_raw_query = twitter_openapi_python_generated.models.search_by_raw_query.SearchByRawQuery(

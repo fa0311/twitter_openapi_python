@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.note_tweet_result_media import NoteTweetResultMedia  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.note_tweet_result_media import NoteTweetResultMedia
 
 class TestNoteTweetResultMedia(unittest.TestCase):
     """NoteTweetResultMedia unit test stubs"""
@@ -29,15 +27,15 @@ class TestNoteTweetResultMedia(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> NoteTweetResultMedia:
         """Test NoteTweetResultMedia
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `NoteTweetResultMedia`
         """
-        model = twitter_openapi_python_generated.models.note_tweet_result_media.NoteTweetResultMedia()  # noqa: E501
-        if include_optional :
+        model = NoteTweetResultMedia()
+        if include_optional:
             return NoteTweetResultMedia(
                 inline_media = [
                     twitter_openapi_python_generated.models.note_tweet_result_media_inline_media.NoteTweetResultMediaInlineMedia(
@@ -45,7 +43,7 @@ class TestNoteTweetResultMedia(unittest.TestCase):
                         media_id = '4', )
                     ]
             )
-        else :
+        else:
             return NoteTweetResultMedia(
                 inline_media = [
                     twitter_openapi_python_generated.models.note_tweet_result_media_inline_media.NoteTweetResultMediaInlineMedia(

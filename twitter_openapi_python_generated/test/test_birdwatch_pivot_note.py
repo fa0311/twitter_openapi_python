@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.birdwatch_pivot_note import BirdwatchPivotNote  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.birdwatch_pivot_note import BirdwatchPivotNote
 
 class TestBirdwatchPivotNote(unittest.TestCase):
     """BirdwatchPivotNote unit test stubs"""
@@ -29,19 +27,19 @@ class TestBirdwatchPivotNote(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> BirdwatchPivotNote:
         """Test BirdwatchPivotNote
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `BirdwatchPivotNote`
         """
-        model = twitter_openapi_python_generated.models.birdwatch_pivot_note.BirdwatchPivotNote()  # noqa: E501
-        if include_optional :
+        model = BirdwatchPivotNote()
+        if include_optional:
             return BirdwatchPivotNote(
                 rest_id = '4'
             )
-        else :
+        else:
             return BirdwatchPivotNote(
                 rest_id = '4',
         )

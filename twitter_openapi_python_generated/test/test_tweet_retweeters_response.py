@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_retweeters_response import TweetRetweetersResponse  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.tweet_retweeters_response import TweetRetweetersResponse
 
 class TestTweetRetweetersResponse(unittest.TestCase):
     """TweetRetweetersResponse unit test stubs"""
@@ -29,15 +27,15 @@ class TestTweetRetweetersResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TweetRetweetersResponse:
         """Test TweetRetweetersResponse
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TweetRetweetersResponse`
         """
-        model = twitter_openapi_python_generated.models.tweet_retweeters_response.TweetRetweetersResponse()  # noqa: E501
-        if include_optional :
+        model = TweetRetweetersResponse()
+        if include_optional:
             return TweetRetweetersResponse(
                 data = twitter_openapi_python_generated.models.tweet_retweeters_response_data.TweetRetweetersResponseData(
                     retweeters_timeline = twitter_openapi_python_generated.models.timeline_v2.TimelineV2(
@@ -48,7 +46,7 @@ class TestTweetRetweetersResponse(unittest.TestCase):
                             metadata = { }, 
                             response_objects = { }, ), ), )
             )
-        else :
+        else:
             return TweetRetweetersResponse(
                 data = twitter_openapi_python_generated.models.tweet_retweeters_response_data.TweetRetweetersResponseData(
                     retweeters_timeline = twitter_openapi_python_generated.models.timeline_v2.TimelineV2(

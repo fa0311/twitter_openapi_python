@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_highlights_tweets_data import UserHighlightsTweetsData  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.user_highlights_tweets_data import UserHighlightsTweetsData
 
 class TestUserHighlightsTweetsData(unittest.TestCase):
     """UserHighlightsTweetsData unit test stubs"""
@@ -29,15 +27,15 @@ class TestUserHighlightsTweetsData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> UserHighlightsTweetsData:
         """Test UserHighlightsTweetsData
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserHighlightsTweetsData`
         """
-        model = twitter_openapi_python_generated.models.user_highlights_tweets_data.UserHighlightsTweetsData()  # noqa: E501
-        if include_optional :
+        model = UserHighlightsTweetsData()
+        if include_optional:
             return UserHighlightsTweetsData(
                 user = twitter_openapi_python_generated.models.user_highlights_tweets_user.UserHighlightsTweetsUser(
                     result = twitter_openapi_python_generated.models.user_highlights_tweets_result.UserHighlightsTweetsResult(
@@ -50,7 +48,7 @@ class TestUserHighlightsTweetsData(unittest.TestCase):
                                 metadata = { }, 
                                 response_objects = { }, ), ), ), )
             )
-        else :
+        else:
             return UserHighlightsTweetsData(
                 user = twitter_openapi_python_generated.models.user_highlights_tweets_user.UserHighlightsTweetsUser(
                     result = twitter_openapi_python_generated.models.user_highlights_tweets_result.UserHighlightsTweetsResult(

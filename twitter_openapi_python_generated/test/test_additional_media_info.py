@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.additional_media_info import AdditionalMediaInfo  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.additional_media_info import AdditionalMediaInfo
 
 class TestAdditionalMediaInfo(unittest.TestCase):
     """AdditionalMediaInfo unit test stubs"""
@@ -29,19 +27,19 @@ class TestAdditionalMediaInfo(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> AdditionalMediaInfo:
         """Test AdditionalMediaInfo
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AdditionalMediaInfo`
         """
-        model = twitter_openapi_python_generated.models.additional_media_info.AdditionalMediaInfo()  # noqa: E501
-        if include_optional :
+        model = AdditionalMediaInfo()
+        if include_optional:
             return AdditionalMediaInfo(
                 monetizable = True
             )
-        else :
+        else:
             return AdditionalMediaInfo(
                 monetizable = True,
         )

@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_create_tweet_request_variables_media import PostCreateTweetRequestVariablesMedia  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.post_create_tweet_request_variables_media import PostCreateTweetRequestVariablesMedia
 
 class TestPostCreateTweetRequestVariablesMedia(unittest.TestCase):
     """PostCreateTweetRequestVariablesMedia unit test stubs"""
@@ -29,15 +27,15 @@ class TestPostCreateTweetRequestVariablesMedia(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> PostCreateTweetRequestVariablesMedia:
         """Test PostCreateTweetRequestVariablesMedia
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostCreateTweetRequestVariablesMedia`
         """
-        model = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.PostCreateTweetRequestVariablesMedia()  # noqa: E501
-        if include_optional :
+        model = PostCreateTweetRequestVariablesMedia()
+        if include_optional:
             return PostCreateTweetRequestVariablesMedia(
                 media_entities = [
                     twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(
@@ -45,10 +43,10 @@ class TestPostCreateTweetRequestVariablesMedia(unittest.TestCase):
                         tagged_users = [
                             None
                             ], )
-                    ], 
+                    ],
                 possibly_sensitive = False
             )
-        else :
+        else:
             return PostCreateTweetRequestVariablesMedia(
                 media_entities = [
                     twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(

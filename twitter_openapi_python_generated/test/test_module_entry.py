@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.module_entry import ModuleEntry  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.module_entry import ModuleEntry
 
 class TestModuleEntry(unittest.TestCase):
     """ModuleEntry unit test stubs"""
@@ -29,28 +27,24 @@ class TestModuleEntry(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> ModuleEntry:
         """Test ModuleEntry
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ModuleEntry`
         """
-        model = twitter_openapi_python_generated.models.module_entry.ModuleEntry()  # noqa: E501
-        if include_optional :
-            return ModuleEntry(
-                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
-                    component = '', 
-                    details = { }, 
-                    element = '', ), 
-                item_content = None
-            )
-        else :
+        model = ModuleEntry()
+        if include_optional:
             return ModuleEntry(
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                     component = '', 
                     details = { }, 
                     element = '', ),
+                item_content = None
+            )
+        else:
+            return ModuleEntry(
                 item_content = None,
         )
         """

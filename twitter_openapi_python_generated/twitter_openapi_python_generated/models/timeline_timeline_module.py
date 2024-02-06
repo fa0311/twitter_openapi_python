@@ -19,55 +19,73 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field, StrictStr, conlist, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr, field_validator
+from pydantic import Field
 from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
 from twitter_openapi_python_generated.models.module_item import ModuleItem
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class TimelineTimelineModule(BaseModel):
     """
     TimelineTimelineModule
-    """
-    typename: StrictStr = Field(..., alias="__typename")
-    client_event_info: Dict[str, Any] = Field(..., alias="clientEventInfo")
-    display_type: StrictStr = Field(..., alias="displayType")
-    entry_type: ContentEntryType = Field(..., alias="entryType")
+    """ # noqa: E501
+    typename: StrictStr = Field(alias="__typename")
+    client_event_info: Dict[str, Any] = Field(alias="clientEventInfo")
+    display_type: StrictStr = Field(alias="displayType")
+    entry_type: ContentEntryType = Field(alias="entryType")
     footer: Optional[Dict[str, Any]] = None
     header: Optional[Dict[str, Any]] = None
-    items: Optional[conlist(ModuleItem)] = None
-    __properties = ["__typename", "clientEventInfo", "displayType", "entryType", "footer", "header", "items"]
+    items: Optional[List[ModuleItem]] = None
+    __properties: ClassVar[List[str]] = ["__typename", "clientEventInfo", "displayType", "entryType", "footer", "header", "items"]
 
-    @validator('display_type')
+    @field_validator('display_type')
     def display_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('Vertical', 'VerticalConversation', 'Carousel'):
-            raise ValueError("must be one of enum values ('Vertical', 'VerticalConversation', 'Carousel')")
+        if value not in ('Vertical', 'VerticalConversation', 'VerticalGrid', 'Carousel'):
+            raise ValueError("must be one of enum values ('Vertical', 'VerticalConversation', 'VerticalGrid', 'Carousel')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> TimelineTimelineModule:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of TimelineTimelineModule from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in items (list)
         _items = []
         if self.items:
@@ -78,19 +96,19 @@ class TimelineTimelineModule(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> TimelineTimelineModule:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of TimelineTimelineModule from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return TimelineTimelineModule.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = TimelineTimelineModule.parse_obj({
-            "typename": obj.get("__typename"),
-            "client_event_info": obj.get("clientEventInfo"),
-            "display_type": obj.get("displayType"),
-            "entry_type": obj.get("entryType"),
+        _obj = cls.model_validate({
+            "__typename": obj.get("__typename"),
+            "clientEventInfo": obj.get("clientEventInfo"),
+            "displayType": obj.get("displayType"),
+            "entryType": obj.get("entryType"),
             "footer": obj.get("footer"),
             "header": obj.get("header"),
             "items": [ModuleItem.from_dict(_item) for _item in obj.get("items")] if obj.get("items") is not None else None

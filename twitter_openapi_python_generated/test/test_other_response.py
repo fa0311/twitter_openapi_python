@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.other_response import OtherResponse  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.other_response import OtherResponse
 
 class TestOtherResponse(unittest.TestCase):
     """OtherResponse unit test stubs"""
@@ -29,15 +27,15 @@ class TestOtherResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> OtherResponse:
         """Test OtherResponse
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `OtherResponse`
         """
-        model = twitter_openapi_python_generated.models.other_response.OtherResponse()  # noqa: E501
-        if include_optional :
+        model = OtherResponse()
+        if include_optional:
             return OtherResponse(
                 session = twitter_openapi_python_generated.models.session.Session(
                     sso_init_tokens = twitter_openapi_python_generated.models.sso_init_tokens.SsoInitTokens(), 
@@ -58,7 +56,7 @@ class TestOtherResponse(unittest.TestCase):
                         mediatool_studio_library = True, ), 
                     user_id = '4', )
             )
-        else :
+        else:
             return OtherResponse(
         )
         """

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entities** | [**List[BirdwatchEntity]**](BirdwatchEntity.md) |  | 

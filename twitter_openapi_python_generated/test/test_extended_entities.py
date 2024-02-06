@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.extended_entities import ExtendedEntities  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.extended_entities import ExtendedEntities
 
 class TestExtendedEntities(unittest.TestCase):
     """ExtendedEntities unit test stubs"""
@@ -29,15 +27,15 @@ class TestExtendedEntities(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> ExtendedEntities:
         """Test ExtendedEntities
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ExtendedEntities`
         """
-        model = twitter_openapi_python_generated.models.extended_entities.ExtendedEntities()  # noqa: E501
-        if include_optional :
+        model = ExtendedEntities()
+        if include_optional:
             return ExtendedEntities(
                 media = [
                     twitter_openapi_python_generated.models.media_extended.MediaExtended(
@@ -93,7 +91,7 @@ class TestExtendedEntities(unittest.TestCase):
                                 ], ), )
                     ]
             )
-        else :
+        else:
             return ExtendedEntities(
                 media = [
                     twitter_openapi_python_generated.models.media_extended.MediaExtended(

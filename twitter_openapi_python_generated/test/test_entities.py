@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.entities import Entities  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.entities import Entities
 
 class TestEntities(unittest.TestCase):
     """Entities unit test stubs"""
@@ -29,19 +27,19 @@ class TestEntities(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> Entities:
         """Test Entities
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Entities`
         """
-        model = twitter_openapi_python_generated.models.entities.Entities()  # noqa: E501
-        if include_optional :
+        model = Entities()
+        if include_optional:
             return Entities(
                 hashtags = [
                     { }
-                    ], 
+                    ],
                 media = [
                     twitter_openapi_python_generated.models.media.Media(
                         display_url = '', 
@@ -75,10 +73,10 @@ class TestEntities(unittest.TestCase):
                             thumb = , ), 
                         type = 'photo', 
                         url = '', )
-                    ], 
+                    ],
                 symbols = [
                     { }
-                    ], 
+                    ],
                 urls = [
                     twitter_openapi_python_generated.models.url.Url(
                         display_url = '', 
@@ -87,12 +85,12 @@ class TestEntities(unittest.TestCase):
                             56
                             ], 
                         url = '', )
-                    ], 
+                    ],
                 user_mentions = [
                     { }
                     ]
             )
-        else :
+        else:
             return Entities(
                 hashtags = [
                     { }

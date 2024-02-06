@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data import TweetCardLegacyBindingValueData  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data import TweetCardLegacyBindingValueData
 
 class TestTweetCardLegacyBindingValueData(unittest.TestCase):
     """TweetCardLegacyBindingValueData unit test stubs"""
@@ -29,22 +27,22 @@ class TestTweetCardLegacyBindingValueData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TweetCardLegacyBindingValueData:
         """Test TweetCardLegacyBindingValueData
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TweetCardLegacyBindingValueData`
         """
-        model = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data.TweetCardLegacyBindingValueData()  # noqa: E501
-        if include_optional :
+        model = TweetCardLegacyBindingValueData()
+        if include_optional:
             return TweetCardLegacyBindingValueData(
-                boolean_value = True, 
-                scribe_key = '', 
-                string_value = '', 
+                boolean_value = True,
+                scribe_key = '',
+                string_value = '',
                 type = ''
             )
-        else :
+        else:
             return TweetCardLegacyBindingValueData(
                 type = '',
         )

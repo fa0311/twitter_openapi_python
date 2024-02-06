@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **legacy** | [**RetweetLegacy**](RetweetLegacy.md) |  | 

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **freedom_of_speech_not_reach_fetch_enabled** | **bool** |  | [default to True]

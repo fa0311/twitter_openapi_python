@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_legacy import UserLegacy  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.user_legacy import UserLegacy
 
 class TestUserLegacy(unittest.TestCase):
     """UserLegacy unit test stubs"""
@@ -29,59 +27,59 @@ class TestUserLegacy(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> UserLegacy:
         """Test UserLegacy
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserLegacy`
         """
-        model = twitter_openapi_python_generated.models.user_legacy.UserLegacy()  # noqa: E501
-        if include_optional :
+        model = UserLegacy()
+        if include_optional:
             return UserLegacy(
-                blocked_by = True, 
-                blocking = True, 
-                can_dm = True, 
-                can_media_tag = True, 
-                created_at = 'Sat Dec 31 23:59:59 +0000 2023', 
-                default_profile = True, 
-                default_profile_image = True, 
-                description = '', 
-                entities = { }, 
-                fast_followers_count = 56, 
-                favourites_count = 56, 
-                follow_request_sent = True, 
-                followed_by = True, 
-                followers_count = 56, 
-                following = True, 
-                friends_count = 56, 
-                has_custom_timelines = True, 
-                is_translator = True, 
-                listed_count = 56, 
-                location = '', 
-                media_count = 56, 
-                muting = True, 
-                name = '', 
-                normal_followers_count = 56, 
-                notifications = True, 
+                blocked_by = True,
+                blocking = True,
+                can_dm = True,
+                can_media_tag = True,
+                created_at = 'Sat Dec 31 23:59:59 +0000 2023',
+                default_profile = True,
+                default_profile_image = True,
+                description = '',
+                entities = { },
+                fast_followers_count = 56,
+                favourites_count = 56,
+                follow_request_sent = True,
+                followed_by = True,
+                followers_count = 56,
+                following = True,
+                friends_count = 56,
+                has_custom_timelines = True,
+                is_translator = True,
+                listed_count = 56,
+                location = '',
+                media_count = 56,
+                muting = True,
+                name = '',
+                normal_followers_count = 56,
+                notifications = True,
                 pinned_tweet_ids_str = [
                     ''
-                    ], 
-                possibly_sensitive = True, 
-                profile_banner_extensions = twitter_openapi_python_generated.models.profile_banner_extensions.profile_banner_extensions(), 
-                profile_banner_url = '', 
-                profile_image_extensions = twitter_openapi_python_generated.models.profile_image_extensions.profile_image_extensions(), 
-                profile_image_url_https = '', 
-                profile_interstitial_type = '', 
-                protected = True, 
-                screen_name = '', 
-                statuses_count = 56, 
-                translator_type = '', 
-                url = '', 
-                verified = True, 
+                    ],
+                possibly_sensitive = True,
+                profile_banner_extensions = twitter_openapi_python_generated.models.profile_banner_extensions.profile_banner_extensions(),
+                profile_banner_url = '',
+                profile_image_extensions = twitter_openapi_python_generated.models.profile_image_extensions.profile_image_extensions(),
+                profile_image_url_https = '',
+                profile_interstitial_type = '',
+                protected = True,
+                screen_name = '',
+                statuses_count = 56,
+                translator_type = '',
+                url = '',
+                verified = True,
                 want_retweets = True
             )
-        else :
+        else:
             return UserLegacy(
                 blocked_by = True,
                 blocking = True,

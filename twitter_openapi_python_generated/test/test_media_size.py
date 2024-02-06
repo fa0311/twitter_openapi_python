@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.media_size import MediaSize  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.media_size import MediaSize
 
 class TestMediaSize(unittest.TestCase):
     """MediaSize unit test stubs"""
@@ -29,21 +27,21 @@ class TestMediaSize(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> MediaSize:
         """Test MediaSize
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `MediaSize`
         """
-        model = twitter_openapi_python_generated.models.media_size.MediaSize()  # noqa: E501
-        if include_optional :
+        model = MediaSize()
+        if include_optional:
             return MediaSize(
-                h = 56, 
-                resize = 'crop', 
+                h = 56,
+                resize = 'crop',
                 w = 56
             )
-        else :
+        else:
             return MediaSize(
                 h = 56,
                 resize = 'crop',

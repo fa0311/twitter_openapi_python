@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.list_latest_tweets_timeline_response import ListLatestTweetsTimelineResponse  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.list_latest_tweets_timeline_response import ListLatestTweetsTimelineResponse
 
 class TestListLatestTweetsTimelineResponse(unittest.TestCase):
     """ListLatestTweetsTimelineResponse unit test stubs"""
@@ -29,15 +27,15 @@ class TestListLatestTweetsTimelineResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> ListLatestTweetsTimelineResponse:
         """Test ListLatestTweetsTimelineResponse
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ListLatestTweetsTimelineResponse`
         """
-        model = twitter_openapi_python_generated.models.list_latest_tweets_timeline_response.ListLatestTweetsTimelineResponse()  # noqa: E501
-        if include_optional :
+        model = ListLatestTweetsTimelineResponse()
+        if include_optional:
             return ListLatestTweetsTimelineResponse(
                 data = twitter_openapi_python_generated.models.list_tweets_timeline_data.ListTweetsTimelineData(
                     list = twitter_openapi_python_generated.models.list_tweets_timeline_list.ListTweetsTimelineList(
@@ -49,7 +47,7 @@ class TestListLatestTweetsTimelineResponse(unittest.TestCase):
                                 metadata = { }, 
                                 response_objects = { }, ), ), ), )
             )
-        else :
+        else:
             return ListLatestTweetsTimelineResponse(
                 data = twitter_openapi_python_generated.models.list_tweets_timeline_data.ListTweetsTimelineData(
                     list = twitter_openapi_python_generated.models.list_tweets_timeline_list.ListTweetsTimelineList(

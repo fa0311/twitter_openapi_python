@@ -19,74 +19,93 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictInt, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.additional_media_info import AdditionalMediaInfo
 from twitter_openapi_python_generated.models.ext_media_availability import ExtMediaAvailability
 from twitter_openapi_python_generated.models.media_original_info import MediaOriginalInfo
 from twitter_openapi_python_generated.models.media_sizes import MediaSizes
 from twitter_openapi_python_generated.models.media_stats import MediaStats
 from twitter_openapi_python_generated.models.media_video_info import MediaVideoInfo
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class MediaExtended(BaseModel):
     """
     MediaExtended
-    """
+    """ # noqa: E501
     additional_media_info: Optional[AdditionalMediaInfo] = None
-    display_url: StrictStr = Field(...)
-    expanded_url: StrictStr = Field(...)
+    display_url: StrictStr
+    expanded_url: StrictStr
     ext_media_availability: Optional[ExtMediaAvailability] = None
     features: Optional[Dict[str, Any]] = None
-    id_str: constr(strict=True) = Field(...)
-    indices: conlist(StrictInt) = Field(...)
-    media_stats: Optional[MediaStats] = Field(None, alias="mediaStats")
-    media_key: StrictStr = Field(...)
-    media_url_https: StrictStr = Field(...)
-    original_info: MediaOriginalInfo = Field(...)
-    sizes: MediaSizes = Field(...)
-    type: StrictStr = Field(...)
-    url: StrictStr = Field(...)
+    id_str: Annotated[str, Field(strict=True)]
+    indices: List[StrictInt]
+    media_stats: Optional[MediaStats] = Field(default=None, alias="mediaStats")
+    media_key: StrictStr
+    media_url_https: StrictStr
+    original_info: MediaOriginalInfo
+    sizes: MediaSizes
+    type: StrictStr
+    url: StrictStr
     video_info: Optional[MediaVideoInfo] = None
-    __properties = ["additional_media_info", "display_url", "expanded_url", "ext_media_availability", "features", "id_str", "indices", "mediaStats", "media_key", "media_url_https", "original_info", "sizes", "type", "url", "video_info"]
+    __properties: ClassVar[List[str]] = ["additional_media_info", "display_url", "expanded_url", "ext_media_availability", "features", "id_str", "indices", "mediaStats", "media_key", "media_url_https", "original_info", "sizes", "type", "url", "video_info"]
 
-    @validator('id_str')
+    @field_validator('id_str')
     def id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    @validator('type')
+    @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value not in ('photo', 'video', 'animated_gif'):
             raise ValueError("must be one of enum values ('photo', 'video', 'animated_gif')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> MediaExtended:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of MediaExtended from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of additional_media_info
         if self.additional_media_info:
             _dict['additional_media_info'] = self.additional_media_info.to_dict()
@@ -108,15 +127,15 @@ class MediaExtended(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> MediaExtended:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of MediaExtended from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return MediaExtended.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = MediaExtended.parse_obj({
+        _obj = cls.model_validate({
             "additional_media_info": AdditionalMediaInfo.from_dict(obj.get("additional_media_info")) if obj.get("additional_media_info") is not None else None,
             "display_url": obj.get("display_url"),
             "expanded_url": obj.get("expanded_url"),
@@ -124,7 +143,7 @@ class MediaExtended(BaseModel):
             "features": obj.get("features"),
             "id_str": obj.get("id_str"),
             "indices": obj.get("indices"),
-            "media_stats": MediaStats.from_dict(obj.get("mediaStats")) if obj.get("mediaStats") is not None else None,
+            "mediaStats": MediaStats.from_dict(obj.get("mediaStats")) if obj.get("mediaStats") is not None else None,
             "media_key": obj.get("media_key"),
             "media_url_https": obj.get("media_url_https"),
             "original_info": MediaOriginalInfo.from_dict(obj.get("original_info")) if obj.get("original_info") is not None else None,

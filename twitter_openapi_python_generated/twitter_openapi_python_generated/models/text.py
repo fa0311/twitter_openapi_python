@@ -19,42 +19,59 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, StrictStr, conlist
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictStr
 from twitter_openapi_python_generated.models.text_entity import TextEntity
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class Text(BaseModel):
     """
     Text
-    """
-    entities: conlist(TextEntity) = Field(...)
-    text: StrictStr = Field(...)
-    __properties = ["entities", "text"]
+    """ # noqa: E501
+    entities: List[TextEntity]
+    text: StrictStr
+    __properties: ClassVar[List[str]] = ["entities", "text"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Text:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of Text from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in entities (list)
         _items = []
         if self.entities:
@@ -65,15 +82,15 @@ class Text(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> Text:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of Text from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return Text.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = Text.parse_obj({
+        _obj = cls.model_validate({
             "entities": [TextEntity.from_dict(_item) for _item in obj.get("entities")] if obj.get("entities") is not None else None,
             "text": obj.get("text")
         })

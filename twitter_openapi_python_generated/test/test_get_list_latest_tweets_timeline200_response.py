@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.get_list_latest_tweets_timeline200_response import GetListLatestTweetsTimeline200Response  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.get_list_latest_tweets_timeline200_response import GetListLatestTweetsTimeline200Response
 
 class TestGetListLatestTweetsTimeline200Response(unittest.TestCase):
     """GetListLatestTweetsTimeline200Response unit test stubs"""
@@ -29,15 +27,15 @@ class TestGetListLatestTweetsTimeline200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> GetListLatestTweetsTimeline200Response:
         """Test GetListLatestTweetsTimeline200Response
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetListLatestTweetsTimeline200Response`
         """
-        model = twitter_openapi_python_generated.models.get_list_latest_tweets_timeline200_response.GetListLatestTweetsTimeline200Response()  # noqa: E501
-        if include_optional :
+        model = GetListLatestTweetsTimeline200Response()
+        if include_optional:
             return GetListLatestTweetsTimeline200Response(
                 data = twitter_openapi_python_generated.models.list_tweets_timeline_data.ListTweetsTimelineData(
                     list = twitter_openapi_python_generated.models.list_tweets_timeline_list.ListTweetsTimelineList(
@@ -47,7 +45,7 @@ class TestGetListLatestTweetsTimeline200Response(unittest.TestCase):
                                     null
                                     ], 
                                 metadata = { }, 
-                                response_objects = { }, ), ), ), ), 
+                                response_objects = { }, ), ), ), ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -76,7 +74,7 @@ class TestGetListLatestTweetsTimeline200Response(unittest.TestCase):
                             trace_id = 'bf325375e030fccb', ), )
                     ]
             )
-        else :
+        else:
             return GetListLatestTweetsTimeline200Response(
                 data = twitter_openapi_python_generated.models.list_tweets_timeline_data.ListTweetsTimelineData(
                     list = twitter_openapi_python_generated.models.list_tweets_timeline_list.ListTweetsTimelineList(

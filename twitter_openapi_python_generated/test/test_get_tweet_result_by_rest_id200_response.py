@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.get_tweet_result_by_rest_id200_response import GetTweetResultByRestId200Response  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.get_tweet_result_by_rest_id200_response import GetTweetResultByRestId200Response
 
 class TestGetTweetResultByRestId200Response(unittest.TestCase):
     """GetTweetResultByRestId200Response unit test stubs"""
@@ -29,20 +27,20 @@ class TestGetTweetResultByRestId200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> GetTweetResultByRestId200Response:
         """Test GetTweetResultByRestId200Response
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetTweetResultByRestId200Response`
         """
-        model = twitter_openapi_python_generated.models.get_tweet_result_by_rest_id200_response.GetTweetResultByRestId200Response()  # noqa: E501
-        if include_optional :
+        model = GetTweetResultByRestId200Response()
+        if include_optional:
             return GetTweetResultByRestId200Response(
                 data = twitter_openapi_python_generated.models.tweet_result_by_rest_id_data.TweetResultByRestIdData(
                     tweet_result = twitter_openapi_python_generated.models.item_result.ItemResult(
                         __typename = 'TimelineTweet', 
-                        result = null, ), ), 
+                        result = null, ), ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -71,7 +69,7 @@ class TestGetTweetResultByRestId200Response(unittest.TestCase):
                             trace_id = 'bf325375e030fccb', ), )
                     ]
             )
-        else :
+        else:
             return GetTweetResultByRestId200Response(
                 data = twitter_openapi_python_generated.models.tweet_result_by_rest_id_data.TweetResultByRestIdData(
                     tweet_result = twitter_openapi_python_generated.models.item_result.ItemResult(

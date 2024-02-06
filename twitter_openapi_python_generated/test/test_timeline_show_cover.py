@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.timeline_show_cover import TimelineShowCover  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.timeline_show_cover import TimelineShowCover
 
 class TestTimelineShowCover(unittest.TestCase):
     """TimelineShowCover unit test stubs"""
@@ -29,20 +27,20 @@ class TestTimelineShowCover(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TimelineShowCover:
         """Test TimelineShowCover
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TimelineShowCover`
         """
-        model = twitter_openapi_python_generated.models.timeline_show_cover.TimelineShowCover()  # noqa: E501
-        if include_optional :
+        model = TimelineShowCover()
+        if include_optional:
             return TimelineShowCover(
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                     component = '', 
                     details = { }, 
-                    element = '', ), 
+                    element = '', ),
                 cover = twitter_openapi_python_generated.models.timeline_half_cover.TimelineHalfCover(
                     dismissible = True, 
                     half_cover_display_type = 'Cover', 
@@ -83,10 +81,10 @@ class TestTimelineShowCover(unittest.TestCase):
                                 to_index = 56, )
                             ], 
                         text = '', ), 
-                    type = 'TimelineHalfCover', ), 
+                    type = 'TimelineHalfCover', ),
                 type = 'TimelineAddEntries'
             )
-        else :
+        else:
             return TimelineShowCover(
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                     component = '', 

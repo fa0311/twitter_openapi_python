@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_highlights_tweets_response import UserHighlightsTweetsResponse  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.user_highlights_tweets_response import UserHighlightsTweetsResponse
 
 class TestUserHighlightsTweetsResponse(unittest.TestCase):
     """UserHighlightsTweetsResponse unit test stubs"""
@@ -29,15 +27,15 @@ class TestUserHighlightsTweetsResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> UserHighlightsTweetsResponse:
         """Test UserHighlightsTweetsResponse
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserHighlightsTweetsResponse`
         """
-        model = twitter_openapi_python_generated.models.user_highlights_tweets_response.UserHighlightsTweetsResponse()  # noqa: E501
-        if include_optional :
+        model = UserHighlightsTweetsResponse()
+        if include_optional:
             return UserHighlightsTweetsResponse(
                 data = twitter_openapi_python_generated.models.user_highlights_tweets_data.UserHighlightsTweetsData(
                     user = twitter_openapi_python_generated.models.user_highlights_tweets_user.UserHighlightsTweetsUser(
@@ -51,7 +49,7 @@ class TestUserHighlightsTweetsResponse(unittest.TestCase):
                                     metadata = { }, 
                                     response_objects = { }, ), ), ), ), )
             )
-        else :
+        else:
             return UserHighlightsTweetsResponse(
                 data = twitter_openapi_python_generated.models.user_highlights_tweets_data.UserHighlightsTweetsData(
                     user = twitter_openapi_python_generated.models.user_highlights_tweets_user.UserHighlightsTweetsUser(

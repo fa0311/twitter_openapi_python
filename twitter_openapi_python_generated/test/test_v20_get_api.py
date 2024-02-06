@@ -15,21 +15,19 @@
 
 import unittest
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.api.v20_get_api import V20GetApi  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.api.v20_get_api import V20GetApi
 
 
 class TestV20GetApi(unittest.TestCase):
     """V20GetApi unit test stubs"""
 
-    def setUp(self):
-        self.api = twitter_openapi_python_generated.api.v20_get_api.V20GetApi()  # noqa: E501
+    def setUp(self) -> None:
+        self.api = V20GetApi()
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         pass
 
-    def test_get_search_adaptive(self):
+    def test_get_search_adaptive(self) -> None:
         """Test case for get_search_adaptive
 
         """

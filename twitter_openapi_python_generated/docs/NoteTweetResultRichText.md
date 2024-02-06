@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **richtext_tags** | [**List[NoteTweetResultRichTextTag]**](NoteTweetResultRichTextTag.md) |  | 

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **media_entities** | [**List[PostCreateTweetRequestVariablesMediaMediaEntitiesInner]**](PostCreateTweetRequestVariablesMediaMediaEntitiesInner.md) |  | 

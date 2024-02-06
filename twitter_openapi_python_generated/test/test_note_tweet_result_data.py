@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.note_tweet_result_data import NoteTweetResultData  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.note_tweet_result_data import NoteTweetResultData
 
 class TestNoteTweetResultData(unittest.TestCase):
     """NoteTweetResultData unit test stubs"""
@@ -29,15 +27,15 @@ class TestNoteTweetResultData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> NoteTweetResultData:
         """Test NoteTweetResultData
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `NoteTweetResultData`
         """
-        model = twitter_openapi_python_generated.models.note_tweet_result_data.NoteTweetResultData()  # noqa: E501
-        if include_optional :
+        model = NoteTweetResultData()
+        if include_optional:
             return NoteTweetResultData(
                 entity_set = twitter_openapi_python_generated.models.entities.Entities(
                     hashtags = [
@@ -91,14 +89,14 @@ class TestNoteTweetResultData(unittest.TestCase):
                         ], 
                     user_mentions = [
                         { }
-                        ], ), 
-                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
+                        ], ),
+                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=',
                 media = twitter_openapi_python_generated.models.note_tweet_result_media.NoteTweetResultMedia(
                     inline_media = [
                         twitter_openapi_python_generated.models.note_tweet_result_media_inline_media.NoteTweetResultMediaInlineMedia(
                             index = 56, 
                             media_id = '4', )
-                        ], ), 
+                        ], ),
                 richtext = twitter_openapi_python_generated.models.note_tweet_result_rich_text.NoteTweetResultRichText(
                     richtext_tags = [
                         twitter_openapi_python_generated.models.note_tweet_result_rich_text_tag.NoteTweetResultRichTextTag(
@@ -107,10 +105,10 @@ class TestNoteTweetResultData(unittest.TestCase):
                                 'Bold'
                                 ], 
                             to_index = 56, )
-                        ], ), 
+                        ], ),
                 text = ''
             )
-        else :
+        else:
             return NoteTweetResultData(
                 entity_set = twitter_openapi_python_generated.models.entities.Entities(
                     hashtags = [

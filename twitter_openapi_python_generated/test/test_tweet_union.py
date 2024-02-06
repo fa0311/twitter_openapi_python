@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_union import TweetUnion  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.tweet_union import TweetUnion
 
 class TestTweetUnion(unittest.TestCase):
     """TweetUnion unit test stubs"""
@@ -29,17 +27,17 @@ class TestTweetUnion(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TweetUnion:
         """Test TweetUnion
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TweetUnion`
         """
-        model = twitter_openapi_python_generated.models.tweet_union.TweetUnion()  # noqa: E501
-        if include_optional :
+        model = TweetUnion()
+        if include_optional:
             return TweetUnion(
-                typename = 'TimelineTweet', 
+                typename = 'TimelineTweet',
                 birdwatch_pivot = twitter_openapi_python_generated.models.birdwatch_pivot.BirdwatchPivot(
                     destination_url = '', 
                     footer = twitter_openapi_python_generated.models.birdwatch_pivot_footer.BirdwatchPivotFooter(
@@ -69,7 +67,7 @@ class TestTweetUnion(unittest.TestCase):
                             ], 
                         text = '', ), 
                     title = '', 
-                    visual_style = 'Default', ), 
+                    visual_style = 'Default', ),
                 card = twitter_openapi_python_generated.models.tweet_card.TweetCard(
                     legacy = twitter_openapi_python_generated.models.tweet_card_legacy.TweetCardLegacy(
                         binding_values = [
@@ -83,10 +81,10 @@ class TestTweetUnion(unittest.TestCase):
                             ], 
                         name = '', 
                         url = '', ), 
-                    rest_id = '', ), 
+                    rest_id = '', ),
                 core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
                     user_results = twitter_openapi_python_generated.models.user_results.UserResults(
-                        result = null, ), ), 
+                        result = null, ), ),
                 edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(
                     edit_control_initial = twitter_openapi_python_generated.models.tweet_edit_control_initial.TweetEditControlInitial(
                         edit_tweet_ids = [
@@ -101,11 +99,11 @@ class TestTweetUnion(unittest.TestCase):
                     editable_until_msecs = '4', 
                     edits_remaining = '4', 
                     initial_tweet_id = '4', 
-                    is_edit_eligible = True, ), 
+                    is_edit_eligible = True, ),
                 edit_prespective = twitter_openapi_python_generated.models.tweet_edit_prespective.TweetEditPrespective(
                     favorited = True, 
-                    retweeted = True, ), 
-                is_translatable = True, 
+                    retweeted = True, ),
+                is_translatable = True,
                 legacy = twitter_openapi_python_generated.models.tweet_legacy.TweetLegacy(
                     bookmark_count = 56, 
                     bookmarked = True, 
@@ -223,7 +221,7 @@ class TestTweetUnion(unittest.TestCase):
                         result = null, ), 
                     self_thread = twitter_openapi_python_generated.models.self_thread.SelfThread(
                         id_str = '4', ), 
-                    user_id_str = '4', ), 
+                    user_id_str = '4', ),
                 note_tweet = twitter_openapi_python_generated.models.note_tweet.NoteTweet(
                     is_expandable = True, 
                     note_tweet_results = twitter_openapi_python_generated.models.note_tweet_result.NoteTweetResult(
@@ -297,17 +295,17 @@ class TestTweetUnion(unittest.TestCase):
                                             ], 
                                         to_index = 56, )
                                     ], ), 
-                            text = '', ), ), ), 
-                quick_promote_eligibility = twitter_openapi_python_generated.models.quick_promote_eligibility.quick_promote_eligibility(), 
+                            text = '', ), ), ),
+                quick_promote_eligibility = twitter_openapi_python_generated.models.quick_promote_eligibility.quick_promote_eligibility(),
                 quoted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 
-                    result = null, ), 
-                rest_id = '4', 
-                source = '', 
-                unmention_data = { }, 
+                    result = null, ),
+                rest_id = '4',
+                source = '',
+                unmention_data = { },
                 views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                     count = '4', 
-                    state = 'EnabledWithCount', ), 
+                    state = 'EnabledWithCount', ),
                 tweet = twitter_openapi_python_generated.models.tweet.Tweet(
                     __typename = 'TimelineTweet', 
                     birdwatch_pivot = twitter_openapi_python_generated.models.birdwatch_pivot.BirdwatchPivot(
@@ -533,7 +531,7 @@ class TestTweetUnion(unittest.TestCase):
                         count = '4', 
                         state = 'EnabledWithCount', ), )
             )
-        else :
+        else:
             return TweetUnion(
                 typename = 'TimelineTweet',
                 edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(

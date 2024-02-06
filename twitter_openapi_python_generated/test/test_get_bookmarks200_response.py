@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.get_bookmarks200_response import GetBookmarks200Response  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.get_bookmarks200_response import GetBookmarks200Response
 
 class TestGetBookmarks200Response(unittest.TestCase):
     """GetBookmarks200Response unit test stubs"""
@@ -29,15 +27,15 @@ class TestGetBookmarks200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> GetBookmarks200Response:
         """Test GetBookmarks200Response
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetBookmarks200Response`
         """
-        model = twitter_openapi_python_generated.models.get_bookmarks200_response.GetBookmarks200Response()  # noqa: E501
-        if include_optional :
+        model = GetBookmarks200Response()
+        if include_optional:
             return GetBookmarks200Response(
                 data = twitter_openapi_python_generated.models.bookmarks_response_data.BookmarksResponseData(
                     bookmark_timeline_v2 = twitter_openapi_python_generated.models.bookmarks_timeline.BookmarksTimeline(
@@ -46,7 +44,7 @@ class TestGetBookmarks200Response(unittest.TestCase):
                                 null
                                 ], 
                             metadata = { }, 
-                            response_objects = { }, ), ), ), 
+                            response_objects = { }, ), ), ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -75,7 +73,7 @@ class TestGetBookmarks200Response(unittest.TestCase):
                             trace_id = 'bf325375e030fccb', ), )
                     ]
             )
-        else :
+        else:
             return GetBookmarks200Response(
                 data = twitter_openapi_python_generated.models.bookmarks_response_data.BookmarksResponseData(
                     bookmark_timeline_v2 = twitter_openapi_python_generated.models.bookmarks_timeline.BookmarksTimeline(

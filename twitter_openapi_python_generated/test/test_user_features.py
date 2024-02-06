@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_features import UserFeatures  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.user_features import UserFeatures
 
 class TestUserFeatures(unittest.TestCase):
     """UserFeatures unit test stubs"""
@@ -29,19 +27,19 @@ class TestUserFeatures(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> UserFeatures:
         """Test UserFeatures
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserFeatures`
         """
-        model = twitter_openapi_python_generated.models.user_features.UserFeatures()  # noqa: E501
-        if include_optional :
+        model = UserFeatures()
+        if include_optional:
             return UserFeatures(
                 mediatool_studio_library = True
             )
-        else :
+        else:
             return UserFeatures(
                 mediatool_studio_library = True,
         )

@@ -19,34 +19,39 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictStr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr, field_validator
+from pydantic import Field
 from twitter_openapi_python_generated.models.birdwatch_pivot_footer import BirdwatchPivotFooter
 from twitter_openapi_python_generated.models.birdwatch_pivot_note import BirdwatchPivotNote
 from twitter_openapi_python_generated.models.birdwatch_pivot_subtitle import BirdwatchPivotSubtitle
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class BirdwatchPivot(BaseModel):
     """
     BirdwatchPivot
-    """
-    destination_url: StrictStr = Field(..., alias="destinationUrl")
-    footer: BirdwatchPivotFooter = Field(...)
-    icon_type: StrictStr = Field(..., alias="iconType")
-    note: BirdwatchPivotNote = Field(...)
-    shorttitle: StrictStr = Field(...)
-    subtitle: BirdwatchPivotSubtitle = Field(...)
-    title: StrictStr = Field(...)
-    visual_style: Optional[StrictStr] = Field(None, alias="visualStyle")
-    __properties = ["destinationUrl", "footer", "iconType", "note", "shorttitle", "subtitle", "title", "visualStyle"]
+    """ # noqa: E501
+    destination_url: StrictStr = Field(alias="destinationUrl")
+    footer: BirdwatchPivotFooter
+    icon_type: StrictStr = Field(alias="iconType")
+    note: BirdwatchPivotNote
+    shorttitle: StrictStr
+    subtitle: BirdwatchPivotSubtitle
+    title: StrictStr
+    visual_style: Optional[StrictStr] = Field(default=None, alias="visualStyle")
+    __properties: ClassVar[List[str]] = ["destinationUrl", "footer", "iconType", "note", "shorttitle", "subtitle", "title", "visualStyle"]
 
-    @validator('icon_type')
+    @field_validator('icon_type')
     def icon_type_validate_enum(cls, value):
         """Validates the enum"""
         if value not in ('BirdwatchV1Icon'):
             raise ValueError("must be one of enum values ('BirdwatchV1Icon')")
         return value
 
-    @validator('visual_style')
+    @field_validator('visual_style')
     def visual_style_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -56,30 +61,43 @@ class BirdwatchPivot(BaseModel):
             raise ValueError("must be one of enum values ('Default')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> BirdwatchPivot:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of BirdwatchPivot from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of footer
         if self.footer:
             _dict['footer'] = self.footer.to_dict()
@@ -92,23 +110,23 @@ class BirdwatchPivot(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> BirdwatchPivot:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of BirdwatchPivot from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return BirdwatchPivot.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = BirdwatchPivot.parse_obj({
-            "destination_url": obj.get("destinationUrl"),
+        _obj = cls.model_validate({
+            "destinationUrl": obj.get("destinationUrl"),
             "footer": BirdwatchPivotFooter.from_dict(obj.get("footer")) if obj.get("footer") is not None else None,
-            "icon_type": obj.get("iconType"),
+            "iconType": obj.get("iconType"),
             "note": BirdwatchPivotNote.from_dict(obj.get("note")) if obj.get("note") is not None else None,
             "shorttitle": obj.get("shorttitle"),
             "subtitle": BirdwatchPivotSubtitle.from_dict(obj.get("subtitle")) if obj.get("subtitle") is not None else None,
             "title": obj.get("title"),
-            "visual_style": obj.get("visualStyle")
+            "visualStyle": obj.get("visualStyle")
         })
         return _obj
 

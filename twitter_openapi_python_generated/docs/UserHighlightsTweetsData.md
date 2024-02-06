@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user** | [**UserHighlightsTweetsUser**](UserHighlightsTweetsUser.md) |  | 

@@ -15,45 +15,43 @@
 
 import unittest
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.api.user_list_api import UserListApi  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.api.user_list_api import UserListApi
 
 
 class TestUserListApi(unittest.TestCase):
     """UserListApi unit test stubs"""
 
-    def setUp(self):
-        self.api = twitter_openapi_python_generated.api.user_list_api.UserListApi()  # noqa: E501
+    def setUp(self) -> None:
+        self.api = UserListApi()
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         pass
 
-    def test_get_favoriters(self):
+    def test_get_favoriters(self) -> None:
         """Test case for get_favoriters
 
         """
         pass
 
-    def test_get_followers(self):
+    def test_get_followers(self) -> None:
         """Test case for get_followers
 
         """
         pass
 
-    def test_get_followers_you_know(self):
+    def test_get_followers_you_know(self) -> None:
         """Test case for get_followers_you_know
 
         """
         pass
 
-    def test_get_following(self):
+    def test_get_following(self) -> None:
         """Test case for get_following
 
         """
         pass
 
-    def test_get_retweeters(self):
+    def test_get_retweeters(self) -> None:
         """Test case for get_retweeters
 
         """

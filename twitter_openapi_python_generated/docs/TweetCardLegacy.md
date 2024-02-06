@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **binding_values** | [**List[TweetCardLegacyBindingValue]**](TweetCardLegacyBindingValue.md) |  | 

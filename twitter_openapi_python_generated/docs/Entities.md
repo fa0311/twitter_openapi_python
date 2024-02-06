@@ -2,13 +2,14 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hashtags** | **List[Dict]** |  | 
+**hashtags** | **List[Dict[str, object]]** |  | 
 **media** | [**List[Media]**](Media.md) |  | [optional] 
-**symbols** | **List[Dict]** |  | 
+**symbols** | **List[Dict[str, object]]** |  | 
 **urls** | [**List[Url]**](Url.md) |  | 
-**user_mentions** | **List[Dict]** |  | 
+**user_mentions** | **List[Dict[str, object]]** |  | 
 
 ## Example
 

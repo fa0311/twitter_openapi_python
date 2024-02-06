@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.extensions import Extensions  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.extensions import Extensions
 
 class TestExtensions(unittest.TestCase):
     """Extensions unit test stubs"""
@@ -29,24 +27,24 @@ class TestExtensions(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> Extensions:
         """Test Extensions
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Extensions`
         """
-        model = twitter_openapi_python_generated.models.extensions.Extensions()  # noqa: E501
-        if include_optional :
+        model = Extensions()
+        if include_optional:
             return Extensions(
-                code = 56, 
-                kind = '', 
-                name = '', 
-                source = '', 
+                code = 56,
+                kind = '',
+                name = '',
+                source = '',
                 tracing = twitter_openapi_python_generated.models.tracing.Tracing(
                     trace_id = 'bf325375e030fccb', )
             )
-        else :
+        else:
             return Extensions(
                 code = 56,
                 kind = '',

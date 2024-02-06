@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_create_retweet_request import PostCreateRetweetRequest  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.post_create_retweet_request import PostCreateRetweetRequest
 
 class TestPostCreateRetweetRequest(unittest.TestCase):
     """PostCreateRetweetRequest unit test stubs"""
@@ -29,22 +27,22 @@ class TestPostCreateRetweetRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> PostCreateRetweetRequest:
         """Test PostCreateRetweetRequest
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostCreateRetweetRequest`
         """
-        model = twitter_openapi_python_generated.models.post_create_retweet_request.PostCreateRetweetRequest()  # noqa: E501
-        if include_optional :
+        model = PostCreateRetweetRequest()
+        if include_optional:
             return PostCreateRetweetRequest(
-                query_id = 'ojPdsZsimiJrUGLR1sjUtA', 
+                query_id = 'ojPdsZsimiJrUGLR1sjUtA',
                 variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(
                     dark_request = False, 
                     tweet_id = '1349129669258448897', )
             )
-        else :
+        else:
             return PostCreateRetweetRequest(
                 query_id = 'ojPdsZsimiJrUGLR1sjUtA',
                 variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(

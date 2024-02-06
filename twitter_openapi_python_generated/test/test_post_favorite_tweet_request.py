@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_favorite_tweet_request import PostFavoriteTweetRequest  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.post_favorite_tweet_request import PostFavoriteTweetRequest
 
 class TestPostFavoriteTweetRequest(unittest.TestCase):
     """PostFavoriteTweetRequest unit test stubs"""
@@ -29,22 +27,22 @@ class TestPostFavoriteTweetRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> PostFavoriteTweetRequest:
         """Test PostFavoriteTweetRequest
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostFavoriteTweetRequest`
         """
-        model = twitter_openapi_python_generated.models.post_favorite_tweet_request.PostFavoriteTweetRequest()  # noqa: E501
-        if include_optional :
+        model = PostFavoriteTweetRequest()
+        if include_optional:
             return PostFavoriteTweetRequest(
-                query_id = 'lI07N6Otwv1PhnEgXILM7A', 
+                query_id = 'lI07N6Otwv1PhnEgXILM7A',
                 variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(
                     dark_request = False, 
                     tweet_id = '1349129669258448897', )
             )
-        else :
+        else:
             return PostFavoriteTweetRequest(
                 query_id = 'lI07N6Otwv1PhnEgXILM7A',
                 variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(

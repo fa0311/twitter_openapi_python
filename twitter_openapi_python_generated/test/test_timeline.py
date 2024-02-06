@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.timeline import Timeline  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.timeline import Timeline
 
 class TestTimeline(unittest.TestCase):
     """Timeline unit test stubs"""
@@ -29,23 +27,23 @@ class TestTimeline(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> Timeline:
         """Test Timeline
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Timeline`
         """
-        model = twitter_openapi_python_generated.models.timeline.Timeline()  # noqa: E501
-        if include_optional :
+        model = Timeline()
+        if include_optional:
             return Timeline(
                 instructions = [
                     null
-                    ], 
-                metadata = { }, 
+                    ],
+                metadata = { },
                 response_objects = { }
             )
-        else :
+        else:
             return Timeline(
                 instructions = [
                     null

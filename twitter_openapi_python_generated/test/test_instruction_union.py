@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.instruction_union import InstructionUnion  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.instruction_union import InstructionUnion
 
 class TestInstructionUnion(unittest.TestCase):
     """InstructionUnion unit test stubs"""
@@ -29,24 +27,24 @@ class TestInstructionUnion(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> InstructionUnion:
         """Test InstructionUnion
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `InstructionUnion`
         """
-        model = twitter_openapi_python_generated.models.instruction_union.InstructionUnion()  # noqa: E501
-        if include_optional :
+        model = InstructionUnion()
+        if include_optional:
             return InstructionUnion(
                 entries = [
                     twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                         content = null, 
                         entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                         sort_index = '4', )
-                    ], 
-                type = 'TimelineAddEntries', 
-                module_entry_id = '', 
+                    ],
+                type = 'TimelineAddEntries',
+                module_entry_id = '',
                 module_items = [
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
                         entry_id = '25375e030fccba00917317c574773100bf03b5f', 
@@ -56,33 +54,33 @@ class TestInstructionUnion(unittest.TestCase):
                                 details = { }, 
                                 element = '', ), 
                             item_content = null, ), )
-                    ], 
-                prepend = True, 
+                    ],
+                prepend = True,
                 entry = twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                     content = null, 
                     entry_id = '25375e030fccba00917317c574773100bf03b5f', 
-                    sort_index = '4', ), 
-                entry_id_to_replace = '', 
-                alert_type = 'NewTweets', 
-                color_config = { }, 
-                display_duration_ms = 56, 
-                display_location = 'Top', 
-                icon_display_info = { }, 
+                    sort_index = '4', ),
+                entry_id_to_replace = '',
+                alert_type = 'NewTweets',
+                color_config = { },
+                display_duration_ms = 56,
+                display_location = 'Top',
+                icon_display_info = { },
                 rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlert_richText(
                     entities = [
                         { }
                         ], 
-                    text = '', ), 
-                trigger_delay_ms = 56, 
+                    text = '', ),
+                trigger_delay_ms = 56,
                 users_results = [
                     twitter_openapi_python_generated.models.user_results.UserResults(
                         result = null, )
-                    ], 
-                direction = 'Top', 
+                    ],
+                direction = 'Top',
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                     component = '', 
                     details = { }, 
-                    element = '', ), 
+                    element = '', ),
                 cover = twitter_openapi_python_generated.models.timeline_half_cover.TimelineHalfCover(
                     dismissible = True, 
                     half_cover_display_type = 'Cover', 
@@ -125,7 +123,7 @@ class TestInstructionUnion(unittest.TestCase):
                         text = '', ), 
                     type = 'TimelineHalfCover', )
             )
-        else :
+        else:
             return InstructionUnion(
                 entries = [
                     twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(

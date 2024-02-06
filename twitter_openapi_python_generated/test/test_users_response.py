@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.users_response import UsersResponse  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.users_response import UsersResponse
 
 class TestUsersResponse(unittest.TestCase):
     """UsersResponse unit test stubs"""
@@ -29,15 +27,15 @@ class TestUsersResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> UsersResponse:
         """Test UsersResponse
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UsersResponse`
         """
-        model = twitter_openapi_python_generated.models.users_response.UsersResponse()  # noqa: E501
-        if include_optional :
+        model = UsersResponse()
+        if include_optional:
             return UsersResponse(
                 data = twitter_openapi_python_generated.models.users_response_data.UsersResponseData(
                     users = [
@@ -45,7 +43,7 @@ class TestUsersResponse(unittest.TestCase):
                             result = null, )
                         ], )
             )
-        else :
+        else:
             return UsersResponse(
                 data = twitter_openapi_python_generated.models.users_response_data.UsersResponseData(
                     users = [

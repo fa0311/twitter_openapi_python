@@ -15,21 +15,19 @@
 
 import unittest
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.api.other_api import OtherApi  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.api.other_api import OtherApi
 
 
 class TestOtherApi(unittest.TestCase):
     """OtherApi unit test stubs"""
 
-    def setUp(self):
-        self.api = twitter_openapi_python_generated.api.other_api.OtherApi()  # noqa: E501
+    def setUp(self) -> None:
+        self.api = OtherApi()
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         pass
 
-    def test_other(self):
+    def test_other(self) -> None:
         """Test case for other
 
         """

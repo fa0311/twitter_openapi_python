@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | 

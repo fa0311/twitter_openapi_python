@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_favorite_tweet200_response import PostFavoriteTweet200Response  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.post_favorite_tweet200_response import PostFavoriteTweet200Response
 
 class TestPostFavoriteTweet200Response(unittest.TestCase):
     """PostFavoriteTweet200Response unit test stubs"""
@@ -29,18 +27,18 @@ class TestPostFavoriteTweet200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> PostFavoriteTweet200Response:
         """Test PostFavoriteTweet200Response
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostFavoriteTweet200Response`
         """
-        model = twitter_openapi_python_generated.models.post_favorite_tweet200_response.PostFavoriteTweet200Response()  # noqa: E501
-        if include_optional :
+        model = PostFavoriteTweet200Response()
+        if include_optional:
             return PostFavoriteTweet200Response(
                 data = twitter_openapi_python_generated.models.favorite_tweet.FavoriteTweet(
-                    favorite_tweet = '', ), 
+                    favorite_tweet = '', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -69,7 +67,7 @@ class TestPostFavoriteTweet200Response(unittest.TestCase):
                             trace_id = 'bf325375e030fccb', ), )
                     ]
             )
-        else :
+        else:
             return PostFavoriteTweet200Response(
                 data = twitter_openapi_python_generated.models.favorite_tweet.FavoriteTweet(
                     favorite_tweet = '', ),

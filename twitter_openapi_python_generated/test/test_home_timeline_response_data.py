@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.home_timeline_response_data import HomeTimelineResponseData  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.home_timeline_response_data import HomeTimelineResponseData
 
 class TestHomeTimelineResponseData(unittest.TestCase):
     """HomeTimelineResponseData unit test stubs"""
@@ -29,15 +27,15 @@ class TestHomeTimelineResponseData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> HomeTimelineResponseData:
         """Test HomeTimelineResponseData
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `HomeTimelineResponseData`
         """
-        model = twitter_openapi_python_generated.models.home_timeline_response_data.HomeTimelineResponseData()  # noqa: E501
-        if include_optional :
+        model = HomeTimelineResponseData()
+        if include_optional:
             return HomeTimelineResponseData(
                 home = twitter_openapi_python_generated.models.home_timeline_home.HomeTimelineHome(
                     home_timeline_urt = twitter_openapi_python_generated.models.timeline.Timeline(
@@ -47,7 +45,7 @@ class TestHomeTimelineResponseData(unittest.TestCase):
                         metadata = { }, 
                         response_objects = { }, ), )
             )
-        else :
+        else:
             return HomeTimelineResponseData(
                 home = twitter_openapi_python_generated.models.home_timeline_home.HomeTimelineHome(
                     home_timeline_urt = twitter_openapi_python_generated.models.timeline.Timeline(

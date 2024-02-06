@@ -40,6 +40,7 @@ get tweet favoriters
 * Api Key Authentication (CacheControl):
 * Api Key Authentication (SecChUaMobile):
 * Api Key Authentication (AcceptEncoding):
+
 ```python
 import time
 import os
@@ -198,6 +199,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path_query_id** | **str**|  | [default to &#39;VIA2_af01oqZqBB6NvWi-Q&#39;]
@@ -218,6 +220,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * x-connection-hash -  <br>  * x-rate-limit-limit -  <br>  * x-rate-limit-remaining -  <br>  * x-rate-limit-reset -  <br>  * x-response-time -  <br>  * x-tfe-preserve-body -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |
@@ -253,6 +256,7 @@ get user list of followers
 * Api Key Authentication (CacheControl):
 * Api Key Authentication (SecChUaMobile):
 * Api Key Authentication (AcceptEncoding):
+
 ```python
 import time
 import os
@@ -411,6 +415,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path_query_id** | **str**|  | [default to &#39;rRXFSG5vR6drKr5M37YOTw&#39;]
@@ -431,6 +436,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * x-connection-hash -  <br>  * x-rate-limit-limit -  <br>  * x-rate-limit-remaining -  <br>  * x-rate-limit-reset -  <br>  * x-response-time -  <br>  * x-tfe-preserve-body -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |
@@ -466,6 +472,7 @@ get followers you know
 * Api Key Authentication (CacheControl):
 * Api Key Authentication (SecChUaMobile):
 * Api Key Authentication (AcceptEncoding):
+
 ```python
 import time
 import os
@@ -624,6 +631,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path_query_id** | **str**|  | [default to &#39;yqrUptVSP9DAkVLqpc0lsg&#39;]
@@ -644,6 +652,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * x-connection-hash -  <br>  * x-rate-limit-limit -  <br>  * x-rate-limit-remaining -  <br>  * x-rate-limit-reset -  <br>  * x-response-time -  <br>  * x-tfe-preserve-body -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |
@@ -679,6 +688,7 @@ get user list of following
 * Api Key Authentication (CacheControl):
 * Api Key Authentication (SecChUaMobile):
 * Api Key Authentication (AcceptEncoding):
+
 ```python
 import time
 import os
@@ -837,6 +847,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path_query_id** | **str**|  | [default to &#39;iSicc7LrzWGBgDPL0tM_TQ&#39;]
@@ -857,6 +868,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * x-connection-hash -  <br>  * x-rate-limit-limit -  <br>  * x-rate-limit-remaining -  <br>  * x-rate-limit-reset -  <br>  * x-response-time -  <br>  * x-tfe-preserve-body -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |
@@ -892,6 +904,7 @@ get tweet retweeters
 * Api Key Authentication (CacheControl):
 * Api Key Authentication (SecChUaMobile):
 * Api Key Authentication (AcceptEncoding):
+
 ```python
 import time
 import os
@@ -1050,6 +1063,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path_query_id** | **str**|  | [default to &#39;9jBdme5U626ATWp01dvgrA&#39;]
@@ -1070,6 +1084,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * x-connection-hash -  <br>  * x-rate-limit-limit -  <br>  * x-rate-limit-remaining -  <br>  * x-rate-limit-reset -  <br>  * x-response-time -  <br>  * x-tfe-preserve-body -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |

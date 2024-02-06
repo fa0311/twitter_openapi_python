@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_create_tweet_request_features import PostCreateTweetRequestFeatures  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.post_create_tweet_request_features import PostCreateTweetRequestFeatures
 
 class TestPostCreateTweetRequestFeatures(unittest.TestCase):
     """PostCreateTweetRequestFeatures unit test stubs"""
@@ -29,36 +27,36 @@ class TestPostCreateTweetRequestFeatures(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> PostCreateTweetRequestFeatures:
         """Test PostCreateTweetRequestFeatures
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostCreateTweetRequestFeatures`
         """
-        model = twitter_openapi_python_generated.models.post_create_tweet_request_features.PostCreateTweetRequestFeatures()  # noqa: E501
-        if include_optional :
+        model = PostCreateTweetRequestFeatures()
+        if include_optional:
             return PostCreateTweetRequestFeatures(
-                freedom_of_speech_not_reach_fetch_enabled = True, 
-                graphql_is_translatable_rweb_tweet_is_translatable_enabled = True, 
-                longform_notetweets_consumption_enabled = True, 
-                longform_notetweets_inline_media_enabled = True, 
-                longform_notetweets_rich_text_read_enabled = True, 
-                responsive_web_edit_tweet_api_enabled = True, 
-                responsive_web_enhance_cards_enabled = False, 
-                responsive_web_graphql_exclude_directive_enabled = True, 
-                responsive_web_graphql_skip_user_profile_image_extensions_enabled = False, 
-                responsive_web_graphql_timeline_navigation_enabled = True, 
-                responsive_web_media_download_video_enabled = False, 
-                responsive_web_twitter_article_tweet_consumption_enabled = False, 
-                standardized_nudges_misinfo = True, 
-                tweet_awards_web_tipping_enabled = False, 
-                tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled = True, 
-                tweetypie_unmention_optimization_enabled = True, 
-                verified_phone_label_enabled = False, 
+                freedom_of_speech_not_reach_fetch_enabled = True,
+                graphql_is_translatable_rweb_tweet_is_translatable_enabled = True,
+                longform_notetweets_consumption_enabled = True,
+                longform_notetweets_inline_media_enabled = True,
+                longform_notetweets_rich_text_read_enabled = True,
+                responsive_web_edit_tweet_api_enabled = True,
+                responsive_web_enhance_cards_enabled = False,
+                responsive_web_graphql_exclude_directive_enabled = True,
+                responsive_web_graphql_skip_user_profile_image_extensions_enabled = False,
+                responsive_web_graphql_timeline_navigation_enabled = True,
+                responsive_web_media_download_video_enabled = False,
+                responsive_web_twitter_article_tweet_consumption_enabled = False,
+                standardized_nudges_misinfo = True,
+                tweet_awards_web_tipping_enabled = False,
+                tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled = True,
+                tweetypie_unmention_optimization_enabled = True,
+                verified_phone_label_enabled = False,
                 view_counts_everywhere_api_enabled = True
             )
-        else :
+        else:
             return PostCreateTweetRequestFeatures(
                 freedom_of_speech_not_reach_fetch_enabled = True,
                 graphql_is_translatable_rweb_tweet_is_translatable_enabled = True,

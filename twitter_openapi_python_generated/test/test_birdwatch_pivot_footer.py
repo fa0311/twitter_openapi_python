@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.birdwatch_pivot_footer import BirdwatchPivotFooter  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.birdwatch_pivot_footer import BirdwatchPivotFooter
 
 class TestBirdwatchPivotFooter(unittest.TestCase):
     """BirdwatchPivotFooter unit test stubs"""
@@ -29,15 +27,15 @@ class TestBirdwatchPivotFooter(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> BirdwatchPivotFooter:
         """Test BirdwatchPivotFooter
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `BirdwatchPivotFooter`
         """
-        model = twitter_openapi_python_generated.models.birdwatch_pivot_footer.BirdwatchPivotFooter()  # noqa: E501
-        if include_optional :
+        model = BirdwatchPivotFooter()
+        if include_optional:
             return BirdwatchPivotFooter(
                 entities = [
                     twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
@@ -47,10 +45,10 @@ class TestBirdwatchPivotFooter(unittest.TestCase):
                             url = '', 
                             url_type = 'ExternalUrl', ), 
                         to_index = 56, )
-                    ], 
+                    ],
                 text = ''
             )
-        else :
+        else:
             return BirdwatchPivotFooter(
                 entities = [
                     twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(

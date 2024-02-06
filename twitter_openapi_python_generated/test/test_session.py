@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.session import Session  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.session import Session
 
 class TestSession(unittest.TestCase):
     """Session unit test stubs"""
@@ -29,35 +27,35 @@ class TestSession(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> Session:
         """Test Session
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Session`
         """
-        model = twitter_openapi_python_generated.models.session.Session()  # noqa: E501
-        if include_optional :
+        model = Session()
+        if include_optional:
             return Session(
-                sso_init_tokens = twitter_openapi_python_generated.models.sso_init_tokens.SsoInitTokens(), 
+                sso_init_tokens = twitter_openapi_python_generated.models.sso_init_tokens.SsoInitTokens(),
                 communities_actions = twitter_openapi_python_generated.models.communities_actions.CommunitiesActions(
-                    create = True, ), 
-                country = 'AE', 
-                guest_id = '4', 
-                has_community_memberships = True, 
-                is_active_creator = True, 
-                is_restricted_session = True, 
-                is_super_follow_subscriber = True, 
-                language = 'ae', 
+                    create = True, ),
+                country = 'AE',
+                guest_id = '4',
+                has_community_memberships = True,
+                is_active_creator = True,
+                is_restricted_session = True,
+                is_super_follow_subscriber = True,
+                language = 'ae',
                 one_factor_login_eligibility = twitter_openapi_python_generated.models.one_factor_login_eligibility.OneFactorLoginEligibility(
-                    fetch_status = '', ), 
-                super_followers_count = 56, 
-                super_follows_application_status = 'NotStarted', 
+                    fetch_status = '', ),
+                super_followers_count = 56,
+                super_follows_application_status = 'NotStarted',
                 user_features = twitter_openapi_python_generated.models.user_features.UserFeatures(
-                    mediatool_studio_library = True, ), 
+                    mediatool_studio_library = True, ),
                 user_id = '4'
             )
-        else :
+        else:
             return Session(
                 communities_actions = twitter_openapi_python_generated.models.communities_actions.CommunitiesActions(
                     create = True, ),

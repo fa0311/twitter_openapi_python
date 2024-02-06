@@ -37,6 +37,7 @@ get user by rest id
 * Api Key Authentication (CacheControl):
 * Api Key Authentication (SecChUaMobile):
 * Api Key Authentication (AcceptEncoding):
+
 ```python
 import time
 import os
@@ -195,6 +196,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path_query_id** | **str**|  | [default to &#39;QdS5LJDl99iL_KUzckdfNQ&#39;]
@@ -215,6 +217,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * x-connection-hash -  <br>  * x-rate-limit-limit -  <br>  * x-rate-limit-remaining -  <br>  * x-rate-limit-reset -  <br>  * x-response-time -  <br>  * x-tfe-preserve-body -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |
@@ -250,6 +253,7 @@ get user by screen name
 * Api Key Authentication (CacheControl):
 * Api Key Authentication (SecChUaMobile):
 * Api Key Authentication (AcceptEncoding):
+
 ```python
 import time
 import os
@@ -409,6 +413,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path_query_id** | **str**|  | [default to &#39;G3KGOASz96M-Qu0nwmGXNg&#39;]
@@ -430,6 +435,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * x-connection-hash -  <br>  * x-rate-limit-limit -  <br>  * x-rate-limit-remaining -  <br>  * x-rate-limit-reset -  <br>  * x-response-time -  <br>  * x-tfe-preserve-body -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |

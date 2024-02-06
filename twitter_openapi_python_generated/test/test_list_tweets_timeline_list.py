@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.list_tweets_timeline_list import ListTweetsTimelineList  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.list_tweets_timeline_list import ListTweetsTimelineList
 
 class TestListTweetsTimelineList(unittest.TestCase):
     """ListTweetsTimelineList unit test stubs"""
@@ -29,15 +27,15 @@ class TestListTweetsTimelineList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> ListTweetsTimelineList:
         """Test ListTweetsTimelineList
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ListTweetsTimelineList`
         """
-        model = twitter_openapi_python_generated.models.list_tweets_timeline_list.ListTweetsTimelineList()  # noqa: E501
-        if include_optional :
+        model = ListTweetsTimelineList()
+        if include_optional:
             return ListTweetsTimelineList(
                 tweets_timeline = twitter_openapi_python_generated.models.list_tweets_timeline.ListTweetsTimeline(
                     timeline = twitter_openapi_python_generated.models.timeline.Timeline(
@@ -47,7 +45,7 @@ class TestListTweetsTimelineList(unittest.TestCase):
                         metadata = { }, 
                         response_objects = { }, ), )
             )
-        else :
+        else:
             return ListTweetsTimelineList(
                 tweets_timeline = twitter_openapi_python_generated.models.list_tweets_timeline.ListTweetsTimeline(
                     timeline = twitter_openapi_python_generated.models.timeline.Timeline(

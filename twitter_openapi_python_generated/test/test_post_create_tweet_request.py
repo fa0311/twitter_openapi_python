@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_create_tweet_request import PostCreateTweetRequest  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.post_create_tweet_request import PostCreateTweetRequest
 
 class TestPostCreateTweetRequest(unittest.TestCase):
     """PostCreateTweetRequest unit test stubs"""
@@ -29,15 +27,15 @@ class TestPostCreateTweetRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> PostCreateTweetRequest:
         """Test PostCreateTweetRequest
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostCreateTweetRequest`
         """
-        model = twitter_openapi_python_generated.models.post_create_tweet_request.PostCreateTweetRequest()  # noqa: E501
-        if include_optional :
+        model = PostCreateTweetRequest()
+        if include_optional:
             return PostCreateTweetRequest(
                 features = twitter_openapi_python_generated.models.post_create_tweet_request_features.postCreateTweet_request_features(
                     freedom_of_speech_not_reach_fetch_enabled = True, 
@@ -57,8 +55,8 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                     tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled = True, 
                     tweetypie_unmention_optimization_enabled = True, 
                     verified_phone_label_enabled = False, 
-                    view_counts_everywhere_api_enabled = True, ), 
-                query_id = 'PIZtQLRIYtSa9AtW_fI2Mw', 
+                    view_counts_everywhere_api_enabled = True, ),
+                query_id = 'PIZtQLRIYtSa9AtW_fI2Mw',
                 variables = twitter_openapi_python_generated.models.post_create_tweet_request_variables.postCreateTweet_request_variables(
                     dark_request = False, 
                     media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(
@@ -80,7 +78,7 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                         ], 
                     tweet_text = 'test', )
             )
-        else :
+        else:
             return PostCreateTweetRequest(
                 features = twitter_openapi_python_generated.models.post_create_tweet_request_features.postCreateTweet_request_features(
                     freedom_of_speech_not_reach_fetch_enabled = True, 

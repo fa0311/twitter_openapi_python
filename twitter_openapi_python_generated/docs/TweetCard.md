@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **legacy** | [**TweetCardLegacy**](TweetCardLegacy.md) |  | [optional] 

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entries** | [**List[TimelineAddEntry]**](TimelineAddEntry.md) |  | 

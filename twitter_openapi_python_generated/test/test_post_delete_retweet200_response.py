@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_delete_retweet200_response import PostDeleteRetweet200Response  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.post_delete_retweet200_response import PostDeleteRetweet200Response
 
 class TestPostDeleteRetweet200Response(unittest.TestCase):
     """PostDeleteRetweet200Response unit test stubs"""
@@ -29,15 +27,15 @@ class TestPostDeleteRetweet200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> PostDeleteRetweet200Response:
         """Test PostDeleteRetweet200Response
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostDeleteRetweet200Response`
         """
-        model = twitter_openapi_python_generated.models.post_delete_retweet200_response.PostDeleteRetweet200Response()  # noqa: E501
-        if include_optional :
+        model = PostDeleteRetweet200Response()
+        if include_optional:
             return PostDeleteRetweet200Response(
                 data = twitter_openapi_python_generated.models.delete_retweet_response_data.DeleteRetweetResponseData(
                     create_retweet = twitter_openapi_python_generated.models.create_retweet_response_result.CreateRetweetResponseResult(
@@ -45,7 +43,7 @@ class TestPostDeleteRetweet200Response(unittest.TestCase):
                             result = twitter_openapi_python_generated.models.retweet.Retweet(
                                 legacy = twitter_openapi_python_generated.models.retweet_legacy.Retweet_legacy(
                                     full_text = '', ), 
-                                rest_id = '4', ), ), ), ), 
+                                rest_id = '4', ), ), ), ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -74,7 +72,7 @@ class TestPostDeleteRetweet200Response(unittest.TestCase):
                             trace_id = 'bf325375e030fccb', ), )
                     ]
             )
-        else :
+        else:
             return PostDeleteRetweet200Response(
                 data = twitter_openapi_python_generated.models.delete_retweet_response_data.DeleteRetweetResponseData(
                     create_retweet = twitter_openapi_python_generated.models.create_retweet_response_result.CreateRetweetResponseResult(

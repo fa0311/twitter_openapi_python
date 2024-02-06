@@ -20,11 +20,16 @@ import pprint
 import re  # noqa: F401
 
 from typing import Any, List, Optional
-from pydantic import BaseModel, Field, StrictStr, ValidationError, validator
+from pydantic import BaseModel, Field, StrictStr, ValidationError, field_validator
 from twitter_openapi_python_generated.models.create_retweet_response import CreateRetweetResponse
 from twitter_openapi_python_generated.models.errors import Errors
-from typing import Union, Any, List, TYPE_CHECKING
+from typing import Union, Any, List, TYPE_CHECKING, Optional, Dict
+from typing_extensions import Literal
 from pydantic import StrictStr, Field
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 POSTCREATERETWEET200RESPONSE_ONE_OF_SCHEMAS = ["CreateRetweetResponse", "Errors"]
 
@@ -36,16 +41,16 @@ class PostCreateRetweet200Response(BaseModel):
     oneof_schema_1_validator: Optional[CreateRetweetResponse] = None
     # data type: Errors
     oneof_schema_2_validator: Optional[Errors] = None
-    if TYPE_CHECKING:
-        actual_instance: Union[CreateRetweetResponse, Errors]
-    else:
-        actual_instance: Any
-    one_of_schemas: List[str] = Field(POSTCREATERETWEET200RESPONSE_ONE_OF_SCHEMAS, const=True)
+    actual_instance: Optional[Union[CreateRetweetResponse, Errors]] = None
+    one_of_schemas: List[str] = Literal["CreateRetweetResponse", "Errors"]
 
-    class Config:
-        validate_assignment = True
+    model_config = {
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
 
-    def __init__(self, *args, **kwargs):
+
+    def __init__(self, *args, **kwargs) -> None:
         if args:
             if len(args) > 1:
                 raise ValueError("If a position argument is used, only 1 is allowed to set `actual_instance`")
@@ -55,9 +60,9 @@ class PostCreateRetweet200Response(BaseModel):
         else:
             super().__init__(**kwargs)
 
-    @validator('actual_instance')
+    @field_validator('actual_instance')
     def actual_instance_must_validate_oneof(cls, v):
-        instance = PostCreateRetweet200Response.construct()
+        instance = PostCreateRetweet200Response.model_construct()
         error_messages = []
         match = 0
         # validate data type: CreateRetweetResponse
@@ -80,13 +85,13 @@ class PostCreateRetweet200Response(BaseModel):
             return v
 
     @classmethod
-    def from_dict(cls, obj: dict) -> PostCreateRetweet200Response:
+    def from_dict(cls, obj: dict) -> Self:
         return cls.from_json(json.dumps(obj))
 
     @classmethod
-    def from_json(cls, json_str: str) -> PostCreateRetweet200Response:
+    def from_json(cls, json_str: str) -> Self:
         """Returns the object represented by the json string"""
-        instance = PostCreateRetweet200Response.construct()
+        instance = cls.model_construct()
         error_messages = []
         match = 0
 
@@ -123,7 +128,7 @@ class PostCreateRetweet200Response(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> Dict:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None
@@ -137,6 +142,6 @@ class PostCreateRetweet200Response(BaseModel):
 
     def to_str(self) -> str:
         """Returns the string representation of the actual instance"""
-        return pprint.pformat(self.dict())
+        return pprint.pformat(self.model_dump())
 
 

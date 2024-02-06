@@ -19,8 +19,10 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot
 from twitter_openapi_python_generated.models.note_tweet import NoteTweet
 from twitter_openapi_python_generated.models.tweet_card import TweetCard
@@ -29,59 +31,76 @@ from twitter_openapi_python_generated.models.tweet_edit_prespective import Tweet
 from twitter_openapi_python_generated.models.tweet_view import TweetView
 from twitter_openapi_python_generated.models.type_name import TypeName
 from twitter_openapi_python_generated.models.user_result_core import UserResultCore
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class Tweet(BaseModel):
     """
     Tweet
-    """
-    typename: Optional[TypeName] = Field(None, alias="__typename")
+    """ # noqa: E501
+    typename: Optional[TypeName] = Field(default=None, alias="__typename")
     birdwatch_pivot: Optional[BirdwatchPivot] = None
     card: Optional[TweetCard] = None
     core: Optional[UserResultCore] = None
-    edit_control: TweetEditControl = Field(...)
+    edit_control: TweetEditControl
     edit_prespective: Optional[TweetEditPrespective] = None
-    is_translatable: StrictBool = Field(...)
+    is_translatable: StrictBool
     legacy: Optional[TweetLegacy] = None
     note_tweet: Optional[NoteTweet] = None
     quick_promote_eligibility: Optional[Dict[str, Any]] = None
     quoted_status_result: Optional[ItemResult] = None
-    rest_id: constr(strict=True) = Field(...)
+    rest_id: Annotated[str, Field(strict=True)]
     source: Optional[StrictStr] = None
     unmention_data: Optional[Dict[str, Any]] = None
-    views: TweetView = Field(...)
-    __properties = ["__typename", "birdwatch_pivot", "card", "core", "edit_control", "edit_prespective", "is_translatable", "legacy", "note_tweet", "quick_promote_eligibility", "quoted_status_result", "rest_id", "source", "unmention_data", "views"]
+    views: TweetView
+    __properties: ClassVar[List[str]] = ["__typename", "birdwatch_pivot", "card", "core", "edit_control", "edit_prespective", "is_translatable", "legacy", "note_tweet", "quick_promote_eligibility", "quoted_status_result", "rest_id", "source", "unmention_data", "views"]
 
-    @validator('rest_id')
+    @field_validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Tweet:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of Tweet from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of birdwatch_pivot
         if self.birdwatch_pivot:
             _dict['birdwatch_pivot'] = self.birdwatch_pivot.to_dict()
@@ -112,16 +131,16 @@ class Tweet(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> Tweet:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of Tweet from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return Tweet.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = Tweet.parse_obj({
-            "typename": obj.get("__typename"),
+        _obj = cls.model_validate({
+            "__typename": obj.get("__typename"),
             "birdwatch_pivot": BirdwatchPivot.from_dict(obj.get("birdwatch_pivot")) if obj.get("birdwatch_pivot") is not None else None,
             "card": TweetCard.from_dict(obj.get("card")) if obj.get("card") is not None else None,
             "core": UserResultCore.from_dict(obj.get("core")) if obj.get("core") is not None else None,
@@ -141,5 +160,6 @@ class Tweet(BaseModel):
 
 from twitter_openapi_python_generated.models.item_result import ItemResult
 from twitter_openapi_python_generated.models.tweet_legacy import TweetLegacy
-Tweet.update_forward_refs()
+# TODO: Rewrite to not use raise_errors
+Tweet.model_rebuild(raise_errors=False)
 
