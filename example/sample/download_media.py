@@ -1,15 +1,15 @@
-from twitter_openapi_python import (
-    TwitterOpenapiPython,
-    TimelineTimelineCursor,
-    MediaExtended,
-    TweetApiUtilsData,
-)
-from typing import Optional
-import login as login
-import urllib.request
 import os
+import urllib.request
 from pathlib import Path
+from typing import Optional
 
+import login as login
+from twitter_openapi_python import (
+    MediaExtended,
+    TimelineTimelineCursor,
+    TweetApiUtilsData,
+    TwitterOpenapiPython,
+)
 
 cookies_dict = login.login().get_cookies().get_dict()
 𝕏 = TwitterOpenapiPython().get_client_from_cookies(cookies=cookies_dict)

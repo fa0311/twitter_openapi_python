@@ -1,9 +1,6 @@
-from twitter_openapi_python import TwitterOpenapiPython
-
-
 import login as login
 import tweepy
-
+from twitter_openapi_python import TwitterOpenapiPython
 
 auth_handler = login.login()
 cookies_dict = auth_handler.get_cookies().get_dict()
