@@ -110,8 +110,8 @@ class TwitterOpenapiPython:
         api: twitter.ApiClient,
     ) -> TwitterOpenapiPythonClient:
         http = urllib3.PoolManager()
-        flag = http.request("GET", self.placeholder_url.format(hash=self.hash)).json()
-        return TwitterOpenapiPythonClient(api, flag)
+        flag = http.request("GET", self.placeholder_url.format(hash=self.hash))
+        return TwitterOpenapiPythonClient(api, json.loads(flag.data))
 
     def get_client_from_cookies(
         self,
