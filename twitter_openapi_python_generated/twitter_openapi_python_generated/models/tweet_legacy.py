@@ -19,92 +19,111 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.entities import Entities
 from twitter_openapi_python_generated.models.extended_entities import ExtendedEntities
 from twitter_openapi_python_generated.models.self_thread import SelfThread
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class TweetLegacy(BaseModel):
     """
     TweetLegacy
-    """
-    bookmark_count: StrictInt = Field(...)
-    bookmarked: StrictBool = Field(...)
-    conversation_id_str: constr(strict=True) = Field(...)
-    created_at: constr(strict=True) = Field(...)
-    display_text_range: conlist(StrictInt) = Field(...)
-    entities: Entities = Field(...)
+    """ # noqa: E501
+    bookmark_count: StrictInt
+    bookmarked: StrictBool
+    conversation_id_str: Annotated[str, Field(strict=True)]
+    created_at: Annotated[str, Field(strict=True)]
+    display_text_range: List[StrictInt]
+    entities: Entities
     extended_entities: Optional[ExtendedEntities] = None
-    favorite_count: StrictInt = Field(...)
-    favorited: StrictBool = Field(...)
-    full_text: StrictStr = Field(...)
-    id_str: constr(strict=True) = Field(...)
-    is_quote_status: StrictBool = Field(...)
-    lang: StrictStr = Field(...)
+    favorite_count: StrictInt
+    favorited: StrictBool
+    full_text: StrictStr
+    id_str: Annotated[str, Field(strict=True)]
+    is_quote_status: StrictBool
+    lang: StrictStr
     possibly_sensitive: Optional[StrictBool] = False
     possibly_sensitive_editable: Optional[StrictBool] = False
-    quote_count: StrictInt = Field(...)
-    reply_count: StrictInt = Field(...)
-    retweet_count: StrictInt = Field(...)
-    retweeted: StrictBool = Field(...)
+    quote_count: StrictInt
+    reply_count: StrictInt
+    retweet_count: StrictInt
+    retweeted: StrictBool
     retweeted_status_result: Optional[ItemResult] = None
     self_thread: Optional[SelfThread] = None
-    user_id_str: constr(strict=True) = Field(...)
-    __properties = ["bookmark_count", "bookmarked", "conversation_id_str", "created_at", "display_text_range", "entities", "extended_entities", "favorite_count", "favorited", "full_text", "id_str", "is_quote_status", "lang", "possibly_sensitive", "possibly_sensitive_editable", "quote_count", "reply_count", "retweet_count", "retweeted", "retweeted_status_result", "self_thread", "user_id_str"]
+    user_id_str: Annotated[str, Field(strict=True)]
+    __properties: ClassVar[List[str]] = ["bookmark_count", "bookmarked", "conversation_id_str", "created_at", "display_text_range", "entities", "extended_entities", "favorite_count", "favorited", "full_text", "id_str", "is_quote_status", "lang", "possibly_sensitive", "possibly_sensitive_editable", "quote_count", "reply_count", "retweet_count", "retweeted", "retweeted_status_result", "self_thread", "user_id_str"]
 
-    @validator('conversation_id_str')
+    @field_validator('conversation_id_str')
     def conversation_id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    @validator('created_at')
+    @field_validator('created_at')
     def created_at_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$", value):
             raise ValueError(r"must validate the regular expression /^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$/")
         return value
 
-    @validator('id_str')
+    @field_validator('id_str')
     def id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    @validator('user_id_str')
+    @field_validator('user_id_str')
     def user_id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> TweetLegacy:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of TweetLegacy from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of entities
         if self.entities:
             _dict['entities'] = self.entities.to_dict()
@@ -120,15 +139,15 @@ class TweetLegacy(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> TweetLegacy:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of TweetLegacy from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return TweetLegacy.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = TweetLegacy.parse_obj({
+        _obj = cls.model_validate({
             "bookmark_count": obj.get("bookmark_count"),
             "bookmarked": obj.get("bookmarked"),
             "conversation_id_str": obj.get("conversation_id_str"),
@@ -155,5 +174,6 @@ class TweetLegacy(BaseModel):
         return _obj
 
 from twitter_openapi_python_generated.models.item_result import ItemResult
-TweetLegacy.update_forward_refs()
+# TODO: Rewrite to not use raise_errors
+TweetLegacy.model_rebuild(raise_errors=False)
 

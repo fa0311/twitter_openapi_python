@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.search_timeline_data import SearchTimelineData  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.search_timeline_data import SearchTimelineData
 
 class TestSearchTimelineData(unittest.TestCase):
     """SearchTimelineData unit test stubs"""
@@ -29,15 +27,15 @@ class TestSearchTimelineData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> SearchTimelineData:
         """Test SearchTimelineData
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `SearchTimelineData`
         """
-        model = twitter_openapi_python_generated.models.search_timeline_data.SearchTimelineData()  # noqa: E501
-        if include_optional :
+        model = SearchTimelineData()
+        if include_optional:
             return SearchTimelineData(
                 search_by_raw_query = twitter_openapi_python_generated.models.search_by_raw_query.SearchByRawQuery(
                     search_timeline = twitter_openapi_python_generated.models.search_timeline.SearchTimeline(
@@ -48,7 +46,7 @@ class TestSearchTimelineData(unittest.TestCase):
                             metadata = { }, 
                             response_objects = { }, ), ), )
             )
-        else :
+        else:
             return SearchTimelineData(
                 search_by_raw_query = twitter_openapi_python_generated.models.search_by_raw_query.SearchByRawQuery(
                     search_timeline = twitter_openapi_python_generated.models.search_timeline.SearchTimeline(

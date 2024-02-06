@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.timeline_timeline_cursor import TimelineTimelineCursor  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.timeline_timeline_cursor import TimelineTimelineCursor
 
 class TestTimelineTimelineCursor(unittest.TestCase):
     """TimelineTimelineCursor unit test stubs"""
@@ -29,23 +27,23 @@ class TestTimelineTimelineCursor(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TimelineTimelineCursor:
         """Test TimelineTimelineCursor
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TimelineTimelineCursor`
         """
-        model = twitter_openapi_python_generated.models.timeline_timeline_cursor.TimelineTimelineCursor()  # noqa: E501
-        if include_optional :
+        model = TimelineTimelineCursor()
+        if include_optional:
             return TimelineTimelineCursor(
-                typename = 'TimelineTweet', 
-                cursor_type = 'Top', 
-                entry_type = 'TimelineTimelineItem', 
-                item_type = 'TimelineTimelineItem', 
+                typename = 'TimelineTweet',
+                cursor_type = 'Top',
+                entry_type = 'TimelineTimelineItem',
+                item_type = 'TimelineTimelineItem',
                 value = ''
             )
-        else :
+        else:
             return TimelineTimelineCursor(
                 typename = 'TimelineTweet',
                 cursor_type = 'Top',

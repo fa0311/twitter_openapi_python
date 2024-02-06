@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.timeline_show_alert import TimelineShowAlert  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.timeline_show_alert import TimelineShowAlert
 
 class TestTimelineShowAlert(unittest.TestCase):
     """TimelineShowAlert unit test stubs"""
@@ -29,34 +27,34 @@ class TestTimelineShowAlert(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TimelineShowAlert:
         """Test TimelineShowAlert
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TimelineShowAlert`
         """
-        model = twitter_openapi_python_generated.models.timeline_show_alert.TimelineShowAlert()  # noqa: E501
-        if include_optional :
+        model = TimelineShowAlert()
+        if include_optional:
             return TimelineShowAlert(
-                alert_type = 'NewTweets', 
-                color_config = { }, 
-                display_duration_ms = 56, 
-                display_location = 'Top', 
-                icon_display_info = { }, 
+                alert_type = 'NewTweets',
+                color_config = { },
+                display_duration_ms = 56,
+                display_location = 'Top',
+                icon_display_info = { },
                 rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlert_richText(
                     entities = [
                         { }
                         ], 
-                    text = '', ), 
-                trigger_delay_ms = 56, 
-                type = 'TimelineAddEntries', 
+                    text = '', ),
+                trigger_delay_ms = 56,
+                type = 'TimelineAddEntries',
                 users_results = [
                     twitter_openapi_python_generated.models.user_results.UserResults(
                         result = null, )
                     ]
             )
-        else :
+        else:
             return TimelineShowAlert(
                 rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlert_richText(
                     entities = [

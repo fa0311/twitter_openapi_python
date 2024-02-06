@@ -66,7 +66,8 @@ class TwitterOpenapiPython:
 
     api_key = {
         "Accept": "*/*",
-        "AcceptEncoding": "gzip, deflate, br",
+        # "AcceptEncoding": "gzip, deflate, br",
+        # "AcceptEncoding": "deflate, br",
         "AcceptLanguage": "en-US,en;q=0.9",
         "CacheControl": "no-cache",
         "Pragma": "no-cache",
@@ -150,7 +151,8 @@ class TwitterOpenapiPython:
             "GET",
             "https://twitter.com",
             redirect=False,
-            headers=self.browser_headers.copy() | {"Cookie": self.cookie_to_str(session)},
+            headers=self.browser_headers.copy()
+            | {"Cookie": self.cookie_to_str(session)},
         )
 
         find = re.findall(r'document.cookie="(.*?)";', res_2.data.decode())

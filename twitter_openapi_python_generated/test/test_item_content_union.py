@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.item_content_union import ItemContentUnion  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.item_content_union import ItemContentUnion
 
 class TestItemContentUnion(unittest.TestCase):
     """ItemContentUnion unit test stubs"""
@@ -29,35 +27,35 @@ class TestItemContentUnion(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> ItemContentUnion:
         """Test ItemContentUnion
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ItemContentUnion`
         """
-        model = twitter_openapi_python_generated.models.item_content_union.ItemContentUnion()  # noqa: E501
-        if include_optional :
+        model = ItemContentUnion()
+        if include_optional:
             return ItemContentUnion(
                 social_context = twitter_openapi_python_generated.models.social_context.SocialContext(
                     context_type = '', 
                     text = '', 
-                    type = '', ), 
-                typename = 'TimelineTweet', 
-                item_type = 'TimelineTweet', 
-                promoted_metadata = { }, 
-                tweet_display_type = '', 
+                    type = '', ),
+                typename = 'TimelineTweet',
+                item_type = 'TimelineTweet',
+                promoted_metadata = { },
+                tweet_display_type = '',
                 tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 
-                    result = null, ), 
-                cursor_type = 'Top', 
-                entry_type = 'TimelineTimelineItem', 
-                value = '', 
-                user_display_type = 'User', 
+                    result = null, ),
+                cursor_type = 'Top',
+                entry_type = 'TimelineTimelineItem',
+                value = '',
+                user_display_type = 'User',
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                     result = null, )
             )
-        else :
+        else:
             return ItemContentUnion(
                 typename = 'TimelineTweet',
                 item_type = 'TimelineTweet',

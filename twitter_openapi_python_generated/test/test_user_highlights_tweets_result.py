@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_highlights_tweets_result import UserHighlightsTweetsResult  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.user_highlights_tweets_result import UserHighlightsTweetsResult
 
 class TestUserHighlightsTweetsResult(unittest.TestCase):
     """UserHighlightsTweetsResult unit test stubs"""
@@ -29,17 +27,17 @@ class TestUserHighlightsTweetsResult(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> UserHighlightsTweetsResult:
         """Test UserHighlightsTweetsResult
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserHighlightsTweetsResult`
         """
-        model = twitter_openapi_python_generated.models.user_highlights_tweets_result.UserHighlightsTweetsResult()  # noqa: E501
-        if include_optional :
+        model = UserHighlightsTweetsResult()
+        if include_optional:
             return UserHighlightsTweetsResult(
-                typename = 'TimelineTweet', 
+                typename = 'TimelineTweet',
                 timeline = twitter_openapi_python_generated.models.user_highlights_tweets_timeline.UserHighlightsTweetsTimeline(
                     timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                         instructions = [
@@ -48,7 +46,7 @@ class TestUserHighlightsTweetsResult(unittest.TestCase):
                         metadata = { }, 
                         response_objects = { }, ), )
             )
-        else :
+        else:
             return UserHighlightsTweetsResult(
                 typename = 'TimelineTweet',
                 timeline = twitter_openapi_python_generated.models.user_highlights_tweets_timeline.UserHighlightsTweetsTimeline(

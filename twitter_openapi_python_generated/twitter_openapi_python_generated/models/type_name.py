@@ -13,13 +13,18 @@
 """  # noqa: E501
 
 
+from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from aenum import Enum, no_arg
+from enum import Enum
 
 
 
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 
 class TypeName(str, Enum):
@@ -46,8 +51,8 @@ class TypeName(str, Enum):
     USERUNAVAILABLE = 'UserUnavailable'
 
     @classmethod
-    def from_json(cls, json_str: str) -> TypeName:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of TypeName from a JSON string"""
-        return TypeName(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

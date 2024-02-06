@@ -15,81 +15,79 @@
 
 import unittest
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.api.tweet_api import TweetApi  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.api.tweet_api import TweetApi
 
 
 class TestTweetApi(unittest.TestCase):
     """TweetApi unit test stubs"""
 
-    def setUp(self):
-        self.api = twitter_openapi_python_generated.api.tweet_api.TweetApi()  # noqa: E501
+    def setUp(self) -> None:
+        self.api = TweetApi()
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         pass
 
-    def test_get_bookmarks(self):
+    def test_get_bookmarks(self) -> None:
         """Test case for get_bookmarks
 
         """
         pass
 
-    def test_get_home_latest_timeline(self):
+    def test_get_home_latest_timeline(self) -> None:
         """Test case for get_home_latest_timeline
 
         """
         pass
 
-    def test_get_home_timeline(self):
+    def test_get_home_timeline(self) -> None:
         """Test case for get_home_timeline
 
         """
         pass
 
-    def test_get_likes(self):
+    def test_get_likes(self) -> None:
         """Test case for get_likes
 
         """
         pass
 
-    def test_get_list_latest_tweets_timeline(self):
+    def test_get_list_latest_tweets_timeline(self) -> None:
         """Test case for get_list_latest_tweets_timeline
 
         """
         pass
 
-    def test_get_search_timeline(self):
+    def test_get_search_timeline(self) -> None:
         """Test case for get_search_timeline
 
         """
         pass
 
-    def test_get_tweet_detail(self):
+    def test_get_tweet_detail(self) -> None:
         """Test case for get_tweet_detail
 
         """
         pass
 
-    def test_get_user_highlights_tweets(self):
+    def test_get_user_highlights_tweets(self) -> None:
         """Test case for get_user_highlights_tweets
 
         """
         pass
 
-    def test_get_user_media(self):
+    def test_get_user_media(self) -> None:
         """Test case for get_user_media
 
         """
         pass
 
-    def test_get_user_tweets(self):
+    def test_get_user_tweets(self) -> None:
         """Test case for get_user_tweets
 
         """
         pass
 
-    def test_get_user_tweets_and_replies(self):
+    def test_get_user_tweets_and_replies(self) -> None:
         """Test case for get_user_tweets_and_replies
 
         """

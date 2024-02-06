@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**CreateRetweetResponseData**](CreateRetweetResponseData.md) |  | 

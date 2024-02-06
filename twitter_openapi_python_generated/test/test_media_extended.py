@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.media_extended import MediaExtended  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.media_extended import MediaExtended
 
 class TestMediaExtended(unittest.TestCase):
     """MediaExtended unit test stubs"""
@@ -29,32 +27,32 @@ class TestMediaExtended(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> MediaExtended:
         """Test MediaExtended
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `MediaExtended`
         """
-        model = twitter_openapi_python_generated.models.media_extended.MediaExtended()  # noqa: E501
-        if include_optional :
+        model = MediaExtended()
+        if include_optional:
             return MediaExtended(
                 additional_media_info = twitter_openapi_python_generated.models.additional_media_info.AdditionalMediaInfo(
-                    monetizable = True, ), 
-                display_url = '', 
-                expanded_url = '', 
+                    monetizable = True, ),
+                display_url = '',
+                expanded_url = '',
                 ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.extMediaAvailability(
                     reason = '', 
-                    status = 'Available', ), 
-                features = twitter_openapi_python_generated.models.features.features(), 
-                id_str = '4', 
+                    status = 'Available', ),
+                features = twitter_openapi_python_generated.models.features.features(),
+                id_str = '4',
                 indices = [
                     56
-                    ], 
+                    ],
                 media_stats = twitter_openapi_python_generated.models.media_stats.mediaStats(
-                    view_count = 56, ), 
-                media_key = '', 
-                media_url_https = '', 
+                    view_count = 56, ),
+                media_key = '',
+                media_url_https = '',
                 original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                     focus_rects = [
                         twitter_openapi_python_generated.models.media_original_info_focus_rect.MediaOriginalInfoFocusRect(
@@ -64,7 +62,7 @@ class TestMediaExtended(unittest.TestCase):
                             y = 56, )
                         ], 
                     height = 56, 
-                    width = 56, ), 
+                    width = 56, ),
                 sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
                     large = twitter_openapi_python_generated.models.media_size.MediaSize(
                         h = 56, 
@@ -75,9 +73,9 @@ class TestMediaExtended(unittest.TestCase):
                         resize = 'crop', 
                         w = 56, ), 
                     small = , 
-                    thumb = , ), 
-                type = 'photo', 
-                url = '', 
+                    thumb = , ),
+                type = 'photo',
+                url = '',
                 video_info = twitter_openapi_python_generated.models.media_video_info.MediaVideoInfo(
                     aspect_ratio = [
                         56
@@ -90,7 +88,7 @@ class TestMediaExtended(unittest.TestCase):
                             url = '', )
                         ], )
             )
-        else :
+        else:
             return MediaExtended(
                 display_url = '',
                 expanded_url = '',

@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.content_union import ContentUnion  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.content_union import ContentUnion
 
 class TestContentUnion(unittest.TestCase):
     """ContentUnion unit test stubs"""
@@ -29,24 +27,24 @@ class TestContentUnion(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> ContentUnion:
         """Test ContentUnion
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ContentUnion`
         """
-        model = twitter_openapi_python_generated.models.content_union.ContentUnion()  # noqa: E501
-        if include_optional :
+        model = ContentUnion()
+        if include_optional:
             return ContentUnion(
-                typename = 'TimelineTweet', 
-                client_event_info = { }, 
-                entry_type = 'TimelineTimelineItem', 
-                feedback_info = { }, 
-                item_content = None, 
-                display_type = 'Vertical', 
-                footer = { }, 
-                header = { }, 
+                typename = 'TimelineTweet',
+                client_event_info = { },
+                entry_type = 'TimelineTimelineItem',
+                feedback_info = { },
+                item_content = None,
+                display_type = 'Vertical',
+                footer = { },
+                header = { },
                 items = [
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
                         entry_id = '25375e030fccba00917317c574773100bf03b5f', 
@@ -56,12 +54,12 @@ class TestContentUnion(unittest.TestCase):
                                 details = { }, 
                                 element = '', ), 
                             item_content = null, ), )
-                    ], 
-                cursor_type = 'Top', 
-                item_type = 'TimelineTimelineItem', 
+                    ],
+                cursor_type = 'Top',
+                item_type = 'TimelineTimelineItem',
                 value = ''
             )
-        else :
+        else:
             return ContentUnion(
                 typename = 'TimelineTweet',
                 client_event_info = { },

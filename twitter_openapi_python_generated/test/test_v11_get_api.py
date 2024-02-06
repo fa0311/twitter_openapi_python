@@ -15,27 +15,25 @@
 
 import unittest
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.api.v11_get_api import V11GetApi  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.api.v11_get_api import V11GetApi
 
 
 class TestV11GetApi(unittest.TestCase):
     """V11GetApi unit test stubs"""
 
-    def setUp(self):
-        self.api = twitter_openapi_python_generated.api.v11_get_api.V11GetApi()  # noqa: E501
+    def setUp(self) -> None:
+        self.api = V11GetApi()
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         pass
 
-    def test_get_friends_following_list(self):
+    def test_get_friends_following_list(self) -> None:
         """Test case for get_friends_following_list
 
         """
         pass
 
-    def test_get_search_typeahead(self):
+    def test_get_search_typeahead(self) -> None:
         """Test case for get_search_typeahead
 
         """

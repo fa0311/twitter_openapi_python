@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.delete_retweet import DeleteRetweet  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.delete_retweet import DeleteRetweet
 
 class TestDeleteRetweet(unittest.TestCase):
     """DeleteRetweet unit test stubs"""
@@ -29,15 +27,15 @@ class TestDeleteRetweet(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> DeleteRetweet:
         """Test DeleteRetweet
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `DeleteRetweet`
         """
-        model = twitter_openapi_python_generated.models.delete_retweet.DeleteRetweet()  # noqa: E501
-        if include_optional :
+        model = DeleteRetweet()
+        if include_optional:
             return DeleteRetweet(
                 result = [
                     twitter_openapi_python_generated.models.retweet.Retweet(
@@ -46,7 +44,7 @@ class TestDeleteRetweet(unittest.TestCase):
                         rest_id = '4', )
                     ]
             )
-        else :
+        else:
             return DeleteRetweet(
                 result = [
                     twitter_openapi_python_generated.models.retweet.Retweet(

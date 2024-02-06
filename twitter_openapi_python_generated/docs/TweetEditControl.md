@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **edit_control_initial** | [**TweetEditControlInitial**](TweetEditControlInitial.md) |  | [optional] 

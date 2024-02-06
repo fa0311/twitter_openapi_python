@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.cta_client_event_info import CtaClientEventInfo  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.cta_client_event_info import CtaClientEventInfo
 
 class TestCtaClientEventInfo(unittest.TestCase):
     """CtaClientEventInfo unit test stubs"""
@@ -29,19 +27,19 @@ class TestCtaClientEventInfo(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> CtaClientEventInfo:
         """Test CtaClientEventInfo
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CtaClientEventInfo`
         """
-        model = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo()  # noqa: E501
-        if include_optional :
+        model = CtaClientEventInfo()
+        if include_optional:
             return CtaClientEventInfo(
                 action = 'primary_cta'
             )
-        else :
+        else:
             return CtaClientEventInfo(
                 action = 'primary_cta',
         )

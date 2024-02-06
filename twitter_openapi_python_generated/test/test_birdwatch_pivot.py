@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot
 
 class TestBirdwatchPivot(unittest.TestCase):
     """BirdwatchPivot unit test stubs"""
@@ -29,17 +27,17 @@ class TestBirdwatchPivot(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> BirdwatchPivot:
         """Test BirdwatchPivot
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `BirdwatchPivot`
         """
-        model = twitter_openapi_python_generated.models.birdwatch_pivot.BirdwatchPivot()  # noqa: E501
-        if include_optional :
+        model = BirdwatchPivot()
+        if include_optional:
             return BirdwatchPivot(
-                destination_url = '', 
+                destination_url = '',
                 footer = twitter_openapi_python_generated.models.birdwatch_pivot_footer.BirdwatchPivotFooter(
                     entities = [
                         twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
@@ -50,11 +48,11 @@ class TestBirdwatchPivot(unittest.TestCase):
                                 url_type = 'ExternalUrl', ), 
                             to_index = 56, )
                         ], 
-                    text = '', ), 
-                icon_type = 'BirdwatchV1Icon', 
+                    text = '', ),
+                icon_type = 'BirdwatchV1Icon',
                 note = twitter_openapi_python_generated.models.birdwatch_pivot_note.BirdwatchPivotNote(
-                    rest_id = '4', ), 
-                shorttitle = '', 
+                    rest_id = '4', ),
+                shorttitle = '',
                 subtitle = twitter_openapi_python_generated.models.birdwatch_pivot_subtitle.BirdwatchPivotSubtitle(
                     entities = [
                         twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
@@ -65,11 +63,11 @@ class TestBirdwatchPivot(unittest.TestCase):
                                 url_type = 'ExternalUrl', ), 
                             to_index = 56, )
                         ], 
-                    text = '', ), 
-                title = '', 
+                    text = '', ),
+                title = '',
                 visual_style = 'Default'
             )
-        else :
+        else:
             return BirdwatchPivot(
                 destination_url = '',
                 footer = twitter_openapi_python_generated.models.birdwatch_pivot_footer.BirdwatchPivotFooter(

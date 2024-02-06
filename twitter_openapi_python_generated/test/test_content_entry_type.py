@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
 
 class TestContentEntryType(unittest.TestCase):
     """ContentEntryType unit test stubs"""

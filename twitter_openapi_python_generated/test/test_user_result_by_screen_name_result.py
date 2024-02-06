@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_result_by_screen_name_result import UserResultByScreenNameResult  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.user_result_by_screen_name_result import UserResultByScreenNameResult
 
 class TestUserResultByScreenNameResult(unittest.TestCase):
     """UserResultByScreenNameResult unit test stubs"""
@@ -29,18 +27,18 @@ class TestUserResultByScreenNameResult(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> UserResultByScreenNameResult:
         """Test UserResultByScreenNameResult
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserResultByScreenNameResult`
         """
-        model = twitter_openapi_python_generated.models.user_result_by_screen_name_result.UserResultByScreenNameResult()  # noqa: E501
-        if include_optional :
+        model = UserResultByScreenNameResult()
+        if include_optional:
             return UserResultByScreenNameResult(
-                typename = 'TimelineTweet', 
-                id = 'G', 
+                typename = 'TimelineTweet',
+                id = 'G',
                 legacy = twitter_openapi_python_generated.models.user_result_by_screen_name_legacy.UserResultByScreenNameLegacy(
                     blocked_by = True, 
                     blocking = True, 
@@ -48,11 +46,11 @@ class TestUserResultByScreenNameResult(unittest.TestCase):
                     following = True, 
                     name = '', 
                     protected = True, 
-                    screen_name = '', ), 
-                profilemodules = { }, 
+                    screen_name = '', ),
+                profilemodules = { },
                 rest_id = '4'
             )
-        else :
+        else:
             return UserResultByScreenNameResult(
                 typename = 'TimelineTweet',
                 id = 'G',

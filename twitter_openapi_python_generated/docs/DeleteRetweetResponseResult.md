@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **retweet_results** | [**DeleteRetweet**](DeleteRetweet.md) |  | [optional] 

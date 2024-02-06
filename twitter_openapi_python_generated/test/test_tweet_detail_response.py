@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_detail_response import TweetDetailResponse  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.tweet_detail_response import TweetDetailResponse
 
 class TestTweetDetailResponse(unittest.TestCase):
     """TweetDetailResponse unit test stubs"""
@@ -29,15 +27,15 @@ class TestTweetDetailResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TweetDetailResponse:
         """Test TweetDetailResponse
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TweetDetailResponse`
         """
-        model = twitter_openapi_python_generated.models.tweet_detail_response.TweetDetailResponse()  # noqa: E501
-        if include_optional :
+        model = TweetDetailResponse()
+        if include_optional:
             return TweetDetailResponse(
                 data = twitter_openapi_python_generated.models.tweet_detail_response_data.TweetDetailResponseData(
                     threaded_conversation_with_injections_v2 = twitter_openapi_python_generated.models.timeline.Timeline(
@@ -47,7 +45,7 @@ class TestTweetDetailResponse(unittest.TestCase):
                         metadata = { }, 
                         response_objects = { }, ), )
             )
-        else :
+        else:
             return TweetDetailResponse(
                 data = twitter_openapi_python_generated.models.tweet_detail_response_data.TweetDetailResponseData(
                     threaded_conversation_with_injections_v2 = twitter_openapi_python_generated.models.timeline.Timeline(

@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_unfavorite_tweet200_response import PostUnfavoriteTweet200Response  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.post_unfavorite_tweet200_response import PostUnfavoriteTweet200Response
 
 class TestPostUnfavoriteTweet200Response(unittest.TestCase):
     """PostUnfavoriteTweet200Response unit test stubs"""
@@ -29,18 +27,18 @@ class TestPostUnfavoriteTweet200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> PostUnfavoriteTweet200Response:
         """Test PostUnfavoriteTweet200Response
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostUnfavoriteTweet200Response`
         """
-        model = twitter_openapi_python_generated.models.post_unfavorite_tweet200_response.PostUnfavoriteTweet200Response()  # noqa: E501
-        if include_optional :
+        model = PostUnfavoriteTweet200Response()
+        if include_optional:
             return PostUnfavoriteTweet200Response(
                 data = twitter_openapi_python_generated.models.unfavorite_tweet.UnfavoriteTweet(
-                    unfavorite_tweet = '', ), 
+                    unfavorite_tweet = '', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -69,7 +67,7 @@ class TestPostUnfavoriteTweet200Response(unittest.TestCase):
                             trace_id = 'bf325375e030fccb', ), )
                     ]
             )
-        else :
+        else:
             return PostUnfavoriteTweet200Response(
                 data = twitter_openapi_python_generated.models.unfavorite_tweet.UnfavoriteTweet(
                     unfavorite_tweet = '', ),

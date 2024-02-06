@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.url import Url  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.url import Url
 
 class TestUrl(unittest.TestCase):
     """Url unit test stubs"""
@@ -29,24 +27,24 @@ class TestUrl(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> Url:
         """Test Url
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Url`
         """
-        model = twitter_openapi_python_generated.models.url.Url()  # noqa: E501
-        if include_optional :
+        model = Url()
+        if include_optional:
             return Url(
-                display_url = '', 
-                expanded_url = '', 
+                display_url = '',
+                expanded_url = '',
                 indices = [
                     56
-                    ], 
+                    ],
                 url = ''
             )
-        else :
+        else:
             return Url(
                 display_url = '',
                 expanded_url = '',

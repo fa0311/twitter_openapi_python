@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.bookmarks_timeline import BookmarksTimeline  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.bookmarks_timeline import BookmarksTimeline
 
 class TestBookmarksTimeline(unittest.TestCase):
     """BookmarksTimeline unit test stubs"""
@@ -29,15 +27,15 @@ class TestBookmarksTimeline(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> BookmarksTimeline:
         """Test BookmarksTimeline
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `BookmarksTimeline`
         """
-        model = twitter_openapi_python_generated.models.bookmarks_timeline.BookmarksTimeline()  # noqa: E501
-        if include_optional :
+        model = BookmarksTimeline()
+        if include_optional:
             return BookmarksTimeline(
                 timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                     instructions = [
@@ -46,7 +44,7 @@ class TestBookmarksTimeline(unittest.TestCase):
                     metadata = { }, 
                     response_objects = { }, )
             )
-        else :
+        else:
             return BookmarksTimeline(
                 timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                     instructions = [

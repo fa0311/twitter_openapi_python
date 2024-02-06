@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.media_video_info import MediaVideoInfo  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.media_video_info import MediaVideoInfo
 
 class TestMediaVideoInfo(unittest.TestCase):
     """MediaVideoInfo unit test stubs"""
@@ -29,20 +27,20 @@ class TestMediaVideoInfo(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> MediaVideoInfo:
         """Test MediaVideoInfo
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `MediaVideoInfo`
         """
-        model = twitter_openapi_python_generated.models.media_video_info.MediaVideoInfo()  # noqa: E501
-        if include_optional :
+        model = MediaVideoInfo()
+        if include_optional:
             return MediaVideoInfo(
                 aspect_ratio = [
                     56
-                    ], 
-                duration_millis = 56, 
+                    ],
+                duration_millis = 56,
                 variants = [
                     twitter_openapi_python_generated.models.media_video_info_variant.MediaVideoInfoVariant(
                         bitrate = 56, 
@@ -50,7 +48,7 @@ class TestMediaVideoInfo(unittest.TestCase):
                         url = '', )
                     ]
             )
-        else :
+        else:
             return MediaVideoInfo(
                 aspect_ratio = [
                     56

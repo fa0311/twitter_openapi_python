@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user_result_by_screen_name** | [**UserResultByScreenName**](UserResultByScreenName.md) |  | 

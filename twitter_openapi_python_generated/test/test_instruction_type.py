@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.instruction_type import InstructionType  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.instruction_type import InstructionType
 
 class TestInstructionType(unittest.TestCase):
     """InstructionType unit test stubs"""

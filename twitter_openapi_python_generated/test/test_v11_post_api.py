@@ -15,27 +15,25 @@
 
 import unittest
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.api.v11_post_api import V11PostApi  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.api.v11_post_api import V11PostApi
 
 
 class TestV11PostApi(unittest.TestCase):
     """V11PostApi unit test stubs"""
 
-    def setUp(self):
-        self.api = twitter_openapi_python_generated.api.v11_post_api.V11PostApi()  # noqa: E501
+    def setUp(self) -> None:
+        self.api = V11PostApi()
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         pass
 
-    def test_post_create_friendships(self):
+    def test_post_create_friendships(self) -> None:
         """Test case for post_create_friendships
 
         """
         pass
 
-    def test_post_destroy_friendships(self):
+    def test_post_destroy_friendships(self) -> None:
         """Test case for post_destroy_friendships
 
         """

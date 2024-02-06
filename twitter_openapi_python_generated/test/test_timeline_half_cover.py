@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.timeline_half_cover import TimelineHalfCover  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.timeline_half_cover import TimelineHalfCover
 
 class TestTimelineHalfCover(unittest.TestCase):
     """TimelineHalfCover unit test stubs"""
@@ -29,22 +27,22 @@ class TestTimelineHalfCover(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TimelineHalfCover:
         """Test TimelineHalfCover
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TimelineHalfCover`
         """
-        model = twitter_openapi_python_generated.models.timeline_half_cover.TimelineHalfCover()  # noqa: E501
-        if include_optional :
+        model = TimelineHalfCover()
+        if include_optional:
             return TimelineHalfCover(
-                dismissible = True, 
-                half_cover_display_type = 'Cover', 
+                dismissible = True,
+                half_cover_display_type = 'Cover',
                 impression_callbacks = [
                     twitter_openapi_python_generated.models.callback.Callback(
                         endpoint = '', )
-                    ], 
+                    ],
                 primary_cover_cta = twitter_openapi_python_generated.models.cover_cta.CoverCta(
                     text = '', 
                     button_style = 'Primary', 
@@ -55,7 +53,7 @@ class TestTimelineHalfCover(unittest.TestCase):
                     client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
                         action = 'primary_cta', ), 
                     cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
-                        type = 'TimelineCoverBehaviorDismiss', ), ), 
+                        type = 'TimelineCoverBehaviorDismiss', ), ),
                 primary_text = twitter_openapi_python_generated.models.text.Text(
                     entities = [
                         twitter_openapi_python_generated.models.text_entity.TextEntity(
@@ -66,7 +64,7 @@ class TestTimelineHalfCover(unittest.TestCase):
                                 url_type = 'ExternalUrl', ), 
                             to_index = 56, )
                         ], 
-                    text = '', ), 
+                    text = '', ),
                 secondary_text = twitter_openapi_python_generated.models.text.Text(
                     entities = [
                         twitter_openapi_python_generated.models.text_entity.TextEntity(
@@ -77,10 +75,10 @@ class TestTimelineHalfCover(unittest.TestCase):
                                 url_type = 'ExternalUrl', ), 
                             to_index = 56, )
                         ], 
-                    text = '', ), 
+                    text = '', ),
                 type = 'TimelineHalfCover'
             )
-        else :
+        else:
             return TimelineHalfCover(
                 dismissible = True,
                 half_cover_display_type = 'Cover',

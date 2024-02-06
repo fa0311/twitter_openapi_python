@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_create_tweet_request_variables_reply import PostCreateTweetRequestVariablesReply  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.post_create_tweet_request_variables_reply import PostCreateTweetRequestVariablesReply
 
 class TestPostCreateTweetRequestVariablesReply(unittest.TestCase):
     """PostCreateTweetRequestVariablesReply unit test stubs"""
@@ -29,22 +27,22 @@ class TestPostCreateTweetRequestVariablesReply(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> PostCreateTweetRequestVariablesReply:
         """Test PostCreateTweetRequestVariablesReply
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostCreateTweetRequestVariablesReply`
         """
-        model = twitter_openapi_python_generated.models.post_create_tweet_request_variables_reply.PostCreateTweetRequestVariablesReply()  # noqa: E501
-        if include_optional :
+        model = PostCreateTweetRequestVariablesReply()
+        if include_optional:
             return PostCreateTweetRequestVariablesReply(
                 exclude_reply_user_ids = [
                     None
-                    ], 
+                    ],
                 in_reply_to_tweet_id = '1111111111111111111'
             )
-        else :
+        else:
             return PostCreateTweetRequestVariablesReply(
                 exclude_reply_user_ids = [
                     None

@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.get_followers200_response import GetFollowers200Response  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.get_followers200_response import GetFollowers200Response
 
 class TestGetFollowers200Response(unittest.TestCase):
     """GetFollowers200Response unit test stubs"""
@@ -29,15 +27,15 @@ class TestGetFollowers200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> GetFollowers200Response:
         """Test GetFollowers200Response
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetFollowers200Response`
         """
-        model = twitter_openapi_python_generated.models.get_followers200_response.GetFollowers200Response()  # noqa: E501
-        if include_optional :
+        model = GetFollowers200Response()
+        if include_optional:
             return GetFollowers200Response(
                 data = twitter_openapi_python_generated.models.follow_response_data.FollowResponseData(
                     user = twitter_openapi_python_generated.models.follow_response_user.FollowResponseUser(
@@ -49,7 +47,7 @@ class TestGetFollowers200Response(unittest.TestCase):
                                         null
                                         ], 
                                     metadata = { }, 
-                                    response_objects = { }, ), ), ), ), ), 
+                                    response_objects = { }, ), ), ), ), ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -78,7 +76,7 @@ class TestGetFollowers200Response(unittest.TestCase):
                             trace_id = 'bf325375e030fccb', ), )
                     ]
             )
-        else :
+        else:
             return GetFollowers200Response(
                 data = twitter_openapi_python_generated.models.follow_response_data.FollowResponseData(
                     user = twitter_openapi_python_generated.models.follow_response_user.FollowResponseUser(

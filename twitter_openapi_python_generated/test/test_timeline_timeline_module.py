@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.timeline_timeline_module import TimelineTimelineModule  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.timeline_timeline_module import TimelineTimelineModule
 
 class TestTimelineTimelineModule(unittest.TestCase):
     """TimelineTimelineModule unit test stubs"""
@@ -29,22 +27,22 @@ class TestTimelineTimelineModule(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TimelineTimelineModule:
         """Test TimelineTimelineModule
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TimelineTimelineModule`
         """
-        model = twitter_openapi_python_generated.models.timeline_timeline_module.TimelineTimelineModule()  # noqa: E501
-        if include_optional :
+        model = TimelineTimelineModule()
+        if include_optional:
             return TimelineTimelineModule(
-                typename = 'TimelineTweet', 
-                client_event_info = { }, 
-                display_type = 'Vertical', 
-                entry_type = 'TimelineTimelineItem', 
-                footer = { }, 
-                header = { }, 
+                typename = 'TimelineTweet',
+                client_event_info = { },
+                display_type = 'Vertical',
+                entry_type = 'TimelineTimelineItem',
+                footer = { },
+                header = { },
                 items = [
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
                         entry_id = '25375e030fccba00917317c574773100bf03b5f', 
@@ -56,7 +54,7 @@ class TestTimelineTimelineModule(unittest.TestCase):
                             item_content = null, ), )
                     ]
             )
-        else :
+        else:
             return TimelineTimelineModule(
                 typename = 'TimelineTweet',
                 client_event_info = { },

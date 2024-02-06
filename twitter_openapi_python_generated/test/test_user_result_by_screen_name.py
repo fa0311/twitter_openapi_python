@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_result_by_screen_name import UserResultByScreenName  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.user_result_by_screen_name import UserResultByScreenName
 
 class TestUserResultByScreenName(unittest.TestCase):
     """UserResultByScreenName unit test stubs"""
@@ -29,17 +27,17 @@ class TestUserResultByScreenName(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> UserResultByScreenName:
         """Test UserResultByScreenName
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserResultByScreenName`
         """
-        model = twitter_openapi_python_generated.models.user_result_by_screen_name.UserResultByScreenName()  # noqa: E501
-        if include_optional :
+        model = UserResultByScreenName()
+        if include_optional:
             return UserResultByScreenName(
-                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
+                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=',
                 result = twitter_openapi_python_generated.models.user_result_by_screen_name_result.UserResultByScreenNameResult(
                     __typename = 'TimelineTweet', 
                     id = 'G', 
@@ -54,7 +52,7 @@ class TestUserResultByScreenName(unittest.TestCase):
                     profilemodules = { }, 
                     rest_id = '4', )
             )
-        else :
+        else:
             return UserResultByScreenName(
                 id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=',
                 result = twitter_openapi_python_generated.models.user_result_by_screen_name_result.UserResultByScreenNameResult(

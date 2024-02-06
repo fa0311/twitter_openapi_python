@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.timeline_pin_entry import TimelinePinEntry  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.timeline_pin_entry import TimelinePinEntry
 
 class TestTimelinePinEntry(unittest.TestCase):
     """TimelinePinEntry unit test stubs"""
@@ -29,23 +27,23 @@ class TestTimelinePinEntry(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TimelinePinEntry:
         """Test TimelinePinEntry
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TimelinePinEntry`
         """
-        model = twitter_openapi_python_generated.models.timeline_pin_entry.TimelinePinEntry()  # noqa: E501
-        if include_optional :
+        model = TimelinePinEntry()
+        if include_optional:
             return TimelinePinEntry(
                 entry = twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                     content = null, 
                     entry_id = '25375e030fccba00917317c574773100bf03b5f', 
-                    sort_index = '4', ), 
+                    sort_index = '4', ),
                 type = 'TimelineAddEntries'
             )
-        else :
+        else:
             return TimelinePinEntry(
                 entry = twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
                     content = null, 

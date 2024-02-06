@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.location import Location  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.location import Location
 
 class TestLocation(unittest.TestCase):
     """Location unit test stubs"""
@@ -29,20 +27,20 @@ class TestLocation(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> Location:
         """Test Location
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Location`
         """
-        model = twitter_openapi_python_generated.models.location.Location()  # noqa: E501
-        if include_optional :
+        model = Location()
+        if include_optional:
             return Location(
-                column = 56, 
+                column = 56,
                 line = 56
             )
-        else :
+        else:
             return Location(
                 column = 56,
                 line = 56,

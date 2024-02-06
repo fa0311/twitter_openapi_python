@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.note_tweet_result_rich_text_tag import NoteTweetResultRichTextTag  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.note_tweet_result_rich_text_tag import NoteTweetResultRichTextTag
 
 class TestNoteTweetResultRichTextTag(unittest.TestCase):
     """NoteTweetResultRichTextTag unit test stubs"""
@@ -29,23 +27,23 @@ class TestNoteTweetResultRichTextTag(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> NoteTweetResultRichTextTag:
         """Test NoteTweetResultRichTextTag
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `NoteTweetResultRichTextTag`
         """
-        model = twitter_openapi_python_generated.models.note_tweet_result_rich_text_tag.NoteTweetResultRichTextTag()  # noqa: E501
-        if include_optional :
+        model = NoteTweetResultRichTextTag()
+        if include_optional:
             return NoteTweetResultRichTextTag(
-                from_index = 56, 
+                from_index = 56,
                 richtext_types = [
                     'Bold'
-                    ], 
+                    ],
                 to_index = 56
             )
-        else :
+        else:
             return NoteTweetResultRichTextTag(
                 from_index = 56,
                 richtext_types = [

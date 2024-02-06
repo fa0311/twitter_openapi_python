@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.get_tweet_detail200_response import GetTweetDetail200Response  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.get_tweet_detail200_response import GetTweetDetail200Response
 
 class TestGetTweetDetail200Response(unittest.TestCase):
     """GetTweetDetail200Response unit test stubs"""
@@ -29,15 +27,15 @@ class TestGetTweetDetail200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> GetTweetDetail200Response:
         """Test GetTweetDetail200Response
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetTweetDetail200Response`
         """
-        model = twitter_openapi_python_generated.models.get_tweet_detail200_response.GetTweetDetail200Response()  # noqa: E501
-        if include_optional :
+        model = GetTweetDetail200Response()
+        if include_optional:
             return GetTweetDetail200Response(
                 data = twitter_openapi_python_generated.models.tweet_detail_response_data.TweetDetailResponseData(
                     threaded_conversation_with_injections_v2 = twitter_openapi_python_generated.models.timeline.Timeline(
@@ -45,7 +43,7 @@ class TestGetTweetDetail200Response(unittest.TestCase):
                             null
                             ], 
                         metadata = { }, 
-                        response_objects = { }, ), ), 
+                        response_objects = { }, ), ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -74,7 +72,7 @@ class TestGetTweetDetail200Response(unittest.TestCase):
                             trace_id = 'bf325375e030fccb', ), )
                     ]
             )
-        else :
+        else:
             return GetTweetDetail200Response(
                 data = twitter_openapi_python_generated.models.tweet_detail_response_data.TweetDetailResponseData(
                     threaded_conversation_with_injections_v2 = twitter_openapi_python_generated.models.timeline.Timeline(

@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.create_tweet_response_result import CreateTweetResponseResult  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.create_tweet_response_result import CreateTweetResponseResult
 
 class TestCreateTweetResponseResult(unittest.TestCase):
     """CreateTweetResponseResult unit test stubs"""
@@ -29,15 +27,15 @@ class TestCreateTweetResponseResult(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> CreateTweetResponseResult:
         """Test CreateTweetResponseResult
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CreateTweetResponseResult`
         """
-        model = twitter_openapi_python_generated.models.create_tweet_response_result.CreateTweetResponseResult()  # noqa: E501
-        if include_optional :
+        model = CreateTweetResponseResult()
+        if include_optional:
             return CreateTweetResponseResult(
                 tweet_results = twitter_openapi_python_generated.models.create_tweet.CreateTweet(
                     result = twitter_openapi_python_generated.models.tweet.Tweet(
@@ -264,7 +262,7 @@ class TestCreateTweetResponseResult(unittest.TestCase):
                             count = '4', 
                             state = 'EnabledWithCount', ), ), )
             )
-        else :
+        else:
             return CreateTweetResponseResult(
                 tweet_results = twitter_openapi_python_generated.models.create_tweet.CreateTweet(
                     result = twitter_openapi_python_generated.models.tweet.Tweet(

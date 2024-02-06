@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner import PostCreateTweetRequestVariablesMediaMediaEntitiesInner  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner import PostCreateTweetRequestVariablesMediaMediaEntitiesInner
 
 class TestPostCreateTweetRequestVariablesMediaMediaEntitiesInner(unittest.TestCase):
     """PostCreateTweetRequestVariablesMediaMediaEntitiesInner unit test stubs"""
@@ -29,22 +27,22 @@ class TestPostCreateTweetRequestVariablesMediaMediaEntitiesInner(unittest.TestCa
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> PostCreateTweetRequestVariablesMediaMediaEntitiesInner:
         """Test PostCreateTweetRequestVariablesMediaMediaEntitiesInner
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostCreateTweetRequestVariablesMediaMediaEntitiesInner`
         """
-        model = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.PostCreateTweetRequestVariablesMediaMediaEntitiesInner()  # noqa: E501
-        if include_optional :
+        model = PostCreateTweetRequestVariablesMediaMediaEntitiesInner()
+        if include_optional:
             return PostCreateTweetRequestVariablesMediaMediaEntitiesInner(
-                media_id = '1111111111111111111', 
+                media_id = '1111111111111111111',
                 tagged_users = [
                     None
                     ]
             )
-        else :
+        else:
             return PostCreateTweetRequestVariablesMediaMediaEntitiesInner(
                 media_id = '1111111111111111111',
                 tagged_users = [

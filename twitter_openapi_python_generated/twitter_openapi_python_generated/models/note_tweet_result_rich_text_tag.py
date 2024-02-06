@@ -19,19 +19,23 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist, validator
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictInt, StrictStr, field_validator
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class NoteTweetResultRichTextTag(BaseModel):
     """
     NoteTweetResultRichTextTag
-    """
-    from_index: StrictInt = Field(...)
-    richtext_types: conlist(StrictStr) = Field(...)
-    to_index: StrictInt = Field(...)
-    __properties = ["from_index", "richtext_types", "to_index"]
+    """ # noqa: E501
+    from_index: StrictInt
+    richtext_types: List[StrictStr]
+    to_index: StrictInt
+    __properties: ClassVar[List[str]] = ["from_index", "richtext_types", "to_index"]
 
-    @validator('richtext_types')
+    @field_validator('richtext_types')
     def richtext_types_validate_enum(cls, value):
         """Validates the enum"""
         for i in value:
@@ -39,42 +43,55 @@ class NoteTweetResultRichTextTag(BaseModel):
                 raise ValueError("each list item must be one of ('Bold', 'Italic')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> NoteTweetResultRichTextTag:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of NoteTweetResultRichTextTag from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> NoteTweetResultRichTextTag:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of NoteTweetResultRichTextTag from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return NoteTweetResultRichTextTag.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = NoteTweetResultRichTextTag.parse_obj({
+        _obj = cls.model_validate({
             "from_index": obj.get("from_index"),
             "richtext_types": obj.get("richtext_types"),
             "to_index": obj.get("to_index")

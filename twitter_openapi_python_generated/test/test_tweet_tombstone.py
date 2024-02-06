@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_tombstone import TweetTombstone  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.tweet_tombstone import TweetTombstone
 
 class TestTweetTombstone(unittest.TestCase):
     """TweetTombstone unit test stubs"""
@@ -29,19 +27,19 @@ class TestTweetTombstone(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TweetTombstone:
         """Test TweetTombstone
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TweetTombstone`
         """
-        model = twitter_openapi_python_generated.models.tweet_tombstone.TweetTombstone()  # noqa: E501
-        if include_optional :
+        model = TweetTombstone()
+        if include_optional:
             return TweetTombstone(
                 typename = 'TimelineTweet'
             )
-        else :
+        else:
             return TweetTombstone(
         )
         """

@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_legacy import TweetLegacy  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.tweet_legacy import TweetLegacy
 
 class TestTweetLegacy(unittest.TestCase):
     """TweetLegacy unit test stubs"""
@@ -29,23 +27,23 @@ class TestTweetLegacy(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TweetLegacy:
         """Test TweetLegacy
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TweetLegacy`
         """
-        model = twitter_openapi_python_generated.models.tweet_legacy.TweetLegacy()  # noqa: E501
-        if include_optional :
+        model = TweetLegacy()
+        if include_optional:
             return TweetLegacy(
-                bookmark_count = 56, 
-                bookmarked = True, 
-                conversation_id_str = '4', 
-                created_at = 'Sat Dec 31 23:59:59 +0000 2023', 
+                bookmark_count = 56,
+                bookmarked = True,
+                conversation_id_str = '4',
+                created_at = 'Sat Dec 31 23:59:59 +0000 2023',
                 display_text_range = [
                     56
-                    ], 
+                    ],
                 entities = twitter_openapi_python_generated.models.entities.Entities(
                     hashtags = [
                         { }
@@ -98,7 +96,7 @@ class TestTweetLegacy(unittest.TestCase):
                         ], 
                     user_mentions = [
                         { }
-                        ], ), 
+                        ], ),
                 extended_entities = twitter_openapi_python_generated.models.extended_entities.ExtendedEntities(
                     media = [
                         twitter_openapi_python_generated.models.media_extended.MediaExtended(
@@ -152,27 +150,27 @@ class TestTweetLegacy(unittest.TestCase):
                                         content_type = '', 
                                         url = '', )
                                     ], ), )
-                        ], ), 
-                favorite_count = 56, 
-                favorited = True, 
-                full_text = '', 
-                id_str = '4', 
-                is_quote_status = True, 
-                lang = '', 
-                possibly_sensitive = True, 
-                possibly_sensitive_editable = True, 
-                quote_count = 56, 
-                reply_count = 56, 
-                retweet_count = 56, 
-                retweeted = True, 
+                        ], ),
+                favorite_count = 56,
+                favorited = True,
+                full_text = '',
+                id_str = '4',
+                is_quote_status = True,
+                lang = '',
+                possibly_sensitive = True,
+                possibly_sensitive_editable = True,
+                quote_count = 56,
+                reply_count = 56,
+                retweet_count = 56,
+                retweeted = True,
                 retweeted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 
-                    result = null, ), 
+                    result = null, ),
                 self_thread = twitter_openapi_python_generated.models.self_thread.SelfThread(
-                    id_str = '4', ), 
+                    id_str = '4', ),
                 user_id_str = '4'
             )
-        else :
+        else:
             return TweetLegacy(
                 bookmark_count = 56,
                 bookmarked = True,

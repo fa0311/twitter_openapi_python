@@ -19,91 +19,110 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.communities_actions import CommunitiesActions
 from twitter_openapi_python_generated.models.one_factor_login_eligibility import OneFactorLoginEligibility
 from twitter_openapi_python_generated.models.user_features import UserFeatures
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class Session(BaseModel):
     """
     Session
-    """
-    sso_init_tokens: Optional[Dict[str, Any]] = Field(None, alias="SsoInitTokens")
-    communities_actions: CommunitiesActions = Field(..., alias="communitiesActions")
-    country: constr(strict=True) = Field(...)
-    guest_id: constr(strict=True) = Field(..., alias="guestId")
-    has_community_memberships: StrictBool = Field(..., alias="hasCommunityMemberships")
-    is_active_creator: StrictBool = Field(..., alias="isActiveCreator")
-    is_restricted_session: StrictBool = Field(..., alias="isRestrictedSession")
-    is_super_follow_subscriber: StrictBool = Field(..., alias="isSuperFollowSubscriber")
-    language: constr(strict=True) = Field(...)
-    one_factor_login_eligibility: OneFactorLoginEligibility = Field(..., alias="oneFactorLoginEligibility")
-    super_followers_count: StrictInt = Field(..., alias="superFollowersCount")
-    super_follows_application_status: StrictStr = Field(..., alias="superFollowsApplicationStatus")
-    user_features: UserFeatures = Field(..., alias="userFeatures")
-    user_id: constr(strict=True) = Field(...)
-    __properties = ["SsoInitTokens", "communitiesActions", "country", "guestId", "hasCommunityMemberships", "isActiveCreator", "isRestrictedSession", "isSuperFollowSubscriber", "language", "oneFactorLoginEligibility", "superFollowersCount", "superFollowsApplicationStatus", "userFeatures", "user_id"]
+    """ # noqa: E501
+    sso_init_tokens: Optional[Dict[str, Any]] = Field(default=None, alias="SsoInitTokens")
+    communities_actions: CommunitiesActions = Field(alias="communitiesActions")
+    country: Annotated[str, Field(strict=True)]
+    guest_id: Annotated[str, Field(strict=True)] = Field(alias="guestId")
+    has_community_memberships: StrictBool = Field(alias="hasCommunityMemberships")
+    is_active_creator: StrictBool = Field(alias="isActiveCreator")
+    is_restricted_session: StrictBool = Field(alias="isRestrictedSession")
+    is_super_follow_subscriber: StrictBool = Field(alias="isSuperFollowSubscriber")
+    language: Annotated[str, Field(strict=True)]
+    one_factor_login_eligibility: OneFactorLoginEligibility = Field(alias="oneFactorLoginEligibility")
+    super_followers_count: StrictInt = Field(alias="superFollowersCount")
+    super_follows_application_status: StrictStr = Field(alias="superFollowsApplicationStatus")
+    user_features: UserFeatures = Field(alias="userFeatures")
+    user_id: Annotated[str, Field(strict=True)]
+    __properties: ClassVar[List[str]] = ["SsoInitTokens", "communitiesActions", "country", "guestId", "hasCommunityMemberships", "isActiveCreator", "isRestrictedSession", "isSuperFollowSubscriber", "language", "oneFactorLoginEligibility", "superFollowersCount", "superFollowsApplicationStatus", "userFeatures", "user_id"]
 
-    @validator('country')
+    @field_validator('country')
     def country_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[A-Z]{2}$", value):
             raise ValueError(r"must validate the regular expression /^[A-Z]{2}$/")
         return value
 
-    @validator('guest_id')
+    @field_validator('guest_id')
     def guest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    @validator('language')
+    @field_validator('language')
     def language_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[a-z]{2}$", value):
             raise ValueError(r"must validate the regular expression /^[a-z]{2}$/")
         return value
 
-    @validator('super_follows_application_status')
+    @field_validator('super_follows_application_status')
     def super_follows_application_status_validate_enum(cls, value):
         """Validates the enum"""
         if value not in ('NotStarted'):
             raise ValueError("must be one of enum values ('NotStarted')")
         return value
 
-    @validator('user_id')
+    @field_validator('user_id')
     def user_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Session:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of Session from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of communities_actions
         if self.communities_actions:
             _dict['communitiesActions'] = self.communities_actions.to_dict()
@@ -116,28 +135,28 @@ class Session(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> Session:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of Session from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return Session.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = Session.parse_obj({
-            "sso_init_tokens": obj.get("SsoInitTokens"),
-            "communities_actions": CommunitiesActions.from_dict(obj.get("communitiesActions")) if obj.get("communitiesActions") is not None else None,
+        _obj = cls.model_validate({
+            "SsoInitTokens": obj.get("SsoInitTokens"),
+            "communitiesActions": CommunitiesActions.from_dict(obj.get("communitiesActions")) if obj.get("communitiesActions") is not None else None,
             "country": obj.get("country"),
-            "guest_id": obj.get("guestId"),
-            "has_community_memberships": obj.get("hasCommunityMemberships"),
-            "is_active_creator": obj.get("isActiveCreator"),
-            "is_restricted_session": obj.get("isRestrictedSession"),
-            "is_super_follow_subscriber": obj.get("isSuperFollowSubscriber"),
+            "guestId": obj.get("guestId"),
+            "hasCommunityMemberships": obj.get("hasCommunityMemberships"),
+            "isActiveCreator": obj.get("isActiveCreator"),
+            "isRestrictedSession": obj.get("isRestrictedSession"),
+            "isSuperFollowSubscriber": obj.get("isSuperFollowSubscriber"),
             "language": obj.get("language"),
-            "one_factor_login_eligibility": OneFactorLoginEligibility.from_dict(obj.get("oneFactorLoginEligibility")) if obj.get("oneFactorLoginEligibility") is not None else None,
-            "super_followers_count": obj.get("superFollowersCount"),
-            "super_follows_application_status": obj.get("superFollowsApplicationStatus"),
-            "user_features": UserFeatures.from_dict(obj.get("userFeatures")) if obj.get("userFeatures") is not None else None,
+            "oneFactorLoginEligibility": OneFactorLoginEligibility.from_dict(obj.get("oneFactorLoginEligibility")) if obj.get("oneFactorLoginEligibility") is not None else None,
+            "superFollowersCount": obj.get("superFollowersCount"),
+            "superFollowsApplicationStatus": obj.get("superFollowsApplicationStatus"),
+            "userFeatures": UserFeatures.from_dict(obj.get("userFeatures")) if obj.get("userFeatures") is not None else None,
             "user_id": obj.get("user_id")
         })
         return _obj

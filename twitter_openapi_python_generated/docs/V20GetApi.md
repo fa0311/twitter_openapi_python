@@ -36,6 +36,7 @@ get search adaptive
 * Api Key Authentication (CacheControl):
 * Api Key Authentication (SecChUaMobile):
 * Api Key Authentication (AcceptEncoding):
+
 ```python
 import time
 import os
@@ -225,6 +226,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **include_profile_interstitial_type** | **int**|  | [default to 1]
@@ -279,6 +281,7 @@ void (empty response body)
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * status -  <br>  * x-access-level -  <br>  * x-client-event-enabled -  <br>  * x-connection-hash -  <br>  * x-content-type-options -  <br>  * x-response-time -  <br>  * x-transaction -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |

@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.timeline_show_alert_rich_text import TimelineShowAlertRichText  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.timeline_show_alert_rich_text import TimelineShowAlertRichText
 
 class TestTimelineShowAlertRichText(unittest.TestCase):
     """TimelineShowAlertRichText unit test stubs"""
@@ -29,22 +27,22 @@ class TestTimelineShowAlertRichText(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TimelineShowAlertRichText:
         """Test TimelineShowAlertRichText
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TimelineShowAlertRichText`
         """
-        model = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlertRichText()  # noqa: E501
-        if include_optional :
+        model = TimelineShowAlertRichText()
+        if include_optional:
             return TimelineShowAlertRichText(
                 entities = [
                     { }
-                    ], 
+                    ],
                 text = ''
             )
-        else :
+        else:
             return TimelineShowAlertRichText(
         )
         """

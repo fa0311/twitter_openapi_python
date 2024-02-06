@@ -19,60 +19,77 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictInt, StrictStr
 from twitter_openapi_python_generated.models.tracing import Tracing
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class Extensions(BaseModel):
     """
     Extensions
-    """
-    code: StrictInt = Field(...)
-    kind: StrictStr = Field(...)
-    name: StrictStr = Field(...)
-    source: StrictStr = Field(...)
-    tracing: Tracing = Field(...)
-    __properties = ["code", "kind", "name", "source", "tracing"]
+    """ # noqa: E501
+    code: StrictInt
+    kind: StrictStr
+    name: StrictStr
+    source: StrictStr
+    tracing: Tracing
+    __properties: ClassVar[List[str]] = ["code", "kind", "name", "source", "tracing"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Extensions:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of Extensions from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of tracing
         if self.tracing:
             _dict['tracing'] = self.tracing.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> Extensions:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of Extensions from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return Extensions.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = Extensions.parse_obj({
+        _obj = cls.model_validate({
             "code": obj.get("code"),
             "kind": obj.get("kind"),
             "name": obj.get("name"),

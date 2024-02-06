@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_edit_control import TweetEditControl  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.tweet_edit_control import TweetEditControl
 
 class TestTweetEditControl(unittest.TestCase):
     """TweetEditControl unit test stubs"""
@@ -29,15 +27,15 @@ class TestTweetEditControl(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TweetEditControl:
         """Test TweetEditControl
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TweetEditControl`
         """
-        model = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl()  # noqa: E501
-        if include_optional :
+        model = TweetEditControl()
+        if include_optional:
             return TweetEditControl(
                 edit_control_initial = twitter_openapi_python_generated.models.tweet_edit_control_initial.TweetEditControlInitial(
                     edit_tweet_ids = [
@@ -45,16 +43,16 @@ class TestTweetEditControl(unittest.TestCase):
                         ], 
                     editable_until_msecs = '4', 
                     edits_remaining = '4', 
-                    is_edit_eligible = True, ), 
+                    is_edit_eligible = True, ),
                 edit_tweet_ids = [
                     '4'
-                    ], 
-                editable_until_msecs = '4', 
-                edits_remaining = '4', 
-                initial_tweet_id = '4', 
+                    ],
+                editable_until_msecs = '4',
+                edits_remaining = '4',
+                initial_tweet_id = '4',
                 is_edit_eligible = True
             )
-        else :
+        else:
             return TweetEditControl(
         )
         """

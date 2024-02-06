@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_with_visibility_results import TweetWithVisibilityResults  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.tweet_with_visibility_results import TweetWithVisibilityResults
 
 class TestTweetWithVisibilityResults(unittest.TestCase):
     """TweetWithVisibilityResults unit test stubs"""
@@ -29,17 +27,17 @@ class TestTweetWithVisibilityResults(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TweetWithVisibilityResults:
         """Test TweetWithVisibilityResults
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TweetWithVisibilityResults`
         """
-        model = twitter_openapi_python_generated.models.tweet_with_visibility_results.TweetWithVisibilityResults()  # noqa: E501
-        if include_optional :
+        model = TweetWithVisibilityResults()
+        if include_optional:
             return TweetWithVisibilityResults(
-                typename = 'TimelineTweet', 
+                typename = 'TimelineTweet',
                 tweet = twitter_openapi_python_generated.models.tweet.Tweet(
                     __typename = 'TimelineTweet', 
                     birdwatch_pivot = twitter_openapi_python_generated.models.birdwatch_pivot.BirdwatchPivot(
@@ -265,7 +263,7 @@ class TestTweetWithVisibilityResults(unittest.TestCase):
                         count = '4', 
                         state = 'EnabledWithCount', ), )
             )
-        else :
+        else:
             return TweetWithVisibilityResults(
                 typename = 'TimelineTweet',
                 tweet = twitter_openapi_python_generated.models.tweet.Tweet(

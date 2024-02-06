@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.user_union import UserUnion  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.user_union import UserUnion
 
 class TestUserUnion(unittest.TestCase):
     """UserUnion unit test stubs"""
@@ -29,23 +27,23 @@ class TestUserUnion(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> UserUnion:
         """Test UserUnion
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserUnion`
         """
-        model = twitter_openapi_python_generated.models.user_union.UserUnion()  # noqa: E501
-        if include_optional :
+        model = UserUnion()
+        if include_optional:
             return UserUnion(
-                typename = 'TimelineTweet', 
-                affiliates_highlighted_label = { }, 
-                business_account = { }, 
-                has_graduated_access = True, 
-                has_nft_avatar = True, 
-                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
-                is_blue_verified = True, 
+                typename = 'TimelineTweet',
+                affiliates_highlighted_label = { },
+                business_account = { },
+                has_graduated_access = True,
+                has_nft_avatar = True,
+                id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=',
+                is_blue_verified = True,
                 legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                     blocked_by = True, 
                     blocking = True, 
@@ -87,14 +85,14 @@ class TestUserUnion(unittest.TestCase):
                     translator_type = '', 
                     url = '', 
                     verified = True, 
-                    want_retweets = True, ), 
-                rest_id = '4', 
-                super_follow_eligible = True, 
-                super_followed_by = True, 
-                super_following = True, 
+                    want_retweets = True, ),
+                rest_id = '4',
+                super_follow_eligible = True,
+                super_followed_by = True,
+                super_following = True,
                 reason = ''
             )
-        else :
+        else:
             return UserUnion(
                 typename = 'TimelineTweet',
                 affiliates_highlighted_label = { },

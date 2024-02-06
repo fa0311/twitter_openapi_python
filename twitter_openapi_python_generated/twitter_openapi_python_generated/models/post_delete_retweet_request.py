@@ -19,58 +19,76 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
 from twitter_openapi_python_generated.models.post_delete_retweet_request_variables import PostDeleteRetweetRequestVariables
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class PostDeleteRetweetRequest(BaseModel):
     """
     PostDeleteRetweetRequest
-    """
-    query_id: StrictStr = Field(..., alias="queryId")
-    variables: PostDeleteRetweetRequestVariables = Field(...)
-    __properties = ["queryId", "variables"]
+    """ # noqa: E501
+    query_id: StrictStr = Field(alias="queryId")
+    variables: PostDeleteRetweetRequestVariables
+    __properties: ClassVar[List[str]] = ["queryId", "variables"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> PostDeleteRetweetRequest:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of PostDeleteRetweetRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of variables
         if self.variables:
             _dict['variables'] = self.variables.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> PostDeleteRetweetRequest:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of PostDeleteRetweetRequest from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return PostDeleteRetweetRequest.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = PostDeleteRetweetRequest.parse_obj({
-            "query_id": obj.get("queryId") if obj.get("queryId") is not None else 'iQtK4dl5hBmXewYZuEOKVw',
+        _obj = cls.model_validate({
+            "queryId": obj.get("queryId") if obj.get("queryId") is not None else 'iQtK4dl5hBmXewYZuEOKVw',
             "variables": PostDeleteRetweetRequestVariables.from_dict(obj.get("variables")) if obj.get("variables") is not None else None
         })
         return _obj

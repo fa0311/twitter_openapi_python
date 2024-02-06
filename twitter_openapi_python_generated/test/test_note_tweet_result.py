@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.note_tweet_result import NoteTweetResult  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.note_tweet_result import NoteTweetResult
 
 class TestNoteTweetResult(unittest.TestCase):
     """NoteTweetResult unit test stubs"""
@@ -29,15 +27,15 @@ class TestNoteTweetResult(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> NoteTweetResult:
         """Test NoteTweetResult
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `NoteTweetResult`
         """
-        model = twitter_openapi_python_generated.models.note_tweet_result.NoteTweetResult()  # noqa: E501
-        if include_optional :
+        model = NoteTweetResult()
+        if include_optional:
             return NoteTweetResult(
                 result = twitter_openapi_python_generated.models.note_tweet_result_data.NoteTweetResultData(
                     entity_set = twitter_openapi_python_generated.models.entities.Entities(
@@ -111,7 +109,7 @@ class TestNoteTweetResult(unittest.TestCase):
                             ], ), 
                     text = '', )
             )
-        else :
+        else:
             return NoteTweetResult(
                 result = twitter_openapi_python_generated.models.note_tweet_result_data.NoteTweetResultData(
                     entity_set = twitter_openapi_python_generated.models.entities.Entities(

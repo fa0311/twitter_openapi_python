@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.retweet import Retweet  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.retweet import Retweet
 
 class TestRetweet(unittest.TestCase):
     """Retweet unit test stubs"""
@@ -29,21 +27,21 @@ class TestRetweet(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> Retweet:
         """Test Retweet
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Retweet`
         """
-        model = twitter_openapi_python_generated.models.retweet.Retweet()  # noqa: E501
-        if include_optional :
+        model = Retweet()
+        if include_optional:
             return Retweet(
                 legacy = twitter_openapi_python_generated.models.retweet_legacy.Retweet_legacy(
-                    full_text = '', ), 
+                    full_text = '', ),
                 rest_id = '4'
             )
-        else :
+        else:
             return Retweet(
                 legacy = twitter_openapi_python_generated.models.retweet_legacy.Retweet_legacy(
                     full_text = '', ),

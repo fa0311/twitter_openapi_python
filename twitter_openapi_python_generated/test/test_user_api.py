@@ -15,27 +15,25 @@
 
 import unittest
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.api.user_api import UserApi  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.api.user_api import UserApi
 
 
 class TestUserApi(unittest.TestCase):
     """UserApi unit test stubs"""
 
-    def setUp(self):
-        self.api = twitter_openapi_python_generated.api.user_api.UserApi()  # noqa: E501
+    def setUp(self) -> None:
+        self.api = UserApi()
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         pass
 
-    def test_get_user_by_rest_id(self):
+    def test_get_user_by_rest_id(self) -> None:
         """Test case for get_user_by_rest_id
 
         """
         pass
 
-    def test_get_user_by_screen_name(self):
+    def test_get_user_by_screen_name(self) -> None:
         """Test case for get_user_by_screen_name
 
         """

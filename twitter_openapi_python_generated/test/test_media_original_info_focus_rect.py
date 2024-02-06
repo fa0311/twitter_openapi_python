@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.media_original_info_focus_rect import MediaOriginalInfoFocusRect  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.media_original_info_focus_rect import MediaOriginalInfoFocusRect
 
 class TestMediaOriginalInfoFocusRect(unittest.TestCase):
     """MediaOriginalInfoFocusRect unit test stubs"""
@@ -29,22 +27,22 @@ class TestMediaOriginalInfoFocusRect(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> MediaOriginalInfoFocusRect:
         """Test MediaOriginalInfoFocusRect
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `MediaOriginalInfoFocusRect`
         """
-        model = twitter_openapi_python_generated.models.media_original_info_focus_rect.MediaOriginalInfoFocusRect()  # noqa: E501
-        if include_optional :
+        model = MediaOriginalInfoFocusRect()
+        if include_optional:
             return MediaOriginalInfoFocusRect(
-                h = 56, 
-                w = 56, 
-                x = 56, 
+                h = 56,
+                w = 56,
+                x = 56,
                 y = 56
             )
-        else :
+        else:
             return MediaOriginalInfoFocusRect(
                 h = 56,
                 w = 56,

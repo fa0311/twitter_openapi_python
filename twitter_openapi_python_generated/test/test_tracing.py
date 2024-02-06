@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tracing import Tracing  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.tracing import Tracing
 
 class TestTracing(unittest.TestCase):
     """Tracing unit test stubs"""
@@ -29,19 +27,19 @@ class TestTracing(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> Tracing:
         """Test Tracing
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Tracing`
         """
-        model = twitter_openapi_python_generated.models.tracing.Tracing()  # noqa: E501
-        if include_optional :
+        model = Tracing()
+        if include_optional:
             return Tracing(
                 trace_id = 'bf325375e030fccb'
             )
-        else :
+        else:
             return Tracing(
                 trace_id = 'bf325375e030fccb',
         )

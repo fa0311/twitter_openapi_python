@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.self_thread import SelfThread  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.self_thread import SelfThread
 
 class TestSelfThread(unittest.TestCase):
     """SelfThread unit test stubs"""
@@ -29,19 +27,19 @@ class TestSelfThread(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> SelfThread:
         """Test SelfThread
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `SelfThread`
         """
-        model = twitter_openapi_python_generated.models.self_thread.SelfThread()  # noqa: E501
-        if include_optional :
+        model = SelfThread()
+        if include_optional:
             return SelfThread(
                 id_str = '4'
             )
-        else :
+        else:
             return SelfThread(
                 id_str = '4',
         )

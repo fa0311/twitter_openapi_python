@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.cover_cta import CoverCta  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.cover_cta import CoverCta
 
 class TestCoverCta(unittest.TestCase):
     """CoverCta unit test stubs"""
@@ -29,28 +27,28 @@ class TestCoverCta(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> CoverCta:
         """Test CoverCta
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CoverCta`
         """
-        model = twitter_openapi_python_generated.models.cover_cta.CoverCta()  # noqa: E501
-        if include_optional :
+        model = CoverCta()
+        if include_optional:
             return CoverCta(
-                text = '', 
-                button_style = 'Primary', 
+                text = '',
+                button_style = 'Primary',
                 callbacks = [
                     twitter_openapi_python_generated.models.callback.Callback(
                         endpoint = '', )
-                    ], 
+                    ],
                 client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
-                    action = 'primary_cta', ), 
+                    action = 'primary_cta', ),
                 cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
                     type = 'TimelineCoverBehaviorDismiss', )
             )
-        else :
+        else:
             return CoverCta(
                 callbacks = [
                     twitter_openapi_python_generated.models.callback.Callback(

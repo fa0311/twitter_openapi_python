@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **additional_media_info** | [**AdditionalMediaInfo**](AdditionalMediaInfo.md) |  | [optional] 

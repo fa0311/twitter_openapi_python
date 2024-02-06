@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.birdwatch_pivot_subtitle import BirdwatchPivotSubtitle  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.birdwatch_pivot_subtitle import BirdwatchPivotSubtitle
 
 class TestBirdwatchPivotSubtitle(unittest.TestCase):
     """BirdwatchPivotSubtitle unit test stubs"""
@@ -29,15 +27,15 @@ class TestBirdwatchPivotSubtitle(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> BirdwatchPivotSubtitle:
         """Test BirdwatchPivotSubtitle
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `BirdwatchPivotSubtitle`
         """
-        model = twitter_openapi_python_generated.models.birdwatch_pivot_subtitle.BirdwatchPivotSubtitle()  # noqa: E501
-        if include_optional :
+        model = BirdwatchPivotSubtitle()
+        if include_optional:
             return BirdwatchPivotSubtitle(
                 entities = [
                     twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
@@ -47,10 +45,10 @@ class TestBirdwatchPivotSubtitle(unittest.TestCase):
                             url = '', 
                             url_type = 'ExternalUrl', ), 
                         to_index = 56, )
-                    ], 
+                    ],
                 text = ''
             )
-        else :
+        else:
             return BirdwatchPivotSubtitle(
                 entities = [
                     twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "twitter_openapi_python_generated"
-version = "0.0.8"
+version = "0.0.9"
 description = "Twitter OpenAPI"
 authors = ["OpenAPI Generator Community <yuki@yuki0311.com>"]
 license = "custom license or AGPL-3.0-or-later"
@@ -14,8 +14,8 @@ python = "^3.7"
 
 urllib3 = ">= 1.25.3"
 python-dateutil = ">=2.8.2"
-pydantic = "^1.10.5, <2"
-aenum = ">=3.1.11"
+pydantic = ">=2"
+typing-extensions = ">=4.7.1"
 
 [tool.poetry.dev-dependencies]
 pytest = ">=7.2.1"

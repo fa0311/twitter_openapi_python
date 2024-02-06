@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.delete_retweet_response import DeleteRetweetResponse  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.delete_retweet_response import DeleteRetweetResponse
 
 class TestDeleteRetweetResponse(unittest.TestCase):
     """DeleteRetweetResponse unit test stubs"""
@@ -29,15 +27,15 @@ class TestDeleteRetweetResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> DeleteRetweetResponse:
         """Test DeleteRetweetResponse
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `DeleteRetweetResponse`
         """
-        model = twitter_openapi_python_generated.models.delete_retweet_response.DeleteRetweetResponse()  # noqa: E501
-        if include_optional :
+        model = DeleteRetweetResponse()
+        if include_optional:
             return DeleteRetweetResponse(
                 data = twitter_openapi_python_generated.models.delete_retweet_response_data.DeleteRetweetResponseData(
                     create_retweet = twitter_openapi_python_generated.models.create_retweet_response_result.CreateRetweetResponseResult(
@@ -47,7 +45,7 @@ class TestDeleteRetweetResponse(unittest.TestCase):
                                     full_text = '', ), 
                                 rest_id = '4', ), ), ), )
             )
-        else :
+        else:
             return DeleteRetweetResponse(
                 data = twitter_openapi_python_generated.models.delete_retweet_response_data.DeleteRetweetResponseData(
                     create_retweet = twitter_openapi_python_generated.models.create_retweet_response_result.CreateRetweetResponseResult(

@@ -15,51 +15,49 @@
 
 import unittest
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.api.post_api import PostApi  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.api.post_api import PostApi
 
 
 class TestPostApi(unittest.TestCase):
     """PostApi unit test stubs"""
 
-    def setUp(self):
-        self.api = twitter_openapi_python_generated.api.post_api.PostApi()  # noqa: E501
+    def setUp(self) -> None:
+        self.api = PostApi()
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         pass
 
-    def test_post_create_retweet(self):
+    def test_post_create_retweet(self) -> None:
         """Test case for post_create_retweet
 
         """
         pass
 
-    def test_post_create_tweet(self):
+    def test_post_create_tweet(self) -> None:
         """Test case for post_create_tweet
 
         """
         pass
 
-    def test_post_delete_retweet(self):
+    def test_post_delete_retweet(self) -> None:
         """Test case for post_delete_retweet
 
         """
         pass
 
-    def test_post_delete_tweet(self):
+    def test_post_delete_tweet(self) -> None:
         """Test case for post_delete_tweet
 
         """
         pass
 
-    def test_post_favorite_tweet(self):
+    def test_post_favorite_tweet(self) -> None:
         """Test case for post_favorite_tweet
 
         """
         pass
 
-    def test_post_unfavorite_tweet(self):
+    def test_post_unfavorite_tweet(self) -> None:
         """Test case for post_unfavorite_tweet
 
         """

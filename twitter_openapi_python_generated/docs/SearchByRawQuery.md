@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **search_timeline** | [**SearchTimeline**](SearchTimeline.md) |  | 

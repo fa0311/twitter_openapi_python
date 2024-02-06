@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.follow_timeline import FollowTimeline  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.follow_timeline import FollowTimeline
 
 class TestFollowTimeline(unittest.TestCase):
     """FollowTimeline unit test stubs"""
@@ -29,15 +27,15 @@ class TestFollowTimeline(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> FollowTimeline:
         """Test FollowTimeline
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `FollowTimeline`
         """
-        model = twitter_openapi_python_generated.models.follow_timeline.FollowTimeline()  # noqa: E501
-        if include_optional :
+        model = FollowTimeline()
+        if include_optional:
             return FollowTimeline(
                 timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                     instructions = [
@@ -46,7 +44,7 @@ class TestFollowTimeline(unittest.TestCase):
                     metadata = { }, 
                     response_objects = { }, )
             )
-        else :
+        else:
             return FollowTimeline(
                 timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                     instructions = [

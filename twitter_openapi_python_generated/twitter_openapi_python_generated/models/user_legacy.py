@@ -19,97 +19,116 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class UserLegacy(BaseModel):
     """
     UserLegacy
-    """
-    blocked_by: StrictBool = Field(...)
-    blocking: StrictBool = Field(...)
-    can_dm: StrictBool = Field(...)
-    can_media_tag: StrictBool = Field(...)
-    created_at: constr(strict=True) = Field(...)
-    default_profile: StrictBool = Field(...)
-    default_profile_image: StrictBool = Field(...)
-    description: StrictStr = Field(...)
-    entities: Dict[str, Any] = Field(...)
-    fast_followers_count: StrictInt = Field(...)
-    favourites_count: StrictInt = Field(...)
+    """ # noqa: E501
+    blocked_by: StrictBool
+    blocking: StrictBool
+    can_dm: StrictBool
+    can_media_tag: StrictBool
+    created_at: Annotated[str, Field(strict=True)]
+    default_profile: StrictBool
+    default_profile_image: StrictBool
+    description: StrictStr
+    entities: Dict[str, Any]
+    fast_followers_count: StrictInt
+    favourites_count: StrictInt
     follow_request_sent: Optional[StrictBool] = False
     followed_by: Optional[StrictBool] = False
-    followers_count: StrictInt = Field(...)
+    followers_count: StrictInt
     following: Optional[StrictBool] = False
-    friends_count: StrictInt = Field(...)
-    has_custom_timelines: StrictBool = Field(...)
-    is_translator: StrictBool = Field(...)
-    listed_count: StrictInt = Field(...)
-    location: StrictStr = Field(...)
-    media_count: StrictInt = Field(...)
-    muting: StrictBool = Field(...)
-    name: StrictStr = Field(...)
-    normal_followers_count: StrictInt = Field(...)
+    friends_count: StrictInt
+    has_custom_timelines: StrictBool
+    is_translator: StrictBool
+    listed_count: StrictInt
+    location: StrictStr
+    media_count: StrictInt
+    muting: StrictBool
+    name: StrictStr
+    normal_followers_count: StrictInt
     notifications: Optional[StrictBool] = False
-    pinned_tweet_ids_str: conlist(StrictStr) = Field(...)
-    possibly_sensitive: StrictBool = Field(...)
+    pinned_tweet_ids_str: List[StrictStr]
+    possibly_sensitive: StrictBool
     profile_banner_extensions: Optional[Dict[str, Any]] = None
     profile_banner_url: Optional[StrictStr] = None
     profile_image_extensions: Optional[Dict[str, Any]] = None
-    profile_image_url_https: StrictStr = Field(...)
-    profile_interstitial_type: StrictStr = Field(...)
+    profile_image_url_https: StrictStr
+    profile_interstitial_type: StrictStr
     protected: Optional[StrictBool] = False
-    screen_name: StrictStr = Field(...)
-    statuses_count: StrictInt = Field(...)
-    translator_type: StrictStr = Field(...)
+    screen_name: StrictStr
+    statuses_count: StrictInt
+    translator_type: StrictStr
     url: Optional[StrictStr] = None
-    verified: StrictBool = Field(...)
-    want_retweets: StrictBool = Field(...)
-    __properties = ["blocked_by", "blocking", "can_dm", "can_media_tag", "created_at", "default_profile", "default_profile_image", "description", "entities", "fast_followers_count", "favourites_count", "follow_request_sent", "followed_by", "followers_count", "following", "friends_count", "has_custom_timelines", "is_translator", "listed_count", "location", "media_count", "muting", "name", "normal_followers_count", "notifications", "pinned_tweet_ids_str", "possibly_sensitive", "profile_banner_extensions", "profile_banner_url", "profile_image_extensions", "profile_image_url_https", "profile_interstitial_type", "protected", "screen_name", "statuses_count", "translator_type", "url", "verified", "want_retweets"]
+    verified: StrictBool
+    want_retweets: StrictBool
+    __properties: ClassVar[List[str]] = ["blocked_by", "blocking", "can_dm", "can_media_tag", "created_at", "default_profile", "default_profile_image", "description", "entities", "fast_followers_count", "favourites_count", "follow_request_sent", "followed_by", "followers_count", "following", "friends_count", "has_custom_timelines", "is_translator", "listed_count", "location", "media_count", "muting", "name", "normal_followers_count", "notifications", "pinned_tweet_ids_str", "possibly_sensitive", "profile_banner_extensions", "profile_banner_url", "profile_image_extensions", "profile_image_url_https", "profile_interstitial_type", "protected", "screen_name", "statuses_count", "translator_type", "url", "verified", "want_retweets"]
 
-    @validator('created_at')
+    @field_validator('created_at')
     def created_at_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$", value):
             raise ValueError(r"must validate the regular expression /^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> UserLegacy:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of UserLegacy from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> UserLegacy:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of UserLegacy from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return UserLegacy.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = UserLegacy.parse_obj({
+        _obj = cls.model_validate({
             "blocked_by": obj.get("blocked_by") if obj.get("blocked_by") is not None else False,
             "blocking": obj.get("blocking") if obj.get("blocking") is not None else False,
             "can_dm": obj.get("can_dm") if obj.get("can_dm") is not None else False,

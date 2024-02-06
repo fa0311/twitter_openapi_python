@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.media_sizes import MediaSizes  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.media_sizes import MediaSizes
 
 class TestMediaSizes(unittest.TestCase):
     """MediaSizes unit test stubs"""
@@ -29,34 +27,34 @@ class TestMediaSizes(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> MediaSizes:
         """Test MediaSizes
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `MediaSizes`
         """
-        model = twitter_openapi_python_generated.models.media_sizes.MediaSizes()  # noqa: E501
-        if include_optional :
+        model = MediaSizes()
+        if include_optional:
             return MediaSizes(
                 large = twitter_openapi_python_generated.models.media_size.MediaSize(
                     h = 56, 
                     resize = 'crop', 
-                    w = 56, ), 
+                    w = 56, ),
                 medium = twitter_openapi_python_generated.models.media_size.MediaSize(
                     h = 56, 
                     resize = 'crop', 
-                    w = 56, ), 
+                    w = 56, ),
                 small = twitter_openapi_python_generated.models.media_size.MediaSize(
                     h = 56, 
                     resize = 'crop', 
-                    w = 56, ), 
+                    w = 56, ),
                 thumb = twitter_openapi_python_generated.models.media_size.MediaSize(
                     h = 56, 
                     resize = 'crop', 
                     w = 56, )
             )
-        else :
+        else:
             return MediaSizes(
                 large = twitter_openapi_python_generated.models.media_size.MediaSize(
                     h = 56, 

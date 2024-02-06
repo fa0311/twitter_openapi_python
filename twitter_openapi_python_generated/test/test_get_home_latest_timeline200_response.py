@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.get_home_latest_timeline200_response import GetHomeLatestTimeline200Response  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.get_home_latest_timeline200_response import GetHomeLatestTimeline200Response
 
 class TestGetHomeLatestTimeline200Response(unittest.TestCase):
     """GetHomeLatestTimeline200Response unit test stubs"""
@@ -29,15 +27,15 @@ class TestGetHomeLatestTimeline200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> GetHomeLatestTimeline200Response:
         """Test GetHomeLatestTimeline200Response
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetHomeLatestTimeline200Response`
         """
-        model = twitter_openapi_python_generated.models.get_home_latest_timeline200_response.GetHomeLatestTimeline200Response()  # noqa: E501
-        if include_optional :
+        model = GetHomeLatestTimeline200Response()
+        if include_optional:
             return GetHomeLatestTimeline200Response(
                 data = twitter_openapi_python_generated.models.home_timeline_response_data.HomeTimelineResponseData(
                     home = twitter_openapi_python_generated.models.home_timeline_home.HomeTimelineHome(
@@ -46,7 +44,7 @@ class TestGetHomeLatestTimeline200Response(unittest.TestCase):
                                 null
                                 ], 
                             metadata = { }, 
-                            response_objects = { }, ), ), ), 
+                            response_objects = { }, ), ), ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -75,7 +73,7 @@ class TestGetHomeLatestTimeline200Response(unittest.TestCase):
                             trace_id = 'bf325375e030fccb', ), )
                     ]
             )
-        else :
+        else:
             return GetHomeLatestTimeline200Response(
                 data = twitter_openapi_python_generated.models.home_timeline_response_data.HomeTimelineResponseData(
                     home = twitter_openapi_python_generated.models.home_timeline_home.HomeTimelineHome(

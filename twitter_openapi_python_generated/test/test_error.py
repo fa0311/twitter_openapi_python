@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.error import Error  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.error import Error
 
 class TestError(unittest.TestCase):
     """Error unit test stubs"""
@@ -29,17 +27,17 @@ class TestError(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> Error:
         """Test Error
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Error`
         """
-        model = twitter_openapi_python_generated.models.error.Error()  # noqa: E501
-        if include_optional :
+        model = Error()
+        if include_optional:
             return Error(
-                code = 56, 
+                code = 56,
                 extensions = twitter_openapi_python_generated.models.error_extensions.ErrorExtensions(
                     code = 56, 
                     kind = '', 
@@ -47,24 +45,24 @@ class TestError(unittest.TestCase):
                     retry_after = 56, 
                     source = '', 
                     tracing = twitter_openapi_python_generated.models.tracing.Tracing(
-                        trace_id = 'bf325375e030fccb', ), ), 
-                kind = '', 
+                        trace_id = 'bf325375e030fccb', ), ),
+                kind = '',
                 locations = [
                     twitter_openapi_python_generated.models.location.Location(
                         column = 56, 
                         line = 56, )
-                    ], 
-                message = '', 
-                name = '', 
+                    ],
+                message = '',
+                name = '',
                 path = [
                     ''
-                    ], 
-                retry_after = 56, 
-                source = '', 
+                    ],
+                retry_after = 56,
+                source = '',
                 tracing = twitter_openapi_python_generated.models.tracing.Tracing(
                     trace_id = 'bf325375e030fccb', )
             )
-        else :
+        else:
             return Error(
                 code = 56,
                 extensions = twitter_openapi_python_generated.models.error_extensions.ErrorExtensions(

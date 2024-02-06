@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.media import Media  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.media import Media
 
 class TestMedia(unittest.TestCase):
     """Media unit test stubs"""
@@ -29,24 +27,24 @@ class TestMedia(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> Media:
         """Test Media
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Media`
         """
-        model = twitter_openapi_python_generated.models.media.Media()  # noqa: E501
-        if include_optional :
+        model = Media()
+        if include_optional:
             return Media(
-                display_url = '', 
-                expanded_url = '', 
-                features = twitter_openapi_python_generated.models.features.features(), 
-                id_str = '4', 
+                display_url = '',
+                expanded_url = '',
+                features = twitter_openapi_python_generated.models.features.features(),
+                id_str = '4',
                 indices = [
                     56
-                    ], 
-                media_url_https = '', 
+                    ],
+                media_url_https = '',
                 original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                     focus_rects = [
                         twitter_openapi_python_generated.models.media_original_info_focus_rect.MediaOriginalInfoFocusRect(
@@ -56,7 +54,7 @@ class TestMedia(unittest.TestCase):
                             y = 56, )
                         ], 
                     height = 56, 
-                    width = 56, ), 
+                    width = 56, ),
                 sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
                     large = twitter_openapi_python_generated.models.media_size.MediaSize(
                         h = 56, 
@@ -67,11 +65,11 @@ class TestMedia(unittest.TestCase):
                         resize = 'crop', 
                         w = 56, ), 
                     small = , 
-                    thumb = , ), 
-                type = 'photo', 
+                    thumb = , ),
+                type = 'photo',
                 url = ''
             )
-        else :
+        else:
             return Media(
                 display_url = '',
                 expanded_url = '',

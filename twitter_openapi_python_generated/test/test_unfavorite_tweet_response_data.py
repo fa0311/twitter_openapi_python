@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.unfavorite_tweet_response_data import UnfavoriteTweetResponseData  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.unfavorite_tweet_response_data import UnfavoriteTweetResponseData
 
 class TestUnfavoriteTweetResponseData(unittest.TestCase):
     """UnfavoriteTweetResponseData unit test stubs"""
@@ -29,20 +27,20 @@ class TestUnfavoriteTweetResponseData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> UnfavoriteTweetResponseData:
         """Test UnfavoriteTweetResponseData
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UnfavoriteTweetResponseData`
         """
-        model = twitter_openapi_python_generated.models.unfavorite_tweet_response_data.UnfavoriteTweetResponseData()  # noqa: E501
-        if include_optional :
+        model = UnfavoriteTweetResponseData()
+        if include_optional:
             return UnfavoriteTweetResponseData(
                 data = twitter_openapi_python_generated.models.unfavorite_tweet.UnfavoriteTweet(
                     unfavorite_tweet = '', )
             )
-        else :
+        else:
             return UnfavoriteTweetResponseData(
                 data = twitter_openapi_python_generated.models.unfavorite_tweet.UnfavoriteTweet(
                     unfavorite_tweet = '', ),

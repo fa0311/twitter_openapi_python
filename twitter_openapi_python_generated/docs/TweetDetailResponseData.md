@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **threaded_conversation_with_injections_v2** | [**Timeline**](Timeline.md) |  | 

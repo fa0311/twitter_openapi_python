@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.social_context import SocialContext  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.social_context import SocialContext
 
 class TestSocialContext(unittest.TestCase):
     """SocialContext unit test stubs"""
@@ -29,21 +27,21 @@ class TestSocialContext(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> SocialContext:
         """Test SocialContext
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `SocialContext`
         """
-        model = twitter_openapi_python_generated.models.social_context.SocialContext()  # noqa: E501
-        if include_optional :
+        model = SocialContext()
+        if include_optional:
             return SocialContext(
-                context_type = '', 
-                text = '', 
+                context_type = '',
+                text = '',
                 type = ''
             )
-        else :
+        else:
             return SocialContext(
         )
         """

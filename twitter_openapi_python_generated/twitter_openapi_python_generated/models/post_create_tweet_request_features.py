@@ -19,69 +19,86 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictBool
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictBool
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class PostCreateTweetRequestFeatures(BaseModel):
     """
     PostCreateTweetRequestFeatures
-    """
-    freedom_of_speech_not_reach_fetch_enabled: StrictBool = Field(...)
-    graphql_is_translatable_rweb_tweet_is_translatable_enabled: StrictBool = Field(...)
-    longform_notetweets_consumption_enabled: StrictBool = Field(...)
-    longform_notetweets_inline_media_enabled: StrictBool = Field(...)
-    longform_notetweets_rich_text_read_enabled: StrictBool = Field(...)
-    responsive_web_edit_tweet_api_enabled: StrictBool = Field(...)
-    responsive_web_enhance_cards_enabled: StrictBool = Field(...)
-    responsive_web_graphql_exclude_directive_enabled: StrictBool = Field(...)
-    responsive_web_graphql_skip_user_profile_image_extensions_enabled: StrictBool = Field(...)
-    responsive_web_graphql_timeline_navigation_enabled: StrictBool = Field(...)
-    responsive_web_media_download_video_enabled: StrictBool = Field(...)
-    responsive_web_twitter_article_tweet_consumption_enabled: StrictBool = Field(...)
-    standardized_nudges_misinfo: StrictBool = Field(...)
-    tweet_awards_web_tipping_enabled: StrictBool = Field(...)
-    tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled: StrictBool = Field(...)
-    tweetypie_unmention_optimization_enabled: StrictBool = Field(...)
-    verified_phone_label_enabled: StrictBool = Field(...)
-    view_counts_everywhere_api_enabled: StrictBool = Field(...)
-    __properties = ["freedom_of_speech_not_reach_fetch_enabled", "graphql_is_translatable_rweb_tweet_is_translatable_enabled", "longform_notetweets_consumption_enabled", "longform_notetweets_inline_media_enabled", "longform_notetweets_rich_text_read_enabled", "responsive_web_edit_tweet_api_enabled", "responsive_web_enhance_cards_enabled", "responsive_web_graphql_exclude_directive_enabled", "responsive_web_graphql_skip_user_profile_image_extensions_enabled", "responsive_web_graphql_timeline_navigation_enabled", "responsive_web_media_download_video_enabled", "responsive_web_twitter_article_tweet_consumption_enabled", "standardized_nudges_misinfo", "tweet_awards_web_tipping_enabled", "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled", "tweetypie_unmention_optimization_enabled", "verified_phone_label_enabled", "view_counts_everywhere_api_enabled"]
+    """ # noqa: E501
+    freedom_of_speech_not_reach_fetch_enabled: StrictBool
+    graphql_is_translatable_rweb_tweet_is_translatable_enabled: StrictBool
+    longform_notetweets_consumption_enabled: StrictBool
+    longform_notetweets_inline_media_enabled: StrictBool
+    longform_notetweets_rich_text_read_enabled: StrictBool
+    responsive_web_edit_tweet_api_enabled: StrictBool
+    responsive_web_enhance_cards_enabled: StrictBool
+    responsive_web_graphql_exclude_directive_enabled: StrictBool
+    responsive_web_graphql_skip_user_profile_image_extensions_enabled: StrictBool
+    responsive_web_graphql_timeline_navigation_enabled: StrictBool
+    responsive_web_media_download_video_enabled: StrictBool
+    responsive_web_twitter_article_tweet_consumption_enabled: StrictBool
+    standardized_nudges_misinfo: StrictBool
+    tweet_awards_web_tipping_enabled: StrictBool
+    tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled: StrictBool
+    tweetypie_unmention_optimization_enabled: StrictBool
+    verified_phone_label_enabled: StrictBool
+    view_counts_everywhere_api_enabled: StrictBool
+    __properties: ClassVar[List[str]] = ["freedom_of_speech_not_reach_fetch_enabled", "graphql_is_translatable_rweb_tweet_is_translatable_enabled", "longform_notetweets_consumption_enabled", "longform_notetweets_inline_media_enabled", "longform_notetweets_rich_text_read_enabled", "responsive_web_edit_tweet_api_enabled", "responsive_web_enhance_cards_enabled", "responsive_web_graphql_exclude_directive_enabled", "responsive_web_graphql_skip_user_profile_image_extensions_enabled", "responsive_web_graphql_timeline_navigation_enabled", "responsive_web_media_download_video_enabled", "responsive_web_twitter_article_tweet_consumption_enabled", "standardized_nudges_misinfo", "tweet_awards_web_tipping_enabled", "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled", "tweetypie_unmention_optimization_enabled", "verified_phone_label_enabled", "view_counts_everywhere_api_enabled"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> PostCreateTweetRequestFeatures:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of PostCreateTweetRequestFeatures from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> PostCreateTweetRequestFeatures:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of PostCreateTweetRequestFeatures from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return PostCreateTweetRequestFeatures.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = PostCreateTweetRequestFeatures.parse_obj({
+        _obj = cls.model_validate({
             "freedom_of_speech_not_reach_fetch_enabled": obj.get("freedom_of_speech_not_reach_fetch_enabled") if obj.get("freedom_of_speech_not_reach_fetch_enabled") is not None else True,
             "graphql_is_translatable_rweb_tweet_is_translatable_enabled": obj.get("graphql_is_translatable_rweb_tweet_is_translatable_enabled") if obj.get("graphql_is_translatable_rweb_tweet_is_translatable_enabled") is not None else True,
             "longform_notetweets_consumption_enabled": obj.get("longform_notetweets_consumption_enabled") if obj.get("longform_notetweets_consumption_enabled") is not None else True,

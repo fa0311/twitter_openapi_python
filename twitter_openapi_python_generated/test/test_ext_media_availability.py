@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.ext_media_availability import ExtMediaAvailability  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.ext_media_availability import ExtMediaAvailability
 
 class TestExtMediaAvailability(unittest.TestCase):
     """ExtMediaAvailability unit test stubs"""
@@ -29,20 +27,20 @@ class TestExtMediaAvailability(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> ExtMediaAvailability:
         """Test ExtMediaAvailability
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ExtMediaAvailability`
         """
-        model = twitter_openapi_python_generated.models.ext_media_availability.ExtMediaAvailability()  # noqa: E501
-        if include_optional :
+        model = ExtMediaAvailability()
+        if include_optional:
             return ExtMediaAvailability(
-                reason = '', 
+                reason = '',
                 status = 'Available'
             )
-        else :
+        else:
             return ExtMediaAvailability(
         )
         """

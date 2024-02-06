@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tweets_timeline** | [**ListTweetsTimeline**](ListTweetsTimeline.md) |  | 

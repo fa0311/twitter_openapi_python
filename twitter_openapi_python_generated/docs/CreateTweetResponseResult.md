@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tweet_results** | [**CreateTweet**](CreateTweet.md) |  | 

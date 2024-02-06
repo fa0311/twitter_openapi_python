@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **focus_rects** | [**List[MediaOriginalInfoFocusRect]**](MediaOriginalInfoFocusRect.md) |  | [optional] 

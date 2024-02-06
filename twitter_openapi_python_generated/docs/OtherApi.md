@@ -36,6 +36,7 @@ This is not an actual endpoint
 * Api Key Authentication (CacheControl):
 * Api Key Authentication (SecChUaMobile):
 * Api Key Authentication (AcceptEncoding):
+
 ```python
 import time
 import os
@@ -190,6 +191,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -206,6 +208,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |

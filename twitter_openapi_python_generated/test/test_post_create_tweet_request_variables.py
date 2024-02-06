@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_create_tweet_request_variables import PostCreateTweetRequestVariables  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.post_create_tweet_request_variables import PostCreateTweetRequestVariables
 
 class TestPostCreateTweetRequestVariables(unittest.TestCase):
     """PostCreateTweetRequestVariables unit test stubs"""
@@ -29,17 +27,17 @@ class TestPostCreateTweetRequestVariables(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> PostCreateTweetRequestVariables:
         """Test PostCreateTweetRequestVariables
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostCreateTweetRequestVariables`
         """
-        model = twitter_openapi_python_generated.models.post_create_tweet_request_variables.PostCreateTweetRequestVariables()  # noqa: E501
-        if include_optional :
+        model = PostCreateTweetRequestVariables()
+        if include_optional:
             return PostCreateTweetRequestVariables(
-                dark_request = False, 
+                dark_request = False,
                 media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(
                     media_entities = [
                         twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(
@@ -48,18 +46,18 @@ class TestPostCreateTweetRequestVariables(unittest.TestCase):
                                 None
                                 ], )
                         ], 
-                    possibly_sensitive = False, ), 
+                    possibly_sensitive = False, ),
                 reply = twitter_openapi_python_generated.models.post_create_tweet_request_variables_reply.postCreateTweet_request_variables_reply(
                     exclude_reply_user_ids = [
                         None
                         ], 
-                    in_reply_to_tweet_id = '1111111111111111111', ), 
+                    in_reply_to_tweet_id = '1111111111111111111', ),
                 semantic_annotation_ids = [
                     None
-                    ], 
+                    ],
                 tweet_text = 'test'
             )
-        else :
+        else:
             return PostCreateTweetRequestVariables(
                 dark_request = False,
                 media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(

@@ -19,46 +19,63 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr
 from twitter_openapi_python_generated.models.post_create_tweet_request_variables_media import PostCreateTweetRequestVariablesMedia
 from twitter_openapi_python_generated.models.post_create_tweet_request_variables_reply import PostCreateTweetRequestVariablesReply
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class PostCreateTweetRequestVariables(BaseModel):
     """
     PostCreateTweetRequestVariables
-    """
-    dark_request: StrictBool = Field(...)
-    media: PostCreateTweetRequestVariablesMedia = Field(...)
+    """ # noqa: E501
+    dark_request: StrictBool
+    media: PostCreateTweetRequestVariablesMedia
     reply: Optional[PostCreateTweetRequestVariablesReply] = None
-    semantic_annotation_ids: conlist(Dict[str, Any]) = Field(...)
-    tweet_text: StrictStr = Field(...)
-    __properties = ["dark_request", "media", "reply", "semantic_annotation_ids", "tweet_text"]
+    semantic_annotation_ids: List[Dict[str, Any]]
+    tweet_text: StrictStr
+    __properties: ClassVar[List[str]] = ["dark_request", "media", "reply", "semantic_annotation_ids", "tweet_text"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> PostCreateTweetRequestVariables:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of PostCreateTweetRequestVariables from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of media
         if self.media:
             _dict['media'] = self.media.to_dict()
@@ -68,15 +85,15 @@ class PostCreateTweetRequestVariables(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> PostCreateTweetRequestVariables:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of PostCreateTweetRequestVariables from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return PostCreateTweetRequestVariables.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = PostCreateTweetRequestVariables.parse_obj({
+        _obj = cls.model_validate({
             "dark_request": obj.get("dark_request") if obj.get("dark_request") is not None else False,
             "media": PostCreateTweetRequestVariablesMedia.from_dict(obj.get("media")) if obj.get("media") is not None else None,
             "reply": PostCreateTweetRequestVariablesReply.from_dict(obj.get("reply")) if obj.get("reply") is not None else None,

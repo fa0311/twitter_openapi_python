@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.tweet_edit_control_initial import TweetEditControlInitial  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.tweet_edit_control_initial import TweetEditControlInitial
 
 class TestTweetEditControlInitial(unittest.TestCase):
     """TweetEditControlInitial unit test stubs"""
@@ -29,24 +27,24 @@ class TestTweetEditControlInitial(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TweetEditControlInitial:
         """Test TweetEditControlInitial
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TweetEditControlInitial`
         """
-        model = twitter_openapi_python_generated.models.tweet_edit_control_initial.TweetEditControlInitial()  # noqa: E501
-        if include_optional :
+        model = TweetEditControlInitial()
+        if include_optional:
             return TweetEditControlInitial(
                 edit_tweet_ids = [
                     '4'
-                    ], 
-                editable_until_msecs = '4', 
-                edits_remaining = '4', 
+                    ],
+                editable_until_msecs = '4',
+                edits_remaining = '4',
                 is_edit_eligible = True
             )
-        else :
+        else:
             return TweetEditControlInitial(
                 edit_tweet_ids = [
                     '4'

@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.birdwatch_entity_ref import BirdwatchEntityRef  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.birdwatch_entity_ref import BirdwatchEntityRef
 
 class TestBirdwatchEntityRef(unittest.TestCase):
     """BirdwatchEntityRef unit test stubs"""
@@ -29,21 +27,21 @@ class TestBirdwatchEntityRef(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> BirdwatchEntityRef:
         """Test BirdwatchEntityRef
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `BirdwatchEntityRef`
         """
-        model = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef()  # noqa: E501
-        if include_optional :
+        model = BirdwatchEntityRef()
+        if include_optional:
             return BirdwatchEntityRef(
-                type = 'TimelineUrl', 
-                url = '', 
+                type = 'TimelineUrl',
+                url = '',
                 url_type = 'ExternalUrl'
             )
-        else :
+        else:
             return BirdwatchEntityRef(
                 type = 'TimelineUrl',
                 url = '',

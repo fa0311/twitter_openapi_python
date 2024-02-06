@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.create_retweet_response_result import CreateRetweetResponseResult  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.create_retweet_response_result import CreateRetweetResponseResult
 
 class TestCreateRetweetResponseResult(unittest.TestCase):
     """CreateRetweetResponseResult unit test stubs"""
@@ -29,15 +27,15 @@ class TestCreateRetweetResponseResult(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> CreateRetweetResponseResult:
         """Test CreateRetweetResponseResult
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CreateRetweetResponseResult`
         """
-        model = twitter_openapi_python_generated.models.create_retweet_response_result.CreateRetweetResponseResult()  # noqa: E501
-        if include_optional :
+        model = CreateRetweetResponseResult()
+        if include_optional:
             return CreateRetweetResponseResult(
                 retweet_results = twitter_openapi_python_generated.models.create_retweet.CreateRetweet(
                     result = twitter_openapi_python_generated.models.retweet.Retweet(
@@ -45,7 +43,7 @@ class TestCreateRetweetResponseResult(unittest.TestCase):
                             full_text = '', ), 
                         rest_id = '4', ), )
             )
-        else :
+        else:
             return CreateRetweetResponseResult(
                 retweet_results = twitter_openapi_python_generated.models.create_retweet.CreateRetweet(
                     result = twitter_openapi_python_generated.models.retweet.Retweet(

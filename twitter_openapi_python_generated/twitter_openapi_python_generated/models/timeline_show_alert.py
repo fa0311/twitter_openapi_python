@@ -19,28 +19,33 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictInt, StrictStr, field_validator
+from pydantic import Field
 from twitter_openapi_python_generated.models.instruction_type import InstructionType
 from twitter_openapi_python_generated.models.timeline_show_alert_rich_text import TimelineShowAlertRichText
 from twitter_openapi_python_generated.models.user_results import UserResults
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class TimelineShowAlert(BaseModel):
     """
     TimelineShowAlert
-    """
-    alert_type: Optional[StrictStr] = Field(None, alias="alertType")
-    color_config: Optional[Dict[str, Any]] = Field(None, alias="colorConfig")
-    display_duration_ms: Optional[StrictInt] = Field(None, alias="displayDurationMs")
-    display_location: Optional[StrictStr] = Field(None, alias="displayLocation")
-    icon_display_info: Optional[Dict[str, Any]] = Field(None, alias="iconDisplayInfo")
-    rich_text: TimelineShowAlertRichText = Field(..., alias="richText")
-    trigger_delay_ms: Optional[StrictInt] = Field(None, alias="triggerDelayMs")
-    type: InstructionType = Field(...)
-    users_results: conlist(UserResults) = Field(..., alias="usersResults")
-    __properties = ["alertType", "colorConfig", "displayDurationMs", "displayLocation", "iconDisplayInfo", "richText", "triggerDelayMs", "type", "usersResults"]
+    """ # noqa: E501
+    alert_type: Optional[StrictStr] = Field(default=None, alias="alertType")
+    color_config: Optional[Dict[str, Any]] = Field(default=None, alias="colorConfig")
+    display_duration_ms: Optional[StrictInt] = Field(default=None, alias="displayDurationMs")
+    display_location: Optional[StrictStr] = Field(default=None, alias="displayLocation")
+    icon_display_info: Optional[Dict[str, Any]] = Field(default=None, alias="iconDisplayInfo")
+    rich_text: TimelineShowAlertRichText = Field(alias="richText")
+    trigger_delay_ms: Optional[StrictInt] = Field(default=None, alias="triggerDelayMs")
+    type: InstructionType
+    users_results: List[UserResults] = Field(alias="usersResults")
+    __properties: ClassVar[List[str]] = ["alertType", "colorConfig", "displayDurationMs", "displayLocation", "iconDisplayInfo", "richText", "triggerDelayMs", "type", "usersResults"]
 
-    @validator('alert_type')
+    @field_validator('alert_type')
     def alert_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -50,7 +55,7 @@ class TimelineShowAlert(BaseModel):
             raise ValueError("must be one of enum values ('NewTweets')")
         return value
 
-    @validator('display_location')
+    @field_validator('display_location')
     def display_location_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -60,30 +65,43 @@ class TimelineShowAlert(BaseModel):
             raise ValueError("must be one of enum values ('Top')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> TimelineShowAlert:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of TimelineShowAlert from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of rich_text
         if self.rich_text:
             _dict['richText'] = self.rich_text.to_dict()
@@ -97,24 +115,24 @@ class TimelineShowAlert(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> TimelineShowAlert:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of TimelineShowAlert from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return TimelineShowAlert.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = TimelineShowAlert.parse_obj({
-            "alert_type": obj.get("alertType"),
-            "color_config": obj.get("colorConfig"),
-            "display_duration_ms": obj.get("displayDurationMs"),
-            "display_location": obj.get("displayLocation"),
-            "icon_display_info": obj.get("iconDisplayInfo"),
-            "rich_text": TimelineShowAlertRichText.from_dict(obj.get("richText")) if obj.get("richText") is not None else None,
-            "trigger_delay_ms": obj.get("triggerDelayMs"),
+        _obj = cls.model_validate({
+            "alertType": obj.get("alertType"),
+            "colorConfig": obj.get("colorConfig"),
+            "displayDurationMs": obj.get("displayDurationMs"),
+            "displayLocation": obj.get("displayLocation"),
+            "iconDisplayInfo": obj.get("iconDisplayInfo"),
+            "richText": TimelineShowAlertRichText.from_dict(obj.get("richText")) if obj.get("richText") is not None else None,
+            "triggerDelayMs": obj.get("triggerDelayMs"),
             "type": obj.get("type"),
-            "users_results": [UserResults.from_dict(_item) for _item in obj.get("usersResults")] if obj.get("usersResults") is not None else None
+            "usersResults": [UserResults.from_dict(_item) for _item in obj.get("usersResults")] if obj.get("usersResults") is not None else None
         })
         return _obj
 

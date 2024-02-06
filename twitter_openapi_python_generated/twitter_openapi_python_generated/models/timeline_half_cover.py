@@ -19,63 +19,81 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist, validator
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictBool, StrictStr, field_validator
+from pydantic import Field
 from twitter_openapi_python_generated.models.callback import Callback
 from twitter_openapi_python_generated.models.cover_cta import CoverCta
 from twitter_openapi_python_generated.models.text import Text
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class TimelineHalfCover(BaseModel):
     """
     TimelineHalfCover
-    """
-    dismissible: StrictBool = Field(...)
-    half_cover_display_type: StrictStr = Field(..., alias="halfCoverDisplayType")
-    impression_callbacks: conlist(Callback) = Field(..., alias="impressionCallbacks")
-    primary_cover_cta: CoverCta = Field(..., alias="primaryCoverCta")
-    primary_text: Text = Field(..., alias="primaryText")
-    secondary_text: Text = Field(..., alias="secondaryText")
-    type: StrictStr = Field(...)
-    __properties = ["dismissible", "halfCoverDisplayType", "impressionCallbacks", "primaryCoverCta", "primaryText", "secondaryText", "type"]
+    """ # noqa: E501
+    dismissible: StrictBool
+    half_cover_display_type: StrictStr = Field(alias="halfCoverDisplayType")
+    impression_callbacks: List[Callback] = Field(alias="impressionCallbacks")
+    primary_cover_cta: CoverCta = Field(alias="primaryCoverCta")
+    primary_text: Text = Field(alias="primaryText")
+    secondary_text: Text = Field(alias="secondaryText")
+    type: StrictStr
+    __properties: ClassVar[List[str]] = ["dismissible", "halfCoverDisplayType", "impressionCallbacks", "primaryCoverCta", "primaryText", "secondaryText", "type"]
 
-    @validator('half_cover_display_type')
+    @field_validator('half_cover_display_type')
     def half_cover_display_type_validate_enum(cls, value):
         """Validates the enum"""
         if value not in ('Cover'):
             raise ValueError("must be one of enum values ('Cover')")
         return value
 
-    @validator('type')
+    @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value not in ('TimelineHalfCover'):
             raise ValueError("must be one of enum values ('TimelineHalfCover')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> TimelineHalfCover:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of TimelineHalfCover from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in impression_callbacks (list)
         _items = []
         if self.impression_callbacks:
@@ -95,21 +113,21 @@ class TimelineHalfCover(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> TimelineHalfCover:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of TimelineHalfCover from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return TimelineHalfCover.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = TimelineHalfCover.parse_obj({
+        _obj = cls.model_validate({
             "dismissible": obj.get("dismissible"),
-            "half_cover_display_type": obj.get("halfCoverDisplayType"),
-            "impression_callbacks": [Callback.from_dict(_item) for _item in obj.get("impressionCallbacks")] if obj.get("impressionCallbacks") is not None else None,
-            "primary_cover_cta": CoverCta.from_dict(obj.get("primaryCoverCta")) if obj.get("primaryCoverCta") is not None else None,
-            "primary_text": Text.from_dict(obj.get("primaryText")) if obj.get("primaryText") is not None else None,
-            "secondary_text": Text.from_dict(obj.get("secondaryText")) if obj.get("secondaryText") is not None else None,
+            "halfCoverDisplayType": obj.get("halfCoverDisplayType"),
+            "impressionCallbacks": [Callback.from_dict(_item) for _item in obj.get("impressionCallbacks")] if obj.get("impressionCallbacks") is not None else None,
+            "primaryCoverCta": CoverCta.from_dict(obj.get("primaryCoverCta")) if obj.get("primaryCoverCta") is not None else None,
+            "primaryText": Text.from_dict(obj.get("primaryText")) if obj.get("primaryText") is not None else None,
+            "secondaryText": Text.from_dict(obj.get("secondaryText")) if obj.get("secondaryText") is not None else None,
             "type": obj.get("type")
         })
         return _obj

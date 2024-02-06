@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.cursor_type import CursorType  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.cursor_type import CursorType
 
 class TestCursorType(unittest.TestCase):
     """CursorType unit test stubs"""

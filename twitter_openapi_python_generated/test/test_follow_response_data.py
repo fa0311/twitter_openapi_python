@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.follow_response_data import FollowResponseData  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.follow_response_data import FollowResponseData
 
 class TestFollowResponseData(unittest.TestCase):
     """FollowResponseData unit test stubs"""
@@ -29,15 +27,15 @@ class TestFollowResponseData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> FollowResponseData:
         """Test FollowResponseData
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `FollowResponseData`
         """
-        model = twitter_openapi_python_generated.models.follow_response_data.FollowResponseData()  # noqa: E501
-        if include_optional :
+        model = FollowResponseData()
+        if include_optional:
             return FollowResponseData(
                 user = twitter_openapi_python_generated.models.follow_response_user.FollowResponseUser(
                     result = twitter_openapi_python_generated.models.follow_response_result.FollowResponseResult(
@@ -50,7 +48,7 @@ class TestFollowResponseData(unittest.TestCase):
                                 metadata = { }, 
                                 response_objects = { }, ), ), ), )
             )
-        else :
+        else:
             return FollowResponseData(
                 user = twitter_openapi_python_generated.models.follow_response_user.FollowResponseUser(
                     result = twitter_openapi_python_generated.models.follow_response_result.FollowResponseResult(

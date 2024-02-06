@@ -16,9 +16,7 @@
 import unittest
 import datetime
 
-import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.timeline_tweet import TimelineTweet  # noqa: E501
-from twitter_openapi_python_generated.rest import ApiException
+from twitter_openapi_python_generated.models.timeline_tweet import TimelineTweet
 
 class TestTimelineTweet(unittest.TestCase):
     """TimelineTweet unit test stubs"""
@@ -29,29 +27,29 @@ class TestTimelineTweet(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> TimelineTweet:
         """Test TimelineTweet
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TimelineTweet`
         """
-        model = twitter_openapi_python_generated.models.timeline_tweet.TimelineTweet()  # noqa: E501
-        if include_optional :
+        model = TimelineTweet()
+        if include_optional:
             return TimelineTweet(
                 social_context = twitter_openapi_python_generated.models.social_context.SocialContext(
                     context_type = '', 
                     text = '', 
-                    type = '', ), 
-                typename = 'TimelineTweet', 
-                item_type = 'TimelineTweet', 
-                promoted_metadata = { }, 
-                tweet_display_type = '', 
+                    type = '', ),
+                typename = 'TimelineTweet',
+                item_type = 'TimelineTweet',
+                promoted_metadata = { },
+                tweet_display_type = '',
                 tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 
                     result = null, )
             )
-        else :
+        else:
             return TimelineTweet(
                 typename = 'TimelineTweet',
                 item_type = 'TimelineTweet',
