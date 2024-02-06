@@ -1,7 +1,7 @@
 import datetime
-from twitter_openapi_python import TwitterOpenapiPython
-import login as login
 
+import login as login
+from twitter_openapi_python import TwitterOpenapiPython
 
 cookies_dict = login.login().get_cookies().get_dict()
 𝕏 = TwitterOpenapiPython().get_client_from_cookies(cookies=cookies_dict)

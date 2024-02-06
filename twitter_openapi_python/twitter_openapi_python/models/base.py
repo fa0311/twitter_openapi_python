@@ -1,12 +1,9 @@
+from typing import TypeVar
+
 from pydantic import BaseModel as PydanticBaseModel
-from pydantic.generics import GenericModel as PydanticGenericModel
+
+T = TypeVar("T")
 
 
 class BaseModel(PydanticBaseModel):
-    class Config:
-        arbitrary_types_allowed = True
-
-
-class GenericModel(PydanticGenericModel):
-    class Config:
-        arbitrary_types_allowed = True
+    model_config = {"arbitrary_types_allowed": True}

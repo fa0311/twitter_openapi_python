@@ -4,7 +4,7 @@ from typing import Any, Generic, List, Optional, TypeVar
 import twitter_openapi_python_generated.models as models
 from pydantic import Field
 
-from twitter_openapi_python.models import BaseModel, GenericModel
+from twitter_openapi_python.models import BaseModel
 
 T = TypeVar("T")
 
@@ -34,7 +34,7 @@ class UserApiUtilsData(BaseModel):
     user: models.User = Field()
 
 
-class TimelineApiUtilsResponse(GenericModel, Generic[T]):
+class TimelineApiUtilsResponse(BaseModel, Generic[T]):
     raw: ApiUtilsRaw = Field()
     cursor: CursorApiUtilsResponse = Field()
     data: List[T] = Field(default_factory=list)

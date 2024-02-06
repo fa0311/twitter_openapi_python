@@ -1,8 +1,8 @@
 import json
-
 from pathlib import Path
-from tweepy_authlib import CookieSessionUserHandler
+
 from requests.cookies import RequestsCookieJar
+from tweepy_authlib import CookieSessionUserHandler
 
 
 def login():

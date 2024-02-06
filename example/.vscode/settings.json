@@ -1,5 +1,8 @@
 {
-  "flake8.args": [],
   "editor.unicodeHighlight.ambiguousCharacters": false,
-  "python.analysis.typeCheckingMode": "basic"
+  "python.analysis.typeCheckingMode": "basic",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
+  },
 }
