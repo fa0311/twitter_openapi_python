@@ -1,12 +1,18 @@
 {
-  "flake8.args": ["--ignore=E501"],
-  "python.testing.unittestArgs": ["-v", "-s", "test/api", "-p", "test_*.py"],
+  "python.testing.unittestArgs": [
+    "-v",
+    "-s",
+    "test/api",
+    "-p",
+    "test_*.py"
+  ],
   "python.testing.pytestEnabled": false,
   "python.testing.unittestEnabled": true,
   "python.analysis.typeCheckingMode": "basic",
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
   },
   "markdownlint.config": {
     "MD033": false
