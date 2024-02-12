@@ -83,35 +83,55 @@ def instruction_to_entry(
 def tweet_entries_converter(
     input: List[models.TimelineAddEntry],
 ) -> List[TweetApiUtilsData]:
-    def map_fn(x: models.TimelineAddEntry) -> Optional[TweetApiUtilsData]:
+    def map_fn(x: models.TimelineAddEntry) -> Optional[List[TweetApiUtilsData]]:
         one_of = x.content.actual_instance
 
         if isinstance(one_of, models.TimelineTimelineItem):
             item = one_of.item_content.actual_instance
             if isinstance(item, models.TimelineTweet):
-                return build_tweet_api_utils(
-                    result=item.tweet_results,
-                    promoted_metadata=item.promoted_metadata,
-                    reply=[],
+                return non_nullable_list(
+                    [
+                        build_tweet_api_utils(
+                            result=item.tweet_results,
+                            promoted_metadata=item.promoted_metadata,
+                            reply=[],
+                        )
+                    ]
                 )
         elif isinstance(one_of, models.TimelineTimelineModule):
             module = one_of.items or []
             timelineList = non_nullable_list(list(map(map_fn_2, module)))
             if len(timelineList) == 0:
                 return None
-            timeline = timelineList[0]
-            return build_tweet_api_utils(
-                result=timeline.tweet_results,
-                promoted_metadata=timeline.promoted_metadata,
-                reply=timelineList[1:],
-            )
+            if one_of.display_type == models.DisplayType.VERTICALGRID:
+                return non_nullable_list(
+                    [
+                        build_tweet_api_utils(
+                            result=x.tweet_results,
+                            promoted_metadata=x.promoted_metadata,
+                            reply=[],
+                        )
+                        for x in timelineList
+                    ]
+                )
+            else:
+                timeline = timelineList[0]
+                return non_nullable_list(
+                    [
+                        build_tweet_api_utils(
+                            result=timeline.tweet_results,
+                            promoted_metadata=timeline.promoted_metadata,
+                            reply=timelineList[1:],
+                        )
+                    ]
+                )
 
     def map_fn_2(x: models.ModuleItem) -> Optional[models.TimelineTweet]:
         item = x.item.item_content.actual_instance
         if isinstance(item, models.TimelineTweet):
             return item
 
-    return non_nullable_list(list(map(map_fn, input)))
+    return flat(non_nullable_list(list(map(map_fn, input))))
 
 
 def user_or_null_converter(user: models.UserUnion) -> Optional[models.User]:
