@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bookmark_count** | **int** |  | 
 **bookmarked** | **bool** |  | 
+**conversation_control** | **Dict[str, object]** |  | [optional] 
 **conversation_id_str** | **str** |  | 
 **created_at** | **str** |  | 
 **display_text_range** | **List[int]** |  | 
@@ -16,15 +17,23 @@ Name | Type | Description | Notes
 **favorited** | **bool** |  | 
 **full_text** | **str** |  | 
 **id_str** | **str** |  | 
+**in_reply_to_screen_name** | **str** |  | [optional] 
+**in_reply_to_status_id_str** | **str** |  | [optional] 
+**in_reply_to_user_id_str** | **str** |  | [optional] 
 **is_quote_status** | **bool** |  | 
 **lang** | **str** |  | 
+**limited_actions** | **str** |  | [optional] 
+**place** | **Dict[str, object]** |  | [optional] 
 **possibly_sensitive** | **bool** |  | [optional] [default to False]
 **possibly_sensitive_editable** | **bool** |  | [optional] [default to False]
 **quote_count** | **int** |  | 
+**quoted_status_id_str** | **str** |  | [optional] 
+**quoted_status_permalink** | [**QuotedStatusPermalink**](QuotedStatusPermalink.md) |  | [optional] 
 **reply_count** | **int** |  | 
 **retweet_count** | **int** |  | 
 **retweeted** | **bool** |  | 
 **retweeted_status_result** | [**ItemResult**](ItemResult.md) |  | [optional] 
+**scopes** | [**TweetLegacyScopes**](TweetLegacyScopes.md) |  | [optional] 
 **self_thread** | [**SelfThread**](SelfThread.md) |  | [optional] 
 **user_id_str** | **str** |  | 
 

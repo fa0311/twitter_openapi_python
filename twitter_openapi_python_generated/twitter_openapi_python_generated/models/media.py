@@ -18,33 +18,37 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictInt, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.ext_media_availability import ExtMediaAvailability
 from twitter_openapi_python_generated.models.media_original_info import MediaOriginalInfo
 from twitter_openapi_python_generated.models.media_sizes import MediaSizes
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Media(BaseModel):
     """
     Media
     """ # noqa: E501
+    additional_media_info: Optional[Dict[str, Any]] = None
     display_url: StrictStr
     expanded_url: StrictStr
+    ext_alt_text: Optional[StrictStr] = None
+    ext_media_availability: ExtMediaAvailability
     features: Optional[Dict[str, Any]] = None
     id_str: Annotated[str, Field(strict=True)]
     indices: List[StrictInt]
+    media_key: StrictStr
     media_url_https: StrictStr
     original_info: MediaOriginalInfo
     sizes: MediaSizes
+    source_status_id_str: Optional[Annotated[str, Field(strict=True)]] = None
+    source_user_id_str: Optional[Annotated[str, Field(strict=True)]] = None
     type: StrictStr
     url: StrictStr
-    __properties: ClassVar[List[str]] = ["display_url", "expanded_url", "features", "id_str", "indices", "media_url_https", "original_info", "sizes", "type", "url"]
+    video_info: Optional[Dict[str, Any]] = None
+    __properties: ClassVar[List[str]] = ["additional_media_info", "display_url", "expanded_url", "ext_alt_text", "ext_media_availability", "features", "id_str", "indices", "media_key", "media_url_https", "original_info", "sizes", "source_status_id_str", "source_user_id_str", "type", "url", "video_info"]
 
     @field_validator('id_str')
     def id_str_validate_regular_expression(cls, value):
@@ -53,10 +57,30 @@ class Media(BaseModel):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
+    @field_validator('source_status_id_str')
+    def source_status_id_str_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[0-9]+$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]+$/")
+        return value
+
+    @field_validator('source_user_id_str')
+    def source_user_id_str_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[0-9]+$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]+$/")
+        return value
+
     @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('photo', 'video', 'animated_gif'):
+        if value not in set(['photo', 'video', 'animated_gif']):
             raise ValueError("must be one of enum values ('photo', 'video', 'animated_gif')")
         return value
 
@@ -77,7 +101,7 @@ class Media(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Media from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -91,12 +115,17 @@ class Media(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of ext_media_availability
+        if self.ext_media_availability:
+            _dict['ext_media_availability'] = self.ext_media_availability.to_dict()
         # override the default output from pydantic by calling `to_dict()` of original_info
         if self.original_info:
             _dict['original_info'] = self.original_info.to_dict()
@@ -106,7 +135,7 @@ class Media(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Media from a dict"""
         if obj is None:
             return None
@@ -115,16 +144,23 @@ class Media(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "additional_media_info": obj.get("additional_media_info"),
             "display_url": obj.get("display_url"),
             "expanded_url": obj.get("expanded_url"),
+            "ext_alt_text": obj.get("ext_alt_text"),
+            "ext_media_availability": ExtMediaAvailability.from_dict(obj["ext_media_availability"]) if obj.get("ext_media_availability") is not None else None,
             "features": obj.get("features"),
             "id_str": obj.get("id_str"),
             "indices": obj.get("indices"),
+            "media_key": obj.get("media_key"),
             "media_url_https": obj.get("media_url_https"),
-            "original_info": MediaOriginalInfo.from_dict(obj.get("original_info")) if obj.get("original_info") is not None else None,
-            "sizes": MediaSizes.from_dict(obj.get("sizes")) if obj.get("sizes") is not None else None,
+            "original_info": MediaOriginalInfo.from_dict(obj["original_info"]) if obj.get("original_info") is not None else None,
+            "sizes": MediaSizes.from_dict(obj["sizes"]) if obj.get("sizes") is not None else None,
+            "source_status_id_str": obj.get("source_status_id_str"),
+            "source_user_id_str": obj.get("source_user_id_str"),
             "type": obj.get("type"),
-            "url": obj.get("url")
+            "url": obj.get("url"),
+            "video_info": obj.get("video_info")
         })
         return _obj
 

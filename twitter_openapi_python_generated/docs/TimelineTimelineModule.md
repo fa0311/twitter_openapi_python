@@ -9,9 +9,11 @@ Name | Type | Description | Notes
 **client_event_info** | **Dict[str, object]** |  | 
 **display_type** | **str** |  | 
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | 
+**feedback_info** | [**FeedbackInfo**](FeedbackInfo.md) |  | [optional] 
 **footer** | **Dict[str, object]** |  | [optional] 
 **header** | **Dict[str, object]** |  | [optional] 
 **items** | [**List[ModuleItem]**](ModuleItem.md) |  | [optional] 
+**metadata** | **Dict[str, object]** |  | [optional] 
 
 ## Example
 

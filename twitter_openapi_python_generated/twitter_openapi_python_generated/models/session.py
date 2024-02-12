@@ -18,18 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.communities_actions import CommunitiesActions
 from twitter_openapi_python_generated.models.one_factor_login_eligibility import OneFactorLoginEligibility
 from twitter_openapi_python_generated.models.user_features import UserFeatures
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Session(BaseModel):
     """
@@ -75,7 +71,7 @@ class Session(BaseModel):
     @field_validator('super_follows_application_status')
     def super_follows_application_status_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('NotStarted'):
+        if value not in set(['NotStarted']):
             raise ValueError("must be one of enum values ('NotStarted')")
         return value
 
@@ -103,7 +99,7 @@ class Session(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Session from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -117,10 +113,12 @@ class Session(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of communities_actions
@@ -135,7 +133,7 @@ class Session(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Session from a dict"""
         if obj is None:
             return None
@@ -145,7 +143,7 @@ class Session(BaseModel):
 
         _obj = cls.model_validate({
             "SsoInitTokens": obj.get("SsoInitTokens"),
-            "communitiesActions": CommunitiesActions.from_dict(obj.get("communitiesActions")) if obj.get("communitiesActions") is not None else None,
+            "communitiesActions": CommunitiesActions.from_dict(obj["communitiesActions"]) if obj.get("communitiesActions") is not None else None,
             "country": obj.get("country"),
             "guestId": obj.get("guestId"),
             "hasCommunityMemberships": obj.get("hasCommunityMemberships"),
@@ -153,10 +151,10 @@ class Session(BaseModel):
             "isRestrictedSession": obj.get("isRestrictedSession"),
             "isSuperFollowSubscriber": obj.get("isSuperFollowSubscriber"),
             "language": obj.get("language"),
-            "oneFactorLoginEligibility": OneFactorLoginEligibility.from_dict(obj.get("oneFactorLoginEligibility")) if obj.get("oneFactorLoginEligibility") is not None else None,
+            "oneFactorLoginEligibility": OneFactorLoginEligibility.from_dict(obj["oneFactorLoginEligibility"]) if obj.get("oneFactorLoginEligibility") is not None else None,
             "superFollowersCount": obj.get("superFollowersCount"),
             "superFollowsApplicationStatus": obj.get("superFollowsApplicationStatus"),
-            "userFeatures": UserFeatures.from_dict(obj.get("userFeatures")) if obj.get("userFeatures") is not None else None,
+            "userFeatures": UserFeatures.from_dict(obj["userFeatures"]) if obj.get("userFeatures") is not None else None,
             "user_id": obj.get("user_id")
         })
         return _obj

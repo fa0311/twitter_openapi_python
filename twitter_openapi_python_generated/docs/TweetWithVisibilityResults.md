@@ -6,7 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
+**limited_action_results** | **Dict[str, object]** |  | 
 **tweet** | [**Tweet**](Tweet.md) |  | 
+**tweet_interstitial** | [**TweetInterstitial**](TweetInterstitial.md) |  | [optional] 
 
 ## Example
 

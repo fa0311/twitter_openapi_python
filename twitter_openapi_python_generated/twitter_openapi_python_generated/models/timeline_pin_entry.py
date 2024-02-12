@@ -18,15 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel
+from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.instruction_type import InstructionType
 from twitter_openapi_python_generated.models.timeline_add_entry import TimelineAddEntry
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class TimelinePinEntry(BaseModel):
     """
@@ -53,7 +50,7 @@ class TimelinePinEntry(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of TimelinePinEntry from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -67,10 +64,12 @@ class TimelinePinEntry(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of entry
@@ -79,7 +78,7 @@ class TimelinePinEntry(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of TimelinePinEntry from a dict"""
         if obj is None:
             return None
@@ -88,7 +87,7 @@ class TimelinePinEntry(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "entry": TimelineAddEntry.from_dict(obj.get("entry")) if obj.get("entry") is not None else None,
+            "entry": TimelineAddEntry.from_dict(obj["entry"]) if obj.get("entry") is not None else None,
             "type": obj.get("type")
         })
         return _obj

@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.tweet_edit_control_initial import TweetEditControlInitial
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class TweetEditControl(BaseModel):
     """
@@ -88,7 +84,7 @@ class TweetEditControl(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of TweetEditControl from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -102,10 +98,12 @@ class TweetEditControl(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of edit_control_initial
@@ -114,7 +112,7 @@ class TweetEditControl(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of TweetEditControl from a dict"""
         if obj is None:
             return None
@@ -123,7 +121,7 @@ class TweetEditControl(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "edit_control_initial": TweetEditControlInitial.from_dict(obj.get("edit_control_initial")) if obj.get("edit_control_initial") is not None else None,
+            "edit_control_initial": TweetEditControlInitial.from_dict(obj["edit_control_initial"]) if obj.get("edit_control_initial") is not None else None,
             "edit_tweet_ids": obj.get("edit_tweet_ids"),
             "editable_until_msecs": obj.get("editable_until_msecs"),
             "edits_remaining": obj.get("edits_remaining"),

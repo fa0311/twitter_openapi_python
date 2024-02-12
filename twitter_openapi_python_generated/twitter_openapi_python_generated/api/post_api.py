@@ -12,22 +12,13 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
+from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from pydantic import StrictStr
 
+from pydantic import Field, StrictStr
+from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.post_create_retweet200_response import PostCreateRetweet200Response
 from twitter_openapi_python_generated.models.post_create_retweet_request import PostCreateRetweetRequest
 from twitter_openapi_python_generated.models.post_create_tweet200_response import PostCreateTweet200Response
@@ -41,7 +32,7 @@ from twitter_openapi_python_generated.models.post_favorite_tweet_request import 
 from twitter_openapi_python_generated.models.post_unfavorite_tweet200_response import PostUnfavoriteTweet200Response
 from twitter_openapi_python_generated.models.post_unfavorite_tweet_request import PostUnfavoriteTweetRequest
 
-from twitter_openapi_python_generated.api_client import ApiClient
+from twitter_openapi_python_generated.api_client import ApiClient, RequestSerialized
 from twitter_openapi_python_generated.api_response import ApiResponse
 from twitter_openapi_python_generated.rest import RESTResponseType
 
@@ -276,7 +267,7 @@ class PostApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -581,7 +572,7 @@ class PostApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -886,7 +877,7 @@ class PostApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1191,7 +1182,7 @@ class PostApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1496,7 +1487,7 @@ class PostApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1801,7 +1792,7 @@ class PostApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 

@@ -6,8 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **binding_values** | [**List[TweetCardLegacyBindingValue]**](TweetCardLegacyBindingValue.md) |  | 
+**card_platform** | [**TweetCardPlatformData**](TweetCardPlatformData.md) |  | [optional] 
 **name** | **str** |  | 
 **url** | **str** |  | 
+**user_refs_results** | [**List[UserResults]**](UserResults.md) |  | [optional] 
 
 ## Example
 

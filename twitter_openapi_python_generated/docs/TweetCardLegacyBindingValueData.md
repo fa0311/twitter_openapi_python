@@ -6,9 +6,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **boolean_value** | **bool** |  | [optional] 
+**image_color_value** | **Dict[str, object]** |  | [optional] 
+**image_value** | [**TweetCardLegacyBindingValueDataImage**](TweetCardLegacyBindingValueDataImage.md) |  | [optional] 
 **scribe_key** | **str** |  | [optional] 
 **string_value** | **str** |  | [optional] 
 **type** | **str** |  | 
+**user_value** | [**UserValue**](UserValue.md) |  | [optional] 
 
 ## Example
 

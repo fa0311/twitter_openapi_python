@@ -18,23 +18,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.tweet_card_legacy_binding_value import TweetCardLegacyBindingValue
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from twitter_openapi_python_generated.models.tweet_card_platform_data import TweetCardPlatformData
+from twitter_openapi_python_generated.models.user_results import UserResults
+from typing import Optional, Set
+from typing_extensions import Self
 
 class TweetCardLegacy(BaseModel):
     """
     TweetCardLegacy
     """ # noqa: E501
     binding_values: List[TweetCardLegacyBindingValue]
+    card_platform: Optional[TweetCardPlatformData] = None
     name: StrictStr
     url: StrictStr
-    __properties: ClassVar[List[str]] = ["binding_values", "name", "url"]
+    user_refs_results: Optional[List[UserResults]] = None
+    __properties: ClassVar[List[str]] = ["binding_values", "card_platform", "name", "url", "user_refs_results"]
 
     model_config = {
         "populate_by_name": True,
@@ -53,7 +54,7 @@ class TweetCardLegacy(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of TweetCardLegacy from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -67,10 +68,12 @@ class TweetCardLegacy(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in binding_values (list)
@@ -80,10 +83,20 @@ class TweetCardLegacy(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['binding_values'] = _items
+        # override the default output from pydantic by calling `to_dict()` of card_platform
+        if self.card_platform:
+            _dict['card_platform'] = self.card_platform.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in user_refs_results (list)
+        _items = []
+        if self.user_refs_results:
+            for _item in self.user_refs_results:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['user_refs_results'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of TweetCardLegacy from a dict"""
         if obj is None:
             return None
@@ -92,9 +105,11 @@ class TweetCardLegacy(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "binding_values": [TweetCardLegacyBindingValue.from_dict(_item) for _item in obj.get("binding_values")] if obj.get("binding_values") is not None else None,
+            "binding_values": [TweetCardLegacyBindingValue.from_dict(_item) for _item in obj["binding_values"]] if obj.get("binding_values") is not None else None,
+            "card_platform": TweetCardPlatformData.from_dict(obj["card_platform"]) if obj.get("card_platform") is not None else None,
             "name": obj.get("name"),
-            "url": obj.get("url")
+            "url": obj.get("url"),
+            "user_refs_results": [UserResults.from_dict(_item) for _item in obj["user_refs_results"]] if obj.get("user_refs_results") is not None else None
         })
         return _obj
 

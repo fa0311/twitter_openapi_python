@@ -18,15 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictInt
-from pydantic import Field
 from twitter_openapi_python_generated.models.birdwatch_entity_ref import BirdwatchEntityRef
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class BirdwatchEntity(BaseModel):
     """
@@ -54,7 +50,7 @@ class BirdwatchEntity(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of BirdwatchEntity from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -68,10 +64,12 @@ class BirdwatchEntity(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of ref
@@ -80,7 +78,7 @@ class BirdwatchEntity(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of BirdwatchEntity from a dict"""
         if obj is None:
             return None
@@ -90,7 +88,7 @@ class BirdwatchEntity(BaseModel):
 
         _obj = cls.model_validate({
             "fromIndex": obj.get("fromIndex"),
-            "ref": BirdwatchEntityRef.from_dict(obj.get("ref")) if obj.get("ref") is not None else None,
+            "ref": BirdwatchEntityRef.from_dict(obj["ref"]) if obj.get("ref") is not None else None,
             "toIndex": obj.get("toIndex")
         })
         return _obj

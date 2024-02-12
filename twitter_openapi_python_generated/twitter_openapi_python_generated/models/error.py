@@ -18,16 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.error_extensions import ErrorExtensions
 from twitter_openapi_python_generated.models.location import Location
 from twitter_openapi_python_generated.models.tracing import Tracing
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Error(BaseModel):
     """
@@ -62,7 +59,7 @@ class Error(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Error from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -76,10 +73,12 @@ class Error(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of extensions
@@ -98,7 +97,7 @@ class Error(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Error from a dict"""
         if obj is None:
             return None
@@ -108,15 +107,15 @@ class Error(BaseModel):
 
         _obj = cls.model_validate({
             "code": obj.get("code"),
-            "extensions": ErrorExtensions.from_dict(obj.get("extensions")) if obj.get("extensions") is not None else None,
+            "extensions": ErrorExtensions.from_dict(obj["extensions"]) if obj.get("extensions") is not None else None,
             "kind": obj.get("kind"),
-            "locations": [Location.from_dict(_item) for _item in obj.get("locations")] if obj.get("locations") is not None else None,
+            "locations": [Location.from_dict(_item) for _item in obj["locations"]] if obj.get("locations") is not None else None,
             "message": obj.get("message"),
             "name": obj.get("name"),
             "path": obj.get("path"),
             "retry_after": obj.get("retry_after"),
             "source": obj.get("source"),
-            "tracing": Tracing.from_dict(obj.get("tracing")) if obj.get("tracing") is not None else None
+            "tracing": Tracing.from_dict(obj["tracing"]) if obj.get("tracing") is not None else None
         })
         return _obj
 

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.get_user_by_rest_id200_response import GetUserByRestId200Response
 

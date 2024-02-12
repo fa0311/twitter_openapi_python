@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.user_legacy import UserLegacy
 
@@ -77,7 +76,11 @@ class TestUserLegacy(unittest.TestCase):
                 translator_type = '',
                 url = '',
                 verified = True,
-                want_retweets = True
+                verified_type = 'Business',
+                want_retweets = True,
+                withheld_in_countries = [
+                    ''
+                    ]
             )
         else:
             return UserLegacy(

@@ -18,14 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel
+from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.create_tweet import CreateTweet
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class CreateTweetResponseResult(BaseModel):
     """
@@ -51,7 +48,7 @@ class CreateTweetResponseResult(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of CreateTweetResponseResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -65,10 +62,12 @@ class CreateTweetResponseResult(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of tweet_results
@@ -77,7 +76,7 @@ class CreateTweetResponseResult(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CreateTweetResponseResult from a dict"""
         if obj is None:
             return None
@@ -86,7 +85,7 @@ class CreateTweetResponseResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "tweet_results": CreateTweet.from_dict(obj.get("tweet_results")) if obj.get("tweet_results") is not None else None
+            "tweet_results": CreateTweet.from_dict(obj["tweet_results"]) if obj.get("tweet_results") is not None else None
         })
         return _obj
 

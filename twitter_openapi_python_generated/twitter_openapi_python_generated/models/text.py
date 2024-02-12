@@ -18,14 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel, StrictStr
+from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.text_entity import TextEntity
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Text(BaseModel):
     """
@@ -52,7 +49,7 @@ class Text(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Text from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -66,10 +63,12 @@ class Text(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in entities (list)
@@ -82,7 +81,7 @@ class Text(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Text from a dict"""
         if obj is None:
             return None
@@ -91,7 +90,7 @@ class Text(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "entities": [TextEntity.from_dict(_item) for _item in obj.get("entities")] if obj.get("entities") is not None else None,
+            "entities": [TextEntity.from_dict(_item) for _item in obj["entities"]] if obj.get("entities") is not None else None,
             "text": obj.get("text")
         })
         return _obj

@@ -5,14 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**social_context** | [**SocialContext**](SocialContext.md) |  | [optional] 
 **typename** | [**TypeName**](TypeName.md) |  | 
+**highlights** | [**Highlight**](Highlight.md) |  | [optional] 
 **item_type** | [**ContentItemType**](ContentItemType.md) |  | 
 **promoted_metadata** | **Dict[str, object]** |  | [optional] 
+**social_context** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
 **tweet_display_type** | **str** |  | 
 **tweet_results** | [**ItemResult**](ItemResult.md) |  | 
 **cursor_type** | [**CursorType**](CursorType.md) |  | 
+**display_treatment** | [**DisplayTreatment**](DisplayTreatment.md) |  | [optional] 
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
+**stop_on_empty_response** | **bool** |  | [default to False]
 **value** | **str** |  | 
 **user_display_type** | **str** |  | 
 **user_results** | [**UserResults**](UserResults.md) |  | 

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.entities import Entities
 
@@ -42,13 +41,19 @@ class TestEntities(unittest.TestCase):
                     ],
                 media = [
                     twitter_openapi_python_generated.models.media.Media(
+                        additional_media_info = { }, 
                         display_url = '', 
                         expanded_url = '', 
+                        ext_alt_text = '', 
+                        ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.ExtMediaAvailability(
+                            reason = '', 
+                            status = 'Available', ), 
                         features = twitter_openapi_python_generated.models.features.features(), 
                         id_str = '4', 
                         indices = [
                             56
                             ], 
+                        media_key = '', 
                         media_url_https = '', 
                         original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                             focus_rects = [
@@ -71,8 +76,11 @@ class TestEntities(unittest.TestCase):
                                 w = 56, ), 
                             small = , 
                             thumb = , ), 
+                        source_status_id_str = '4', 
+                        source_user_id_str = '4', 
                         type = 'photo', 
-                        url = '', )
+                        url = '', 
+                        video_info = { }, )
                     ],
                 symbols = [
                     { }

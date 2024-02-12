@@ -18,14 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel
+from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.media_size import MediaSize
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class MediaSizes(BaseModel):
     """
@@ -54,7 +51,7 @@ class MediaSizes(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of MediaSizes from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -68,10 +65,12 @@ class MediaSizes(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of large
@@ -89,7 +88,7 @@ class MediaSizes(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of MediaSizes from a dict"""
         if obj is None:
             return None
@@ -98,10 +97,10 @@ class MediaSizes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "large": MediaSize.from_dict(obj.get("large")) if obj.get("large") is not None else None,
-            "medium": MediaSize.from_dict(obj.get("medium")) if obj.get("medium") is not None else None,
-            "small": MediaSize.from_dict(obj.get("small")) if obj.get("small") is not None else None,
-            "thumb": MediaSize.from_dict(obj.get("thumb")) if obj.get("thumb") is not None else None
+            "large": MediaSize.from_dict(obj["large"]) if obj.get("large") is not None else None,
+            "medium": MediaSize.from_dict(obj["medium"]) if obj.get("medium") is not None else None,
+            "small": MediaSize.from_dict(obj["small"]) if obj.get("small") is not None else None,
+            "thumb": MediaSize.from_dict(obj["thumb"]) if obj.get("thumb") is not None else None
         })
         return _obj
 

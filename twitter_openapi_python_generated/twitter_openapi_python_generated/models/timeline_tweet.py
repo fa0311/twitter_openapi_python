@@ -18,30 +18,28 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
 from twitter_openapi_python_generated.models.content_item_type import ContentItemType
+from twitter_openapi_python_generated.models.highlight import Highlight
 from twitter_openapi_python_generated.models.item_result import ItemResult
-from twitter_openapi_python_generated.models.social_context import SocialContext
+from twitter_openapi_python_generated.models.social_context_union import SocialContextUnion
 from twitter_openapi_python_generated.models.type_name import TypeName
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class TimelineTweet(BaseModel):
     """
     TimelineTweet
     """ # noqa: E501
-    social_context: Optional[SocialContext] = Field(default=None, alias="SocialContext")
     typename: TypeName = Field(alias="__typename")
+    highlights: Optional[Highlight] = None
     item_type: ContentItemType = Field(alias="itemType")
     promoted_metadata: Optional[Dict[str, Any]] = Field(default=None, alias="promotedMetadata")
+    social_context: Optional[SocialContextUnion] = Field(default=None, alias="socialContext")
     tweet_display_type: StrictStr = Field(alias="tweetDisplayType")
     tweet_results: ItemResult
-    __properties: ClassVar[List[str]] = ["SocialContext", "__typename", "itemType", "promotedMetadata", "tweetDisplayType", "tweet_results"]
+    __properties: ClassVar[List[str]] = ["__typename", "highlights", "itemType", "promotedMetadata", "socialContext", "tweetDisplayType", "tweet_results"]
 
     model_config = {
         "populate_by_name": True,
@@ -60,7 +58,7 @@ class TimelineTweet(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of TimelineTweet from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -74,22 +72,27 @@ class TimelineTweet(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of highlights
+        if self.highlights:
+            _dict['highlights'] = self.highlights.to_dict()
         # override the default output from pydantic by calling `to_dict()` of social_context
         if self.social_context:
-            _dict['SocialContext'] = self.social_context.to_dict()
+            _dict['socialContext'] = self.social_context.to_dict()
         # override the default output from pydantic by calling `to_dict()` of tweet_results
         if self.tweet_results:
             _dict['tweet_results'] = self.tweet_results.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of TimelineTweet from a dict"""
         if obj is None:
             return None
@@ -98,12 +101,13 @@ class TimelineTweet(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "SocialContext": SocialContext.from_dict(obj.get("SocialContext")) if obj.get("SocialContext") is not None else None,
             "__typename": obj.get("__typename"),
+            "highlights": Highlight.from_dict(obj["highlights"]) if obj.get("highlights") is not None else None,
             "itemType": obj.get("itemType"),
             "promotedMetadata": obj.get("promotedMetadata"),
+            "socialContext": SocialContextUnion.from_dict(obj["socialContext"]) if obj.get("socialContext") is not None else None,
             "tweetDisplayType": obj.get("tweetDisplayType"),
-            "tweet_results": ItemResult.from_dict(obj.get("tweet_results")) if obj.get("tweet_results") is not None else None
+            "tweet_results": ItemResult.from_dict(obj["tweet_results"]) if obj.get("tweet_results") is not None else None
         })
         return _obj
 

@@ -38,8 +38,6 @@ get users by rest ids
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.models.get_users_by_rest_ids200_response import GetUsersByRestIds200Response
 from twitter_openapi_python_generated.rest import ApiException
@@ -179,7 +177,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.UsersApi(api_client)
-    path_query_id = 'GD4q8bBE2i6cqWw2iT74Gg' # str |  (default to 'GD4q8bBE2i6cqWw2iT74Gg')
+    path_query_id = 'itEhGywpgX9b3GJCzOtSrA' # str |  (default to 'itEhGywpgX9b3GJCzOtSrA')
     variables = '{"userIds": ["44196397"]}' # str |  (default to '{"userIds": ["44196397"]}')
     features = '{"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}' # str |  (default to '{"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}')
 
@@ -198,7 +196,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;GD4q8bBE2i6cqWw2iT74Gg&#39;]
+ **path_query_id** | **str**|  | [default to &#39;itEhGywpgX9b3GJCzOtSrA&#39;]
  **variables** | **str**|  | [default to &#39;{&quot;userIds&quot;: [&quot;44196397&quot;]}&#39;]
  **features** | **str**|  | [default to &#39;{&quot;responsive_web_graphql_exclude_directive_enabled&quot;: true, &quot;verified_phone_label_enabled&quot;: false, &quot;responsive_web_graphql_skip_user_profile_image_extensions_enabled&quot;: false, &quot;responsive_web_graphql_timeline_navigation_enabled&quot;: true}&#39;]
 

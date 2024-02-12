@@ -39,8 +39,6 @@ get friends following list
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -280,8 +278,6 @@ get search typeahead
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint

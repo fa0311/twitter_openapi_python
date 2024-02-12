@@ -39,8 +39,6 @@ post create friendships
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -274,8 +272,6 @@ post destroy friendships
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint

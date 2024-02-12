@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.post_create_tweet_request_features import PostCreateTweetRequestFeatures
 
@@ -37,6 +36,7 @@ class TestPostCreateTweetRequestFeatures(unittest.TestCase):
         model = PostCreateTweetRequestFeatures()
         if include_optional:
             return PostCreateTweetRequestFeatures(
+                c9s_tweet_anatomy_moderator_badge_enabled = True,
                 freedom_of_speech_not_reach_fetch_enabled = True,
                 graphql_is_translatable_rweb_tweet_is_translatable_enabled = True,
                 longform_notetweets_consumption_enabled = True,
@@ -48,7 +48,8 @@ class TestPostCreateTweetRequestFeatures(unittest.TestCase):
                 responsive_web_graphql_skip_user_profile_image_extensions_enabled = False,
                 responsive_web_graphql_timeline_navigation_enabled = True,
                 responsive_web_media_download_video_enabled = False,
-                responsive_web_twitter_article_tweet_consumption_enabled = False,
+                responsive_web_twitter_article_tweet_consumption_enabled = True,
+                rweb_video_timestamps_enabled = True,
                 standardized_nudges_misinfo = True,
                 tweet_awards_web_tipping_enabled = False,
                 tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled = True,
@@ -58,6 +59,7 @@ class TestPostCreateTweetRequestFeatures(unittest.TestCase):
             )
         else:
             return PostCreateTweetRequestFeatures(
+                c9s_tweet_anatomy_moderator_badge_enabled = True,
                 freedom_of_speech_not_reach_fetch_enabled = True,
                 graphql_is_translatable_rweb_tweet_is_translatable_enabled = True,
                 longform_notetweets_consumption_enabled = True,
@@ -69,7 +71,8 @@ class TestPostCreateTweetRequestFeatures(unittest.TestCase):
                 responsive_web_graphql_skip_user_profile_image_extensions_enabled = False,
                 responsive_web_graphql_timeline_navigation_enabled = True,
                 responsive_web_media_download_video_enabled = False,
-                responsive_web_twitter_article_tweet_consumption_enabled = False,
+                responsive_web_twitter_article_tweet_consumption_enabled = True,
+                rweb_video_timestamps_enabled = True,
                 standardized_nudges_misinfo = True,
                 tweet_awards_web_tipping_enabled = False,
                 tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled = True,

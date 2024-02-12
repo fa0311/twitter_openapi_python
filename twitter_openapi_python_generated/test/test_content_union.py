@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.content_union import ContentUnion
 
@@ -40,7 +39,10 @@ class TestContentUnion(unittest.TestCase):
                 typename = 'TimelineTweet',
                 client_event_info = { },
                 entry_type = 'TimelineTimelineItem',
-                feedback_info = { },
+                feedback_info = twitter_openapi_python_generated.models.feedback_info.FeedbackInfo(
+                    feedback_keys = [
+                        ''
+                        ], ),
                 item_content = None,
                 display_type = 'Vertical',
                 footer = { },
@@ -55,8 +57,12 @@ class TestContentUnion(unittest.TestCase):
                                 element = '', ), 
                             item_content = null, ), )
                     ],
+                metadata = { },
                 cursor_type = 'Top',
+                display_treatment = twitter_openapi_python_generated.models.display_treatment.DisplayTreatment(
+                    action_text = '', ),
                 item_type = 'TimelineTimelineItem',
+                stop_on_empty_response = True,
                 value = ''
             )
         else:
@@ -67,6 +73,7 @@ class TestContentUnion(unittest.TestCase):
                 item_content = None,
                 display_type = 'Vertical',
                 cursor_type = 'Top',
+                stop_on_empty_response = True,
                 value = '',
         )
         """

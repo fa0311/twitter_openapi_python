@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.get_tweet_detail200_response import GetTweetDetail200Response
 

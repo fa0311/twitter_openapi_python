@@ -5,16 +5,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**additional_media_info** | **Dict[str, object]** |  | [optional] 
 **display_url** | **str** |  | 
 **expanded_url** | **str** |  | 
+**ext_alt_text** | **str** |  | [optional] 
+**ext_media_availability** | [**ExtMediaAvailability**](ExtMediaAvailability.md) |  | 
 **features** | **object** |  | [optional] 
 **id_str** | **str** |  | 
 **indices** | **List[int]** |  | 
+**media_key** | **str** |  | 
 **media_url_https** | **str** |  | 
 **original_info** | [**MediaOriginalInfo**](MediaOriginalInfo.md) |  | 
 **sizes** | [**MediaSizes**](MediaSizes.md) |  | 
+**source_status_id_str** | **str** |  | [optional] 
+**source_user_id_str** | **str** |  | [optional] 
 **type** | **str** |  | 
 **url** | **str** |  | 
+**video_info** | **Dict[str, object]** |  | [optional] 
 
 ## Example
 

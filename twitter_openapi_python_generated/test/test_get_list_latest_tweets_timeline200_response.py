@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.get_list_latest_tweets_timeline200_response import GetListLatestTweetsTimeline200Response
 

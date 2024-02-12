@@ -18,17 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictBool, StrictStr, field_validator
-from pydantic import Field
 from twitter_openapi_python_generated.models.callback import Callback
 from twitter_openapi_python_generated.models.cover_cta import CoverCta
 from twitter_openapi_python_generated.models.text import Text
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class TimelineHalfCover(BaseModel):
     """
@@ -46,14 +42,14 @@ class TimelineHalfCover(BaseModel):
     @field_validator('half_cover_display_type')
     def half_cover_display_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('Cover'):
+        if value not in set(['Cover']):
             raise ValueError("must be one of enum values ('Cover')")
         return value
 
     @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('TimelineHalfCover'):
+        if value not in set(['TimelineHalfCover']):
             raise ValueError("must be one of enum values ('TimelineHalfCover')")
         return value
 
@@ -74,7 +70,7 @@ class TimelineHalfCover(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of TimelineHalfCover from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -88,10 +84,12 @@ class TimelineHalfCover(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in impression_callbacks (list)
@@ -113,7 +111,7 @@ class TimelineHalfCover(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of TimelineHalfCover from a dict"""
         if obj is None:
             return None
@@ -124,10 +122,10 @@ class TimelineHalfCover(BaseModel):
         _obj = cls.model_validate({
             "dismissible": obj.get("dismissible"),
             "halfCoverDisplayType": obj.get("halfCoverDisplayType"),
-            "impressionCallbacks": [Callback.from_dict(_item) for _item in obj.get("impressionCallbacks")] if obj.get("impressionCallbacks") is not None else None,
-            "primaryCoverCta": CoverCta.from_dict(obj.get("primaryCoverCta")) if obj.get("primaryCoverCta") is not None else None,
-            "primaryText": Text.from_dict(obj.get("primaryText")) if obj.get("primaryText") is not None else None,
-            "secondaryText": Text.from_dict(obj.get("secondaryText")) if obj.get("secondaryText") is not None else None,
+            "impressionCallbacks": [Callback.from_dict(_item) for _item in obj["impressionCallbacks"]] if obj.get("impressionCallbacks") is not None else None,
+            "primaryCoverCta": CoverCta.from_dict(obj["primaryCoverCta"]) if obj.get("primaryCoverCta") is not None else None,
+            "primaryText": Text.from_dict(obj["primaryText"]) if obj.get("primaryText") is not None else None,
+            "secondaryText": Text.from_dict(obj["secondaryText"]) if obj.get("secondaryText") is not None else None,
             "type": obj.get("type")
         })
         return _obj

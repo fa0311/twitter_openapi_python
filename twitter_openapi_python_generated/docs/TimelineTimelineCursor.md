@@ -7,8 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
 **cursor_type** | [**CursorType**](CursorType.md) |  | 
+**display_treatment** | [**DisplayTreatment**](DisplayTreatment.md) |  | [optional] 
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
 **item_type** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
+**stop_on_empty_response** | **bool** |  | [default to False]
 **value** | **str** |  | 
 
 ## Example

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.timeline_tweet import TimelineTweet
 
@@ -37,13 +36,16 @@ class TestTimelineTweet(unittest.TestCase):
         model = TimelineTweet()
         if include_optional:
             return TimelineTweet(
-                social_context = twitter_openapi_python_generated.models.social_context.SocialContext(
-                    context_type = '', 
-                    text = '', 
-                    type = '', ),
                 typename = 'TimelineTweet',
+                highlights = twitter_openapi_python_generated.models.highlight.Highlight(
+                    text_highlights = [
+                        twitter_openapi_python_generated.models.text_highlight.TextHighlight(
+                            end_index = 56, 
+                            start_index = 56, )
+                        ], ),
                 item_type = 'TimelineTweet',
                 promoted_metadata = { },
+                social_context = None,
                 tweet_display_type = '',
                 tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot
 
@@ -37,6 +36,10 @@ class TestBirdwatchPivot(unittest.TestCase):
         model = BirdwatchPivot()
         if include_optional:
             return BirdwatchPivot(
+                call_to_action = twitter_openapi_python_generated.models.birdwatch_pivot_call_to_action.BirdwatchPivotCallToAction(
+                    destination_url = '', 
+                    prompt = '', 
+                    title = '', ),
                 destination_url = '',
                 footer = twitter_openapi_python_generated.models.birdwatch_pivot_footer.BirdwatchPivotFooter(
                     entities = [

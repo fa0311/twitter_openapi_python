@@ -18,17 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, field_validator
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.type_name import TypeName
 from twitter_openapi_python_generated.models.user_result_by_screen_name_legacy import UserResultByScreenNameLegacy
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class UserResultByScreenNameResult(BaseModel):
     """
@@ -72,7 +68,7 @@ class UserResultByScreenNameResult(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of UserResultByScreenNameResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -86,10 +82,12 @@ class UserResultByScreenNameResult(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of legacy
@@ -98,7 +96,7 @@ class UserResultByScreenNameResult(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of UserResultByScreenNameResult from a dict"""
         if obj is None:
             return None
@@ -109,7 +107,7 @@ class UserResultByScreenNameResult(BaseModel):
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
             "id": obj.get("id"),
-            "legacy": UserResultByScreenNameLegacy.from_dict(obj.get("legacy")) if obj.get("legacy") is not None else None,
+            "legacy": UserResultByScreenNameLegacy.from_dict(obj["legacy"]) if obj.get("legacy") is not None else None,
             "profilemodules": obj.get("profilemodules"),
             "rest_id": obj.get("rest_id")
         })

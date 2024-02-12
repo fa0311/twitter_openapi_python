@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **additional_media_info** | [**AdditionalMediaInfo**](AdditionalMediaInfo.md) |  | [optional] 
 **display_url** | **str** |  | 
 **expanded_url** | **str** |  | 
+**ext_alt_text** | **str** |  | [optional] 
 **ext_media_availability** | [**ExtMediaAvailability**](ExtMediaAvailability.md) |  | [optional] 
 **features** | **object** |  | [optional] 
 **id_str** | **str** |  | 
@@ -17,6 +18,8 @@ Name | Type | Description | Notes
 **media_url_https** | **str** |  | 
 **original_info** | [**MediaOriginalInfo**](MediaOriginalInfo.md) |  | 
 **sizes** | [**MediaSizes**](MediaSizes.md) |  | 
+**source_status_id_str** | **str** |  | [optional] 
+**source_user_id_str** | **str** |  | [optional] 
 **type** | **str** |  | 
 **url** | **str** |  | 
 **video_info** | [**MediaVideoInfo**](MediaVideoInfo.md) |  | [optional] 

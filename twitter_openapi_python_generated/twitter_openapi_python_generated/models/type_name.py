@@ -15,16 +15,8 @@
 
 from __future__ import annotations
 import json
-import pprint
-import re  # noqa: F401
 from enum import Enum
-
-
-
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing_extensions import Self
 
 
 class TypeName(str, Enum):
@@ -40,6 +32,7 @@ class TypeName(str, Enum):
     TIMELINEUSER = 'TimelineUser'
     TIMELINETIMELINECURSOR = 'TimelineTimelineCursor'
     TWEETWITHVISIBILITYRESULTS = 'TweetWithVisibilityResults'
+    CONTEXTUALTWEETINTERSTITIAL = 'ContextualTweetInterstitial'
     TIMELINETIMELINEMODULE = 'TimelineTimelineModule'
     TWEETTOMBSTONE = 'TweetTombstone'
     TIMELINEPROMPT = 'TimelinePrompt'
@@ -49,6 +42,13 @@ class TypeName(str, Enum):
     TWEET = 'Tweet'
     USER = 'User'
     USERUNAVAILABLE = 'UserUnavailable'
+    COMMUNITY = 'Community'
+    COMMUNITYDELETEACTIONUNAVAILABLE = 'CommunityDeleteActionUnavailable'
+    COMMUNITYJOINACTION = 'CommunityJoinAction'
+    COMMUNITYLEAVEACTIONUNAVAILABLE = 'CommunityLeaveActionUnavailable'
+    COMMUNITYTWEETPINACTIONUNAVAILABLE = 'CommunityTweetPinActionUnavailable'
+    COMMUNITYINVITESUNAVAILABLE = 'CommunityInvitesUnavailable'
+    COMMUNITYJOINREQUESTSUNAVAILABLE = 'CommunityJoinRequestsUnavailable'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.user_union import UserUnion
 
@@ -40,10 +39,15 @@ class TestUserUnion(unittest.TestCase):
                 typename = 'TimelineTweet',
                 affiliates_highlighted_label = { },
                 business_account = { },
+                creator_subscriptions_count = 56,
                 has_graduated_access = True,
                 has_nft_avatar = True,
+                highlights_info = twitter_openapi_python_generated.models.user_highlights_info.UserHighlightsInfo(
+                    can_highlight_tweets = True, 
+                    highlighted_tweets = '', ),
                 id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=',
                 is_blue_verified = True,
+                is_profile_translatable = True,
                 legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                     blocked_by = True, 
                     blocking = True, 
@@ -85,11 +89,41 @@ class TestUserUnion(unittest.TestCase):
                     translator_type = '', 
                     url = '', 
                     verified = True, 
-                    want_retweets = True, ),
+                    verified_type = 'Business', 
+                    want_retweets = True, 
+                    withheld_in_countries = [
+                        ''
+                        ], ),
+                professional = twitter_openapi_python_generated.models.user_professional.UserProfessional(
+                    category = [
+                        twitter_openapi_python_generated.models.user_professional_category.UserProfessionalCategory(
+                            icon_name = '', 
+                            id = 56, 
+                            name = '', )
+                        ], 
+                    professional_type = 'Business', 
+                    rest_id = '4', ),
+                profile_image_shape = 'Circle',
                 rest_id = '4',
                 super_follow_eligible = True,
                 super_followed_by = True,
                 super_following = True,
+                user_seed_tweet_count = 56,
+                verification_info = twitter_openapi_python_generated.models.user_verification_info.UserVerificationInfo(
+                    is_identity_verified = True, 
+                    reason = twitter_openapi_python_generated.models.user_verification_info_reason.UserVerificationInfoReason(
+                        description = twitter_openapi_python_generated.models.user_verification_info_reason_description.UserVerificationInfoReasonDescription(
+                            entities = [
+                                twitter_openapi_python_generated.models.user_verification_info_reason_description_entities.UserVerificationInfoReasonDescriptionEntities(
+                                    from_index = 56, 
+                                    ref = twitter_openapi_python_generated.models.user_verification_info_reason_description_entities_ref.UserVerificationInfoReasonDescriptionEntitiesRef(
+                                        url = '', 
+                                        url_type = 'ExternalUrl', ), 
+                                    to_index = 56, )
+                                ], 
+                            text = '', ), 
+                        override_verified_year = 56, 
+                        verified_since_msec = '-80728', ), ),
                 reason = ''
             )
         else:
@@ -139,7 +173,12 @@ class TestUserUnion(unittest.TestCase):
                     translator_type = '', 
                     url = '', 
                     verified = True, 
-                    want_retweets = True, ),
+                    verified_type = 'Business', 
+                    want_retweets = True, 
+                    withheld_in_countries = [
+                        ''
+                        ], ),
+                profile_image_shape = 'Circle',
                 rest_id = '4',
                 super_follow_eligible = True,
                 super_followed_by = True,

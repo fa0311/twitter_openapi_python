@@ -18,17 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
 from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
 from twitter_openapi_python_generated.models.cursor_type import CursorType
+from twitter_openapi_python_generated.models.display_treatment import DisplayTreatment
 from twitter_openapi_python_generated.models.type_name import TypeName
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class TimelineTimelineCursor(BaseModel):
     """
@@ -36,10 +33,12 @@ class TimelineTimelineCursor(BaseModel):
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
     cursor_type: CursorType = Field(alias="cursorType")
+    display_treatment: Optional[DisplayTreatment] = Field(default=None, alias="displayTreatment")
     entry_type: Optional[ContentEntryType] = Field(default=None, alias="entryType")
     item_type: Optional[ContentEntryType] = Field(default=None, alias="itemType")
+    stop_on_empty_response: StrictBool = Field(alias="stopOnEmptyResponse")
     value: StrictStr
-    __properties: ClassVar[List[str]] = ["__typename", "cursorType", "entryType", "itemType", "value"]
+    __properties: ClassVar[List[str]] = ["__typename", "cursorType", "displayTreatment", "entryType", "itemType", "stopOnEmptyResponse", "value"]
 
     model_config = {
         "populate_by_name": True,
@@ -58,7 +57,7 @@ class TimelineTimelineCursor(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of TimelineTimelineCursor from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -72,16 +71,21 @@ class TimelineTimelineCursor(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of display_treatment
+        if self.display_treatment:
+            _dict['displayTreatment'] = self.display_treatment.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of TimelineTimelineCursor from a dict"""
         if obj is None:
             return None
@@ -92,8 +96,10 @@ class TimelineTimelineCursor(BaseModel):
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
             "cursorType": obj.get("cursorType"),
+            "displayTreatment": DisplayTreatment.from_dict(obj["displayTreatment"]) if obj.get("displayTreatment") is not None else None,
             "entryType": obj.get("entryType"),
             "itemType": obj.get("itemType"),
+            "stopOnEmptyResponse": obj.get("stopOnEmptyResponse") if obj.get("stopOnEmptyResponse") is not None else False,
             "value": obj.get("value")
         })
         return _obj

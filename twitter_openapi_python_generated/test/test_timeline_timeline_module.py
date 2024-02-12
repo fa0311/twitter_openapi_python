@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.timeline_timeline_module import TimelineTimelineModule
 
@@ -41,6 +40,10 @@ class TestTimelineTimelineModule(unittest.TestCase):
                 client_event_info = { },
                 display_type = 'Vertical',
                 entry_type = 'TimelineTimelineItem',
+                feedback_info = twitter_openapi_python_generated.models.feedback_info.FeedbackInfo(
+                    feedback_keys = [
+                        ''
+                        ], ),
                 footer = { },
                 header = { },
                 items = [
@@ -52,7 +55,8 @@ class TestTimelineTimelineModule(unittest.TestCase):
                                 details = { }, 
                                 element = '', ), 
                             item_content = null, ), )
-                    ]
+                    ],
+                metadata = { }
             )
         else:
             return TimelineTimelineModule(

@@ -18,17 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictInt, StrictStr, field_validator
-from pydantic import Field
 from twitter_openapi_python_generated.models.instruction_type import InstructionType
 from twitter_openapi_python_generated.models.timeline_show_alert_rich_text import TimelineShowAlertRichText
 from twitter_openapi_python_generated.models.user_results import UserResults
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class TimelineShowAlert(BaseModel):
     """
@@ -51,7 +47,7 @@ class TimelineShowAlert(BaseModel):
         if value is None:
             return value
 
-        if value not in ('NewTweets'):
+        if value not in set(['NewTweets']):
             raise ValueError("must be one of enum values ('NewTweets')")
         return value
 
@@ -61,7 +57,7 @@ class TimelineShowAlert(BaseModel):
         if value is None:
             return value
 
-        if value not in ('Top'):
+        if value not in set(['Top']):
             raise ValueError("must be one of enum values ('Top')")
         return value
 
@@ -82,7 +78,7 @@ class TimelineShowAlert(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of TimelineShowAlert from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -96,10 +92,12 @@ class TimelineShowAlert(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of rich_text
@@ -115,7 +113,7 @@ class TimelineShowAlert(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of TimelineShowAlert from a dict"""
         if obj is None:
             return None
@@ -129,10 +127,10 @@ class TimelineShowAlert(BaseModel):
             "displayDurationMs": obj.get("displayDurationMs"),
             "displayLocation": obj.get("displayLocation"),
             "iconDisplayInfo": obj.get("iconDisplayInfo"),
-            "richText": TimelineShowAlertRichText.from_dict(obj.get("richText")) if obj.get("richText") is not None else None,
+            "richText": TimelineShowAlertRichText.from_dict(obj["richText"]) if obj.get("richText") is not None else None,
             "triggerDelayMs": obj.get("triggerDelayMs"),
             "type": obj.get("type"),
-            "usersResults": [UserResults.from_dict(_item) for _item in obj.get("usersResults")] if obj.get("usersResults") is not None else None
+            "usersResults": [UserResults.from_dict(_item) for _item in obj["usersResults"]] if obj.get("usersResults") is not None else None
         })
         return _obj
 

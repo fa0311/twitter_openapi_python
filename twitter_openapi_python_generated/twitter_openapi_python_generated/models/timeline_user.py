@@ -18,34 +18,30 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr, field_validator
-from pydantic import Field
 from twitter_openapi_python_generated.models.content_item_type import ContentItemType
-from twitter_openapi_python_generated.models.social_context import SocialContext
+from twitter_openapi_python_generated.models.social_context_union import SocialContextUnion
 from twitter_openapi_python_generated.models.type_name import TypeName
 from twitter_openapi_python_generated.models.user_results import UserResults
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class TimelineUser(BaseModel):
     """
     TimelineUser
     """ # noqa: E501
-    social_context: Optional[SocialContext] = Field(default=None, alias="SocialContext")
     typename: TypeName = Field(alias="__typename")
     item_type: ContentItemType = Field(alias="itemType")
+    social_context: Optional[SocialContextUnion] = Field(default=None, alias="socialContext")
     user_display_type: StrictStr = Field(alias="userDisplayType")
     user_results: UserResults
-    __properties: ClassVar[List[str]] = ["SocialContext", "__typename", "itemType", "userDisplayType", "user_results"]
+    __properties: ClassVar[List[str]] = ["__typename", "itemType", "socialContext", "userDisplayType", "user_results"]
 
     @field_validator('user_display_type')
     def user_display_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('User', 'UserDetailed', 'SubscribableUser'):
+        if value not in set(['User', 'UserDetailed', 'SubscribableUser']):
             raise ValueError("must be one of enum values ('User', 'UserDetailed', 'SubscribableUser')")
         return value
 
@@ -66,7 +62,7 @@ class TimelineUser(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of TimelineUser from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -80,22 +76,24 @@ class TimelineUser(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of social_context
         if self.social_context:
-            _dict['SocialContext'] = self.social_context.to_dict()
+            _dict['socialContext'] = self.social_context.to_dict()
         # override the default output from pydantic by calling `to_dict()` of user_results
         if self.user_results:
             _dict['user_results'] = self.user_results.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of TimelineUser from a dict"""
         if obj is None:
             return None
@@ -104,11 +102,11 @@ class TimelineUser(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "SocialContext": SocialContext.from_dict(obj.get("SocialContext")) if obj.get("SocialContext") is not None else None,
             "__typename": obj.get("__typename"),
             "itemType": obj.get("itemType"),
+            "socialContext": SocialContextUnion.from_dict(obj["socialContext"]) if obj.get("socialContext") is not None else None,
             "userDisplayType": obj.get("userDisplayType"),
-            "user_results": UserResults.from_dict(obj.get("user_results")) if obj.get("user_results") is not None else None
+            "user_results": UserResults.from_dict(obj["user_results"]) if obj.get("user_results") is not None else None
         })
         return _obj
 

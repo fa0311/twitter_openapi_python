@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.user_result_by_screen_name_result import UserResultByScreenNameResult
 
