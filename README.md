@@ -51,6 +51,13 @@ Setup
 pip install twitter-openapi-python-generated
 ```
 
+License
+
+This project is dual licensed. You can choose one of the following licenses:
+
+- [Custom License](./LICENSE)
+- [GNU Affero General Public License v3.0](./LICENSE.AGPL)
+
 Usage
 
 [twitter_openapi_python_generated/README.md](./twitter_openapi_python_generated/README.md)
