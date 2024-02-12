@@ -1,5 +1,5 @@
 import json
-from typing import Any, Dict, List, Optional, TypeGuard, TypeVar
+from typing import Any, Dict, List, Mapping, Optional, TypeGuard, TypeVar
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
@@ -265,7 +265,12 @@ def build_response(
     if response.headers is None:
         raise Exception("headers is None")
 
-    header = build_header(response.headers)
+    if isinstance(response.headers, Dict):
+        header = build_header(response.headers)
+    elif isinstance(response.headers, Mapping):
+        header = build_header(dict(response.headers))
+    else:
+        raise Exception("headers is not a dict")
 
     return TwitterApiUtilsResponse(
         raw=TwitterApiUtilsRaw(response=response),

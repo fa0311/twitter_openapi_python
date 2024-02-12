@@ -6,6 +6,9 @@
       "type": "debugpy",
       "request": "launch",
       "program": "${file}",
+      "env": {
+        "PYTHONPATH": "${workspaceRoot}"
+      },
       "console": "integratedTerminal",
       "justMyCode": false
     }
