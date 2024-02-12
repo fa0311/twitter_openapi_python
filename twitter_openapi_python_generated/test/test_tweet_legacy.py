@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.tweet_legacy import TweetLegacy
 
@@ -39,6 +38,7 @@ class TestTweetLegacy(unittest.TestCase):
             return TweetLegacy(
                 bookmark_count = 56,
                 bookmarked = True,
+                conversation_control = { },
                 conversation_id_str = '4',
                 created_at = 'Sat Dec 31 23:59:59 +0000 2023',
                 display_text_range = [
@@ -50,13 +50,19 @@ class TestTweetLegacy(unittest.TestCase):
                         ], 
                     media = [
                         twitter_openapi_python_generated.models.media.Media(
+                            additional_media_info = { }, 
                             display_url = '', 
                             expanded_url = '', 
+                            ext_alt_text = '', 
+                            ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.ExtMediaAvailability(
+                                reason = '', 
+                                status = 'Available', ), 
                             features = twitter_openapi_python_generated.models.features.features(), 
                             id_str = '4', 
                             indices = [
                                 56
                                 ], 
+                            media_key = '', 
                             media_url_https = '', 
                             original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                                 focus_rects = [
@@ -79,8 +85,11 @@ class TestTweetLegacy(unittest.TestCase):
                                     w = 56, ), 
                                 small = , 
                                 thumb = , ), 
+                            source_status_id_str = '4', 
+                            source_user_id_str = '4', 
                             type = 'photo', 
-                            url = '', )
+                            url = '', 
+                            video_info = { }, )
                         ], 
                     symbols = [
                         { }
@@ -101,10 +110,20 @@ class TestTweetLegacy(unittest.TestCase):
                     media = [
                         twitter_openapi_python_generated.models.media_extended.MediaExtended(
                             additional_media_info = twitter_openapi_python_generated.models.additional_media_info.AdditionalMediaInfo(
-                                monetizable = True, ), 
+                                call_to_actions = twitter_openapi_python_generated.models.additional_media_info_call_to_actions.AdditionalMediaInfoCallToActions(
+                                    visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_visit_site.AdditionalMediaInfoCallToActionsVisitSite(
+                                        url = '', ), ), 
+                                description = '', 
+                                embeddable = True, 
+                                monetizable = True, 
+                                source_user = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
+                                    user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                                        result = null, ), ), 
+                                title = '', ), 
                             display_url = '', 
                             expanded_url = '', 
-                            ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.extMediaAvailability(
+                            ext_alt_text = '', 
+                            ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.ExtMediaAvailability(
                                 reason = '', 
                                 status = 'Available', ), 
                             features = twitter_openapi_python_generated.models.features.features(), 
@@ -112,7 +131,7 @@ class TestTweetLegacy(unittest.TestCase):
                             indices = [
                                 56
                                 ], 
-                            media_stats = twitter_openapi_python_generated.models.media_stats.mediaStats(
+                            media_stats = twitter_openapi_python_generated.models.media_stats.MediaStats(
                                 view_count = 56, ), 
                             media_key = '', 
                             media_url_https = '', 
@@ -137,6 +156,8 @@ class TestTweetLegacy(unittest.TestCase):
                                     w = 56, ), 
                                 small = , 
                                 thumb = , ), 
+                            source_status_id_str = '4', 
+                            source_user_id_str = '4', 
                             type = 'photo', 
                             url = '', 
                             video_info = twitter_openapi_python_generated.models.media_video_info.MediaVideoInfo(
@@ -155,17 +176,29 @@ class TestTweetLegacy(unittest.TestCase):
                 favorited = True,
                 full_text = '',
                 id_str = '4',
+                in_reply_to_screen_name = '',
+                in_reply_to_status_id_str = '4',
+                in_reply_to_user_id_str = '4',
                 is_quote_status = True,
                 lang = '',
+                limited_actions = 'limited_replies',
+                place = { },
                 possibly_sensitive = True,
                 possibly_sensitive_editable = True,
                 quote_count = 56,
+                quoted_status_id_str = '4',
+                quoted_status_permalink = twitter_openapi_python_generated.models.quoted_status_permalink.QuotedStatusPermalink(
+                    display = '', 
+                    expanded = '', 
+                    url = '', ),
                 reply_count = 56,
                 retweet_count = 56,
                 retweeted = True,
                 retweeted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 
                     result = null, ),
+                scopes = twitter_openapi_python_generated.models.tweet_legacy_scopes.TweetLegacyScopes(
+                    followers = True, ),
                 self_thread = twitter_openapi_python_generated.models.self_thread.SelfThread(
                     id_str = '4', ),
                 user_id_str = '4'
@@ -185,13 +218,19 @@ class TestTweetLegacy(unittest.TestCase):
                         ], 
                     media = [
                         twitter_openapi_python_generated.models.media.Media(
+                            additional_media_info = { }, 
                             display_url = '', 
                             expanded_url = '', 
+                            ext_alt_text = '', 
+                            ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.ExtMediaAvailability(
+                                reason = '', 
+                                status = 'Available', ), 
                             features = twitter_openapi_python_generated.models.features.features(), 
                             id_str = '4', 
                             indices = [
                                 56
                                 ], 
+                            media_key = '', 
                             media_url_https = '', 
                             original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                                 focus_rects = [
@@ -214,8 +253,11 @@ class TestTweetLegacy(unittest.TestCase):
                                     w = 56, ), 
                                 small = , 
                                 thumb = , ), 
+                            source_status_id_str = '4', 
+                            source_user_id_str = '4', 
                             type = 'photo', 
-                            url = '', )
+                            url = '', 
+                            video_info = { }, )
                         ], 
                     symbols = [
                         { }

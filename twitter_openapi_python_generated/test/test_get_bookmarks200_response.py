@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.get_bookmarks200_response import GetBookmarks200Response
 

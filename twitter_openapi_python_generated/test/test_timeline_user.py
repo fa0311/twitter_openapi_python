@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.timeline_user import TimelineUser
 
@@ -37,12 +36,9 @@ class TestTimelineUser(unittest.TestCase):
         model = TimelineUser()
         if include_optional:
             return TimelineUser(
-                social_context = twitter_openapi_python_generated.models.social_context.SocialContext(
-                    context_type = '', 
-                    text = '', 
-                    type = '', ),
                 typename = 'TimelineTweet',
                 item_type = 'TimelineTweet',
+                social_context = None,
                 user_display_type = 'User',
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                     result = null, )

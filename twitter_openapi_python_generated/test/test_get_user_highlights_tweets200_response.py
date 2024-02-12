@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.get_user_highlights_tweets200_response import GetUserHighlightsTweets200Response
 

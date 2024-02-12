@@ -18,18 +18,16 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel, StrictBool
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Any, ClassVar, Dict, List
+from typing import Optional, Set
+from typing_extensions import Self
 
 class PostCreateTweetRequestFeatures(BaseModel):
     """
     PostCreateTweetRequestFeatures
     """ # noqa: E501
+    c9s_tweet_anatomy_moderator_badge_enabled: StrictBool
     freedom_of_speech_not_reach_fetch_enabled: StrictBool
     graphql_is_translatable_rweb_tweet_is_translatable_enabled: StrictBool
     longform_notetweets_consumption_enabled: StrictBool
@@ -42,13 +40,14 @@ class PostCreateTweetRequestFeatures(BaseModel):
     responsive_web_graphql_timeline_navigation_enabled: StrictBool
     responsive_web_media_download_video_enabled: StrictBool
     responsive_web_twitter_article_tweet_consumption_enabled: StrictBool
+    rweb_video_timestamps_enabled: StrictBool
     standardized_nudges_misinfo: StrictBool
     tweet_awards_web_tipping_enabled: StrictBool
     tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled: StrictBool
     tweetypie_unmention_optimization_enabled: StrictBool
     verified_phone_label_enabled: StrictBool
     view_counts_everywhere_api_enabled: StrictBool
-    __properties: ClassVar[List[str]] = ["freedom_of_speech_not_reach_fetch_enabled", "graphql_is_translatable_rweb_tweet_is_translatable_enabled", "longform_notetweets_consumption_enabled", "longform_notetweets_inline_media_enabled", "longform_notetweets_rich_text_read_enabled", "responsive_web_edit_tweet_api_enabled", "responsive_web_enhance_cards_enabled", "responsive_web_graphql_exclude_directive_enabled", "responsive_web_graphql_skip_user_profile_image_extensions_enabled", "responsive_web_graphql_timeline_navigation_enabled", "responsive_web_media_download_video_enabled", "responsive_web_twitter_article_tweet_consumption_enabled", "standardized_nudges_misinfo", "tweet_awards_web_tipping_enabled", "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled", "tweetypie_unmention_optimization_enabled", "verified_phone_label_enabled", "view_counts_everywhere_api_enabled"]
+    __properties: ClassVar[List[str]] = ["c9s_tweet_anatomy_moderator_badge_enabled", "freedom_of_speech_not_reach_fetch_enabled", "graphql_is_translatable_rweb_tweet_is_translatable_enabled", "longform_notetweets_consumption_enabled", "longform_notetweets_inline_media_enabled", "longform_notetweets_rich_text_read_enabled", "responsive_web_edit_tweet_api_enabled", "responsive_web_enhance_cards_enabled", "responsive_web_graphql_exclude_directive_enabled", "responsive_web_graphql_skip_user_profile_image_extensions_enabled", "responsive_web_graphql_timeline_navigation_enabled", "responsive_web_media_download_video_enabled", "responsive_web_twitter_article_tweet_consumption_enabled", "rweb_video_timestamps_enabled", "standardized_nudges_misinfo", "tweet_awards_web_tipping_enabled", "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled", "tweetypie_unmention_optimization_enabled", "verified_phone_label_enabled", "view_counts_everywhere_api_enabled"]
 
     model_config = {
         "populate_by_name": True,
@@ -67,7 +66,7 @@ class PostCreateTweetRequestFeatures(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of PostCreateTweetRequestFeatures from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -81,16 +80,18 @@ class PostCreateTweetRequestFeatures(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of PostCreateTweetRequestFeatures from a dict"""
         if obj is None:
             return None
@@ -99,6 +100,7 @@ class PostCreateTweetRequestFeatures(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "c9s_tweet_anatomy_moderator_badge_enabled": obj.get("c9s_tweet_anatomy_moderator_badge_enabled") if obj.get("c9s_tweet_anatomy_moderator_badge_enabled") is not None else True,
             "freedom_of_speech_not_reach_fetch_enabled": obj.get("freedom_of_speech_not_reach_fetch_enabled") if obj.get("freedom_of_speech_not_reach_fetch_enabled") is not None else True,
             "graphql_is_translatable_rweb_tweet_is_translatable_enabled": obj.get("graphql_is_translatable_rweb_tweet_is_translatable_enabled") if obj.get("graphql_is_translatable_rweb_tweet_is_translatable_enabled") is not None else True,
             "longform_notetweets_consumption_enabled": obj.get("longform_notetweets_consumption_enabled") if obj.get("longform_notetweets_consumption_enabled") is not None else True,
@@ -110,7 +112,8 @@ class PostCreateTweetRequestFeatures(BaseModel):
             "responsive_web_graphql_skip_user_profile_image_extensions_enabled": obj.get("responsive_web_graphql_skip_user_profile_image_extensions_enabled") if obj.get("responsive_web_graphql_skip_user_profile_image_extensions_enabled") is not None else False,
             "responsive_web_graphql_timeline_navigation_enabled": obj.get("responsive_web_graphql_timeline_navigation_enabled") if obj.get("responsive_web_graphql_timeline_navigation_enabled") is not None else True,
             "responsive_web_media_download_video_enabled": obj.get("responsive_web_media_download_video_enabled") if obj.get("responsive_web_media_download_video_enabled") is not None else False,
-            "responsive_web_twitter_article_tweet_consumption_enabled": obj.get("responsive_web_twitter_article_tweet_consumption_enabled") if obj.get("responsive_web_twitter_article_tweet_consumption_enabled") is not None else False,
+            "responsive_web_twitter_article_tweet_consumption_enabled": obj.get("responsive_web_twitter_article_tweet_consumption_enabled") if obj.get("responsive_web_twitter_article_tweet_consumption_enabled") is not None else True,
+            "rweb_video_timestamps_enabled": obj.get("rweb_video_timestamps_enabled") if obj.get("rweb_video_timestamps_enabled") is not None else True,
             "standardized_nudges_misinfo": obj.get("standardized_nudges_misinfo") if obj.get("standardized_nudges_misinfo") is not None else True,
             "tweet_awards_web_tipping_enabled": obj.get("tweet_awards_web_tipping_enabled") if obj.get("tweet_awards_web_tipping_enabled") is not None else False,
             "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": obj.get("tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled") if obj.get("tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled") is not None else True,

@@ -18,14 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.media_original_info_focus_rect import MediaOriginalInfoFocusRect
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class MediaOriginalInfo(BaseModel):
     """
@@ -53,7 +50,7 @@ class MediaOriginalInfo(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of MediaOriginalInfo from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -67,10 +64,12 @@ class MediaOriginalInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in focus_rects (list)
@@ -83,7 +82,7 @@ class MediaOriginalInfo(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of MediaOriginalInfo from a dict"""
         if obj is None:
             return None
@@ -92,7 +91,7 @@ class MediaOriginalInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "focus_rects": [MediaOriginalInfoFocusRect.from_dict(_item) for _item in obj.get("focus_rects")] if obj.get("focus_rects") is not None else None,
+            "focus_rects": [MediaOriginalInfoFocusRect.from_dict(_item) for _item in obj["focus_rects"]] if obj.get("focus_rects") is not None else None,
             "height": obj.get("height"),
             "width": obj.get("width")
         })

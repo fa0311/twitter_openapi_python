@@ -39,8 +39,6 @@ get user by screen name
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.models.get_profile_spotlights_query200_response import GetProfileSpotlightsQuery200Response
 from twitter_openapi_python_generated.rest import ApiException
@@ -180,7 +178,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.DefaultApi(api_client)
-    path_query_id = '_pnlqeTOtnpbIL9o-fS_pg' # str |  (default to '_pnlqeTOtnpbIL9o-fS_pg')
+    path_query_id = 'X-Sw7rvhcUhof35mh5ObKw' # str |  (default to 'X-Sw7rvhcUhof35mh5ObKw')
     variables = '{"screen_name": "elonmusk"}' # str |  (default to '{"screen_name": "elonmusk"}')
     features = '{}' # str |  (default to '{}')
 
@@ -199,7 +197,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;_pnlqeTOtnpbIL9o-fS_pg&#39;]
+ **path_query_id** | **str**|  | [default to &#39;X-Sw7rvhcUhof35mh5ObKw&#39;]
  **variables** | **str**|  | [default to &#39;{&quot;screen_name&quot;: &quot;elonmusk&quot;}&#39;]
  **features** | **str**|  | [default to &#39;{}&#39;]
 
@@ -255,8 +253,6 @@ get TweetResultByRestId
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.models.get_tweet_result_by_rest_id200_response import GetTweetResultByRestId200Response
 from twitter_openapi_python_generated.rest import ApiException
@@ -396,9 +392,9 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.DefaultApi(api_client)
-    path_query_id = 'DJS3BdhUhcaEpZ7B7irJDg' # str |  (default to 'DJS3BdhUhcaEpZ7B7irJDg')
+    path_query_id = 'MWY3AO9_I3rcP_L2A4FR4A' # str |  (default to 'MWY3AO9_I3rcP_L2A4FR4A')
     variables = '{"tweetId": "1691730070669517096", "withCommunity": false, "includePromotedContent": false, "withVoice": false}' # str |  (default to '{"tweetId": "1691730070669517096", "withCommunity": false, "includePromotedContent": false, "withVoice": false}')
-    features = '{"creator_subscriptions_tweet_preview_api_enabled": true, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_media_download_video_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_enhance_cards_enabled": false}' # str |  (default to '{"creator_subscriptions_tweet_preview_api_enabled": true, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_media_download_video_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_enhance_cards_enabled": false}')
+    features = '{"creator_subscriptions_tweet_preview_api_enabled": true, "c9s_tweet_anatomy_moderator_badge_enabled": true, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "rweb_video_timestamps_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_media_download_video_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_enhance_cards_enabled": false}' # str |  (default to '{"creator_subscriptions_tweet_preview_api_enabled": true, "c9s_tweet_anatomy_moderator_badge_enabled": true, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "rweb_video_timestamps_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_media_download_video_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_enhance_cards_enabled": false}')
 
     try:
         api_response = api_instance.get_tweet_result_by_rest_id(path_query_id, variables, features)
@@ -415,9 +411,9 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;DJS3BdhUhcaEpZ7B7irJDg&#39;]
+ **path_query_id** | **str**|  | [default to &#39;MWY3AO9_I3rcP_L2A4FR4A&#39;]
  **variables** | **str**|  | [default to &#39;{&quot;tweetId&quot;: &quot;1691730070669517096&quot;, &quot;withCommunity&quot;: false, &quot;includePromotedContent&quot;: false, &quot;withVoice&quot;: false}&#39;]
- **features** | **str**|  | [default to &#39;{&quot;creator_subscriptions_tweet_preview_api_enabled&quot;: true, &quot;tweetypie_unmention_optimization_enabled&quot;: true, &quot;responsive_web_edit_tweet_api_enabled&quot;: true, &quot;graphql_is_translatable_rweb_tweet_is_translatable_enabled&quot;: true, &quot;view_counts_everywhere_api_enabled&quot;: true, &quot;longform_notetweets_consumption_enabled&quot;: true, &quot;responsive_web_twitter_article_tweet_consumption_enabled&quot;: false, &quot;tweet_awards_web_tipping_enabled&quot;: false, &quot;freedom_of_speech_not_reach_fetch_enabled&quot;: true, &quot;standardized_nudges_misinfo&quot;: true, &quot;tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled&quot;: true, &quot;longform_notetweets_rich_text_read_enabled&quot;: true, &quot;longform_notetweets_inline_media_enabled&quot;: true, &quot;responsive_web_graphql_exclude_directive_enabled&quot;: true, &quot;verified_phone_label_enabled&quot;: false, &quot;responsive_web_media_download_video_enabled&quot;: false, &quot;responsive_web_graphql_skip_user_profile_image_extensions_enabled&quot;: false, &quot;responsive_web_graphql_timeline_navigation_enabled&quot;: true, &quot;responsive_web_enhance_cards_enabled&quot;: false}&#39;]
+ **features** | **str**|  | [default to &#39;{&quot;creator_subscriptions_tweet_preview_api_enabled&quot;: true, &quot;c9s_tweet_anatomy_moderator_badge_enabled&quot;: true, &quot;tweetypie_unmention_optimization_enabled&quot;: true, &quot;responsive_web_edit_tweet_api_enabled&quot;: true, &quot;graphql_is_translatable_rweb_tweet_is_translatable_enabled&quot;: true, &quot;view_counts_everywhere_api_enabled&quot;: true, &quot;longform_notetweets_consumption_enabled&quot;: true, &quot;responsive_web_twitter_article_tweet_consumption_enabled&quot;: true, &quot;tweet_awards_web_tipping_enabled&quot;: false, &quot;freedom_of_speech_not_reach_fetch_enabled&quot;: true, &quot;standardized_nudges_misinfo&quot;: true, &quot;tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled&quot;: true, &quot;rweb_video_timestamps_enabled&quot;: true, &quot;longform_notetweets_rich_text_read_enabled&quot;: true, &quot;longform_notetweets_inline_media_enabled&quot;: true, &quot;responsive_web_graphql_exclude_directive_enabled&quot;: true, &quot;verified_phone_label_enabled&quot;: false, &quot;responsive_web_media_download_video_enabled&quot;: false, &quot;responsive_web_graphql_skip_user_profile_image_extensions_enabled&quot;: false, &quot;responsive_web_graphql_timeline_navigation_enabled&quot;: true, &quot;responsive_web_enhance_cards_enabled&quot;: false}&#39;]
 
 ### Return type
 

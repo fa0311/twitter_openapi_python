@@ -38,8 +38,6 @@ This is not an actual endpoint
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.models.other200_response import Other200Response
 from twitter_openapi_python_generated.rest import ApiException

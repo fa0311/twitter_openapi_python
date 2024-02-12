@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.tweet_card_legacy import TweetCardLegacy
 
@@ -42,12 +41,31 @@ class TestTweetCardLegacy(unittest.TestCase):
                         key = '', 
                         value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data.TweetCardLegacyBindingValueData(
                             boolean_value = True, 
+                            image_color_value = { }, 
+                            image_value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data_image.TweetCardLegacyBindingValueDataImage(
+                                alt = '', 
+                                height = 56, 
+                                url = '', 
+                                width = 56, ), 
                             scribe_key = '', 
                             string_value = '', 
-                            type = '', ), )
+                            type = '', 
+                            user_value = twitter_openapi_python_generated.models.user_value.UserValue(
+                                id_str = '4', ), ), )
                     ],
+                card_platform = twitter_openapi_python_generated.models.tweet_card_platform_data.TweetCardPlatformData(
+                    platform = twitter_openapi_python_generated.models.tweet_card_platform.TweetCardPlatform(
+                        audience = twitter_openapi_python_generated.models.tweet_card_platform_audience.TweetCardPlatformAudience(
+                            name = 'production', ), 
+                        device = twitter_openapi_python_generated.models.tweet_card_platform_device.TweetCardPlatformDevice(
+                            name = '', 
+                            version = '4', ), ), ),
                 name = '',
-                url = ''
+                url = '',
+                user_refs_results = [
+                    twitter_openapi_python_generated.models.user_results.UserResults(
+                        result = null, )
+                    ]
             )
         else:
             return TweetCardLegacy(
@@ -56,9 +74,17 @@ class TestTweetCardLegacy(unittest.TestCase):
                         key = '', 
                         value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data.TweetCardLegacyBindingValueData(
                             boolean_value = True, 
+                            image_color_value = { }, 
+                            image_value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data_image.TweetCardLegacyBindingValueDataImage(
+                                alt = '', 
+                                height = 56, 
+                                url = '', 
+                                width = 56, ), 
                             scribe_key = '', 
                             string_value = '', 
-                            type = '', ), )
+                            type = '', 
+                            user_value = twitter_openapi_python_generated.models.user_value.UserValue(
+                                id_str = '4', ), ), )
                     ],
                 name = '',
                 url = '',

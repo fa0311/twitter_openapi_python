@@ -18,14 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel
+from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.note_tweet_result_media_inline_media import NoteTweetResultMediaInlineMedia
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class NoteTweetResultMedia(BaseModel):
     """
@@ -51,7 +48,7 @@ class NoteTweetResultMedia(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of NoteTweetResultMedia from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -65,10 +62,12 @@ class NoteTweetResultMedia(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in inline_media (list)
@@ -81,7 +80,7 @@ class NoteTweetResultMedia(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of NoteTweetResultMedia from a dict"""
         if obj is None:
             return None
@@ -90,7 +89,7 @@ class NoteTweetResultMedia(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "inline_media": [NoteTweetResultMediaInlineMedia.from_dict(_item) for _item in obj.get("inline_media")] if obj.get("inline_media") is not None else None
+            "inline_media": [NoteTweetResultMediaInlineMedia.from_dict(_item) for _item in obj["inline_media"]] if obj.get("inline_media") is not None else None
         })
         return _obj
 

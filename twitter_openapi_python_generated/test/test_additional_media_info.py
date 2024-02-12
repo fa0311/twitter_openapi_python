@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.additional_media_info import AdditionalMediaInfo
 
@@ -37,7 +36,16 @@ class TestAdditionalMediaInfo(unittest.TestCase):
         model = AdditionalMediaInfo()
         if include_optional:
             return AdditionalMediaInfo(
-                monetizable = True
+                call_to_actions = twitter_openapi_python_generated.models.additional_media_info_call_to_actions.AdditionalMediaInfoCallToActions(
+                    visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_visit_site.AdditionalMediaInfoCallToActionsVisitSite(
+                        url = '', ), ),
+                description = '',
+                embeddable = True,
+                monetizable = True,
+                source_user = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
+                    user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                        result = null, ), ),
+                title = ''
             )
         else:
             return AdditionalMediaInfo(

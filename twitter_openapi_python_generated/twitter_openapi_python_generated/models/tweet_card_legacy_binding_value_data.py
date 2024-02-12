@@ -18,23 +18,25 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictBool, StrictStr
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data_image import TweetCardLegacyBindingValueDataImage
+from twitter_openapi_python_generated.models.user_value import UserValue
+from typing import Optional, Set
+from typing_extensions import Self
 
 class TweetCardLegacyBindingValueData(BaseModel):
     """
     TweetCardLegacyBindingValueData
     """ # noqa: E501
     boolean_value: Optional[StrictBool] = None
+    image_color_value: Optional[Dict[str, Any]] = None
+    image_value: Optional[TweetCardLegacyBindingValueDataImage] = None
     scribe_key: Optional[StrictStr] = None
     string_value: Optional[StrictStr] = None
     type: StrictStr
-    __properties: ClassVar[List[str]] = ["boolean_value", "scribe_key", "string_value", "type"]
+    user_value: Optional[UserValue] = None
+    __properties: ClassVar[List[str]] = ["boolean_value", "image_color_value", "image_value", "scribe_key", "string_value", "type", "user_value"]
 
     model_config = {
         "populate_by_name": True,
@@ -53,7 +55,7 @@ class TweetCardLegacyBindingValueData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of TweetCardLegacyBindingValueData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -67,16 +69,24 @@ class TweetCardLegacyBindingValueData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of image_value
+        if self.image_value:
+            _dict['image_value'] = self.image_value.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of user_value
+        if self.user_value:
+            _dict['user_value'] = self.user_value.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of TweetCardLegacyBindingValueData from a dict"""
         if obj is None:
             return None
@@ -86,9 +96,12 @@ class TweetCardLegacyBindingValueData(BaseModel):
 
         _obj = cls.model_validate({
             "boolean_value": obj.get("boolean_value"),
+            "image_color_value": obj.get("image_color_value"),
+            "image_value": TweetCardLegacyBindingValueDataImage.from_dict(obj["image_value"]) if obj.get("image_value") is not None else None,
             "scribe_key": obj.get("scribe_key"),
             "string_value": obj.get("string_value"),
-            "type": obj.get("type")
+            "type": obj.get("type"),
+            "user_value": UserValue.from_dict(obj["user_value"]) if obj.get("user_value") is not None else None
         })
         return _obj
 

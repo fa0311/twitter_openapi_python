@@ -5,7 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**call_to_actions** | [**AdditionalMediaInfoCallToActions**](AdditionalMediaInfoCallToActions.md) |  | [optional] 
+**description** | **str** |  | [optional] 
+**embeddable** | **bool** |  | [optional] 
 **monetizable** | **bool** |  | 
+**source_user** | [**UserResultCore**](UserResultCore.md) |  | [optional] 
+**title** | **str** |  | [optional] 
 
 ## Example
 

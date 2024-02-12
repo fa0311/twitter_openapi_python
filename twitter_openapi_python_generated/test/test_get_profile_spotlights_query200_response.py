@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.get_profile_spotlights_query200_response import GetProfileSpotlightsQuery200Response
 

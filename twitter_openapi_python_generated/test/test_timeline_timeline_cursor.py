@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.timeline_timeline_cursor import TimelineTimelineCursor
 
@@ -39,14 +38,18 @@ class TestTimelineTimelineCursor(unittest.TestCase):
             return TimelineTimelineCursor(
                 typename = 'TimelineTweet',
                 cursor_type = 'Top',
+                display_treatment = twitter_openapi_python_generated.models.display_treatment.DisplayTreatment(
+                    action_text = '', ),
                 entry_type = 'TimelineTimelineItem',
                 item_type = 'TimelineTimelineItem',
+                stop_on_empty_response = True,
                 value = ''
             )
         else:
             return TimelineTimelineCursor(
                 typename = 'TimelineTweet',
                 cursor_type = 'Top',
+                stop_on_empty_response = True,
                 value = '',
         )
         """

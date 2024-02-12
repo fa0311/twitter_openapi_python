@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.item_content_union import ItemContentUnion
 
@@ -37,19 +36,25 @@ class TestItemContentUnion(unittest.TestCase):
         model = ItemContentUnion()
         if include_optional:
             return ItemContentUnion(
-                social_context = twitter_openapi_python_generated.models.social_context.SocialContext(
-                    context_type = '', 
-                    text = '', 
-                    type = '', ),
                 typename = 'TimelineTweet',
+                highlights = twitter_openapi_python_generated.models.highlight.Highlight(
+                    text_highlights = [
+                        twitter_openapi_python_generated.models.text_highlight.TextHighlight(
+                            end_index = 56, 
+                            start_index = 56, )
+                        ], ),
                 item_type = 'TimelineTweet',
                 promoted_metadata = { },
+                social_context = None,
                 tweet_display_type = '',
                 tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 
                     result = null, ),
                 cursor_type = 'Top',
+                display_treatment = twitter_openapi_python_generated.models.display_treatment.DisplayTreatment(
+                    action_text = '', ),
                 entry_type = 'TimelineTimelineItem',
+                stop_on_empty_response = True,
                 value = '',
                 user_display_type = 'User',
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
@@ -64,6 +69,7 @@ class TestItemContentUnion(unittest.TestCase):
                     __typename = 'TimelineTweet', 
                     result = null, ),
                 cursor_type = 'Top',
+                stop_on_empty_response = True,
                 value = '',
                 user_display_type = 'User',
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(

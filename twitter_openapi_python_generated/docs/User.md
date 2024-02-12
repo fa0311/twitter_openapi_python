@@ -8,15 +8,22 @@ Name | Type | Description | Notes
 **typename** | [**TypeName**](TypeName.md) |  | 
 **affiliates_highlighted_label** | **Dict[str, object]** |  | 
 **business_account** | **Dict[str, object]** |  | [optional] 
+**creator_subscriptions_count** | **int** |  | [optional] 
 **has_graduated_access** | **bool** |  | [optional] 
 **has_nft_avatar** | **bool** |  | [optional] [default to False]
+**highlights_info** | [**UserHighlightsInfo**](UserHighlightsInfo.md) |  | [optional] 
 **id** | **str** |  | 
 **is_blue_verified** | **bool** |  | [default to False]
+**is_profile_translatable** | **bool** |  | [optional] 
 **legacy** | [**UserLegacy**](UserLegacy.md) |  | 
+**professional** | [**UserProfessional**](UserProfessional.md) |  | [optional] 
+**profile_image_shape** | **str** |  | 
 **rest_id** | **str** |  | 
 **super_follow_eligible** | **bool** |  | [default to False]
 **super_followed_by** | **bool** |  | [default to False]
 **super_following** | **bool** |  | [default to False]
+**user_seed_tweet_count** | **int** |  | [optional] 
+**verification_info** | [**UserVerificationInfo**](UserVerificationInfo.md) |  | [optional] 
 
 ## Example
 

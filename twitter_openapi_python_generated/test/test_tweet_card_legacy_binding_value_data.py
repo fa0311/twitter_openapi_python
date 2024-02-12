@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data import TweetCardLegacyBindingValueData
 
@@ -38,9 +37,17 @@ class TestTweetCardLegacyBindingValueData(unittest.TestCase):
         if include_optional:
             return TweetCardLegacyBindingValueData(
                 boolean_value = True,
+                image_color_value = { },
+                image_value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data_image.TweetCardLegacyBindingValueDataImage(
+                    alt = '', 
+                    height = 56, 
+                    url = '', 
+                    width = 56, ),
                 scribe_key = '',
                 string_value = '',
-                type = ''
+                type = '',
+                user_value = twitter_openapi_python_generated.models.user_value.UserValue(
+                    id_str = '4', )
             )
         else:
             return TweetCardLegacyBindingValueData(

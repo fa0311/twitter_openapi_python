@@ -18,44 +18,51 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.author_community_relationship import AuthorCommunityRelationship
 from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot
 from twitter_openapi_python_generated.models.note_tweet import NoteTweet
+from twitter_openapi_python_generated.models.quoted_ref_result import QuotedRefResult
+from twitter_openapi_python_generated.models.super_follows_reply_user_result import SuperFollowsReplyUserResult
 from twitter_openapi_python_generated.models.tweet_card import TweetCard
 from twitter_openapi_python_generated.models.tweet_edit_control import TweetEditControl
 from twitter_openapi_python_generated.models.tweet_edit_prespective import TweetEditPrespective
+from twitter_openapi_python_generated.models.tweet_previous_counts import TweetPreviousCounts
 from twitter_openapi_python_generated.models.tweet_view import TweetView
 from twitter_openapi_python_generated.models.type_name import TypeName
+from twitter_openapi_python_generated.models.unified_card import UnifiedCard
 from twitter_openapi_python_generated.models.user_result_core import UserResultCore
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Tweet(BaseModel):
     """
     Tweet
     """ # noqa: E501
     typename: Optional[TypeName] = Field(default=None, alias="__typename")
+    author_community_relationship: Optional[AuthorCommunityRelationship] = None
     birdwatch_pivot: Optional[BirdwatchPivot] = None
     card: Optional[TweetCard] = None
     core: Optional[UserResultCore] = None
     edit_control: TweetEditControl
     edit_prespective: Optional[TweetEditPrespective] = None
+    has_birdwatch_notes: Optional[StrictBool] = None
     is_translatable: StrictBool
     legacy: Optional[TweetLegacy] = None
     note_tweet: Optional[NoteTweet] = None
+    previous_counts: Optional[TweetPreviousCounts] = None
     quick_promote_eligibility: Optional[Dict[str, Any]] = None
+    quoted_ref_result: Optional[QuotedRefResult] = Field(default=None, alias="quotedRefResult")
     quoted_status_result: Optional[ItemResult] = None
     rest_id: Annotated[str, Field(strict=True)]
     source: Optional[StrictStr] = None
+    super_follows_reply_user_result: Optional[SuperFollowsReplyUserResult] = Field(default=None, alias="superFollowsReplyUserResult")
+    unified_card: Optional[UnifiedCard] = None
     unmention_data: Optional[Dict[str, Any]] = None
     views: TweetView
-    __properties: ClassVar[List[str]] = ["__typename", "birdwatch_pivot", "card", "core", "edit_control", "edit_prespective", "is_translatable", "legacy", "note_tweet", "quick_promote_eligibility", "quoted_status_result", "rest_id", "source", "unmention_data", "views"]
+    __properties: ClassVar[List[str]] = ["__typename", "author_community_relationship", "birdwatch_pivot", "card", "core", "edit_control", "edit_prespective", "has_birdwatch_notes", "is_translatable", "legacy", "note_tweet", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "unified_card", "unmention_data", "views"]
 
     @field_validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
@@ -81,7 +88,7 @@ class Tweet(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Tweet from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -95,12 +102,17 @@ class Tweet(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of author_community_relationship
+        if self.author_community_relationship:
+            _dict['author_community_relationship'] = self.author_community_relationship.to_dict()
         # override the default output from pydantic by calling `to_dict()` of birdwatch_pivot
         if self.birdwatch_pivot:
             _dict['birdwatch_pivot'] = self.birdwatch_pivot.to_dict()
@@ -122,16 +134,28 @@ class Tweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of note_tweet
         if self.note_tweet:
             _dict['note_tweet'] = self.note_tweet.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of previous_counts
+        if self.previous_counts:
+            _dict['previous_counts'] = self.previous_counts.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of quoted_ref_result
+        if self.quoted_ref_result:
+            _dict['quotedRefResult'] = self.quoted_ref_result.to_dict()
         # override the default output from pydantic by calling `to_dict()` of quoted_status_result
         if self.quoted_status_result:
             _dict['quoted_status_result'] = self.quoted_status_result.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of super_follows_reply_user_result
+        if self.super_follows_reply_user_result:
+            _dict['superFollowsReplyUserResult'] = self.super_follows_reply_user_result.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of unified_card
+        if self.unified_card:
+            _dict['unified_card'] = self.unified_card.to_dict()
         # override the default output from pydantic by calling `to_dict()` of views
         if self.views:
             _dict['views'] = self.views.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Tweet from a dict"""
         if obj is None:
             return None
@@ -141,20 +165,26 @@ class Tweet(BaseModel):
 
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
-            "birdwatch_pivot": BirdwatchPivot.from_dict(obj.get("birdwatch_pivot")) if obj.get("birdwatch_pivot") is not None else None,
-            "card": TweetCard.from_dict(obj.get("card")) if obj.get("card") is not None else None,
-            "core": UserResultCore.from_dict(obj.get("core")) if obj.get("core") is not None else None,
-            "edit_control": TweetEditControl.from_dict(obj.get("edit_control")) if obj.get("edit_control") is not None else None,
-            "edit_prespective": TweetEditPrespective.from_dict(obj.get("edit_prespective")) if obj.get("edit_prespective") is not None else None,
+            "author_community_relationship": AuthorCommunityRelationship.from_dict(obj["author_community_relationship"]) if obj.get("author_community_relationship") is not None else None,
+            "birdwatch_pivot": BirdwatchPivot.from_dict(obj["birdwatch_pivot"]) if obj.get("birdwatch_pivot") is not None else None,
+            "card": TweetCard.from_dict(obj["card"]) if obj.get("card") is not None else None,
+            "core": UserResultCore.from_dict(obj["core"]) if obj.get("core") is not None else None,
+            "edit_control": TweetEditControl.from_dict(obj["edit_control"]) if obj.get("edit_control") is not None else None,
+            "edit_prespective": TweetEditPrespective.from_dict(obj["edit_prespective"]) if obj.get("edit_prespective") is not None else None,
+            "has_birdwatch_notes": obj.get("has_birdwatch_notes"),
             "is_translatable": obj.get("is_translatable") if obj.get("is_translatable") is not None else False,
-            "legacy": TweetLegacy.from_dict(obj.get("legacy")) if obj.get("legacy") is not None else None,
-            "note_tweet": NoteTweet.from_dict(obj.get("note_tweet")) if obj.get("note_tweet") is not None else None,
+            "legacy": TweetLegacy.from_dict(obj["legacy"]) if obj.get("legacy") is not None else None,
+            "note_tweet": NoteTweet.from_dict(obj["note_tweet"]) if obj.get("note_tweet") is not None else None,
+            "previous_counts": TweetPreviousCounts.from_dict(obj["previous_counts"]) if obj.get("previous_counts") is not None else None,
             "quick_promote_eligibility": obj.get("quick_promote_eligibility"),
-            "quoted_status_result": ItemResult.from_dict(obj.get("quoted_status_result")) if obj.get("quoted_status_result") is not None else None,
+            "quotedRefResult": QuotedRefResult.from_dict(obj["quotedRefResult"]) if obj.get("quotedRefResult") is not None else None,
+            "quoted_status_result": ItemResult.from_dict(obj["quoted_status_result"]) if obj.get("quoted_status_result") is not None else None,
             "rest_id": obj.get("rest_id"),
             "source": obj.get("source"),
+            "superFollowsReplyUserResult": SuperFollowsReplyUserResult.from_dict(obj["superFollowsReplyUserResult"]) if obj.get("superFollowsReplyUserResult") is not None else None,
+            "unified_card": UnifiedCard.from_dict(obj["unified_card"]) if obj.get("unified_card") is not None else None,
             "unmention_data": obj.get("unmention_data"),
-            "views": TweetView.from_dict(obj.get("views")) if obj.get("views") is not None else None
+            "views": TweetView.from_dict(obj["views"]) if obj.get("views") is not None else None
         })
         return _obj
 

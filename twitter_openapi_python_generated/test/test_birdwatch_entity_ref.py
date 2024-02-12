@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.birdwatch_entity_ref import BirdwatchEntityRef
 

@@ -18,23 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
+from pydantic import BaseModel, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
+from twitter_openapi_python_generated.models.urt_endpoint_request_params import UrtEndpointRequestParams
+from typing import Optional, Set
+from typing_extensions import Self
 
-from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
-
-class SocialContext(BaseModel):
+class UrtEndpointOptions(BaseModel):
     """
-    SocialContext
+    UrtEndpointOptions
     """ # noqa: E501
-    context_type: Optional[StrictStr] = Field(default=None, alias="contextType")
-    text: Optional[StrictStr] = None
-    type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["contextType", "text", "type"]
+    request_params: List[UrtEndpointRequestParams] = Field(alias="requestParams")
+    title: StrictStr
+    __properties: ClassVar[List[str]] = ["requestParams", "title"]
 
     model_config = {
         "populate_by_name": True,
@@ -53,8 +49,8 @@ class SocialContext(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
-        """Create an instance of SocialContext from a JSON string"""
+    def from_json(cls, json_str: str) -> Optional[Self]:
+        """Create an instance of UrtEndpointOptions from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -67,17 +63,26 @@ class SocialContext(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in request_params (list)
+        _items = []
+        if self.request_params:
+            for _item in self.request_params:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['requestParams'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
-        """Create an instance of SocialContext from a dict"""
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+        """Create an instance of UrtEndpointOptions from a dict"""
         if obj is None:
             return None
 
@@ -85,9 +90,8 @@ class SocialContext(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "contextType": obj.get("contextType"),
-            "text": obj.get("text"),
-            "type": obj.get("type")
+            "requestParams": [UrtEndpointRequestParams.from_dict(_item) for _item in obj["requestParams"]] if obj.get("requestParams") is not None else None,
+            "title": obj.get("title")
         })
         return _obj
 

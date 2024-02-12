@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.post_create_retweet200_response import PostCreateRetweet200Response
 

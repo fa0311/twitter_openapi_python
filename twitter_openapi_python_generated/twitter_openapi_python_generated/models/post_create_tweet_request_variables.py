@@ -18,15 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.post_create_tweet_request_variables_media import PostCreateTweetRequestVariablesMedia
 from twitter_openapi_python_generated.models.post_create_tweet_request_variables_reply import PostCreateTweetRequestVariablesReply
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class PostCreateTweetRequestVariables(BaseModel):
     """
@@ -56,7 +53,7 @@ class PostCreateTweetRequestVariables(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of PostCreateTweetRequestVariables from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -70,10 +67,12 @@ class PostCreateTweetRequestVariables(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of media
@@ -85,7 +84,7 @@ class PostCreateTweetRequestVariables(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of PostCreateTweetRequestVariables from a dict"""
         if obj is None:
             return None
@@ -95,8 +94,8 @@ class PostCreateTweetRequestVariables(BaseModel):
 
         _obj = cls.model_validate({
             "dark_request": obj.get("dark_request") if obj.get("dark_request") is not None else False,
-            "media": PostCreateTweetRequestVariablesMedia.from_dict(obj.get("media")) if obj.get("media") is not None else None,
-            "reply": PostCreateTweetRequestVariablesReply.from_dict(obj.get("reply")) if obj.get("reply") is not None else None,
+            "media": PostCreateTweetRequestVariablesMedia.from_dict(obj["media"]) if obj.get("media") is not None else None,
+            "reply": PostCreateTweetRequestVariablesReply.from_dict(obj["reply"]) if obj.get("reply") is not None else None,
             "semantic_annotation_ids": obj.get("semantic_annotation_ids"),
             "tweet_text": obj.get("tweet_text") if obj.get("tweet_text") is not None else 'test'
         })

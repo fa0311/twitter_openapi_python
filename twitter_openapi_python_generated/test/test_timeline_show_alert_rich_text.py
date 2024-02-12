@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.timeline_show_alert_rich_text import TimelineShowAlertRichText
 

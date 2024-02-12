@@ -18,20 +18,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictBool
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from pydantic import BaseModel, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.additional_media_info_call_to_actions import AdditionalMediaInfoCallToActions
+from twitter_openapi_python_generated.models.user_result_core import UserResultCore
+from typing import Optional, Set
+from typing_extensions import Self
 
 class AdditionalMediaInfo(BaseModel):
     """
     AdditionalMediaInfo
     """ # noqa: E501
+    call_to_actions: Optional[AdditionalMediaInfoCallToActions] = None
+    description: Optional[StrictStr] = None
+    embeddable: Optional[StrictBool] = None
     monetizable: StrictBool
-    __properties: ClassVar[List[str]] = ["monetizable"]
+    source_user: Optional[UserResultCore] = None
+    title: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["call_to_actions", "description", "embeddable", "monetizable", "source_user", "title"]
 
     model_config = {
         "populate_by_name": True,
@@ -50,7 +54,7 @@ class AdditionalMediaInfo(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of AdditionalMediaInfo from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -64,16 +68,24 @@ class AdditionalMediaInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of call_to_actions
+        if self.call_to_actions:
+            _dict['call_to_actions'] = self.call_to_actions.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of source_user
+        if self.source_user:
+            _dict['source_user'] = self.source_user.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of AdditionalMediaInfo from a dict"""
         if obj is None:
             return None
@@ -82,7 +94,12 @@ class AdditionalMediaInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "monetizable": obj.get("monetizable")
+            "call_to_actions": AdditionalMediaInfoCallToActions.from_dict(obj["call_to_actions"]) if obj.get("call_to_actions") is not None else None,
+            "description": obj.get("description"),
+            "embeddable": obj.get("embeddable"),
+            "monetizable": obj.get("monetizable"),
+            "source_user": UserResultCore.from_dict(obj["source_user"]) if obj.get("source_user") is not None else None,
+            "title": obj.get("title")
         })
         return _obj
 

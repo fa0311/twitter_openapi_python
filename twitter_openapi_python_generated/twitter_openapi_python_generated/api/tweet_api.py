@@ -12,20 +12,12 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
+from typing import Any, Dict, List, Optional, Tuple, Union
+from typing_extensions import Annotated
 
 from pydantic import StrictStr
-
 from twitter_openapi_python_generated.models.get_bookmarks200_response import GetBookmarks200Response
 from twitter_openapi_python_generated.models.get_home_latest_timeline200_response import GetHomeLatestTimeline200Response
 from twitter_openapi_python_generated.models.get_likes200_response import GetLikes200Response
@@ -34,7 +26,7 @@ from twitter_openapi_python_generated.models.get_search_timeline200_response imp
 from twitter_openapi_python_generated.models.get_tweet_detail200_response import GetTweetDetail200Response
 from twitter_openapi_python_generated.models.get_user_highlights_tweets200_response import GetUserHighlightsTweets200Response
 
-from twitter_openapi_python_generated.api_client import ApiClient
+from twitter_openapi_python_generated.api_client import ApiClient, RequestSerialized
 from twitter_openapi_python_generated.api_response import ApiResponse
 from twitter_openapi_python_generated.rest import RESTResponseType
 
@@ -282,7 +274,7 @@ class TweetApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -593,7 +585,7 @@ class TweetApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -904,7 +896,7 @@ class TweetApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1215,7 +1207,7 @@ class TweetApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1526,7 +1518,7 @@ class TweetApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1837,7 +1829,7 @@ class TweetApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -2161,7 +2153,7 @@ class TweetApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -2476,7 +2468,7 @@ class TweetApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -2787,7 +2779,7 @@ class TweetApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -3098,7 +3090,7 @@ class TweetApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -3409,7 +3401,7 @@ class TweetApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 

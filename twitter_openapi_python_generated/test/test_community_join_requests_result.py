@@ -14,12 +14,11 @@
 
 
 import unittest
-import datetime
 
-from twitter_openapi_python_generated.models.social_context import SocialContext
+from twitter_openapi_python_generated.models.community_join_requests_result import CommunityJoinRequestsResult
 
-class TestSocialContext(unittest.TestCase):
-    """SocialContext unit test stubs"""
+class TestCommunityJoinRequestsResult(unittest.TestCase):
+    """CommunityJoinRequestsResult unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,27 +26,26 @@ class TestSocialContext(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> SocialContext:
-        """Test SocialContext
+    def make_instance(self, include_optional) -> CommunityJoinRequestsResult:
+        """Test CommunityJoinRequestsResult
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `SocialContext`
+        # uncomment below to create an instance of `CommunityJoinRequestsResult`
         """
-        model = SocialContext()
+        model = CommunityJoinRequestsResult()
         if include_optional:
-            return SocialContext(
-                context_type = '',
-                text = '',
-                type = ''
+            return CommunityJoinRequestsResult(
+                typename = 'TimelineTweet'
             )
         else:
-            return SocialContext(
+            return CommunityJoinRequestsResult(
+                typename = 'TimelineTweet',
         )
         """
 
-    def testSocialContext(self):
-        """Test SocialContext"""
+    def testCommunityJoinRequestsResult(self):
+        """Test CommunityJoinRequestsResult"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

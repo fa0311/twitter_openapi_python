@@ -43,8 +43,6 @@ create Retweet
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.models.post_create_retweet200_response import PostCreateRetweet200Response
 from twitter_openapi_python_generated.models.post_create_retweet_request import PostCreateRetweetRequest
@@ -258,8 +256,6 @@ create Tweet
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.models.post_create_tweet200_response import PostCreateTweet200Response
 from twitter_openapi_python_generated.models.post_create_tweet_request import PostCreateTweetRequest
@@ -400,7 +396,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.PostApi(api_client)
-    path_query_id = 'PIZtQLRIYtSa9AtW_fI2Mw' # str |  (default to 'PIZtQLRIYtSa9AtW_fI2Mw')
+    path_query_id = '8ED1SMuUGkOZVBEjiYUTfw' # str |  (default to '8ED1SMuUGkOZVBEjiYUTfw')
     post_create_tweet_request = twitter_openapi_python_generated.PostCreateTweetRequest() # PostCreateTweetRequest | body
 
     try:
@@ -418,7 +414,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;PIZtQLRIYtSa9AtW_fI2Mw&#39;]
+ **path_query_id** | **str**|  | [default to &#39;8ED1SMuUGkOZVBEjiYUTfw&#39;]
  **post_create_tweet_request** | [**PostCreateTweetRequest**](PostCreateTweetRequest.md)| body | 
 
 ### Return type
@@ -473,8 +469,6 @@ delete Retweet
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.models.post_delete_retweet200_response import PostDeleteRetweet200Response
 from twitter_openapi_python_generated.models.post_delete_retweet_request import PostDeleteRetweetRequest
@@ -688,8 +682,6 @@ delete Retweet
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.models.post_delete_tweet200_response import PostDeleteTweet200Response
 from twitter_openapi_python_generated.models.post_delete_tweet_request import PostDeleteTweetRequest
@@ -903,8 +895,6 @@ favorite Tweet
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.models.post_favorite_tweet200_response import PostFavoriteTweet200Response
 from twitter_openapi_python_generated.models.post_favorite_tweet_request import PostFavoriteTweetRequest
@@ -1118,8 +1108,6 @@ unfavorite Tweet
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.models.post_unfavorite_tweet200_response import PostUnfavoriteTweet200Response
 from twitter_openapi_python_generated.models.post_unfavorite_tweet_request import PostUnfavoriteTweetRequest

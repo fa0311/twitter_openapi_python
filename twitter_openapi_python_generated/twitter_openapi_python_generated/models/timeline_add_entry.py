@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, field_validator
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.content_union import ContentUnion
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class TimelineAddEntry(BaseModel):
     """
@@ -69,7 +65,7 @@ class TimelineAddEntry(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of TimelineAddEntry from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -83,10 +79,12 @@ class TimelineAddEntry(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of content
@@ -95,7 +93,7 @@ class TimelineAddEntry(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of TimelineAddEntry from a dict"""
         if obj is None:
             return None
@@ -104,7 +102,7 @@ class TimelineAddEntry(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "content": ContentUnion.from_dict(obj.get("content")) if obj.get("content") is not None else None,
+            "content": ContentUnion.from_dict(obj["content"]) if obj.get("content") is not None else None,
             "entryId": obj.get("entryId"),
             "sortIndex": obj.get("sortIndex")
         })

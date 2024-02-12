@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.post_unfavorite_tweet_request import PostUnfavoriteTweetRequest
 

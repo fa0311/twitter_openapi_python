@@ -8,14 +8,17 @@ Name | Type | Description | Notes
 **typename** | [**TypeName**](TypeName.md) |  | 
 **client_event_info** | **Dict[str, object]** |  | 
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | 
-**feedback_info** | **Dict[str, object]** |  | [optional] 
+**feedback_info** | [**FeedbackInfo**](FeedbackInfo.md) |  | [optional] 
 **item_content** | [**ItemContentUnion**](ItemContentUnion.md) |  | 
-**display_type** | **str** |  | 
+**display_type** | [**DisplayType**](DisplayType.md) |  | 
 **footer** | **Dict[str, object]** |  | [optional] 
 **header** | **Dict[str, object]** |  | [optional] 
 **items** | [**List[ModuleItem]**](ModuleItem.md) |  | [optional] 
+**metadata** | **Dict[str, object]** |  | [optional] 
 **cursor_type** | [**CursorType**](CursorType.md) |  | 
+**display_treatment** | [**DisplayTreatment**](DisplayTreatment.md) |  | [optional] 
 **item_type** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
+**stop_on_empty_response** | **bool** |  | [default to False]
 **value** | **str** |  | 
 
 ## Example

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.media_extended import MediaExtended
 
@@ -38,10 +37,20 @@ class TestMediaExtended(unittest.TestCase):
         if include_optional:
             return MediaExtended(
                 additional_media_info = twitter_openapi_python_generated.models.additional_media_info.AdditionalMediaInfo(
-                    monetizable = True, ),
+                    call_to_actions = twitter_openapi_python_generated.models.additional_media_info_call_to_actions.AdditionalMediaInfoCallToActions(
+                        visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_visit_site.AdditionalMediaInfoCallToActionsVisitSite(
+                            url = '', ), ), 
+                    description = '', 
+                    embeddable = True, 
+                    monetizable = True, 
+                    source_user = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
+                        user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                            result = null, ), ), 
+                    title = '', ),
                 display_url = '',
                 expanded_url = '',
-                ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.extMediaAvailability(
+                ext_alt_text = '',
+                ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.ExtMediaAvailability(
                     reason = '', 
                     status = 'Available', ),
                 features = twitter_openapi_python_generated.models.features.features(),
@@ -49,7 +58,7 @@ class TestMediaExtended(unittest.TestCase):
                 indices = [
                     56
                     ],
-                media_stats = twitter_openapi_python_generated.models.media_stats.mediaStats(
+                media_stats = twitter_openapi_python_generated.models.media_stats.MediaStats(
                     view_count = 56, ),
                 media_key = '',
                 media_url_https = '',
@@ -74,6 +83,8 @@ class TestMediaExtended(unittest.TestCase):
                         w = 56, ), 
                     small = , 
                     thumb = , ),
+                source_status_id_str = '4',
+                source_user_id_str = '4',
                 type = 'photo',
                 url = '',
                 video_info = twitter_openapi_python_generated.models.media_video_info.MediaVideoInfo(

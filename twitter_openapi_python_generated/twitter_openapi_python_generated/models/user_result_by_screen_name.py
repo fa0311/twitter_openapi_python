@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, field_validator
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.user_result_by_screen_name_result import UserResultByScreenNameResult
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class UserResultByScreenName(BaseModel):
     """
@@ -61,7 +57,7 @@ class UserResultByScreenName(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of UserResultByScreenName from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -75,10 +71,12 @@ class UserResultByScreenName(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of result
@@ -87,7 +85,7 @@ class UserResultByScreenName(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of UserResultByScreenName from a dict"""
         if obj is None:
             return None
@@ -97,7 +95,7 @@ class UserResultByScreenName(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-            "result": UserResultByScreenNameResult.from_dict(obj.get("result")) if obj.get("result") is not None else None
+            "result": UserResultByScreenNameResult.from_dict(obj["result"]) if obj.get("result") is not None else None
         })
         return _obj
 

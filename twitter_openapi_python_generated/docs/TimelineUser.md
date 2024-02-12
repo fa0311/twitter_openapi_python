@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**social_context** | [**SocialContext**](SocialContext.md) |  | [optional] 
 **typename** | [**TypeName**](TypeName.md) |  | 
 **item_type** | [**ContentItemType**](ContentItemType.md) |  | 
+**social_context** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
 **user_display_type** | **str** |  | 
 **user_results** | [**UserResults**](UserResults.md) |  | 
 

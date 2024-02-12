@@ -43,7 +43,9 @@ Name | Type | Description | Notes
 **translator_type** | **str** |  | 
 **url** | **str** |  | [optional] 
 **verified** | **bool** |  | 
+**verified_type** | **str** |  | [optional] 
 **want_retweets** | **bool** |  | [default to False]
+**withheld_in_countries** | **List[str]** |  | [optional] 
 
 ## Example
 

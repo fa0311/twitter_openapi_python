@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.home_timeline_response_data import HomeTimelineResponseData
 

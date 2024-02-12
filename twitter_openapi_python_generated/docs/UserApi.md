@@ -39,8 +39,6 @@ get user by rest id
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.models.get_user_by_rest_id200_response import GetUserByRestId200Response
 from twitter_openapi_python_generated.rest import ApiException
@@ -180,9 +178,9 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.UserApi(api_client)
-    path_query_id = 'QdS5LJDl99iL_KUzckdfNQ' # str |  (default to 'QdS5LJDl99iL_KUzckdfNQ')
+    path_query_id = 'tD8zKvQzwY3kdx5yz6YmOw' # str |  (default to 'tD8zKvQzwY3kdx5yz6YmOw')
     variables = '{"userId": "44196397", "withSafetyModeUserFields": true}' # str |  (default to '{"userId": "44196397", "withSafetyModeUserFields": true}')
-    features = '{"hidden_profile_likes_enabled": true, "hidden_profile_subscriptions_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "highlights_tweets_tab_ui_enabled": true, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}' # str |  (default to '{"hidden_profile_likes_enabled": true, "hidden_profile_subscriptions_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "highlights_tweets_tab_ui_enabled": true, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}')
+    features = '{"hidden_profile_likes_enabled": true, "hidden_profile_subscriptions_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "highlights_tweets_tab_ui_enabled": true, "responsive_web_twitter_article_notes_tab_enabled": true, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}' # str |  (default to '{"hidden_profile_likes_enabled": true, "hidden_profile_subscriptions_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "highlights_tweets_tab_ui_enabled": true, "responsive_web_twitter_article_notes_tab_enabled": true, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}')
 
     try:
         api_response = api_instance.get_user_by_rest_id(path_query_id, variables, features)
@@ -199,9 +197,9 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;QdS5LJDl99iL_KUzckdfNQ&#39;]
+ **path_query_id** | **str**|  | [default to &#39;tD8zKvQzwY3kdx5yz6YmOw&#39;]
  **variables** | **str**|  | [default to &#39;{&quot;userId&quot;: &quot;44196397&quot;, &quot;withSafetyModeUserFields&quot;: true}&#39;]
- **features** | **str**|  | [default to &#39;{&quot;hidden_profile_likes_enabled&quot;: true, &quot;hidden_profile_subscriptions_enabled&quot;: true, &quot;responsive_web_graphql_exclude_directive_enabled&quot;: true, &quot;verified_phone_label_enabled&quot;: false, &quot;highlights_tweets_tab_ui_enabled&quot;: true, &quot;creator_subscriptions_tweet_preview_api_enabled&quot;: true, &quot;responsive_web_graphql_skip_user_profile_image_extensions_enabled&quot;: false, &quot;responsive_web_graphql_timeline_navigation_enabled&quot;: true}&#39;]
+ **features** | **str**|  | [default to &#39;{&quot;hidden_profile_likes_enabled&quot;: true, &quot;hidden_profile_subscriptions_enabled&quot;: true, &quot;responsive_web_graphql_exclude_directive_enabled&quot;: true, &quot;verified_phone_label_enabled&quot;: false, &quot;highlights_tweets_tab_ui_enabled&quot;: true, &quot;responsive_web_twitter_article_notes_tab_enabled&quot;: true, &quot;creator_subscriptions_tweet_preview_api_enabled&quot;: true, &quot;responsive_web_graphql_skip_user_profile_image_extensions_enabled&quot;: false, &quot;responsive_web_graphql_timeline_navigation_enabled&quot;: true}&#39;]
 
 ### Return type
 
@@ -255,8 +253,6 @@ get user by screen name
 * Api Key Authentication (AcceptEncoding):
 
 ```python
-import time
-import os
 import twitter_openapi_python_generated
 from twitter_openapi_python_generated.models.get_user_by_rest_id200_response import GetUserByRestId200Response
 from twitter_openapi_python_generated.rest import ApiException
@@ -396,9 +392,9 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.UserApi(api_client)
-    path_query_id = 'G3KGOASz96M-Qu0nwmGXNg' # str |  (default to 'G3KGOASz96M-Qu0nwmGXNg')
+    path_query_id = 'k5XapwcSikNsEsILW5FvgA' # str |  (default to 'k5XapwcSikNsEsILW5FvgA')
     variables = '{"screen_name": "elonmusk", "withSafetyModeUserFields": true}' # str |  (default to '{"screen_name": "elonmusk", "withSafetyModeUserFields": true}')
-    features = '{"hidden_profile_likes_enabled": true, "hidden_profile_subscriptions_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "subscriptions_verification_info_is_identity_verified_enabled": true, "subscriptions_verification_info_verified_since_enabled": true, "highlights_tweets_tab_ui_enabled": true, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}' # str |  (default to '{"hidden_profile_likes_enabled": true, "hidden_profile_subscriptions_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "subscriptions_verification_info_is_identity_verified_enabled": true, "subscriptions_verification_info_verified_since_enabled": true, "highlights_tweets_tab_ui_enabled": true, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}')
+    features = '{"hidden_profile_likes_enabled": true, "hidden_profile_subscriptions_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "subscriptions_verification_info_is_identity_verified_enabled": true, "subscriptions_verification_info_verified_since_enabled": true, "highlights_tweets_tab_ui_enabled": true, "responsive_web_twitter_article_notes_tab_enabled": true, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}' # str |  (default to '{"hidden_profile_likes_enabled": true, "hidden_profile_subscriptions_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "subscriptions_verification_info_is_identity_verified_enabled": true, "subscriptions_verification_info_verified_since_enabled": true, "highlights_tweets_tab_ui_enabled": true, "responsive_web_twitter_article_notes_tab_enabled": true, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}')
     field_toggles = '{"withAuxiliaryUserLabels": false}' # str |  (default to '{"withAuxiliaryUserLabels": false}')
 
     try:
@@ -416,9 +412,9 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;G3KGOASz96M-Qu0nwmGXNg&#39;]
+ **path_query_id** | **str**|  | [default to &#39;k5XapwcSikNsEsILW5FvgA&#39;]
  **variables** | **str**|  | [default to &#39;{&quot;screen_name&quot;: &quot;elonmusk&quot;, &quot;withSafetyModeUserFields&quot;: true}&#39;]
- **features** | **str**|  | [default to &#39;{&quot;hidden_profile_likes_enabled&quot;: true, &quot;hidden_profile_subscriptions_enabled&quot;: true, &quot;responsive_web_graphql_exclude_directive_enabled&quot;: true, &quot;verified_phone_label_enabled&quot;: false, &quot;subscriptions_verification_info_is_identity_verified_enabled&quot;: true, &quot;subscriptions_verification_info_verified_since_enabled&quot;: true, &quot;highlights_tweets_tab_ui_enabled&quot;: true, &quot;creator_subscriptions_tweet_preview_api_enabled&quot;: true, &quot;responsive_web_graphql_skip_user_profile_image_extensions_enabled&quot;: false, &quot;responsive_web_graphql_timeline_navigation_enabled&quot;: true}&#39;]
+ **features** | **str**|  | [default to &#39;{&quot;hidden_profile_likes_enabled&quot;: true, &quot;hidden_profile_subscriptions_enabled&quot;: true, &quot;responsive_web_graphql_exclude_directive_enabled&quot;: true, &quot;verified_phone_label_enabled&quot;: false, &quot;subscriptions_verification_info_is_identity_verified_enabled&quot;: true, &quot;subscriptions_verification_info_verified_since_enabled&quot;: true, &quot;highlights_tweets_tab_ui_enabled&quot;: true, &quot;responsive_web_twitter_article_notes_tab_enabled&quot;: true, &quot;creator_subscriptions_tweet_preview_api_enabled&quot;: true, &quot;responsive_web_graphql_skip_user_profile_image_extensions_enabled&quot;: false, &quot;responsive_web_graphql_timeline_navigation_enabled&quot;: true}&#39;]
  **field_toggles** | **str**|  | [default to &#39;{&quot;withAuxiliaryUserLabels&quot;: false}&#39;]
 
 ### Return type

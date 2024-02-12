@@ -18,22 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr, field_validator
-from pydantic import Field
+from twitter_openapi_python_generated.models.birdwatch_pivot_call_to_action import BirdwatchPivotCallToAction
 from twitter_openapi_python_generated.models.birdwatch_pivot_footer import BirdwatchPivotFooter
 from twitter_openapi_python_generated.models.birdwatch_pivot_note import BirdwatchPivotNote
 from twitter_openapi_python_generated.models.birdwatch_pivot_subtitle import BirdwatchPivotSubtitle
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class BirdwatchPivot(BaseModel):
     """
     BirdwatchPivot
     """ # noqa: E501
+    call_to_action: Optional[BirdwatchPivotCallToAction] = Field(default=None, alias="callToAction")
     destination_url: StrictStr = Field(alias="destinationUrl")
     footer: BirdwatchPivotFooter
     icon_type: StrictStr = Field(alias="iconType")
@@ -42,12 +40,12 @@ class BirdwatchPivot(BaseModel):
     subtitle: BirdwatchPivotSubtitle
     title: StrictStr
     visual_style: Optional[StrictStr] = Field(default=None, alias="visualStyle")
-    __properties: ClassVar[List[str]] = ["destinationUrl", "footer", "iconType", "note", "shorttitle", "subtitle", "title", "visualStyle"]
+    __properties: ClassVar[List[str]] = ["callToAction", "destinationUrl", "footer", "iconType", "note", "shorttitle", "subtitle", "title", "visualStyle"]
 
     @field_validator('icon_type')
     def icon_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('BirdwatchV1Icon'):
+        if value not in set(['BirdwatchV1Icon']):
             raise ValueError("must be one of enum values ('BirdwatchV1Icon')")
         return value
 
@@ -57,7 +55,7 @@ class BirdwatchPivot(BaseModel):
         if value is None:
             return value
 
-        if value not in ('Default'):
+        if value not in set(['Default']):
             raise ValueError("must be one of enum values ('Default')")
         return value
 
@@ -78,7 +76,7 @@ class BirdwatchPivot(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of BirdwatchPivot from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -92,12 +90,17 @@ class BirdwatchPivot(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of call_to_action
+        if self.call_to_action:
+            _dict['callToAction'] = self.call_to_action.to_dict()
         # override the default output from pydantic by calling `to_dict()` of footer
         if self.footer:
             _dict['footer'] = self.footer.to_dict()
@@ -110,7 +113,7 @@ class BirdwatchPivot(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of BirdwatchPivot from a dict"""
         if obj is None:
             return None
@@ -119,12 +122,13 @@ class BirdwatchPivot(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "callToAction": BirdwatchPivotCallToAction.from_dict(obj["callToAction"]) if obj.get("callToAction") is not None else None,
             "destinationUrl": obj.get("destinationUrl"),
-            "footer": BirdwatchPivotFooter.from_dict(obj.get("footer")) if obj.get("footer") is not None else None,
+            "footer": BirdwatchPivotFooter.from_dict(obj["footer"]) if obj.get("footer") is not None else None,
             "iconType": obj.get("iconType"),
-            "note": BirdwatchPivotNote.from_dict(obj.get("note")) if obj.get("note") is not None else None,
+            "note": BirdwatchPivotNote.from_dict(obj["note"]) if obj.get("note") is not None else None,
             "shorttitle": obj.get("shorttitle"),
-            "subtitle": BirdwatchPivotSubtitle.from_dict(obj.get("subtitle")) if obj.get("subtitle") is not None else None,
+            "subtitle": BirdwatchPivotSubtitle.from_dict(obj["subtitle"]) if obj.get("subtitle") is not None else None,
             "title": obj.get("title"),
             "visualStyle": obj.get("visualStyle")
         })

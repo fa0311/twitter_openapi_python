@@ -15,8 +15,10 @@
 
 import copy
 import logging
+from logging import FileHandler
 import multiprocessing
 import sys
+from typing import Optional
 import urllib3
 
 import http.client as httplib
@@ -136,7 +138,7 @@ conf = twitter_openapi_python_generated.Configuration(
         self.logger_stream_handler = None
         """Log stream handler
         """
-        self.logger_file_handler = None
+        self.logger_file_handler: Optional[FileHandler] = None
         """Log file handler
         """
         self.logger_file = None
@@ -176,7 +178,7 @@ conf = twitter_openapi_python_generated.Configuration(
            cpu_count * 5 is used as default value to increase performance.
         """
 
-        self.proxy = None
+        self.proxy: Optional[str] = None
         """Proxy URL
         """
         self.proxy_headers = None
@@ -567,7 +569,7 @@ conf = twitter_openapi_python_generated.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 0.0.1\n"\
-               "SDK Package Version: 0.0.9".\
+               "SDK Package Version: 0.0.11".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

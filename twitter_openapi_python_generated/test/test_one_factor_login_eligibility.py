@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from twitter_openapi_python_generated.models.one_factor_login_eligibility import OneFactorLoginEligibility
 
