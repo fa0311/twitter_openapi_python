@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | 
 **feedback_info** | [**FeedbackInfo**](FeedbackInfo.md) |  | [optional] 
 **item_content** | [**ItemContentUnion**](ItemContentUnion.md) |  | 
-**display_type** | **str** |  | 
+**display_type** | [**DisplayType**](DisplayType.md) |  | 
 **footer** | **Dict[str, object]** |  | [optional] 
 **header** | **Dict[str, object]** |  | [optional] 
 **items** | [**List[ModuleItem]**](ModuleItem.md) |  | [optional] 

@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.10"
+__version__ = "0.0.11"
 
 # import apis into sdk package
 from twitter_openapi_python_generated.api.default_api import DefaultApi
@@ -92,6 +92,7 @@ from twitter_openapi_python_generated.models.delete_tweet_response import Delete
 from twitter_openapi_python_generated.models.delete_tweet_response_data import DeleteTweetResponseData
 from twitter_openapi_python_generated.models.delete_tweet_response_result import DeleteTweetResponseResult
 from twitter_openapi_python_generated.models.display_treatment import DisplayTreatment
+from twitter_openapi_python_generated.models.display_type import DisplayType
 from twitter_openapi_python_generated.models.entities import Entities
 from twitter_openapi_python_generated.models.error import Error
 from twitter_openapi_python_generated.models.error_extensions import ErrorExtensions

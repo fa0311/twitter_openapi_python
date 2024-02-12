@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictStr, field_validator
+from pydantic import BaseModel, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
+from twitter_openapi_python_generated.models.display_type import DisplayType
 from twitter_openapi_python_generated.models.feedback_info import FeedbackInfo
 from twitter_openapi_python_generated.models.module_item import ModuleItem
 from typing import Optional, Set
@@ -32,7 +33,7 @@ class TimelineTimelineModule(BaseModel):
     """ # noqa: E501
     typename: StrictStr = Field(alias="__typename")
     client_event_info: Dict[str, Any] = Field(alias="clientEventInfo")
-    display_type: StrictStr = Field(alias="displayType")
+    display_type: DisplayType = Field(alias="displayType")
     entry_type: ContentEntryType = Field(alias="entryType")
     feedback_info: Optional[FeedbackInfo] = Field(default=None, alias="feedbackInfo")
     footer: Optional[Dict[str, Any]] = None
@@ -40,13 +41,6 @@ class TimelineTimelineModule(BaseModel):
     items: Optional[List[ModuleItem]] = None
     metadata: Optional[Dict[str, Any]] = None
     __properties: ClassVar[List[str]] = ["__typename", "clientEventInfo", "displayType", "entryType", "feedbackInfo", "footer", "header", "items", "metadata"]
-
-    @field_validator('display_type')
-    def display_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Vertical', 'VerticalConversation', 'VerticalGrid', 'Carousel']):
-            raise ValueError("must be one of enum values ('Vertical', 'VerticalConversation', 'VerticalGrid', 'Carousel')")
-        return value
 
     model_config = {
         "populate_by_name": True,

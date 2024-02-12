@@ -55,6 +55,7 @@ docs/DeleteTweetResponse.md
 docs/DeleteTweetResponseData.md
 docs/DeleteTweetResponseResult.md
 docs/DisplayTreatment.md
+docs/DisplayType.md
 docs/Entities.md
 docs/Error.md
 docs/ErrorExtensions.md
@@ -328,6 +329,7 @@ test/test_delete_tweet_response.py
 test/test_delete_tweet_response_data.py
 test/test_delete_tweet_response_result.py
 test/test_display_treatment.py
+test/test_display_type.py
 test/test_entities.py
 test/test_error.py
 test/test_error_extensions.py
@@ -611,6 +613,7 @@ twitter_openapi_python_generated/models/delete_tweet_response.py
 twitter_openapi_python_generated/models/delete_tweet_response_data.py
 twitter_openapi_python_generated/models/delete_tweet_response_result.py
 twitter_openapi_python_generated/models/display_treatment.py
+twitter_openapi_python_generated/models/display_type.py
 twitter_openapi_python_generated/models/entities.py
 twitter_openapi_python_generated/models/error.py
 twitter_openapi_python_generated/models/error_extensions.py
