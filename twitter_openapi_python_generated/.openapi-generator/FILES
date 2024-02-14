@@ -5,7 +5,7 @@
 README.md
 docs/AdditionalMediaInfo.md
 docs/AdditionalMediaInfoCallToActions.md
-docs/AdditionalMediaInfoCallToActionsVisitSite.md
+docs/AdditionalMediaInfoCallToActionsUrl.md
 docs/AuthorCommunityRelationship.md
 docs/BirdwatchEntity.md
 docs/BirdwatchEntityRef.md
@@ -144,7 +144,6 @@ docs/PrimaryCommunityTopic.md
 docs/ProfileResponse.md
 docs/ProfileResponseData.md
 docs/QuotedRefResult.md
-docs/QuotedRefResultData.md
 docs/QuotedStatusPermalink.md
 docs/Retweet.md
 docs/RetweetLegacy.md
@@ -153,6 +152,7 @@ docs/SearchTimeline.md
 docs/SearchTimelineData.md
 docs/SearchTimelineResponse.md
 docs/SelfThread.md
+docs/SensitiveMediaWarning.md
 docs/Session.md
 docs/SocialContextLandingUrl.md
 docs/SocialContextUnion.md
@@ -279,7 +279,7 @@ test-requirements.txt
 test/__init__.py
 test/test_additional_media_info.py
 test/test_additional_media_info_call_to_actions.py
-test/test_additional_media_info_call_to_actions_visit_site.py
+test/test_additional_media_info_call_to_actions_url.py
 test/test_author_community_relationship.py
 test/test_birdwatch_entity.py
 test/test_birdwatch_entity_ref.py
@@ -418,7 +418,6 @@ test/test_primary_community_topic.py
 test/test_profile_response.py
 test/test_profile_response_data.py
 test/test_quoted_ref_result.py
-test/test_quoted_ref_result_data.py
 test/test_quoted_status_permalink.py
 test/test_retweet.py
 test/test_retweet_legacy.py
@@ -427,6 +426,7 @@ test/test_search_timeline.py
 test/test_search_timeline_data.py
 test/test_search_timeline_response.py
 test/test_self_thread.py
+test/test_sensitive_media_warning.py
 test/test_session.py
 test/test_social_context_landing_url.py
 test/test_social_context_union.py
@@ -564,7 +564,7 @@ twitter_openapi_python_generated/exceptions.py
 twitter_openapi_python_generated/models/__init__.py
 twitter_openapi_python_generated/models/additional_media_info.py
 twitter_openapi_python_generated/models/additional_media_info_call_to_actions.py
-twitter_openapi_python_generated/models/additional_media_info_call_to_actions_visit_site.py
+twitter_openapi_python_generated/models/additional_media_info_call_to_actions_url.py
 twitter_openapi_python_generated/models/author_community_relationship.py
 twitter_openapi_python_generated/models/birdwatch_entity.py
 twitter_openapi_python_generated/models/birdwatch_entity_ref.py
@@ -700,7 +700,6 @@ twitter_openapi_python_generated/models/primary_community_topic.py
 twitter_openapi_python_generated/models/profile_response.py
 twitter_openapi_python_generated/models/profile_response_data.py
 twitter_openapi_python_generated/models/quoted_ref_result.py
-twitter_openapi_python_generated/models/quoted_ref_result_data.py
 twitter_openapi_python_generated/models/quoted_status_permalink.py
 twitter_openapi_python_generated/models/retweet.py
 twitter_openapi_python_generated/models/retweet_legacy.py
@@ -709,6 +708,7 @@ twitter_openapi_python_generated/models/search_timeline.py
 twitter_openapi_python_generated/models/search_timeline_data.py
 twitter_openapi_python_generated/models/search_timeline_response.py
 twitter_openapi_python_generated/models/self_thread.py
+twitter_openapi_python_generated/models/sensitive_media_warning.py
 twitter_openapi_python_generated/models/session.py
 twitter_openapi_python_generated/models/social_context_landing_url.py
 twitter_openapi_python_generated/models/social_context_union.py

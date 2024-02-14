@@ -40,7 +40,9 @@ class TestExtendedEntities(unittest.TestCase):
                     twitter_openapi_python_generated.models.media_extended.MediaExtended(
                         additional_media_info = twitter_openapi_python_generated.models.additional_media_info.AdditionalMediaInfo(
                             call_to_actions = twitter_openapi_python_generated.models.additional_media_info_call_to_actions.AdditionalMediaInfoCallToActions(
-                                visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_visit_site.AdditionalMediaInfoCallToActionsVisitSite(
+                                visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
+                                    url = '', ), 
+                                watch_now = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
                                     url = '', ), ), 
                             description = '', 
                             embeddable = True, 
@@ -74,6 +76,10 @@ class TestExtendedEntities(unittest.TestCase):
                                 ], 
                             height = 56, 
                             width = 56, ), 
+                        sensitive_media_warning = twitter_openapi_python_generated.models.sensitive_media_warning.SensitiveMediaWarning(
+                            adult_content = True, 
+                            graphic_violence = True, 
+                            other = True, ), 
                         sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
                             large = twitter_openapi_python_generated.models.media_size.MediaSize(
                                 h = 56, 
@@ -108,7 +114,9 @@ class TestExtendedEntities(unittest.TestCase):
                     twitter_openapi_python_generated.models.media_extended.MediaExtended(
                         additional_media_info = twitter_openapi_python_generated.models.additional_media_info.AdditionalMediaInfo(
                             call_to_actions = twitter_openapi_python_generated.models.additional_media_info_call_to_actions.AdditionalMediaInfoCallToActions(
-                                visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_visit_site.AdditionalMediaInfoCallToActionsVisitSite(
+                                visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
+                                    url = '', ), 
+                                watch_now = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
                                     url = '', ), ), 
                             description = '', 
                             embeddable = True, 
@@ -142,6 +150,10 @@ class TestExtendedEntities(unittest.TestCase):
                                 ], 
                             height = 56, 
                             width = 56, ), 
+                        sensitive_media_warning = twitter_openapi_python_generated.models.sensitive_media_warning.SensitiveMediaWarning(
+                            adult_content = True, 
+                            graphic_violence = True, 
+                            other = True, ), 
                         sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
                             large = twitter_openapi_python_generated.models.media_size.MediaSize(
                                 h = 56, 

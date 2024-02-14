@@ -18,27 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, StrictStr
 from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
-from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
 from typing_extensions import Self
 
-class QuotedRefResultData(BaseModel):
+class AdditionalMediaInfoCallToActionsUrl(BaseModel):
     """
-    QuotedRefResultData
+    AdditionalMediaInfoCallToActionsUrl
     """ # noqa: E501
-    typename: TypeName = Field(alias="__typename")
-    rest_id: Annotated[str, Field(strict=True)]
-    __properties: ClassVar[List[str]] = ["__typename", "rest_id"]
-
-    @field_validator('rest_id')
-    def rest_id_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^[0-9]+$", value):
-            raise ValueError(r"must validate the regular expression /^[0-9]+$/")
-        return value
+    url: StrictStr
+    __properties: ClassVar[List[str]] = ["url"]
 
     model_config = {
         "populate_by_name": True,
@@ -58,7 +48,7 @@ class QuotedRefResultData(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of QuotedRefResultData from a JSON string"""
+        """Create an instance of AdditionalMediaInfoCallToActionsUrl from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -83,7 +73,7 @@ class QuotedRefResultData(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of QuotedRefResultData from a dict"""
+        """Create an instance of AdditionalMediaInfoCallToActionsUrl from a dict"""
         if obj is None:
             return None
 
@@ -91,8 +81,7 @@ class QuotedRefResultData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "__typename": obj.get("__typename"),
-            "rest_id": obj.get("rest_id")
+            "url": obj.get("url")
         })
         return _obj
 

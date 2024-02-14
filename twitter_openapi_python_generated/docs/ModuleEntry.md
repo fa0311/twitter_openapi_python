@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | [optional] 
+**feedback_info** | [**FeedbackInfo**](FeedbackInfo.md) |  | [optional] 
 **item_content** | [**ItemContentUnion**](ItemContentUnion.md) |  | 
 
 ## Example

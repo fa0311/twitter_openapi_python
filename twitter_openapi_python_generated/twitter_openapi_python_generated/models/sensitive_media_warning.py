@@ -18,17 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictStr
+from pydantic import BaseModel, StrictBool
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AdditionalMediaInfoCallToActionsVisitSite(BaseModel):
+class SensitiveMediaWarning(BaseModel):
     """
-    AdditionalMediaInfoCallToActionsVisitSite
+    SensitiveMediaWarning
     """ # noqa: E501
-    url: StrictStr
-    __properties: ClassVar[List[str]] = ["url"]
+    adult_content: StrictBool
+    graphic_violence: StrictBool
+    other: StrictBool
+    __properties: ClassVar[List[str]] = ["adult_content", "graphic_violence", "other"]
 
     model_config = {
         "populate_by_name": True,
@@ -48,7 +50,7 @@ class AdditionalMediaInfoCallToActionsVisitSite(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AdditionalMediaInfoCallToActionsVisitSite from a JSON string"""
+        """Create an instance of SensitiveMediaWarning from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,7 +75,7 @@ class AdditionalMediaInfoCallToActionsVisitSite(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AdditionalMediaInfoCallToActionsVisitSite from a dict"""
+        """Create an instance of SensitiveMediaWarning from a dict"""
         if obj is None:
             return None
 
@@ -81,7 +83,9 @@ class AdditionalMediaInfoCallToActionsVisitSite(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "url": obj.get("url")
+            "adult_content": obj.get("adult_content") if obj.get("adult_content") is not None else False,
+            "graphic_violence": obj.get("graphic_violence") if obj.get("graphic_violence") is not None else False,
+            "other": obj.get("other") if obj.get("other") is not None else False
         })
         return _obj
 

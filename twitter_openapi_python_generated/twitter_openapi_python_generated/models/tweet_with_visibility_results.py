@@ -30,7 +30,7 @@ class TweetWithVisibilityResults(BaseModel):
     TweetWithVisibilityResults
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
-    limited_action_results: Dict[str, Any] = Field(alias="limitedActionResults")
+    limited_action_results: Optional[Dict[str, Any]] = Field(default=None, alias="limitedActionResults")
     tweet: Tweet
     tweet_interstitial: Optional[TweetInterstitial] = Field(default=None, alias="tweetInterstitial")
     __properties: ClassVar[List[str]] = ["__typename", "limitedActionResults", "tweet", "tweetInterstitial"]

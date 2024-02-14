@@ -40,6 +40,10 @@ class TestModuleEntry(unittest.TestCase):
                     component = '', 
                     details = { }, 
                     element = '', ),
+                feedback_info = twitter_openapi_python_generated.models.feedback_info.FeedbackInfo(
+                    feedback_keys = [
+                        ''
+                        ], ),
                 item_content = None
             )
         else:

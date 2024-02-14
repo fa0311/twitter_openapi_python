@@ -36,15 +36,10 @@ class TestQuotedRefResult(unittest.TestCase):
         model = QuotedRefResult()
         if include_optional:
             return QuotedRefResult(
-                result = twitter_openapi_python_generated.models.quoted_ref_result_data.QuotedRefResultData(
-                    __typename = 'TimelineTweet', 
-                    rest_id = '4', )
+                result = None
             )
         else:
             return QuotedRefResult(
-                result = twitter_openapi_python_generated.models.quoted_ref_result_data.QuotedRefResultData(
-                    __typename = 'TimelineTweet', 
-                    rest_id = '4', ),
         )
         """
 

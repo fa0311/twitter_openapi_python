@@ -45,8 +45,8 @@ class TweetView(BaseModel):
     @field_validator('state')
     def state_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['EnabledWithCount']):
-            raise ValueError("must be one of enum values ('EnabledWithCount')")
+        if value not in set(['Enabled', 'EnabledWithCount']):
+            raise ValueError("must be one of enum values ('Enabled', 'EnabledWithCount')")
         return value
 
     model_config = {

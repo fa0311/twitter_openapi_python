@@ -5,9 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**text** | **str** |  | [optional] 
 **type** | **str** |  | 
-**url** | **str** |  | 
-**url_type** | **str** |  | 
+**url** | **str** |  | [optional] 
+**url_type** | **str** |  | [optional] 
 
 ## Example
 

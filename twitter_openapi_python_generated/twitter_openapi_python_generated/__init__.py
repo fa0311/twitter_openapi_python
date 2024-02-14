@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.11"
+__version__ = "0.0.12"
 
 # import apis into sdk package
 from twitter_openapi_python_generated.api.default_api import DefaultApi
@@ -43,7 +43,7 @@ from twitter_openapi_python_generated.exceptions import ApiException
 # import models into sdk package
 from twitter_openapi_python_generated.models.additional_media_info import AdditionalMediaInfo
 from twitter_openapi_python_generated.models.additional_media_info_call_to_actions import AdditionalMediaInfoCallToActions
-from twitter_openapi_python_generated.models.additional_media_info_call_to_actions_visit_site import AdditionalMediaInfoCallToActionsVisitSite
+from twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url import AdditionalMediaInfoCallToActionsUrl
 from twitter_openapi_python_generated.models.author_community_relationship import AuthorCommunityRelationship
 from twitter_openapi_python_generated.models.birdwatch_entity import BirdwatchEntity
 from twitter_openapi_python_generated.models.birdwatch_entity_ref import BirdwatchEntityRef
@@ -179,7 +179,6 @@ from twitter_openapi_python_generated.models.primary_community_topic import Prim
 from twitter_openapi_python_generated.models.profile_response import ProfileResponse
 from twitter_openapi_python_generated.models.profile_response_data import ProfileResponseData
 from twitter_openapi_python_generated.models.quoted_ref_result import QuotedRefResult
-from twitter_openapi_python_generated.models.quoted_ref_result_data import QuotedRefResultData
 from twitter_openapi_python_generated.models.quoted_status_permalink import QuotedStatusPermalink
 from twitter_openapi_python_generated.models.retweet import Retweet
 from twitter_openapi_python_generated.models.retweet_legacy import RetweetLegacy
@@ -188,6 +187,7 @@ from twitter_openapi_python_generated.models.search_timeline import SearchTimeli
 from twitter_openapi_python_generated.models.search_timeline_data import SearchTimelineData
 from twitter_openapi_python_generated.models.search_timeline_response import SearchTimelineResponse
 from twitter_openapi_python_generated.models.self_thread import SelfThread
+from twitter_openapi_python_generated.models.sensitive_media_warning import SensitiveMediaWarning
 from twitter_openapi_python_generated.models.session import Session
 from twitter_openapi_python_generated.models.social_context_landing_url import SocialContextLandingUrl
 from twitter_openapi_python_generated.models.social_context_union import SocialContextUnion

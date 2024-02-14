@@ -19,8 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel
-from typing import Any, ClassVar, Dict, List
-from twitter_openapi_python_generated.models.quoted_ref_result_data import QuotedRefResultData
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +27,7 @@ class QuotedRefResult(BaseModel):
     """
     QuotedRefResult
     """ # noqa: E501
-    result: QuotedRefResultData
+    result: Optional[TweetUnion] = None
     __properties: ClassVar[List[str]] = ["result"]
 
     model_config = {
@@ -85,8 +84,11 @@ class QuotedRefResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "result": QuotedRefResultData.from_dict(obj["result"]) if obj.get("result") is not None else None
+            "result": TweetUnion.from_dict(obj["result"]) if obj.get("result") is not None else None
         })
         return _obj
 
+from twitter_openapi_python_generated.models.tweet_union import TweetUnion
+# TODO: Rewrite to not use raise_errors
+QuotedRefResult.model_rebuild(raise_errors=False)
 

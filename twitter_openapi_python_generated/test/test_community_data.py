@@ -131,9 +131,6 @@ class TestCommunityData(unittest.TestCase):
                     ],
                 moderator_count = 56,
                 name = '',
-                primary_community_topic = twitter_openapi_python_generated.models.primary_community_topic.PrimaryCommunityTopic(
-                    topic_id = '4', 
-                    topic_name = '', ),
                 question = '',
                 role = 'NonMember',
                 rules = [

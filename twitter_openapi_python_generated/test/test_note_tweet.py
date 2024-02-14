@@ -69,6 +69,10 @@ class TestNoteTweet(unittest.TestCase):
                                             ], 
                                         height = 56, 
                                         width = 56, ), 
+                                    sensitive_media_warning = twitter_openapi_python_generated.models.sensitive_media_warning.SensitiveMediaWarning(
+                                        adult_content = True, 
+                                        graphic_violence = True, 
+                                        other = True, ), 
                                     sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
                                         large = twitter_openapi_python_generated.models.media_size.MediaSize(
                                             h = 56, 
@@ -154,6 +158,10 @@ class TestNoteTweet(unittest.TestCase):
                                             ], 
                                         height = 56, 
                                         width = 56, ), 
+                                    sensitive_media_warning = twitter_openapi_python_generated.models.sensitive_media_warning.SensitiveMediaWarning(
+                                        adult_content = True, 
+                                        graphic_violence = True, 
+                                        other = True, ), 
                                     sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
                                         large = twitter_openapi_python_generated.models.media_size.MediaSize(
                                             h = 56, 

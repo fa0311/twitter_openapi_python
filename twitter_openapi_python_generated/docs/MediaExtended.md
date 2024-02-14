@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **media_key** | **str** |  | 
 **media_url_https** | **str** |  | 
 **original_info** | [**MediaOriginalInfo**](MediaOriginalInfo.md) |  | 
+**sensitive_media_warning** | [**SensitiveMediaWarning**](SensitiveMediaWarning.md) |  | [optional] 
 **sizes** | [**MediaSizes**](MediaSizes.md) |  | 
 **source_status_id_str** | **str** |  | [optional] 
 **source_user_id_str** | **str** |  | [optional] 

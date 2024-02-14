@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **birdwatch_pivot** | [**BirdwatchPivot**](BirdwatchPivot.md) |  | [optional] 
 **card** | [**TweetCard**](TweetCard.md) |  | [optional] 
 **core** | [**UserResultCore**](UserResultCore.md) |  | [optional] 
-**edit_control** | [**TweetEditControl**](TweetEditControl.md) |  | 
+**edit_control** | [**TweetEditControl**](TweetEditControl.md) |  | [optional] 
 **edit_prespective** | [**TweetEditPrespective**](TweetEditPrespective.md) |  | [optional] 
 **has_birdwatch_notes** | **bool** |  | [optional] 
-**is_translatable** | **bool** |  | [default to False]
+**is_translatable** | **bool** |  | [optional] [default to False]
 **legacy** | [**TweetLegacy**](TweetLegacy.md) |  | [optional] 
 **note_tweet** | [**NoteTweet**](NoteTweet.md) |  | [optional] 
 **previous_counts** | [**TweetPreviousCounts**](TweetPreviousCounts.md) |  | [optional] 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **super_follows_reply_user_result** | [**SuperFollowsReplyUserResult**](SuperFollowsReplyUserResult.md) |  | [optional] 
 **unified_card** | [**UnifiedCard**](UnifiedCard.md) |  | [optional] 
 **unmention_data** | **Dict[str, object]** |  | [optional] 
-**views** | [**TweetView**](TweetView.md) |  | 
+**views** | [**TweetView**](TweetView.md) |  | [optional] 
 
 ## Example
 

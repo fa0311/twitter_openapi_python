@@ -27,6 +27,7 @@ from twitter_openapi_python_generated.models.media_original_info import MediaOri
 from twitter_openapi_python_generated.models.media_sizes import MediaSizes
 from twitter_openapi_python_generated.models.media_stats import MediaStats
 from twitter_openapi_python_generated.models.media_video_info import MediaVideoInfo
+from twitter_openapi_python_generated.models.sensitive_media_warning import SensitiveMediaWarning
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -46,13 +47,14 @@ class MediaExtended(BaseModel):
     media_key: StrictStr
     media_url_https: StrictStr
     original_info: MediaOriginalInfo
+    sensitive_media_warning: Optional[SensitiveMediaWarning] = None
     sizes: MediaSizes
     source_status_id_str: Optional[Annotated[str, Field(strict=True)]] = None
     source_user_id_str: Optional[Annotated[str, Field(strict=True)]] = None
     type: StrictStr
     url: StrictStr
     video_info: Optional[MediaVideoInfo] = None
-    __properties: ClassVar[List[str]] = ["additional_media_info", "display_url", "expanded_url", "ext_alt_text", "ext_media_availability", "features", "id_str", "indices", "mediaStats", "media_key", "media_url_https", "original_info", "sizes", "source_status_id_str", "source_user_id_str", "type", "url", "video_info"]
+    __properties: ClassVar[List[str]] = ["additional_media_info", "display_url", "expanded_url", "ext_alt_text", "ext_media_availability", "features", "id_str", "indices", "mediaStats", "media_key", "media_url_https", "original_info", "sensitive_media_warning", "sizes", "source_status_id_str", "source_user_id_str", "type", "url", "video_info"]
 
     @field_validator('id_str')
     def id_str_validate_regular_expression(cls, value):
@@ -139,6 +141,9 @@ class MediaExtended(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of original_info
         if self.original_info:
             _dict['original_info'] = self.original_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of sensitive_media_warning
+        if self.sensitive_media_warning:
+            _dict['sensitive_media_warning'] = self.sensitive_media_warning.to_dict()
         # override the default output from pydantic by calling `to_dict()` of sizes
         if self.sizes:
             _dict['sizes'] = self.sizes.to_dict()
@@ -169,6 +174,7 @@ class MediaExtended(BaseModel):
             "media_key": obj.get("media_key"),
             "media_url_https": obj.get("media_url_https"),
             "original_info": MediaOriginalInfo.from_dict(obj["original_info"]) if obj.get("original_info") is not None else None,
+            "sensitive_media_warning": SensitiveMediaWarning.from_dict(obj["sensitive_media_warning"]) if obj.get("sensitive_media_warning") is not None else None,
             "sizes": MediaSizes.from_dict(obj["sizes"]) if obj.get("sizes") is not None else None,
             "source_status_id_str": obj.get("source_status_id_str"),
             "source_user_id_str": obj.get("source_user_id_str"),

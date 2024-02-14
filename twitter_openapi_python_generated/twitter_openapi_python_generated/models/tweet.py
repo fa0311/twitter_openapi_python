@@ -24,7 +24,6 @@ from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.author_community_relationship import AuthorCommunityRelationship
 from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot
 from twitter_openapi_python_generated.models.note_tweet import NoteTweet
-from twitter_openapi_python_generated.models.quoted_ref_result import QuotedRefResult
 from twitter_openapi_python_generated.models.super_follows_reply_user_result import SuperFollowsReplyUserResult
 from twitter_openapi_python_generated.models.tweet_card import TweetCard
 from twitter_openapi_python_generated.models.tweet_edit_control import TweetEditControl
@@ -46,10 +45,10 @@ class Tweet(BaseModel):
     birdwatch_pivot: Optional[BirdwatchPivot] = None
     card: Optional[TweetCard] = None
     core: Optional[UserResultCore] = None
-    edit_control: TweetEditControl
+    edit_control: Optional[TweetEditControl] = None
     edit_prespective: Optional[TweetEditPrespective] = None
     has_birdwatch_notes: Optional[StrictBool] = None
-    is_translatable: StrictBool
+    is_translatable: Optional[StrictBool] = False
     legacy: Optional[TweetLegacy] = None
     note_tweet: Optional[NoteTweet] = None
     previous_counts: Optional[TweetPreviousCounts] = None
@@ -61,7 +60,7 @@ class Tweet(BaseModel):
     super_follows_reply_user_result: Optional[SuperFollowsReplyUserResult] = Field(default=None, alias="superFollowsReplyUserResult")
     unified_card: Optional[UnifiedCard] = None
     unmention_data: Optional[Dict[str, Any]] = None
-    views: TweetView
+    views: Optional[TweetView] = None
     __properties: ClassVar[List[str]] = ["__typename", "author_community_relationship", "birdwatch_pivot", "card", "core", "edit_control", "edit_prespective", "has_birdwatch_notes", "is_translatable", "legacy", "note_tweet", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "unified_card", "unmention_data", "views"]
 
     @field_validator('rest_id')
@@ -189,6 +188,7 @@ class Tweet(BaseModel):
         return _obj
 
 from twitter_openapi_python_generated.models.item_result import ItemResult
+from twitter_openapi_python_generated.models.quoted_ref_result import QuotedRefResult
 from twitter_openapi_python_generated.models.tweet_legacy import TweetLegacy
 # TODO: Rewrite to not use raise_errors
 Tweet.model_rebuild(raise_errors=False)

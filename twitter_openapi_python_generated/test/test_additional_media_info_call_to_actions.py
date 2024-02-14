@@ -36,13 +36,13 @@ class TestAdditionalMediaInfoCallToActions(unittest.TestCase):
         model = AdditionalMediaInfoCallToActions()
         if include_optional:
             return AdditionalMediaInfoCallToActions(
-                visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_visit_site.AdditionalMediaInfoCallToActionsVisitSite(
+                visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
+                    url = '', ),
+                watch_now = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
                     url = '', )
             )
         else:
             return AdditionalMediaInfoCallToActions(
-                visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_visit_site.AdditionalMediaInfoCallToActionsVisitSite(
-                    url = '', ),
         )
         """
 
