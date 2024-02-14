@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**visit_site** | [**AdditionalMediaInfoCallToActionsVisitSite**](AdditionalMediaInfoCallToActionsVisitSite.md) |  | 
+**visit_site** | [**AdditionalMediaInfoCallToActionsUrl**](AdditionalMediaInfoCallToActionsUrl.md) |  | [optional] 
+**watch_now** | [**AdditionalMediaInfoCallToActionsUrl**](AdditionalMediaInfoCallToActionsUrl.md) |  | [optional] 
 
 ## Example
 

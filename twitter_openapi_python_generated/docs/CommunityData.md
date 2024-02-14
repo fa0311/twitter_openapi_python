@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **members_facepile_results** | [**List[UserResults]**](UserResults.md) |  | 
 **moderator_count** | **int** |  | 
 **name** | **str** |  | 
-**primary_community_topic** | [**PrimaryCommunityTopic**](PrimaryCommunityTopic.md) |  | 
+**primary_community_topic** | [**PrimaryCommunityTopic**](PrimaryCommunityTopic.md) |  | [optional] 
 **question** | **str** |  | 
 **role** | **str** |  | 
 **rules** | [**List[CommunityRule]**](CommunityRule.md) |  | 

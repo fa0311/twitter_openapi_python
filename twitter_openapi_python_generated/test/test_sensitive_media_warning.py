@@ -15,10 +15,10 @@
 
 import unittest
 
-from twitter_openapi_python_generated.models.quoted_ref_result_data import QuotedRefResultData
+from twitter_openapi_python_generated.models.sensitive_media_warning import SensitiveMediaWarning
 
-class TestQuotedRefResultData(unittest.TestCase):
-    """QuotedRefResultData unit test stubs"""
+class TestSensitiveMediaWarning(unittest.TestCase):
+    """SensitiveMediaWarning unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,28 +26,30 @@ class TestQuotedRefResultData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> QuotedRefResultData:
-        """Test QuotedRefResultData
+    def make_instance(self, include_optional) -> SensitiveMediaWarning:
+        """Test SensitiveMediaWarning
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `QuotedRefResultData`
+        # uncomment below to create an instance of `SensitiveMediaWarning`
         """
-        model = QuotedRefResultData()
+        model = SensitiveMediaWarning()
         if include_optional:
-            return QuotedRefResultData(
-                typename = 'TimelineTweet',
-                rest_id = '4'
+            return SensitiveMediaWarning(
+                adult_content = True,
+                graphic_violence = True,
+                other = True
             )
         else:
-            return QuotedRefResultData(
-                typename = 'TimelineTweet',
-                rest_id = '4',
+            return SensitiveMediaWarning(
+                adult_content = True,
+                graphic_violence = True,
+                other = True,
         )
         """
 
-    def testQuotedRefResultData(self):
-        """Test QuotedRefResultData"""
+    def testSensitiveMediaWarning(self):
+        """Test SensitiveMediaWarning"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

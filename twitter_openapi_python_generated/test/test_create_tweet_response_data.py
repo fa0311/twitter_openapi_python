@@ -112,6 +112,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                         twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
                                             from_index = 56, 
                                             ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                                text = '', 
                                                 type = 'TimelineUrl', 
                                                 url = '', 
                                                 url_type = 'ExternalUrl', ), 
@@ -127,6 +128,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                         twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
                                             from_index = 56, 
                                             ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                                text = '', 
                                                 type = 'TimelineUrl', 
                                                 url = '', 
                                                 url_type = 'ExternalUrl', ), 
@@ -228,6 +230,10 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                     ], 
                                                 height = 56, 
                                                 width = 56, ), 
+                                            sensitive_media_warning = twitter_openapi_python_generated.models.sensitive_media_warning.SensitiveMediaWarning(
+                                                adult_content = True, 
+                                                graphic_violence = True, 
+                                                other = True, ), 
                                             sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
                                                 large = twitter_openapi_python_generated.models.media_size.MediaSize(
                                                     h = 56, 
@@ -353,10 +359,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                 reply_count = 56, 
                                 retweet_count = 56, ), 
                             quick_promote_eligibility = twitter_openapi_python_generated.models.quick_promote_eligibility.quick_promote_eligibility(), 
-                            quoted_ref_result = twitter_openapi_python_generated.models.quoted_ref_result.QuotedRefResult(
-                                result = twitter_openapi_python_generated.models.quoted_ref_result_data.QuotedRefResultData(
-                                    __typename = , 
-                                    rest_id = '4', ), ), 
+                            quoted_ref_result = twitter_openapi_python_generated.models.quoted_ref_result.QuotedRefResult(), 
                             quoted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(), 
                             rest_id = '4', 
                             source = '', 
@@ -370,7 +373,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                             unmention_data = { }, 
                             views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                                 count = '4', 
-                                state = 'EnabledWithCount', ), ), ), )
+                                state = 'Enabled', ), ), ), )
             )
         else:
             return CreateTweetResponseData(
@@ -450,6 +453,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                         twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
                                             from_index = 56, 
                                             ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                                text = '', 
                                                 type = 'TimelineUrl', 
                                                 url = '', 
                                                 url_type = 'ExternalUrl', ), 
@@ -465,6 +469,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                         twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
                                             from_index = 56, 
                                             ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                                text = '', 
                                                 type = 'TimelineUrl', 
                                                 url = '', 
                                                 url_type = 'ExternalUrl', ), 
@@ -566,6 +571,10 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                     ], 
                                                 height = 56, 
                                                 width = 56, ), 
+                                            sensitive_media_warning = twitter_openapi_python_generated.models.sensitive_media_warning.SensitiveMediaWarning(
+                                                adult_content = True, 
+                                                graphic_violence = True, 
+                                                other = True, ), 
                                             sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
                                                 large = twitter_openapi_python_generated.models.media_size.MediaSize(
                                                     h = 56, 
@@ -691,10 +700,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                 reply_count = 56, 
                                 retweet_count = 56, ), 
                             quick_promote_eligibility = twitter_openapi_python_generated.models.quick_promote_eligibility.quick_promote_eligibility(), 
-                            quoted_ref_result = twitter_openapi_python_generated.models.quoted_ref_result.QuotedRefResult(
-                                result = twitter_openapi_python_generated.models.quoted_ref_result_data.QuotedRefResultData(
-                                    __typename = , 
-                                    rest_id = '4', ), ), 
+                            quoted_ref_result = twitter_openapi_python_generated.models.quoted_ref_result.QuotedRefResult(), 
                             quoted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(), 
                             rest_id = '4', 
                             source = '', 
@@ -708,7 +714,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                             unmention_data = { }, 
                             views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                                 count = '4', 
-                                state = 'EnabledWithCount', ), ), ), ),
+                                state = 'Enabled', ), ), ), ),
         )
         """
 

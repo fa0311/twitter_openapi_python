@@ -15,10 +15,10 @@
 
 import unittest
 
-from twitter_openapi_python_generated.models.additional_media_info_call_to_actions_visit_site import AdditionalMediaInfoCallToActionsVisitSite
+from twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url import AdditionalMediaInfoCallToActionsUrl
 
-class TestAdditionalMediaInfoCallToActionsVisitSite(unittest.TestCase):
-    """AdditionalMediaInfoCallToActionsVisitSite unit test stubs"""
+class TestAdditionalMediaInfoCallToActionsUrl(unittest.TestCase):
+    """AdditionalMediaInfoCallToActionsUrl unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,26 +26,26 @@ class TestAdditionalMediaInfoCallToActionsVisitSite(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AdditionalMediaInfoCallToActionsVisitSite:
-        """Test AdditionalMediaInfoCallToActionsVisitSite
+    def make_instance(self, include_optional) -> AdditionalMediaInfoCallToActionsUrl:
+        """Test AdditionalMediaInfoCallToActionsUrl
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AdditionalMediaInfoCallToActionsVisitSite`
+        # uncomment below to create an instance of `AdditionalMediaInfoCallToActionsUrl`
         """
-        model = AdditionalMediaInfoCallToActionsVisitSite()
+        model = AdditionalMediaInfoCallToActionsUrl()
         if include_optional:
-            return AdditionalMediaInfoCallToActionsVisitSite(
+            return AdditionalMediaInfoCallToActionsUrl(
                 url = ''
             )
         else:
-            return AdditionalMediaInfoCallToActionsVisitSite(
+            return AdditionalMediaInfoCallToActionsUrl(
                 url = '',
         )
         """
 
-    def testAdditionalMediaInfoCallToActionsVisitSite(self):
-        """Test AdditionalMediaInfoCallToActionsVisitSite"""
+    def testAdditionalMediaInfoCallToActionsUrl(self):
+        """Test AdditionalMediaInfoCallToActionsUrl"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

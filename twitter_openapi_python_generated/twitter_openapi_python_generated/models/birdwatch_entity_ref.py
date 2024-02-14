@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,21 +27,25 @@ class BirdwatchEntityRef(BaseModel):
     """
     BirdwatchEntityRef
     """ # noqa: E501
+    text: Optional[StrictStr] = None
     type: StrictStr
-    url: StrictStr
-    url_type: StrictStr = Field(alias="urlType")
-    __properties: ClassVar[List[str]] = ["type", "url", "urlType"]
+    url: Optional[StrictStr] = None
+    url_type: Optional[StrictStr] = Field(default=None, alias="urlType")
+    __properties: ClassVar[List[str]] = ["text", "type", "url", "urlType"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['TimelineUrl']):
-            raise ValueError("must be one of enum values ('TimelineUrl')")
+        if value not in set(['TimelineUrl', 'TimelineRichTextHashtag']):
+            raise ValueError("must be one of enum values ('TimelineUrl', 'TimelineRichTextHashtag')")
         return value
 
     @field_validator('url_type')
     def url_type_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(['ExternalUrl']):
             raise ValueError("must be one of enum values ('ExternalUrl')")
         return value
@@ -97,6 +101,7 @@ class BirdwatchEntityRef(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "text": obj.get("text"),
             "type": obj.get("type"),
             "url": obj.get("url"),
             "urlType": obj.get("urlType")

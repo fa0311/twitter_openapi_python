@@ -113,8 +113,8 @@ class TweetLegacy(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['limited_replies', 'community_tweet_non_member_public_community', 'non_compliant', 'dynamic_product_ad']):
-            raise ValueError("must be one of enum values ('limited_replies', 'community_tweet_non_member_public_community', 'non_compliant', 'dynamic_product_ad')")
+        if value not in set(['limited_replies', 'community_tweet_non_member_public_community', 'non_compliant', 'dynamic_product_ad', 'stale_tweet']):
+            raise ValueError("must be one of enum values ('limited_replies', 'community_tweet_non_member_public_community', 'non_compliant', 'dynamic_product_ad', 'stale_tweet')")
         return value
 
     @field_validator('quoted_status_id_str')

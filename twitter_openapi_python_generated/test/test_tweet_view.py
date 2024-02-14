@@ -37,11 +37,11 @@ class TestTweetView(unittest.TestCase):
         if include_optional:
             return TweetView(
                 count = '4',
-                state = 'EnabledWithCount'
+                state = 'Enabled'
             )
         else:
             return TweetView(
-                state = 'EnabledWithCount',
+                state = 'Enabled',
         )
         """
 

@@ -39,8 +39,8 @@ class SocialContextLandingUrl(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['DeepLink', 'UrtEndpoint']):
-            raise ValueError("must be one of enum values ('DeepLink', 'UrtEndpoint')")
+        if value not in set(['DeepLink', 'UrtEndpoint', 'ExternalUrl']):
+            raise ValueError("must be one of enum values ('DeepLink', 'UrtEndpoint', 'ExternalUrl')")
         return value
 
     model_config = {

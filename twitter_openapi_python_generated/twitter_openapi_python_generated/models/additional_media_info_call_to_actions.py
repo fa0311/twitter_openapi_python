@@ -19,8 +19,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel
-from typing import Any, ClassVar, Dict, List
-from twitter_openapi_python_generated.models.additional_media_info_call_to_actions_visit_site import AdditionalMediaInfoCallToActionsVisitSite
+from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url import AdditionalMediaInfoCallToActionsUrl
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,9 @@ class AdditionalMediaInfoCallToActions(BaseModel):
     """
     AdditionalMediaInfoCallToActions
     """ # noqa: E501
-    visit_site: AdditionalMediaInfoCallToActionsVisitSite
-    __properties: ClassVar[List[str]] = ["visit_site"]
+    visit_site: Optional[AdditionalMediaInfoCallToActionsUrl] = None
+    watch_now: Optional[AdditionalMediaInfoCallToActionsUrl] = None
+    __properties: ClassVar[List[str]] = ["visit_site", "watch_now"]
 
     model_config = {
         "populate_by_name": True,
@@ -73,6 +74,9 @@ class AdditionalMediaInfoCallToActions(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of visit_site
         if self.visit_site:
             _dict['visit_site'] = self.visit_site.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of watch_now
+        if self.watch_now:
+            _dict['watch_now'] = self.watch_now.to_dict()
         return _dict
 
     @classmethod
@@ -85,7 +89,8 @@ class AdditionalMediaInfoCallToActions(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "visit_site": AdditionalMediaInfoCallToActionsVisitSite.from_dict(obj["visit_site"]) if obj.get("visit_site") is not None else None
+            "visit_site": AdditionalMediaInfoCallToActionsUrl.from_dict(obj["visit_site"]) if obj.get("visit_site") is not None else None,
+            "watch_now": AdditionalMediaInfoCallToActionsUrl.from_dict(obj["watch_now"]) if obj.get("watch_now") is not None else None
         })
         return _obj
 

@@ -37,7 +37,9 @@ class TestAdditionalMediaInfo(unittest.TestCase):
         if include_optional:
             return AdditionalMediaInfo(
                 call_to_actions = twitter_openapi_python_generated.models.additional_media_info_call_to_actions.AdditionalMediaInfoCallToActions(
-                    visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_visit_site.AdditionalMediaInfoCallToActionsVisitSite(
+                    visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
+                        url = '', ), 
+                    watch_now = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
                         url = '', ), ),
                 description = '',
                 embeddable = True,

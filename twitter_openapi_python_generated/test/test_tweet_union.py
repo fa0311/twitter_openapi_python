@@ -109,6 +109,7 @@ class TestTweetUnion(unittest.TestCase):
                             twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
                                 from_index = 56, 
                                 ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                    text = '', 
                                     type = 'TimelineUrl', 
                                     url = '', 
                                     url_type = 'ExternalUrl', ), 
@@ -124,6 +125,7 @@ class TestTweetUnion(unittest.TestCase):
                             twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
                                 from_index = 56, 
                                 ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                    text = '', 
                                     type = 'TimelineUrl', 
                                     url = '', 
                                     url_type = 'ExternalUrl', ), 
@@ -227,6 +229,10 @@ class TestTweetUnion(unittest.TestCase):
                                         ], 
                                     height = 56, 
                                     width = 56, ), 
+                                sensitive_media_warning = twitter_openapi_python_generated.models.sensitive_media_warning.SensitiveMediaWarning(
+                                    adult_content = True, 
+                                    graphic_violence = True, 
+                                    other = True, ), 
                                 sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
                                     large = twitter_openapi_python_generated.models.media_size.MediaSize(
                                         h = 56, 
@@ -349,6 +355,10 @@ class TestTweetUnion(unittest.TestCase):
                                                 ], 
                                             height = 56, 
                                             width = 56, ), 
+                                        sensitive_media_warning = twitter_openapi_python_generated.models.sensitive_media_warning.SensitiveMediaWarning(
+                                            adult_content = True, 
+                                            graphic_violence = True, 
+                                            other = True, ), 
                                         sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
                                             large = twitter_openapi_python_generated.models.media_size.MediaSize(
                                                 h = 56, 
@@ -406,9 +416,7 @@ class TestTweetUnion(unittest.TestCase):
                     retweet_count = 56, ),
                 quick_promote_eligibility = twitter_openapi_python_generated.models.quick_promote_eligibility.quick_promote_eligibility(),
                 quoted_ref_result = twitter_openapi_python_generated.models.quoted_ref_result.QuotedRefResult(
-                    result = twitter_openapi_python_generated.models.quoted_ref_result_data.QuotedRefResultData(
-                        __typename = 'TimelineTweet', 
-                        rest_id = '4', ), ),
+                    result = null, ),
                 quoted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 
                     result = null, ),
@@ -424,7 +432,7 @@ class TestTweetUnion(unittest.TestCase):
                 unmention_data = { },
                 views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                     count = '4', 
-                    state = 'EnabledWithCount', ),
+                    state = 'Enabled', ),
                 limited_action_results = { },
                 tweet = twitter_openapi_python_generated.models.tweet.Tweet(
                     __typename = 'TimelineTweet', 
@@ -500,6 +508,7 @@ class TestTweetUnion(unittest.TestCase):
                                 twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
                                     from_index = 56, 
                                     ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                        text = '', 
                                         type = 'TimelineUrl', 
                                         url = '', 
                                         url_type = 'ExternalUrl', ), 
@@ -515,6 +524,7 @@ class TestTweetUnion(unittest.TestCase):
                                 twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
                                     from_index = 56, 
                                     ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                        text = '', 
                                         type = 'TimelineUrl', 
                                         url = '', 
                                         url_type = 'ExternalUrl', ), 
@@ -616,6 +626,10 @@ class TestTweetUnion(unittest.TestCase):
                                             ], 
                                         height = 56, 
                                         width = 56, ), 
+                                    sensitive_media_warning = twitter_openapi_python_generated.models.sensitive_media_warning.SensitiveMediaWarning(
+                                        adult_content = True, 
+                                        graphic_violence = True, 
+                                        other = True, ), 
                                     sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
                                         large = twitter_openapi_python_generated.models.media_size.MediaSize(
                                             h = 56, 
@@ -741,10 +755,7 @@ class TestTweetUnion(unittest.TestCase):
                         reply_count = 56, 
                         retweet_count = 56, ), 
                     quick_promote_eligibility = twitter_openapi_python_generated.models.quick_promote_eligibility.quick_promote_eligibility(), 
-                    quoted_ref_result = twitter_openapi_python_generated.models.quoted_ref_result.QuotedRefResult(
-                        result = twitter_openapi_python_generated.models.quoted_ref_result_data.QuotedRefResultData(
-                            __typename = , 
-                            rest_id = '4', ), ), 
+                    quoted_ref_result = twitter_openapi_python_generated.models.quoted_ref_result.QuotedRefResult(), 
                     quoted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(), 
                     rest_id = '4', 
                     source = '', 
@@ -758,7 +769,7 @@ class TestTweetUnion(unittest.TestCase):
                     unmention_data = { }, 
                     views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                         count = '4', 
-                        state = 'EnabledWithCount', ), ),
+                        state = 'Enabled', ), ),
                 tweet_interstitial = twitter_openapi_python_generated.models.tweet_interstitial.TweetInterstitial(
                     __typename = 'TimelineTweet', 
                     display_type = 'NonCompliant', 
@@ -790,27 +801,7 @@ class TestTweetUnion(unittest.TestCase):
         else:
             return TweetUnion(
                 typename = 'TimelineTweet',
-                edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(
-                    edit_control_initial = twitter_openapi_python_generated.models.tweet_edit_control_initial.TweetEditControlInitial(
-                        edit_tweet_ids = [
-                            '4'
-                            ], 
-                        editable_until_msecs = '4', 
-                        edits_remaining = '4', 
-                        is_edit_eligible = True, ), 
-                    edit_tweet_ids = [
-                        '4'
-                        ], 
-                    editable_until_msecs = '4', 
-                    edits_remaining = '4', 
-                    initial_tweet_id = '4', 
-                    is_edit_eligible = True, ),
-                is_translatable = True,
                 rest_id = '4',
-                views = twitter_openapi_python_generated.models.tweet_view.TweetView(
-                    count = '4', 
-                    state = 'EnabledWithCount', ),
-                limited_action_results = { },
                 tweet = twitter_openapi_python_generated.models.tweet.Tweet(
                     __typename = 'TimelineTweet', 
                     author_community_relationship = twitter_openapi_python_generated.models.author_community_relationship.AuthorCommunityRelationship(
@@ -885,6 +876,7 @@ class TestTweetUnion(unittest.TestCase):
                                 twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
                                     from_index = 56, 
                                     ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                        text = '', 
                                         type = 'TimelineUrl', 
                                         url = '', 
                                         url_type = 'ExternalUrl', ), 
@@ -900,6 +892,7 @@ class TestTweetUnion(unittest.TestCase):
                                 twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
                                     from_index = 56, 
                                     ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                                        text = '', 
                                         type = 'TimelineUrl', 
                                         url = '', 
                                         url_type = 'ExternalUrl', ), 
@@ -1001,6 +994,10 @@ class TestTweetUnion(unittest.TestCase):
                                             ], 
                                         height = 56, 
                                         width = 56, ), 
+                                    sensitive_media_warning = twitter_openapi_python_generated.models.sensitive_media_warning.SensitiveMediaWarning(
+                                        adult_content = True, 
+                                        graphic_violence = True, 
+                                        other = True, ), 
                                     sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
                                         large = twitter_openapi_python_generated.models.media_size.MediaSize(
                                             h = 56, 
@@ -1126,10 +1123,7 @@ class TestTweetUnion(unittest.TestCase):
                         reply_count = 56, 
                         retweet_count = 56, ), 
                     quick_promote_eligibility = twitter_openapi_python_generated.models.quick_promote_eligibility.quick_promote_eligibility(), 
-                    quoted_ref_result = twitter_openapi_python_generated.models.quoted_ref_result.QuotedRefResult(
-                        result = twitter_openapi_python_generated.models.quoted_ref_result_data.QuotedRefResultData(
-                            __typename = , 
-                            rest_id = '4', ), ), 
+                    quoted_ref_result = twitter_openapi_python_generated.models.quoted_ref_result.QuotedRefResult(), 
                     quoted_status_result = twitter_openapi_python_generated.models.item_result.ItemResult(), 
                     rest_id = '4', 
                     source = '', 
@@ -1143,7 +1137,7 @@ class TestTweetUnion(unittest.TestCase):
                     unmention_data = { }, 
                     views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                         count = '4', 
-                        state = 'EnabledWithCount', ), ),
+                        state = 'Enabled', ), ),
         )
         """
 

@@ -569,7 +569,7 @@ conf = twitter_openapi_python_generated.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 0.0.1\n"\
-               "SDK Package Version: 0.0.11".\
+               "SDK Package Version: 0.0.12".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

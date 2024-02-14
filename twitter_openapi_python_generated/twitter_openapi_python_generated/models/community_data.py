@@ -54,7 +54,7 @@ class CommunityData(BaseModel):
     members_facepile_results: List[UserResults]
     moderator_count: StrictInt
     name: StrictStr
-    primary_community_topic: PrimaryCommunityTopic
+    primary_community_topic: Optional[PrimaryCommunityTopic] = None
     question: StrictStr
     role: StrictStr
     rules: List[CommunityRule]

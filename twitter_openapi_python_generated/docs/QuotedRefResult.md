@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**result** | [**QuotedRefResultData**](QuotedRefResultData.md) |  | 
+**result** | [**TweetUnion**](TweetUnion.md) |  | [optional] 
 
 ## Example
 

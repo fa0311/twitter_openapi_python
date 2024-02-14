@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**limited_action_results** | **Dict[str, object]** |  | 
+**limited_action_results** | **Dict[str, object]** |  | [optional] 
 **tweet** | [**Tweet**](Tweet.md) |  | 
 **tweet_interstitial** | [**TweetInterstitial**](TweetInterstitial.md) |  | [optional] 
 
