@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **hashtags** | **List[Dict[str, object]]** |  | 
 **media** | [**List[Media]**](Media.md) |  | [optional] 
 **symbols** | **List[Dict[str, object]]** |  | 
+**timestamps** | [**List[Timestamp]**](Timestamp.md) |  | [optional] 
 **urls** | [**List[Url]**](Url.md) |  | 
 **user_mentions** | **List[Dict[str, object]]** |  | 
 

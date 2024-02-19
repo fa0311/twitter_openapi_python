@@ -18,20 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.type_name import TypeName
+from pydantic import BaseModel, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UserUnavailable(BaseModel):
+class Timestamp(BaseModel):
     """
-    UserUnavailable
+    Timestamp
     """ # noqa: E501
-    typename: TypeName = Field(alias="__typename")
-    message: Optional[StrictStr] = None
-    reason: StrictStr
-    __properties: ClassVar[List[str]] = ["__typename", "message", "reason"]
+    indices: List[StrictInt]
+    seconds: StrictInt
+    text: StrictStr
+    __properties: ClassVar[List[str]] = ["indices", "seconds", "text"]
 
     model_config = {
         "populate_by_name": True,
@@ -51,7 +50,7 @@ class UserUnavailable(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of UserUnavailable from a JSON string"""
+        """Create an instance of Timestamp from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,7 +75,7 @@ class UserUnavailable(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of UserUnavailable from a dict"""
+        """Create an instance of Timestamp from a dict"""
         if obj is None:
             return None
 
@@ -84,9 +83,9 @@ class UserUnavailable(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "__typename": obj.get("__typename"),
-            "message": obj.get("message"),
-            "reason": obj.get("reason")
+            "indices": obj.get("indices"),
+            "seconds": obj.get("seconds"),
+            "text": obj.get("text")
         })
         return _obj
 

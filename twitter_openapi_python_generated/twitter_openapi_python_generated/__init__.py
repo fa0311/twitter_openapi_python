@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.12"
+__version__ = "0.0.13"
 
 # import apis into sdk package
 from twitter_openapi_python_generated.api.default_api import DefaultApi
@@ -224,6 +224,7 @@ from twitter_openapi_python_generated.models.timeline_topic_context import Timel
 from twitter_openapi_python_generated.models.timeline_tweet import TimelineTweet
 from twitter_openapi_python_generated.models.timeline_user import TimelineUser
 from twitter_openapi_python_generated.models.timeline_v2 import TimelineV2
+from twitter_openapi_python_generated.models.timestamp import Timestamp
 from twitter_openapi_python_generated.models.topic_context import TopicContext
 from twitter_openapi_python_generated.models.tracing import Tracing
 from twitter_openapi_python_generated.models.tweet import Tweet

@@ -253,13 +253,19 @@ class TestCreateTweetResponseResult(unittest.TestCase):
                                 symbols = [
                                     { }
                                     ], 
+                                timestamps = [
+                                    twitter_openapi_python_generated.models.timestamp.Timestamp(
+                                        indices = [
+                                            56
+                                            ], 
+                                        seconds = 56, 
+                                        text = '', )
+                                    ], 
                                 urls = [
                                     twitter_openapi_python_generated.models.url.Url(
                                         display_url = '', 
                                         expanded_url = '', 
-                                        indices = [
-                                            56
-                                            ], 
+                                        indices = , 
                                         url = '', )
                                     ], 
                                 user_mentions = [
@@ -593,13 +599,19 @@ class TestCreateTweetResponseResult(unittest.TestCase):
                                 symbols = [
                                     { }
                                     ], 
+                                timestamps = [
+                                    twitter_openapi_python_generated.models.timestamp.Timestamp(
+                                        indices = [
+                                            56
+                                            ], 
+                                        seconds = 56, 
+                                        text = '', )
+                                    ], 
                                 urls = [
                                     twitter_openapi_python_generated.models.url.Url(
                                         display_url = '', 
                                         expanded_url = '', 
-                                        indices = [
-                                            56
-                                            ], 
+                                        indices = , 
                                         url = '', )
                                     ], 
                                 user_mentions = [

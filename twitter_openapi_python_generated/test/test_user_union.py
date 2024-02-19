@@ -124,6 +124,7 @@ class TestUserUnion(unittest.TestCase):
                             text = '', ), 
                         override_verified_year = 56, 
                         verified_since_msec = '-80728', ), ),
+                message = '',
                 reason = ''
             )
         else:

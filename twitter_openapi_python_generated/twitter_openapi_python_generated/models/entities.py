@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.media import Media
+from twitter_openapi_python_generated.models.timestamp import Timestamp
 from twitter_openapi_python_generated.models.url import Url
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,9 +33,10 @@ class Entities(BaseModel):
     hashtags: List[Dict[str, Any]]
     media: Optional[List[Media]] = None
     symbols: List[Dict[str, Any]]
+    timestamps: Optional[List[Timestamp]] = None
     urls: List[Url]
     user_mentions: List[Dict[str, Any]]
-    __properties: ClassVar[List[str]] = ["hashtags", "media", "symbols", "urls", "user_mentions"]
+    __properties: ClassVar[List[str]] = ["hashtags", "media", "symbols", "timestamps", "urls", "user_mentions"]
 
     model_config = {
         "populate_by_name": True,
@@ -82,6 +84,13 @@ class Entities(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['media'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in timestamps (list)
+        _items = []
+        if self.timestamps:
+            for _item in self.timestamps:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['timestamps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in urls (list)
         _items = []
         if self.urls:
@@ -104,6 +113,7 @@ class Entities(BaseModel):
             "hashtags": obj.get("hashtags"),
             "media": [Media.from_dict(_item) for _item in obj["media"]] if obj.get("media") is not None else None,
             "symbols": obj.get("symbols"),
+            "timestamps": [Timestamp.from_dict(_item) for _item in obj["timestamps"]] if obj.get("timestamps") is not None else None,
             "urls": [Url.from_dict(_item) for _item in obj["urls"]] if obj.get("urls") is not None else None,
             "user_mentions": obj.get("user_mentions")
         })
