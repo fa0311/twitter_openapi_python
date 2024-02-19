@@ -35,8 +35,8 @@ class TimelineTerminateTimeline(BaseModel):
     @field_validator('direction')
     def direction_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['Top', 'Bottom']):
-            raise ValueError("must be one of enum values ('Top', 'Bottom')")
+        if value not in set(['Top', 'Bottom', 'TopAndBottom']):
+            raise ValueError("must be one of enum values ('Top', 'Bottom', 'TopAndBottom')")
         return value
 
     model_config = {
