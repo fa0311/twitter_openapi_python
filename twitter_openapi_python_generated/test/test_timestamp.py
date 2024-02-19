@@ -15,10 +15,10 @@
 
 import unittest
 
-from twitter_openapi_python_generated.models.user_unavailable import UserUnavailable
+from twitter_openapi_python_generated.models.timestamp import Timestamp
 
-class TestUserUnavailable(unittest.TestCase):
-    """UserUnavailable unit test stubs"""
+class TestTimestamp(unittest.TestCase):
+    """Timestamp unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,29 +26,34 @@ class TestUserUnavailable(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> UserUnavailable:
-        """Test UserUnavailable
+    def make_instance(self, include_optional) -> Timestamp:
+        """Test Timestamp
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `UserUnavailable`
+        # uncomment below to create an instance of `Timestamp`
         """
-        model = UserUnavailable()
+        model = Timestamp()
         if include_optional:
-            return UserUnavailable(
-                typename = 'TimelineTweet',
-                message = '',
-                reason = ''
+            return Timestamp(
+                indices = [
+                    56
+                    ],
+                seconds = 56,
+                text = ''
             )
         else:
-            return UserUnavailable(
-                typename = 'TimelineTweet',
-                reason = '',
+            return Timestamp(
+                indices = [
+                    56
+                    ],
+                seconds = 56,
+                text = '',
         )
         """
 
-    def testUserUnavailable(self):
-        """Test UserUnavailable"""
+    def testTimestamp(self):
+        """Test Timestamp"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

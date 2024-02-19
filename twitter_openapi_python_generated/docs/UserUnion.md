@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **super_following** | **bool** |  | [default to False]
 **user_seed_tweet_count** | **int** |  | [optional] 
 **verification_info** | [**UserVerificationInfo**](UserVerificationInfo.md) |  | [optional] 
+**message** | **str** |  | [optional] 
 **reason** | **str** |  | 
 
 ## Example

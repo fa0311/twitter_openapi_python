@@ -189,6 +189,7 @@ docs/TimelineTopicContext.md
 docs/TimelineTweet.md
 docs/TimelineUser.md
 docs/TimelineV2.md
+docs/Timestamp.md
 docs/TopicContext.md
 docs/Tracing.md
 docs/Tweet.md
@@ -463,6 +464,7 @@ test/test_timeline_topic_context.py
 test/test_timeline_tweet.py
 test/test_timeline_user.py
 test/test_timeline_v2.py
+test/test_timestamp.py
 test/test_topic_context.py
 test/test_tracing.py
 test/test_tweet.py
@@ -745,6 +747,7 @@ twitter_openapi_python_generated/models/timeline_topic_context.py
 twitter_openapi_python_generated/models/timeline_tweet.py
 twitter_openapi_python_generated/models/timeline_user.py
 twitter_openapi_python_generated/models/timeline_v2.py
+twitter_openapi_python_generated/models/timestamp.py
 twitter_openapi_python_generated/models/topic_context.py
 twitter_openapi_python_generated/models/tracing.py
 twitter_openapi_python_generated/models/tweet.py

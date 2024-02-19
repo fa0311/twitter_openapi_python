@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
+**message** | **str** |  | [optional] 
 **reason** | **str** |  | 
 
 ## Example

@@ -428,6 +428,7 @@ Class | Method | HTTP request | Description
  - [TimelineTweet](docs/TimelineTweet.md)
  - [TimelineUser](docs/TimelineUser.md)
  - [TimelineV2](docs/TimelineV2.md)
+ - [Timestamp](docs/Timestamp.md)
  - [TopicContext](docs/TopicContext.md)
  - [Tracing](docs/Tracing.md)
  - [Tweet](docs/Tweet.md)
