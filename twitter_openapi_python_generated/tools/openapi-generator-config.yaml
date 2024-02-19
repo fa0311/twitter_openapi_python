@@ -2,7 +2,7 @@ inputSpec: twitter-openapi/dist/compatible/openapi-3.0.yaml
 outputDir: .
 
 packageName: twitter_openapi_python_generated
-packageVersion: 0.0.13
+packageVersion: 0.0.14
 packageUrl: https://github.com/fa0311/twitter_openapi_python_generated
 projectName: twitter_openapi_python_generated
 projectKeywords: twitter_openapi_python_generated
