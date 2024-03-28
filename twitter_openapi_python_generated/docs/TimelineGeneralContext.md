@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of TimelineGeneralContext from a JSON string
 timeline_general_context_instance = TimelineGeneralContext.from_json(json)
 # print the JSON string representation of the object
-print TimelineGeneralContext.to_json()
+print(TimelineGeneralContext.to_json())
 
 # convert the object into a dict
 timeline_general_context_dict = timeline_general_context_instance.to_dict()

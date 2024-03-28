@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of TimelineUser from a JSON string
 timeline_user_instance = TimelineUser.from_json(json)
 # print the JSON string representation of the object
-print TimelineUser.to_json()
+print(TimelineUser.to_json())
 
 # convert the object into a dict
 timeline_user_dict = timeline_user_instance.to_dict()

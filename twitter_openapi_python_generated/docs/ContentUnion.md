@@ -31,7 +31,7 @@ json = "{}"
 # create an instance of ContentUnion from a JSON string
 content_union_instance = ContentUnion.from_json(json)
 # print the JSON string representation of the object
-print ContentUnion.to_json()
+print(ContentUnion.to_json())
 
 # convert the object into a dict
 content_union_dict = content_union_instance.to_dict()

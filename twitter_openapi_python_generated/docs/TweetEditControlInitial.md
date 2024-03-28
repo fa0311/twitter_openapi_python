@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of TweetEditControlInitial from a JSON string
 tweet_edit_control_initial_instance = TweetEditControlInitial.from_json(json)
 # print the JSON string representation of the object
-print TweetEditControlInitial.to_json()
+print(TweetEditControlInitial.to_json())
 
 # convert the object into a dict
 tweet_edit_control_initial_dict = tweet_edit_control_initial_instance.to_dict()

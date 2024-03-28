@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of QuotedStatusPermalink from a JSON string
 quoted_status_permalink_instance = QuotedStatusPermalink.from_json(json)
 # print the JSON string representation of the object
-print QuotedStatusPermalink.to_json()
+print(QuotedStatusPermalink.to_json())
 
 # convert the object into a dict
 quoted_status_permalink_dict = quoted_status_permalink_instance.to_dict()

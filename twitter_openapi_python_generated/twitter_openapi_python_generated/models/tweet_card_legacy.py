@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.tweet_card_legacy_binding_value import TweetCardLegacyBindingValue
 from twitter_openapi_python_generated.models.tweet_card_platform_data import TweetCardPlatformData
@@ -37,11 +37,11 @@ class TweetCardLegacy(BaseModel):
     user_refs_results: Optional[List[UserResults]] = None
     __properties: ClassVar[List[str]] = ["binding_values", "card_platform", "name", "url", "user_refs_results"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of TimelineHalfCover from a JSON string
 timeline_half_cover_instance = TimelineHalfCover.from_json(json)
 # print the JSON string representation of the object
-print TimelineHalfCover.to_json()
+print(TimelineHalfCover.to_json())
 
 # convert the object into a dict
 timeline_half_cover_dict = timeline_half_cover_instance.to_dict()

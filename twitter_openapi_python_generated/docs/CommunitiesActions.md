@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of CommunitiesActions from a JSON string
 communities_actions_instance = CommunitiesActions.from_json(json)
 # print the JSON string representation of the object
-print CommunitiesActions.to_json()
+print(CommunitiesActions.to_json())
 
 # convert the object into a dict
 communities_actions_dict = communities_actions_instance.to_dict()

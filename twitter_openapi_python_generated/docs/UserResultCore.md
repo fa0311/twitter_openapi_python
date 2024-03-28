@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of UserResultCore from a JSON string
 user_result_core_instance = UserResultCore.from_json(json)
 # print the JSON string representation of the object
-print UserResultCore.to_json()
+print(UserResultCore.to_json())
 
 # convert the object into a dict
 user_result_core_dict = user_result_core_instance.to_dict()

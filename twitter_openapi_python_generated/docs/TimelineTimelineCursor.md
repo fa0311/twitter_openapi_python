@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of TimelineTimelineCursor from a JSON string
 timeline_timeline_cursor_instance = TimelineTimelineCursor.from_json(json)
 # print the JSON string representation of the object
-print TimelineTimelineCursor.to_json()
+print(TimelineTimelineCursor.to_json())
 
 # convert the object into a dict
 timeline_timeline_cursor_dict = timeline_timeline_cursor_instance.to_dict()

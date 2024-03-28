@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of TweetLegacyScopes from a JSON string
 tweet_legacy_scopes_instance = TweetLegacyScopes.from_json(json)
 # print the JSON string representation of the object
-print TweetLegacyScopes.to_json()
+print(TweetLegacyScopes.to_json())
 
 # convert the object into a dict
 tweet_legacy_scopes_dict = tweet_legacy_scopes_instance.to_dict()

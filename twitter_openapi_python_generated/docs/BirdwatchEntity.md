@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of BirdwatchEntity from a JSON string
 birdwatch_entity_instance = BirdwatchEntity.from_json(json)
 # print the JSON string representation of the object
-print BirdwatchEntity.to_json()
+print(BirdwatchEntity.to_json())
 
 # convert the object into a dict
 birdwatch_entity_dict = birdwatch_entity_instance.to_dict()

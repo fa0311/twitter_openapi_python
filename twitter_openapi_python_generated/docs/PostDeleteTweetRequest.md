@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PostDeleteTweetRequest from a JSON string
 post_delete_tweet_request_instance = PostDeleteTweetRequest.from_json(json)
 # print the JSON string representation of the object
-print PostDeleteTweetRequest.to_json()
+print(PostDeleteTweetRequest.to_json())
 
 # convert the object into a dict
 post_delete_tweet_request_dict = post_delete_tweet_request_instance.to_dict()

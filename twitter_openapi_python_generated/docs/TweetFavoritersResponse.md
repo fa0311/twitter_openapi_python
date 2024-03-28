@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of TweetFavoritersResponse from a JSON string
 tweet_favoriters_response_instance = TweetFavoritersResponse.from_json(json)
 # print the JSON string representation of the object
-print TweetFavoritersResponse.to_json()
+print(TweetFavoritersResponse.to_json())
 
 # convert the object into a dict
 tweet_favoriters_response_dict = tweet_favoriters_response_instance.to_dict()

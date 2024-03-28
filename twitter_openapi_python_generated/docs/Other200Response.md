@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of Other200Response from a JSON string
 other200_response_instance = Other200Response.from_json(json)
 # print the JSON string representation of the object
-print Other200Response.to_json()
+print(Other200Response.to_json())
 
 # convert the object into a dict
 other200_response_dict = other200_response_instance.to_dict()

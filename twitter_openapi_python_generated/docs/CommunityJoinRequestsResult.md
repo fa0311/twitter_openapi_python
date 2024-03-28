@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of CommunityJoinRequestsResult from a JSON string
 community_join_requests_result_instance = CommunityJoinRequestsResult.from_json(json)
 # print the JSON string representation of the object
-print CommunityJoinRequestsResult.to_json()
+print(CommunityJoinRequestsResult.to_json())
 
 # convert the object into a dict
 community_join_requests_result_dict = community_join_requests_result_instance.to_dict()

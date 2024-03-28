@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of TimelineShowAlertRichText from a JSON string
 timeline_show_alert_rich_text_instance = TimelineShowAlertRichText.from_json(json)
 # print the JSON string representation of the object
-print TimelineShowAlertRichText.to_json()
+print(TimelineShowAlertRichText.to_json())
 
 # convert the object into a dict
 timeline_show_alert_rich_text_dict = timeline_show_alert_rich_text_instance.to_dict()

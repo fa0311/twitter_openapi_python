@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of SuperFollowsReplyUserResultLegacy from a JSON string
 super_follows_reply_user_result_legacy_instance = SuperFollowsReplyUserResultLegacy.from_json(json)
 # print the JSON string representation of the object
-print SuperFollowsReplyUserResultLegacy.to_json()
+print(SuperFollowsReplyUserResultLegacy.to_json())
 
 # convert the object into a dict
 super_follows_reply_user_result_legacy_dict = super_follows_reply_user_result_legacy_instance.to_dict()

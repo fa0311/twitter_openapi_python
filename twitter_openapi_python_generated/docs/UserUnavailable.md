@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of UserUnavailable from a JSON string
 user_unavailable_instance = UserUnavailable.from_json(json)
 # print the JSON string representation of the object
-print UserUnavailable.to_json()
+print(UserUnavailable.to_json())
 
 # convert the object into a dict
 user_unavailable_dict = user_unavailable_instance.to_dict()

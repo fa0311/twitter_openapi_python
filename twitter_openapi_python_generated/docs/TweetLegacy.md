@@ -47,7 +47,7 @@ json = "{}"
 # create an instance of TweetLegacy from a JSON string
 tweet_legacy_instance = TweetLegacy.from_json(json)
 # print the JSON string representation of the object
-print TweetLegacy.to_json()
+print(TweetLegacy.to_json())
 
 # convert the object into a dict
 tweet_legacy_dict = tweet_legacy_instance.to_dict()

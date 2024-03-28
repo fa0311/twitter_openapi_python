@@ -35,7 +35,7 @@ json = "{}"
 # create an instance of MediaExtended from a JSON string
 media_extended_instance = MediaExtended.from_json(json)
 # print the JSON string representation of the object
-print MediaExtended.to_json()
+print(MediaExtended.to_json())
 
 # convert the object into a dict
 media_extended_dict = media_extended_instance.to_dict()

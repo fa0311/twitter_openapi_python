@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of Highlight from a JSON string
 highlight_instance = Highlight.from_json(json)
 # print the JSON string representation of the object
-print Highlight.to_json()
+print(Highlight.to_json())
 
 # convert the object into a dict
 highlight_dict = highlight_instance.to_dict()

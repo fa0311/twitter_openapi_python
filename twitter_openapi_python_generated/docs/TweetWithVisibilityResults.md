@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of TweetWithVisibilityResults from a JSON string
 tweet_with_visibility_results_instance = TweetWithVisibilityResults.from_json(json)
 # print the JSON string representation of the object
-print TweetWithVisibilityResults.to_json()
+print(TweetWithVisibilityResults.to_json())
 
 # convert the object into a dict
 tweet_with_visibility_results_dict = tweet_with_visibility_results_instance.to_dict()

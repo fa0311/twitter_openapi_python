@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PostCreateRetweetRequestVariables from a JSON string
 post_create_retweet_request_variables_instance = PostCreateRetweetRequestVariables.from_json(json)
 # print the JSON string representation of the object
-print PostCreateRetweetRequestVariables.to_json()
+print(PostCreateRetweetRequestVariables.to_json())
 
 # convert the object into a dict
 post_create_retweet_request_variables_dict = post_create_retweet_request_variables_instance.to_dict()

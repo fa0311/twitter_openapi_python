@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of UserVerificationInfoReason from a JSON string
 user_verification_info_reason_instance = UserVerificationInfoReason.from_json(json)
 # print the JSON string representation of the object
-print UserVerificationInfoReason.to_json()
+print(UserVerificationInfoReason.to_json())
 
 # convert the object into a dict
 user_verification_info_reason_dict = user_verification_info_reason_instance.to_dict()

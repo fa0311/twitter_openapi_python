@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of GetFavoriters200Response from a JSON string
 get_favoriters200_response_instance = GetFavoriters200Response.from_json(json)
 # print the JSON string representation of the object
-print GetFavoriters200Response.to_json()
+print(GetFavoriters200Response.to_json())
 
 # convert the object into a dict
 get_favoriters200_response_dict = get_favoriters200_response_instance.to_dict()

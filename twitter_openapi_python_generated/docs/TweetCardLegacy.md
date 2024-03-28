@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of TweetCardLegacy from a JSON string
 tweet_card_legacy_instance = TweetCardLegacy.from_json(json)
 # print the JSON string representation of the object
-print TweetCardLegacy.to_json()
+print(TweetCardLegacy.to_json())
 
 # convert the object into a dict
 tweet_card_legacy_dict = tweet_card_legacy_instance.to_dict()

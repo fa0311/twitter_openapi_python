@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of AdditionalMediaInfoCallToActions from a JSON string
 additional_media_info_call_to_actions_instance = AdditionalMediaInfoCallToActions.from_json(json)
 # print the JSON string representation of the object
-print AdditionalMediaInfoCallToActions.to_json()
+print(AdditionalMediaInfoCallToActions.to_json())
 
 # convert the object into a dict
 additional_media_info_call_to_actions_dict = additional_media_info_call_to_actions_instance.to_dict()

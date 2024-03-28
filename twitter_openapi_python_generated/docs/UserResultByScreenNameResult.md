@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of UserResultByScreenNameResult from a JSON string
 user_result_by_screen_name_result_instance = UserResultByScreenNameResult.from_json(json)
 # print the JSON string representation of the object
-print UserResultByScreenNameResult.to_json()
+print(UserResultByScreenNameResult.to_json())
 
 # convert the object into a dict
 user_result_by_screen_name_result_dict = user_result_by_screen_name_result_instance.to_dict()

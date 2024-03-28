@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of SelfThread from a JSON string
 self_thread_instance = SelfThread.from_json(json)
 # print the JSON string representation of the object
-print SelfThread.to_json()
+print(SelfThread.to_json())
 
 # convert the object into a dict
 self_thread_dict = self_thread_instance.to_dict()

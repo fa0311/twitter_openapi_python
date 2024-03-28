@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of SearchTimeline from a JSON string
 search_timeline_instance = SearchTimeline.from_json(json)
 # print the JSON string representation of the object
-print SearchTimeline.to_json()
+print(SearchTimeline.to_json())
 
 # convert the object into a dict
 search_timeline_dict = search_timeline_instance.to_dict()

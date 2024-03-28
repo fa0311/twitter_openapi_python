@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.community_delete_action_result import CommunityDeleteActionResult
 from twitter_openapi_python_generated.models.community_join_action_result import CommunityJoinActionResult
@@ -37,11 +37,11 @@ class CommunityActions(BaseModel):
     pin_action_result: CommunityPinActionResult
     __properties: ClassVar[List[str]] = ["delete_action_result", "join_action_result", "leave_action_result", "pin_action_result"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

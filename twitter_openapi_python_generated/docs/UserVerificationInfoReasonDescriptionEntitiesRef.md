@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of UserVerificationInfoReasonDescriptionEntitiesRef from a JSON string
 user_verification_info_reason_description_entities_ref_instance = UserVerificationInfoReasonDescriptionEntitiesRef.from_json(json)
 # print the JSON string representation of the object
-print UserVerificationInfoReasonDescriptionEntitiesRef.to_json()
+print(UserVerificationInfoReasonDescriptionEntitiesRef.to_json())
 
 # convert the object into a dict
 user_verification_info_reason_description_entities_ref_dict = user_verification_info_reason_description_entities_ref_instance.to_dict()

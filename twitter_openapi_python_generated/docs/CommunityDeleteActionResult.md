@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of CommunityDeleteActionResult from a JSON string
 community_delete_action_result_instance = CommunityDeleteActionResult.from_json(json)
 # print the JSON string representation of the object
-print CommunityDeleteActionResult.to_json()
+print(CommunityDeleteActionResult.to_json())
 
 # convert the object into a dict
 community_delete_action_result_dict = community_delete_action_result_instance.to_dict()

@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of DeleteTweetResponseResult from a JSON string
 delete_tweet_response_result_instance = DeleteTweetResponseResult.from_json(json)
 # print the JSON string representation of the object
-print DeleteTweetResponseResult.to_json()
+print(DeleteTweetResponseResult.to_json())
 
 # convert the object into a dict
 delete_tweet_response_result_dict = delete_tweet_response_result_instance.to_dict()

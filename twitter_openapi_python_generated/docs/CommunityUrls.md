@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of CommunityUrls from a JSON string
 community_urls_instance = CommunityUrls.from_json(json)
 # print the JSON string representation of the object
-print CommunityUrls.to_json()
+print(CommunityUrls.to_json())
 
 # convert the object into a dict
 community_urls_dict = community_urls_instance.to_dict()

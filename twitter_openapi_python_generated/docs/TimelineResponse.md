@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of TimelineResponse from a JSON string
 timeline_response_instance = TimelineResponse.from_json(json)
 # print the JSON string representation of the object
-print TimelineResponse.to_json()
+print(TimelineResponse.to_json())
 
 # convert the object into a dict
 timeline_response_dict = timeline_response_instance.to_dict()

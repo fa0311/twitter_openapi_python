@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of TimelinePrompt from a JSON string
 timeline_prompt_instance = TimelinePrompt.from_json(json)
 # print the JSON string representation of the object
-print TimelinePrompt.to_json()
+print(TimelinePrompt.to_json())
 
 # convert the object into a dict
 timeline_prompt_dict = timeline_prompt_instance.to_dict()

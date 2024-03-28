@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of TweetEditControl from a JSON string
 tweet_edit_control_instance = TweetEditControl.from_json(json)
 # print the JSON string representation of the object
-print TweetEditControl.to_json()
+print(TweetEditControl.to_json())
 
 # convert the object into a dict
 tweet_edit_control_dict = tweet_edit_control_instance.to_dict()

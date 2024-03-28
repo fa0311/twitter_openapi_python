@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of TimelineReplaceEntry from a JSON string
 timeline_replace_entry_instance = TimelineReplaceEntry.from_json(json)
 # print the JSON string representation of the object
-print TimelineReplaceEntry.to_json()
+print(TimelineReplaceEntry.to_json())
 
 # convert the object into a dict
 timeline_replace_entry_dict = timeline_replace_entry_instance.to_dict()

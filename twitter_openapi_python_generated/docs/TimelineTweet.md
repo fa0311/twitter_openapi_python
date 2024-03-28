@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of TimelineTweet from a JSON string
 timeline_tweet_instance = TimelineTweet.from_json(json)
 # print the JSON string representation of the object
-print TimelineTweet.to_json()
+print(TimelineTweet.to_json())
 
 # convert the object into a dict
 timeline_tweet_dict = timeline_tweet_instance.to_dict()

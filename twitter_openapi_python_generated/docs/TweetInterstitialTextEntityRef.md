@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of TweetInterstitialTextEntityRef from a JSON string
 tweet_interstitial_text_entity_ref_instance = TweetInterstitialTextEntityRef.from_json(json)
 # print the JSON string representation of the object
-print TweetInterstitialTextEntityRef.to_json()
+print(TweetInterstitialTextEntityRef.to_json())
 
 # convert the object into a dict
 tweet_interstitial_text_entity_ref_dict = tweet_interstitial_text_entity_ref_instance.to_dict()

@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of BookmarksResponseData from a JSON string
 bookmarks_response_data_instance = BookmarksResponseData.from_json(json)
 # print the JSON string representation of the object
-print BookmarksResponseData.to_json()
+print(BookmarksResponseData.to_json())
 
 # convert the object into a dict
 bookmarks_response_data_dict = bookmarks_response_data_instance.to_dict()

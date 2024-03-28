@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of ModuleEntry from a JSON string
 module_entry_instance = ModuleEntry.from_json(json)
 # print the JSON string representation of the object
-print ModuleEntry.to_json()
+print(ModuleEntry.to_json())
 
 # convert the object into a dict
 module_entry_dict = module_entry_instance.to_dict()

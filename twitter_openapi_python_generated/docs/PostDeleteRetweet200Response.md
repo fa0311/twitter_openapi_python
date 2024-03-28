@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PostDeleteRetweet200Response from a JSON string
 post_delete_retweet200_response_instance = PostDeleteRetweet200Response.from_json(json)
 # print the JSON string representation of the object
-print PostDeleteRetweet200Response.to_json()
+print(PostDeleteRetweet200Response.to_json())
 
 # convert the object into a dict
 post_delete_retweet200_response_dict = post_delete_retweet200_response_instance.to_dict()

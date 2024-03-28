@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of CreateTweet from a JSON string
 create_tweet_instance = CreateTweet.from_json(json)
 # print the JSON string representation of the object
-print CreateTweet.to_json()
+print(CreateTweet.to_json())
 
 # convert the object into a dict
 create_tweet_dict = create_tweet_instance.to_dict()

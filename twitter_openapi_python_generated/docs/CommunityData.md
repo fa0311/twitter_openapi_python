@@ -42,7 +42,7 @@ json = "{}"
 # create an instance of CommunityData from a JSON string
 community_data_instance = CommunityData.from_json(json)
 # print the JSON string representation of the object
-print CommunityData.to_json()
+print(CommunityData.to_json())
 
 # convert the object into a dict
 community_data_dict = community_data_instance.to_dict()

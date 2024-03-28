@@ -46,7 +46,7 @@ class TestTimelineTweet(unittest.TestCase):
                 item_type = 'TimelineTweet',
                 promoted_metadata = { },
                 social_context = None,
-                tweet_display_type = '',
+                tweet_display_type = 'Tweet',
                 tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 
                     result = null, )
@@ -55,7 +55,7 @@ class TestTimelineTweet(unittest.TestCase):
             return TimelineTweet(
                 typename = 'TimelineTweet',
                 item_type = 'TimelineTweet',
-                tweet_display_type = '',
+                tweet_display_type = 'Tweet',
                 tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 
                     result = null, ),

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of TimelineTopicContext from a JSON string
 timeline_topic_context_instance = TimelineTopicContext.from_json(json)
 # print the JSON string representation of the object
-print TimelineTopicContext.to_json()
+print(TimelineTopicContext.to_json())
 
 # convert the object into a dict
 timeline_topic_context_dict = timeline_topic_context_instance.to_dict()

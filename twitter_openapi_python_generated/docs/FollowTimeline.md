@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of FollowTimeline from a JSON string
 follow_timeline_instance = FollowTimeline.from_json(json)
 # print the JSON string representation of the object
-print FollowTimeline.to_json()
+print(FollowTimeline.to_json())
 
 # convert the object into a dict
 follow_timeline_dict = follow_timeline_instance.to_dict()

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CommunityActions from a JSON string
 community_actions_instance = CommunityActions.from_json(json)
 # print the JSON string representation of the object
-print CommunityActions.to_json()
+print(CommunityActions.to_json())
 
 # convert the object into a dict
 community_actions_dict = community_actions_instance.to_dict()

@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of CreateRetweetResponseResult from a JSON string
 create_retweet_response_result_instance = CreateRetweetResponseResult.from_json(json)
 # print the JSON string representation of the object
-print CreateRetweetResponseResult.to_json()
+print(CreateRetweetResponseResult.to_json())
 
 # convert the object into a dict
 create_retweet_response_result_dict = create_retweet_response_result_instance.to_dict()

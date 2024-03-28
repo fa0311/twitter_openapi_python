@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of TweetInterstitial from a JSON string
 tweet_interstitial_instance = TweetInterstitial.from_json(json)
 # print the JSON string representation of the object
-print TweetInterstitial.to_json()
+print(TweetInterstitial.to_json())
 
 # convert the object into a dict
 tweet_interstitial_dict = tweet_interstitial_instance.to_dict()

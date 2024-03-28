@@ -37,6 +37,31 @@ class TestTweet(unittest.TestCase):
         if include_optional:
             return Tweet(
                 typename = 'TimelineTweet',
+                article = twitter_openapi_python_generated.models.article.Article(
+                    article_results = twitter_openapi_python_generated.models.article_results.ArticleResults(
+                        result = twitter_openapi_python_generated.models.article_result.ArticleResult(
+                            cover_media = twitter_openapi_python_generated.models.article_cover_media.ArticleCoverMedia(
+                                id = '', 
+                                media_id = '4', 
+                                media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
+                                    __typename = 'TimelineTweet', 
+                                    color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
+                                        palette = [
+                                            twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
+                                                percentage = 1.337, 
+                                                rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
+                                                    blue = 56, 
+                                                    green = 56, 
+                                                    red = 56, ), )
+                                            ], ), 
+                                    original_img_height = 56, 
+                                    original_img_url = '', 
+                                    original_img_width = 56, ), 
+                                media_key = '', ), 
+                            id = '', 
+                            preview_text = '', 
+                            rest_id = '4', 
+                            title = '', ), ), ),
                 author_community_relationship = twitter_openapi_python_generated.models.author_community_relationship.AuthorCommunityRelationship(
                     community_results = twitter_openapi_python_generated.models.community.Community(
                         result = twitter_openapi_python_generated.models.community_data.CommunityData(

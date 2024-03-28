@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PostCreateTweetRequestVariablesMedia from a JSON string
 post_create_tweet_request_variables_media_instance = PostCreateTweetRequestVariablesMedia.from_json(json)
 # print the JSON string representation of the object
-print PostCreateTweetRequestVariablesMedia.to_json()
+print(PostCreateTweetRequestVariablesMedia.to_json())
 
 # convert the object into a dict
 post_create_tweet_request_variables_media_dict = post_create_tweet_request_variables_media_instance.to_dict()

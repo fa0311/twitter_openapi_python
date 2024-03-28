@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of Tracing from a JSON string
 tracing_instance = Tracing.from_json(json)
 # print the JSON string representation of the object
-print Tracing.to_json()
+print(Tracing.to_json())
 
 # convert the object into a dict
 tracing_dict = tracing_instance.to_dict()

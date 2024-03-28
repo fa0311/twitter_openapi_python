@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of ProfileResponseData from a JSON string
 profile_response_data_instance = ProfileResponseData.from_json(json)
 # print the JSON string representation of the object
-print ProfileResponseData.to_json()
+print(ProfileResponseData.to_json())
 
 # convert the object into a dict
 profile_response_data_dict = profile_response_data_instance.to_dict()

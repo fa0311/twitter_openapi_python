@@ -16,7 +16,7 @@
 from __future__ import annotations
 import json
 import pprint
-from pydantic import BaseModel, Field, StrictStr, ValidationError, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.delete_tweet_response import DeleteTweetResponse
 from twitter_openapi_python_generated.models.errors import Errors
@@ -37,10 +37,10 @@ class PostDeleteTweet200Response(BaseModel):
     actual_instance: Optional[Union[DeleteTweetResponse, Errors]] = None
     one_of_schemas: List[str] = Field(default=Literal["DeleteTweetResponse", "Errors"])
 
-    model_config = {
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def __init__(self, *args, **kwargs) -> None:

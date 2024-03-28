@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of UserProfessionalCategory from a JSON string
 user_professional_category_instance = UserProfessionalCategory.from_json(json)
 # print the JSON string representation of the object
-print UserProfessionalCategory.to_json()
+print(UserProfessionalCategory.to_json())
 
 # convert the object into a dict
 user_professional_category_dict = user_professional_category_instance.to_dict()

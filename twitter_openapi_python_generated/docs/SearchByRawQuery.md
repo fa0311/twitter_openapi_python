@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of SearchByRawQuery from a JSON string
 search_by_raw_query_instance = SearchByRawQuery.from_json(json)
 # print the JSON string representation of the object
-print SearchByRawQuery.to_json()
+print(SearchByRawQuery.to_json())
 
 # convert the object into a dict
 search_by_raw_query_dict = search_by_raw_query_instance.to_dict()

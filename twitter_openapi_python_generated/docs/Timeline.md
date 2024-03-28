@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of Timeline from a JSON string
 timeline_instance = Timeline.from_json(json)
 # print the JSON string representation of the object
-print Timeline.to_json()
+print(Timeline.to_json())
 
 # convert the object into a dict
 timeline_dict = timeline_instance.to_dict()

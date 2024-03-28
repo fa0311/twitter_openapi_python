@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of SensitiveMediaWarning from a JSON string
 sensitive_media_warning_instance = SensitiveMediaWarning.from_json(json)
 # print the JSON string representation of the object
-print SensitiveMediaWarning.to_json()
+print(SensitiveMediaWarning.to_json())
 
 # convert the object into a dict
 sensitive_media_warning_dict = sensitive_media_warning_instance.to_dict()

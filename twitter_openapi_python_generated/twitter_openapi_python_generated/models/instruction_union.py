@@ -16,7 +16,7 @@
 from __future__ import annotations
 import json
 import pprint
-from pydantic import BaseModel, Field, StrictStr, ValidationError, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.timeline_add_entries import TimelineAddEntries
 from twitter_openapi_python_generated.models.timeline_add_to_module import TimelineAddToModule
@@ -55,10 +55,10 @@ class InstructionUnion(BaseModel):
     actual_instance: Optional[Union[TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline]] = None
     one_of_schemas: List[str] = Field(default=Literal["TimelineAddEntries", "TimelineAddToModule", "TimelineClearCache", "TimelinePinEntry", "TimelineReplaceEntry", "TimelineShowAlert", "TimelineShowCover", "TimelineTerminateTimeline"])
 
-    model_config = {
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     discriminator_value_class_map: Dict[str, str] = {

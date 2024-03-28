@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of OneFactorLoginEligibility from a JSON string
 one_factor_login_eligibility_instance = OneFactorLoginEligibility.from_json(json)
 # print the JSON string representation of the object
-print OneFactorLoginEligibility.to_json()
+print(OneFactorLoginEligibility.to_json())
 
 # convert the object into a dict
 one_factor_login_eligibility_dict = one_factor_login_eligibility_instance.to_dict()

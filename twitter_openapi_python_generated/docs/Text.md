@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of Text from a JSON string
 text_instance = Text.from_json(json)
 # print the JSON string representation of the object
-print Text.to_json()
+print(Text.to_json())
 
 # convert the object into a dict
 text_dict = text_instance.to_dict()

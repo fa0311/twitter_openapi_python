@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of TimelineShowCover from a JSON string
 timeline_show_cover_instance = TimelineShowCover.from_json(json)
 # print the JSON string representation of the object
-print TimelineShowCover.to_json()
+print(TimelineShowCover.to_json())
 
 # convert the object into a dict
 timeline_show_cover_dict = timeline_show_cover_instance.to_dict()

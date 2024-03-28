@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of GetUserHighlightsTweets200Response from a JSON string
 get_user_highlights_tweets200_response_instance = GetUserHighlightsTweets200Response.from_json(json)
 # print the JSON string representation of the object
-print GetUserHighlightsTweets200Response.to_json()
+print(GetUserHighlightsTweets200Response.to_json())
 
 # convert the object into a dict
 get_user_highlights_tweets200_response_dict = get_user_highlights_tweets200_response_instance.to_dict()

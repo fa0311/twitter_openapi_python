@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of GetProfileSpotlightsQuery200Response from a JSON string
 get_profile_spotlights_query200_response_instance = GetProfileSpotlightsQuery200Response.from_json(json)
 # print the JSON string representation of the object
-print GetProfileSpotlightsQuery200Response.to_json()
+print(GetProfileSpotlightsQuery200Response.to_json())
 
 # convert the object into a dict
 get_profile_spotlights_query200_response_dict = get_profile_spotlights_query200_response_instance.to_dict()

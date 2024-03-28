@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of FeedbackInfo from a JSON string
 feedback_info_instance = FeedbackInfo.from_json(json)
 # print the JSON string representation of the object
-print FeedbackInfo.to_json()
+print(FeedbackInfo.to_json())
 
 # convert the object into a dict
 feedback_info_dict = feedback_info_instance.to_dict()

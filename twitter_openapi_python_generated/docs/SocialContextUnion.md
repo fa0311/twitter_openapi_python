@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of SocialContextUnion from a JSON string
 social_context_union_instance = SocialContextUnion.from_json(json)
 # print the JSON string representation of the object
-print SocialContextUnion.to_json()
+print(SocialContextUnion.to_json())
 
 # convert the object into a dict
 social_context_union_dict = social_context_union_instance.to_dict()

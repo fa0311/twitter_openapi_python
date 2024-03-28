@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data_image import TweetCardLegacyBindingValueDataImage
 from twitter_openapi_python_generated.models.user_value import UserValue
@@ -38,11 +38,11 @@ class TweetCardLegacyBindingValueData(BaseModel):
     user_value: Optional[UserValue] = None
     __properties: ClassVar[List[str]] = ["boolean_value", "image_color_value", "image_value", "scribe_key", "string_value", "type", "user_value"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of DisplayTreatment from a JSON string
 display_treatment_instance = DisplayTreatment.from_json(json)
 # print the JSON string representation of the object
-print DisplayTreatment.to_json()
+print(DisplayTreatment.to_json())
 
 # convert the object into a dict
 display_treatment_dict = display_treatment_instance.to_dict()

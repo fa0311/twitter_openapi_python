@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.note_tweet_result_rich_text_tag import NoteTweetResultRichTextTag
 from typing import Optional, Set
@@ -31,11 +31,11 @@ class NoteTweetResultRichText(BaseModel):
     richtext_tags: List[NoteTweetResultRichTextTag]
     __properties: ClassVar[List[str]] = ["richtext_tags"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

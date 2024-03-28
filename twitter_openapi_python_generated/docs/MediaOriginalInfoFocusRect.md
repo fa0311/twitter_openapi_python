@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of MediaOriginalInfoFocusRect from a JSON string
 media_original_info_focus_rect_instance = MediaOriginalInfoFocusRect.from_json(json)
 # print the JSON string representation of the object
-print MediaOriginalInfoFocusRect.to_json()
+print(MediaOriginalInfoFocusRect.to_json())
 
 # convert the object into a dict
 media_original_info_focus_rect_dict = media_original_info_focus_rect_instance.to_dict()

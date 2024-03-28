@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of MediaSize from a JSON string
 media_size_instance = MediaSize.from_json(json)
 # print the JSON string representation of the object
-print MediaSize.to_json()
+print(MediaSize.to_json())
 
 # convert the object into a dict
 media_size_dict = media_size_instance.to_dict()

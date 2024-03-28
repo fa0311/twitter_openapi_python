@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of TimelineCoverBehavior from a JSON string
 timeline_cover_behavior_instance = TimelineCoverBehavior.from_json(json)
 # print the JSON string representation of the object
-print TimelineCoverBehavior.to_json()
+print(TimelineCoverBehavior.to_json())
 
 # convert the object into a dict
 timeline_cover_behavior_dict = timeline_cover_behavior_instance.to_dict()

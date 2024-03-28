@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of TimelineTimelineModule from a JSON string
 timeline_timeline_module_instance = TimelineTimelineModule.from_json(json)
 # print the JSON string representation of the object
-print TimelineTimelineModule.to_json()
+print(TimelineTimelineModule.to_json())
 
 # convert the object into a dict
 timeline_timeline_module_dict = timeline_timeline_module_instance.to_dict()

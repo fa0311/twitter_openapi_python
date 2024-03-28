@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of PostCreateTweetRequestVariables from a JSON string
 post_create_tweet_request_variables_instance = PostCreateTweetRequestVariables.from_json(json)
 # print the JSON string representation of the object
-print PostCreateTweetRequestVariables.to_json()
+print(PostCreateTweetRequestVariables.to_json())
 
 # convert the object into a dict
 post_create_tweet_request_variables_dict = post_create_tweet_request_variables_instance.to_dict()
