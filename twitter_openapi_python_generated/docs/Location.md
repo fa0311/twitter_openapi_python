@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of Location from a JSON string
 location_instance = Location.from_json(json)
 # print the JSON string representation of the object
-print Location.to_json()
+print(Location.to_json())
 
 # convert the object into a dict
 location_dict = location_instance.to_dict()

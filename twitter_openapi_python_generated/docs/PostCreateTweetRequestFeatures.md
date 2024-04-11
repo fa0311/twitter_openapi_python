@@ -36,7 +36,7 @@ json = "{}"
 # create an instance of PostCreateTweetRequestFeatures from a JSON string
 post_create_tweet_request_features_instance = PostCreateTweetRequestFeatures.from_json(json)
 # print the JSON string representation of the object
-print PostCreateTweetRequestFeatures.to_json()
+print(PostCreateTweetRequestFeatures.to_json())
 
 # convert the object into a dict
 post_create_tweet_request_features_dict = post_create_tweet_request_features_instance.to_dict()

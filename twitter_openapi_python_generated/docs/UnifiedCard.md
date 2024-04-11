@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of UnifiedCard from a JSON string
 unified_card_instance = UnifiedCard.from_json(json)
 # print the JSON string representation of the object
-print UnifiedCard.to_json()
+print(UnifiedCard.to_json())
 
 # convert the object into a dict
 unified_card_dict = unified_card_instance.to_dict()

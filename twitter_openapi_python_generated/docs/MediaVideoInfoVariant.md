@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of MediaVideoInfoVariant from a JSON string
 media_video_info_variant_instance = MediaVideoInfoVariant.from_json(json)
 # print the JSON string representation of the object
-print MediaVideoInfoVariant.to_json()
+print(MediaVideoInfoVariant.to_json())
 
 # convert the object into a dict
 media_video_info_variant_dict = media_video_info_variant_instance.to_dict()

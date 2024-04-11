@@ -37,7 +37,7 @@ json = "{}"
 # create an instance of UserUnion from a JSON string
 user_union_instance = UserUnion.from_json(json)
 # print the JSON string representation of the object
-print UserUnion.to_json()
+print(UserUnion.to_json())
 
 # convert the object into a dict
 user_union_dict = user_union_instance.to_dict()

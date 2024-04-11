@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of BookmarksTimeline from a JSON string
 bookmarks_timeline_instance = BookmarksTimeline.from_json(json)
 # print the JSON string representation of the object
-print BookmarksTimeline.to_json()
+print(BookmarksTimeline.to_json())
 
 # convert the object into a dict
 bookmarks_timeline_dict = bookmarks_timeline_instance.to_dict()

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of NoteTweet from a JSON string
 note_tweet_instance = NoteTweet.from_json(json)
 # print the JSON string representation of the object
-print NoteTweet.to_json()
+print(NoteTweet.to_json())
 
 # convert the object into a dict
 note_tweet_dict = note_tweet_instance.to_dict()

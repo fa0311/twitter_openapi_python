@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of ErrorExtensions from a JSON string
 error_extensions_instance = ErrorExtensions.from_json(json)
 # print the JSON string representation of the object
-print ErrorExtensions.to_json()
+print(ErrorExtensions.to_json())
 
 # convert the object into a dict
 error_extensions_dict = error_extensions_instance.to_dict()

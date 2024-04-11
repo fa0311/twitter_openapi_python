@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of TimelineClearCache from a JSON string
 timeline_clear_cache_instance = TimelineClearCache.from_json(json)
 # print the JSON string representation of the object
-print TimelineClearCache.to_json()
+print(TimelineClearCache.to_json())
 
 # convert the object into a dict
 timeline_clear_cache_dict = timeline_clear_cache_instance.to_dict()

@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of NoteTweetResultMedia from a JSON string
 note_tweet_result_media_instance = NoteTweetResultMedia.from_json(json)
 # print the JSON string representation of the object
-print NoteTweetResultMedia.to_json()
+print(NoteTweetResultMedia.to_json())
 
 # convert the object into a dict
 note_tweet_result_media_dict = note_tweet_result_media_instance.to_dict()

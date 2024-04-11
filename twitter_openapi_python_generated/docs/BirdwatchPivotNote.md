@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of BirdwatchPivotNote from a JSON string
 birdwatch_pivot_note_instance = BirdwatchPivotNote.from_json(json)
 # print the JSON string representation of the object
-print BirdwatchPivotNote.to_json()
+print(BirdwatchPivotNote.to_json())
 
 # convert the object into a dict
 birdwatch_pivot_note_dict = birdwatch_pivot_note_instance.to_dict()

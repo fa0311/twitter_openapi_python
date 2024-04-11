@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of Entities from a JSON string
 entities_instance = Entities.from_json(json)
 # print the JSON string representation of the object
-print Entities.to_json()
+print(Entities.to_json())
 
 # convert the object into a dict
 entities_dict = entities_instance.to_dict()

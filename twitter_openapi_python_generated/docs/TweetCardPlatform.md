@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of TweetCardPlatform from a JSON string
 tweet_card_platform_instance = TweetCardPlatform.from_json(json)
 # print the JSON string representation of the object
-print TweetCardPlatform.to_json()
+print(TweetCardPlatform.to_json())
 
 # convert the object into a dict
 tweet_card_platform_dict = tweet_card_platform_instance.to_dict()

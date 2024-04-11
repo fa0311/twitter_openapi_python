@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of TopicContext from a JSON string
 topic_context_instance = TopicContext.from_json(json)
 # print the JSON string representation of the object
-print TopicContext.to_json()
+print(TopicContext.to_json())
 
 # convert the object into a dict
 topic_context_dict = topic_context_instance.to_dict()

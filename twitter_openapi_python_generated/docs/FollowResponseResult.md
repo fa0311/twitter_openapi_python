@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of FollowResponseResult from a JSON string
 follow_response_result_instance = FollowResponseResult.from_json(json)
 # print the JSON string representation of the object
-print FollowResponseResult.to_json()
+print(FollowResponseResult.to_json())
 
 # convert the object into a dict
 follow_response_result_dict = follow_response_result_instance.to_dict()

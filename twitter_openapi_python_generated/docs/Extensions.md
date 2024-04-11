@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of Extensions from a JSON string
 extensions_instance = Extensions.from_json(json)
 # print the JSON string representation of the object
-print Extensions.to_json()
+print(Extensions.to_json())
 
 # convert the object into a dict
 extensions_dict = extensions_instance.to_dict()

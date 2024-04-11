@@ -34,7 +34,7 @@ json = "{}"
 # create an instance of InstructionUnion from a JSON string
 instruction_union_instance = InstructionUnion.from_json(json)
 # print the JSON string representation of the object
-print InstructionUnion.to_json()
+print(InstructionUnion.to_json())
 
 # convert the object into a dict
 instruction_union_dict = instruction_union_instance.to_dict()

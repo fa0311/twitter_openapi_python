@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of TweetCardLegacyBindingValue from a JSON string
 tweet_card_legacy_binding_value_instance = TweetCardLegacyBindingValue.from_json(json)
 # print the JSON string representation of the object
-print TweetCardLegacyBindingValue.to_json()
+print(TweetCardLegacyBindingValue.to_json())
 
 # convert the object into a dict
 tweet_card_legacy_binding_value_dict = tweet_card_legacy_binding_value_instance.to_dict()

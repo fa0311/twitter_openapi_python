@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of UrtEndpointOptions from a JSON string
 urt_endpoint_options_instance = UrtEndpointOptions.from_json(json)
 # print the JSON string representation of the object
-print UrtEndpointOptions.to_json()
+print(UrtEndpointOptions.to_json())
 
 # convert the object into a dict
 urt_endpoint_options_dict = urt_endpoint_options_instance.to_dict()

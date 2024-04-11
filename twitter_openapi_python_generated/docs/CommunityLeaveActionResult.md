@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CommunityLeaveActionResult from a JSON string
 community_leave_action_result_instance = CommunityLeaveActionResult.from_json(json)
 # print the JSON string representation of the object
-print CommunityLeaveActionResult.to_json()
+print(CommunityLeaveActionResult.to_json())
 
 # convert the object into a dict
 community_leave_action_result_dict = community_leave_action_result_instance.to_dict()

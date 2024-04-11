@@ -57,7 +57,7 @@ json = "{}"
 # create an instance of UserLegacy from a JSON string
 user_legacy_instance = UserLegacy.from_json(json)
 # print the JSON string representation of the object
-print UserLegacy.to_json()
+print(UserLegacy.to_json())
 
 # convert the object into a dict
 user_legacy_dict = user_legacy_instance.to_dict()

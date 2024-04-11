@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PostDeleteRetweetRequestVariables from a JSON string
 post_delete_retweet_request_variables_instance = PostDeleteRetweetRequestVariables.from_json(json)
 # print the JSON string representation of the object
-print PostDeleteRetweetRequestVariables.to_json()
+print(PostDeleteRetweetRequestVariables.to_json())
 
 # convert the object into a dict
 post_delete_retweet_request_variables_dict = post_delete_retweet_request_variables_instance.to_dict()

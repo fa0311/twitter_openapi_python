@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ExtMediaAvailability from a JSON string
 ext_media_availability_instance = ExtMediaAvailability.from_json(json)
 # print the JSON string representation of the object
-print ExtMediaAvailability.to_json()
+print(ExtMediaAvailability.to_json())
 
 # convert the object into a dict
 ext_media_availability_dict = ext_media_availability_instance.to_dict()

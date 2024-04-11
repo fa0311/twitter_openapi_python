@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of TweetEditPrespective from a JSON string
 tweet_edit_prespective_instance = TweetEditPrespective.from_json(json)
 # print the JSON string representation of the object
-print TweetEditPrespective.to_json()
+print(TweetEditPrespective.to_json())
 
 # convert the object into a dict
 tweet_edit_prespective_dict = tweet_edit_prespective_instance.to_dict()

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ModuleItem from a JSON string
 module_item_instance = ModuleItem.from_json(json)
 # print the JSON string representation of the object
-print ModuleItem.to_json()
+print(ModuleItem.to_json())
 
 # convert the object into a dict
 module_item_dict = module_item_instance.to_dict()

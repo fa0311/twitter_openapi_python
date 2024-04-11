@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.instruction_type import InstructionType
 from twitter_openapi_python_generated.models.module_item import ModuleItem
@@ -35,11 +35,11 @@ class TimelineAddToModule(BaseModel):
     type: InstructionType
     __properties: ClassVar[List[str]] = ["moduleEntryId", "moduleItems", "prepend", "type"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

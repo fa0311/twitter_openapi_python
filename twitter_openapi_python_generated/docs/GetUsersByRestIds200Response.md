@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of GetUsersByRestIds200Response from a JSON string
 get_users_by_rest_ids200_response_instance = GetUsersByRestIds200Response.from_json(json)
 # print the JSON string representation of the object
-print GetUsersByRestIds200Response.to_json()
+print(GetUsersByRestIds200Response.to_json())
 
 # convert the object into a dict
 get_users_by_rest_ids200_response_dict = get_users_by_rest_ids200_response_instance.to_dict()

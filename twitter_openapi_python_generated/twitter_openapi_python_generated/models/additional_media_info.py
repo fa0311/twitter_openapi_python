@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.additional_media_info_call_to_actions import AdditionalMediaInfoCallToActions
 from twitter_openapi_python_generated.models.user_result_core import UserResultCore
@@ -37,11 +37,11 @@ class AdditionalMediaInfo(BaseModel):
     title: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["call_to_actions", "description", "embeddable", "monetizable", "source_user", "title"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

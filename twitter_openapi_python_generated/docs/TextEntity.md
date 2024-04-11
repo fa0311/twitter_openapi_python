@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of TextEntity from a JSON string
 text_entity_instance = TextEntity.from_json(json)
 # print the JSON string representation of the object
-print TextEntity.to_json()
+print(TextEntity.to_json())
 
 # convert the object into a dict
 text_entity_dict = text_entity_instance.to_dict()

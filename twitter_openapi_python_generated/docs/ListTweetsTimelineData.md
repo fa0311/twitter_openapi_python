@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of ListTweetsTimelineData from a JSON string
 list_tweets_timeline_data_instance = ListTweetsTimelineData.from_json(json)
 # print the JSON string representation of the object
-print ListTweetsTimelineData.to_json()
+print(ListTweetsTimelineData.to_json())
 
 # convert the object into a dict
 list_tweets_timeline_data_dict = list_tweets_timeline_data_instance.to_dict()

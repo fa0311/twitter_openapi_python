@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of TimelineTerminateTimeline from a JSON string
 timeline_terminate_timeline_instance = TimelineTerminateTimeline.from_json(json)
 # print the JSON string representation of the object
-print TimelineTerminateTimeline.to_json()
+print(TimelineTerminateTimeline.to_json())
 
 # convert the object into a dict
 timeline_terminate_timeline_dict = timeline_terminate_timeline_instance.to_dict()

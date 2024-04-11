@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.user_results import UserResults
 from typing import Optional, Set
@@ -31,11 +31,11 @@ class UserResultCore(BaseModel):
     user_results: UserResults
     __properties: ClassVar[List[str]] = ["user_results"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

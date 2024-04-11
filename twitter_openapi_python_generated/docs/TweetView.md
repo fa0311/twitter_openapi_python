@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of TweetView from a JSON string
 tweet_view_instance = TweetView.from_json(json)
 # print the JSON string representation of the object
-print TweetView.to_json()
+print(TweetView.to_json())
 
 # convert the object into a dict
 tweet_view_dict = tweet_view_instance.to_dict()

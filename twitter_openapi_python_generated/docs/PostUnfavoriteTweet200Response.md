@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PostUnfavoriteTweet200Response from a JSON string
 post_unfavorite_tweet200_response_instance = PostUnfavoriteTweet200Response.from_json(json)
 # print the JSON string representation of the object
-print PostUnfavoriteTweet200Response.to_json()
+print(PostUnfavoriteTweet200Response.to_json())
 
 # convert the object into a dict
 post_unfavorite_tweet200_response_dict = post_unfavorite_tweet200_response_instance.to_dict()

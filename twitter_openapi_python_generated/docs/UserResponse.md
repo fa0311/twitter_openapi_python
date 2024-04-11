@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of UserResponse from a JSON string
 user_response_instance = UserResponse.from_json(json)
 # print the JSON string representation of the object
-print UserResponse.to_json()
+print(UserResponse.to_json())
 
 # convert the object into a dict
 user_response_dict = user_response_instance.to_dict()

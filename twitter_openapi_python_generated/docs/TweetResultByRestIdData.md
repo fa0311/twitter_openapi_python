@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of TweetResultByRestIdData from a JSON string
 tweet_result_by_rest_id_data_instance = TweetResultByRestIdData.from_json(json)
 # print the JSON string representation of the object
-print TweetResultByRestIdData.to_json()
+print(TweetResultByRestIdData.to_json())
 
 # convert the object into a dict
 tweet_result_by_rest_id_data_dict = tweet_result_by_rest_id_data_instance.to_dict()

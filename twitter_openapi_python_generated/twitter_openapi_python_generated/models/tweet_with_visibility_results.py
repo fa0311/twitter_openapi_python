@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.tweet_interstitial import TweetInterstitial
 from twitter_openapi_python_generated.models.type_name import TypeName
@@ -35,11 +35,11 @@ class TweetWithVisibilityResults(BaseModel):
     tweet_interstitial: Optional[TweetInterstitial] = Field(default=None, alias="tweetInterstitial")
     __properties: ClassVar[List[str]] = ["__typename", "limitedActionResults", "tweet", "tweetInterstitial"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

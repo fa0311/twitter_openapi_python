@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of TimelineCommunity from a JSON string
 timeline_community_instance = TimelineCommunity.from_json(json)
 # print the JSON string representation of the object
-print TimelineCommunity.to_json()
+print(TimelineCommunity.to_json())
 
 # convert the object into a dict
 timeline_community_dict = timeline_community_instance.to_dict()

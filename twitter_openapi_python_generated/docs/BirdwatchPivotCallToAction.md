@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of BirdwatchPivotCallToAction from a JSON string
 birdwatch_pivot_call_to_action_instance = BirdwatchPivotCallToAction.from_json(json)
 # print the JSON string representation of the object
-print BirdwatchPivotCallToAction.to_json()
+print(BirdwatchPivotCallToAction.to_json())
 
 # convert the object into a dict
 birdwatch_pivot_call_to_action_dict = birdwatch_pivot_call_to_action_instance.to_dict()

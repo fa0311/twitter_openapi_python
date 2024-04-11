@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of PostCreateTweetRequest from a JSON string
 post_create_tweet_request_instance = PostCreateTweetRequest.from_json(json)
 # print the JSON string representation of the object
-print PostCreateTweetRequest.to_json()
+print(PostCreateTweetRequest.to_json())
 
 # convert the object into a dict
 post_create_tweet_request_dict = post_create_tweet_request_instance.to_dict()

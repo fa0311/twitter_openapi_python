@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of TweetTombstone from a JSON string
 tweet_tombstone_instance = TweetTombstone.from_json(json)
 # print the JSON string representation of the object
-print TweetTombstone.to_json()
+print(TweetTombstone.to_json())
 
 # convert the object into a dict
 tweet_tombstone_dict = tweet_tombstone_instance.to_dict()

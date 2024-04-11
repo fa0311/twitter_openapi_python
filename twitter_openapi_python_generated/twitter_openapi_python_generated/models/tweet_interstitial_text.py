@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.tweet_interstitial_text_entity import TweetInterstitialTextEntity
 from typing import Optional, Set
@@ -33,11 +33,11 @@ class TweetInterstitialText(BaseModel):
     text: StrictStr
     __properties: ClassVar[List[str]] = ["entities", "rtl", "text"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.super_follows_reply_user_result_legacy import SuperFollowsReplyUserResultLegacy
 from twitter_openapi_python_generated.models.type_name import TypeName
@@ -33,11 +33,11 @@ class SuperFollowsReplyUserResultData(BaseModel):
     legacy: SuperFollowsReplyUserResultLegacy
     __properties: ClassVar[List[str]] = ["__typename", "legacy"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

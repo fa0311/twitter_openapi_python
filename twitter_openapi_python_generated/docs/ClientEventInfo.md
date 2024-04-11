@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of ClientEventInfo from a JSON string
 client_event_info_instance = ClientEventInfo.from_json(json)
 # print the JSON string representation of the object
-print ClientEventInfo.to_json()
+print(ClientEventInfo.to_json())
 
 # convert the object into a dict
 client_event_info_dict = client_event_info_instance.to_dict()

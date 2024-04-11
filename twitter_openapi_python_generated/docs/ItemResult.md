@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ItemResult from a JSON string
 item_result_instance = ItemResult.from_json(json)
 # print the JSON string representation of the object
-print ItemResult.to_json()
+print(ItemResult.to_json())
 
 # convert the object into a dict
 item_result_dict = item_result_instance.to_dict()

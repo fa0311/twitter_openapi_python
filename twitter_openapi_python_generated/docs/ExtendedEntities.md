@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of ExtendedEntities from a JSON string
 extended_entities_instance = ExtendedEntities.from_json(json)
 # print the JSON string representation of the object
-print ExtendedEntities.to_json()
+print(ExtendedEntities.to_json())
 
 # convert the object into a dict
 extended_entities_dict = extended_entities_instance.to_dict()

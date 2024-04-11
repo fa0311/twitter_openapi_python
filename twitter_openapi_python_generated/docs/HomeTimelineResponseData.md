@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of HomeTimelineResponseData from a JSON string
 home_timeline_response_data_instance = HomeTimelineResponseData.from_json(json)
 # print the JSON string representation of the object
-print HomeTimelineResponseData.to_json()
+print(HomeTimelineResponseData.to_json())
 
 # convert the object into a dict
 home_timeline_response_data_dict = home_timeline_response_data_instance.to_dict()

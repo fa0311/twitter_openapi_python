@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.article import Article
 from twitter_openapi_python_generated.models.author_community_relationship import AuthorCommunityRelationship
 from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot
 from twitter_openapi_python_generated.models.note_tweet import NoteTweet
@@ -41,6 +42,7 @@ class Tweet(BaseModel):
     Tweet
     """ # noqa: E501
     typename: Optional[TypeName] = Field(default=None, alias="__typename")
+    article: Optional[Article] = None
     author_community_relationship: Optional[AuthorCommunityRelationship] = None
     birdwatch_pivot: Optional[BirdwatchPivot] = None
     card: Optional[TweetCard] = None
@@ -61,7 +63,7 @@ class Tweet(BaseModel):
     unified_card: Optional[UnifiedCard] = None
     unmention_data: Optional[Dict[str, Any]] = None
     views: Optional[TweetView] = None
-    __properties: ClassVar[List[str]] = ["__typename", "author_community_relationship", "birdwatch_pivot", "card", "core", "edit_control", "edit_prespective", "has_birdwatch_notes", "is_translatable", "legacy", "note_tweet", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "unified_card", "unmention_data", "views"]
+    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "core", "edit_control", "edit_prespective", "has_birdwatch_notes", "is_translatable", "legacy", "note_tweet", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "unified_card", "unmention_data", "views"]
 
     @field_validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
@@ -70,11 +72,11 @@ class Tweet(BaseModel):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -109,6 +111,9 @@ class Tweet(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of article
+        if self.article:
+            _dict['article'] = self.article.to_dict()
         # override the default output from pydantic by calling `to_dict()` of author_community_relationship
         if self.author_community_relationship:
             _dict['author_community_relationship'] = self.author_community_relationship.to_dict()
@@ -164,6 +169,7 @@ class Tweet(BaseModel):
 
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
+            "article": Article.from_dict(obj["article"]) if obj.get("article") is not None else None,
             "author_community_relationship": AuthorCommunityRelationship.from_dict(obj["author_community_relationship"]) if obj.get("author_community_relationship") is not None else None,
             "birdwatch_pivot": BirdwatchPivot.from_dict(obj["birdwatch_pivot"]) if obj.get("birdwatch_pivot") is not None else None,
             "card": TweetCard.from_dict(obj["card"]) if obj.get("card") is not None else None,

@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of UserValue from a JSON string
 user_value_instance = UserValue.from_json(json)
 # print the JSON string representation of the object
-print UserValue.to_json()
+print(UserValue.to_json())
 
 # convert the object into a dict
 user_value_dict = user_value_instance.to_dict()

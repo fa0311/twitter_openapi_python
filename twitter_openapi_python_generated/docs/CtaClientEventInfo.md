@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of CtaClientEventInfo from a JSON string
 cta_client_event_info_instance = CtaClientEventInfo.from_json(json)
 # print the JSON string representation of the object
-print CtaClientEventInfo.to_json()
+print(CtaClientEventInfo.to_json())
 
 # convert the object into a dict
 cta_client_event_info_dict = cta_client_event_info_instance.to_dict()

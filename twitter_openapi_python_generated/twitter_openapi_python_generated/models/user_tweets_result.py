@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.timeline_v2 import TimelineV2
 from twitter_openapi_python_generated.models.type_name import TypeName
@@ -33,11 +33,11 @@ class UserTweetsResult(BaseModel):
     timeline_v2: TimelineV2
     __properties: ClassVar[List[str]] = ["__typename", "timeline_v2"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

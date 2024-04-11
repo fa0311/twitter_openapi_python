@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of NoteTweetResultRichText from a JSON string
 note_tweet_result_rich_text_instance = NoteTweetResultRichText.from_json(json)
 # print the JSON string representation of the object
-print NoteTweetResultRichText.to_json()
+print(NoteTweetResultRichText.to_json())
 
 # convert the object into a dict
 note_tweet_result_rich_text_dict = note_tweet_result_rich_text_instance.to_dict()

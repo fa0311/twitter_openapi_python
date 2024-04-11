@@ -30,7 +30,7 @@ json = "{}"
 # create an instance of ItemContentUnion from a JSON string
 item_content_union_instance = ItemContentUnion.from_json(json)
 # print the JSON string representation of the object
-print ItemContentUnion.to_json()
+print(ItemContentUnion.to_json())
 
 # convert the object into a dict
 item_content_union_dict = item_content_union_instance.to_dict()

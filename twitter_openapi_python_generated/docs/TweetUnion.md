@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
+**article** | [**Article**](Article.md) |  | [optional] 
 **author_community_relationship** | [**AuthorCommunityRelationship**](AuthorCommunityRelationship.md) |  | [optional] 
 **birdwatch_pivot** | [**BirdwatchPivot**](BirdwatchPivot.md) |  | [optional] 
 **card** | [**TweetCard**](TweetCard.md) |  | [optional] 
@@ -40,7 +41,7 @@ json = "{}"
 # create an instance of TweetUnion from a JSON string
 tweet_union_instance = TweetUnion.from_json(json)
 # print the JSON string representation of the object
-print TweetUnion.to_json()
+print(TweetUnion.to_json())
 
 # convert the object into a dict
 tweet_union_dict = tweet_union_instance.to_dict()

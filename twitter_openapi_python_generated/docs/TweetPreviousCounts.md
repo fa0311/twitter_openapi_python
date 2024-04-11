@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of TweetPreviousCounts from a JSON string
 tweet_previous_counts_instance = TweetPreviousCounts.from_json(json)
 # print the JSON string representation of the object
-print TweetPreviousCounts.to_json()
+print(TweetPreviousCounts.to_json())
 
 # convert the object into a dict
 tweet_previous_counts_dict = tweet_previous_counts_instance.to_dict()

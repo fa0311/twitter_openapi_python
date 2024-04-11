@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of SocialContextLandingUrl from a JSON string
 social_context_landing_url_instance = SocialContextLandingUrl.from_json(json)
 # print the JSON string representation of the object
-print SocialContextLandingUrl.to_json()
+print(SocialContextLandingUrl.to_json())
 
 # convert the object into a dict
 social_context_landing_url_dict = social_context_landing_url_instance.to_dict()

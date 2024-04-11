@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.14"
+__version__ = "0.0.15"
 
 # import apis into sdk package
 from twitter_openapi_python_generated.api.default_api import DefaultApi
@@ -44,6 +44,14 @@ from twitter_openapi_python_generated.exceptions import ApiException
 from twitter_openapi_python_generated.models.additional_media_info import AdditionalMediaInfo
 from twitter_openapi_python_generated.models.additional_media_info_call_to_actions import AdditionalMediaInfoCallToActions
 from twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url import AdditionalMediaInfoCallToActionsUrl
+from twitter_openapi_python_generated.models.article import Article
+from twitter_openapi_python_generated.models.article_cover_media import ArticleCoverMedia
+from twitter_openapi_python_generated.models.article_cover_media_color_info import ArticleCoverMediaColorInfo
+from twitter_openapi_python_generated.models.article_cover_media_color_info_palette import ArticleCoverMediaColorInfoPalette
+from twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb import ArticleCoverMediaColorInfoPaletteRGB
+from twitter_openapi_python_generated.models.article_cover_media_info import ArticleCoverMediaInfo
+from twitter_openapi_python_generated.models.article_result import ArticleResult
+from twitter_openapi_python_generated.models.article_results import ArticleResults
 from twitter_openapi_python_generated.models.author_community_relationship import AuthorCommunityRelationship
 from twitter_openapi_python_generated.models.birdwatch_entity import BirdwatchEntity
 from twitter_openapi_python_generated.models.birdwatch_entity_ref import BirdwatchEntityRef

@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of TimelineV2 from a JSON string
 timeline_v2_instance = TimelineV2.from_json(json)
 # print the JSON string representation of the object
-print TimelineV2.to_json()
+print(TimelineV2.to_json())
 
 # convert the object into a dict
 timeline_v2_dict = timeline_v2_instance.to_dict()

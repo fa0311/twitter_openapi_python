@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of UserFeatures from a JSON string
 user_features_instance = UserFeatures.from_json(json)
 # print the JSON string representation of the object
-print UserFeatures.to_json()
+print(UserFeatures.to_json())
 
 # convert the object into a dict
 user_features_dict = user_features_instance.to_dict()

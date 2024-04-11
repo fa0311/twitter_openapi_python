@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.content_item_type import ContentItemType
 from twitter_openapi_python_generated.models.highlight import Highlight
@@ -41,11 +41,18 @@ class TimelineTweet(BaseModel):
     tweet_results: ItemResult
     __properties: ClassVar[List[str]] = ["__typename", "highlights", "itemType", "promotedMetadata", "socialContext", "tweetDisplayType", "tweet_results"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    @field_validator('tweet_display_type')
+    def tweet_display_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['Tweet', 'SelfThread', 'MediaGrid', 'CondensedTweet']):
+            raise ValueError("must be one of enum values ('Tweet', 'SelfThread', 'MediaGrid', 'CondensedTweet')")
+        return value
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of GetListLatestTweetsTimeline200Response from a JSON string
 get_list_latest_tweets_timeline200_response_instance = GetListLatestTweetsTimeline200Response.from_json(json)
 # print the JSON string representation of the object
-print GetListLatestTweetsTimeline200Response.to_json()
+print(GetListLatestTweetsTimeline200Response.to_json())
 
 # convert the object into a dict
 get_list_latest_tweets_timeline200_response_dict = get_list_latest_tweets_timeline200_response_instance.to_dict()

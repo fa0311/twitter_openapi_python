@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of AuthorCommunityRelationship from a JSON string
 author_community_relationship_instance = AuthorCommunityRelationship.from_json(json)
 # print the JSON string representation of the object
-print AuthorCommunityRelationship.to_json()
+print(AuthorCommunityRelationship.to_json())
 
 # convert the object into a dict
 author_community_relationship_dict = author_community_relationship_instance.to_dict()

@@ -30,7 +30,7 @@ json = "{}"
 # create an instance of Session from a JSON string
 session_instance = Session.from_json(json)
 # print the JSON string representation of the object
-print Session.to_json()
+print(Session.to_json())
 
 # convert the object into a dict
 session_dict = session_instance.to_dict()

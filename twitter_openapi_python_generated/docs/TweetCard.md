@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of TweetCard from a JSON string
 tweet_card_instance = TweetCard.from_json(json)
 # print the JSON string representation of the object
-print TweetCard.to_json()
+print(TweetCard.to_json())
 
 # convert the object into a dict
 tweet_card_dict = tweet_card_instance.to_dict()

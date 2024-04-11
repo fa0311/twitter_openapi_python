@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of BirdwatchPivotFooter from a JSON string
 birdwatch_pivot_footer_instance = BirdwatchPivotFooter.from_json(json)
 # print the JSON string representation of the object
-print BirdwatchPivotFooter.to_json()
+print(BirdwatchPivotFooter.to_json())
 
 # convert the object into a dict
 birdwatch_pivot_footer_dict = birdwatch_pivot_footer_instance.to_dict()

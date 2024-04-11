@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of TweetInterstitialText from a JSON string
 tweet_interstitial_text_instance = TweetInterstitialText.from_json(json)
 # print the JSON string representation of the object
-print TweetInterstitialText.to_json()
+print(TweetInterstitialText.to_json())
 
 # convert the object into a dict
 tweet_interstitial_text_dict = tweet_interstitial_text_instance.to_dict()

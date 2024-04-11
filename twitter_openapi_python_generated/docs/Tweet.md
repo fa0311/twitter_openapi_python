@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | [optional] 
+**article** | [**Article**](Article.md) |  | [optional] 
 **author_community_relationship** | [**AuthorCommunityRelationship**](AuthorCommunityRelationship.md) |  | [optional] 
 **birdwatch_pivot** | [**BirdwatchPivot**](BirdwatchPivot.md) |  | [optional] 
 **card** | [**TweetCard**](TweetCard.md) |  | [optional] 
@@ -37,7 +38,7 @@ json = "{}"
 # create an instance of Tweet from a JSON string
 tweet_instance = Tweet.from_json(json)
 # print the JSON string representation of the object
-print Tweet.to_json()
+print(Tweet.to_json())
 
 # convert the object into a dict
 tweet_dict = tweet_instance.to_dict()

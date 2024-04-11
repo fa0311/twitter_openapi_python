@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of GetHomeLatestTimeline200Response from a JSON string
 get_home_latest_timeline200_response_instance = GetHomeLatestTimeline200Response.from_json(json)
 # print the JSON string representation of the object
-print GetHomeLatestTimeline200Response.to_json()
+print(GetHomeLatestTimeline200Response.to_json())
 
 # convert the object into a dict
 get_home_latest_timeline200_response_dict = get_home_latest_timeline200_response_instance.to_dict()

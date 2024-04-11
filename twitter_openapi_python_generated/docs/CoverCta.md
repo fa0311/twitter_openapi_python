@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of CoverCta from a JSON string
 cover_cta_instance = CoverCta.from_json(json)
 # print the JSON string representation of the object
-print CoverCta.to_json()
+print(CoverCta.to_json())
 
 # convert the object into a dict
 cover_cta_dict = cover_cta_instance.to_dict()

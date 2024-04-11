@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of CommunityUrlsPermalink from a JSON string
 community_urls_permalink_instance = CommunityUrlsPermalink.from_json(json)
 # print the JSON string representation of the object
-print CommunityUrlsPermalink.to_json()
+print(CommunityUrlsPermalink.to_json())
 
 # convert the object into a dict
 community_urls_permalink_dict = community_urls_permalink_instance.to_dict()

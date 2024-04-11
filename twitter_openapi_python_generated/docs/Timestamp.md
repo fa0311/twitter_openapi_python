@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of Timestamp from a JSON string
 timestamp_instance = Timestamp.from_json(json)
 # print the JSON string representation of the object
-print Timestamp.to_json()
+print(Timestamp.to_json())
 
 # convert the object into a dict
 timestamp_dict = timestamp_instance.to_dict()

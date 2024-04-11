@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of TimelinePinEntry from a JSON string
 timeline_pin_entry_instance = TimelinePinEntry.from_json(json)
 # print the JSON string representation of the object
-print TimelinePinEntry.to_json()
+print(TimelinePinEntry.to_json())
 
 # convert the object into a dict
 timeline_pin_entry_dict = timeline_pin_entry_instance.to_dict()

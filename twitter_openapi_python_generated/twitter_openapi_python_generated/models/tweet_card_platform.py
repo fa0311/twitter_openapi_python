@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.tweet_card_platform_audience import TweetCardPlatformAudience
 from twitter_openapi_python_generated.models.tweet_card_platform_device import TweetCardPlatformDevice
@@ -33,11 +33,11 @@ class TweetCardPlatform(BaseModel):
     device: TweetCardPlatformDevice
     __properties: ClassVar[List[str]] = ["audience", "device"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

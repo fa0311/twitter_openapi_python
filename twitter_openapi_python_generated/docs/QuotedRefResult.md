@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of QuotedRefResult from a JSON string
 quoted_ref_result_instance = QuotedRefResult.from_json(json)
 # print the JSON string representation of the object
-print QuotedRefResult.to_json()
+print(QuotedRefResult.to_json())
 
 # convert the object into a dict
 quoted_ref_result_dict = quoted_ref_result_instance.to_dict()

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PrimaryCommunityTopic from a JSON string
 primary_community_topic_instance = PrimaryCommunityTopic.from_json(json)
 # print the JSON string representation of the object
-print PrimaryCommunityTopic.to_json()
+print(PrimaryCommunityTopic.to_json())
 
 # convert the object into a dict
 primary_community_topic_dict = primary_community_topic_instance.to_dict()

@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of UserResultByScreenNameLegacy from a JSON string
 user_result_by_screen_name_legacy_instance = UserResultByScreenNameLegacy.from_json(json)
 # print the JSON string representation of the object
-print UserResultByScreenNameLegacy.to_json()
+print(UserResultByScreenNameLegacy.to_json())
 
 # convert the object into a dict
 user_result_by_screen_name_legacy_dict = user_result_by_screen_name_legacy_instance.to_dict()

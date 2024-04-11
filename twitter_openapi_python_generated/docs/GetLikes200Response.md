@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of GetLikes200Response from a JSON string
 get_likes200_response_instance = GetLikes200Response.from_json(json)
 # print the JSON string representation of the object
-print GetLikes200Response.to_json()
+print(GetLikes200Response.to_json())
 
 # convert the object into a dict
 get_likes200_response_dict = get_likes200_response_instance.to_dict()

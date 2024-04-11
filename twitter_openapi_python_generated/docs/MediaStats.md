@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of MediaStats from a JSON string
 media_stats_instance = MediaStats.from_json(json)
 # print the JSON string representation of the object
-print MediaStats.to_json()
+print(MediaStats.to_json())
 
 # convert the object into a dict
 media_stats_dict = media_stats_instance.to_dict()

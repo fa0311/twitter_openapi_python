@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CommunityRule from a JSON string
 community_rule_instance = CommunityRule.from_json(json)
 # print the JSON string representation of the object
-print CommunityRule.to_json()
+print(CommunityRule.to_json())
 
 # convert the object into a dict
 community_rule_dict = community_rule_instance.to_dict()
