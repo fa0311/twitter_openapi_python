@@ -24,7 +24,7 @@ print(MediaVideoInfo.to_json())
 # convert the object into a dict
 media_video_info_dict = media_video_info_instance.to_dict()
 # create an instance of MediaVideoInfo from a dict
-media_video_info_form_dict = media_video_info.from_dict(media_video_info_dict)
+media_video_info_from_dict = MediaVideoInfo.from_dict(media_video_info_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

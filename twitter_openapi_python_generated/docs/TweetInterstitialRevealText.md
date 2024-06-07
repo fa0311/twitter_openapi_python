@@ -24,7 +24,7 @@ print(TweetInterstitialRevealText.to_json())
 # convert the object into a dict
 tweet_interstitial_reveal_text_dict = tweet_interstitial_reveal_text_instance.to_dict()
 # create an instance of TweetInterstitialRevealText from a dict
-tweet_interstitial_reveal_text_form_dict = tweet_interstitial_reveal_text.from_dict(tweet_interstitial_reveal_text_dict)
+tweet_interstitial_reveal_text_from_dict = TweetInterstitialRevealText.from_dict(tweet_interstitial_reveal_text_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

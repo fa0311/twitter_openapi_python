@@ -26,7 +26,7 @@ print(CoverCta.to_json())
 # convert the object into a dict
 cover_cta_dict = cover_cta_instance.to_dict()
 # create an instance of CoverCta from a dict
-cover_cta_form_dict = cover_cta.from_dict(cover_cta_dict)
+cover_cta_from_dict = CoverCta.from_dict(cover_cta_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

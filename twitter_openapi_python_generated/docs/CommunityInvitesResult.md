@@ -24,7 +24,7 @@ print(CommunityInvitesResult.to_json())
 # convert the object into a dict
 community_invites_result_dict = community_invites_result_instance.to_dict()
 # create an instance of CommunityInvitesResult from a dict
-community_invites_result_form_dict = community_invites_result.from_dict(community_invites_result_dict)
+community_invites_result_from_dict = CommunityInvitesResult.from_dict(community_invites_result_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

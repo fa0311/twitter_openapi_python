@@ -24,7 +24,7 @@ print(TweetInterstitialTextEntity.to_json())
 # convert the object into a dict
 tweet_interstitial_text_entity_dict = tweet_interstitial_text_entity_instance.to_dict()
 # create an instance of TweetInterstitialTextEntity from a dict
-tweet_interstitial_text_entity_form_dict = tweet_interstitial_text_entity.from_dict(tweet_interstitial_text_entity_dict)
+tweet_interstitial_text_entity_from_dict = TweetInterstitialTextEntity.from_dict(tweet_interstitial_text_entity_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

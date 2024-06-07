@@ -24,7 +24,7 @@ print(TextEntityRef.to_json())
 # convert the object into a dict
 text_entity_ref_dict = text_entity_ref_instance.to_dict()
 # create an instance of TextEntityRef from a dict
-text_entity_ref_form_dict = text_entity_ref.from_dict(text_entity_ref_dict)
+text_entity_ref_from_dict = TextEntityRef.from_dict(text_entity_ref_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

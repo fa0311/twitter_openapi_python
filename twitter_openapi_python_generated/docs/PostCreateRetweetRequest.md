@@ -23,7 +23,7 @@ print(PostCreateRetweetRequest.to_json())
 # convert the object into a dict
 post_create_retweet_request_dict = post_create_retweet_request_instance.to_dict()
 # create an instance of PostCreateRetweetRequest from a dict
-post_create_retweet_request_form_dict = post_create_retweet_request.from_dict(post_create_retweet_request_dict)
+post_create_retweet_request_from_dict = PostCreateRetweetRequest.from_dict(post_create_retweet_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

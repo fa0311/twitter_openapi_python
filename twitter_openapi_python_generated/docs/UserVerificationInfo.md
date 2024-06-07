@@ -23,7 +23,7 @@ print(UserVerificationInfo.to_json())
 # convert the object into a dict
 user_verification_info_dict = user_verification_info_instance.to_dict()
 # create an instance of UserVerificationInfo from a dict
-user_verification_info_form_dict = user_verification_info.from_dict(user_verification_info_dict)
+user_verification_info_from_dict = UserVerificationInfo.from_dict(user_verification_info_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

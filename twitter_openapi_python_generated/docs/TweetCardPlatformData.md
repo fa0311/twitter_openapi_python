@@ -22,7 +22,7 @@ print(TweetCardPlatformData.to_json())
 # convert the object into a dict
 tweet_card_platform_data_dict = tweet_card_platform_data_instance.to_dict()
 # create an instance of TweetCardPlatformData from a dict
-tweet_card_platform_data_form_dict = tweet_card_platform_data.from_dict(tweet_card_platform_data_dict)
+tweet_card_platform_data_from_dict = TweetCardPlatformData.from_dict(tweet_card_platform_data_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

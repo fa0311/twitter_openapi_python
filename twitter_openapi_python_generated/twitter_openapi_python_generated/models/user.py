@@ -24,7 +24,9 @@ from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.type_name import TypeName
 from twitter_openapi_python_generated.models.user_highlights_info import UserHighlightsInfo
 from twitter_openapi_python_generated.models.user_legacy import UserLegacy
+from twitter_openapi_python_generated.models.user_legacy_extended_profile import UserLegacyExtendedProfile
 from twitter_openapi_python_generated.models.user_professional import UserProfessional
+from twitter_openapi_python_generated.models.user_tip_jar_settings import UserTipJarSettings
 from twitter_openapi_python_generated.models.user_verification_info import UserVerificationInfo
 from typing import Optional, Set
 from typing_extensions import Self
@@ -44,15 +46,17 @@ class User(BaseModel):
     is_blue_verified: StrictBool
     is_profile_translatable: Optional[StrictBool] = None
     legacy: UserLegacy
+    legacy_extended_profile: Optional[UserLegacyExtendedProfile] = None
     professional: Optional[UserProfessional] = None
     profile_image_shape: StrictStr
     rest_id: Annotated[str, Field(strict=True)]
     super_follow_eligible: StrictBool
     super_followed_by: StrictBool
     super_following: StrictBool
+    tipjar_settings: Optional[UserTipJarSettings] = None
     user_seed_tweet_count: Optional[StrictInt] = None
     verification_info: Optional[UserVerificationInfo] = None
-    __properties: ClassVar[List[str]] = ["__typename", "affiliates_highlighted_label", "business_account", "creator_subscriptions_count", "has_graduated_access", "has_nft_avatar", "highlights_info", "id", "is_blue_verified", "is_profile_translatable", "legacy", "professional", "profile_image_shape", "rest_id", "super_follow_eligible", "super_followed_by", "super_following", "user_seed_tweet_count", "verification_info"]
+    __properties: ClassVar[List[str]] = ["__typename", "affiliates_highlighted_label", "business_account", "creator_subscriptions_count", "has_graduated_access", "has_nft_avatar", "highlights_info", "id", "is_blue_verified", "is_profile_translatable", "legacy", "legacy_extended_profile", "professional", "profile_image_shape", "rest_id", "super_follow_eligible", "super_followed_by", "super_following", "tipjar_settings", "user_seed_tweet_count", "verification_info"]
 
     @field_validator('id')
     def id_validate_regular_expression(cls, value):
@@ -120,9 +124,15 @@ class User(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of legacy
         if self.legacy:
             _dict['legacy'] = self.legacy.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of legacy_extended_profile
+        if self.legacy_extended_profile:
+            _dict['legacy_extended_profile'] = self.legacy_extended_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of professional
         if self.professional:
             _dict['professional'] = self.professional.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of tipjar_settings
+        if self.tipjar_settings:
+            _dict['tipjar_settings'] = self.tipjar_settings.to_dict()
         # override the default output from pydantic by calling `to_dict()` of verification_info
         if self.verification_info:
             _dict['verification_info'] = self.verification_info.to_dict()
@@ -149,12 +159,14 @@ class User(BaseModel):
             "is_blue_verified": obj.get("is_blue_verified") if obj.get("is_blue_verified") is not None else False,
             "is_profile_translatable": obj.get("is_profile_translatable"),
             "legacy": UserLegacy.from_dict(obj["legacy"]) if obj.get("legacy") is not None else None,
+            "legacy_extended_profile": UserLegacyExtendedProfile.from_dict(obj["legacy_extended_profile"]) if obj.get("legacy_extended_profile") is not None else None,
             "professional": UserProfessional.from_dict(obj["professional"]) if obj.get("professional") is not None else None,
             "profile_image_shape": obj.get("profile_image_shape"),
             "rest_id": obj.get("rest_id"),
             "super_follow_eligible": obj.get("super_follow_eligible") if obj.get("super_follow_eligible") is not None else False,
             "super_followed_by": obj.get("super_followed_by") if obj.get("super_followed_by") is not None else False,
             "super_following": obj.get("super_following") if obj.get("super_following") is not None else False,
+            "tipjar_settings": UserTipJarSettings.from_dict(obj["tipjar_settings"]) if obj.get("tipjar_settings") is not None else None,
             "user_seed_tweet_count": obj.get("user_seed_tweet_count"),
             "verification_info": UserVerificationInfo.from_dict(obj["verification_info"]) if obj.get("verification_info") is not None else None
         })

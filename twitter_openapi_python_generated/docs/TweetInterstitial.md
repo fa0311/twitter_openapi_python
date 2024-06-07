@@ -25,7 +25,7 @@ print(TweetInterstitial.to_json())
 # convert the object into a dict
 tweet_interstitial_dict = tweet_interstitial_instance.to_dict()
 # create an instance of TweetInterstitial from a dict
-tweet_interstitial_form_dict = tweet_interstitial.from_dict(tweet_interstitial_dict)
+tweet_interstitial_from_dict = TweetInterstitial.from_dict(tweet_interstitial_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

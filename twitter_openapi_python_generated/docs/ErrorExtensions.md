@@ -27,7 +27,7 @@ print(ErrorExtensions.to_json())
 # convert the object into a dict
 error_extensions_dict = error_extensions_instance.to_dict()
 # create an instance of ErrorExtensions from a dict
-error_extensions_form_dict = error_extensions.from_dict(error_extensions_dict)
+error_extensions_from_dict = ErrorExtensions.from_dict(error_extensions_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

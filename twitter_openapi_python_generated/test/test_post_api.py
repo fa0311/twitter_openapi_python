@@ -27,6 +27,12 @@ class TestPostApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_post_create_bookmark(self) -> None:
+        """Test case for post_create_bookmark
+
+        """
+        pass
+
     def test_post_create_retweet(self) -> None:
         """Test case for post_create_retweet
 
@@ -35,6 +41,12 @@ class TestPostApi(unittest.TestCase):
 
     def test_post_create_tweet(self) -> None:
         """Test case for post_create_tweet
+
+        """
+        pass
+
+    def test_post_delete_bookmark(self) -> None:
+        """Test case for post_delete_bookmark
 
         """
         pass

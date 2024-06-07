@@ -22,7 +22,7 @@ print(TweetResultByRestIdData.to_json())
 # convert the object into a dict
 tweet_result_by_rest_id_data_dict = tweet_result_by_rest_id_data_instance.to_dict()
 # create an instance of TweetResultByRestIdData from a dict
-tweet_result_by_rest_id_data_form_dict = tweet_result_by_rest_id_data.from_dict(tweet_result_by_rest_id_data_dict)
+tweet_result_by_rest_id_data_from_dict = TweetResultByRestIdData.from_dict(tweet_result_by_rest_id_data_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

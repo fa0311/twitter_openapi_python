@@ -22,7 +22,7 @@ print(BookmarksResponse.to_json())
 # convert the object into a dict
 bookmarks_response_dict = bookmarks_response_instance.to_dict()
 # create an instance of BookmarksResponse from a dict
-bookmarks_response_form_dict = bookmarks_response.from_dict(bookmarks_response_dict)
+bookmarks_response_from_dict = BookmarksResponse.from_dict(bookmarks_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

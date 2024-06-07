@@ -30,7 +30,7 @@ print(TimelineTimelineModule.to_json())
 # convert the object into a dict
 timeline_timeline_module_dict = timeline_timeline_module_instance.to_dict()
 # create an instance of TimelineTimelineModule from a dict
-timeline_timeline_module_form_dict = timeline_timeline_module.from_dict(timeline_timeline_module_dict)
+timeline_timeline_module_from_dict = TimelineTimelineModule.from_dict(timeline_timeline_module_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

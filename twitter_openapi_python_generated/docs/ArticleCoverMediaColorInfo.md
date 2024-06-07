@@ -22,7 +22,7 @@ print(ArticleCoverMediaColorInfo.to_json())
 # convert the object into a dict
 article_cover_media_color_info_dict = article_cover_media_color_info_instance.to_dict()
 # create an instance of ArticleCoverMediaColorInfo from a dict
-article_cover_media_color_info_form_dict = article_cover_media_color_info.from_dict(article_cover_media_color_info_dict)
+article_cover_media_color_info_from_dict = ArticleCoverMediaColorInfo.from_dict(article_cover_media_color_info_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

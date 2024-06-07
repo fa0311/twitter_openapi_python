@@ -20,7 +20,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, f
 from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.tweet_tombstone import TweetTombstone
 from pydantic import StrictStr, Field
-from typing import Union, List, Optional, Dict
+from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 TWEETUNION_ONE_OF_SCHEMAS = ["Tweet", "TweetTombstone", "TweetWithVisibilityResults"]
@@ -36,7 +36,7 @@ class TweetUnion(BaseModel):
     # data type: TweetTombstone
     oneof_schema_3_validator: Optional[TweetTombstone] = None
     actual_instance: Optional[Union[Tweet, TweetTombstone, TweetWithVisibilityResults]] = None
-    one_of_schemas: List[str] = Field(default=Literal["Tweet", "TweetTombstone", "TweetWithVisibilityResults"])
+    one_of_schemas: Set[str] = { "Tweet", "TweetTombstone", "TweetWithVisibilityResults" }
 
     model_config = ConfigDict(
         validate_assignment=True,

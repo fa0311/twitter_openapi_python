@@ -24,7 +24,7 @@ print(UserProfessional.to_json())
 # convert the object into a dict
 user_professional_dict = user_professional_instance.to_dict()
 # create an instance of UserProfessional from a dict
-user_professional_form_dict = user_professional.from_dict(user_professional_dict)
+user_professional_from_dict = UserProfessional.from_dict(user_professional_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

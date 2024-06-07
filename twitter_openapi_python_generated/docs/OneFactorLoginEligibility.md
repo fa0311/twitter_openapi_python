@@ -22,7 +22,7 @@ print(OneFactorLoginEligibility.to_json())
 # convert the object into a dict
 one_factor_login_eligibility_dict = one_factor_login_eligibility_instance.to_dict()
 # create an instance of OneFactorLoginEligibility from a dict
-one_factor_login_eligibility_form_dict = one_factor_login_eligibility.from_dict(one_factor_login_eligibility_dict)
+one_factor_login_eligibility_from_dict = OneFactorLoginEligibility.from_dict(one_factor_login_eligibility_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -39,7 +39,7 @@ print(InstructionUnion.to_json())
 # convert the object into a dict
 instruction_union_dict = instruction_union_instance.to_dict()
 # create an instance of InstructionUnion from a dict
-instruction_union_form_dict = instruction_union.from_dict(instruction_union_dict)
+instruction_union_from_dict = InstructionUnion.from_dict(instruction_union_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

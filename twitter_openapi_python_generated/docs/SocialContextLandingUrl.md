@@ -24,7 +24,7 @@ print(SocialContextLandingUrl.to_json())
 # convert the object into a dict
 social_context_landing_url_dict = social_context_landing_url_instance.to_dict()
 # create an instance of SocialContextLandingUrl from a dict
-social_context_landing_url_form_dict = social_context_landing_url.from_dict(social_context_landing_url_dict)
+social_context_landing_url_from_dict = SocialContextLandingUrl.from_dict(social_context_landing_url_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

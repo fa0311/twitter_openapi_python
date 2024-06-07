@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **display_url** | **str** |  | 
-**expanded_url** | **str** |  | 
+**expanded_url** | **str** |  | [optional] 
 **indices** | **List[int]** |  | 
 **url** | **str** |  | 
 
@@ -25,7 +25,7 @@ print(Url.to_json())
 # convert the object into a dict
 url_dict = url_instance.to_dict()
 # create an instance of Url from a dict
-url_form_dict = url.from_dict(url_dict)
+url_from_dict = Url.from_dict(url_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

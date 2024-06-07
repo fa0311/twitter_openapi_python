@@ -24,7 +24,7 @@ print(ClientEventInfo.to_json())
 # convert the object into a dict
 client_event_info_dict = client_event_info_instance.to_dict()
 # create an instance of ClientEventInfo from a dict
-client_event_info_form_dict = client_event_info.from_dict(client_event_info_dict)
+client_event_info_from_dict = ClientEventInfo.from_dict(client_event_info_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

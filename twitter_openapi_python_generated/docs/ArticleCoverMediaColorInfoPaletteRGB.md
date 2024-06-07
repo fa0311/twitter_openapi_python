@@ -24,7 +24,7 @@ print(ArticleCoverMediaColorInfoPaletteRGB.to_json())
 # convert the object into a dict
 article_cover_media_color_info_palette_rgb_dict = article_cover_media_color_info_palette_rgb_instance.to_dict()
 # create an instance of ArticleCoverMediaColorInfoPaletteRGB from a dict
-article_cover_media_color_info_palette_rgb_form_dict = article_cover_media_color_info_palette_rgb.from_dict(article_cover_media_color_info_palette_rgb_dict)
+article_cover_media_color_info_palette_rgb_from_dict = ArticleCoverMediaColorInfoPaletteRGB.from_dict(article_cover_media_color_info_palette_rgb_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

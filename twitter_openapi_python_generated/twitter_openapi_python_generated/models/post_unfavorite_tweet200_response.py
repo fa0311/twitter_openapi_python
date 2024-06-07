@@ -21,7 +21,7 @@ from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.errors import Errors
 from twitter_openapi_python_generated.models.unfavorite_tweet_response_data import UnfavoriteTweetResponseData
 from pydantic import StrictStr, Field
-from typing import Union, List, Optional, Dict
+from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 POSTUNFAVORITETWEET200RESPONSE_ONE_OF_SCHEMAS = ["Errors", "UnfavoriteTweetResponseData"]
@@ -35,7 +35,7 @@ class PostUnfavoriteTweet200Response(BaseModel):
     # data type: Errors
     oneof_schema_2_validator: Optional[Errors] = None
     actual_instance: Optional[Union[Errors, UnfavoriteTweetResponseData]] = None
-    one_of_schemas: List[str] = Field(default=Literal["Errors", "UnfavoriteTweetResponseData"])
+    one_of_schemas: Set[str] = { "Errors", "UnfavoriteTweetResponseData" }
 
     model_config = ConfigDict(
         validate_assignment=True,

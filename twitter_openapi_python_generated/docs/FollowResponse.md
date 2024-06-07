@@ -22,7 +22,7 @@ print(FollowResponse.to_json())
 # convert the object into a dict
 follow_response_dict = follow_response_instance.to_dict()
 # create an instance of FollowResponse from a dict
-follow_response_form_dict = follow_response.from_dict(follow_response_dict)
+follow_response_from_dict = FollowResponse.from_dict(follow_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

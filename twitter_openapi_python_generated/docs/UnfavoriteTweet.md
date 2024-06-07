@@ -22,7 +22,7 @@ print(UnfavoriteTweet.to_json())
 # convert the object into a dict
 unfavorite_tweet_dict = unfavorite_tweet_instance.to_dict()
 # create an instance of UnfavoriteTweet from a dict
-unfavorite_tweet_form_dict = unfavorite_tweet.from_dict(unfavorite_tweet_dict)
+unfavorite_tweet_from_dict = UnfavoriteTweet.from_dict(unfavorite_tweet_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

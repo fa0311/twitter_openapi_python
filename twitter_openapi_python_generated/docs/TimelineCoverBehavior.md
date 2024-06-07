@@ -22,7 +22,7 @@ print(TimelineCoverBehavior.to_json())
 # convert the object into a dict
 timeline_cover_behavior_dict = timeline_cover_behavior_instance.to_dict()
 # create an instance of TimelineCoverBehavior from a dict
-timeline_cover_behavior_form_dict = timeline_cover_behavior.from_dict(timeline_cover_behavior_dict)
+timeline_cover_behavior_from_dict = TimelineCoverBehavior.from_dict(timeline_cover_behavior_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

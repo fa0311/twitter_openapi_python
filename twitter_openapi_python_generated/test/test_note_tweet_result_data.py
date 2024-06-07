@@ -42,7 +42,21 @@ class TestNoteTweetResultData(unittest.TestCase):
                         ], 
                     media = [
                         twitter_openapi_python_generated.models.media.Media(
-                            additional_media_info = { }, 
+                            additional_media_info = twitter_openapi_python_generated.models.additional_media_info.AdditionalMediaInfo(
+                                call_to_actions = twitter_openapi_python_generated.models.additional_media_info_call_to_actions.AdditionalMediaInfoCallToActions(
+                                    visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
+                                        url = '', ), 
+                                    watch_now = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
+                                        url = '', ), ), 
+                                description = '', 
+                                embeddable = True, 
+                                monetizable = True, 
+                                source_user = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
+                                    user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                                        result = null, ), ), 
+                                title = '', ), 
+                            allow_download_status = twitter_openapi_python_generated.models.allow_download_status.AllowDownloadStatus(
+                                allow_download = True, ), 
                             display_url = '', 
                             expanded_url = '', 
                             ext_alt_text = '', 
@@ -55,6 +69,9 @@ class TestNoteTweetResultData(unittest.TestCase):
                                 56
                                 ], 
                             media_key = '', 
+                            media_results = twitter_openapi_python_generated.models.media_results.MediaResults(
+                                result = twitter_openapi_python_generated.models.media_result.MediaResult(
+                                    media_key = '', ), ), 
                             media_url_https = '', 
                             original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                                 focus_rects = [
@@ -85,7 +102,17 @@ class TestNoteTweetResultData(unittest.TestCase):
                             source_user_id_str = '4', 
                             type = 'photo', 
                             url = '', 
-                            video_info = { }, )
+                            video_info = twitter_openapi_python_generated.models.media_video_info.MediaVideoInfo(
+                                aspect_ratio = [
+                                    56
+                                    ], 
+                                duration_millis = 56, 
+                                variants = [
+                                    twitter_openapi_python_generated.models.media_video_info_variant.MediaVideoInfoVariant(
+                                        bitrate = 56, 
+                                        content_type = '', 
+                                        url = '', )
+                                    ], ), )
                         ], 
                     symbols = [
                         { }
@@ -134,7 +161,21 @@ class TestNoteTweetResultData(unittest.TestCase):
                         ], 
                     media = [
                         twitter_openapi_python_generated.models.media.Media(
-                            additional_media_info = { }, 
+                            additional_media_info = twitter_openapi_python_generated.models.additional_media_info.AdditionalMediaInfo(
+                                call_to_actions = twitter_openapi_python_generated.models.additional_media_info_call_to_actions.AdditionalMediaInfoCallToActions(
+                                    visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
+                                        url = '', ), 
+                                    watch_now = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
+                                        url = '', ), ), 
+                                description = '', 
+                                embeddable = True, 
+                                monetizable = True, 
+                                source_user = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
+                                    user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                                        result = null, ), ), 
+                                title = '', ), 
+                            allow_download_status = twitter_openapi_python_generated.models.allow_download_status.AllowDownloadStatus(
+                                allow_download = True, ), 
                             display_url = '', 
                             expanded_url = '', 
                             ext_alt_text = '', 
@@ -147,6 +188,9 @@ class TestNoteTweetResultData(unittest.TestCase):
                                 56
                                 ], 
                             media_key = '', 
+                            media_results = twitter_openapi_python_generated.models.media_results.MediaResults(
+                                result = twitter_openapi_python_generated.models.media_result.MediaResult(
+                                    media_key = '', ), ), 
                             media_url_https = '', 
                             original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                                 focus_rects = [
@@ -177,7 +221,17 @@ class TestNoteTweetResultData(unittest.TestCase):
                             source_user_id_str = '4', 
                             type = 'photo', 
                             url = '', 
-                            video_info = { }, )
+                            video_info = twitter_openapi_python_generated.models.media_video_info.MediaVideoInfo(
+                                aspect_ratio = [
+                                    56
+                                    ], 
+                                duration_millis = 56, 
+                                variants = [
+                                    twitter_openapi_python_generated.models.media_video_info_variant.MediaVideoInfoVariant(
+                                        bitrate = 56, 
+                                        content_type = '', 
+                                        url = '', )
+                                    ], ), )
                         ], 
                     symbols = [
                         { }

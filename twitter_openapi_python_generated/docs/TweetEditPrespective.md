@@ -23,7 +23,7 @@ print(TweetEditPrespective.to_json())
 # convert the object into a dict
 tweet_edit_prespective_dict = tweet_edit_prespective_instance.to_dict()
 # create an instance of TweetEditPrespective from a dict
-tweet_edit_prespective_form_dict = tweet_edit_prespective.from_dict(tweet_edit_prespective_dict)
+tweet_edit_prespective_from_dict = TweetEditPrespective.from_dict(tweet_edit_prespective_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

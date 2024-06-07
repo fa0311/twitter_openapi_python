@@ -22,7 +22,7 @@ print(QuotedRefResult.to_json())
 # convert the object into a dict
 quoted_ref_result_dict = quoted_ref_result_instance.to_dict()
 # create an instance of QuotedRefResult from a dict
-quoted_ref_result_form_dict = quoted_ref_result.from_dict(quoted_ref_result_dict)
+quoted_ref_result_from_dict = QuotedRefResult.from_dict(quoted_ref_result_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

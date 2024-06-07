@@ -24,7 +24,7 @@ print(TimelineShowCover.to_json())
 # convert the object into a dict
 timeline_show_cover_dict = timeline_show_cover_instance.to_dict()
 # create an instance of TimelineShowCover from a dict
-timeline_show_cover_form_dict = timeline_show_cover.from_dict(timeline_show_cover_dict)
+timeline_show_cover_from_dict = TimelineShowCover.from_dict(timeline_show_cover_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

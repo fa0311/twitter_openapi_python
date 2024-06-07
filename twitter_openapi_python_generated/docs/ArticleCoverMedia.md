@@ -25,7 +25,7 @@ print(ArticleCoverMedia.to_json())
 # convert the object into a dict
 article_cover_media_dict = article_cover_media_instance.to_dict()
 # create an instance of ArticleCoverMedia from a dict
-article_cover_media_form_dict = article_cover_media.from_dict(article_cover_media_dict)
+article_cover_media_from_dict = ArticleCoverMedia.from_dict(article_cover_media_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

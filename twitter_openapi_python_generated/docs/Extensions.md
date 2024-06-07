@@ -26,7 +26,7 @@ print(Extensions.to_json())
 # convert the object into a dict
 extensions_dict = extensions_instance.to_dict()
 # create an instance of Extensions from a dict
-extensions_form_dict = extensions.from_dict(extensions_dict)
+extensions_from_dict = Extensions.from_dict(extensions_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

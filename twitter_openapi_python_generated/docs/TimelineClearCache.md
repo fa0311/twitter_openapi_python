@@ -22,7 +22,7 @@ print(TimelineClearCache.to_json())
 # convert the object into a dict
 timeline_clear_cache_dict = timeline_clear_cache_instance.to_dict()
 # create an instance of TimelineClearCache from a dict
-timeline_clear_cache_form_dict = timeline_clear_cache.from_dict(timeline_clear_cache_dict)
+timeline_clear_cache_from_dict = TimelineClearCache.from_dict(timeline_clear_cache_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

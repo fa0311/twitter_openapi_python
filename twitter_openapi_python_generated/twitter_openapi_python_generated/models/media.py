@@ -21,9 +21,13 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.additional_media_info import AdditionalMediaInfo
+from twitter_openapi_python_generated.models.allow_download_status import AllowDownloadStatus
 from twitter_openapi_python_generated.models.ext_media_availability import ExtMediaAvailability
 from twitter_openapi_python_generated.models.media_original_info import MediaOriginalInfo
+from twitter_openapi_python_generated.models.media_results import MediaResults
 from twitter_openapi_python_generated.models.media_sizes import MediaSizes
+from twitter_openapi_python_generated.models.media_video_info import MediaVideoInfo
 from twitter_openapi_python_generated.models.sensitive_media_warning import SensitiveMediaWarning
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,7 +36,8 @@ class Media(BaseModel):
     """
     Media
     """ # noqa: E501
-    additional_media_info: Optional[Dict[str, Any]] = None
+    additional_media_info: Optional[AdditionalMediaInfo] = None
+    allow_download_status: Optional[AllowDownloadStatus] = None
     display_url: StrictStr
     expanded_url: StrictStr
     ext_alt_text: Optional[StrictStr] = None
@@ -41,6 +46,7 @@ class Media(BaseModel):
     id_str: Annotated[str, Field(strict=True)]
     indices: List[StrictInt]
     media_key: StrictStr
+    media_results: Optional[MediaResults] = None
     media_url_https: StrictStr
     original_info: MediaOriginalInfo
     sensitive_media_warning: Optional[SensitiveMediaWarning] = None
@@ -49,8 +55,8 @@ class Media(BaseModel):
     source_user_id_str: Optional[Annotated[str, Field(strict=True)]] = None
     type: StrictStr
     url: StrictStr
-    video_info: Optional[Dict[str, Any]] = None
-    __properties: ClassVar[List[str]] = ["additional_media_info", "display_url", "expanded_url", "ext_alt_text", "ext_media_availability", "features", "id_str", "indices", "media_key", "media_url_https", "original_info", "sensitive_media_warning", "sizes", "source_status_id_str", "source_user_id_str", "type", "url", "video_info"]
+    video_info: Optional[MediaVideoInfo] = None
+    __properties: ClassVar[List[str]] = ["additional_media_info", "allow_download_status", "display_url", "expanded_url", "ext_alt_text", "ext_media_availability", "features", "id_str", "indices", "media_key", "media_results", "media_url_https", "original_info", "sensitive_media_warning", "sizes", "source_status_id_str", "source_user_id_str", "type", "url", "video_info"]
 
     @field_validator('id_str')
     def id_str_validate_regular_expression(cls, value):
@@ -125,9 +131,18 @@ class Media(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of additional_media_info
+        if self.additional_media_info:
+            _dict['additional_media_info'] = self.additional_media_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of allow_download_status
+        if self.allow_download_status:
+            _dict['allow_download_status'] = self.allow_download_status.to_dict()
         # override the default output from pydantic by calling `to_dict()` of ext_media_availability
         if self.ext_media_availability:
             _dict['ext_media_availability'] = self.ext_media_availability.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of media_results
+        if self.media_results:
+            _dict['media_results'] = self.media_results.to_dict()
         # override the default output from pydantic by calling `to_dict()` of original_info
         if self.original_info:
             _dict['original_info'] = self.original_info.to_dict()
@@ -137,6 +152,9 @@ class Media(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of sizes
         if self.sizes:
             _dict['sizes'] = self.sizes.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of video_info
+        if self.video_info:
+            _dict['video_info'] = self.video_info.to_dict()
         return _dict
 
     @classmethod
@@ -149,7 +167,8 @@ class Media(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "additional_media_info": obj.get("additional_media_info"),
+            "additional_media_info": AdditionalMediaInfo.from_dict(obj["additional_media_info"]) if obj.get("additional_media_info") is not None else None,
+            "allow_download_status": AllowDownloadStatus.from_dict(obj["allow_download_status"]) if obj.get("allow_download_status") is not None else None,
             "display_url": obj.get("display_url"),
             "expanded_url": obj.get("expanded_url"),
             "ext_alt_text": obj.get("ext_alt_text"),
@@ -158,6 +177,7 @@ class Media(BaseModel):
             "id_str": obj.get("id_str"),
             "indices": obj.get("indices"),
             "media_key": obj.get("media_key"),
+            "media_results": MediaResults.from_dict(obj["media_results"]) if obj.get("media_results") is not None else None,
             "media_url_https": obj.get("media_url_https"),
             "original_info": MediaOriginalInfo.from_dict(obj["original_info"]) if obj.get("original_info") is not None else None,
             "sensitive_media_warning": SensitiveMediaWarning.from_dict(obj["sensitive_media_warning"]) if obj.get("sensitive_media_warning") is not None else None,
@@ -166,7 +186,7 @@ class Media(BaseModel):
             "source_user_id_str": obj.get("source_user_id_str"),
             "type": obj.get("type"),
             "url": obj.get("url"),
-            "video_info": obj.get("video_info")
+            "video_info": MediaVideoInfo.from_dict(obj["video_info"]) if obj.get("video_info") is not None else None
         })
         return _obj
 

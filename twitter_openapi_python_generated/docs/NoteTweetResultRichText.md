@@ -22,7 +22,7 @@ print(NoteTweetResultRichText.to_json())
 # convert the object into a dict
 note_tweet_result_rich_text_dict = note_tweet_result_rich_text_instance.to_dict()
 # create an instance of NoteTweetResultRichText from a dict
-note_tweet_result_rich_text_form_dict = note_tweet_result_rich_text.from_dict(note_tweet_result_rich_text_dict)
+note_tweet_result_rich_text_from_dict = NoteTweetResultRichText.from_dict(note_tweet_result_rich_text_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

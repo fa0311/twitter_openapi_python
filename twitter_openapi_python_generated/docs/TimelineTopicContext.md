@@ -24,7 +24,7 @@ print(TimelineTopicContext.to_json())
 # convert the object into a dict
 timeline_topic_context_dict = timeline_topic_context_instance.to_dict()
 # create an instance of TimelineTopicContext from a dict
-timeline_topic_context_form_dict = timeline_topic_context.from_dict(timeline_topic_context_dict)
+timeline_topic_context_from_dict = TimelineTopicContext.from_dict(timeline_topic_context_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

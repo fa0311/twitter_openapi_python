@@ -25,7 +25,7 @@ print(TweetEditControlInitial.to_json())
 # convert the object into a dict
 tweet_edit_control_initial_dict = tweet_edit_control_initial_instance.to_dict()
 # create an instance of TweetEditControlInitial from a dict
-tweet_edit_control_initial_form_dict = tweet_edit_control_initial.from_dict(tweet_edit_control_initial_dict)
+tweet_edit_control_initial_from_dict = TweetEditControlInitial.from_dict(tweet_edit_control_initial_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

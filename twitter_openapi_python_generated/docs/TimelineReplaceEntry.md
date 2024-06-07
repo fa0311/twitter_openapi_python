@@ -24,7 +24,7 @@ print(TimelineReplaceEntry.to_json())
 # convert the object into a dict
 timeline_replace_entry_dict = timeline_replace_entry_instance.to_dict()
 # create an instance of TimelineReplaceEntry from a dict
-timeline_replace_entry_form_dict = timeline_replace_entry.from_dict(timeline_replace_entry_dict)
+timeline_replace_entry_from_dict = TimelineReplaceEntry.from_dict(timeline_replace_entry_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

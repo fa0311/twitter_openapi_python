@@ -23,7 +23,7 @@ print(AdditionalMediaInfoCallToActions.to_json())
 # convert the object into a dict
 additional_media_info_call_to_actions_dict = additional_media_info_call_to_actions_instance.to_dict()
 # create an instance of AdditionalMediaInfoCallToActions from a dict
-additional_media_info_call_to_actions_form_dict = additional_media_info_call_to_actions.from_dict(additional_media_info_call_to_actions_dict)
+additional_media_info_call_to_actions_from_dict = AdditionalMediaInfoCallToActions.from_dict(additional_media_info_call_to_actions_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

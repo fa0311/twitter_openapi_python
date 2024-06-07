@@ -24,7 +24,7 @@ print(UserUnavailable.to_json())
 # convert the object into a dict
 user_unavailable_dict = user_unavailable_instance.to_dict()
 # create an instance of UserUnavailable from a dict
-user_unavailable_form_dict = user_unavailable.from_dict(user_unavailable_dict)
+user_unavailable_from_dict = UserUnavailable.from_dict(user_unavailable_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -23,7 +23,7 @@ print(Retweet.to_json())
 # convert the object into a dict
 retweet_dict = retweet_instance.to_dict()
 # create an instance of Retweet from a dict
-retweet_form_dict = retweet.from_dict(retweet_dict)
+retweet_from_dict = Retweet.from_dict(retweet_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -22,7 +22,7 @@ print(UserValue.to_json())
 # convert the object into a dict
 user_value_dict = user_value_instance.to_dict()
 # create an instance of UserValue from a dict
-user_value_form_dict = user_value.from_dict(user_value_dict)
+user_value_from_dict = UserValue.from_dict(user_value_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

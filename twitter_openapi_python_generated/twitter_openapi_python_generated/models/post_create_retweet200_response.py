@@ -21,7 +21,7 @@ from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.create_retweet_response import CreateRetweetResponse
 from twitter_openapi_python_generated.models.errors import Errors
 from pydantic import StrictStr, Field
-from typing import Union, List, Optional, Dict
+from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 POSTCREATERETWEET200RESPONSE_ONE_OF_SCHEMAS = ["CreateRetweetResponse", "Errors"]
@@ -35,7 +35,7 @@ class PostCreateRetweet200Response(BaseModel):
     # data type: Errors
     oneof_schema_2_validator: Optional[Errors] = None
     actual_instance: Optional[Union[CreateRetweetResponse, Errors]] = None
-    one_of_schemas: List[str] = Field(default=Literal["CreateRetweetResponse", "Errors"])
+    one_of_schemas: Set[str] = { "CreateRetweetResponse", "Errors" }
 
     model_config = ConfigDict(
         validate_assignment=True,

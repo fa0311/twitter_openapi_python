@@ -23,7 +23,7 @@ print(UserResultByScreenName.to_json())
 # convert the object into a dict
 user_result_by_screen_name_dict = user_result_by_screen_name_instance.to_dict()
 # create an instance of UserResultByScreenName from a dict
-user_result_by_screen_name_form_dict = user_result_by_screen_name.from_dict(user_result_by_screen_name_dict)
+user_result_by_screen_name_from_dict = UserResultByScreenName.from_dict(user_result_by_screen_name_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

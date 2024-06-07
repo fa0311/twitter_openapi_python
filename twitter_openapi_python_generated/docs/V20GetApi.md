@@ -18,8 +18,9 @@ get search adaptive
 
 * Api Key Authentication (ClientLanguage):
 * Api Key Authentication (Accept):
+* Api Key Authentication (Priority):
 * Api Key Authentication (SecFetchDest):
-* Api Key Authentication (Pragma):
+* Api Key Authentication (Referer):
 * Api Key Authentication (SecChUaPlatform):
 * Api Key Authentication (SecFetchMode):
 * Api Key Authentication (CsrfToken):
@@ -33,7 +34,6 @@ get search adaptive
 * Api Key Authentication (SecFetchSite):
 * Api Key Authentication (CookieAuthToken):
 * Api Key Authentication (AuthType):
-* Api Key Authentication (CacheControl):
 * Api Key Authentication (SecChUaMobile):
 * Api Key Authentication (AcceptEncoding):
 
@@ -65,17 +65,23 @@ configuration.api_key['Accept'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Accept'] = 'Bearer'
 
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
+
 # Configure API key authorization: SecFetchDest
 configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
 
-# Configure API key authorization: Pragma
-configuration.api_key['Pragma'] = os.environ["API_KEY"]
+# Configure API key authorization: Referer
+configuration.api_key['Referer'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Pragma'] = 'Bearer'
+# configuration.api_key_prefix['Referer'] = 'Bearer'
 
 # Configure API key authorization: SecChUaPlatform
 configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
@@ -153,12 +159,6 @@ configuration.api_key['AuthType'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['AuthType'] = 'Bearer'
-
-# Configure API key authorization: CacheControl
-configuration.api_key['CacheControl'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['CacheControl'] = 'Bearer'
 
 # Configure API key authorization: SecChUaMobile
 configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
@@ -271,7 +271,7 @@ void (empty response body)
 
 ### Authorization
 
-[ClientLanguage](../README.md#ClientLanguage), [Accept](../README.md#Accept), [SecFetchDest](../README.md#SecFetchDest), [Pragma](../README.md#Pragma), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth), [SecChUa](../README.md#SecChUa), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CacheControl](../README.md#CacheControl), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+[ClientLanguage](../README.md#ClientLanguage), [Accept](../README.md#Accept), [Priority](../README.md#Priority), [SecFetchDest](../README.md#SecFetchDest), [Referer](../README.md#Referer), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth), [SecChUa](../README.md#SecChUa), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 

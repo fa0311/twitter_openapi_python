@@ -23,7 +23,7 @@ print(TextHighlight.to_json())
 # convert the object into a dict
 text_highlight_dict = text_highlight_instance.to_dict()
 # create an instance of TextHighlight from a dict
-text_highlight_form_dict = text_highlight.from_dict(text_highlight_dict)
+text_highlight_from_dict = TextHighlight.from_dict(text_highlight_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

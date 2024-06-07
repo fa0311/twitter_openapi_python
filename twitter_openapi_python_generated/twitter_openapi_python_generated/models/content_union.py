@@ -22,7 +22,7 @@ from twitter_openapi_python_generated.models.timeline_timeline_cursor import Tim
 from twitter_openapi_python_generated.models.timeline_timeline_item import TimelineTimelineItem
 from twitter_openapi_python_generated.models.timeline_timeline_module import TimelineTimelineModule
 from pydantic import StrictStr, Field
-from typing import Union, List, Optional, Dict
+from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 CONTENTUNION_ONE_OF_SCHEMAS = ["TimelineTimelineCursor", "TimelineTimelineItem", "TimelineTimelineModule"]
@@ -38,7 +38,7 @@ class ContentUnion(BaseModel):
     # data type: TimelineTimelineCursor
     oneof_schema_3_validator: Optional[TimelineTimelineCursor] = None
     actual_instance: Optional[Union[TimelineTimelineCursor, TimelineTimelineItem, TimelineTimelineModule]] = None
-    one_of_schemas: List[str] = Field(default=Literal["TimelineTimelineCursor", "TimelineTimelineItem", "TimelineTimelineModule"])
+    one_of_schemas: Set[str] = { "TimelineTimelineCursor", "TimelineTimelineItem", "TimelineTimelineModule" }
 
     model_config = ConfigDict(
         validate_assignment=True,

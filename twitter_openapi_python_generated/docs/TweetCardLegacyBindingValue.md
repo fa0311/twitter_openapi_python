@@ -23,7 +23,7 @@ print(TweetCardLegacyBindingValue.to_json())
 # convert the object into a dict
 tweet_card_legacy_binding_value_dict = tweet_card_legacy_binding_value_instance.to_dict()
 # create an instance of TweetCardLegacyBindingValue from a dict
-tweet_card_legacy_binding_value_form_dict = tweet_card_legacy_binding_value.from_dict(tweet_card_legacy_binding_value_dict)
+tweet_card_legacy_binding_value_from_dict = TweetCardLegacyBindingValue.from_dict(tweet_card_legacy_binding_value_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

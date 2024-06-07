@@ -22,7 +22,7 @@ print(TweetDetailResponse.to_json())
 # convert the object into a dict
 tweet_detail_response_dict = tweet_detail_response_instance.to_dict()
 # create an instance of TweetDetailResponse from a dict
-tweet_detail_response_form_dict = tweet_detail_response.from_dict(tweet_detail_response_dict)
+tweet_detail_response_from_dict = TweetDetailResponse.from_dict(tweet_detail_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

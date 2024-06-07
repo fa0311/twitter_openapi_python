@@ -23,7 +23,7 @@ print(ModuleItem.to_json())
 # convert the object into a dict
 module_item_dict = module_item_instance.to_dict()
 # create an instance of ModuleItem from a dict
-module_item_form_dict = module_item.from_dict(module_item_dict)
+module_item_from_dict = ModuleItem.from_dict(module_item_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

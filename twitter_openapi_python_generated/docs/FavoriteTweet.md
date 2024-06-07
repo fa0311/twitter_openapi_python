@@ -22,7 +22,7 @@ print(FavoriteTweet.to_json())
 # convert the object into a dict
 favorite_tweet_dict = favorite_tweet_instance.to_dict()
 # create an instance of FavoriteTweet from a dict
-favorite_tweet_form_dict = favorite_tweet.from_dict(favorite_tweet_dict)
+favorite_tweet_from_dict = FavoriteTweet.from_dict(favorite_tweet_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

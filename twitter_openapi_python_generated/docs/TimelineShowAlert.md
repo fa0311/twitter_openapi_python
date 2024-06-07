@@ -30,7 +30,7 @@ print(TimelineShowAlert.to_json())
 # convert the object into a dict
 timeline_show_alert_dict = timeline_show_alert_instance.to_dict()
 # create an instance of TimelineShowAlert from a dict
-timeline_show_alert_form_dict = timeline_show_alert.from_dict(timeline_show_alert_dict)
+timeline_show_alert_from_dict = TimelineShowAlert.from_dict(timeline_show_alert_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

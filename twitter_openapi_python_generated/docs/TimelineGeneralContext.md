@@ -25,7 +25,7 @@ print(TimelineGeneralContext.to_json())
 # convert the object into a dict
 timeline_general_context_dict = timeline_general_context_instance.to_dict()
 # create an instance of TimelineGeneralContext from a dict
-timeline_general_context_form_dict = timeline_general_context.from_dict(timeline_general_context_dict)
+timeline_general_context_from_dict = TimelineGeneralContext.from_dict(timeline_general_context_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

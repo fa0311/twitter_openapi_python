@@ -22,7 +22,7 @@ print(CommunityUrlsPermalink.to_json())
 # convert the object into a dict
 community_urls_permalink_dict = community_urls_permalink_instance.to_dict()
 # create an instance of CommunityUrlsPermalink from a dict
-community_urls_permalink_form_dict = community_urls_permalink.from_dict(community_urls_permalink_dict)
+community_urls_permalink_from_dict = CommunityUrlsPermalink.from_dict(community_urls_permalink_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

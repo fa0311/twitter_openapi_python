@@ -22,7 +22,7 @@ print(SearchTimeline.to_json())
 # convert the object into a dict
 search_timeline_dict = search_timeline_instance.to_dict()
 # create an instance of SearchTimeline from a dict
-search_timeline_form_dict = search_timeline.from_dict(search_timeline_dict)
+search_timeline_from_dict = SearchTimeline.from_dict(search_timeline_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

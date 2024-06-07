@@ -23,7 +23,7 @@ print(UrtEndpointRequestParams.to_json())
 # convert the object into a dict
 urt_endpoint_request_params_dict = urt_endpoint_request_params_instance.to_dict()
 # create an instance of UrtEndpointRequestParams from a dict
-urt_endpoint_request_params_form_dict = urt_endpoint_request_params.from_dict(urt_endpoint_request_params_dict)
+urt_endpoint_request_params_from_dict = UrtEndpointRequestParams.from_dict(urt_endpoint_request_params_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

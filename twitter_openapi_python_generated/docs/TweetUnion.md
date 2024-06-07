@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **unmention_data** | **Dict[str, object]** |  | [optional] 
 **views** | [**TweetView**](TweetView.md) |  | [optional] 
 **limited_action_results** | **Dict[str, object]** |  | [optional] 
+**media_visibility_results** | [**MediaVisibilityResults**](MediaVisibilityResults.md) |  | [optional] 
 **tweet** | [**Tweet**](Tweet.md) |  | 
 **tweet_interstitial** | [**TweetInterstitial**](TweetInterstitial.md) |  | [optional] 
 
@@ -46,7 +47,7 @@ print(TweetUnion.to_json())
 # convert the object into a dict
 tweet_union_dict = tweet_union_instance.to_dict()
 # create an instance of TweetUnion from a dict
-tweet_union_form_dict = tweet_union.from_dict(tweet_union_dict)
+tweet_union_from_dict = TweetUnion.from_dict(tweet_union_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

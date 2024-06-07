@@ -25,7 +25,7 @@ print(MediaOriginalInfoFocusRect.to_json())
 # convert the object into a dict
 media_original_info_focus_rect_dict = media_original_info_focus_rect_instance.to_dict()
 # create an instance of MediaOriginalInfoFocusRect from a dict
-media_original_info_focus_rect_form_dict = media_original_info_focus_rect.from_dict(media_original_info_focus_rect_dict)
+media_original_info_focus_rect_from_dict = MediaOriginalInfoFocusRect.from_dict(media_original_info_focus_rect_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

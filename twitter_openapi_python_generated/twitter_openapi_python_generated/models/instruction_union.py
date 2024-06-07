@@ -27,7 +27,7 @@ from twitter_openapi_python_generated.models.timeline_show_alert import Timeline
 from twitter_openapi_python_generated.models.timeline_show_cover import TimelineShowCover
 from twitter_openapi_python_generated.models.timeline_terminate_timeline import TimelineTerminateTimeline
 from pydantic import StrictStr, Field
-from typing import Union, List, Optional, Dict
+from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 INSTRUCTIONUNION_ONE_OF_SCHEMAS = ["TimelineAddEntries", "TimelineAddToModule", "TimelineClearCache", "TimelinePinEntry", "TimelineReplaceEntry", "TimelineShowAlert", "TimelineShowCover", "TimelineTerminateTimeline"]
@@ -53,7 +53,7 @@ class InstructionUnion(BaseModel):
     # data type: TimelineShowCover
     oneof_schema_8_validator: Optional[TimelineShowCover] = None
     actual_instance: Optional[Union[TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline]] = None
-    one_of_schemas: List[str] = Field(default=Literal["TimelineAddEntries", "TimelineAddToModule", "TimelineClearCache", "TimelinePinEntry", "TimelineReplaceEntry", "TimelineShowAlert", "TimelineShowCover", "TimelineTerminateTimeline"])
+    one_of_schemas: Set[str] = { "TimelineAddEntries", "TimelineAddToModule", "TimelineClearCache", "TimelinePinEntry", "TimelineReplaceEntry", "TimelineShowAlert", "TimelineShowCover", "TimelineTerminateTimeline" }
 
     model_config = ConfigDict(
         validate_assignment=True,

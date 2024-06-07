@@ -26,7 +26,7 @@ print(TweetPreviousCounts.to_json())
 # convert the object into a dict
 tweet_previous_counts_dict = tweet_previous_counts_instance.to_dict()
 # create an instance of TweetPreviousCounts from a dict
-tweet_previous_counts_form_dict = tweet_previous_counts.from_dict(tweet_previous_counts_dict)
+tweet_previous_counts_from_dict = TweetPreviousCounts.from_dict(tweet_previous_counts_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

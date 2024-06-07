@@ -22,7 +22,7 @@ print(CommunityUrls.to_json())
 # convert the object into a dict
 community_urls_dict = community_urls_instance.to_dict()
 # create an instance of CommunityUrls from a dict
-community_urls_form_dict = community_urls.from_dict(community_urls_dict)
+community_urls_from_dict = CommunityUrls.from_dict(community_urls_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -22,7 +22,7 @@ print(FollowResponseUser.to_json())
 # convert the object into a dict
 follow_response_user_dict = follow_response_user_instance.to_dict()
 # create an instance of FollowResponseUser from a dict
-follow_response_user_form_dict = follow_response_user.from_dict(follow_response_user_dict)
+follow_response_user_from_dict = FollowResponseUser.from_dict(follow_response_user_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

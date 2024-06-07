@@ -22,7 +22,7 @@ print(SuperFollowsReplyUserResult.to_json())
 # convert the object into a dict
 super_follows_reply_user_result_dict = super_follows_reply_user_result_instance.to_dict()
 # create an instance of SuperFollowsReplyUserResult from a dict
-super_follows_reply_user_result_form_dict = super_follows_reply_user_result.from_dict(super_follows_reply_user_result_dict)
+super_follows_reply_user_result_from_dict = SuperFollowsReplyUserResult.from_dict(super_follows_reply_user_result_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

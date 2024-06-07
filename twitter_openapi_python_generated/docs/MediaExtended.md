@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **additional_media_info** | [**AdditionalMediaInfo**](AdditionalMediaInfo.md) |  | [optional] 
+**allow_download_status** | [**AllowDownloadStatus**](AllowDownloadStatus.md) |  | [optional] 
 **display_url** | **str** |  | 
 **expanded_url** | **str** |  | 
 **ext_alt_text** | **str** |  | [optional] 
@@ -15,6 +16,7 @@ Name | Type | Description | Notes
 **indices** | **List[int]** |  | 
 **media_stats** | [**MediaStats**](MediaStats.md) |  | [optional] 
 **media_key** | **str** |  | 
+**media_results** | [**MediaResults**](MediaResults.md) |  | [optional] 
 **media_url_https** | **str** |  | 
 **original_info** | [**MediaOriginalInfo**](MediaOriginalInfo.md) |  | 
 **sensitive_media_warning** | [**SensitiveMediaWarning**](SensitiveMediaWarning.md) |  | [optional] 
@@ -40,7 +42,7 @@ print(MediaExtended.to_json())
 # convert the object into a dict
 media_extended_dict = media_extended_instance.to_dict()
 # create an instance of MediaExtended from a dict
-media_extended_form_dict = media_extended.from_dict(media_extended_dict)
+media_extended_from_dict = MediaExtended.from_dict(media_extended_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

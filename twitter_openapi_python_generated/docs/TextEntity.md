@@ -24,7 +24,7 @@ print(TextEntity.to_json())
 # convert the object into a dict
 text_entity_dict = text_entity_instance.to_dict()
 # create an instance of TextEntity from a dict
-text_entity_form_dict = text_entity.from_dict(text_entity_dict)
+text_entity_from_dict = TextEntity.from_dict(text_entity_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

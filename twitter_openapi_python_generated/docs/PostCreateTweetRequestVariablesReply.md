@@ -23,7 +23,7 @@ print(PostCreateTweetRequestVariablesReply.to_json())
 # convert the object into a dict
 post_create_tweet_request_variables_reply_dict = post_create_tweet_request_variables_reply_instance.to_dict()
 # create an instance of PostCreateTweetRequestVariablesReply from a dict
-post_create_tweet_request_variables_reply_form_dict = post_create_tweet_request_variables_reply.from_dict(post_create_tweet_request_variables_reply_dict)
+post_create_tweet_request_variables_reply_from_dict = PostCreateTweetRequestVariablesReply.from_dict(post_create_tweet_request_variables_reply_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

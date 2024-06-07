@@ -23,7 +23,7 @@ print(ExtMediaAvailability.to_json())
 # convert the object into a dict
 ext_media_availability_dict = ext_media_availability_instance.to_dict()
 # create an instance of ExtMediaAvailability from a dict
-ext_media_availability_form_dict = ext_media_availability.from_dict(ext_media_availability_dict)
+ext_media_availability_from_dict = ExtMediaAvailability.from_dict(ext_media_availability_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -22,7 +22,7 @@ print(CreateRetweetResponse.to_json())
 # convert the object into a dict
 create_retweet_response_dict = create_retweet_response_instance.to_dict()
 # create an instance of CreateRetweetResponse from a dict
-create_retweet_response_form_dict = create_retweet_response.from_dict(create_retweet_response_dict)
+create_retweet_response_from_dict = CreateRetweetResponse.from_dict(create_retweet_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

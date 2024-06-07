@@ -22,7 +22,7 @@ print(DeleteRetweetResponseResult.to_json())
 # convert the object into a dict
 delete_retweet_response_result_dict = delete_retweet_response_result_instance.to_dict()
 # create an instance of DeleteRetweetResponseResult from a dict
-delete_retweet_response_result_form_dict = delete_retweet_response_result.from_dict(delete_retweet_response_result_dict)
+delete_retweet_response_result_from_dict = DeleteRetweetResponseResult.from_dict(delete_retweet_response_result_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

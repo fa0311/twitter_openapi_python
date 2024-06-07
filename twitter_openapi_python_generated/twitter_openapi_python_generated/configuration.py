@@ -432,15 +432,6 @@ conf = twitter_openapi_python_generated.Configuration(
                 'key': 'Authorization',
                 'value': 'Bearer ' + self.access_token
             }
-        if 'CacheControl' in self.api_key:
-            auth['CacheControl'] = {
-                'type': 'api_key',
-                'in': 'header',
-                'key': 'Cache-Control',
-                'value': self.get_api_key_with_prefix(
-                    'CacheControl',
-                ),
-            }
         if 'ClientLanguage' in self.api_key:
             auth['ClientLanguage'] = {
                 'type': 'api_key',
@@ -486,13 +477,22 @@ conf = twitter_openapi_python_generated.Configuration(
                     'GuestToken',
                 ),
             }
-        if 'Pragma' in self.api_key:
-            auth['Pragma'] = {
+        if 'Priority' in self.api_key:
+            auth['Priority'] = {
                 'type': 'api_key',
                 'in': 'header',
-                'key': 'Pragma',
+                'key': 'Priority',
                 'value': self.get_api_key_with_prefix(
-                    'Pragma',
+                    'Priority',
+                ),
+            }
+        if 'Referer' in self.api_key:
+            auth['Referer'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Referer',
+                'value': self.get_api_key_with_prefix(
+                    'Referer',
                 ),
             }
         if 'SecChUa' in self.api_key:
@@ -569,7 +569,7 @@ conf = twitter_openapi_python_generated.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 0.0.1\n"\
-               "SDK Package Version: 0.0.15".\
+               "SDK Package Version: 0.0.16".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

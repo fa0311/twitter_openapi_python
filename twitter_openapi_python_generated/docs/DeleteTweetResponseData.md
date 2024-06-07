@@ -22,7 +22,7 @@ print(DeleteTweetResponseData.to_json())
 # convert the object into a dict
 delete_tweet_response_data_dict = delete_tweet_response_data_instance.to_dict()
 # create an instance of DeleteTweetResponseData from a dict
-delete_tweet_response_data_form_dict = delete_tweet_response_data.from_dict(delete_tweet_response_data_dict)
+delete_tweet_response_data_from_dict = DeleteTweetResponseData.from_dict(delete_tweet_response_data_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -46,7 +46,6 @@ class TestUrl(unittest.TestCase):
         else:
             return Url(
                 display_url = '',
-                expanded_url = '',
                 indices = [
                     56
                     ],

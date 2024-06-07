@@ -21,7 +21,7 @@ from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.errors import Errors
 from twitter_openapi_python_generated.models.tweet_result_by_rest_id_response import TweetResultByRestIdResponse
 from pydantic import StrictStr, Field
-from typing import Union, List, Optional, Dict
+from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 GETTWEETRESULTBYRESTID200RESPONSE_ONE_OF_SCHEMAS = ["Errors", "TweetResultByRestIdResponse"]
@@ -35,7 +35,7 @@ class GetTweetResultByRestId200Response(BaseModel):
     # data type: Errors
     oneof_schema_2_validator: Optional[Errors] = None
     actual_instance: Optional[Union[Errors, TweetResultByRestIdResponse]] = None
-    one_of_schemas: List[str] = Field(default=Literal["Errors", "TweetResultByRestIdResponse"])
+    one_of_schemas: Set[str] = { "Errors", "TweetResultByRestIdResponse" }
 
     model_config = ConfigDict(
         validate_assignment=True,

@@ -22,7 +22,7 @@ print(ArticleResults.to_json())
 # convert the object into a dict
 article_results_dict = article_results_instance.to_dict()
 # create an instance of ArticleResults from a dict
-article_results_form_dict = article_results.from_dict(article_results_dict)
+article_results_from_dict = ArticleResults.from_dict(article_results_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

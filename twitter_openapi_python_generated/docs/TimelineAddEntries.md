@@ -23,7 +23,7 @@ print(TimelineAddEntries.to_json())
 # convert the object into a dict
 timeline_add_entries_dict = timeline_add_entries_instance.to_dict()
 # create an instance of TimelineAddEntries from a dict
-timeline_add_entries_form_dict = timeline_add_entries.from_dict(timeline_add_entries_dict)
+timeline_add_entries_from_dict = TimelineAddEntries.from_dict(timeline_add_entries_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

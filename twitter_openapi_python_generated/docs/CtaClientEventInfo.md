@@ -22,7 +22,7 @@ print(CtaClientEventInfo.to_json())
 # convert the object into a dict
 cta_client_event_info_dict = cta_client_event_info_instance.to_dict()
 # create an instance of CtaClientEventInfo from a dict
-cta_client_event_info_form_dict = cta_client_event_info.from_dict(cta_client_event_info_dict)
+cta_client_event_info_from_dict = CtaClientEventInfo.from_dict(cta_client_event_info_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -22,7 +22,7 @@ print(DisplayTreatment.to_json())
 # convert the object into a dict
 display_treatment_dict = display_treatment_instance.to_dict()
 # create an instance of DisplayTreatment from a dict
-display_treatment_form_dict = display_treatment.from_dict(display_treatment_dict)
+display_treatment_from_dict = DisplayTreatment.from_dict(display_treatment_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

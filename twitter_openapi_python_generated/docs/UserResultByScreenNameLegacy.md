@@ -28,7 +28,7 @@ print(UserResultByScreenNameLegacy.to_json())
 # convert the object into a dict
 user_result_by_screen_name_legacy_dict = user_result_by_screen_name_legacy_instance.to_dict()
 # create an instance of UserResultByScreenNameLegacy from a dict
-user_result_by_screen_name_legacy_form_dict = user_result_by_screen_name_legacy.from_dict(user_result_by_screen_name_legacy_dict)
+user_result_by_screen_name_legacy_from_dict = UserResultByScreenNameLegacy.from_dict(user_result_by_screen_name_legacy_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

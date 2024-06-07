@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
 **limited_action_results** | **Dict[str, object]** |  | [optional] 
+**media_visibility_results** | [**MediaVisibilityResults**](MediaVisibilityResults.md) |  | [optional] 
 **tweet** | [**Tweet**](Tweet.md) |  | 
 **tweet_interstitial** | [**TweetInterstitial**](TweetInterstitial.md) |  | [optional] 
 
@@ -25,7 +26,7 @@ print(TweetWithVisibilityResults.to_json())
 # convert the object into a dict
 tweet_with_visibility_results_dict = tweet_with_visibility_results_instance.to_dict()
 # create an instance of TweetWithVisibilityResults from a dict
-tweet_with_visibility_results_form_dict = tweet_with_visibility_results.from_dict(tweet_with_visibility_results_dict)
+tweet_with_visibility_results_from_dict = TweetWithVisibilityResults.from_dict(tweet_with_visibility_results_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

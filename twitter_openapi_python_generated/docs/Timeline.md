@@ -24,7 +24,7 @@ print(Timeline.to_json())
 # convert the object into a dict
 timeline_dict = timeline_instance.to_dict()
 # create an instance of Timeline from a dict
-timeline_form_dict = timeline.from_dict(timeline_dict)
+timeline_from_dict = Timeline.from_dict(timeline_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

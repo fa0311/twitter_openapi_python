@@ -94,6 +94,13 @@ class TestUser(unittest.TestCase):
                     withheld_in_countries = [
                         ''
                         ], ),
+                legacy_extended_profile = twitter_openapi_python_generated.models.user_legacy_extended_profile.UserLegacyExtendedProfile(
+                    birthdate = twitter_openapi_python_generated.models.user_legacy_extended_profile_birthdate.UserLegacyExtendedProfileBirthdate(
+                        day = 56, 
+                        month = 56, 
+                        visibility = 'Self', 
+                        year = 56, 
+                        year_visibility = 'Self', ), ),
                 professional = twitter_openapi_python_generated.models.user_professional.UserProfessional(
                     category = [
                         twitter_openapi_python_generated.models.user_professional_category.UserProfessionalCategory(
@@ -108,6 +115,14 @@ class TestUser(unittest.TestCase):
                 super_follow_eligible = True,
                 super_followed_by = True,
                 super_following = True,
+                tipjar_settings = twitter_openapi_python_generated.models.user_tip_jar_settings.UserTipJarSettings(
+                    bitcoin_handle = '', 
+                    cash_app_handle = '', 
+                    ethereum_handle = '', 
+                    gofundme_handle = '', 
+                    is_enabled = True, 
+                    patreon_handle = '', 
+                    venmo_handle = '', ),
                 user_seed_tweet_count = 56,
                 verification_info = twitter_openapi_python_generated.models.user_verification_info.UserVerificationInfo(
                     is_identity_verified = True, 

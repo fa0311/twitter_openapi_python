@@ -22,7 +22,7 @@ print(TimelineCommunity.to_json())
 # convert the object into a dict
 timeline_community_dict = timeline_community_instance.to_dict()
 # create an instance of TimelineCommunity from a dict
-timeline_community_form_dict = timeline_community.from_dict(timeline_community_dict)
+timeline_community_from_dict = TimelineCommunity.from_dict(timeline_community_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -24,7 +24,7 @@ print(UserVerificationInfoReason.to_json())
 # convert the object into a dict
 user_verification_info_reason_dict = user_verification_info_reason_instance.to_dict()
 # create an instance of UserVerificationInfoReason from a dict
-user_verification_info_reason_form_dict = user_verification_info_reason.from_dict(user_verification_info_reason_dict)
+user_verification_info_reason_from_dict = UserVerificationInfoReason.from_dict(user_verification_info_reason_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

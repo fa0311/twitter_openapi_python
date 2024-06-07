@@ -23,7 +23,7 @@ print(PostCreateTweetRequestVariablesMedia.to_json())
 # convert the object into a dict
 post_create_tweet_request_variables_media_dict = post_create_tweet_request_variables_media_instance.to_dict()
 # create an instance of PostCreateTweetRequestVariablesMedia from a dict
-post_create_tweet_request_variables_media_form_dict = post_create_tweet_request_variables_media.from_dict(post_create_tweet_request_variables_media_dict)
+post_create_tweet_request_variables_media_from_dict = PostCreateTweetRequestVariablesMedia.from_dict(post_create_tweet_request_variables_media_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -22,7 +22,7 @@ print(ExtendedEntities.to_json())
 # convert the object into a dict
 extended_entities_dict = extended_entities_instance.to_dict()
 # create an instance of ExtendedEntities from a dict
-extended_entities_form_dict = extended_entities.from_dict(extended_entities_dict)
+extended_entities_from_dict = ExtendedEntities.from_dict(extended_entities_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

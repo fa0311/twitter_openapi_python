@@ -23,7 +23,7 @@ print(BirdwatchPivotFooter.to_json())
 # convert the object into a dict
 birdwatch_pivot_footer_dict = birdwatch_pivot_footer_instance.to_dict()
 # create an instance of BirdwatchPivotFooter from a dict
-birdwatch_pivot_footer_form_dict = birdwatch_pivot_footer.from_dict(birdwatch_pivot_footer_dict)
+birdwatch_pivot_footer_from_dict = BirdwatchPivotFooter.from_dict(birdwatch_pivot_footer_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

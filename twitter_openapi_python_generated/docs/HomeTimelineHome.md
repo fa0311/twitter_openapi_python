@@ -22,7 +22,7 @@ print(HomeTimelineHome.to_json())
 # convert the object into a dict
 home_timeline_home_dict = home_timeline_home_instance.to_dict()
 # create an instance of HomeTimelineHome from a dict
-home_timeline_home_form_dict = home_timeline_home.from_dict(home_timeline_home_dict)
+home_timeline_home_from_dict = HomeTimelineHome.from_dict(home_timeline_home_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

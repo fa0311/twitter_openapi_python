@@ -21,7 +21,7 @@ from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.delete_retweet_response import DeleteRetweetResponse
 from twitter_openapi_python_generated.models.errors import Errors
 from pydantic import StrictStr, Field
-from typing import Union, List, Optional, Dict
+from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 POSTDELETERETWEET200RESPONSE_ONE_OF_SCHEMAS = ["DeleteRetweetResponse", "Errors"]
@@ -35,7 +35,7 @@ class PostDeleteRetweet200Response(BaseModel):
     # data type: Errors
     oneof_schema_2_validator: Optional[Errors] = None
     actual_instance: Optional[Union[DeleteRetweetResponse, Errors]] = None
-    one_of_schemas: List[str] = Field(default=Literal["DeleteRetweetResponse", "Errors"])
+    one_of_schemas: Set[str] = { "DeleteRetweetResponse", "Errors" }
 
     model_config = ConfigDict(
         validate_assignment=True,

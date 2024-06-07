@@ -47,7 +47,7 @@ print(CommunityData.to_json())
 # convert the object into a dict
 community_data_dict = community_data_instance.to_dict()
 # create an instance of CommunityData from a dict
-community_data_form_dict = community_data.from_dict(community_data_dict)
+community_data_from_dict = CommunityData.from_dict(community_data_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

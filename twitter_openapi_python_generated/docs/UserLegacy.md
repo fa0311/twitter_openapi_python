@@ -62,7 +62,7 @@ print(UserLegacy.to_json())
 # convert the object into a dict
 user_legacy_dict = user_legacy_instance.to_dict()
 # create an instance of UserLegacy from a dict
-user_legacy_form_dict = user_legacy.from_dict(user_legacy_dict)
+user_legacy_from_dict = UserLegacy.from_dict(user_legacy_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -30,7 +30,7 @@ print(BirdwatchPivot.to_json())
 # convert the object into a dict
 birdwatch_pivot_dict = birdwatch_pivot_instance.to_dict()
 # create an instance of BirdwatchPivot from a dict
-birdwatch_pivot_form_dict = birdwatch_pivot.from_dict(birdwatch_pivot_dict)
+birdwatch_pivot_from_dict = BirdwatchPivot.from_dict(birdwatch_pivot_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -22,7 +22,7 @@ print(ListTweetsTimelineList.to_json())
 # convert the object into a dict
 list_tweets_timeline_list_dict = list_tweets_timeline_list_instance.to_dict()
 # create an instance of ListTweetsTimelineList from a dict
-list_tweets_timeline_list_form_dict = list_tweets_timeline_list.from_dict(list_tweets_timeline_list_dict)
+list_tweets_timeline_list_from_dict = ListTweetsTimelineList.from_dict(list_tweets_timeline_list_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

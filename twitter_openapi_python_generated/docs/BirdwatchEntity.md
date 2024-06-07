@@ -24,7 +24,7 @@ print(BirdwatchEntity.to_json())
 # convert the object into a dict
 birdwatch_entity_dict = birdwatch_entity_instance.to_dict()
 # create an instance of BirdwatchEntity from a dict
-birdwatch_entity_form_dict = birdwatch_entity.from_dict(birdwatch_entity_dict)
+birdwatch_entity_from_dict = BirdwatchEntity.from_dict(birdwatch_entity_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -24,7 +24,7 @@ print(SensitiveMediaWarning.to_json())
 # convert the object into a dict
 sensitive_media_warning_dict = sensitive_media_warning_instance.to_dict()
 # create an instance of SensitiveMediaWarning from a dict
-sensitive_media_warning_form_dict = sensitive_media_warning.from_dict(sensitive_media_warning_dict)
+sensitive_media_warning_from_dict = SensitiveMediaWarning.from_dict(sensitive_media_warning_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

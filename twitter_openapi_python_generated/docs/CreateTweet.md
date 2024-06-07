@@ -22,7 +22,7 @@ print(CreateTweet.to_json())
 # convert the object into a dict
 create_tweet_dict = create_tweet_instance.to_dict()
 # create an instance of CreateTweet from a dict
-create_tweet_form_dict = create_tweet.from_dict(create_tweet_dict)
+create_tweet_from_dict = CreateTweet.from_dict(create_tweet_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -22,7 +22,7 @@ print(CommunityJoinActionResult.to_json())
 # convert the object into a dict
 community_join_action_result_dict = community_join_action_result_instance.to_dict()
 # create an instance of CommunityJoinActionResult from a dict
-community_join_action_result_form_dict = community_join_action_result.from_dict(community_join_action_result_dict)
+community_join_action_result_from_dict = CommunityJoinActionResult.from_dict(community_join_action_result_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

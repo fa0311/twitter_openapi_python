@@ -28,7 +28,7 @@ print(TimelineTweet.to_json())
 # convert the object into a dict
 timeline_tweet_dict = timeline_tweet_instance.to_dict()
 # create an instance of TimelineTweet from a dict
-timeline_tweet_form_dict = timeline_tweet.from_dict(timeline_tweet_dict)
+timeline_tweet_from_dict = TimelineTweet.from_dict(timeline_tweet_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

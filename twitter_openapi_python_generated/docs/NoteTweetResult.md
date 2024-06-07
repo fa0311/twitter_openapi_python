@@ -22,7 +22,7 @@ print(NoteTweetResult.to_json())
 # convert the object into a dict
 note_tweet_result_dict = note_tweet_result_instance.to_dict()
 # create an instance of NoteTweetResult from a dict
-note_tweet_result_form_dict = note_tweet_result.from_dict(note_tweet_result_dict)
+note_tweet_result_from_dict = NoteTweetResult.from_dict(note_tweet_result_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

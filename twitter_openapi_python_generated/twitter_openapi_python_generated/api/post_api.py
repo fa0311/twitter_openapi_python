@@ -19,10 +19,14 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
 from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.post_create_bookmark200_response import PostCreateBookmark200Response
+from twitter_openapi_python_generated.models.post_create_bookmark_request import PostCreateBookmarkRequest
 from twitter_openapi_python_generated.models.post_create_retweet200_response import PostCreateRetweet200Response
 from twitter_openapi_python_generated.models.post_create_retweet_request import PostCreateRetweetRequest
 from twitter_openapi_python_generated.models.post_create_tweet200_response import PostCreateTweet200Response
 from twitter_openapi_python_generated.models.post_create_tweet_request import PostCreateTweetRequest
+from twitter_openapi_python_generated.models.post_delete_bookmark200_response import PostDeleteBookmark200Response
+from twitter_openapi_python_generated.models.post_delete_bookmark_request import PostDeleteBookmarkRequest
 from twitter_openapi_python_generated.models.post_delete_retweet200_response import PostDeleteRetweet200Response
 from twitter_openapi_python_generated.models.post_delete_retweet_request import PostDeleteRetweetRequest
 from twitter_openapi_python_generated.models.post_delete_tweet200_response import PostDeleteTweet200Response
@@ -48,6 +52,311 @@ class PostApi:
         if api_client is None:
             api_client = ApiClient.get_default()
         self.api_client = api_client
+
+
+    @validate_call
+    def post_create_bookmark(
+        self,
+        path_query_id: StrictStr,
+        post_create_bookmark_request: Annotated[PostCreateBookmarkRequest, Field(description="body")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> PostCreateBookmark200Response:
+        """post_create_bookmark
+
+        create Bookmark
+
+        :param path_query_id: (required)
+        :type path_query_id: str
+        :param post_create_bookmark_request: body (required)
+        :type post_create_bookmark_request: PostCreateBookmarkRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._post_create_bookmark_serialize(
+            path_query_id=path_query_id,
+            post_create_bookmark_request=post_create_bookmark_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PostCreateBookmark200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def post_create_bookmark_with_http_info(
+        self,
+        path_query_id: StrictStr,
+        post_create_bookmark_request: Annotated[PostCreateBookmarkRequest, Field(description="body")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[PostCreateBookmark200Response]:
+        """post_create_bookmark
+
+        create Bookmark
+
+        :param path_query_id: (required)
+        :type path_query_id: str
+        :param post_create_bookmark_request: body (required)
+        :type post_create_bookmark_request: PostCreateBookmarkRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._post_create_bookmark_serialize(
+            path_query_id=path_query_id,
+            post_create_bookmark_request=post_create_bookmark_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PostCreateBookmark200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def post_create_bookmark_without_preload_content(
+        self,
+        path_query_id: StrictStr,
+        post_create_bookmark_request: Annotated[PostCreateBookmarkRequest, Field(description="body")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """post_create_bookmark
+
+        create Bookmark
+
+        :param path_query_id: (required)
+        :type path_query_id: str
+        :param post_create_bookmark_request: body (required)
+        :type post_create_bookmark_request: PostCreateBookmarkRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._post_create_bookmark_serialize(
+            path_query_id=path_query_id,
+            post_create_bookmark_request=post_create_bookmark_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PostCreateBookmark200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _post_create_bookmark_serialize(
+        self,
+        path_query_id,
+        post_create_bookmark_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if path_query_id is not None:
+            _path_params['pathQueryId'] = path_query_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if post_create_bookmark_request is not None:
+            _body_params = post_create_bookmark_request
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'ClientLanguage', 
+            'Accept', 
+            'Priority', 
+            'SecFetchDest', 
+            'Referer', 
+            'SecChUaPlatform', 
+            'SecFetchMode', 
+            'CsrfToken', 
+            'GuestToken', 
+            'BearerAuth', 
+            'SecChUa', 
+            'CookieCt0', 
+            'ActiveUser', 
+            'UserAgent', 
+            'AcceptLanguage', 
+            'SecFetchSite', 
+            'CookieAuthToken', 
+            'AuthType', 
+            'SecChUaMobile', 
+            'AcceptEncoding'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/graphql/{pathQueryId}/CreateBookmark',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
 
 
     @validate_call
@@ -278,7 +587,7 @@ class PostApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[str, Union[str, bytes]] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -317,8 +626,9 @@ class PostApi:
         _auth_settings: List[str] = [
             'ClientLanguage', 
             'Accept', 
+            'Priority', 
             'SecFetchDest', 
-            'Pragma', 
+            'Referer', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
@@ -332,7 +642,6 @@ class PostApi:
             'SecFetchSite', 
             'CookieAuthToken', 
             'AuthType', 
-            'CacheControl', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -583,7 +892,7 @@ class PostApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[str, Union[str, bytes]] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -622,8 +931,9 @@ class PostApi:
         _auth_settings: List[str] = [
             'ClientLanguage', 
             'Accept', 
+            'Priority', 
             'SecFetchDest', 
-            'Pragma', 
+            'Referer', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
@@ -637,7 +947,6 @@ class PostApi:
             'SecFetchSite', 
             'CookieAuthToken', 
             'AuthType', 
-            'CacheControl', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -645,6 +954,311 @@ class PostApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/graphql/{pathQueryId}/CreateTweet',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def post_delete_bookmark(
+        self,
+        path_query_id: StrictStr,
+        post_delete_bookmark_request: Annotated[PostDeleteBookmarkRequest, Field(description="body")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> PostDeleteBookmark200Response:
+        """post_delete_bookmark
+
+        delete Bookmark
+
+        :param path_query_id: (required)
+        :type path_query_id: str
+        :param post_delete_bookmark_request: body (required)
+        :type post_delete_bookmark_request: PostDeleteBookmarkRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._post_delete_bookmark_serialize(
+            path_query_id=path_query_id,
+            post_delete_bookmark_request=post_delete_bookmark_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PostDeleteBookmark200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def post_delete_bookmark_with_http_info(
+        self,
+        path_query_id: StrictStr,
+        post_delete_bookmark_request: Annotated[PostDeleteBookmarkRequest, Field(description="body")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[PostDeleteBookmark200Response]:
+        """post_delete_bookmark
+
+        delete Bookmark
+
+        :param path_query_id: (required)
+        :type path_query_id: str
+        :param post_delete_bookmark_request: body (required)
+        :type post_delete_bookmark_request: PostDeleteBookmarkRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._post_delete_bookmark_serialize(
+            path_query_id=path_query_id,
+            post_delete_bookmark_request=post_delete_bookmark_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PostDeleteBookmark200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def post_delete_bookmark_without_preload_content(
+        self,
+        path_query_id: StrictStr,
+        post_delete_bookmark_request: Annotated[PostDeleteBookmarkRequest, Field(description="body")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """post_delete_bookmark
+
+        delete Bookmark
+
+        :param path_query_id: (required)
+        :type path_query_id: str
+        :param post_delete_bookmark_request: body (required)
+        :type post_delete_bookmark_request: PostDeleteBookmarkRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._post_delete_bookmark_serialize(
+            path_query_id=path_query_id,
+            post_delete_bookmark_request=post_delete_bookmark_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PostDeleteBookmark200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _post_delete_bookmark_serialize(
+        self,
+        path_query_id,
+        post_delete_bookmark_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if path_query_id is not None:
+            _path_params['pathQueryId'] = path_query_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if post_delete_bookmark_request is not None:
+            _body_params = post_delete_bookmark_request
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'ClientLanguage', 
+            'Accept', 
+            'Priority', 
+            'SecFetchDest', 
+            'Referer', 
+            'SecChUaPlatform', 
+            'SecFetchMode', 
+            'CsrfToken', 
+            'GuestToken', 
+            'BearerAuth', 
+            'SecChUa', 
+            'CookieCt0', 
+            'ActiveUser', 
+            'UserAgent', 
+            'AcceptLanguage', 
+            'SecFetchSite', 
+            'CookieAuthToken', 
+            'AuthType', 
+            'SecChUaMobile', 
+            'AcceptEncoding'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/graphql/{pathQueryId}/DeleteBookmark',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -888,7 +1502,7 @@ class PostApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[str, Union[str, bytes]] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -927,8 +1541,9 @@ class PostApi:
         _auth_settings: List[str] = [
             'ClientLanguage', 
             'Accept', 
+            'Priority', 
             'SecFetchDest', 
-            'Pragma', 
+            'Referer', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
@@ -942,7 +1557,6 @@ class PostApi:
             'SecFetchSite', 
             'CookieAuthToken', 
             'AuthType', 
-            'CacheControl', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -1193,7 +1807,7 @@ class PostApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[str, Union[str, bytes]] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1232,8 +1846,9 @@ class PostApi:
         _auth_settings: List[str] = [
             'ClientLanguage', 
             'Accept', 
+            'Priority', 
             'SecFetchDest', 
-            'Pragma', 
+            'Referer', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
@@ -1247,7 +1862,6 @@ class PostApi:
             'SecFetchSite', 
             'CookieAuthToken', 
             'AuthType', 
-            'CacheControl', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -1498,7 +2112,7 @@ class PostApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[str, Union[str, bytes]] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1537,8 +2151,9 @@ class PostApi:
         _auth_settings: List[str] = [
             'ClientLanguage', 
             'Accept', 
+            'Priority', 
             'SecFetchDest', 
-            'Pragma', 
+            'Referer', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
@@ -1552,7 +2167,6 @@ class PostApi:
             'SecFetchSite', 
             'CookieAuthToken', 
             'AuthType', 
-            'CacheControl', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -1803,7 +2417,7 @@ class PostApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[str, Union[str, bytes]] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1842,8 +2456,9 @@ class PostApi:
         _auth_settings: List[str] = [
             'ClientLanguage', 
             'Accept', 
+            'Priority', 
             'SecFetchDest', 
-            'Pragma', 
+            'Referer', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
@@ -1857,7 +2472,6 @@ class PostApi:
             'SecFetchSite', 
             'CookieAuthToken', 
             'AuthType', 
-            'CacheControl', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]

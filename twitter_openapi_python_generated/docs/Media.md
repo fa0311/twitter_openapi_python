@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**additional_media_info** | **Dict[str, object]** |  | [optional] 
+**additional_media_info** | [**AdditionalMediaInfo**](AdditionalMediaInfo.md) |  | [optional] 
+**allow_download_status** | [**AllowDownloadStatus**](AllowDownloadStatus.md) |  | [optional] 
 **display_url** | **str** |  | 
 **expanded_url** | **str** |  | 
 **ext_alt_text** | **str** |  | [optional] 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 **id_str** | **str** |  | 
 **indices** | **List[int]** |  | 
 **media_key** | **str** |  | 
+**media_results** | [**MediaResults**](MediaResults.md) |  | [optional] 
 **media_url_https** | **str** |  | 
 **original_info** | [**MediaOriginalInfo**](MediaOriginalInfo.md) |  | 
 **sensitive_media_warning** | [**SensitiveMediaWarning**](SensitiveMediaWarning.md) |  | [optional] 
@@ -22,7 +24,7 @@ Name | Type | Description | Notes
 **source_user_id_str** | **str** |  | [optional] 
 **type** | **str** |  | 
 **url** | **str** |  | 
-**video_info** | **Dict[str, object]** |  | [optional] 
+**video_info** | [**MediaVideoInfo**](MediaVideoInfo.md) |  | [optional] 
 
 ## Example
 
@@ -39,7 +41,7 @@ print(Media.to_json())
 # convert the object into a dict
 media_dict = media_instance.to_dict()
 # create an instance of Media from a dict
-media_form_dict = media.from_dict(media_dict)
+media_from_dict = Media.from_dict(media_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

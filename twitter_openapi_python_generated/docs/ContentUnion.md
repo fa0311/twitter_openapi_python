@@ -36,7 +36,7 @@ print(ContentUnion.to_json())
 # convert the object into a dict
 content_union_dict = content_union_instance.to_dict()
 # create an instance of ContentUnion from a dict
-content_union_form_dict = content_union.from_dict(content_union_dict)
+content_union_from_dict = ContentUnion.from_dict(content_union_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

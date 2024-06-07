@@ -22,7 +22,7 @@ print(FeedbackInfo.to_json())
 # convert the object into a dict
 feedback_info_dict = feedback_info_instance.to_dict()
 # create an instance of FeedbackInfo from a dict
-feedback_info_form_dict = feedback_info.from_dict(feedback_info_dict)
+feedback_info_from_dict = FeedbackInfo.from_dict(feedback_info_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

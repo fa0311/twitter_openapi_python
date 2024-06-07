@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class Url(BaseModel):
     Url
     """ # noqa: E501
     display_url: StrictStr
-    expanded_url: StrictStr
+    expanded_url: Optional[StrictStr] = None
     indices: List[StrictInt]
     url: StrictStr
     __properties: ClassVar[List[str]] = ["display_url", "expanded_url", "indices", "url"]

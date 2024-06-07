@@ -19,9 +19,11 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.article_cover_media import ArticleCoverMedia
+from twitter_openapi_python_generated.models.article_lifecycle_state import ArticleLifecycleState
+from twitter_openapi_python_generated.models.article_metadata import ArticleMetadata
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,10 +33,12 @@ class ArticleResult(BaseModel):
     """ # noqa: E501
     cover_media: ArticleCoverMedia
     id: StrictStr
+    lifecycle_state: Optional[ArticleLifecycleState] = None
+    metadata: ArticleMetadata
     preview_text: StrictStr
     rest_id: Annotated[str, Field(strict=True)]
     title: StrictStr
-    __properties: ClassVar[List[str]] = ["cover_media", "id", "preview_text", "rest_id", "title"]
+    __properties: ClassVar[List[str]] = ["cover_media", "id", "lifecycle_state", "metadata", "preview_text", "rest_id", "title"]
 
     @field_validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
@@ -85,6 +89,12 @@ class ArticleResult(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of cover_media
         if self.cover_media:
             _dict['cover_media'] = self.cover_media.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of lifecycle_state
+        if self.lifecycle_state:
+            _dict['lifecycle_state'] = self.lifecycle_state.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of metadata
+        if self.metadata:
+            _dict['metadata'] = self.metadata.to_dict()
         return _dict
 
     @classmethod
@@ -99,6 +109,8 @@ class ArticleResult(BaseModel):
         _obj = cls.model_validate({
             "cover_media": ArticleCoverMedia.from_dict(obj["cover_media"]) if obj.get("cover_media") is not None else None,
             "id": obj.get("id"),
+            "lifecycle_state": ArticleLifecycleState.from_dict(obj["lifecycle_state"]) if obj.get("lifecycle_state") is not None else None,
+            "metadata": ArticleMetadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None,
             "preview_text": obj.get("preview_text"),
             "rest_id": obj.get("rest_id"),
             "title": obj.get("title")

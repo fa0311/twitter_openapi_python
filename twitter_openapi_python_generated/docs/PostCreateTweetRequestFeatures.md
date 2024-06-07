@@ -41,7 +41,7 @@ print(PostCreateTweetRequestFeatures.to_json())
 # convert the object into a dict
 post_create_tweet_request_features_dict = post_create_tweet_request_features_instance.to_dict()
 # create an instance of PostCreateTweetRequestFeatures from a dict
-post_create_tweet_request_features_form_dict = post_create_tweet_request_features.from_dict(post_create_tweet_request_features_dict)
+post_create_tweet_request_features_from_dict = PostCreateTweetRequestFeatures.from_dict(post_create_tweet_request_features_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

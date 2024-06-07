@@ -27,7 +27,7 @@ print(SocialContextUnion.to_json())
 # convert the object into a dict
 social_context_union_dict = social_context_union_instance.to_dict()
 # create an instance of SocialContextUnion from a dict
-social_context_union_form_dict = social_context_union.from_dict(social_context_union_dict)
+social_context_union_from_dict = SocialContextUnion.from_dict(social_context_union_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -25,7 +25,7 @@ print(MediaSizes.to_json())
 # convert the object into a dict
 media_sizes_dict = media_sizes_instance.to_dict()
 # create an instance of MediaSizes from a dict
-media_sizes_form_dict = media_sizes.from_dict(media_sizes_dict)
+media_sizes_from_dict = MediaSizes.from_dict(media_sizes_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

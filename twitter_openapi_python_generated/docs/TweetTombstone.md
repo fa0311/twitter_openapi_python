@@ -22,7 +22,7 @@ print(TweetTombstone.to_json())
 # convert the object into a dict
 tweet_tombstone_dict = tweet_tombstone_instance.to_dict()
 # create an instance of TweetTombstone from a dict
-tweet_tombstone_form_dict = tweet_tombstone.from_dict(tweet_tombstone_dict)
+tweet_tombstone_from_dict = TweetTombstone.from_dict(tweet_tombstone_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

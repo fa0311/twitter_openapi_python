@@ -27,7 +27,7 @@ print(AdditionalMediaInfo.to_json())
 # convert the object into a dict
 additional_media_info_dict = additional_media_info_instance.to_dict()
 # create an instance of AdditionalMediaInfo from a dict
-additional_media_info_form_dict = additional_media_info.from_dict(additional_media_info_dict)
+additional_media_info_from_dict = AdditionalMediaInfo.from_dict(additional_media_info_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

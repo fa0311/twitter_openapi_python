@@ -57,6 +57,10 @@ class TestArticle(unittest.TestCase):
                                 original_img_width = 56, ), 
                             media_key = '', ), 
                         id = '', 
+                        lifecycle_state = twitter_openapi_python_generated.models.article_lifecycle_state.ArticleLifecycleState(
+                            modified_at_secs = 56, ), 
+                        metadata = twitter_openapi_python_generated.models.article_metadata.ArticleMetadata(
+                            first_published_at_secs = 56, ), 
                         preview_text = '', 
                         rest_id = '4', 
                         title = '', ), )
@@ -84,6 +88,10 @@ class TestArticle(unittest.TestCase):
                                 original_img_width = 56, ), 
                             media_key = '', ), 
                         id = '', 
+                        lifecycle_state = twitter_openapi_python_generated.models.article_lifecycle_state.ArticleLifecycleState(
+                            modified_at_secs = 56, ), 
+                        metadata = twitter_openapi_python_generated.models.article_metadata.ArticleMetadata(
+                            first_published_at_secs = 56, ), 
                         preview_text = '', 
                         rest_id = '4', 
                         title = '', ), ),

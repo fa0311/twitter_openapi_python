@@ -22,7 +22,7 @@ print(UserResultCore.to_json())
 # convert the object into a dict
 user_result_core_dict = user_result_core_instance.to_dict()
 # create an instance of UserResultCore from a dict
-user_result_core_form_dict = user_result_core.from_dict(user_result_core_dict)
+user_result_core_from_dict = UserResultCore.from_dict(user_result_core_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

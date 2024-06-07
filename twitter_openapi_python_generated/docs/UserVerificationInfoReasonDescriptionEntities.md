@@ -24,7 +24,7 @@ print(UserVerificationInfoReasonDescriptionEntities.to_json())
 # convert the object into a dict
 user_verification_info_reason_description_entities_dict = user_verification_info_reason_description_entities_instance.to_dict()
 # create an instance of UserVerificationInfoReasonDescriptionEntities from a dict
-user_verification_info_reason_description_entities_form_dict = user_verification_info_reason_description_entities.from_dict(user_verification_info_reason_description_entities_dict)
+user_verification_info_reason_description_entities_from_dict = UserVerificationInfoReasonDescriptionEntities.from_dict(user_verification_info_reason_description_entities_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

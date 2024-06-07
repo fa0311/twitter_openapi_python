@@ -28,7 +28,7 @@ print(TimelineHalfCover.to_json())
 # convert the object into a dict
 timeline_half_cover_dict = timeline_half_cover_instance.to_dict()
 # create an instance of TimelineHalfCover from a dict
-timeline_half_cover_form_dict = timeline_half_cover.from_dict(timeline_half_cover_dict)
+timeline_half_cover_from_dict = TimelineHalfCover.from_dict(timeline_half_cover_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

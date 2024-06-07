@@ -22,7 +22,7 @@ print(Community.to_json())
 # convert the object into a dict
 community_dict = community_instance.to_dict()
 # create an instance of Community from a dict
-community_form_dict = community.from_dict(community_dict)
+community_from_dict = Community.from_dict(community_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -22,7 +22,7 @@ print(BirdwatchPivotNote.to_json())
 # convert the object into a dict
 birdwatch_pivot_note_dict = birdwatch_pivot_note_instance.to_dict()
 # create an instance of BirdwatchPivotNote from a dict
-birdwatch_pivot_note_form_dict = birdwatch_pivot_note.from_dict(birdwatch_pivot_note_dict)
+birdwatch_pivot_note_from_dict = BirdwatchPivotNote.from_dict(birdwatch_pivot_note_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

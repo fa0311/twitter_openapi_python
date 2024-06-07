@@ -23,7 +23,7 @@ print(TweetView.to_json())
 # convert the object into a dict
 tweet_view_dict = tweet_view_instance.to_dict()
 # create an instance of TweetView from a dict
-tweet_view_form_dict = tweet_view.from_dict(tweet_view_dict)
+tweet_view_from_dict = TweetView.from_dict(tweet_view_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

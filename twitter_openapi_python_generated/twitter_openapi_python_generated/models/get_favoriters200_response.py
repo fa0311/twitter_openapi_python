@@ -21,7 +21,7 @@ from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.errors import Errors
 from twitter_openapi_python_generated.models.tweet_favoriters_response import TweetFavoritersResponse
 from pydantic import StrictStr, Field
-from typing import Union, List, Optional, Dict
+from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 GETFAVORITERS200RESPONSE_ONE_OF_SCHEMAS = ["Errors", "TweetFavoritersResponse"]
@@ -35,7 +35,7 @@ class GetFavoriters200Response(BaseModel):
     # data type: Errors
     oneof_schema_2_validator: Optional[Errors] = None
     actual_instance: Optional[Union[Errors, TweetFavoritersResponse]] = None
-    one_of_schemas: List[str] = Field(default=Literal["Errors", "TweetFavoritersResponse"])
+    one_of_schemas: Set[str] = { "Errors", "TweetFavoritersResponse" }
 
     model_config = ConfigDict(
         validate_assignment=True,

@@ -22,7 +22,7 @@ print(Highlight.to_json())
 # convert the object into a dict
 highlight_dict = highlight_instance.to_dict()
 # create an instance of Highlight from a dict
-highlight_form_dict = highlight.from_dict(highlight_dict)
+highlight_from_dict = Highlight.from_dict(highlight_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

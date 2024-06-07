@@ -43,7 +43,7 @@ print(Tweet.to_json())
 # convert the object into a dict
 tweet_dict = tweet_instance.to_dict()
 # create an instance of Tweet from a dict
-tweet_form_dict = tweet.from_dict(tweet_dict)
+tweet_from_dict = Tweet.from_dict(tweet_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

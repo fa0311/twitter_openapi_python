@@ -22,7 +22,7 @@ print(SelfThread.to_json())
 # convert the object into a dict
 self_thread_dict = self_thread_instance.to_dict()
 # create an instance of SelfThread from a dict
-self_thread_form_dict = self_thread.from_dict(self_thread_dict)
+self_thread_from_dict = SelfThread.from_dict(self_thread_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

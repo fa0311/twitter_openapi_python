@@ -23,7 +23,7 @@ print(UrtEndpointOptions.to_json())
 # convert the object into a dict
 urt_endpoint_options_dict = urt_endpoint_options_instance.to_dict()
 # create an instance of UrtEndpointOptions from a dict
-urt_endpoint_options_form_dict = urt_endpoint_options.from_dict(urt_endpoint_options_dict)
+urt_endpoint_options_from_dict = UrtEndpointOptions.from_dict(urt_endpoint_options_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

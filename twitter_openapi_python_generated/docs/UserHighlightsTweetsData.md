@@ -22,7 +22,7 @@ print(UserHighlightsTweetsData.to_json())
 # convert the object into a dict
 user_highlights_tweets_data_dict = user_highlights_tweets_data_instance.to_dict()
 # create an instance of UserHighlightsTweetsData from a dict
-user_highlights_tweets_data_form_dict = user_highlights_tweets_data.from_dict(user_highlights_tweets_data_dict)
+user_highlights_tweets_data_from_dict = UserHighlightsTweetsData.from_dict(user_highlights_tweets_data_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

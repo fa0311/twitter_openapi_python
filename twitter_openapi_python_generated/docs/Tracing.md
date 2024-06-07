@@ -22,7 +22,7 @@ print(Tracing.to_json())
 # convert the object into a dict
 tracing_dict = tracing_instance.to_dict()
 # create an instance of Tracing from a dict
-tracing_form_dict = tracing.from_dict(tracing_dict)
+tracing_from_dict = Tracing.from_dict(tracing_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

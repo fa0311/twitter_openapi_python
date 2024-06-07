@@ -22,7 +22,7 @@ print(UnifiedCard.to_json())
 # convert the object into a dict
 unified_card_dict = unified_card_instance.to_dict()
 # create an instance of UnifiedCard from a dict
-unified_card_form_dict = unified_card.from_dict(unified_card_dict)
+unified_card_from_dict = UnifiedCard.from_dict(unified_card_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

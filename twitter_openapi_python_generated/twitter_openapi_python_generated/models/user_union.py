@@ -21,7 +21,7 @@ from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.user import User
 from twitter_openapi_python_generated.models.user_unavailable import UserUnavailable
 from pydantic import StrictStr, Field
-from typing import Union, List, Optional, Dict
+from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 USERUNION_ONE_OF_SCHEMAS = ["User", "UserUnavailable"]
@@ -35,7 +35,7 @@ class UserUnion(BaseModel):
     # data type: UserUnavailable
     oneof_schema_2_validator: Optional[UserUnavailable] = None
     actual_instance: Optional[Union[User, UserUnavailable]] = None
-    one_of_schemas: List[str] = Field(default=Literal["User", "UserUnavailable"])
+    one_of_schemas: Set[str] = { "User", "UserUnavailable" }
 
     model_config = ConfigDict(
         validate_assignment=True,

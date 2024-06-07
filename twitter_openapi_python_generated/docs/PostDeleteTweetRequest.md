@@ -23,7 +23,7 @@ print(PostDeleteTweetRequest.to_json())
 # convert the object into a dict
 post_delete_tweet_request_dict = post_delete_tweet_request_instance.to_dict()
 # create an instance of PostDeleteTweetRequest from a dict
-post_delete_tweet_request_form_dict = post_delete_tweet_request.from_dict(post_delete_tweet_request_dict)
+post_delete_tweet_request_from_dict = PostDeleteTweetRequest.from_dict(post_delete_tweet_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

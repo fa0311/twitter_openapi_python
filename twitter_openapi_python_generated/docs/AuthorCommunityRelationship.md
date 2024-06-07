@@ -24,7 +24,7 @@ print(AuthorCommunityRelationship.to_json())
 # convert the object into a dict
 author_community_relationship_dict = author_community_relationship_instance.to_dict()
 # create an instance of AuthorCommunityRelationship from a dict
-author_community_relationship_form_dict = author_community_relationship.from_dict(author_community_relationship_dict)
+author_community_relationship_from_dict = AuthorCommunityRelationship.from_dict(author_community_relationship_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -51,6 +51,8 @@ class TestExtendedEntities(unittest.TestCase):
                                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                                     result = null, ), ), 
                             title = '', ), 
+                        allow_download_status = twitter_openapi_python_generated.models.allow_download_status.AllowDownloadStatus(
+                            allow_download = True, ), 
                         display_url = '', 
                         expanded_url = '', 
                         ext_alt_text = '', 
@@ -65,6 +67,9 @@ class TestExtendedEntities(unittest.TestCase):
                         media_stats = twitter_openapi_python_generated.models.media_stats.MediaStats(
                             view_count = 56, ), 
                         media_key = '', 
+                        media_results = twitter_openapi_python_generated.models.media_results.MediaResults(
+                            result = twitter_openapi_python_generated.models.media_result.MediaResult(
+                                media_key = '', ), ), 
                         media_url_https = '', 
                         original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                             focus_rects = [
@@ -125,6 +130,8 @@ class TestExtendedEntities(unittest.TestCase):
                                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                                     result = null, ), ), 
                             title = '', ), 
+                        allow_download_status = twitter_openapi_python_generated.models.allow_download_status.AllowDownloadStatus(
+                            allow_download = True, ), 
                         display_url = '', 
                         expanded_url = '', 
                         ext_alt_text = '', 
@@ -139,6 +146,9 @@ class TestExtendedEntities(unittest.TestCase):
                         media_stats = twitter_openapi_python_generated.models.media_stats.MediaStats(
                             view_count = 56, ), 
                         media_key = '', 
+                        media_results = twitter_openapi_python_generated.models.media_results.MediaResults(
+                            result = twitter_openapi_python_generated.models.media_result.MediaResult(
+                                media_key = '', ), ), 
                         media_url_https = '', 
                         original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
                             focus_rects = [

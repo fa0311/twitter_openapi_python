@@ -20,7 +20,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, f
 from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.other_response import OtherResponse
 from pydantic import StrictStr, Field
-from typing import Union, List, Optional, Dict
+from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 OTHER200RESPONSE_ONE_OF_SCHEMAS = ["OtherResponse"]
@@ -32,7 +32,7 @@ class Other200Response(BaseModel):
     # data type: OtherResponse
     oneof_schema_1_validator: Optional[OtherResponse] = None
     actual_instance: Optional[Union[OtherResponse]] = None
-    one_of_schemas: List[str] = Field(default=Literal["OtherResponse"])
+    one_of_schemas: Set[str] = { "OtherResponse" }
 
     model_config = ConfigDict(
         validate_assignment=True,

@@ -21,7 +21,7 @@ from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.timeline_general_context import TimelineGeneralContext
 from twitter_openapi_python_generated.models.timeline_topic_context import TimelineTopicContext
 from pydantic import StrictStr, Field
-from typing import Union, List, Optional, Dict
+from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 SOCIALCONTEXTUNION_ONE_OF_SCHEMAS = ["TimelineGeneralContext", "TimelineTopicContext"]
@@ -35,7 +35,7 @@ class SocialContextUnion(BaseModel):
     # data type: TimelineTopicContext
     oneof_schema_2_validator: Optional[TimelineTopicContext] = None
     actual_instance: Optional[Union[TimelineGeneralContext, TimelineTopicContext]] = None
-    one_of_schemas: List[str] = Field(default=Literal["TimelineGeneralContext", "TimelineTopicContext"])
+    one_of_schemas: Set[str] = { "TimelineGeneralContext", "TimelineTopicContext" }
 
     model_config = ConfigDict(
         validate_assignment=True,

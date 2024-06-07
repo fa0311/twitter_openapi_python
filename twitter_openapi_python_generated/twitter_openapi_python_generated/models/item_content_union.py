@@ -25,7 +25,7 @@ from twitter_openapi_python_generated.models.timeline_timeline_cursor import Tim
 from twitter_openapi_python_generated.models.timeline_tweet import TimelineTweet
 from twitter_openapi_python_generated.models.timeline_user import TimelineUser
 from pydantic import StrictStr, Field
-from typing import Union, List, Optional, Dict
+from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 ITEMCONTENTUNION_ONE_OF_SCHEMAS = ["TimelineCommunity", "TimelineMessagePrompt", "TimelinePrompt", "TimelineTimelineCursor", "TimelineTweet", "TimelineUser"]
@@ -47,7 +47,7 @@ class ItemContentUnion(BaseModel):
     # data type: TimelineCommunity
     oneof_schema_6_validator: Optional[TimelineCommunity] = None
     actual_instance: Optional[Union[TimelineCommunity, TimelineMessagePrompt, TimelinePrompt, TimelineTimelineCursor, TimelineTweet, TimelineUser]] = None
-    one_of_schemas: List[str] = Field(default=Literal["TimelineCommunity", "TimelineMessagePrompt", "TimelinePrompt", "TimelineTimelineCursor", "TimelineTweet", "TimelineUser"])
+    one_of_schemas: Set[str] = { "TimelineCommunity", "TimelineMessagePrompt", "TimelinePrompt", "TimelineTimelineCursor", "TimelineTweet", "TimelineUser" }
 
     model_config = ConfigDict(
         validate_assignment=True,

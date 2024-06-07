@@ -23,7 +23,7 @@ print(TimelineShowAlertRichText.to_json())
 # convert the object into a dict
 timeline_show_alert_rich_text_dict = timeline_show_alert_rich_text_instance.to_dict()
 # create an instance of TimelineShowAlertRichText from a dict
-timeline_show_alert_rich_text_form_dict = timeline_show_alert_rich_text.from_dict(timeline_show_alert_rich_text_dict)
+timeline_show_alert_rich_text_from_dict = TimelineShowAlertRichText.from_dict(timeline_show_alert_rich_text_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

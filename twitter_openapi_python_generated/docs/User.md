@@ -16,12 +16,14 @@ Name | Type | Description | Notes
 **is_blue_verified** | **bool** |  | [default to False]
 **is_profile_translatable** | **bool** |  | [optional] 
 **legacy** | [**UserLegacy**](UserLegacy.md) |  | 
+**legacy_extended_profile** | [**UserLegacyExtendedProfile**](UserLegacyExtendedProfile.md) |  | [optional] 
 **professional** | [**UserProfessional**](UserProfessional.md) |  | [optional] 
 **profile_image_shape** | **str** |  | 
 **rest_id** | **str** |  | 
 **super_follow_eligible** | **bool** |  | [default to False]
 **super_followed_by** | **bool** |  | [default to False]
 **super_following** | **bool** |  | [default to False]
+**tipjar_settings** | [**UserTipJarSettings**](UserTipJarSettings.md) |  | [optional] 
 **user_seed_tweet_count** | **int** |  | [optional] 
 **verification_info** | [**UserVerificationInfo**](UserVerificationInfo.md) |  | [optional] 
 
@@ -40,7 +42,7 @@ print(User.to_json())
 # convert the object into a dict
 user_dict = user_instance.to_dict()
 # create an instance of User from a dict
-user_form_dict = user.from_dict(user_dict)
+user_from_dict = User.from_dict(user_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
