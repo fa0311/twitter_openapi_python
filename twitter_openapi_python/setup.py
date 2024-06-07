@@ -3,10 +3,10 @@
 from setuptools import find_packages, setup
 
 NAME = "twitter_openapi_python"
-VERSION = "0.0.21"
+VERSION = "0.0.22"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
-    "twitter_openapi_python_generated == 0.0.15",
+    "twitter_openapi_python_generated == 0.0.16",
     "pydantic >= 2.6",
 ]
 
