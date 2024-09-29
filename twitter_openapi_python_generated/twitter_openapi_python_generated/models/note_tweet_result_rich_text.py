@@ -73,9 +73,9 @@ class NoteTweetResultRichText(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in richtext_tags (list)
         _items = []
         if self.richtext_tags:
-            for _item in self.richtext_tags:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_richtext_tags in self.richtext_tags:
+                if _item_richtext_tags:
+                    _items.append(_item_richtext_tags.to_dict())
             _dict['richtext_tags'] = _items
         return _dict
 

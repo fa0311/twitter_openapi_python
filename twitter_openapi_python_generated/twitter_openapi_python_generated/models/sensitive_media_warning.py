@@ -83,9 +83,9 @@ class SensitiveMediaWarning(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "adult_content": obj.get("adult_content") if obj.get("adult_content") is not None else False,
-            "graphic_violence": obj.get("graphic_violence") if obj.get("graphic_violence") is not None else False,
-            "other": obj.get("other") if obj.get("other") is not None else False
+            "adult_content": obj.get("adult_content"),
+            "graphic_violence": obj.get("graphic_violence"),
+            "other": obj.get("other")
         })
         return _obj
 

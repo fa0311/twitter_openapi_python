@@ -73,9 +73,9 @@ class NoteTweetResultMedia(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in inline_media (list)
         _items = []
         if self.inline_media:
-            for _item in self.inline_media:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_inline_media in self.inline_media:
+                if _item_inline_media:
+                    _items.append(_item_inline_media.to_dict())
             _dict['inline_media'] = _items
         return _dict
 

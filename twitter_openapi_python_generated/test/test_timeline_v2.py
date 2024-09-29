@@ -28,7 +28,7 @@ class TestTimelineV2(unittest.TestCase):
 
     def make_instance(self, include_optional) -> TimelineV2:
         """Test TimelineV2
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TimelineV2`
@@ -45,12 +45,6 @@ class TestTimelineV2(unittest.TestCase):
             )
         else:
             return TimelineV2(
-                timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                    instructions = [
-                        null
-                        ], 
-                    metadata = { }, 
-                    response_objects = { }, ),
         )
         """
 

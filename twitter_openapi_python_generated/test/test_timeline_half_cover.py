@@ -28,7 +28,7 @@ class TestTimelineHalfCover(unittest.TestCase):
 
     def make_instance(self, include_optional) -> TimelineHalfCover:
         """Test TimelineHalfCover
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TimelineHalfCover`
@@ -52,7 +52,8 @@ class TestTimelineHalfCover(unittest.TestCase):
                     client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
                         action = 'primary_cta', ), 
                     cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
-                        type = 'TimelineCoverBehaviorDismiss', ), ),
+                        type = 'TimelineCoverBehaviorDismiss', 
+                        url = null, ), ),
                 primary_text = twitter_openapi_python_generated.models.text.Text(
                     entities = [
                         twitter_openapi_python_generated.models.text_entity.TextEntity(
@@ -95,7 +96,8 @@ class TestTimelineHalfCover(unittest.TestCase):
                     client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
                         action = 'primary_cta', ), 
                     cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
-                        type = 'TimelineCoverBehaviorDismiss', ), ),
+                        type = 'TimelineCoverBehaviorDismiss', 
+                        url = null, ), ),
                 primary_text = twitter_openapi_python_generated.models.text.Text(
                     entities = [
                         twitter_openapi_python_generated.models.text_entity.TextEntity(

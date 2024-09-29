@@ -18,18 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
-from twitter_openapi_python_generated.models.errors import Errors
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ErrorResponse(BaseModel):
+class TweetUnavailable(BaseModel):
     """
-    ErrorResponse
+    TweetUnavailable
     """ # noqa: E501
-    errors: Errors
-    __properties: ClassVar[List[str]] = ["errors"]
+    typename: Optional[TypeName] = Field(default=None, alias="__typename")
+    reason: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["__typename", "reason"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +50,7 @@ class ErrorResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ErrorResponse from a JSON string"""
+        """Create an instance of TweetUnavailable from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,14 +71,11 @@ class ErrorResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of errors
-        if self.errors:
-            _dict['errors'] = self.errors.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ErrorResponse from a dict"""
+        """Create an instance of TweetUnavailable from a dict"""
         if obj is None:
             return None
 
@@ -85,7 +83,8 @@ class ErrorResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "errors": Errors.from_dict(obj["errors"]) if obj.get("errors") is not None else None
+            "__typename": obj.get("__typename"),
+            "reason": obj.get("reason")
         })
         return _obj
 

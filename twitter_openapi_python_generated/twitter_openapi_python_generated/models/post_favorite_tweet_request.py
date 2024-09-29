@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from twitter_openapi_python_generated.models.post_create_retweet_request_variables import PostCreateRetweetRequestVariables
+from twitter_openapi_python_generated.models.post_create_bookmark_request_variables import PostCreateBookmarkRequestVariables
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class PostFavoriteTweetRequest(BaseModel):
     PostFavoriteTweetRequest
     """ # noqa: E501
     query_id: StrictStr = Field(alias="queryId")
-    variables: PostCreateRetweetRequestVariables
+    variables: PostCreateBookmarkRequestVariables
     __properties: ClassVar[List[str]] = ["queryId", "variables"]
 
     model_config = ConfigDict(
@@ -87,7 +87,7 @@ class PostFavoriteTweetRequest(BaseModel):
 
         _obj = cls.model_validate({
             "queryId": obj.get("queryId") if obj.get("queryId") is not None else 'lI07N6Otwv1PhnEgXILM7A',
-            "variables": PostCreateRetweetRequestVariables.from_dict(obj["variables"]) if obj.get("variables") is not None else None
+            "variables": PostCreateBookmarkRequestVariables.from_dict(obj["variables"]) if obj.get("variables") is not None else None
         })
         return _obj
 

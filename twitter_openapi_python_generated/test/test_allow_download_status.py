@@ -28,7 +28,7 @@ class TestAllowDownloadStatus(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AllowDownloadStatus:
         """Test AllowDownloadStatus
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AllowDownloadStatus`
@@ -40,7 +40,6 @@ class TestAllowDownloadStatus(unittest.TestCase):
             )
         else:
             return AllowDownloadStatus(
-                allow_download = True,
         )
         """
 

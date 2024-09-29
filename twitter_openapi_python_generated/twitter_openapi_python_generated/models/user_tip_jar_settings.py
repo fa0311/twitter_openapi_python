@@ -27,6 +27,7 @@ class UserTipJarSettings(BaseModel):
     """
     UserTipJarSettings
     """ # noqa: E501
+    bandcamp_handle: Optional[StrictStr] = None
     bitcoin_handle: Optional[StrictStr] = None
     cash_app_handle: Optional[StrictStr] = None
     ethereum_handle: Optional[StrictStr] = None
@@ -34,7 +35,7 @@ class UserTipJarSettings(BaseModel):
     is_enabled: Optional[StrictBool] = None
     patreon_handle: Optional[StrictStr] = None
     venmo_handle: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["bitcoin_handle", "cash_app_handle", "ethereum_handle", "gofundme_handle", "is_enabled", "patreon_handle", "venmo_handle"]
+    __properties: ClassVar[List[str]] = ["bandcamp_handle", "bitcoin_handle", "cash_app_handle", "ethereum_handle", "gofundme_handle", "is_enabled", "patreon_handle", "venmo_handle"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +88,7 @@ class UserTipJarSettings(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "bandcamp_handle": obj.get("bandcamp_handle"),
             "bitcoin_handle": obj.get("bitcoin_handle"),
             "cash_app_handle": obj.get("cash_app_handle"),
             "ethereum_handle": obj.get("ethereum_handle"),

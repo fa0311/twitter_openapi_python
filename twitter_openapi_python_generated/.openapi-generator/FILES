@@ -74,11 +74,9 @@ docs/DisplayType.md
 docs/Entities.md
 docs/Error.md
 docs/ErrorExtensions.md
-docs/ErrorResponse.md
 docs/Errors.md
 docs/ExtMediaAvailability.md
 docs/ExtendedEntities.md
-docs/Extensions.md
 docs/FavoriteTweet.md
 docs/FavoriteTweetResponseData.md
 docs/FeedbackInfo.md
@@ -195,6 +193,7 @@ docs/TimelineAddToModule.md
 docs/TimelineClearCache.md
 docs/TimelineCommunity.md
 docs/TimelineCoverBehavior.md
+docs/TimelineCoverBehaviorUrl.md
 docs/TimelineGeneralContext.md
 docs/TimelineHalfCover.md
 docs/TimelineMessagePrompt.md
@@ -247,6 +246,7 @@ docs/TweetResultByRestIdResponse.md
 docs/TweetRetweetersResponse.md
 docs/TweetRetweetersResponseData.md
 docs/TweetTombstone.md
+docs/TweetUnavailable.md
 docs/TweetUnion.md
 docs/TweetView.md
 docs/TweetWithVisibilityResults.md
@@ -376,11 +376,9 @@ test/test_display_type.py
 test/test_entities.py
 test/test_error.py
 test/test_error_extensions.py
-test/test_error_response.py
 test/test_errors.py
 test/test_ext_media_availability.py
 test/test_extended_entities.py
-test/test_extensions.py
 test/test_favorite_tweet.py
 test/test_favorite_tweet_response_data.py
 test/test_feedback_info.py
@@ -497,6 +495,7 @@ test/test_timeline_add_to_module.py
 test/test_timeline_clear_cache.py
 test/test_timeline_community.py
 test/test_timeline_cover_behavior.py
+test/test_timeline_cover_behavior_url.py
 test/test_timeline_general_context.py
 test/test_timeline_half_cover.py
 test/test_timeline_message_prompt.py
@@ -549,6 +548,7 @@ test/test_tweet_result_by_rest_id_response.py
 test/test_tweet_retweeters_response.py
 test/test_tweet_retweeters_response_data.py
 test/test_tweet_tombstone.py
+test/test_tweet_unavailable.py
 test/test_tweet_union.py
 test/test_tweet_view.py
 test/test_tweet_with_visibility_results.py
@@ -688,11 +688,9 @@ twitter_openapi_python_generated/models/display_type.py
 twitter_openapi_python_generated/models/entities.py
 twitter_openapi_python_generated/models/error.py
 twitter_openapi_python_generated/models/error_extensions.py
-twitter_openapi_python_generated/models/error_response.py
 twitter_openapi_python_generated/models/errors.py
 twitter_openapi_python_generated/models/ext_media_availability.py
 twitter_openapi_python_generated/models/extended_entities.py
-twitter_openapi_python_generated/models/extensions.py
 twitter_openapi_python_generated/models/favorite_tweet.py
 twitter_openapi_python_generated/models/favorite_tweet_response_data.py
 twitter_openapi_python_generated/models/feedback_info.py
@@ -807,6 +805,7 @@ twitter_openapi_python_generated/models/timeline_add_to_module.py
 twitter_openapi_python_generated/models/timeline_clear_cache.py
 twitter_openapi_python_generated/models/timeline_community.py
 twitter_openapi_python_generated/models/timeline_cover_behavior.py
+twitter_openapi_python_generated/models/timeline_cover_behavior_url.py
 twitter_openapi_python_generated/models/timeline_general_context.py
 twitter_openapi_python_generated/models/timeline_half_cover.py
 twitter_openapi_python_generated/models/timeline_message_prompt.py
@@ -858,6 +857,7 @@ twitter_openapi_python_generated/models/tweet_result_by_rest_id_response.py
 twitter_openapi_python_generated/models/tweet_retweeters_response.py
 twitter_openapi_python_generated/models/tweet_retweeters_response_data.py
 twitter_openapi_python_generated/models/tweet_tombstone.py
+twitter_openapi_python_generated/models/tweet_unavailable.py
 twitter_openapi_python_generated/models/tweet_union.py
 twitter_openapi_python_generated/models/tweet_view.py
 twitter_openapi_python_generated/models/tweet_with_visibility_results.py

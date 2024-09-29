@@ -90,9 +90,9 @@ class UserProfessional(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in category (list)
         _items = []
         if self.category:
-            for _item in self.category:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_category in self.category:
+                if _item_category:
+                    _items.append(_item_category.to_dict())
             _dict['category'] = _items
         return _dict
 

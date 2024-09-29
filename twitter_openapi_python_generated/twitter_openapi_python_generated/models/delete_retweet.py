@@ -73,9 +73,9 @@ class DeleteRetweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in result (list)
         _items = []
         if self.result:
-            for _item in self.result:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_result in self.result:
+                if _item_result:
+                    _items.append(_item_result.to_dict())
             _dict['result'] = _items
         return _dict
 

@@ -40,23 +40,25 @@ class User(BaseModel):
     business_account: Optional[Dict[str, Any]] = None
     creator_subscriptions_count: Optional[StrictInt] = None
     has_graduated_access: Optional[StrictBool] = None
-    has_nft_avatar: Optional[StrictBool] = False
+    has_hidden_likes_on_profile: Optional[StrictBool] = None
+    has_nft_avatar: Optional[StrictBool] = None
     highlights_info: Optional[UserHighlightsInfo] = None
     id: Annotated[str, Field(strict=True)]
     is_blue_verified: StrictBool
     is_profile_translatable: Optional[StrictBool] = None
     legacy: UserLegacy
     legacy_extended_profile: Optional[UserLegacyExtendedProfile] = None
+    premium_gifting_eligible: Optional[StrictBool] = None
     professional: Optional[UserProfessional] = None
     profile_image_shape: StrictStr
     rest_id: Annotated[str, Field(strict=True)]
-    super_follow_eligible: StrictBool
-    super_followed_by: StrictBool
-    super_following: StrictBool
+    super_follow_eligible: Optional[StrictBool] = None
+    super_followed_by: Optional[StrictBool] = None
+    super_following: Optional[StrictBool] = None
     tipjar_settings: Optional[UserTipJarSettings] = None
     user_seed_tweet_count: Optional[StrictInt] = None
     verification_info: Optional[UserVerificationInfo] = None
-    __properties: ClassVar[List[str]] = ["__typename", "affiliates_highlighted_label", "business_account", "creator_subscriptions_count", "has_graduated_access", "has_nft_avatar", "highlights_info", "id", "is_blue_verified", "is_profile_translatable", "legacy", "legacy_extended_profile", "professional", "profile_image_shape", "rest_id", "super_follow_eligible", "super_followed_by", "super_following", "tipjar_settings", "user_seed_tweet_count", "verification_info"]
+    __properties: ClassVar[List[str]] = ["__typename", "affiliates_highlighted_label", "business_account", "creator_subscriptions_count", "has_graduated_access", "has_hidden_likes_on_profile", "has_nft_avatar", "highlights_info", "id", "is_blue_verified", "is_profile_translatable", "legacy", "legacy_extended_profile", "premium_gifting_eligible", "professional", "profile_image_shape", "rest_id", "super_follow_eligible", "super_followed_by", "super_following", "tipjar_settings", "user_seed_tweet_count", "verification_info"]
 
     @field_validator('id')
     def id_validate_regular_expression(cls, value):
@@ -153,19 +155,21 @@ class User(BaseModel):
             "business_account": obj.get("business_account"),
             "creator_subscriptions_count": obj.get("creator_subscriptions_count"),
             "has_graduated_access": obj.get("has_graduated_access"),
-            "has_nft_avatar": obj.get("has_nft_avatar") if obj.get("has_nft_avatar") is not None else False,
+            "has_hidden_likes_on_profile": obj.get("has_hidden_likes_on_profile"),
+            "has_nft_avatar": obj.get("has_nft_avatar"),
             "highlights_info": UserHighlightsInfo.from_dict(obj["highlights_info"]) if obj.get("highlights_info") is not None else None,
             "id": obj.get("id"),
-            "is_blue_verified": obj.get("is_blue_verified") if obj.get("is_blue_verified") is not None else False,
+            "is_blue_verified": obj.get("is_blue_verified"),
             "is_profile_translatable": obj.get("is_profile_translatable"),
             "legacy": UserLegacy.from_dict(obj["legacy"]) if obj.get("legacy") is not None else None,
             "legacy_extended_profile": UserLegacyExtendedProfile.from_dict(obj["legacy_extended_profile"]) if obj.get("legacy_extended_profile") is not None else None,
+            "premium_gifting_eligible": obj.get("premium_gifting_eligible"),
             "professional": UserProfessional.from_dict(obj["professional"]) if obj.get("professional") is not None else None,
             "profile_image_shape": obj.get("profile_image_shape"),
             "rest_id": obj.get("rest_id"),
-            "super_follow_eligible": obj.get("super_follow_eligible") if obj.get("super_follow_eligible") is not None else False,
-            "super_followed_by": obj.get("super_followed_by") if obj.get("super_followed_by") is not None else False,
-            "super_following": obj.get("super_following") if obj.get("super_following") is not None else False,
+            "super_follow_eligible": obj.get("super_follow_eligible"),
+            "super_followed_by": obj.get("super_followed_by"),
+            "super_following": obj.get("super_following"),
             "tipjar_settings": UserTipJarSettings.from_dict(obj["tipjar_settings"]) if obj.get("tipjar_settings") is not None else None,
             "user_seed_tweet_count": obj.get("user_seed_tweet_count"),
             "verification_info": UserVerificationInfo.from_dict(obj["verification_info"]) if obj.get("verification_info") is not None else None

@@ -75,9 +75,9 @@ class Timeline(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in instructions (list)
         _items = []
         if self.instructions:
-            for _item in self.instructions:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_instructions in self.instructions:
+                if _item_instructions:
+                    _items.append(_item_instructions.to_dict())
             _dict['instructions'] = _items
         return _dict
 

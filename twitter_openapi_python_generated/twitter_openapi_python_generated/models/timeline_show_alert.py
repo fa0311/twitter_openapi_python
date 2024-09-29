@@ -106,9 +106,9 @@ class TimelineShowAlert(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in users_results (list)
         _items = []
         if self.users_results:
-            for _item in self.users_results:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_users_results in self.users_results:
+                if _item_users_results:
+                    _items.append(_item_users_results.to_dict())
             _dict['usersResults'] = _items
         return _dict
 

@@ -19,11 +19,12 @@ import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.tweet_tombstone import TweetTombstone
+from twitter_openapi_python_generated.models.tweet_unavailable import TweetUnavailable
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-TWEETUNION_ONE_OF_SCHEMAS = ["Tweet", "TweetTombstone", "TweetWithVisibilityResults"]
+TWEETUNION_ONE_OF_SCHEMAS = ["Tweet", "TweetTombstone", "TweetUnavailable", "TweetWithVisibilityResults"]
 
 class TweetUnion(BaseModel):
     """
@@ -35,8 +36,10 @@ class TweetUnion(BaseModel):
     oneof_schema_2_validator: Optional[TweetWithVisibilityResults] = None
     # data type: TweetTombstone
     oneof_schema_3_validator: Optional[TweetTombstone] = None
-    actual_instance: Optional[Union[Tweet, TweetTombstone, TweetWithVisibilityResults]] = None
-    one_of_schemas: Set[str] = { "Tweet", "TweetTombstone", "TweetWithVisibilityResults" }
+    # data type: TweetUnavailable
+    oneof_schema_4_validator: Optional[TweetUnavailable] = None
+    actual_instance: Optional[Union[Tweet, TweetTombstone, TweetUnavailable, TweetWithVisibilityResults]] = None
+    one_of_schemas: Set[str] = { "Tweet", "TweetTombstone", "TweetUnavailable", "TweetWithVisibilityResults" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -77,12 +80,17 @@ class TweetUnion(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `TweetTombstone`")
         else:
             match += 1
+        # validate data type: TweetUnavailable
+        if not isinstance(v, TweetUnavailable):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `TweetUnavailable`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in TweetUnion with oneOf schemas: Tweet, TweetTombstone, TweetWithVisibilityResults. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in TweetUnion with oneOf schemas: Tweet, TweetTombstone, TweetUnavailable, TweetWithVisibilityResults. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in TweetUnion with oneOf schemas: Tweet, TweetTombstone, TweetWithVisibilityResults. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in TweetUnion with oneOf schemas: Tweet, TweetTombstone, TweetUnavailable, TweetWithVisibilityResults. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -112,6 +120,11 @@ class TweetUnion(BaseModel):
             instance.actual_instance = TweetTombstone.from_json(json_str)
             return instance
 
+        # check if data type is `TweetUnavailable`
+        if _data_type == "TweetUnavailable":
+            instance.actual_instance = TweetUnavailable.from_json(json_str)
+            return instance
+
         # check if data type is `TweetWithVisibilityResults`
         if _data_type == "TweetWithVisibilityResults":
             instance.actual_instance = TweetWithVisibilityResults.from_json(json_str)
@@ -135,13 +148,19 @@ class TweetUnion(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into TweetUnavailable
+        try:
+            instance.actual_instance = TweetUnavailable.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into TweetUnion with oneOf schemas: Tweet, TweetTombstone, TweetWithVisibilityResults. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into TweetUnion with oneOf schemas: Tweet, TweetTombstone, TweetUnavailable, TweetWithVisibilityResults. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into TweetUnion with oneOf schemas: Tweet, TweetTombstone, TweetWithVisibilityResults. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into TweetUnion with oneOf schemas: Tweet, TweetTombstone, TweetUnavailable, TweetWithVisibilityResults. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -155,7 +174,7 @@ class TweetUnion(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], Tweet, TweetTombstone, TweetWithVisibilityResults]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], Tweet, TweetTombstone, TweetUnavailable, TweetWithVisibilityResults]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **code** | **int** |  | 
 **kind** | **str** |  | 
 **name** | **str** |  | 
-**retry_after** | **int** |  | 
+**retry_after** | **int** |  | [optional] 
 **source** | **str** |  | 
 **tracing** | [**Tracing**](Tracing.md) |  | 
 

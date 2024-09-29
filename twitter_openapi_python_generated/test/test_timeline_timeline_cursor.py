@@ -28,7 +28,7 @@ class TestTimelineTimelineCursor(unittest.TestCase):
 
     def make_instance(self, include_optional) -> TimelineTimelineCursor:
         """Test TimelineTimelineCursor
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TimelineTimelineCursor`
@@ -49,7 +49,6 @@ class TestTimelineTimelineCursor(unittest.TestCase):
             return TimelineTimelineCursor(
                 typename = 'TimelineTweet',
                 cursor_type = 'Top',
-                stop_on_empty_response = True,
                 value = '',
         )
         """

@@ -28,7 +28,7 @@ class TestPostFavoriteTweetRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PostFavoriteTweetRequest:
         """Test PostFavoriteTweetRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostFavoriteTweetRequest`
@@ -37,15 +37,13 @@ class TestPostFavoriteTweetRequest(unittest.TestCase):
         if include_optional:
             return PostFavoriteTweetRequest(
                 query_id = 'lI07N6Otwv1PhnEgXILM7A',
-                variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(
-                    dark_request = False, 
+                variables = twitter_openapi_python_generated.models.post_create_bookmark_request_variables.postCreateBookmark_request_variables(
                     tweet_id = '1349129669258448897', )
             )
         else:
             return PostFavoriteTweetRequest(
                 query_id = 'lI07N6Otwv1PhnEgXILM7A',
-                variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(
-                    dark_request = False, 
+                variables = twitter_openapi_python_generated.models.post_create_bookmark_request_variables.postCreateBookmark_request_variables(
                     tweet_id = '1349129669258448897', ),
         )
         """

@@ -73,9 +73,9 @@ class ExtendedEntities(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in media (list)
         _items = []
         if self.media:
-            for _item in self.media:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_media in self.media:
+                if _item_media:
+                    _items.append(_item_media.to_dict())
             _dict['media'] = _items
         return _dict
 

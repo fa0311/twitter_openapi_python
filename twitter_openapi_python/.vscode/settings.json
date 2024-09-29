@@ -11,10 +11,6 @@
   "python.testing.unittestEnabled": true,
   "python.analysis.typeCheckingMode": "basic",
   "editor.unicodeHighlight.ambiguousCharacters": false,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit",
-    "source.fixAll": "explicit"
-  },
   "markdownlint.config": {
     "MD033": false
   }

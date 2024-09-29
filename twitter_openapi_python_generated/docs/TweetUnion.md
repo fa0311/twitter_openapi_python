@@ -10,11 +10,12 @@ Name | Type | Description | Notes
 **author_community_relationship** | [**AuthorCommunityRelationship**](AuthorCommunityRelationship.md) |  | [optional] 
 **birdwatch_pivot** | [**BirdwatchPivot**](BirdwatchPivot.md) |  | [optional] 
 **card** | [**TweetCard**](TweetCard.md) |  | [optional] 
+**community_results** | [**Community**](Community.md) |  | [optional] 
 **core** | [**UserResultCore**](UserResultCore.md) |  | [optional] 
 **edit_control** | [**TweetEditControl**](TweetEditControl.md) |  | [optional] 
 **edit_prespective** | [**TweetEditPrespective**](TweetEditPrespective.md) |  | [optional] 
 **has_birdwatch_notes** | **bool** |  | [optional] 
-**is_translatable** | **bool** |  | [optional] [default to False]
+**is_translatable** | **bool** |  | [optional] 
 **legacy** | [**TweetLegacy**](TweetLegacy.md) |  | [optional] 
 **note_tweet** | [**NoteTweet**](NoteTweet.md) |  | [optional] 
 **previous_counts** | [**TweetPreviousCounts**](TweetPreviousCounts.md) |  | [optional] 
@@ -31,6 +32,7 @@ Name | Type | Description | Notes
 **media_visibility_results** | [**MediaVisibilityResults**](MediaVisibilityResults.md) |  | [optional] 
 **tweet** | [**Tweet**](Tweet.md) |  | 
 **tweet_interstitial** | [**TweetInterstitial**](TweetInterstitial.md) |  | [optional] 
+**reason** | **str** |  | [optional] 
 
 ## Example
 

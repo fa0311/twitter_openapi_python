@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.tracing import Tracing
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,7 @@ class ErrorExtensions(BaseModel):
     code: StrictInt
     kind: StrictStr
     name: StrictStr
-    retry_after: StrictInt
+    retry_after: Optional[StrictInt] = None
     source: StrictStr
     tracing: Tracing
     __properties: ClassVar[List[str]] = ["code", "kind", "name", "retry_after", "source", "tracing"]

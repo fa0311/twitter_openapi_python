@@ -80,23 +80,23 @@ class Entities(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in media (list)
         _items = []
         if self.media:
-            for _item in self.media:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_media in self.media:
+                if _item_media:
+                    _items.append(_item_media.to_dict())
             _dict['media'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in timestamps (list)
         _items = []
         if self.timestamps:
-            for _item in self.timestamps:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_timestamps in self.timestamps:
+                if _item_timestamps:
+                    _items.append(_item_timestamps.to_dict())
             _dict['timestamps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in urls (list)
         _items = []
         if self.urls:
-            for _item in self.urls:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_urls in self.urls:
+                if _item_urls:
+                    _items.append(_item_urls.to_dict())
             _dict['urls'] = _items
         return _dict
 

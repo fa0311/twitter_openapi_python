@@ -10,19 +10,21 @@ Name | Type | Description | Notes
 **business_account** | **Dict[str, object]** |  | [optional] 
 **creator_subscriptions_count** | **int** |  | [optional] 
 **has_graduated_access** | **bool** |  | [optional] 
-**has_nft_avatar** | **bool** |  | [optional] [default to False]
+**has_hidden_likes_on_profile** | **bool** |  | [optional] 
+**has_nft_avatar** | **bool** |  | [optional] 
 **highlights_info** | [**UserHighlightsInfo**](UserHighlightsInfo.md) |  | [optional] 
 **id** | **str** |  | 
-**is_blue_verified** | **bool** |  | [default to False]
+**is_blue_verified** | **bool** |  | 
 **is_profile_translatable** | **bool** |  | [optional] 
 **legacy** | [**UserLegacy**](UserLegacy.md) |  | 
 **legacy_extended_profile** | [**UserLegacyExtendedProfile**](UserLegacyExtendedProfile.md) |  | [optional] 
+**premium_gifting_eligible** | **bool** |  | [optional] 
 **professional** | [**UserProfessional**](UserProfessional.md) |  | [optional] 
 **profile_image_shape** | **str** |  | 
 **rest_id** | **str** |  | 
-**super_follow_eligible** | **bool** |  | [default to False]
-**super_followed_by** | **bool** |  | [default to False]
-**super_following** | **bool** |  | [default to False]
+**super_follow_eligible** | **bool** |  | [optional] 
+**super_followed_by** | **bool** |  | [optional] 
+**super_following** | **bool** |  | [optional] 
 **tipjar_settings** | [**UserTipJarSettings**](UserTipJarSettings.md) |  | [optional] 
 **user_seed_tweet_count** | **int** |  | [optional] 
 **verification_info** | [**UserVerificationInfo**](UserVerificationInfo.md) |  | [optional] 

@@ -1,8 +1,4 @@
 {
   "editor.unicodeHighlight.ambiguousCharacters": false,
-  "python.analysis.typeCheckingMode": "basic",
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit",
-    "source.fixAll": "explicit"
-  },
+  "python.analysis.typeCheckingMode": "basic"
 }

@@ -92,7 +92,7 @@ class PostCreateTweetRequest(BaseModel):
 
         _obj = cls.model_validate({
             "features": PostCreateTweetRequestFeatures.from_dict(obj["features"]) if obj.get("features") is not None else None,
-            "queryId": obj.get("queryId") if obj.get("queryId") is not None else '8ED1SMuUGkOZVBEjiYUTfw',
+            "queryId": obj.get("queryId") if obj.get("queryId") is not None else 'xT36w0XM3A8jDynpkram2A',
             "variables": PostCreateTweetRequestVariables.from_dict(obj["variables"]) if obj.get("variables") is not None else None
         })
         return _obj

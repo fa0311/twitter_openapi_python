@@ -73,9 +73,9 @@ class ArticleCoverMediaColorInfo(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in palette (list)
         _items = []
         if self.palette:
-            for _item in self.palette:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_palette in self.palette:
+                if _item_palette:
+                    _items.append(_item_palette.to_dict())
             _dict['palette'] = _items
         return _dict
 

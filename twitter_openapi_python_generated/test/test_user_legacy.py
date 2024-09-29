@@ -28,7 +28,7 @@ class TestUserLegacy(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UserLegacy:
         """Test UserLegacy
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserLegacy`
@@ -84,8 +84,6 @@ class TestUserLegacy(unittest.TestCase):
             )
         else:
             return UserLegacy(
-                blocked_by = True,
-                blocking = True,
                 can_dm = True,
                 can_media_tag = True,
                 created_at = 'Sat Dec 31 23:59:59 +0000 2023',
@@ -102,7 +100,6 @@ class TestUserLegacy(unittest.TestCase):
                 listed_count = 56,
                 location = '',
                 media_count = 56,
-                muting = True,
                 name = '',
                 normal_followers_count = 56,
                 pinned_tweet_ids_str = [

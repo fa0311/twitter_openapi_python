@@ -28,7 +28,7 @@ class TestPostCreateTweetRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PostCreateTweetRequest:
         """Test PostCreateTweetRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostCreateTweetRequest`
@@ -37,7 +37,10 @@ class TestPostCreateTweetRequest(unittest.TestCase):
         if include_optional:
             return PostCreateTweetRequest(
                 features = twitter_openapi_python_generated.models.post_create_tweet_request_features.postCreateTweet_request_features(
+                    articles_preview_enabled = True, 
                     c9s_tweet_anatomy_moderator_badge_enabled = True, 
+                    communities_web_enable_tweet_community_results_fetch = True, 
+                    creator_subscriptions_quote_tweet_preview_enabled = False, 
                     freedom_of_speech_not_reach_fetch_enabled = True, 
                     graphql_is_translatable_rweb_tweet_is_translatable_enabled = True, 
                     longform_notetweets_consumption_enabled = True, 
@@ -48,18 +51,18 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                     responsive_web_graphql_exclude_directive_enabled = True, 
                     responsive_web_graphql_skip_user_profile_image_extensions_enabled = False, 
                     responsive_web_graphql_timeline_navigation_enabled = True, 
-                    responsive_web_media_download_video_enabled = False, 
                     responsive_web_twitter_article_tweet_consumption_enabled = True, 
+                    rweb_tipjar_consumption_enabled = True, 
                     rweb_video_timestamps_enabled = True, 
                     standardized_nudges_misinfo = True, 
                     tweet_awards_web_tipping_enabled = False, 
                     tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled = True, 
-                    tweetypie_unmention_optimization_enabled = True, 
                     verified_phone_label_enabled = False, 
                     view_counts_everywhere_api_enabled = True, ),
-                query_id = '8ED1SMuUGkOZVBEjiYUTfw',
+                query_id = 'xT36w0XM3A8jDynpkram2A',
                 variables = twitter_openapi_python_generated.models.post_create_tweet_request_variables.postCreateTweet_request_variables(
                     dark_request = False, 
+                    disallowed_reply_options = False, 
                     media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(
                         media_entities = [
                             twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(
@@ -82,7 +85,10 @@ class TestPostCreateTweetRequest(unittest.TestCase):
         else:
             return PostCreateTweetRequest(
                 features = twitter_openapi_python_generated.models.post_create_tweet_request_features.postCreateTweet_request_features(
+                    articles_preview_enabled = True, 
                     c9s_tweet_anatomy_moderator_badge_enabled = True, 
+                    communities_web_enable_tweet_community_results_fetch = True, 
+                    creator_subscriptions_quote_tweet_preview_enabled = False, 
                     freedom_of_speech_not_reach_fetch_enabled = True, 
                     graphql_is_translatable_rweb_tweet_is_translatable_enabled = True, 
                     longform_notetweets_consumption_enabled = True, 
@@ -93,18 +99,18 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                     responsive_web_graphql_exclude_directive_enabled = True, 
                     responsive_web_graphql_skip_user_profile_image_extensions_enabled = False, 
                     responsive_web_graphql_timeline_navigation_enabled = True, 
-                    responsive_web_media_download_video_enabled = False, 
                     responsive_web_twitter_article_tweet_consumption_enabled = True, 
+                    rweb_tipjar_consumption_enabled = True, 
                     rweb_video_timestamps_enabled = True, 
                     standardized_nudges_misinfo = True, 
                     tweet_awards_web_tipping_enabled = False, 
                     tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled = True, 
-                    tweetypie_unmention_optimization_enabled = True, 
                     verified_phone_label_enabled = False, 
                     view_counts_everywhere_api_enabled = True, ),
-                query_id = '8ED1SMuUGkOZVBEjiYUTfw',
+                query_id = 'xT36w0XM3A8jDynpkram2A',
                 variables = twitter_openapi_python_generated.models.post_create_tweet_request_variables.postCreateTweet_request_variables(
                     dark_request = False, 
+                    disallowed_reply_options = False, 
                     media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(
                         media_entities = [
                             twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(

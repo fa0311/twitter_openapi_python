@@ -73,9 +73,9 @@ class Highlight(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in text_highlights (list)
         _items = []
         if self.text_highlights:
-            for _item in self.text_highlights:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_text_highlights in self.text_highlights:
+                if _item_text_highlights:
+                    _items.append(_item_text_highlights.to_dict())
             _dict['textHighlights'] = _items
         return _dict
 

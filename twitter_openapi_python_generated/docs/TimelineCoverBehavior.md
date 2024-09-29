@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | 
+**url** | [**TimelineCoverBehaviorUrl**](TimelineCoverBehaviorUrl.md) |  | [optional] 
 
 ## Example
 

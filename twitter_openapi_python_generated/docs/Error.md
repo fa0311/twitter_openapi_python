@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **message** | **str** |  | 
 **name** | **str** |  | 
 **path** | **List[str]** |  | 
-**retry_after** | **int** |  | 
+**retry_after** | **int** |  | [optional] 
 **source** | **str** |  | 
 **tracing** | [**Tracing**](Tracing.md) |  | 
 

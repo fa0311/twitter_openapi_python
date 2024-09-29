@@ -18,22 +18,25 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from twitter_openapi_python_generated.models.tracing import Tracing
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Extensions(BaseModel):
+class TimelineCoverBehaviorUrl(BaseModel):
     """
-    Extensions
+    TimelineCoverBehaviorUrl
     """ # noqa: E501
-    code: StrictInt
-    kind: StrictStr
-    name: StrictStr
-    source: StrictStr
-    tracing: Tracing
-    __properties: ClassVar[List[str]] = ["code", "kind", "name", "source", "tracing"]
+    url: StrictStr
+    url_type: StrictStr
+    __properties: ClassVar[List[str]] = ["url", "url_type"]
+
+    @field_validator('url_type')
+    def url_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['ExternalUrl']):
+            raise ValueError("must be one of enum values ('ExternalUrl')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +56,7 @@ class Extensions(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Extensions from a JSON string"""
+        """Create an instance of TimelineCoverBehaviorUrl from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,14 +77,11 @@ class Extensions(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of tracing
-        if self.tracing:
-            _dict['tracing'] = self.tracing.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Extensions from a dict"""
+        """Create an instance of TimelineCoverBehaviorUrl from a dict"""
         if obj is None:
             return None
 
@@ -89,11 +89,8 @@ class Extensions(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "kind": obj.get("kind"),
-            "name": obj.get("name"),
-            "source": obj.get("source"),
-            "tracing": Tracing.from_dict(obj["tracing"]) if obj.get("tracing") is not None else None
+            "url": obj.get("url"),
+            "url_type": obj.get("url_type")
         })
         return _obj
 

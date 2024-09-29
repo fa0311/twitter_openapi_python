@@ -1,6 +1,6 @@
 # twitter_openapi_python_generated.V11PostApi
 
-All URIs are relative to *https://twitter.com/i/api*
+All URIs are relative to *https://x.com/i/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -43,10 +43,10 @@ import twitter_openapi_python_generated
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://twitter.com/i/api
+# Defining the host is optional and defaults to https://x.com/i/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = twitter_openapi_python_generated.Configuration(
-    host = "https://twitter.com/i/api"
+    host = "https://x.com/i/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -276,10 +276,10 @@ import twitter_openapi_python_generated
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://twitter.com/i/api
+# Defining the host is optional and defaults to https://x.com/i/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = twitter_openapi_python_generated.Configuration(
-    host = "https://twitter.com/i/api"
+    host = "https://x.com/i/api"
 )
 
 # The client must configure the authentication and authorization parameters

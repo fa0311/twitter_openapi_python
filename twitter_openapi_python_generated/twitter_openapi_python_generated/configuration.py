@@ -33,6 +33,9 @@ class Configuration:
     """This class contains various settings of the API client.
 
     :param host: Base url.
+    :param ignore_operation_servers
+      Boolean to ignore operation servers for the API client.
+      Config will use `host` as the base url regardless of the operation servers.
     :param api_key: Dict to store API key(s).
       Each entry in the dict specifies an API key.
       The dict key is the name of the security scheme in the OAS specification.
@@ -55,6 +58,7 @@ class Configuration:
       values before.
     :param ssl_ca_cert: str - the path to a file of concatenated CA certificates
       in PEM format.
+    :param retries: Number of retries for API requests.
 
     :Example:
 
@@ -86,11 +90,15 @@ conf = twitter_openapi_python_generated.Configuration(
                  access_token=None,
                  server_index=None, server_variables=None,
                  server_operation_index=None, server_operation_variables=None,
+                 ignore_operation_servers=False,
                  ssl_ca_cert=None,
+                 retries=None,
+                 *,
+                 debug: Optional[bool] = None
                  ) -> None:
         """Constructor
         """
-        self._base_path = "https://twitter.com/i/api" if host is None else host
+        self._base_path = "https://x.com/i/api" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -100,6 +108,9 @@ conf = twitter_openapi_python_generated.Configuration(
         self.server_variables = server_variables or {}
         self.server_operation_variables = server_operation_variables or {}
         """Default server variables
+        """
+        self.ignore_operation_servers = ignore_operation_servers
+        """Ignore operation servers
         """
         self.temp_folder_path = None
         """Temp file folder for downloading files
@@ -144,7 +155,10 @@ conf = twitter_openapi_python_generated.Configuration(
         self.logger_file = None
         """Debug file location
         """
-        self.debug = False
+        if debug is not None:
+            self.debug = debug
+        else:
+            self.__debug = False
         """Debug switch
         """
 
@@ -187,7 +201,7 @@ conf = twitter_openapi_python_generated.Configuration(
         self.safe_chars_for_path_param = ''
         """Safe chars for path_param
         """
-        self.retries = None
+        self.retries = retries
         """Adding retries to override urllib3 default value 3
         """
         # Enable client side validation
@@ -569,7 +583,7 @@ conf = twitter_openapi_python_generated.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 0.0.1\n"\
-               "SDK Package Version: 0.0.16".\
+               "SDK Package Version: 0.0.17".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
@@ -578,6 +592,10 @@ conf = twitter_openapi_python_generated.Configuration(
         :return: An array of host settings
         """
         return [
+            {
+                'url': "https://x.com/i/api",
+                'description': "No description provided",
+            },
             {
                 'url': "https://twitter.com/i/api",
                 'description': "No description provided",
