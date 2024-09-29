@@ -62,7 +62,7 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                 query_id = 'xT36w0XM3A8jDynpkram2A',
                 variables = twitter_openapi_python_generated.models.post_create_tweet_request_variables.postCreateTweet_request_variables(
                     dark_request = False, 
-                    disallowed_reply_options = False, 
+                    disallowed_reply_options = twitter_openapi_python_generated.models.disallowed_reply_options.disallowed_reply_options(), 
                     media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(
                         media_entities = [
                             twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(
@@ -110,7 +110,7 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                 query_id = 'xT36w0XM3A8jDynpkram2A',
                 variables = twitter_openapi_python_generated.models.post_create_tweet_request_variables.postCreateTweet_request_variables(
                     dark_request = False, 
-                    disallowed_reply_options = False, 
+                    disallowed_reply_options = twitter_openapi_python_generated.models.disallowed_reply_options.disallowed_reply_options(), 
                     media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(
                         media_entities = [
                             twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(

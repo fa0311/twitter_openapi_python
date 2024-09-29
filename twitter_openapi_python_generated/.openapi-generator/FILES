@@ -514,7 +514,6 @@ test/test_timeline_topic_context.py
 test/test_timeline_tweet.py
 test/test_timeline_user.py
 test/test_timeline_v2.py
-test/test_timestamp.py
 test/test_topic_context.py
 test/test_tracing.py
 test/test_tweet.py
@@ -593,7 +592,6 @@ test/test_user_verification_info.py
 test/test_user_verification_info_reason.py
 test/test_user_verification_info_reason_description.py
 test/test_user_verification_info_reason_description_entities.py
-test/test_user_verification_info_reason_description_entities_ref.py
 test/test_users_api.py
 test/test_users_response.py
 test/test_users_response_data.py
