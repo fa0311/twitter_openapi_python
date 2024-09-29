@@ -27,37 +27,13 @@ Learn more about people-friendly Python packages here.
 
 ## twitter_openapi_python_generated
 
-> Note! twitter-openapi-python-generated is a package for advanced users who are familiar with Twitter's API. In general, [twitter-openapi-python](./twitter-openapi-python) should be used!
+Learn more about the automatically generated Python package here.
 
-Build
+[README-generated.md](README-generated.md)
 
-```shell
-git clone https://github.com/fa0311/twitter_openapi_python.git
-cd twitter_openapi_python_generated
-```
-
-```shell
-python -V # Python 3.10.8
-openapi-generator-cli version # 7.0.0 beta
-```
-
-```shell
-openapi-generator-cli generate -g python -c tools/openapi-generator-config.yaml
-```
-
-Setup
-
-```shell
-pip install twitter-openapi-python-generated
-```
-
-License
+## License
 
 This project is dual licensed. You can choose one of the following licenses:
 
 - [Custom License](./LICENSE)
 - [GNU Affero General Public License v3.0](./LICENSE.AGPL)
-
-Usage
-
-[twitter_openapi_python_generated/README.md](./twitter_openapi_python_generated/README.md)
