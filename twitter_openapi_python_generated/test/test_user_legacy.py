@@ -84,8 +84,6 @@ class TestUserLegacy(unittest.TestCase):
             )
         else:
             return UserLegacy(
-                can_dm = True,
-                can_media_tag = True,
                 created_at = 'Sat Dec 31 23:59:59 +0000 2023',
                 default_profile = True,
                 default_profile_image = True,
@@ -112,7 +110,6 @@ class TestUserLegacy(unittest.TestCase):
                 statuses_count = 56,
                 translator_type = '',
                 verified = True,
-                want_retweets = True,
         )
         """
 

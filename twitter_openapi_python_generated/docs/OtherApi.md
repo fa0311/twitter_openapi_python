@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **other**
-> Other200Response other()
+> OtherResponse other()
 
 
 
@@ -39,7 +39,7 @@ This is not an actual endpoint
 
 ```python
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.other200_response import Other200Response
+from twitter_openapi_python_generated.models.other_response import OtherResponse
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -194,7 +194,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Other200Response**](Other200Response.md)
+[**OtherResponse**](OtherResponse.md)
 
 ### Authorization
 

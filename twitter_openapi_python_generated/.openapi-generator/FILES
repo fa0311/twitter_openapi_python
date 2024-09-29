@@ -75,6 +75,7 @@ docs/Entities.md
 docs/Error.md
 docs/ErrorExtensions.md
 docs/Errors.md
+docs/ErrorsData.md
 docs/ExtMediaAvailability.md
 docs/ExtendedEntities.md
 docs/FavoriteTweet.md
@@ -134,7 +135,6 @@ docs/NoteTweetResultMediaInlineMedia.md
 docs/NoteTweetResultRichText.md
 docs/NoteTweetResultRichTextTag.md
 docs/OneFactorLoginEligibility.md
-docs/Other200Response.md
 docs/OtherApi.md
 docs/OtherResponse.md
 docs/PostApi.md
@@ -377,6 +377,7 @@ test/test_entities.py
 test/test_error.py
 test/test_error_extensions.py
 test/test_errors.py
+test/test_errors_data.py
 test/test_ext_media_availability.py
 test/test_extended_entities.py
 test/test_favorite_tweet.py
@@ -436,7 +437,6 @@ test/test_note_tweet_result_media_inline_media.py
 test/test_note_tweet_result_rich_text.py
 test/test_note_tweet_result_rich_text_tag.py
 test/test_one_factor_login_eligibility.py
-test/test_other200_response.py
 test/test_other_api.py
 test/test_other_response.py
 test/test_post_api.py
@@ -689,6 +689,7 @@ twitter_openapi_python_generated/models/entities.py
 twitter_openapi_python_generated/models/error.py
 twitter_openapi_python_generated/models/error_extensions.py
 twitter_openapi_python_generated/models/errors.py
+twitter_openapi_python_generated/models/errors_data.py
 twitter_openapi_python_generated/models/ext_media_availability.py
 twitter_openapi_python_generated/models/extended_entities.py
 twitter_openapi_python_generated/models/favorite_tweet.py
@@ -748,7 +749,6 @@ twitter_openapi_python_generated/models/note_tweet_result_media_inline_media.py
 twitter_openapi_python_generated/models/note_tweet_result_rich_text.py
 twitter_openapi_python_generated/models/note_tweet_result_rich_text_tag.py
 twitter_openapi_python_generated/models/one_factor_login_eligibility.py
-twitter_openapi_python_generated/models/other200_response.py
 twitter_openapi_python_generated/models/other_response.py
 twitter_openapi_python_generated/models/post_create_bookmark200_response.py
 twitter_openapi_python_generated/models/post_create_bookmark_request.py

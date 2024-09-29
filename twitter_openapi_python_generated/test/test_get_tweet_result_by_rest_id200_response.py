@@ -36,10 +36,8 @@ class TestGetTweetResultByRestId200Response(unittest.TestCase):
         model = GetTweetResultByRestId200Response()
         if include_optional:
             return GetTweetResultByRestId200Response(
-                data = twitter_openapi_python_generated.models.tweet_result_by_rest_id_data.TweetResultByRestIdData(
-                    tweet_result = twitter_openapi_python_generated.models.item_result.ItemResult(
-                        __typename = 'TimelineTweet', 
-                        result = null, ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -70,10 +68,8 @@ class TestGetTweetResultByRestId200Response(unittest.TestCase):
             )
         else:
             return GetTweetResultByRestId200Response(
-                data = twitter_openapi_python_generated.models.tweet_result_by_rest_id_data.TweetResultByRestIdData(
-                    tweet_result = twitter_openapi_python_generated.models.item_result.ItemResult(
-                        __typename = 'TimelineTweet', 
-                        result = null, ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

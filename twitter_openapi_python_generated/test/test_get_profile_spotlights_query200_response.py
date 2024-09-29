@@ -36,22 +36,8 @@ class TestGetProfileSpotlightsQuery200Response(unittest.TestCase):
         model = GetProfileSpotlightsQuery200Response()
         if include_optional:
             return GetProfileSpotlightsQuery200Response(
-                data = twitter_openapi_python_generated.models.profile_response_data.ProfileResponseData(
-                    user_result_by_screen_name = twitter_openapi_python_generated.models.user_result_by_screen_name.UserResultByScreenName(
-                        id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
-                        result = twitter_openapi_python_generated.models.user_result_by_screen_name_result.UserResultByScreenNameResult(
-                            __typename = 'TimelineTweet', 
-                            id = 'G', 
-                            legacy = twitter_openapi_python_generated.models.user_result_by_screen_name_legacy.UserResultByScreenNameLegacy(
-                                blocked_by = True, 
-                                blocking = True, 
-                                followed_by = True, 
-                                following = True, 
-                                name = '', 
-                                protected = True, 
-                                screen_name = '', ), 
-                            profilemodules = { }, 
-                            rest_id = '4', ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -82,22 +68,8 @@ class TestGetProfileSpotlightsQuery200Response(unittest.TestCase):
             )
         else:
             return GetProfileSpotlightsQuery200Response(
-                data = twitter_openapi_python_generated.models.profile_response_data.ProfileResponseData(
-                    user_result_by_screen_name = twitter_openapi_python_generated.models.user_result_by_screen_name.UserResultByScreenName(
-                        id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
-                        result = twitter_openapi_python_generated.models.user_result_by_screen_name_result.UserResultByScreenNameResult(
-                            __typename = 'TimelineTweet', 
-                            id = 'G', 
-                            legacy = twitter_openapi_python_generated.models.user_result_by_screen_name_legacy.UserResultByScreenNameLegacy(
-                                blocked_by = True, 
-                                blocking = True, 
-                                followed_by = True, 
-                                following = True, 
-                                name = '', 
-                                protected = True, 
-                                screen_name = '', ), 
-                            profilemodules = { }, 
-                            rest_id = '4', ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

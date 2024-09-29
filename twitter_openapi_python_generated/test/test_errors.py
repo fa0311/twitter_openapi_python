@@ -36,6 +36,8 @@ class TestErrors(unittest.TestCase):
         model = Errors()
         if include_optional:
             return Errors(
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

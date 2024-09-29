@@ -36,14 +36,8 @@ class TestGetBookmarks200Response(unittest.TestCase):
         model = GetBookmarks200Response()
         if include_optional:
             return GetBookmarks200Response(
-                data = twitter_openapi_python_generated.models.bookmarks_response_data.BookmarksResponseData(
-                    bookmark_timeline_v2 = twitter_openapi_python_generated.models.bookmarks_timeline.BookmarksTimeline(
-                        timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                            instructions = [
-                                null
-                                ], 
-                            metadata = { }, 
-                            response_objects = { }, ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -74,14 +68,8 @@ class TestGetBookmarks200Response(unittest.TestCase):
             )
         else:
             return GetBookmarks200Response(
-                data = twitter_openapi_python_generated.models.bookmarks_response_data.BookmarksResponseData(
-                    bookmark_timeline_v2 = twitter_openapi_python_generated.models.bookmarks_timeline.BookmarksTimeline(
-                        timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                            instructions = [
-                                null
-                                ], 
-                            metadata = { }, 
-                            response_objects = { }, ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

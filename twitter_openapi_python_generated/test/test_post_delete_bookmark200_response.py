@@ -36,8 +36,8 @@ class TestPostDeleteBookmark200Response(unittest.TestCase):
         model = PostDeleteBookmark200Response()
         if include_optional:
             return PostDeleteBookmark200Response(
-                data = twitter_openapi_python_generated.models.delete_bookmark_response_data.DeleteBookmarkResponseData(
-                    tweet_bookmark_delete = '', ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -68,8 +68,8 @@ class TestPostDeleteBookmark200Response(unittest.TestCase):
             )
         else:
             return PostDeleteBookmark200Response(
-                data = twitter_openapi_python_generated.models.delete_bookmark_response_data.DeleteBookmarkResponseData(
-                    tweet_bookmark_delete = '', ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

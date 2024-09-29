@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.17"
+__version__ = "0.0.19"
 
 # import apis into sdk package
 from twitter_openapi_python_generated.api.default_api import DefaultApi
@@ -112,6 +112,7 @@ from twitter_openapi_python_generated.models.entities import Entities
 from twitter_openapi_python_generated.models.error import Error
 from twitter_openapi_python_generated.models.error_extensions import ErrorExtensions
 from twitter_openapi_python_generated.models.errors import Errors
+from twitter_openapi_python_generated.models.errors_data import ErrorsData
 from twitter_openapi_python_generated.models.ext_media_availability import ExtMediaAvailability
 from twitter_openapi_python_generated.models.extended_entities import ExtendedEntities
 from twitter_openapi_python_generated.models.favorite_tweet import FavoriteTweet
@@ -171,7 +172,6 @@ from twitter_openapi_python_generated.models.note_tweet_result_media_inline_medi
 from twitter_openapi_python_generated.models.note_tweet_result_rich_text import NoteTweetResultRichText
 from twitter_openapi_python_generated.models.note_tweet_result_rich_text_tag import NoteTweetResultRichTextTag
 from twitter_openapi_python_generated.models.one_factor_login_eligibility import OneFactorLoginEligibility
-from twitter_openapi_python_generated.models.other200_response import Other200Response
 from twitter_openapi_python_generated.models.other_response import OtherResponse
 from twitter_openapi_python_generated.models.post_create_bookmark200_response import PostCreateBookmark200Response
 from twitter_openapi_python_generated.models.post_create_bookmark_request import PostCreateBookmarkRequest

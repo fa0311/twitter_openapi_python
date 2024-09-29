@@ -36,8 +36,8 @@ class TestPostUnfavoriteTweet200Response(unittest.TestCase):
         model = PostUnfavoriteTweet200Response()
         if include_optional:
             return PostUnfavoriteTweet200Response(
-                data = twitter_openapi_python_generated.models.unfavorite_tweet.UnfavoriteTweet(
-                    unfavorite_tweet = '', ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -68,8 +68,8 @@ class TestPostUnfavoriteTweet200Response(unittest.TestCase):
             )
         else:
             return PostUnfavoriteTweet200Response(
-                data = twitter_openapi_python_generated.models.unfavorite_tweet.UnfavoriteTweet(
-                    unfavorite_tweet = '', ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

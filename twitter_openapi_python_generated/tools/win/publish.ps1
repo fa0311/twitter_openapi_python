@@ -1,4 +1,4 @@
-pip install wheel twine
+pip install wheel twine setuptools
 Remove-Item twitter_openapi_python_generated.egg-info/*
 Remove-Item dist/*
 python setup.py sdist

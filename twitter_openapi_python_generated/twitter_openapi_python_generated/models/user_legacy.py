@@ -30,8 +30,8 @@ class UserLegacy(BaseModel):
     """ # noqa: E501
     blocked_by: Optional[StrictBool] = None
     blocking: Optional[StrictBool] = None
-    can_dm: StrictBool
-    can_media_tag: StrictBool
+    can_dm: Optional[StrictBool] = None
+    can_media_tag: Optional[StrictBool] = None
     created_at: Annotated[str, Field(strict=True)]
     default_profile: StrictBool
     default_profile_image: StrictBool
@@ -67,7 +67,7 @@ class UserLegacy(BaseModel):
     url: Optional[StrictStr] = None
     verified: StrictBool
     verified_type: Optional[StrictStr] = None
-    want_retweets: StrictBool
+    want_retweets: Optional[StrictBool] = None
     withheld_in_countries: Optional[List[StrictStr]] = None
     __properties: ClassVar[List[str]] = ["blocked_by", "blocking", "can_dm", "can_media_tag", "created_at", "default_profile", "default_profile_image", "description", "entities", "fast_followers_count", "favourites_count", "follow_request_sent", "followed_by", "followers_count", "following", "friends_count", "has_custom_timelines", "is_translator", "listed_count", "location", "media_count", "muting", "name", "normal_followers_count", "notifications", "pinned_tweet_ids_str", "possibly_sensitive", "profile_banner_extensions", "profile_banner_url", "profile_image_extensions", "profile_image_url_https", "profile_interstitial_type", "protected", "screen_name", "statuses_count", "translator_type", "url", "verified", "verified_type", "want_retweets", "withheld_in_countries"]
 

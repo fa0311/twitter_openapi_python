@@ -36,8 +36,8 @@ class TestPostFavoriteTweet200Response(unittest.TestCase):
         model = PostFavoriteTweet200Response()
         if include_optional:
             return PostFavoriteTweet200Response(
-                data = twitter_openapi_python_generated.models.favorite_tweet.FavoriteTweet(
-                    favorite_tweet = '', ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -68,8 +68,8 @@ class TestPostFavoriteTweet200Response(unittest.TestCase):
             )
         else:
             return PostFavoriteTweet200Response(
-                data = twitter_openapi_python_generated.models.favorite_tweet.FavoriteTweet(
-                    favorite_tweet = '', ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

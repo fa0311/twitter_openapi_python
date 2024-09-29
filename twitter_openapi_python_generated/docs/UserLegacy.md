@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **blocked_by** | **bool** |  | [optional] 
 **blocking** | **bool** |  | [optional] 
-**can_dm** | **bool** |  | 
-**can_media_tag** | **bool** |  | 
+**can_dm** | **bool** |  | [optional] 
+**can_media_tag** | **bool** |  | [optional] 
 **created_at** | **str** |  | 
 **default_profile** | **bool** |  | 
 **default_profile_image** | **bool** |  | 
@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 **url** | **str** |  | [optional] 
 **verified** | **bool** |  | 
 **verified_type** | **str** |  | [optional] 
-**want_retweets** | **bool** |  | 
+**want_retweets** | **bool** |  | [optional] 
 **withheld_in_countries** | **List[str]** |  | [optional] 
 
 ## Example

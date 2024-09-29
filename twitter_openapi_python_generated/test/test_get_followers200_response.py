@@ -36,17 +36,8 @@ class TestGetFollowers200Response(unittest.TestCase):
         model = GetFollowers200Response()
         if include_optional:
             return GetFollowers200Response(
-                data = twitter_openapi_python_generated.models.follow_response_data.FollowResponseData(
-                    user = twitter_openapi_python_generated.models.follow_response_user.FollowResponseUser(
-                        result = twitter_openapi_python_generated.models.follow_response_result.FollowResponseResult(
-                            __typename = 'TimelineTweet', 
-                            timeline = twitter_openapi_python_generated.models.follow_timeline.FollowTimeline(
-                                timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                                    instructions = [
-                                        null
-                                        ], 
-                                    metadata = { }, 
-                                    response_objects = { }, ), ), ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -77,17 +68,8 @@ class TestGetFollowers200Response(unittest.TestCase):
             )
         else:
             return GetFollowers200Response(
-                data = twitter_openapi_python_generated.models.follow_response_data.FollowResponseData(
-                    user = twitter_openapi_python_generated.models.follow_response_user.FollowResponseUser(
-                        result = twitter_openapi_python_generated.models.follow_response_result.FollowResponseResult(
-                            __typename = 'TimelineTweet', 
-                            timeline = twitter_openapi_python_generated.models.follow_timeline.FollowTimeline(
-                                timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                                    instructions = [
-                                        null
-                                        ], 
-                                    metadata = { }, 
-                                    response_objects = { }, ), ), ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

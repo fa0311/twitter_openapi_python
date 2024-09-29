@@ -18,20 +18,28 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.error import Error
-from twitter_openapi_python_generated.models.errors_data import ErrorsData
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Errors(BaseModel):
+class ErrorsData(BaseModel):
     """
-    Errors
+    ErrorsData
     """ # noqa: E501
-    data: Optional[ErrorsData] = None
-    errors: List[Error]
-    __properties: ClassVar[List[str]] = ["data", "errors"]
+    user: Optional[Annotated[str, Field(strict=True)]] = None
+    __properties: ClassVar[List[str]] = ["user"]
+
+    @field_validator('user')
+    def user_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"dummy", value):
+            raise ValueError(r"must validate the regular expression /dummy/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +59,7 @@ class Errors(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Errors from a JSON string"""
+        """Create an instance of ErrorsData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,21 +80,11 @@ class Errors(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of data
-        if self.data:
-            _dict['data'] = self.data.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in errors (list)
-        _items = []
-        if self.errors:
-            for _item_errors in self.errors:
-                if _item_errors:
-                    _items.append(_item_errors.to_dict())
-            _dict['errors'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Errors from a dict"""
+        """Create an instance of ErrorsData from a dict"""
         if obj is None:
             return None
 
@@ -94,8 +92,7 @@ class Errors(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": ErrorsData.from_dict(obj["data"]) if obj.get("data") is not None else None,
-            "errors": [Error.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None
+            "user": obj.get("user")
         })
         return _obj
 

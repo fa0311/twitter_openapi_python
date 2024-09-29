@@ -36,15 +36,8 @@ class TestGetListLatestTweetsTimeline200Response(unittest.TestCase):
         model = GetListLatestTweetsTimeline200Response()
         if include_optional:
             return GetListLatestTweetsTimeline200Response(
-                data = twitter_openapi_python_generated.models.list_tweets_timeline_data.ListTweetsTimelineData(
-                    list = twitter_openapi_python_generated.models.list_tweets_timeline_list.ListTweetsTimelineList(
-                        tweets_timeline = twitter_openapi_python_generated.models.list_tweets_timeline.ListTweetsTimeline(
-                            timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                                instructions = [
-                                    null
-                                    ], 
-                                metadata = { }, 
-                                response_objects = { }, ), ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -75,15 +68,8 @@ class TestGetListLatestTweetsTimeline200Response(unittest.TestCase):
             )
         else:
             return GetListLatestTweetsTimeline200Response(
-                data = twitter_openapi_python_generated.models.list_tweets_timeline_data.ListTweetsTimelineData(
-                    list = twitter_openapi_python_generated.models.list_tweets_timeline_list.ListTweetsTimelineList(
-                        tweets_timeline = twitter_openapi_python_generated.models.list_tweets_timeline.ListTweetsTimeline(
-                            timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                                instructions = [
-                                    null
-                                    ], 
-                                metadata = { }, 
-                                response_objects = { }, ), ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

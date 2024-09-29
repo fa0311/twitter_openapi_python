@@ -17,7 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from twitter_openapi_python_generated.models.other200_response import Other200Response
+from twitter_openapi_python_generated.models.other_response import OtherResponse
 
 from twitter_openapi_python_generated.api_client import ApiClient, RequestSerialized
 from twitter_openapi_python_generated.api_response import ApiResponse
@@ -52,7 +52,7 @@ class OtherApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Other200Response:
+    ) -> OtherResponse:
         """other
 
         This is not an actual endpoint
@@ -87,7 +87,7 @@ class OtherApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Other200Response",
+            '200': "OtherResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -115,7 +115,7 @@ class OtherApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Other200Response]:
+    ) -> ApiResponse[OtherResponse]:
         """other
 
         This is not an actual endpoint
@@ -150,7 +150,7 @@ class OtherApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Other200Response",
+            '200': "OtherResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -213,7 +213,7 @@ class OtherApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Other200Response",
+            '200': "OtherResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

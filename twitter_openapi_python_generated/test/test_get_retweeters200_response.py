@@ -36,14 +36,8 @@ class TestGetRetweeters200Response(unittest.TestCase):
         model = GetRetweeters200Response()
         if include_optional:
             return GetRetweeters200Response(
-                data = twitter_openapi_python_generated.models.tweet_retweeters_response_data.TweetRetweetersResponseData(
-                    retweeters_timeline = twitter_openapi_python_generated.models.timeline_v2.TimelineV2(
-                        timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                            instructions = [
-                                null
-                                ], 
-                            metadata = { }, 
-                            response_objects = { }, ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -74,14 +68,8 @@ class TestGetRetweeters200Response(unittest.TestCase):
             )
         else:
             return GetRetweeters200Response(
-                data = twitter_openapi_python_generated.models.tweet_retweeters_response_data.TweetRetweetersResponseData(
-                    retweeters_timeline = twitter_openapi_python_generated.models.timeline_v2.TimelineV2(
-                        timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                            instructions = [
-                                null
-                                ], 
-                            metadata = { }, 
-                            response_objects = { }, ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
