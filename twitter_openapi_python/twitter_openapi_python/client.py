@@ -1,6 +1,6 @@
 import json
 import re
-from typing import Any
+from typing import Any, Optional
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.configuration as conf
@@ -61,13 +61,17 @@ class TwitterOpenapiPython:
     hash: str = "a18a24e4fd96967314c452a6ec2fe6e54f112351"
     placeholder_url = "https://raw.githubusercontent.com/fa0311/twitter-openapi/{hash}/src/config/placeholder.json"
     placeholder: ParamType
-    user_agent: str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
+    user_agent_url = (
+        "https://raw.githubusercontent.com/fa0311/latest-user-agent/main/output.json"
+    )
+    user_agent: tuple[str, str]
     access_token: str = "AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA"
 
     api_key = {
         "Accept": "*/*",
         # "AcceptEncoding": "gzip, deflate, br",
         # "AcceptEncoding": "deflate, br",
+        "AcceptEncoding": "identity",
         "AcceptLanguage": "en-US,en;q=0.9",
         "CacheControl": "no-cache",
         "Pragma": "no-cache",
@@ -93,8 +97,11 @@ class TwitterOpenapiPython:
         "sec-fetch-dest": "empty",
         "sec-fetch-mode": "cors",
         "sec-fetch-site": "same-site",
-        "user-agent": user_agent,
+        "user-agent": None,
     }
+
+    def __init__(self, user_agent: Optional[tuple[str, str]] = None):
+        self.user_agent = user_agent or self.get_user_agent()
 
     def cookie_normalize(self, cookie: list[str]) -> dict[str, str]:
         return {
@@ -112,6 +119,12 @@ class TwitterOpenapiPython:
         http = urllib3.PoolManager()
         flag = http.request("GET", self.placeholder_url.format(hash=self.hash))
         return TwitterOpenapiPythonClient(api, json.loads(flag.data))
+
+    def get_user_agent(self) -> tuple[str, str]:
+        http = urllib3.PoolManager()
+        res = http.request("GET", self.user_agent_url)
+        res = json.loads(res.data)
+        return res["chrome"], res["chrome-fetch"]
 
     def get_client_from_cookies(
         self,
@@ -132,7 +145,7 @@ class TwitterOpenapiPython:
             configuration=api_conf,
             cookie=self.cookie_to_str(cookies),
         )
-        api_client.user_agent = self.user_agent
+        api_client.user_agent = self.user_agent[1]
         return self.get_twitter_openapi_python_client(api_client)
 
     def get_guest_client(self) -> TwitterOpenapiPythonClient:
@@ -143,7 +156,7 @@ class TwitterOpenapiPython:
             "GET",
             "https://x.com",
             redirect=False,
-            headers=self.browser_headers.copy(),
+            headers=self.browser_headers.copy() | {"user-agent": self.user_agent[0]},
         )
         cookie = res_1.headers._container["set-cookie"][1:]
         session.update(self.cookie_normalize(cookie))
@@ -152,7 +165,7 @@ class TwitterOpenapiPython:
             "https://x.com",
             redirect=False,
             headers=self.browser_headers.copy()
-            | {"Cookie": self.cookie_to_str(session)},
+            | {"cookie": self.cookie_to_str(session), "user-agent": self.user_agent[0]},
         )
 
         find = re.findall(r'document.cookie="(.*?)";', res_2.data.decode())
@@ -165,11 +178,13 @@ class TwitterOpenapiPython:
                 "authorization": "Bearer {}".format(self.access_token),
                 "x-twitter-active-user": "yes",
                 "x-twitter-client-language": "en",
+                "user-agent": self.user_agent[0],
+                "cookie": self.cookie_to_str(session),
             }
             res_3 = http.request(
                 "POST",
                 "https://api.x.com/1.1/guest/activate.json",
-                headers=activate_header | {"Cookie": self.cookie_to_str(session)},
+                headers=activate_header,
             )
             gt = json.loads(res_3.data.decode())["guest_token"]
             session.update({"gt": gt})
