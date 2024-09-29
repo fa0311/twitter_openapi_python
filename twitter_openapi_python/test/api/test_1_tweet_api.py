@@ -1,7 +1,7 @@
 import unittest
-from test.api import get_client, print_tweet
 
 import twitter_openapi_python as api
+from test.api import get_client, print_tweet
 
 
 class TestTweetApi(unittest.TestCase):

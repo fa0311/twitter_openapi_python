@@ -24,7 +24,8 @@ class InitialStateApiUtils:
         }
 
     def request(self, url: str) -> HTTPResponse:
-        return self.api.rest_client.get_request(
+        return self.api.rest_client.request(
+            "GET",
             url=url,
             headers=self.header,
         )

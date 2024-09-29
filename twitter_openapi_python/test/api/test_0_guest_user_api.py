@@ -1,7 +1,7 @@
 import unittest
-from test.api import get_guest_client, print_user
 
 import twitter_openapi_python as api
+from test.api import get_guest_client, print_user
 
 
 class TestGuestUserApi(unittest.TestCase):

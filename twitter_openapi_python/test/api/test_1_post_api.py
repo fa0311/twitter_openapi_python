@@ -1,8 +1,8 @@
 import datetime
 import unittest
-from test.api import get_client
 
 import twitter_openapi_python as api
+from test.api import get_client
 
 
 class TestPostApi(unittest.TestCase):
@@ -42,4 +42,8 @@ class TestPostApi(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    cls = TestPostApi()
+    cls.setUp()
+    cls.test_post_create_tweet()
+    cls.test_post_delete_tweet()
     unittest.main()

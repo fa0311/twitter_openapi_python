@@ -18,4 +18,5 @@ from twitter_openapi_python.utils.api import (
     user_entries_converter,
     user_or_null_converter,
     user_result_converter,
+    non_nullable,
 )

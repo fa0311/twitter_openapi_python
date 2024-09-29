@@ -15,6 +15,7 @@ from twitter_openapi_python.utils import (
     entries_cursor,
     get_kwargs,
     instruction_to_entry,
+    non_nullable,
     user_entries_converter,
     user_result_converter,
 )
@@ -144,7 +145,9 @@ class UserListApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_favoriters_with_http_info,
-            convertFn=lambda e: e.data.favoriters_timeline.timeline.instructions,
+            convertFn=lambda e: non_nullable(
+                e.data.favoriters_timeline.timeline
+            ).instructions,
             type=models.TweetFavoritersResponse,
             key="Favoriters",
             param=param,
@@ -166,7 +169,9 @@ class UserListApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_retweeters_with_http_info,
-            convertFn=lambda e: e.data.retweeters_timeline.timeline.instructions,
+            convertFn=lambda e: non_nullable(
+                e.data.retweeters_timeline.timeline
+            ).instructions,
             type=models.TweetRetweetersResponse,
             key="Retweeters",
             param=param,
