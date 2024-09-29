@@ -1,6 +1,6 @@
 # twitter_openapi_python_generated
 
-> Note! twitter-openapi-python-generated is a package for advanced users who are familiar with Twitter's API. In general, [twitter-openapi-python](./twitter-openapi-python) should be used!
+> Note! twitter-openapi-python-generated is a package for advanced users who are familiar with Twitter's API. In general, [twitter_openapi_python](twitter_openapi_python/README.md) should be used!
 
 Build
 
