@@ -1,8 +1,8 @@
 import logging
 import unittest
-from test.api import get_guest_client
 
 import twitter_openapi_python as api
+from test.api import get_guest_client
 
 
 class TestGuestDefaultApi(unittest.TestCase):

@@ -28,7 +28,7 @@ class TestItemContentUnion(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ItemContentUnion:
         """Test ItemContentUnion
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ItemContentUnion`
@@ -69,7 +69,6 @@ class TestItemContentUnion(unittest.TestCase):
                     __typename = 'TimelineTweet', 
                     result = null, ),
                 cursor_type = 'Top',
-                stop_on_empty_response = True,
                 value = '',
                 user_display_type = 'User',
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(

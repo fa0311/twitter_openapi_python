@@ -28,7 +28,7 @@ class TestGetTweetDetail200Response(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GetTweetDetail200Response:
         """Test GetTweetDetail200Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetTweetDetail200Response`
@@ -36,13 +36,8 @@ class TestGetTweetDetail200Response(unittest.TestCase):
         model = GetTweetDetail200Response()
         if include_optional:
             return GetTweetDetail200Response(
-                data = twitter_openapi_python_generated.models.tweet_detail_response_data.TweetDetailResponseData(
-                    threaded_conversation_with_injections_v2 = twitter_openapi_python_generated.models.timeline.Timeline(
-                        instructions = [
-                            null
-                            ], 
-                        metadata = { }, 
-                        response_objects = { }, ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -73,13 +68,8 @@ class TestGetTweetDetail200Response(unittest.TestCase):
             )
         else:
             return GetTweetDetail200Response(
-                data = twitter_openapi_python_generated.models.tweet_detail_response_data.TweetDetailResponseData(
-                    threaded_conversation_with_injections_v2 = twitter_openapi_python_generated.models.timeline.Timeline(
-                        instructions = [
-                            null
-                            ], 
-                        metadata = { }, 
-                        response_objects = { }, ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

@@ -74,9 +74,9 @@ class PostCreateTweetRequestVariablesMedia(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in media_entities (list)
         _items = []
         if self.media_entities:
-            for _item in self.media_entities:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_media_entities in self.media_entities:
+                if _item_media_entities:
+                    _items.append(_item_media_entities.to_dict())
             _dict['media_entities'] = _items
         return _dict
 

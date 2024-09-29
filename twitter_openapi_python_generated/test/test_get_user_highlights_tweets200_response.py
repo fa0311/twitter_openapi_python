@@ -28,7 +28,7 @@ class TestGetUserHighlightsTweets200Response(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GetUserHighlightsTweets200Response:
         """Test GetUserHighlightsTweets200Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetUserHighlightsTweets200Response`
@@ -36,17 +36,8 @@ class TestGetUserHighlightsTweets200Response(unittest.TestCase):
         model = GetUserHighlightsTweets200Response()
         if include_optional:
             return GetUserHighlightsTweets200Response(
-                data = twitter_openapi_python_generated.models.user_highlights_tweets_data.UserHighlightsTweetsData(
-                    user = twitter_openapi_python_generated.models.user_highlights_tweets_user.UserHighlightsTweetsUser(
-                        result = twitter_openapi_python_generated.models.user_highlights_tweets_result.UserHighlightsTweetsResult(
-                            __typename = 'TimelineTweet', 
-                            timeline = twitter_openapi_python_generated.models.user_highlights_tweets_timeline.UserHighlightsTweetsTimeline(
-                                timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                                    instructions = [
-                                        null
-                                        ], 
-                                    metadata = { }, 
-                                    response_objects = { }, ), ), ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -77,17 +68,8 @@ class TestGetUserHighlightsTweets200Response(unittest.TestCase):
             )
         else:
             return GetUserHighlightsTweets200Response(
-                data = twitter_openapi_python_generated.models.user_highlights_tweets_data.UserHighlightsTweetsData(
-                    user = twitter_openapi_python_generated.models.user_highlights_tweets_user.UserHighlightsTweetsUser(
-                        result = twitter_openapi_python_generated.models.user_highlights_tweets_result.UserHighlightsTweetsResult(
-                            __typename = 'TimelineTweet', 
-                            timeline = twitter_openapi_python_generated.models.user_highlights_tweets_timeline.UserHighlightsTweetsTimeline(
-                                timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                                    instructions = [
-                                        null
-                                        ], 
-                                    metadata = { }, 
-                                    response_objects = { }, ), ), ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

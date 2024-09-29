@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.error_extensions import ErrorExtensions
 from twitter_openapi_python_generated.models.location import Location
 from twitter_openapi_python_generated.models.tracing import Tracing
@@ -37,7 +37,7 @@ class Error(BaseModel):
     message: StrictStr
     name: StrictStr
     path: List[StrictStr]
-    retry_after: StrictInt
+    retry_after: Optional[StrictInt] = None
     source: StrictStr
     tracing: Tracing
     __properties: ClassVar[List[str]] = ["code", "extensions", "kind", "locations", "message", "name", "path", "retry_after", "source", "tracing"]
@@ -87,9 +87,9 @@ class Error(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in locations (list)
         _items = []
         if self.locations:
-            for _item in self.locations:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_locations in self.locations:
+                if _item_locations:
+                    _items.append(_item_locations.to_dict())
             _dict['locations'] = _items
         # override the default output from pydantic by calling `to_dict()` of tracing
         if self.tracing:

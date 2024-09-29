@@ -28,7 +28,7 @@ class TestPostDeleteRetweet200Response(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PostDeleteRetweet200Response:
         """Test PostDeleteRetweet200Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostDeleteRetweet200Response`
@@ -36,13 +36,8 @@ class TestPostDeleteRetweet200Response(unittest.TestCase):
         model = PostDeleteRetweet200Response()
         if include_optional:
             return PostDeleteRetweet200Response(
-                data = twitter_openapi_python_generated.models.delete_retweet_response_data.DeleteRetweetResponseData(
-                    create_retweet = twitter_openapi_python_generated.models.create_retweet_response_result.CreateRetweetResponseResult(
-                        retweet_results = twitter_openapi_python_generated.models.create_retweet.CreateRetweet(
-                            result = twitter_openapi_python_generated.models.retweet.Retweet(
-                                legacy = twitter_openapi_python_generated.models.retweet_legacy.Retweet_legacy(
-                                    full_text = '', ), 
-                                rest_id = '4', ), ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -73,13 +68,8 @@ class TestPostDeleteRetweet200Response(unittest.TestCase):
             )
         else:
             return PostDeleteRetweet200Response(
-                data = twitter_openapi_python_generated.models.delete_retweet_response_data.DeleteRetweetResponseData(
-                    create_retweet = twitter_openapi_python_generated.models.create_retweet_response_result.CreateRetweetResponseResult(
-                        retweet_results = twitter_openapi_python_generated.models.create_retweet.CreateRetweet(
-                            result = twitter_openapi_python_generated.models.retweet.Retweet(
-                                legacy = twitter_openapi_python_generated.models.retweet_legacy.Retweet_legacy(
-                                    full_text = '', ), 
-                                rest_id = '4', ), ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

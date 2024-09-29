@@ -28,7 +28,7 @@ class TestUserTipJarSettings(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UserTipJarSettings:
         """Test UserTipJarSettings
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserTipJarSettings`
@@ -36,6 +36,7 @@ class TestUserTipJarSettings(unittest.TestCase):
         model = UserTipJarSettings()
         if include_optional:
             return UserTipJarSettings(
+                bandcamp_handle = '',
                 bitcoin_handle = '',
                 cash_app_handle = '',
                 ethereum_handle = '',

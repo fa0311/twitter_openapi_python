@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**SearchTimelineData**](SearchTimelineData.md) |  | 
+**data** | [**ErrorsData**](ErrorsData.md) |  | 
 **errors** | [**List[Error]**](Error.md) |  | 
 
 ## Example

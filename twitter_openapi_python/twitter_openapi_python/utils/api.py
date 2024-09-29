@@ -23,6 +23,11 @@ def flat(matrix: List[List[T]]) -> List[T]:
     return [x for row in matrix for x in row]
 
 
+def non_nullable(x: Optional[T]) -> T:
+    if x is None:
+        raise Exception("No data")
+    return x
+
 def non_nullable_list(x: List[Optional[T]]) -> List[T]:
     def filter_fn(x: Optional[T]) -> TypeGuard[T]:
         return x is not None

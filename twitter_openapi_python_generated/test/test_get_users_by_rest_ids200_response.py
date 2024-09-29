@@ -28,7 +28,7 @@ class TestGetUsersByRestIds200Response(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GetUsersByRestIds200Response:
         """Test GetUsersByRestIds200Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetUsersByRestIds200Response`
@@ -36,11 +36,8 @@ class TestGetUsersByRestIds200Response(unittest.TestCase):
         model = GetUsersByRestIds200Response()
         if include_optional:
             return GetUsersByRestIds200Response(
-                data = twitter_openapi_python_generated.models.users_response_data.UsersResponseData(
-                    users = [
-                        twitter_openapi_python_generated.models.user_results.UserResults(
-                            result = null, )
-                        ], ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -71,11 +68,8 @@ class TestGetUsersByRestIds200Response(unittest.TestCase):
             )
         else:
             return GetUsersByRestIds200Response(
-                data = twitter_openapi_python_generated.models.users_response_data.UsersResponseData(
-                    users = [
-                        twitter_openapi_python_generated.models.user_results.UserResults(
-                            result = null, )
-                        ], ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

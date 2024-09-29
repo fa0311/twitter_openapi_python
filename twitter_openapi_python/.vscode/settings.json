@@ -6,15 +6,22 @@
     "-p",
     "test_*.py"
   ],
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "python.testing.cwd": "${workspaceRoot}",
   "python.testing.pytestEnabled": false,
   "python.testing.unittestEnabled": true,
-  "python.analysis.typeCheckingMode": "basic",
   "editor.unicodeHighlight.ambiguousCharacters": false,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit",
-    "source.fixAll": "explicit"
-  },
   "markdownlint.config": {
     "MD033": false
   }

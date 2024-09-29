@@ -28,7 +28,7 @@ class TestCreateTweetResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CreateTweetResponse:
         """Test CreateTweetResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CreateTweetResponse`
@@ -198,6 +198,50 @@ class TestCreateTweetResponse(unittest.TestCase):
                                             
                                             ], ), 
                                     rest_id = '', ), 
+                                community_results = twitter_openapi_python_generated.models.community.Community(
+                                    result = twitter_openapi_python_generated.models.community_data.CommunityData(
+                                        __typename = , 
+                                        actions = twitter_openapi_python_generated.models.community_actions.CommunityActions(
+                                            delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
+                                                __typename = , 
+                                                reason = 'Unavailable', ), 
+                                            join_action_result = twitter_openapi_python_generated.models.community_join_action_result.CommunityJoinActionResult(
+                                                __typename = , ), 
+                                            leave_action_result = twitter_openapi_python_generated.models.community_leave_action_result.CommunityLeaveActionResult(
+                                                __typename = , 
+                                                message = '', 
+                                                reason = 'ViewerNotMember', ), 
+                                            pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
+                                                __typename = , ), ), 
+                                        admin_results = , 
+                                        created_at = 56, 
+                                        creator_results = , 
+                                        description = '', 
+                                        id_str = '4', 
+                                        invites_policy = 'MemberInvitesAllowed', 
+                                        invites_result = twitter_openapi_python_generated.models.community_invites_result.CommunityInvitesResult(
+                                            __typename = , 
+                                            message = '', 
+                                            reason = 'Unavailable', ), 
+                                        is_pinned = True, 
+                                        join_policy = 'Open', 
+                                        member_count = 56, 
+                                        members_facepile_results = [
+                                            
+                                            ], 
+                                        moderator_count = 56, 
+                                        name = '', 
+                                        question = '', 
+                                        role = 'NonMember', 
+                                        rules = [
+                                            twitter_openapi_python_generated.models.community_rule.CommunityRule(
+                                                description = '', 
+                                                name = '', 
+                                                rest_id = '4', )
+                                            ], 
+                                        search_tags = [
+                                            ''
+                                            ], ), ), 
                                 core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
                                     user_results = , ), 
                                 edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(
@@ -600,6 +644,50 @@ class TestCreateTweetResponse(unittest.TestCase):
                                             
                                             ], ), 
                                     rest_id = '', ), 
+                                community_results = twitter_openapi_python_generated.models.community.Community(
+                                    result = twitter_openapi_python_generated.models.community_data.CommunityData(
+                                        __typename = , 
+                                        actions = twitter_openapi_python_generated.models.community_actions.CommunityActions(
+                                            delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
+                                                __typename = , 
+                                                reason = 'Unavailable', ), 
+                                            join_action_result = twitter_openapi_python_generated.models.community_join_action_result.CommunityJoinActionResult(
+                                                __typename = , ), 
+                                            leave_action_result = twitter_openapi_python_generated.models.community_leave_action_result.CommunityLeaveActionResult(
+                                                __typename = , 
+                                                message = '', 
+                                                reason = 'ViewerNotMember', ), 
+                                            pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
+                                                __typename = , ), ), 
+                                        admin_results = , 
+                                        created_at = 56, 
+                                        creator_results = , 
+                                        description = '', 
+                                        id_str = '4', 
+                                        invites_policy = 'MemberInvitesAllowed', 
+                                        invites_result = twitter_openapi_python_generated.models.community_invites_result.CommunityInvitesResult(
+                                            __typename = , 
+                                            message = '', 
+                                            reason = 'Unavailable', ), 
+                                        is_pinned = True, 
+                                        join_policy = 'Open', 
+                                        member_count = 56, 
+                                        members_facepile_results = [
+                                            
+                                            ], 
+                                        moderator_count = 56, 
+                                        name = '', 
+                                        question = '', 
+                                        role = 'NonMember', 
+                                        rules = [
+                                            twitter_openapi_python_generated.models.community_rule.CommunityRule(
+                                                description = '', 
+                                                name = '', 
+                                                rest_id = '4', )
+                                            ], 
+                                        search_tags = [
+                                            ''
+                                            ], ), ), 
                                 core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
                                     user_results = , ), 
                                 edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(

@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**bandcamp_handle** | **str** |  | [optional] 
 **bitcoin_handle** | **str** |  | [optional] 
 **cash_app_handle** | **str** |  | [optional] 
 **ethereum_handle** | **str** |  | [optional] 

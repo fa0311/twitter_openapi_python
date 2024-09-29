@@ -28,7 +28,7 @@ class TestCoverCta(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CoverCta:
         """Test CoverCta
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CoverCta`
@@ -45,7 +45,8 @@ class TestCoverCta(unittest.TestCase):
                 client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
                     action = 'primary_cta', ),
                 cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
-                    type = 'TimelineCoverBehaviorDismiss', )
+                    type = 'TimelineCoverBehaviorDismiss', 
+                    url = null, )
             )
         else:
             return CoverCta(
@@ -56,7 +57,8 @@ class TestCoverCta(unittest.TestCase):
                 client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
                     action = 'primary_cta', ),
                 cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
-                    type = 'TimelineCoverBehaviorDismiss', ),
+                    type = 'TimelineCoverBehaviorDismiss', 
+                    url = null, ),
         )
         """
 

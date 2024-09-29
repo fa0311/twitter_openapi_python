@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**data** | [**ErrorsData**](ErrorsData.md) |  | [optional] 
 **errors** | [**List[Error]**](Error.md) |  | 
 
 ## Example

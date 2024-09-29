@@ -28,7 +28,7 @@ class TestPostCreateTweetRequestVariables(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PostCreateTweetRequestVariables:
         """Test PostCreateTweetRequestVariables
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostCreateTweetRequestVariables`
@@ -37,6 +37,7 @@ class TestPostCreateTweetRequestVariables(unittest.TestCase):
         if include_optional:
             return PostCreateTweetRequestVariables(
                 dark_request = False,
+                disallowed_reply_options = None,
                 media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(
                     media_entities = [
                         twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(

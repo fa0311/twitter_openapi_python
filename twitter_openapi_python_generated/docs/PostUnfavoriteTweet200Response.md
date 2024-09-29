@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**UnfavoriteTweet**](UnfavoriteTweet.md) |  | 
+**data** | [**ErrorsData**](ErrorsData.md) |  | 
 **errors** | [**List[Error]**](Error.md) |  | 
 
 ## Example

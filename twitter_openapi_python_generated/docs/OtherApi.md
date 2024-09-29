@@ -1,6 +1,6 @@
 # twitter_openapi_python_generated.OtherApi
 
-All URIs are relative to *https://twitter.com/i/api*
+All URIs are relative to *https://x.com/i/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **other**
-> Other200Response other()
+> OtherResponse other()
 
 
 
@@ -39,14 +39,14 @@ This is not an actual endpoint
 
 ```python
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.other200_response import Other200Response
+from twitter_openapi_python_generated.models.other_response import OtherResponse
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://twitter.com/i/api
+# Defining the host is optional and defaults to https://x.com/i/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = twitter_openapi_python_generated.Configuration(
-    host = "https://twitter.com/i/api"
+    host = "https://x.com/i/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -194,7 +194,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Other200Response**](Other200Response.md)
+[**OtherResponse**](OtherResponse.md)
 
 ### Authorization
 

@@ -30,11 +30,12 @@ class PostCreateTweetRequestVariables(BaseModel):
     PostCreateTweetRequestVariables
     """ # noqa: E501
     dark_request: StrictBool
+    disallowed_reply_options: Optional[Dict[str, Any]] = None
     media: PostCreateTweetRequestVariablesMedia
     reply: Optional[PostCreateTweetRequestVariablesReply] = None
     semantic_annotation_ids: List[Dict[str, Any]]
     tweet_text: StrictStr
-    __properties: ClassVar[List[str]] = ["dark_request", "media", "reply", "semantic_annotation_ids", "tweet_text"]
+    __properties: ClassVar[List[str]] = ["dark_request", "disallowed_reply_options", "media", "reply", "semantic_annotation_ids", "tweet_text"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,6 +95,7 @@ class PostCreateTweetRequestVariables(BaseModel):
 
         _obj = cls.model_validate({
             "dark_request": obj.get("dark_request") if obj.get("dark_request") is not None else False,
+            "disallowed_reply_options": obj.get("disallowed_reply_options"),
             "media": PostCreateTweetRequestVariablesMedia.from_dict(obj["media"]) if obj.get("media") is not None else None,
             "reply": PostCreateTweetRequestVariablesReply.from_dict(obj["reply"]) if obj.get("reply") is not None else None,
             "semantic_annotation_ids": obj.get("semantic_annotation_ids"),

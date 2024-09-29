@@ -86,7 +86,7 @@ class UserVerificationInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "is_identity_verified": obj.get("is_identity_verified") if obj.get("is_identity_verified") is not None else False,
+            "is_identity_verified": obj.get("is_identity_verified"),
             "reason": UserVerificationInfoReason.from_dict(obj["reason"]) if obj.get("reason") is not None else None
         })
         return _obj

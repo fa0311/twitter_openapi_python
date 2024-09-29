@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**adult_content** | **bool** |  | [default to False]
-**graphic_violence** | **bool** |  | [default to False]
-**other** | **bool** |  | [default to False]
+**adult_content** | **bool** |  | 
+**graphic_violence** | **bool** |  | 
+**other** | **bool** |  | 
 
 ## Example
 

@@ -74,9 +74,9 @@ class UrtEndpointOptions(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in request_params (list)
         _items = []
         if self.request_params:
-            for _item in self.request_params:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_request_params in self.request_params:
+                if _item_request_params:
+                    _items.append(_item_request_params.to_dict())
             _dict['requestParams'] = _items
         return _dict
 

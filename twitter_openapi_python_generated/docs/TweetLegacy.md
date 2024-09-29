@@ -24,8 +24,8 @@ Name | Type | Description | Notes
 **lang** | **str** |  | 
 **limited_actions** | **str** |  | [optional] 
 **place** | **Dict[str, object]** |  | [optional] 
-**possibly_sensitive** | **bool** |  | [optional] [default to False]
-**possibly_sensitive_editable** | **bool** |  | [optional] [default to False]
+**possibly_sensitive** | **bool** |  | [optional] 
+**possibly_sensitive_editable** | **bool** |  | [optional] 
 **quote_count** | **int** |  | 
 **quoted_status_id_str** | **str** |  | [optional] 
 **quoted_status_permalink** | [**QuotedStatusPermalink**](QuotedStatusPermalink.md) |  | [optional] 

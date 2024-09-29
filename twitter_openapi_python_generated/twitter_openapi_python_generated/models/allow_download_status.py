@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class AllowDownloadStatus(BaseModel):
     """
     AllowDownloadStatus
     """ # noqa: E501
-    allow_download: StrictBool
+    allow_download: Optional[StrictBool] = None
     __properties: ClassVar[List[str]] = ["allow_download"]
 
     model_config = ConfigDict(

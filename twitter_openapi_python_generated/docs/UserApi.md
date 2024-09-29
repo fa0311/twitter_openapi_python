@@ -1,6 +1,6 @@
 # twitter_openapi_python_generated.UserApi
 
-All URIs are relative to *https://twitter.com/i/api*
+All URIs are relative to *https://x.com/i/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -44,10 +44,10 @@ from twitter_openapi_python_generated.models.get_user_by_rest_id200_response imp
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://twitter.com/i/api
+# Defining the host is optional and defaults to https://x.com/i/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = twitter_openapi_python_generated.Configuration(
-    host = "https://twitter.com/i/api"
+    host = "https://x.com/i/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -258,10 +258,10 @@ from twitter_openapi_python_generated.models.get_user_by_rest_id200_response imp
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://twitter.com/i/api
+# Defining the host is optional and defaults to https://x.com/i/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = twitter_openapi_python_generated.Configuration(
-    host = "https://twitter.com/i/api"
+    host = "https://x.com/i/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -392,9 +392,9 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.UserApi(api_client)
-    path_query_id = 'k5XapwcSikNsEsILW5FvgA' # str |  (default to 'k5XapwcSikNsEsILW5FvgA')
+    path_query_id = 'Yka-W8dz7RaEuQNkroPkYw' # str |  (default to 'Yka-W8dz7RaEuQNkroPkYw')
     variables = '{"screen_name": "elonmusk", "withSafetyModeUserFields": true}' # str |  (default to '{"screen_name": "elonmusk", "withSafetyModeUserFields": true}')
-    features = '{"hidden_profile_likes_enabled": true, "hidden_profile_subscriptions_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "subscriptions_verification_info_is_identity_verified_enabled": true, "subscriptions_verification_info_verified_since_enabled": true, "highlights_tweets_tab_ui_enabled": true, "responsive_web_twitter_article_notes_tab_enabled": true, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}' # str |  (default to '{"hidden_profile_likes_enabled": true, "hidden_profile_subscriptions_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "subscriptions_verification_info_is_identity_verified_enabled": true, "subscriptions_verification_info_verified_since_enabled": true, "highlights_tweets_tab_ui_enabled": true, "responsive_web_twitter_article_notes_tab_enabled": true, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}')
+    features = '{"hidden_profile_subscriptions_enabled": true, "rweb_tipjar_consumption_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "subscriptions_verification_info_is_identity_verified_enabled": true, "subscriptions_verification_info_verified_since_enabled": true, "highlights_tweets_tab_ui_enabled": true, "responsive_web_twitter_article_notes_tab_enabled": true, "subscriptions_feature_can_gift_premium": true, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}' # str |  (default to '{"hidden_profile_subscriptions_enabled": true, "rweb_tipjar_consumption_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "subscriptions_verification_info_is_identity_verified_enabled": true, "subscriptions_verification_info_verified_since_enabled": true, "highlights_tweets_tab_ui_enabled": true, "responsive_web_twitter_article_notes_tab_enabled": true, "subscriptions_feature_can_gift_premium": true, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}')
     field_toggles = '{"withAuxiliaryUserLabels": false}' # str |  (default to '{"withAuxiliaryUserLabels": false}')
 
     try:
@@ -412,9 +412,9 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;k5XapwcSikNsEsILW5FvgA&#39;]
+ **path_query_id** | **str**|  | [default to &#39;Yka-W8dz7RaEuQNkroPkYw&#39;]
  **variables** | **str**|  | [default to &#39;{&quot;screen_name&quot;: &quot;elonmusk&quot;, &quot;withSafetyModeUserFields&quot;: true}&#39;]
- **features** | **str**|  | [default to &#39;{&quot;hidden_profile_likes_enabled&quot;: true, &quot;hidden_profile_subscriptions_enabled&quot;: true, &quot;responsive_web_graphql_exclude_directive_enabled&quot;: true, &quot;verified_phone_label_enabled&quot;: false, &quot;subscriptions_verification_info_is_identity_verified_enabled&quot;: true, &quot;subscriptions_verification_info_verified_since_enabled&quot;: true, &quot;highlights_tweets_tab_ui_enabled&quot;: true, &quot;responsive_web_twitter_article_notes_tab_enabled&quot;: true, &quot;creator_subscriptions_tweet_preview_api_enabled&quot;: true, &quot;responsive_web_graphql_skip_user_profile_image_extensions_enabled&quot;: false, &quot;responsive_web_graphql_timeline_navigation_enabled&quot;: true}&#39;]
+ **features** | **str**|  | [default to &#39;{&quot;hidden_profile_subscriptions_enabled&quot;: true, &quot;rweb_tipjar_consumption_enabled&quot;: true, &quot;responsive_web_graphql_exclude_directive_enabled&quot;: true, &quot;verified_phone_label_enabled&quot;: false, &quot;subscriptions_verification_info_is_identity_verified_enabled&quot;: true, &quot;subscriptions_verification_info_verified_since_enabled&quot;: true, &quot;highlights_tweets_tab_ui_enabled&quot;: true, &quot;responsive_web_twitter_article_notes_tab_enabled&quot;: true, &quot;subscriptions_feature_can_gift_premium&quot;: true, &quot;creator_subscriptions_tweet_preview_api_enabled&quot;: true, &quot;responsive_web_graphql_skip_user_profile_image_extensions_enabled&quot;: false, &quot;responsive_web_graphql_timeline_navigation_enabled&quot;: true}&#39;]
  **field_toggles** | **str**|  | [default to &#39;{&quot;withAuxiliaryUserLabels&quot;: false}&#39;]
 
 ### Return type

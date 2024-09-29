@@ -28,7 +28,7 @@ class TestGetHomeLatestTimeline200Response(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GetHomeLatestTimeline200Response:
         """Test GetHomeLatestTimeline200Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetHomeLatestTimeline200Response`
@@ -36,14 +36,8 @@ class TestGetHomeLatestTimeline200Response(unittest.TestCase):
         model = GetHomeLatestTimeline200Response()
         if include_optional:
             return GetHomeLatestTimeline200Response(
-                data = twitter_openapi_python_generated.models.home_timeline_response_data.HomeTimelineResponseData(
-                    home = twitter_openapi_python_generated.models.home_timeline_home.HomeTimelineHome(
-                        home_timeline_urt = twitter_openapi_python_generated.models.timeline.Timeline(
-                            instructions = [
-                                null
-                                ], 
-                            metadata = { }, 
-                            response_objects = { }, ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -74,14 +68,8 @@ class TestGetHomeLatestTimeline200Response(unittest.TestCase):
             )
         else:
             return GetHomeLatestTimeline200Response(
-                data = twitter_openapi_python_generated.models.home_timeline_response_data.HomeTimelineResponseData(
-                    home = twitter_openapi_python_generated.models.home_timeline_home.HomeTimelineHome(
-                        home_timeline_urt = twitter_openapi_python_generated.models.timeline.Timeline(
-                            instructions = [
-                                null
-                                ], 
-                            metadata = { }, 
-                            response_objects = { }, ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

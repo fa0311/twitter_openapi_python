@@ -5,46 +5,46 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**blocked_by** | **bool** |  | [default to False]
-**blocking** | **bool** |  | [default to False]
-**can_dm** | **bool** |  | [default to False]
-**can_media_tag** | **bool** |  | [default to False]
+**blocked_by** | **bool** |  | [optional] 
+**blocking** | **bool** |  | [optional] 
+**can_dm** | **bool** |  | [optional] 
+**can_media_tag** | **bool** |  | [optional] 
 **created_at** | **str** |  | 
-**default_profile** | **bool** |  | [default to False]
-**default_profile_image** | **bool** |  | [default to False]
+**default_profile** | **bool** |  | 
+**default_profile_image** | **bool** |  | 
 **description** | **str** |  | 
 **entities** | **Dict[str, object]** |  | 
 **fast_followers_count** | **int** |  | 
-**favourites_count** | **int** |  | [default to 0]
-**follow_request_sent** | **bool** |  | [optional] [default to False]
-**followed_by** | **bool** |  | [optional] [default to False]
-**followers_count** | **int** |  | [default to 0]
-**following** | **bool** |  | [optional] [default to False]
-**friends_count** | **int** |  | [default to 0]
-**has_custom_timelines** | **bool** |  | [default to False]
-**is_translator** | **bool** |  | [default to False]
-**listed_count** | **int** |  | [default to 0]
+**favourites_count** | **int** |  | 
+**follow_request_sent** | **bool** |  | [optional] 
+**followed_by** | **bool** |  | [optional] 
+**followers_count** | **int** |  | 
+**following** | **bool** |  | [optional] 
+**friends_count** | **int** |  | 
+**has_custom_timelines** | **bool** |  | 
+**is_translator** | **bool** |  | 
+**listed_count** | **int** |  | 
 **location** | **str** |  | 
-**media_count** | **int** |  | [default to 0]
-**muting** | **bool** |  | [default to False]
+**media_count** | **int** |  | 
+**muting** | **bool** |  | [optional] 
 **name** | **str** |  | 
-**normal_followers_count** | **int** |  | [default to 0]
-**notifications** | **bool** |  | [optional] [default to False]
+**normal_followers_count** | **int** |  | 
+**notifications** | **bool** |  | [optional] 
 **pinned_tweet_ids_str** | **List[str]** |  | 
-**possibly_sensitive** | **bool** |  | [default to False]
+**possibly_sensitive** | **bool** |  | 
 **profile_banner_extensions** | **object** |  | [optional] 
 **profile_banner_url** | **str** |  | [optional] 
 **profile_image_extensions** | **object** |  | [optional] 
 **profile_image_url_https** | **str** |  | 
 **profile_interstitial_type** | **str** |  | 
-**protected** | **bool** |  | [optional] [default to False]
+**protected** | **bool** |  | [optional] 
 **screen_name** | **str** |  | 
-**statuses_count** | **int** |  | [default to 0]
+**statuses_count** | **int** |  | 
 **translator_type** | **str** |  | 
 **url** | **str** |  | [optional] 
 **verified** | **bool** |  | 
 **verified_type** | **str** |  | [optional] 
-**want_retweets** | **bool** |  | [default to False]
+**want_retweets** | **bool** |  | [optional] 
 **withheld_in_countries** | **List[str]** |  | [optional] 
 
 ## Example

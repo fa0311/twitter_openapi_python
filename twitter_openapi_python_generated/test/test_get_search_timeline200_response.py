@@ -28,7 +28,7 @@ class TestGetSearchTimeline200Response(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GetSearchTimeline200Response:
         """Test GetSearchTimeline200Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetSearchTimeline200Response`
@@ -36,15 +36,8 @@ class TestGetSearchTimeline200Response(unittest.TestCase):
         model = GetSearchTimeline200Response()
         if include_optional:
             return GetSearchTimeline200Response(
-                data = twitter_openapi_python_generated.models.search_timeline_data.SearchTimelineData(
-                    search_by_raw_query = twitter_openapi_python_generated.models.search_by_raw_query.SearchByRawQuery(
-                        search_timeline = twitter_openapi_python_generated.models.search_timeline.SearchTimeline(
-                            timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                                instructions = [
-                                    null
-                                    ], 
-                                metadata = { }, 
-                                response_objects = { }, ), ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -75,15 +68,8 @@ class TestGetSearchTimeline200Response(unittest.TestCase):
             )
         else:
             return GetSearchTimeline200Response(
-                data = twitter_openapi_python_generated.models.search_timeline_data.SearchTimelineData(
-                    search_by_raw_query = twitter_openapi_python_generated.models.search_by_raw_query.SearchByRawQuery(
-                        search_timeline = twitter_openapi_python_generated.models.search_timeline.SearchTimeline(
-                            timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                                instructions = [
-                                    null
-                                    ], 
-                                metadata = { }, 
-                                response_objects = { }, ), ), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

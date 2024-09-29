@@ -28,7 +28,7 @@ class TestUserUnion(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UserUnion:
         """Test UserUnion
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserUnion`
@@ -41,6 +41,7 @@ class TestUserUnion(unittest.TestCase):
                 business_account = { },
                 creator_subscriptions_count = 56,
                 has_graduated_access = True,
+                has_hidden_likes_on_profile = True,
                 has_nft_avatar = True,
                 highlights_info = twitter_openapi_python_generated.models.user_highlights_info.UserHighlightsInfo(
                     can_highlight_tweets = True, 
@@ -101,6 +102,7 @@ class TestUserUnion(unittest.TestCase):
                         visibility = 'Self', 
                         year = 56, 
                         year_visibility = 'Self', ), ),
+                premium_gifting_eligible = True,
                 professional = twitter_openapi_python_generated.models.user_professional.UserProfessional(
                     category = [
                         twitter_openapi_python_generated.models.user_professional_category.UserProfessionalCategory(
@@ -116,6 +118,7 @@ class TestUserUnion(unittest.TestCase):
                 super_followed_by = True,
                 super_following = True,
                 tipjar_settings = twitter_openapi_python_generated.models.user_tip_jar_settings.UserTipJarSettings(
+                    bandcamp_handle = '', 
                     bitcoin_handle = '', 
                     cash_app_handle = '', 
                     ethereum_handle = '', 
@@ -196,9 +199,6 @@ class TestUserUnion(unittest.TestCase):
                         ], ),
                 profile_image_shape = 'Circle',
                 rest_id = '4',
-                super_follow_eligible = True,
-                super_followed_by = True,
-                super_following = True,
                 reason = '',
         )
         """

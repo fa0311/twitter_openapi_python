@@ -1,6 +1,6 @@
 # twitter_openapi_python_generated.PostApi
 
-All URIs are relative to *https://twitter.com/i/api*
+All URIs are relative to *https://x.com/i/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -51,10 +51,10 @@ from twitter_openapi_python_generated.models.post_create_bookmark_request import
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://twitter.com/i/api
+# Defining the host is optional and defaults to https://x.com/i/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = twitter_openapi_python_generated.Configuration(
-    host = "https://twitter.com/i/api"
+    host = "https://x.com/i/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -264,10 +264,10 @@ from twitter_openapi_python_generated.models.post_create_retweet_request import 
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://twitter.com/i/api
+# Defining the host is optional and defaults to https://x.com/i/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = twitter_openapi_python_generated.Configuration(
-    host = "https://twitter.com/i/api"
+    host = "https://x.com/i/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -477,10 +477,10 @@ from twitter_openapi_python_generated.models.post_create_tweet_request import Po
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://twitter.com/i/api
+# Defining the host is optional and defaults to https://x.com/i/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = twitter_openapi_python_generated.Configuration(
-    host = "https://twitter.com/i/api"
+    host = "https://x.com/i/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -611,7 +611,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.PostApi(api_client)
-    path_query_id = '8ED1SMuUGkOZVBEjiYUTfw' # str |  (default to '8ED1SMuUGkOZVBEjiYUTfw')
+    path_query_id = 'xT36w0XM3A8jDynpkram2A' # str |  (default to 'xT36w0XM3A8jDynpkram2A')
     post_create_tweet_request = twitter_openapi_python_generated.PostCreateTweetRequest() # PostCreateTweetRequest | body
 
     try:
@@ -629,7 +629,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;8ED1SMuUGkOZVBEjiYUTfw&#39;]
+ **path_query_id** | **str**|  | [default to &#39;xT36w0XM3A8jDynpkram2A&#39;]
  **post_create_tweet_request** | [**PostCreateTweetRequest**](PostCreateTweetRequest.md)| body | 
 
 ### Return type
@@ -690,10 +690,10 @@ from twitter_openapi_python_generated.models.post_delete_bookmark_request import
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://twitter.com/i/api
+# Defining the host is optional and defaults to https://x.com/i/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = twitter_openapi_python_generated.Configuration(
-    host = "https://twitter.com/i/api"
+    host = "https://x.com/i/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -903,10 +903,10 @@ from twitter_openapi_python_generated.models.post_delete_retweet_request import 
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://twitter.com/i/api
+# Defining the host is optional and defaults to https://x.com/i/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = twitter_openapi_python_generated.Configuration(
-    host = "https://twitter.com/i/api"
+    host = "https://x.com/i/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1116,10 +1116,10 @@ from twitter_openapi_python_generated.models.post_delete_tweet_request import Po
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://twitter.com/i/api
+# Defining the host is optional and defaults to https://x.com/i/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = twitter_openapi_python_generated.Configuration(
-    host = "https://twitter.com/i/api"
+    host = "https://x.com/i/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1329,10 +1329,10 @@ from twitter_openapi_python_generated.models.post_favorite_tweet_request import 
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://twitter.com/i/api
+# Defining the host is optional and defaults to https://x.com/i/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = twitter_openapi_python_generated.Configuration(
-    host = "https://twitter.com/i/api"
+    host = "https://x.com/i/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1542,10 +1542,10 @@ from twitter_openapi_python_generated.models.post_unfavorite_tweet_request impor
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://twitter.com/i/api
+# Defining the host is optional and defaults to https://x.com/i/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = twitter_openapi_python_generated.Configuration(
-    host = "https://twitter.com/i/api"
+    host = "https://x.com/i/api"
 )
 
 # The client must configure the authentication and authorization parameters

@@ -77,9 +77,9 @@ class TimelineAddToModule(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in module_items (list)
         _items = []
         if self.module_items:
-            for _item in self.module_items:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_module_items in self.module_items:
+                if _item_module_items:
+                    _items.append(_item_module_items.to_dict())
             _dict['moduleItems'] = _items
         return _dict
 

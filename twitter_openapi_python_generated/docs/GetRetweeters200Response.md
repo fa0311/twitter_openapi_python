@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**TweetRetweetersResponseData**](TweetRetweetersResponseData.md) |  | 
+**data** | [**ErrorsData**](ErrorsData.md) |  | 
 **errors** | [**List[Error]**](Error.md) |  | 
 
 ## Example

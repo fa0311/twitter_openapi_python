@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **cursor_type** | [**CursorType**](CursorType.md) |  | 
 **display_treatment** | [**DisplayTreatment**](DisplayTreatment.md) |  | [optional] 
 **item_type** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
-**stop_on_empty_response** | **bool** |  | [default to False]
+**stop_on_empty_response** | **bool** |  | [optional] 
 **value** | **str** |  | 
 
 ## Example

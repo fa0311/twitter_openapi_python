@@ -36,7 +36,7 @@ class TimelineTimelineCursor(BaseModel):
     display_treatment: Optional[DisplayTreatment] = Field(default=None, alias="displayTreatment")
     entry_type: Optional[ContentEntryType] = Field(default=None, alias="entryType")
     item_type: Optional[ContentEntryType] = Field(default=None, alias="itemType")
-    stop_on_empty_response: StrictBool = Field(alias="stopOnEmptyResponse")
+    stop_on_empty_response: Optional[StrictBool] = Field(default=None, alias="stopOnEmptyResponse")
     value: StrictStr
     __properties: ClassVar[List[str]] = ["__typename", "cursorType", "displayTreatment", "entryType", "itemType", "stopOnEmptyResponse", "value"]
 
@@ -99,7 +99,7 @@ class TimelineTimelineCursor(BaseModel):
             "displayTreatment": DisplayTreatment.from_dict(obj["displayTreatment"]) if obj.get("displayTreatment") is not None else None,
             "entryType": obj.get("entryType"),
             "itemType": obj.get("itemType"),
-            "stopOnEmptyResponse": obj.get("stopOnEmptyResponse") if obj.get("stopOnEmptyResponse") is not None else False,
+            "stopOnEmptyResponse": obj.get("stopOnEmptyResponse"),
             "value": obj.get("value")
         })
         return _obj

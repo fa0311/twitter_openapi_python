@@ -28,7 +28,7 @@ class TestPostCreateBookmark200Response(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PostCreateBookmark200Response:
         """Test PostCreateBookmark200Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostCreateBookmark200Response`
@@ -36,8 +36,8 @@ class TestPostCreateBookmark200Response(unittest.TestCase):
         model = PostCreateBookmark200Response()
         if include_optional:
             return PostCreateBookmark200Response(
-                data = twitter_openapi_python_generated.models.create_bookmark_response_data.CreateBookmarkResponseData(
-                    tweet_bookmark_put = '', ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -68,8 +68,8 @@ class TestPostCreateBookmark200Response(unittest.TestCase):
             )
         else:
             return PostCreateBookmark200Response(
-                data = twitter_openapi_python_generated.models.create_bookmark_response_data.CreateBookmarkResponseData(
-                    tweet_bookmark_put = '', ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

@@ -58,10 +58,10 @@ class TwitterOpenapiPythonClient:
 
 
 class TwitterOpenapiPython:
-    hash: str = "4f39fa1a95e3b03fcc64ae4c54c3d4389582fd39"
+    hash: str = "a18a24e4fd96967314c452a6ec2fe6e54f112351"
     placeholder_url = "https://raw.githubusercontent.com/fa0311/twitter-openapi/{hash}/src/config/placeholder.json"
     placeholder: ParamType
-    user_agent: str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+    user_agent: str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
     access_token: str = "AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA"
 
     api_key = {
@@ -141,7 +141,7 @@ class TwitterOpenapiPython:
 
         res_1 = http.request(
             "GET",
-            "https://twitter.com",
+            "https://x.com",
             redirect=False,
             headers=self.browser_headers.copy(),
         )
@@ -149,7 +149,7 @@ class TwitterOpenapiPython:
         session.update(self.cookie_normalize(cookie))
         res_2 = http.request(
             "GET",
-            "https://twitter.com",
+            "https://x.com",
             redirect=False,
             headers=self.browser_headers.copy()
             | {"Cookie": self.cookie_to_str(session)},
@@ -168,7 +168,7 @@ class TwitterOpenapiPython:
             }
             res_3 = http.request(
                 "POST",
-                "https://api.twitter.com/1.1/guest/activate.json",
+                "https://api.x.com/1.1/guest/activate.json",
                 headers=activate_header | {"Cookie": self.cookie_to_str(session)},
             )
             gt = json.loads(res_3.data.decode())["guest_token"]

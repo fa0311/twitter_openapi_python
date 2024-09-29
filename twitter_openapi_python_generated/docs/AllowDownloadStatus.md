@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allow_download** | **bool** |  | 
+**allow_download** | **bool** |  | [optional] 
 
 ## Example
 

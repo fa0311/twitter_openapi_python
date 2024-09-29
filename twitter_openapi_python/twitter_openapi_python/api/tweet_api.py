@@ -17,6 +17,7 @@ from twitter_openapi_python.utils import (
     instruction_to_entry,
     tweet_entries_converter,
 )
+from twitter_openapi_python.utils.api import non_nullable
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[TweetApiUtilsData]]
@@ -199,7 +200,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_tweets_with_http_info,
-            convertFn=lambda e: e.data.user.result.timeline_v2.timeline.instructions,
+            convertFn=lambda e: non_nullable(
+                e.data.user.result.timeline_v2.timeline
+            ).instructions,
             type=models.UserTweetsResponse,
             key="UserTweets",
             param=param,
@@ -223,7 +226,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_tweets_and_replies_with_http_info,
-            convertFn=lambda e: e.data.user.result.timeline_v2.timeline.instructions,
+            convertFn=lambda e: non_nullable(
+                e.data.user.result.timeline_v2.timeline
+            ).instructions,
             type=models.UserTweetsResponse,
             key="UserTweetsAndReplies",
             param=param,
@@ -247,7 +252,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_media_with_http_info,
-            convertFn=lambda e: e.data.user.result.timeline_v2.timeline.instructions,
+            convertFn=lambda e: non_nullable(
+                e.data.user.result.timeline_v2.timeline
+            ).instructions,
             type=models.UserTweetsResponse,
             key="UserMedia",
             param=param,
@@ -271,7 +278,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_likes_with_http_info,
-            convertFn=lambda e: e.data.user.result.timeline_v2.timeline.instructions,
+            convertFn=lambda e: non_nullable(
+                e.data.user.result.timeline_v2.timeline
+            ).instructions,
             type=models.UserTweetsResponse,
             key="Likes",
             param=param,

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**ListTweetsTimelineData**](ListTweetsTimelineData.md) |  | 
+**data** | [**ErrorsData**](ErrorsData.md) |  | 
 **errors** | [**List[Error]**](Error.md) |  | 
 
 ## Example

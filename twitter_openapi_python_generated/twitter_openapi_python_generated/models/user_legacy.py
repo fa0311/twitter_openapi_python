@@ -28,10 +28,10 @@ class UserLegacy(BaseModel):
     """
     UserLegacy
     """ # noqa: E501
-    blocked_by: StrictBool
-    blocking: StrictBool
-    can_dm: StrictBool
-    can_media_tag: StrictBool
+    blocked_by: Optional[StrictBool] = None
+    blocking: Optional[StrictBool] = None
+    can_dm: Optional[StrictBool] = None
+    can_media_tag: Optional[StrictBool] = None
     created_at: Annotated[str, Field(strict=True)]
     default_profile: StrictBool
     default_profile_image: StrictBool
@@ -39,20 +39,20 @@ class UserLegacy(BaseModel):
     entities: Dict[str, Any]
     fast_followers_count: StrictInt
     favourites_count: StrictInt
-    follow_request_sent: Optional[StrictBool] = False
-    followed_by: Optional[StrictBool] = False
+    follow_request_sent: Optional[StrictBool] = None
+    followed_by: Optional[StrictBool] = None
     followers_count: StrictInt
-    following: Optional[StrictBool] = False
+    following: Optional[StrictBool] = None
     friends_count: StrictInt
     has_custom_timelines: StrictBool
     is_translator: StrictBool
     listed_count: StrictInt
     location: StrictStr
     media_count: StrictInt
-    muting: StrictBool
+    muting: Optional[StrictBool] = None
     name: StrictStr
     normal_followers_count: StrictInt
-    notifications: Optional[StrictBool] = False
+    notifications: Optional[StrictBool] = None
     pinned_tweet_ids_str: List[StrictStr]
     possibly_sensitive: StrictBool
     profile_banner_extensions: Optional[Dict[str, Any]] = None
@@ -60,14 +60,14 @@ class UserLegacy(BaseModel):
     profile_image_extensions: Optional[Dict[str, Any]] = None
     profile_image_url_https: StrictStr
     profile_interstitial_type: StrictStr
-    protected: Optional[StrictBool] = False
+    protected: Optional[StrictBool] = None
     screen_name: StrictStr
     statuses_count: StrictInt
     translator_type: StrictStr
     url: Optional[StrictStr] = None
     verified: StrictBool
     verified_type: Optional[StrictStr] = None
-    want_retweets: StrictBool
+    want_retweets: Optional[StrictBool] = None
     withheld_in_countries: Optional[List[StrictStr]] = None
     __properties: ClassVar[List[str]] = ["blocked_by", "blocking", "can_dm", "can_media_tag", "created_at", "default_profile", "default_profile_image", "description", "entities", "fast_followers_count", "favourites_count", "follow_request_sent", "followed_by", "followers_count", "following", "friends_count", "has_custom_timelines", "is_translator", "listed_count", "location", "media_count", "muting", "name", "normal_followers_count", "notifications", "pinned_tweet_ids_str", "possibly_sensitive", "profile_banner_extensions", "profile_banner_url", "profile_image_extensions", "profile_image_url_https", "profile_interstitial_type", "protected", "screen_name", "statuses_count", "translator_type", "url", "verified", "verified_type", "want_retweets", "withheld_in_countries"]
 
@@ -139,46 +139,46 @@ class UserLegacy(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "blocked_by": obj.get("blocked_by") if obj.get("blocked_by") is not None else False,
-            "blocking": obj.get("blocking") if obj.get("blocking") is not None else False,
-            "can_dm": obj.get("can_dm") if obj.get("can_dm") is not None else False,
-            "can_media_tag": obj.get("can_media_tag") if obj.get("can_media_tag") is not None else False,
+            "blocked_by": obj.get("blocked_by"),
+            "blocking": obj.get("blocking"),
+            "can_dm": obj.get("can_dm"),
+            "can_media_tag": obj.get("can_media_tag"),
             "created_at": obj.get("created_at"),
-            "default_profile": obj.get("default_profile") if obj.get("default_profile") is not None else False,
-            "default_profile_image": obj.get("default_profile_image") if obj.get("default_profile_image") is not None else False,
+            "default_profile": obj.get("default_profile"),
+            "default_profile_image": obj.get("default_profile_image"),
             "description": obj.get("description"),
             "entities": obj.get("entities"),
             "fast_followers_count": obj.get("fast_followers_count"),
-            "favourites_count": obj.get("favourites_count") if obj.get("favourites_count") is not None else 0,
-            "follow_request_sent": obj.get("follow_request_sent") if obj.get("follow_request_sent") is not None else False,
-            "followed_by": obj.get("followed_by") if obj.get("followed_by") is not None else False,
-            "followers_count": obj.get("followers_count") if obj.get("followers_count") is not None else 0,
-            "following": obj.get("following") if obj.get("following") is not None else False,
-            "friends_count": obj.get("friends_count") if obj.get("friends_count") is not None else 0,
-            "has_custom_timelines": obj.get("has_custom_timelines") if obj.get("has_custom_timelines") is not None else False,
-            "is_translator": obj.get("is_translator") if obj.get("is_translator") is not None else False,
-            "listed_count": obj.get("listed_count") if obj.get("listed_count") is not None else 0,
+            "favourites_count": obj.get("favourites_count"),
+            "follow_request_sent": obj.get("follow_request_sent"),
+            "followed_by": obj.get("followed_by"),
+            "followers_count": obj.get("followers_count"),
+            "following": obj.get("following"),
+            "friends_count": obj.get("friends_count"),
+            "has_custom_timelines": obj.get("has_custom_timelines"),
+            "is_translator": obj.get("is_translator"),
+            "listed_count": obj.get("listed_count"),
             "location": obj.get("location"),
-            "media_count": obj.get("media_count") if obj.get("media_count") is not None else 0,
-            "muting": obj.get("muting") if obj.get("muting") is not None else False,
+            "media_count": obj.get("media_count"),
+            "muting": obj.get("muting"),
             "name": obj.get("name"),
-            "normal_followers_count": obj.get("normal_followers_count") if obj.get("normal_followers_count") is not None else 0,
-            "notifications": obj.get("notifications") if obj.get("notifications") is not None else False,
+            "normal_followers_count": obj.get("normal_followers_count"),
+            "notifications": obj.get("notifications"),
             "pinned_tweet_ids_str": obj.get("pinned_tweet_ids_str"),
-            "possibly_sensitive": obj.get("possibly_sensitive") if obj.get("possibly_sensitive") is not None else False,
+            "possibly_sensitive": obj.get("possibly_sensitive"),
             "profile_banner_extensions": obj.get("profile_banner_extensions"),
             "profile_banner_url": obj.get("profile_banner_url"),
             "profile_image_extensions": obj.get("profile_image_extensions"),
             "profile_image_url_https": obj.get("profile_image_url_https"),
             "profile_interstitial_type": obj.get("profile_interstitial_type"),
-            "protected": obj.get("protected") if obj.get("protected") is not None else False,
+            "protected": obj.get("protected"),
             "screen_name": obj.get("screen_name"),
-            "statuses_count": obj.get("statuses_count") if obj.get("statuses_count") is not None else 0,
+            "statuses_count": obj.get("statuses_count"),
             "translator_type": obj.get("translator_type"),
             "url": obj.get("url"),
             "verified": obj.get("verified"),
             "verified_type": obj.get("verified_type"),
-            "want_retweets": obj.get("want_retweets") if obj.get("want_retweets") is not None else False,
+            "want_retweets": obj.get("want_retweets"),
             "withheld_in_countries": obj.get("withheld_in_countries")
         })
         return _obj

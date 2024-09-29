@@ -95,9 +95,9 @@ class TimelineHalfCover(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in impression_callbacks (list)
         _items = []
         if self.impression_callbacks:
-            for _item in self.impression_callbacks:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_impression_callbacks in self.impression_callbacks:
+                if _item_impression_callbacks:
+                    _items.append(_item_impression_callbacks.to_dict())
             _dict['impressionCallbacks'] = _items
         # override the default output from pydantic by calling `to_dict()` of primary_cover_cta
         if self.primary_cover_cta:

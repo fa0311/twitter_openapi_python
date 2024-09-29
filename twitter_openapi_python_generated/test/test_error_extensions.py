@@ -28,7 +28,7 @@ class TestErrorExtensions(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ErrorExtensions:
         """Test ErrorExtensions
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ErrorExtensions`
@@ -49,7 +49,6 @@ class TestErrorExtensions(unittest.TestCase):
                 code = 56,
                 kind = '',
                 name = '',
-                retry_after = 56,
                 source = '',
                 tracing = twitter_openapi_python_generated.models.tracing.Tracing(
                     trace_id = 'bf325375e030fccb', ),

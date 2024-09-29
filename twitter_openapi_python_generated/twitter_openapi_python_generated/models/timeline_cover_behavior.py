@@ -19,7 +19,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.timeline_cover_behavior_url import TimelineCoverBehaviorUrl
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,13 +29,14 @@ class TimelineCoverBehavior(BaseModel):
     TimelineCoverBehavior
     """ # noqa: E501
     type: StrictStr
-    __properties: ClassVar[List[str]] = ["type"]
+    url: Optional[TimelineCoverBehaviorUrl] = None
+    __properties: ClassVar[List[str]] = ["type", "url"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['TimelineCoverBehaviorDismiss']):
-            raise ValueError("must be one of enum values ('TimelineCoverBehaviorDismiss')")
+        if value not in set(['TimelineCoverBehaviorDismiss', 'TimelineCoverBehaviorNavigate']):
+            raise ValueError("must be one of enum values ('TimelineCoverBehaviorDismiss', 'TimelineCoverBehaviorNavigate')")
         return value
 
     model_config = ConfigDict(
@@ -76,6 +78,9 @@ class TimelineCoverBehavior(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of url
+        if self.url:
+            _dict['url'] = self.url.to_dict()
         return _dict
 
     @classmethod
@@ -88,7 +93,8 @@ class TimelineCoverBehavior(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type")
+            "type": obj.get("type"),
+            "url": TimelineCoverBehaviorUrl.from_dict(obj["url"]) if obj.get("url") is not None else None
         })
         return _obj
 

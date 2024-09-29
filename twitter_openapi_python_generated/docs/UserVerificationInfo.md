@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**is_identity_verified** | **bool** |  | [default to False]
+**is_identity_verified** | **bool** |  | 
 **reason** | [**UserVerificationInfoReason**](UserVerificationInfoReason.md) |  | [optional] 
 
 ## Example

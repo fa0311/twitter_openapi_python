@@ -19,8 +19,9 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.error import Error
+from twitter_openapi_python_generated.models.errors_data import ErrorsData
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +29,9 @@ class Errors(BaseModel):
     """
     Errors
     """ # noqa: E501
+    data: Optional[ErrorsData] = None
     errors: List[Error]
-    __properties: ClassVar[List[str]] = ["errors"]
+    __properties: ClassVar[List[str]] = ["data", "errors"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,12 +72,15 @@ class Errors(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in errors (list)
         _items = []
         if self.errors:
-            for _item in self.errors:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_errors in self.errors:
+                if _item_errors:
+                    _items.append(_item_errors.to_dict())
             _dict['errors'] = _items
         return _dict
 
@@ -89,6 +94,7 @@ class Errors(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "data": ErrorsData.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "errors": [Error.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None
         })
         return _obj

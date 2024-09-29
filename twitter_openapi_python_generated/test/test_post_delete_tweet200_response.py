@@ -28,7 +28,7 @@ class TestPostDeleteTweet200Response(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PostDeleteTweet200Response:
         """Test PostDeleteTweet200Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PostDeleteTweet200Response`
@@ -36,9 +36,8 @@ class TestPostDeleteTweet200Response(unittest.TestCase):
         model = PostDeleteTweet200Response()
         if include_optional:
             return PostDeleteTweet200Response(
-                data = twitter_openapi_python_generated.models.delete_tweet_response_data.DeleteTweetResponseData(
-                    delete_retweet = twitter_openapi_python_generated.models.delete_tweet_response_result.DeleteTweetResponseResult(
-                        tweet_results = twitter_openapi_python_generated.models.tweet_results.tweet_results(), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 
@@ -69,9 +68,8 @@ class TestPostDeleteTweet200Response(unittest.TestCase):
             )
         else:
             return PostDeleteTweet200Response(
-                data = twitter_openapi_python_generated.models.delete_tweet_response_data.DeleteTweetResponseData(
-                    delete_retweet = twitter_openapi_python_generated.models.delete_tweet_response_result.DeleteTweetResponseResult(
-                        tweet_results = twitter_openapi_python_generated.models.tweet_results.tweet_results(), ), ),
+                data = twitter_openapi_python_generated.models.errors_data.ErrorsData(
+                    user = 'dummy', ),
                 errors = [
                     twitter_openapi_python_generated.models.error.Error(
                         code = 56, 

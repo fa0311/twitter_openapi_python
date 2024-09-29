@@ -52,8 +52,8 @@ class TweetLegacy(BaseModel):
     lang: StrictStr
     limited_actions: Optional[StrictStr] = None
     place: Optional[Dict[str, Any]] = None
-    possibly_sensitive: Optional[StrictBool] = False
-    possibly_sensitive_editable: Optional[StrictBool] = False
+    possibly_sensitive: Optional[StrictBool] = None
+    possibly_sensitive_editable: Optional[StrictBool] = None
     quote_count: StrictInt
     quoted_status_id_str: Optional[Annotated[str, Field(strict=True)]] = None
     quoted_status_permalink: Optional[QuotedStatusPermalink] = None
@@ -222,8 +222,8 @@ class TweetLegacy(BaseModel):
             "lang": obj.get("lang"),
             "limited_actions": obj.get("limited_actions"),
             "place": obj.get("place"),
-            "possibly_sensitive": obj.get("possibly_sensitive") if obj.get("possibly_sensitive") is not None else False,
-            "possibly_sensitive_editable": obj.get("possibly_sensitive_editable") if obj.get("possibly_sensitive_editable") is not None else False,
+            "possibly_sensitive": obj.get("possibly_sensitive"),
+            "possibly_sensitive_editable": obj.get("possibly_sensitive_editable"),
             "quote_count": obj.get("quote_count"),
             "quoted_status_id_str": obj.get("quoted_status_id_str"),
             "quoted_status_permalink": QuotedStatusPermalink.from_dict(obj["quoted_status_permalink"]) if obj.get("quoted_status_permalink") is not None else None,
