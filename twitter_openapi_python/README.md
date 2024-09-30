@@ -1,13 +1,16 @@
-
 # twitter_openapi_python
 
 Twitter scraping with data validation by pydantic.
 
 ![1691572735537](docs/image/README/1691572735537.png)
 
+## Setup
+
 ```shell
 pip install twitter-openapi-python
 ```
+
+## Usage
 
 ```python
 import json
@@ -41,6 +44,8 @@ time = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
 response = 𝕏.get_user_api().get_user_by_screen_name("elonmusk")
 ```
 
+### Login
+
 ```python
 from twitter_openapi_python import TwitterOpenapiPython
 
@@ -50,4 +55,24 @@ tweet = 𝕏.get_default_api().get_tweet_result_by_rest_id("1349129669258448897"
 assert tweet.data is not None
 assert tweet.data.tweet.legacy is not None
 print(tweet.data.tweet.legacy.full_text)
-``````
+```
+
+### Multiple OS
+
+The Token can only be used on the same OS that issued the Token
+In other words, if the sec-ch-ua-platform does not match, the Token cannot be used.
+This library uses the Linux Chrome header by default.
+To use Token issued by Windows, do the following.
+
+```typescript
+TwitterOpenapiPython.additional_api_headers = {
+  "sec-ch-ua-platform": '"Windows"',
+};
+```
+
+## License
+
+This project is dual licensed. You can choose one of the following licenses:
+
+- [Custom License](./LICENSE)
+- [GNU Affero General Public License v3.0](./LICENSE.AGPL)
