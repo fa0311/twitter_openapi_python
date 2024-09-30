@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.post_create_tweet_request_variables_conversation_control import PostCreateTweetRequestVariablesConversationControl
 from twitter_openapi_python_generated.models.post_create_tweet_request_variables_media import PostCreateTweetRequestVariablesMedia
 from twitter_openapi_python_generated.models.post_create_tweet_request_variables_reply import PostCreateTweetRequestVariablesReply
 from typing import Optional, Set
@@ -29,13 +30,15 @@ class PostCreateTweetRequestVariables(BaseModel):
     """
     PostCreateTweetRequestVariables
     """ # noqa: E501
+    attachment_url: Optional[StrictStr] = 'https://x.com/elonmusk/status/1349129669258448897'
+    conversation_control: Optional[PostCreateTweetRequestVariablesConversationControl] = None
     dark_request: StrictBool
     disallowed_reply_options: Optional[Dict[str, Any]] = None
     media: PostCreateTweetRequestVariablesMedia
     reply: Optional[PostCreateTweetRequestVariablesReply] = None
     semantic_annotation_ids: List[Dict[str, Any]]
     tweet_text: StrictStr
-    __properties: ClassVar[List[str]] = ["dark_request", "disallowed_reply_options", "media", "reply", "semantic_annotation_ids", "tweet_text"]
+    __properties: ClassVar[List[str]] = ["attachment_url", "conversation_control", "dark_request", "disallowed_reply_options", "media", "reply", "semantic_annotation_ids", "tweet_text"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,6 +79,9 @@ class PostCreateTweetRequestVariables(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of conversation_control
+        if self.conversation_control:
+            _dict['conversation_control'] = self.conversation_control.to_dict()
         # override the default output from pydantic by calling `to_dict()` of media
         if self.media:
             _dict['media'] = self.media.to_dict()
@@ -94,6 +100,8 @@ class PostCreateTweetRequestVariables(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "attachment_url": obj.get("attachment_url") if obj.get("attachment_url") is not None else 'https://x.com/elonmusk/status/1349129669258448897',
+            "conversation_control": PostCreateTweetRequestVariablesConversationControl.from_dict(obj["conversation_control"]) if obj.get("conversation_control") is not None else None,
             "dark_request": obj.get("dark_request") if obj.get("dark_request") is not None else False,
             "disallowed_reply_options": obj.get("disallowed_reply_options"),
             "media": PostCreateTweetRequestVariablesMedia.from_dict(obj["media"]) if obj.get("media") is not None else None,

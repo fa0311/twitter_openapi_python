@@ -36,6 +36,9 @@ class TestPostCreateTweetRequestVariables(unittest.TestCase):
         model = PostCreateTweetRequestVariables()
         if include_optional:
             return PostCreateTweetRequestVariables(
+                attachment_url = 'https://x.com/elonmusk/status/1349129669258448897',
+                conversation_control = twitter_openapi_python_generated.models.post_create_tweet_request_variables_conversation_control.postCreateTweet_request_variables_conversation_control(
+                    mode = 'Community', ),
                 dark_request = False,
                 disallowed_reply_options = None,
                 media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(
@@ -43,7 +46,7 @@ class TestPostCreateTweetRequestVariables(unittest.TestCase):
                         twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(
                             media_id = '1111111111111111111', 
                             tagged_users = [
-                                None
+                                '44196397'
                                 ], )
                         ], 
                     possibly_sensitive = False, ),
@@ -65,7 +68,7 @@ class TestPostCreateTweetRequestVariables(unittest.TestCase):
                         twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(
                             media_id = '1111111111111111111', 
                             tagged_users = [
-                                None
+                                '44196397'
                                 ], )
                         ], 
                     possibly_sensitive = False, ),

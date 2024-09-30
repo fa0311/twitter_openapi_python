@@ -40,7 +40,7 @@ class TestPostCreateTweetRequestVariablesMedia(unittest.TestCase):
                     twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(
                         media_id = '1111111111111111111', 
                         tagged_users = [
-                            None
+                            '44196397'
                             ], )
                     ],
                 possibly_sensitive = False
@@ -51,7 +51,7 @@ class TestPostCreateTweetRequestVariablesMedia(unittest.TestCase):
                     twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(
                         media_id = '1111111111111111111', 
                         tagged_users = [
-                            None
+                            '44196397'
                             ], )
                     ],
                 possibly_sensitive = False,

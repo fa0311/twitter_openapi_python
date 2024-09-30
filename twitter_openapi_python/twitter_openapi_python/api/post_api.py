@@ -31,6 +31,10 @@ class PostApiUtils:
         self,
         tweet_text: str,
         media_ids: Optional[list[str]] = None,
+        tagged_users: Optional[list[list[str]]] = None,
+        in_reply_to_tweet_id: Optional[str] = None,
+        attachment_url: Optional[str] = None,
+        conversation_control: Optional[str] = None,
     ) -> ResponseType[models.CreateTweetResponse]:
         variables = non_nullable(
             twitter.PostCreateTweetRequestVariables.from_dict(
@@ -43,13 +47,28 @@ class PostApiUtils:
             )
         )
         variables.tweet_text = tweet_text
-        variables.media.media_entities = [
-            twitter.PostCreateTweetRequestVariablesMediaMediaEntitiesInner(
-                media_id=media_id,
-                tagged_users=[],
+        if media_ids:
+            tagged_or = tagged_users or []
+            variables.media.media_entities = [
+                twitter.PostCreateTweetRequestVariablesMediaMediaEntitiesInner(
+                    media_id=media_id,
+                    tagged_users=tagged_or[idx] if len(tagged_or) > idx else [],
+                )
+                for idx, media_id in enumerate(media_ids)
+            ]
+        variables.attachment_url = attachment_url
+        if conversation_control:
+            variables.conversation_control = (
+                twitter.PostCreateTweetRequestVariablesConversationControl(
+                    mode=conversation_control
+                )
             )
-            for media_id in media_ids or []
-        ]
+
+        if in_reply_to_tweet_id:
+            variables.reply = twitter.PostCreateTweetRequestVariablesReply(
+                exclude_reply_user_ids=[],
+                in_reply_to_tweet_id=in_reply_to_tweet_id,
+            )
 
         res = self.api.post_create_tweet_with_http_info(
             path_query_id=self.flag["CreateTweet"]["queryId"],

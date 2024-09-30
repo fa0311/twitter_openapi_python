@@ -42,8 +42,4 @@ class TestPostApi(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    cls = TestPostApi()
-    cls.setUp()
-    cls.test_post_create_tweet()
-    cls.test_post_delete_tweet()
     unittest.main()
