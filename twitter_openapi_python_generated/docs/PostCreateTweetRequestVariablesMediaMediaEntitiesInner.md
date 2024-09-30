@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **media_id** | **str** |  | [default to '1111111111111111111']
-**tagged_users** | **List[object]** |  | 
+**tagged_users** | **List[str]** |  | 
 
 ## Example
 

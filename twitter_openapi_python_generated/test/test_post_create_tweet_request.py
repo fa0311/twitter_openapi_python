@@ -61,6 +61,9 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                     view_counts_everywhere_api_enabled = True, ),
                 query_id = 'xT36w0XM3A8jDynpkram2A',
                 variables = twitter_openapi_python_generated.models.post_create_tweet_request_variables.postCreateTweet_request_variables(
+                    attachment_url = 'https://x.com/elonmusk/status/1349129669258448897', 
+                    conversation_control = twitter_openapi_python_generated.models.post_create_tweet_request_variables_conversation_control.postCreateTweet_request_variables_conversation_control(
+                        mode = 'Community', ), 
                     dark_request = False, 
                     disallowed_reply_options = twitter_openapi_python_generated.models.disallowed_reply_options.disallowed_reply_options(), 
                     media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(
@@ -68,7 +71,7 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                             twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(
                                 media_id = '1111111111111111111', 
                                 tagged_users = [
-                                    None
+                                    '44196397'
                                     ], )
                             ], 
                         possibly_sensitive = False, ), 
@@ -109,6 +112,9 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                     view_counts_everywhere_api_enabled = True, ),
                 query_id = 'xT36w0XM3A8jDynpkram2A',
                 variables = twitter_openapi_python_generated.models.post_create_tweet_request_variables.postCreateTweet_request_variables(
+                    attachment_url = 'https://x.com/elonmusk/status/1349129669258448897', 
+                    conversation_control = twitter_openapi_python_generated.models.post_create_tweet_request_variables_conversation_control.postCreateTweet_request_variables_conversation_control(
+                        mode = 'Community', ), 
                     dark_request = False, 
                     disallowed_reply_options = twitter_openapi_python_generated.models.disallowed_reply_options.disallowed_reply_options(), 
                     media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(
@@ -116,7 +122,7 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                             twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(
                                 media_id = '1111111111111111111', 
                                 tagged_users = [
-                                    None
+                                    '44196397'
                                     ], )
                             ], 
                         possibly_sensitive = False, ), 

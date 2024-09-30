@@ -38,14 +38,14 @@ class TestPostCreateTweetRequestVariablesMediaMediaEntitiesInner(unittest.TestCa
             return PostCreateTweetRequestVariablesMediaMediaEntitiesInner(
                 media_id = '1111111111111111111',
                 tagged_users = [
-                    None
+                    '44196397'
                     ]
             )
         else:
             return PostCreateTweetRequestVariablesMediaMediaEntitiesInner(
                 media_id = '1111111111111111111',
                 tagged_users = [
-                    None
+                    '44196397'
                     ],
         )
         """

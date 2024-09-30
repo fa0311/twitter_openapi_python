@@ -18,18 +18,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PostCreateTweetRequestVariablesMediaMediaEntitiesInner(BaseModel):
+class ConversationControl(BaseModel):
     """
-    PostCreateTweetRequestVariablesMediaMediaEntitiesInner
+    ConversationControl
     """ # noqa: E501
-    media_id: StrictStr
-    tagged_users: List[StrictStr]
-    __properties: ClassVar[List[str]] = ["media_id", "tagged_users"]
+    mode: StrictStr
+    __properties: ClassVar[List[str]] = ["mode"]
+
+    @field_validator('mode')
+    def mode_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['Community', 'Verified', 'ByInvitation']):
+            raise ValueError("must be one of enum values ('Community', 'Verified', 'ByInvitation')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +55,7 @@ class PostCreateTweetRequestVariablesMediaMediaEntitiesInner(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PostCreateTweetRequestVariablesMediaMediaEntitiesInner from a JSON string"""
+        """Create an instance of ConversationControl from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +80,7 @@ class PostCreateTweetRequestVariablesMediaMediaEntitiesInner(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PostCreateTweetRequestVariablesMediaMediaEntitiesInner from a dict"""
+        """Create an instance of ConversationControl from a dict"""
         if obj is None:
             return None
 
@@ -82,8 +88,7 @@ class PostCreateTweetRequestVariablesMediaMediaEntitiesInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "media_id": obj.get("media_id") if obj.get("media_id") is not None else '1111111111111111111',
-            "tagged_users": obj.get("tagged_users")
+            "mode": obj.get("mode")
         })
         return _obj
 
