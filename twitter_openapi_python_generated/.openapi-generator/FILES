@@ -514,9 +514,6 @@ test/test_timeline_response.py
 test/test_timeline_show_alert.py
 test/test_timeline_show_alert_rich_text.py
 test/test_timeline_show_cover.py
-test/test_timeline_terminate_timeline.py
-test/test_timeline_timeline_cursor.py
-test/test_timeline_timeline_item.py
 test/test_timeline_timeline_module.py
 test/test_timeline_topic_context.py
 test/test_timeline_tweet.py
@@ -551,7 +548,6 @@ test/test_tweet_interstitial_text_entity_ref.py
 test/test_tweet_legacy.py
 test/test_tweet_legacy_scopes.py
 test/test_tweet_previous_counts.py
-test/test_tweet_result_by_rest_id_data.py
 test/test_tweet_result_by_rest_id_response.py
 test/test_tweet_retweeters_response.py
 test/test_tweet_retweeters_response_data.py

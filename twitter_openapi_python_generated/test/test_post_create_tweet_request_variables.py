@@ -63,7 +63,6 @@ class TestPostCreateTweetRequestVariables(unittest.TestCase):
         else:
             return PostCreateTweetRequestVariables(
                 dark_request = False,
-                disallowed_reply_options = None,
                 media = twitter_openapi_python_generated.models.post_create_tweet_request_variables_media.postCreateTweet_request_variables_media(
                     media_entities = [
                         twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(

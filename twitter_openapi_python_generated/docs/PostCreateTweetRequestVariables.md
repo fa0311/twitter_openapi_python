@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **attachment_url** | **str** |  | [optional] [default to 'https://x.com/elonmusk/status/1349129669258448897']
 **conversation_control** | [**PostCreateTweetRequestVariablesConversationControl**](PostCreateTweetRequestVariablesConversationControl.md) |  | [optional] 
 **dark_request** | **bool** |  | [default to False]
-**disallowed_reply_options** | **object** |  | 
+**disallowed_reply_options** | **object** |  | [optional] 
 **media** | [**PostCreateTweetRequestVariablesMedia**](PostCreateTweetRequestVariablesMedia.md) |  | 
 **reply** | [**PostCreateTweetRequestVariablesReply**](PostCreateTweetRequestVariablesReply.md) |  | [optional] 
 **semantic_annotation_ids** | **List[object]** |  | 

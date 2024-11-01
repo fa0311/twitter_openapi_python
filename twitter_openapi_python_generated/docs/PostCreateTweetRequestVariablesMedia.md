@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**media_entities** | [**List[PostCreateTweetRequestVariablesMediaMediaEntitiesInner]**](PostCreateTweetRequestVariablesMediaMediaEntitiesInner.md) |  | 
+**media_entities** | [**List[PostCreateTweetRequestVariablesMediaMediaEntitiesInner]**](PostCreateTweetRequestVariablesMediaMediaEntitiesInner.md) |  | [optional] 
 **possibly_sensitive** | **bool** |  | [default to False]
 
 ## Example
