@@ -49,6 +49,8 @@ class TestCommunity(unittest.TestCase):
                             message = '', 
                             reason = 'ViewerNotMember', ), 
                         pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
+                            __typename = , ), 
+                        unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
                             __typename = , ), ), 
                     admin_results = twitter_openapi_python_generated.models.user_results.UserResults(), 
                     created_at = 56, 
@@ -109,6 +111,8 @@ class TestCommunity(unittest.TestCase):
                             message = '', 
                             reason = 'ViewerNotMember', ), 
                         pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
+                            __typename = , ), 
+                        unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
                             __typename = , ), ), 
                     admin_results = twitter_openapi_python_generated.models.user_results.UserResults(), 
                     created_at = 56, 

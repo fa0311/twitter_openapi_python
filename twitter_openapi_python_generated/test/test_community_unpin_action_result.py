@@ -15,10 +15,10 @@
 
 import unittest
 
-from twitter_openapi_python_generated.models.user_response_data import UserResponseData
+from twitter_openapi_python_generated.models.community_unpin_action_result import CommunityUnpinActionResult
 
-class TestUserResponseData(unittest.TestCase):
-    """UserResponseData unit test stubs"""
+class TestCommunityUnpinActionResult(unittest.TestCase):
+    """CommunityUnpinActionResult unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,26 +26,26 @@ class TestUserResponseData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> UserResponseData:
-        """Test UserResponseData
+    def make_instance(self, include_optional) -> CommunityUnpinActionResult:
+        """Test CommunityUnpinActionResult
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `UserResponseData`
+        # uncomment below to create an instance of `CommunityUnpinActionResult`
         """
-        model = UserResponseData()
+        model = CommunityUnpinActionResult()
         if include_optional:
-            return UserResponseData(
-                user = twitter_openapi_python_generated.models.user_results.UserResults(
-                    result = null, )
+            return CommunityUnpinActionResult(
+                typename = 'TimelineTweet'
             )
         else:
-            return UserResponseData(
+            return CommunityUnpinActionResult(
+                typename = 'TimelineTweet',
         )
         """
 
-    def testUserResponseData(self):
-        """Test UserResponseData"""
+    def testCommunityUnpinActionResult(self):
+        """Test CommunityUnpinActionResult"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

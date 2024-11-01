@@ -19,11 +19,12 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.community_delete_action_result import CommunityDeleteActionResult
 from twitter_openapi_python_generated.models.community_join_action_result import CommunityJoinActionResult
 from twitter_openapi_python_generated.models.community_leave_action_result import CommunityLeaveActionResult
 from twitter_openapi_python_generated.models.community_pin_action_result import CommunityPinActionResult
+from twitter_openapi_python_generated.models.community_unpin_action_result import CommunityUnpinActionResult
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,11 +32,12 @@ class CommunityActions(BaseModel):
     """
     CommunityActions
     """ # noqa: E501
-    delete_action_result: CommunityDeleteActionResult
-    join_action_result: CommunityJoinActionResult
-    leave_action_result: CommunityLeaveActionResult
-    pin_action_result: CommunityPinActionResult
-    __properties: ClassVar[List[str]] = ["delete_action_result", "join_action_result", "leave_action_result", "pin_action_result"]
+    delete_action_result: Optional[CommunityDeleteActionResult] = None
+    join_action_result: Optional[CommunityJoinActionResult] = None
+    leave_action_result: Optional[CommunityLeaveActionResult] = None
+    pin_action_result: Optional[CommunityPinActionResult] = None
+    unpin_action_result: Optional[CommunityUnpinActionResult] = None
+    __properties: ClassVar[List[str]] = ["delete_action_result", "join_action_result", "leave_action_result", "pin_action_result", "unpin_action_result"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,6 +90,9 @@ class CommunityActions(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of pin_action_result
         if self.pin_action_result:
             _dict['pin_action_result'] = self.pin_action_result.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of unpin_action_result
+        if self.unpin_action_result:
+            _dict['unpin_action_result'] = self.unpin_action_result.to_dict()
         return _dict
 
     @classmethod
@@ -103,7 +108,8 @@ class CommunityActions(BaseModel):
             "delete_action_result": CommunityDeleteActionResult.from_dict(obj["delete_action_result"]) if obj.get("delete_action_result") is not None else None,
             "join_action_result": CommunityJoinActionResult.from_dict(obj["join_action_result"]) if obj.get("join_action_result") is not None else None,
             "leave_action_result": CommunityLeaveActionResult.from_dict(obj["leave_action_result"]) if obj.get("leave_action_result") is not None else None,
-            "pin_action_result": CommunityPinActionResult.from_dict(obj["pin_action_result"]) if obj.get("pin_action_result") is not None else None
+            "pin_action_result": CommunityPinActionResult.from_dict(obj["pin_action_result"]) if obj.get("pin_action_result") is not None else None,
+            "unpin_action_result": CommunityUnpinActionResult.from_dict(obj["unpin_action_result"]) if obj.get("unpin_action_result") is not None else None
         })
         return _obj
 

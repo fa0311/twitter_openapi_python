@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner import PostCreateTweetRequestVariablesMediaMediaEntitiesInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class PostCreateTweetRequestVariablesMedia(BaseModel):
     """
     PostCreateTweetRequestVariablesMedia
     """ # noqa: E501
-    media_entities: List[PostCreateTweetRequestVariablesMediaMediaEntitiesInner]
+    media_entities: Optional[List[PostCreateTweetRequestVariablesMediaMediaEntitiesInner]] = None
     possibly_sensitive: StrictBool
     __properties: ClassVar[List[str]] = ["media_entities", "possibly_sensitive"]
 

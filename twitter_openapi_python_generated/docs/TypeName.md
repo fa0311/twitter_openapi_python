@@ -43,6 +43,8 @@
 
 * `COMMUNITYTWEETPINACTIONUNAVAILABLE` (value: `'CommunityTweetPinActionUnavailable'`)
 
+* `COMMUNITYTWEETUNPINACTIONUNAVAILABLE` (value: `'CommunityTweetUnpinActionUnavailable'`)
+
 * `COMMUNITYINVITESUNAVAILABLE` (value: `'CommunityInvitesUnavailable'`)
 
 * `COMMUNITYJOINREQUESTSUNAVAILABLE` (value: `'CommunityJoinRequestsUnavailable'`)

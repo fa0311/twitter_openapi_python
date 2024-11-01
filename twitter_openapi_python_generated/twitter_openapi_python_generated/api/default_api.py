@@ -280,7 +280,9 @@ class DefaultApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -311,24 +313,26 @@ class DefaultApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'ClientLanguage', 
             'Accept', 
-            'Priority', 
-            'SecFetchDest', 
+            'ClientLanguage', 
             'Referer', 
+            'SecFetchDest', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
-            'GuestToken', 
+            'ClientUuid', 
             'BearerAuth', 
+            'GuestToken', 
             'SecChUa', 
-            'CookieCt0', 
+            'CookieGt0', 
+            'ClientTransactionId', 
             'ActiveUser', 
+            'CookieCt0', 
             'UserAgent', 
             'AcceptLanguage', 
             'SecFetchSite', 
-            'CookieAuthToken', 
             'AuthType', 
+            'CookieAuthToken', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -605,7 +609,9 @@ class DefaultApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -640,24 +646,26 @@ class DefaultApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'ClientLanguage', 
             'Accept', 
-            'Priority', 
-            'SecFetchDest', 
+            'ClientLanguage', 
             'Referer', 
+            'SecFetchDest', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
-            'GuestToken', 
+            'ClientUuid', 
             'BearerAuth', 
+            'GuestToken', 
             'SecChUa', 
-            'CookieCt0', 
+            'CookieGt0', 
+            'ClientTransactionId', 
             'ActiveUser', 
+            'CookieCt0', 
             'UserAgent', 
             'AcceptLanguage', 
             'SecFetchSite', 
-            'CookieAuthToken', 
             'AuthType', 
+            'CookieAuthToken', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]

@@ -5,10 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**delete_action_result** | [**CommunityDeleteActionResult**](CommunityDeleteActionResult.md) |  | 
-**join_action_result** | [**CommunityJoinActionResult**](CommunityJoinActionResult.md) |  | 
-**leave_action_result** | [**CommunityLeaveActionResult**](CommunityLeaveActionResult.md) |  | 
-**pin_action_result** | [**CommunityPinActionResult**](CommunityPinActionResult.md) |  | 
+**delete_action_result** | [**CommunityDeleteActionResult**](CommunityDeleteActionResult.md) |  | [optional] 
+**join_action_result** | [**CommunityJoinActionResult**](CommunityJoinActionResult.md) |  | [optional] 
+**leave_action_result** | [**CommunityLeaveActionResult**](CommunityLeaveActionResult.md) |  | [optional] 
+**pin_action_result** | [**CommunityPinActionResult**](CommunityPinActionResult.md) |  | [optional] 
+**unpin_action_result** | [**CommunityUnpinActionResult**](CommunityUnpinActionResult.md) |  | [optional] 
 
 ## Example
 

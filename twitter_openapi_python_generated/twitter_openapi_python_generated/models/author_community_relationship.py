@@ -40,8 +40,8 @@ class AuthorCommunityRelationship(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['Member']):
-            raise ValueError("must be one of enum values ('Member')")
+        if value not in set(['Member', 'Moderator']):
+            raise ValueError("must be one of enum values ('Member', 'Moderator')")
         return value
 
     model_config = ConfigDict(

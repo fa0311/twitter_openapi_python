@@ -455,6 +455,24 @@ conf = twitter_openapi_python_generated.Configuration(
                     'ClientLanguage',
                 ),
             }
+        if 'ClientTransactionId' in self.api_key:
+            auth['ClientTransactionId'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'x-client-transaction-id',
+                'value': self.get_api_key_with_prefix(
+                    'ClientTransactionId',
+                ),
+            }
+        if 'ClientUuid' in self.api_key:
+            auth['ClientUuid'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'x-client-uuid',
+                'value': self.get_api_key_with_prefix(
+                    'ClientUuid',
+                ),
+            }
         if 'CookieAuthToken' in self.api_key:
             auth['CookieAuthToken'] = {
                 'type': 'api_key',
@@ -473,6 +491,15 @@ conf = twitter_openapi_python_generated.Configuration(
                     'CookieCt0',
                 ),
             }
+        if 'CookieGt0' in self.api_key:
+            auth['CookieGt0'] = {
+                'type': 'api_key',
+                'in': 'cookie',
+                'key': 'gt0',
+                'value': self.get_api_key_with_prefix(
+                    'CookieGt0',
+                ),
+            }
         if 'CsrfToken' in self.api_key:
             auth['CsrfToken'] = {
                 'type': 'api_key',
@@ -489,15 +516,6 @@ conf = twitter_openapi_python_generated.Configuration(
                 'key': 'x-guest-token',
                 'value': self.get_api_key_with_prefix(
                     'GuestToken',
-                ),
-            }
-        if 'Priority' in self.api_key:
-            auth['Priority'] = {
-                'type': 'api_key',
-                'in': 'header',
-                'key': 'Priority',
-                'value': self.get_api_key_with_prefix(
-                    'Priority',
                 ),
             }
         if 'Referer' in self.api_key:
@@ -583,7 +601,7 @@ conf = twitter_openapi_python_generated.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 0.0.1\n"\
-               "SDK Package Version: 0.0.21".\
+               "SDK Package Version: 0.0.24".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

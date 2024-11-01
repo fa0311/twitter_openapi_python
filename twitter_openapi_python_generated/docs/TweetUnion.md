@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **author_community_relationship** | [**AuthorCommunityRelationship**](AuthorCommunityRelationship.md) |  | [optional] 
 **birdwatch_pivot** | [**BirdwatchPivot**](BirdwatchPivot.md) |  | [optional] 
 **card** | [**TweetCard**](TweetCard.md) |  | [optional] 
+**community_relationship** | [**CommunityRelationship**](CommunityRelationship.md) |  | [optional] 
 **community_results** | [**Community**](Community.md) |  | [optional] 
 **core** | [**UserResultCore**](UserResultCore.md) |  | [optional] 
 **edit_control** | [**TweetEditControl**](TweetEditControl.md) |  | [optional] 

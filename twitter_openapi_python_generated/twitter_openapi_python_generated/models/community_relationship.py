@@ -18,18 +18,29 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.community_actions import CommunityActions
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DisplayTreatment(BaseModel):
+class CommunityRelationship(BaseModel):
     """
-    DisplayTreatment
+    CommunityRelationship
     """ # noqa: E501
-    action_text: StrictStr = Field(alias="actionText")
-    label_text: Optional[StrictStr] = Field(default=None, alias="labelText")
-    __properties: ClassVar[List[str]] = ["actionText", "labelText"]
+    actions: CommunityActions
+    id: StrictStr
+    moderation_state: Dict[str, Any]
+    rest_id: Annotated[str, Field(strict=True)]
+    __properties: ClassVar[List[str]] = ["actions", "id", "moderation_state", "rest_id"]
+
+    @field_validator('rest_id')
+    def rest_id_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^[0-9]+$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]+$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +60,7 @@ class DisplayTreatment(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DisplayTreatment from a JSON string"""
+        """Create an instance of CommunityRelationship from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,11 +81,14 @@ class DisplayTreatment(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of actions
+        if self.actions:
+            _dict['actions'] = self.actions.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DisplayTreatment from a dict"""
+        """Create an instance of CommunityRelationship from a dict"""
         if obj is None:
             return None
 
@@ -82,8 +96,10 @@ class DisplayTreatment(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "actionText": obj.get("actionText"),
-            "labelText": obj.get("labelText")
+            "actions": CommunityActions.from_dict(obj["actions"]) if obj.get("actions") is not None else None,
+            "id": obj.get("id"),
+            "moderation_state": obj.get("moderation_state"),
+            "rest_id": obj.get("rest_id")
         })
         return _obj
 

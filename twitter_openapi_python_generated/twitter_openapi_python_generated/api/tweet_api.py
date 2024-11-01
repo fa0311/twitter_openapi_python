@@ -285,7 +285,9 @@ class TweetApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -316,24 +318,26 @@ class TweetApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'ClientLanguage', 
             'Accept', 
-            'Priority', 
-            'SecFetchDest', 
+            'ClientLanguage', 
             'Referer', 
+            'SecFetchDest', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
-            'GuestToken', 
+            'ClientUuid', 
             'BearerAuth', 
+            'GuestToken', 
             'SecChUa', 
-            'CookieCt0', 
+            'CookieGt0', 
+            'ClientTransactionId', 
             'ActiveUser', 
+            'CookieCt0', 
             'UserAgent', 
             'AcceptLanguage', 
             'SecFetchSite', 
-            'CookieAuthToken', 
             'AuthType', 
+            'CookieAuthToken', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -597,7 +601,9 @@ class TweetApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -628,24 +634,26 @@ class TweetApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'ClientLanguage', 
             'Accept', 
-            'Priority', 
-            'SecFetchDest', 
+            'ClientLanguage', 
             'Referer', 
+            'SecFetchDest', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
-            'GuestToken', 
+            'ClientUuid', 
             'BearerAuth', 
+            'GuestToken', 
             'SecChUa', 
-            'CookieCt0', 
+            'CookieGt0', 
+            'ClientTransactionId', 
             'ActiveUser', 
+            'CookieCt0', 
             'UserAgent', 
             'AcceptLanguage', 
             'SecFetchSite', 
-            'CookieAuthToken', 
             'AuthType', 
+            'CookieAuthToken', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -909,7 +917,9 @@ class TweetApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -940,24 +950,26 @@ class TweetApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'ClientLanguage', 
             'Accept', 
-            'Priority', 
-            'SecFetchDest', 
+            'ClientLanguage', 
             'Referer', 
+            'SecFetchDest', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
-            'GuestToken', 
+            'ClientUuid', 
             'BearerAuth', 
+            'GuestToken', 
             'SecChUa', 
-            'CookieCt0', 
+            'CookieGt0', 
+            'ClientTransactionId', 
             'ActiveUser', 
+            'CookieCt0', 
             'UserAgent', 
             'AcceptLanguage', 
             'SecFetchSite', 
-            'CookieAuthToken', 
             'AuthType', 
+            'CookieAuthToken', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -986,6 +998,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1009,6 +1022,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1035,6 +1050,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1061,6 +1077,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1084,6 +1101,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1110,6 +1129,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1136,6 +1156,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1159,6 +1180,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1185,6 +1208,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1206,6 +1230,7 @@ class TweetApi:
         path_query_id,
         variables,
         features,
+        field_toggles,
         _request_auth,
         _content_type,
         _headers,
@@ -1221,7 +1246,9 @@ class TweetApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1235,6 +1262,10 @@ class TweetApi:
         if features is not None:
             
             _query_params.append(('features', features))
+            
+        if field_toggles is not None:
+            
+            _query_params.append(('fieldToggles', field_toggles))
             
         # process the header parameters
         # process the form parameters
@@ -1252,24 +1283,26 @@ class TweetApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'ClientLanguage', 
             'Accept', 
-            'Priority', 
-            'SecFetchDest', 
+            'ClientLanguage', 
             'Referer', 
+            'SecFetchDest', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
-            'GuestToken', 
+            'ClientUuid', 
             'BearerAuth', 
+            'GuestToken', 
             'SecChUa', 
-            'CookieCt0', 
+            'CookieGt0', 
+            'ClientTransactionId', 
             'ActiveUser', 
+            'CookieCt0', 
             'UserAgent', 
             'AcceptLanguage', 
             'SecFetchSite', 
-            'CookieAuthToken', 
             'AuthType', 
+            'CookieAuthToken', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -1533,7 +1566,9 @@ class TweetApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1564,24 +1599,26 @@ class TweetApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'ClientLanguage', 
             'Accept', 
-            'Priority', 
-            'SecFetchDest', 
+            'ClientLanguage', 
             'Referer', 
+            'SecFetchDest', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
-            'GuestToken', 
+            'ClientUuid', 
             'BearerAuth', 
+            'GuestToken', 
             'SecChUa', 
-            'CookieCt0', 
+            'CookieGt0', 
+            'ClientTransactionId', 
             'ActiveUser', 
+            'CookieCt0', 
             'UserAgent', 
             'AcceptLanguage', 
             'SecFetchSite', 
-            'CookieAuthToken', 
             'AuthType', 
+            'CookieAuthToken', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -1845,7 +1882,9 @@ class TweetApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1876,24 +1915,26 @@ class TweetApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'ClientLanguage', 
             'Accept', 
-            'Priority', 
-            'SecFetchDest', 
+            'ClientLanguage', 
             'Referer', 
+            'SecFetchDest', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
-            'GuestToken', 
+            'ClientUuid', 
             'BearerAuth', 
+            'GuestToken', 
             'SecChUa', 
-            'CookieCt0', 
+            'CookieGt0', 
+            'ClientTransactionId', 
             'ActiveUser', 
+            'CookieCt0', 
             'UserAgent', 
             'AcceptLanguage', 
             'SecFetchSite', 
-            'CookieAuthToken', 
             'AuthType', 
+            'CookieAuthToken', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -2170,7 +2211,9 @@ class TweetApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -2205,24 +2248,26 @@ class TweetApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'ClientLanguage', 
             'Accept', 
-            'Priority', 
-            'SecFetchDest', 
+            'ClientLanguage', 
             'Referer', 
+            'SecFetchDest', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
-            'GuestToken', 
+            'ClientUuid', 
             'BearerAuth', 
+            'GuestToken', 
             'SecChUa', 
-            'CookieCt0', 
+            'CookieGt0', 
+            'ClientTransactionId', 
             'ActiveUser', 
+            'CookieCt0', 
             'UserAgent', 
             'AcceptLanguage', 
             'SecFetchSite', 
-            'CookieAuthToken', 
             'AuthType', 
+            'CookieAuthToken', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -2486,7 +2531,9 @@ class TweetApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -2517,24 +2564,26 @@ class TweetApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'ClientLanguage', 
             'Accept', 
-            'Priority', 
-            'SecFetchDest', 
+            'ClientLanguage', 
             'Referer', 
+            'SecFetchDest', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
-            'GuestToken', 
+            'ClientUuid', 
             'BearerAuth', 
+            'GuestToken', 
             'SecChUa', 
-            'CookieCt0', 
+            'CookieGt0', 
+            'ClientTransactionId', 
             'ActiveUser', 
+            'CookieCt0', 
             'UserAgent', 
             'AcceptLanguage', 
             'SecFetchSite', 
-            'CookieAuthToken', 
             'AuthType', 
+            'CookieAuthToken', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -2563,6 +2612,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2586,6 +2636,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2612,6 +2664,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2638,6 +2691,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2661,6 +2715,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2687,6 +2743,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2713,6 +2770,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2736,6 +2794,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2762,6 +2822,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2783,6 +2844,7 @@ class TweetApi:
         path_query_id,
         variables,
         features,
+        field_toggles,
         _request_auth,
         _content_type,
         _headers,
@@ -2798,7 +2860,9 @@ class TweetApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -2812,6 +2876,10 @@ class TweetApi:
         if features is not None:
             
             _query_params.append(('features', features))
+            
+        if field_toggles is not None:
+            
+            _query_params.append(('fieldToggles', field_toggles))
             
         # process the header parameters
         # process the form parameters
@@ -2829,24 +2897,26 @@ class TweetApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'ClientLanguage', 
             'Accept', 
-            'Priority', 
-            'SecFetchDest', 
+            'ClientLanguage', 
             'Referer', 
+            'SecFetchDest', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
-            'GuestToken', 
+            'ClientUuid', 
             'BearerAuth', 
+            'GuestToken', 
             'SecChUa', 
-            'CookieCt0', 
+            'CookieGt0', 
+            'ClientTransactionId', 
             'ActiveUser', 
+            'CookieCt0', 
             'UserAgent', 
             'AcceptLanguage', 
             'SecFetchSite', 
-            'CookieAuthToken', 
             'AuthType', 
+            'CookieAuthToken', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -2875,6 +2945,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2898,6 +2969,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2924,6 +2997,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2950,6 +3024,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2973,6 +3048,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2999,6 +3076,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3025,6 +3103,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3048,6 +3127,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3074,6 +3155,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3095,6 +3177,7 @@ class TweetApi:
         path_query_id,
         variables,
         features,
+        field_toggles,
         _request_auth,
         _content_type,
         _headers,
@@ -3110,7 +3193,9 @@ class TweetApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -3124,6 +3209,10 @@ class TweetApi:
         if features is not None:
             
             _query_params.append(('features', features))
+            
+        if field_toggles is not None:
+            
+            _query_params.append(('fieldToggles', field_toggles))
             
         # process the header parameters
         # process the form parameters
@@ -3141,24 +3230,26 @@ class TweetApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'ClientLanguage', 
             'Accept', 
-            'Priority', 
-            'SecFetchDest', 
+            'ClientLanguage', 
             'Referer', 
+            'SecFetchDest', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
-            'GuestToken', 
+            'ClientUuid', 
             'BearerAuth', 
+            'GuestToken', 
             'SecChUa', 
-            'CookieCt0', 
+            'CookieGt0', 
+            'ClientTransactionId', 
             'ActiveUser', 
+            'CookieCt0', 
             'UserAgent', 
             'AcceptLanguage', 
             'SecFetchSite', 
-            'CookieAuthToken', 
             'AuthType', 
+            'CookieAuthToken', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]
@@ -3187,6 +3278,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3210,6 +3302,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3236,6 +3330,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3262,6 +3357,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3285,6 +3381,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3311,6 +3409,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3337,6 +3436,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3360,6 +3460,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3386,6 +3488,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3407,6 +3510,7 @@ class TweetApi:
         path_query_id,
         variables,
         features,
+        field_toggles,
         _request_auth,
         _content_type,
         _headers,
@@ -3422,7 +3526,9 @@ class TweetApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -3436,6 +3542,10 @@ class TweetApi:
         if features is not None:
             
             _query_params.append(('features', features))
+            
+        if field_toggles is not None:
+            
+            _query_params.append(('fieldToggles', field_toggles))
             
         # process the header parameters
         # process the form parameters
@@ -3453,24 +3563,26 @@ class TweetApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'ClientLanguage', 
             'Accept', 
-            'Priority', 
-            'SecFetchDest', 
+            'ClientLanguage', 
             'Referer', 
+            'SecFetchDest', 
             'SecChUaPlatform', 
             'SecFetchMode', 
             'CsrfToken', 
-            'GuestToken', 
+            'ClientUuid', 
             'BearerAuth', 
+            'GuestToken', 
             'SecChUa', 
-            'CookieCt0', 
+            'CookieGt0', 
+            'ClientTransactionId', 
             'ActiveUser', 
+            'CookieCt0', 
             'UserAgent', 
             'AcceptLanguage', 
             'SecFetchSite', 
-            'CookieAuthToken', 
             'AuthType', 
+            'CookieAuthToken', 
             'SecChUaMobile', 
             'AcceptEncoding'
         ]

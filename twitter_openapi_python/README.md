@@ -33,8 +33,18 @@ else:
     )
     cookies_dict = auth_handler.get_cookies().get_dict()
 
+# To extract cookies from Windows (Linux by default)
+# If you use tweepy_authlib, you must be on Windows
+client = TwitterOpenapiPython()
+client.additional_api_headers = {
+    "sec-ch-ua-platform": '"Windows"',
+}
+client.additional_browser_headers = {
+    "sec-ch-ua-platform": '"Windows"',
+}
+
 # get client from cookies
-𝕏 = TwitterOpenapiPython().get_client_from_cookies(cookies=cookies_dict)
+𝕏 = client.get_client_from_cookies(cookies=cookies_dict)
 
 # tweet "Hello World!!" with current time
 time = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -64,8 +74,9 @@ In other words, if the sec-ch-ua-platform does not match, the Token cannot be us
 This library uses the Linux Chrome header by default.
 To use Token issued by Windows, do the following.
 
-```typescript
-TwitterOpenapiPython.additional_api_headers = {
+```python
+client = TwitterOpenapiPython()
+client.additional_api_headers = {
   "sec-ch-ua-platform": '"Windows"',
 };
 ```

@@ -47,13 +47,6 @@ class TestPostCreateTweetRequestVariablesMedia(unittest.TestCase):
             )
         else:
             return PostCreateTweetRequestVariablesMedia(
-                media_entities = [
-                    twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner.postCreateTweet_request_variables_media_media_entities_inner(
-                        media_id = '1111111111111111111', 
-                        tagged_users = [
-                            '44196397'
-                            ], )
-                    ],
                 possibly_sensitive = False,
         )
         """

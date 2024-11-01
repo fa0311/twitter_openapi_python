@@ -64,7 +64,8 @@ class TestContentUnion(unittest.TestCase):
                 metadata = { },
                 cursor_type = 'Top',
                 display_treatment = twitter_openapi_python_generated.models.display_treatment.DisplayTreatment(
-                    action_text = '', ),
+                    action_text = '', 
+                    label_text = '', ),
                 item_type = 'TimelineTimelineItem',
                 stop_on_empty_response = True,
                 value = ''

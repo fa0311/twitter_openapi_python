@@ -15,9 +15,14 @@ def get_client() -> api.TwitterOpenapiPythonClient:
     else:
         raise Exception("cookie.json not found")
 
-    client = api.TwitterOpenapiPython().get_client_from_cookies(cookies_dict)
-
-    return client
+    client = api.TwitterOpenapiPython()
+    client.additional_api_headers = {
+        "sec-ch-ua-platform": '"Windows"',
+    }
+    client.additional_browser_headers = {
+        "sec-ch-ua-platform": '"Windows"',
+    }
+    return client.get_client_from_cookies(cookies_dict)
 
 
 def get_guest_client() -> api.TwitterOpenapiPythonClient:

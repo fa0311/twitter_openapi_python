@@ -41,8 +41,8 @@ class TimelineGeneralContext(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['Follow', 'Pin', 'Like', 'Location', 'Sparkle', 'Conversation', 'List']):
-            raise ValueError("must be one of enum values ('Follow', 'Pin', 'Like', 'Location', 'Sparkle', 'Conversation', 'List')")
+        if value not in set(['Follow', 'Pin', 'Like', 'Location', 'Sparkle', 'Conversation', 'List', 'Community']):
+            raise ValueError("must be one of enum values ('Follow', 'Pin', 'Like', 'Location', 'Sparkle', 'Conversation', 'List', 'Community')")
         return value
 
     model_config = ConfigDict(
