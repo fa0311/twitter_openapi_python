@@ -81,6 +81,8 @@ class TestTweet(unittest.TestCase):
                                     message = '', 
                                     reason = 'ViewerNotMember', ), 
                                 pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
+                                    __typename = , ), 
+                                unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
                                     __typename = , ), ), 
                             admin_results = twitter_openapi_python_generated.models.user_results.UserResults(), 
                             created_at = 56, 
@@ -196,6 +198,24 @@ class TestTweet(unittest.TestCase):
                                 result = null, )
                             ], ), 
                     rest_id = '', ),
+                community_relationship = twitter_openapi_python_generated.models.community_relationship.CommunityRelationship(
+                    actions = twitter_openapi_python_generated.models.community_actions.CommunityActions(
+                        delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
+                            __typename = 'TimelineTweet', 
+                            reason = 'Unavailable', ), 
+                        join_action_result = twitter_openapi_python_generated.models.community_join_action_result.CommunityJoinActionResult(
+                            __typename = 'TimelineTweet', ), 
+                        leave_action_result = twitter_openapi_python_generated.models.community_leave_action_result.CommunityLeaveActionResult(
+                            __typename = , 
+                            message = '', 
+                            reason = 'ViewerNotMember', ), 
+                        pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
+                            __typename = , ), 
+                        unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
+                            __typename = , ), ), 
+                    id = '', 
+                    moderation_state = { }, 
+                    rest_id = '4', ),
                 community_results = twitter_openapi_python_generated.models.community.Community(
                     result = twitter_openapi_python_generated.models.community_data.CommunityData(
                         __typename = 'TimelineTweet', 
@@ -210,6 +230,8 @@ class TestTweet(unittest.TestCase):
                                 message = '', 
                                 reason = 'ViewerNotMember', ), 
                             pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
+                                __typename = , ), 
+                            unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
                                 __typename = , ), ), 
                         admin_results = twitter_openapi_python_generated.models.user_results.UserResults(), 
                         created_at = 56, 
