@@ -25,6 +25,7 @@ from twitter_openapi_python_generated.models.article import Article
 from twitter_openapi_python_generated.models.author_community_relationship import AuthorCommunityRelationship
 from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot
 from twitter_openapi_python_generated.models.community import Community
+from twitter_openapi_python_generated.models.community_relationship import CommunityRelationship
 from twitter_openapi_python_generated.models.note_tweet import NoteTweet
 from twitter_openapi_python_generated.models.super_follows_reply_user_result import SuperFollowsReplyUserResult
 from twitter_openapi_python_generated.models.tweet_card import TweetCard
@@ -47,6 +48,7 @@ class Tweet(BaseModel):
     author_community_relationship: Optional[AuthorCommunityRelationship] = None
     birdwatch_pivot: Optional[BirdwatchPivot] = None
     card: Optional[TweetCard] = None
+    community_relationship: Optional[CommunityRelationship] = None
     community_results: Optional[Community] = None
     core: Optional[UserResultCore] = None
     edit_control: Optional[TweetEditControl] = None
@@ -65,7 +67,7 @@ class Tweet(BaseModel):
     unified_card: Optional[UnifiedCard] = None
     unmention_data: Optional[Dict[str, Any]] = None
     views: Optional[TweetView] = None
-    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "community_results", "core", "edit_control", "edit_prespective", "has_birdwatch_notes", "is_translatable", "legacy", "note_tweet", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "unified_card", "unmention_data", "views"]
+    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "community_relationship", "community_results", "core", "edit_control", "edit_prespective", "has_birdwatch_notes", "is_translatable", "legacy", "note_tweet", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "unified_card", "unmention_data", "views"]
 
     @field_validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
@@ -125,6 +127,9 @@ class Tweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of card
         if self.card:
             _dict['card'] = self.card.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of community_relationship
+        if self.community_relationship:
+            _dict['community_relationship'] = self.community_relationship.to_dict()
         # override the default output from pydantic by calling `to_dict()` of community_results
         if self.community_results:
             _dict['community_results'] = self.community_results.to_dict()
@@ -178,6 +183,7 @@ class Tweet(BaseModel):
             "author_community_relationship": AuthorCommunityRelationship.from_dict(obj["author_community_relationship"]) if obj.get("author_community_relationship") is not None else None,
             "birdwatch_pivot": BirdwatchPivot.from_dict(obj["birdwatch_pivot"]) if obj.get("birdwatch_pivot") is not None else None,
             "card": TweetCard.from_dict(obj["card"]) if obj.get("card") is not None else None,
+            "community_relationship": CommunityRelationship.from_dict(obj["community_relationship"]) if obj.get("community_relationship") is not None else None,
             "community_results": Community.from_dict(obj["community_results"]) if obj.get("community_results") is not None else None,
             "core": UserResultCore.from_dict(obj["core"]) if obj.get("core") is not None else None,
             "edit_control": TweetEditControl.from_dict(obj["edit_control"]) if obj.get("edit_control") is not None else None,

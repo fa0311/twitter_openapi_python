@@ -47,6 +47,7 @@ class TypeName(str, Enum):
     COMMUNITYJOINACTION = 'CommunityJoinAction'
     COMMUNITYLEAVEACTIONUNAVAILABLE = 'CommunityLeaveActionUnavailable'
     COMMUNITYTWEETPINACTIONUNAVAILABLE = 'CommunityTweetPinActionUnavailable'
+    COMMUNITYTWEETUNPINACTIONUNAVAILABLE = 'CommunityTweetUnpinActionUnavailable'
     COMMUNITYINVITESUNAVAILABLE = 'CommunityInvitesUnavailable'
     COMMUNITYJOINREQUESTSUNAVAILABLE = 'CommunityJoinRequestsUnavailable'
     APIIMAGE = 'ApiImage'

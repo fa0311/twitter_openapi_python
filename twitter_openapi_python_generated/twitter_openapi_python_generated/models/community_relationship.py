@@ -18,19 +18,29 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool
-from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner import PostCreateTweetRequestVariablesMediaMediaEntitiesInner
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.community_actions import CommunityActions
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PostCreateTweetRequestVariablesMedia(BaseModel):
+class CommunityRelationship(BaseModel):
     """
-    PostCreateTweetRequestVariablesMedia
+    CommunityRelationship
     """ # noqa: E501
-    media_entities: Optional[List[PostCreateTweetRequestVariablesMediaMediaEntitiesInner]] = None
-    possibly_sensitive: StrictBool
-    __properties: ClassVar[List[str]] = ["media_entities", "possibly_sensitive"]
+    actions: CommunityActions
+    id: StrictStr
+    moderation_state: Dict[str, Any]
+    rest_id: Annotated[str, Field(strict=True)]
+    __properties: ClassVar[List[str]] = ["actions", "id", "moderation_state", "rest_id"]
+
+    @field_validator('rest_id')
+    def rest_id_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^[0-9]+$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]+$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +60,7 @@ class PostCreateTweetRequestVariablesMedia(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PostCreateTweetRequestVariablesMedia from a JSON string"""
+        """Create an instance of CommunityRelationship from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,18 +81,14 @@ class PostCreateTweetRequestVariablesMedia(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in media_entities (list)
-        _items = []
-        if self.media_entities:
-            for _item_media_entities in self.media_entities:
-                if _item_media_entities:
-                    _items.append(_item_media_entities.to_dict())
-            _dict['media_entities'] = _items
+        # override the default output from pydantic by calling `to_dict()` of actions
+        if self.actions:
+            _dict['actions'] = self.actions.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PostCreateTweetRequestVariablesMedia from a dict"""
+        """Create an instance of CommunityRelationship from a dict"""
         if obj is None:
             return None
 
@@ -90,8 +96,10 @@ class PostCreateTweetRequestVariablesMedia(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "media_entities": [PostCreateTweetRequestVariablesMediaMediaEntitiesInner.from_dict(_item) for _item in obj["media_entities"]] if obj.get("media_entities") is not None else None,
-            "possibly_sensitive": obj.get("possibly_sensitive") if obj.get("possibly_sensitive") is not None else False
+            "actions": CommunityActions.from_dict(obj["actions"]) if obj.get("actions") is not None else None,
+            "id": obj.get("id"),
+            "moderation_state": obj.get("moderation_state"),
+            "rest_id": obj.get("rest_id")
         })
         return _obj
 
