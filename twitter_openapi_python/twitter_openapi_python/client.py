@@ -58,7 +58,7 @@ class TwitterOpenapiPythonClient:
 
 
 class TwitterOpenapiPython:
-    hash: str = "0c64eebbfb93b3ed69c3aba923ec8d6894a39902"
+    hash: str = "4b27150977e1bdd807de8969dc0ddd7918ac9923"
     placeholder_url = "https://raw.githubusercontent.com/fa0311/twitter-openapi/{hash}/src/config/placeholder.json"
     header = "https://raw.githubusercontent.com/fa0311/latest-user-agent/refs/heads/main/header.json"
     access_token: str = "AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA"
@@ -81,7 +81,6 @@ class TwitterOpenapiPython:
             {
                 **getHader("chrome-fetch"),
                 "accept-encoding": "identity",
-                "pragma": "no-cache",
                 "referer": self.twitter_url,
                 "priority": "u=1, i",
                 "x-twitter-client-language": "en",
@@ -98,11 +97,18 @@ class TwitterOpenapiPython:
             },
         )
 
+    def remove_prefix(self, text: str) -> str:
+        if text.startswith("x-twitter-"):
+            return text[10:]
+        if text.startswith("x-"):
+            return text[2:]
+        return text
+
     def kebab_to_upper_camel(self, text: dict[str, Any]) -> dict[str, Any]:
         res = {}
         for key, value in text.items():
             new_key = "".join(
-                [x.capitalize() for x in key.replace("x-twitter-", "").split("-")]
+                [x.capitalize() for x in self.remove_prefix(key).split("-")]
             )
             res[new_key] = value
         return res
