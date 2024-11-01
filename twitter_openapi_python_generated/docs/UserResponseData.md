@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | [**UserResults**](UserResults.md) |  | 
+**user** | [**UserResults**](UserResults.md) |  | [optional] 
 
 ## Example
 

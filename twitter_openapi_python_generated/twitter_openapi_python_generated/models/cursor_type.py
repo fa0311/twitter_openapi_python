@@ -32,6 +32,7 @@ class CursorType(str, Enum):
     SHOWMORE = 'ShowMore'
     SHOWMORETHREADS = 'ShowMoreThreads'
     GAP = 'Gap'
+    SHOWMORETHREADSPROMPT = 'ShowMoreThreadsPrompt'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

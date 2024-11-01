@@ -36,7 +36,8 @@ class TestDisplayTreatment(unittest.TestCase):
         model = DisplayTreatment()
         if include_optional:
             return DisplayTreatment(
-                action_text = ''
+                action_text = '',
+                label_text = ''
             )
         else:
             return DisplayTreatment(

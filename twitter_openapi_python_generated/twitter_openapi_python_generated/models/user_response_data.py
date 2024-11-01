@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.user_results import UserResults
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class UserResponseData(BaseModel):
     """
     UserResponseData
     """ # noqa: E501
-    user: UserResults
+    user: Optional[UserResults] = None
     __properties: ClassVar[List[str]] = ["user"]
 
     model_config = ConfigDict(

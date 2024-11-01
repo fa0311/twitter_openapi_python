@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **moderator_count** | **int** |  | 
 **name** | **str** |  | 
 **primary_community_topic** | [**PrimaryCommunityTopic**](PrimaryCommunityTopic.md) |  | [optional] 
-**question** | **str** |  | 
+**question** | **str** |  | [optional] 
 **role** | **str** |  | 
 **rules** | [**List[CommunityRule]**](CommunityRule.md) |  | 
 **search_tags** | **List[str]** |  | 

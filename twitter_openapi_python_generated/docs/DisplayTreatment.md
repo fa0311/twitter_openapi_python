@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action_text** | **str** |  | 
+**label_text** | **str** |  | [optional] 
 
 ## Example
 

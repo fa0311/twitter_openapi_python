@@ -41,8 +41,6 @@ class TestUserResponseData(unittest.TestCase):
             )
         else:
             return UserResponseData(
-                user = twitter_openapi_python_generated.models.user_results.UserResults(
-                    result = null, ),
         )
         """
 

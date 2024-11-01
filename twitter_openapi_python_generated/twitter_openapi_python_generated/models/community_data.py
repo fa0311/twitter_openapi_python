@@ -55,7 +55,7 @@ class CommunityData(BaseModel):
     moderator_count: StrictInt
     name: StrictStr
     primary_community_topic: Optional[PrimaryCommunityTopic] = None
-    question: StrictStr
+    question: Optional[StrictStr] = None
     role: StrictStr
     rules: List[CommunityRule]
     search_tags: List[StrictStr]

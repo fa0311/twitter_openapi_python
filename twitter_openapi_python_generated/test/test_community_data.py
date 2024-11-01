@@ -131,7 +131,6 @@ class TestCommunityData(unittest.TestCase):
                     ],
                 moderator_count = 56,
                 name = '',
-                question = '',
                 role = 'NonMember',
                 rules = [
                     twitter_openapi_python_generated.models.community_rule.CommunityRule(

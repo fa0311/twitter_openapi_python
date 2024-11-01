@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,8 @@ class DisplayTreatment(BaseModel):
     DisplayTreatment
     """ # noqa: E501
     action_text: StrictStr = Field(alias="actionText")
-    __properties: ClassVar[List[str]] = ["actionText"]
+    label_text: Optional[StrictStr] = Field(default=None, alias="labelText")
+    __properties: ClassVar[List[str]] = ["actionText", "labelText"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,7 +82,8 @@ class DisplayTreatment(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "actionText": obj.get("actionText")
+            "actionText": obj.get("actionText"),
+            "labelText": obj.get("labelText")
         })
         return _obj
 
