@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class FavoriteTweet(BaseModel):
     """
     FavoriteTweet
     """ # noqa: E501
-    favorite_tweet: StrictStr
+    favorite_tweet: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["favorite_tweet"]
 
     model_config = ConfigDict(

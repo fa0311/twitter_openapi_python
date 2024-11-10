@@ -49,16 +49,6 @@ class TestUserHighlightsTweetsData(unittest.TestCase):
             )
         else:
             return UserHighlightsTweetsData(
-                user = twitter_openapi_python_generated.models.user_highlights_tweets_user.UserHighlightsTweetsUser(
-                    result = twitter_openapi_python_generated.models.user_highlights_tweets_result.UserHighlightsTweetsResult(
-                        __typename = 'TimelineTweet', 
-                        timeline = twitter_openapi_python_generated.models.user_highlights_tweets_timeline.UserHighlightsTweetsTimeline(
-                            timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                                instructions = [
-                                    null
-                                    ], 
-                                metadata = { }, 
-                                response_objects = { }, ), ), ), ),
         )
         """
 

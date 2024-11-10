@@ -18,7 +18,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from twitter_openapi_python_generated.models.get_user_by_rest_id200_response import GetUserByRestId200Response
+from twitter_openapi_python_generated.models.user_response import UserResponse
 
 from twitter_openapi_python_generated.api_client import ApiClient, RequestSerialized
 from twitter_openapi_python_generated.api_response import ApiResponse
@@ -56,7 +56,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserByRestId200Response:
+    ) -> UserResponse:
         """get_user_by_rest_id
 
         get user by rest id
@@ -100,7 +100,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserByRestId200Response",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -131,7 +131,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserByRestId200Response]:
+    ) -> ApiResponse[UserResponse]:
         """get_user_by_rest_id
 
         get user by rest id
@@ -175,7 +175,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserByRestId200Response",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -250,7 +250,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserByRestId200Response",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -314,6 +314,7 @@ class UserApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -373,7 +374,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserByRestId200Response:
+    ) -> UserResponse:
         """get_user_by_screen_name
 
         get user by screen name
@@ -420,7 +421,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserByRestId200Response",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -452,7 +453,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserByRestId200Response]:
+    ) -> ApiResponse[UserResponse]:
         """get_user_by_screen_name
 
         get user by screen name
@@ -499,7 +500,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserByRestId200Response",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -578,7 +579,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserByRestId200Response",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -647,6 +648,7 @@ class UserApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 

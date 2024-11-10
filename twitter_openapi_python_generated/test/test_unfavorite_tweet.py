@@ -40,7 +40,6 @@ class TestUnfavoriteTweet(unittest.TestCase):
             )
         else:
             return UnfavoriteTweet(
-                unfavorite_tweet = '',
         )
         """
 

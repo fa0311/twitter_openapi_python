@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_user_by_rest_id**
-> GetUserByRestId200Response get_user_by_rest_id(path_query_id, variables, features)
+> UserResponse get_user_by_rest_id(path_query_id, variables, features)
 
 
 
@@ -19,6 +19,7 @@ get user by rest id
 
 * Api Key Authentication (Accept):
 * Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
 * Api Key Authentication (Referer):
 * Api Key Authentication (SecFetchDest):
 * Api Key Authentication (SecChUaPlatform):
@@ -42,7 +43,7 @@ get user by rest id
 
 ```python
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.get_user_by_rest_id200_response import GetUserByRestId200Response
+from twitter_openapi_python_generated.models.user_response import UserResponse
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -68,6 +69,12 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
 
 # Configure API key authorization: Referer
 configuration.api_key['Referer'] = os.environ["API_KEY"]
@@ -217,11 +224,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserByRestId200Response**](GetUserByRestId200Response.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
-[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 
@@ -237,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_by_screen_name**
-> GetUserByRestId200Response get_user_by_screen_name(path_query_id, variables, features, field_toggles)
+> UserResponse get_user_by_screen_name(path_query_id, variables, features, field_toggles)
 
 
 
@@ -247,6 +254,7 @@ get user by screen name
 
 * Api Key Authentication (Accept):
 * Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
 * Api Key Authentication (Referer):
 * Api Key Authentication (SecFetchDest):
 * Api Key Authentication (SecChUaPlatform):
@@ -270,7 +278,7 @@ get user by screen name
 
 ```python
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.get_user_by_rest_id200_response import GetUserByRestId200Response
+from twitter_openapi_python_generated.models.user_response import UserResponse
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -296,6 +304,12 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
 
 # Configure API key authorization: Referer
 configuration.api_key['Referer'] = os.environ["API_KEY"]
@@ -447,11 +461,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserByRestId200Response**](GetUserByRestId200Response.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
-[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 

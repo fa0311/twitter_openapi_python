@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **post_create_bookmark**
-> PostCreateBookmark200Response post_create_bookmark(path_query_id, post_create_bookmark_request)
+> CreateBookmarkResponse post_create_bookmark(path_query_id, post_create_bookmark_request)
 
 
 
@@ -25,6 +25,7 @@ create Bookmark
 
 * Api Key Authentication (Accept):
 * Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
 * Api Key Authentication (Referer):
 * Api Key Authentication (SecFetchDest):
 * Api Key Authentication (SecChUaPlatform):
@@ -48,7 +49,7 @@ create Bookmark
 
 ```python
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_create_bookmark200_response import PostCreateBookmark200Response
+from twitter_openapi_python_generated.models.create_bookmark_response import CreateBookmarkResponse
 from twitter_openapi_python_generated.models.post_create_bookmark_request import PostCreateBookmarkRequest
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -75,6 +76,12 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
 
 # Configure API key authorization: Referer
 configuration.api_key['Referer'] = os.environ["API_KEY"]
@@ -222,11 +229,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostCreateBookmark200Response**](PostCreateBookmark200Response.md)
+[**CreateBookmarkResponse**](CreateBookmarkResponse.md)
 
 ### Authorization
 
-[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 
@@ -242,7 +249,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_create_retweet**
-> PostCreateRetweet200Response post_create_retweet(path_query_id, post_create_retweet_request)
+> CreateRetweetResponse post_create_retweet(path_query_id, post_create_retweet_request)
 
 
 
@@ -252,6 +259,7 @@ create Retweet
 
 * Api Key Authentication (Accept):
 * Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
 * Api Key Authentication (Referer):
 * Api Key Authentication (SecFetchDest):
 * Api Key Authentication (SecChUaPlatform):
@@ -275,7 +283,7 @@ create Retweet
 
 ```python
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_create_retweet200_response import PostCreateRetweet200Response
+from twitter_openapi_python_generated.models.create_retweet_response import CreateRetweetResponse
 from twitter_openapi_python_generated.models.post_create_retweet_request import PostCreateRetweetRequest
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -302,6 +310,12 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
 
 # Configure API key authorization: Referer
 configuration.api_key['Referer'] = os.environ["API_KEY"]
@@ -449,11 +463,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostCreateRetweet200Response**](PostCreateRetweet200Response.md)
+[**CreateRetweetResponse**](CreateRetweetResponse.md)
 
 ### Authorization
 
-[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 
@@ -469,7 +483,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_create_tweet**
-> PostCreateTweet200Response post_create_tweet(path_query_id, post_create_tweet_request)
+> CreateTweetResponse post_create_tweet(path_query_id, post_create_tweet_request)
 
 
 
@@ -479,6 +493,7 @@ create Tweet
 
 * Api Key Authentication (Accept):
 * Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
 * Api Key Authentication (Referer):
 * Api Key Authentication (SecFetchDest):
 * Api Key Authentication (SecChUaPlatform):
@@ -502,7 +517,7 @@ create Tweet
 
 ```python
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_create_tweet200_response import PostCreateTweet200Response
+from twitter_openapi_python_generated.models.create_tweet_response import CreateTweetResponse
 from twitter_openapi_python_generated.models.post_create_tweet_request import PostCreateTweetRequest
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -529,6 +544,12 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
 
 # Configure API key authorization: Referer
 configuration.api_key['Referer'] = os.environ["API_KEY"]
@@ -676,11 +697,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostCreateTweet200Response**](PostCreateTweet200Response.md)
+[**CreateTweetResponse**](CreateTweetResponse.md)
 
 ### Authorization
 
-[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 
@@ -696,7 +717,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_delete_bookmark**
-> PostDeleteBookmark200Response post_delete_bookmark(path_query_id, post_delete_bookmark_request)
+> DeleteBookmarkResponse post_delete_bookmark(path_query_id, post_delete_bookmark_request)
 
 
 
@@ -706,6 +727,7 @@ delete Bookmark
 
 * Api Key Authentication (Accept):
 * Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
 * Api Key Authentication (Referer):
 * Api Key Authentication (SecFetchDest):
 * Api Key Authentication (SecChUaPlatform):
@@ -729,7 +751,7 @@ delete Bookmark
 
 ```python
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_delete_bookmark200_response import PostDeleteBookmark200Response
+from twitter_openapi_python_generated.models.delete_bookmark_response import DeleteBookmarkResponse
 from twitter_openapi_python_generated.models.post_delete_bookmark_request import PostDeleteBookmarkRequest
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -756,6 +778,12 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
 
 # Configure API key authorization: Referer
 configuration.api_key['Referer'] = os.environ["API_KEY"]
@@ -903,11 +931,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostDeleteBookmark200Response**](PostDeleteBookmark200Response.md)
+[**DeleteBookmarkResponse**](DeleteBookmarkResponse.md)
 
 ### Authorization
 
-[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 
@@ -923,7 +951,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_delete_retweet**
-> PostDeleteRetweet200Response post_delete_retweet(path_query_id, post_delete_retweet_request)
+> DeleteRetweetResponse post_delete_retweet(path_query_id, post_delete_retweet_request)
 
 
 
@@ -933,6 +961,7 @@ delete Retweet
 
 * Api Key Authentication (Accept):
 * Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
 * Api Key Authentication (Referer):
 * Api Key Authentication (SecFetchDest):
 * Api Key Authentication (SecChUaPlatform):
@@ -956,7 +985,7 @@ delete Retweet
 
 ```python
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_delete_retweet200_response import PostDeleteRetweet200Response
+from twitter_openapi_python_generated.models.delete_retweet_response import DeleteRetweetResponse
 from twitter_openapi_python_generated.models.post_delete_retweet_request import PostDeleteRetweetRequest
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -983,6 +1012,12 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
 
 # Configure API key authorization: Referer
 configuration.api_key['Referer'] = os.environ["API_KEY"]
@@ -1130,11 +1165,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostDeleteRetweet200Response**](PostDeleteRetweet200Response.md)
+[**DeleteRetweetResponse**](DeleteRetweetResponse.md)
 
 ### Authorization
 
-[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 
@@ -1150,7 +1185,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_delete_tweet**
-> PostDeleteTweet200Response post_delete_tweet(path_query_id, post_delete_tweet_request)
+> DeleteTweetResponse post_delete_tweet(path_query_id, post_delete_tweet_request)
 
 
 
@@ -1160,6 +1195,7 @@ delete Retweet
 
 * Api Key Authentication (Accept):
 * Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
 * Api Key Authentication (Referer):
 * Api Key Authentication (SecFetchDest):
 * Api Key Authentication (SecChUaPlatform):
@@ -1183,7 +1219,7 @@ delete Retweet
 
 ```python
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_delete_tweet200_response import PostDeleteTweet200Response
+from twitter_openapi_python_generated.models.delete_tweet_response import DeleteTweetResponse
 from twitter_openapi_python_generated.models.post_delete_tweet_request import PostDeleteTweetRequest
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -1210,6 +1246,12 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
 
 # Configure API key authorization: Referer
 configuration.api_key['Referer'] = os.environ["API_KEY"]
@@ -1357,11 +1399,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostDeleteTweet200Response**](PostDeleteTweet200Response.md)
+[**DeleteTweetResponse**](DeleteTweetResponse.md)
 
 ### Authorization
 
-[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 
@@ -1377,7 +1419,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_favorite_tweet**
-> PostFavoriteTweet200Response post_favorite_tweet(path_query_id, post_favorite_tweet_request)
+> FavoriteTweetResponse post_favorite_tweet(path_query_id, post_favorite_tweet_request)
 
 
 
@@ -1387,6 +1429,7 @@ favorite Tweet
 
 * Api Key Authentication (Accept):
 * Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
 * Api Key Authentication (Referer):
 * Api Key Authentication (SecFetchDest):
 * Api Key Authentication (SecChUaPlatform):
@@ -1410,7 +1453,7 @@ favorite Tweet
 
 ```python
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_favorite_tweet200_response import PostFavoriteTweet200Response
+from twitter_openapi_python_generated.models.favorite_tweet_response import FavoriteTweetResponse
 from twitter_openapi_python_generated.models.post_favorite_tweet_request import PostFavoriteTweetRequest
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
@@ -1437,6 +1480,12 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
 
 # Configure API key authorization: Referer
 configuration.api_key['Referer'] = os.environ["API_KEY"]
@@ -1584,11 +1633,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostFavoriteTweet200Response**](PostFavoriteTweet200Response.md)
+[**FavoriteTweetResponse**](FavoriteTweetResponse.md)
 
 ### Authorization
 
-[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 
@@ -1604,7 +1653,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_unfavorite_tweet**
-> PostUnfavoriteTweet200Response post_unfavorite_tweet(path_query_id, post_unfavorite_tweet_request)
+> UnfavoriteTweetResponse post_unfavorite_tweet(path_query_id, post_unfavorite_tweet_request)
 
 
 
@@ -1614,6 +1663,7 @@ unfavorite Tweet
 
 * Api Key Authentication (Accept):
 * Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
 * Api Key Authentication (Referer):
 * Api Key Authentication (SecFetchDest):
 * Api Key Authentication (SecChUaPlatform):
@@ -1637,8 +1687,8 @@ unfavorite Tweet
 
 ```python
 import twitter_openapi_python_generated
-from twitter_openapi_python_generated.models.post_unfavorite_tweet200_response import PostUnfavoriteTweet200Response
 from twitter_openapi_python_generated.models.post_unfavorite_tweet_request import PostUnfavoriteTweetRequest
+from twitter_openapi_python_generated.models.unfavorite_tweet_response import UnfavoriteTweetResponse
 from twitter_openapi_python_generated.rest import ApiException
 from pprint import pprint
 
@@ -1664,6 +1714,12 @@ configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
 
 # Configure API key authorization: Referer
 configuration.api_key['Referer'] = os.environ["API_KEY"]
@@ -1811,11 +1867,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostUnfavoriteTweet200Response**](PostUnfavoriteTweet200Response.md)
+[**UnfavoriteTweetResponse**](UnfavoriteTweetResponse.md)
 
 ### Authorization
 
-[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
 
 ### HTTP request headers
 

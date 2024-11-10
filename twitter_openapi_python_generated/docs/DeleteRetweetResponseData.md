@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**create_retweet** | [**CreateRetweetResponseResult**](CreateRetweetResponseResult.md) |  | [optional] 
+**create_retweet** | [**DeleteRetweetResponseResult**](DeleteRetweetResponseResult.md) |  | [optional] 
 
 ## Example
 

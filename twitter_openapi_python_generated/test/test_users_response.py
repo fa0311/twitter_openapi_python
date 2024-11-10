@@ -40,7 +40,34 @@ class TestUsersResponse(unittest.TestCase):
                     users = [
                         twitter_openapi_python_generated.models.user_results.UserResults(
                             result = null, )
-                        ], )
+                        ], ),
+                errors = [
+                    twitter_openapi_python_generated.models.error_response.ErrorResponse(
+                        code = 56, 
+                        extensions = twitter_openapi_python_generated.models.error_extensions.ErrorExtensions(
+                            code = 56, 
+                            kind = '', 
+                            name = '', 
+                            retry_after = 56, 
+                            source = '', 
+                            tracing = twitter_openapi_python_generated.models.tracing.Tracing(
+                                trace_id = 'bf325375e030fccb', ), ), 
+                        kind = '', 
+                        locations = [
+                            twitter_openapi_python_generated.models.location.Location(
+                                column = 56, 
+                                line = 56, )
+                            ], 
+                        message = '', 
+                        name = '', 
+                        path = [
+                            ''
+                            ], 
+                        retry_after = 56, 
+                        source = '', 
+                        tracing = twitter_openapi_python_generated.models.tracing.Tracing(
+                            trace_id = 'bf325375e030fccb', ), )
+                    ]
             )
         else:
             return UsersResponse(

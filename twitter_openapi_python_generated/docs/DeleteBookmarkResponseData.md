@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tweet_bookmark_delete** | **str** |  | 
+**tweet_bookmark_delete** | **str** |  | [optional] 
 
 ## Example
 

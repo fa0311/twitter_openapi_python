@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**favorite_tweet** | **str** |  | 
+**favorite_tweet** | **str** |  | [optional] 
 
 ## Example
 

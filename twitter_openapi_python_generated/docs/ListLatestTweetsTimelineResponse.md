@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**ListTweetsTimelineData**](ListTweetsTimelineData.md) |  | 
+**errors** | [**List[ErrorResponse]**](ErrorResponse.md) |  | [optional] 
 
 ## Example
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**retweeters_timeline** | [**TimelineV2**](TimelineV2.md) |  | 
+**retweeters_timeline** | [**TimelineV2**](TimelineV2.md) |  | [optional] 
 
 ## Example
 

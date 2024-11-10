@@ -40,7 +40,6 @@ class TestDeleteBookmarkResponseData(unittest.TestCase):
             )
         else:
             return DeleteBookmarkResponseData(
-                tweet_bookmark_delete = '',
         )
         """
 

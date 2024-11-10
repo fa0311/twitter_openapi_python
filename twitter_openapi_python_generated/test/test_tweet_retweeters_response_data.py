@@ -46,13 +46,6 @@ class TestTweetRetweetersResponseData(unittest.TestCase):
             )
         else:
             return TweetRetweetersResponseData(
-                retweeters_timeline = twitter_openapi_python_generated.models.timeline_v2.TimelineV2(
-                    timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                        instructions = [
-                            null
-                            ], 
-                        metadata = { }, 
-                        response_objects = { }, ), ),
         )
         """
 

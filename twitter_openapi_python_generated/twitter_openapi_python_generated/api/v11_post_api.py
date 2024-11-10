@@ -480,6 +480,7 @@ class V11PostApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -963,6 +964,7 @@ class V11PostApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 

@@ -37,22 +37,53 @@ class TestDeleteRetweetResponse(unittest.TestCase):
         if include_optional:
             return DeleteRetweetResponse(
                 data = twitter_openapi_python_generated.models.delete_retweet_response_data.DeleteRetweetResponseData(
-                    create_retweet = twitter_openapi_python_generated.models.create_retweet_response_result.CreateRetweetResponseResult(
-                        retweet_results = twitter_openapi_python_generated.models.create_retweet.CreateRetweet(
-                            result = twitter_openapi_python_generated.models.retweet.Retweet(
-                                legacy = twitter_openapi_python_generated.models.retweet_legacy.Retweet_legacy(
-                                    full_text = '', ), 
-                                rest_id = '4', ), ), ), )
+                    create_retweet = twitter_openapi_python_generated.models.delete_retweet_response_result.DeleteRetweetResponseResult(
+                        retweet_results = twitter_openapi_python_generated.models.delete_retweet.DeleteRetweet(
+                            result = [
+                                twitter_openapi_python_generated.models.retweet.Retweet(
+                                    legacy = twitter_openapi_python_generated.models.retweet_legacy.Retweet_legacy(
+                                        full_text = '', ), 
+                                    rest_id = '4', )
+                                ], ), ), ),
+                errors = [
+                    twitter_openapi_python_generated.models.error_response.ErrorResponse(
+                        code = 56, 
+                        extensions = twitter_openapi_python_generated.models.error_extensions.ErrorExtensions(
+                            code = 56, 
+                            kind = '', 
+                            name = '', 
+                            retry_after = 56, 
+                            source = '', 
+                            tracing = twitter_openapi_python_generated.models.tracing.Tracing(
+                                trace_id = 'bf325375e030fccb', ), ), 
+                        kind = '', 
+                        locations = [
+                            twitter_openapi_python_generated.models.location.Location(
+                                column = 56, 
+                                line = 56, )
+                            ], 
+                        message = '', 
+                        name = '', 
+                        path = [
+                            ''
+                            ], 
+                        retry_after = 56, 
+                        source = '', 
+                        tracing = twitter_openapi_python_generated.models.tracing.Tracing(
+                            trace_id = 'bf325375e030fccb', ), )
+                    ]
             )
         else:
             return DeleteRetweetResponse(
                 data = twitter_openapi_python_generated.models.delete_retweet_response_data.DeleteRetweetResponseData(
-                    create_retweet = twitter_openapi_python_generated.models.create_retweet_response_result.CreateRetweetResponseResult(
-                        retweet_results = twitter_openapi_python_generated.models.create_retweet.CreateRetweet(
-                            result = twitter_openapi_python_generated.models.retweet.Retweet(
-                                legacy = twitter_openapi_python_generated.models.retweet_legacy.Retweet_legacy(
-                                    full_text = '', ), 
-                                rest_id = '4', ), ), ), ),
+                    create_retweet = twitter_openapi_python_generated.models.delete_retweet_response_result.DeleteRetweetResponseResult(
+                        retweet_results = twitter_openapi_python_generated.models.delete_retweet.DeleteRetweet(
+                            result = [
+                                twitter_openapi_python_generated.models.retweet.Retweet(
+                                    legacy = twitter_openapi_python_generated.models.retweet_legacy.Retweet_legacy(
+                                        full_text = '', ), 
+                                    rest_id = '4', )
+                                ], ), ), ),
         )
         """
 

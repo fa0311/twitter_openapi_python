@@ -18,7 +18,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from twitter_openapi_python_generated.models.get_users_by_rest_ids200_response import GetUsersByRestIds200Response
+from twitter_openapi_python_generated.models.users_response import UsersResponse
 
 from twitter_openapi_python_generated.api_client import ApiClient, RequestSerialized
 from twitter_openapi_python_generated.api_response import ApiResponse
@@ -56,7 +56,7 @@ class UsersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUsersByRestIds200Response:
+    ) -> UsersResponse:
         """get_users_by_rest_ids
 
         get users by rest ids
@@ -100,7 +100,7 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUsersByRestIds200Response",
+            '200': "UsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -131,7 +131,7 @@ class UsersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUsersByRestIds200Response]:
+    ) -> ApiResponse[UsersResponse]:
         """get_users_by_rest_ids
 
         get users by rest ids
@@ -175,7 +175,7 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUsersByRestIds200Response",
+            '200': "UsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -250,7 +250,7 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUsersByRestIds200Response",
+            '200': "UsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -314,6 +314,7 @@ class UsersApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 

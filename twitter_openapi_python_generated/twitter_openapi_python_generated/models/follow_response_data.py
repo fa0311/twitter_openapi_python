@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.follow_response_user import FollowResponseUser
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class FollowResponseData(BaseModel):
     """
     FollowResponseData
     """ # noqa: E501
-    user: FollowResponseUser
+    user: Optional[FollowResponseUser] = None
     __properties: ClassVar[List[str]] = ["user"]
 
     model_config = ConfigDict(

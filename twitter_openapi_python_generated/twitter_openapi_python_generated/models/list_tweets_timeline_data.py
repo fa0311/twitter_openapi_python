@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.list_tweets_timeline_list import ListTweetsTimelineList
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class ListTweetsTimelineData(BaseModel):
     """
     ListTweetsTimelineData
     """ # noqa: E501
-    list: ListTweetsTimelineList
+    list: Optional[ListTweetsTimelineList] = None
     __properties: ClassVar[List[str]] = ["list"]
 
     model_config = ConfigDict(

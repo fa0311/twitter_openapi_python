@@ -43,7 +43,34 @@ class TestTweetRetweetersResponse(unittest.TestCase):
                                 null
                                 ], 
                             metadata = { }, 
-                            response_objects = { }, ), ), )
+                            response_objects = { }, ), ), ),
+                errors = [
+                    twitter_openapi_python_generated.models.error_response.ErrorResponse(
+                        code = 56, 
+                        extensions = twitter_openapi_python_generated.models.error_extensions.ErrorExtensions(
+                            code = 56, 
+                            kind = '', 
+                            name = '', 
+                            retry_after = 56, 
+                            source = '', 
+                            tracing = twitter_openapi_python_generated.models.tracing.Tracing(
+                                trace_id = 'bf325375e030fccb', ), ), 
+                        kind = '', 
+                        locations = [
+                            twitter_openapi_python_generated.models.location.Location(
+                                column = 56, 
+                                line = 56, )
+                            ], 
+                        message = '', 
+                        name = '', 
+                        path = [
+                            ''
+                            ], 
+                        retry_after = 56, 
+                        source = '', 
+                        tracing = twitter_openapi_python_generated.models.tracing.Tracing(
+                            trace_id = 'bf325375e030fccb', ), )
+                    ]
             )
         else:
             return TweetRetweetersResponse(

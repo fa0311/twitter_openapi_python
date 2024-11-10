@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**CreateRetweetResponseData**](CreateRetweetResponseData.md) |  | 
+**errors** | [**List[ErrorResponse]**](ErrorResponse.md) |  | [optional] 
 
 ## Example
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.timeline import Timeline
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class TweetDetailResponseData(BaseModel):
     """
     TweetDetailResponseData
     """ # noqa: E501
-    threaded_conversation_with_injections_v2: Timeline
+    threaded_conversation_with_injections_v2: Optional[Timeline] = None
     __properties: ClassVar[List[str]] = ["threaded_conversation_with_injections_v2"]
 
     model_config = ConfigDict(

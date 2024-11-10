@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**favoriters_timeline** | [**TimelineV2**](TimelineV2.md) |  | 
+**favoriters_timeline** | [**TimelineV2**](TimelineV2.md) |  | [optional] 
 
 ## Example
 

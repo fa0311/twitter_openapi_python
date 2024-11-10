@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.search_by_raw_query import SearchByRawQuery
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class SearchTimelineData(BaseModel):
     """
     SearchTimelineData
     """ # noqa: E501
-    search_by_raw_query: SearchByRawQuery
+    search_by_raw_query: Optional[SearchByRawQuery] = None
     __properties: ClassVar[List[str]] = ["search_by_raw_query"]
 
     model_config = ConfigDict(

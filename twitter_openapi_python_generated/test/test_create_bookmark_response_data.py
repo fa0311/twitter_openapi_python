@@ -40,7 +40,6 @@ class TestCreateBookmarkResponseData(unittest.TestCase):
             )
         else:
             return CreateBookmarkResponseData(
-                tweet_bookmark_put = '',
         )
         """
 

@@ -518,6 +518,15 @@ conf = twitter_openapi_python_generated.Configuration(
                     'GuestToken',
                 ),
             }
+        if 'Priority' in self.api_key:
+            auth['Priority'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Priority',
+                'value': self.get_api_key_with_prefix(
+                    'Priority',
+                ),
+            }
         if 'Referer' in self.api_key:
             auth['Referer'] = {
                 'type': 'api_key',
@@ -601,7 +610,7 @@ conf = twitter_openapi_python_generated.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 0.0.1\n"\
-               "SDK Package Version: 0.0.24".\
+               "SDK Package Version: 0.0.25".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

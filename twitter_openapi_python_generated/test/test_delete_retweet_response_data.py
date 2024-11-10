@@ -36,12 +36,14 @@ class TestDeleteRetweetResponseData(unittest.TestCase):
         model = DeleteRetweetResponseData()
         if include_optional:
             return DeleteRetweetResponseData(
-                create_retweet = twitter_openapi_python_generated.models.create_retweet_response_result.CreateRetweetResponseResult(
-                    retweet_results = twitter_openapi_python_generated.models.create_retweet.CreateRetweet(
-                        result = twitter_openapi_python_generated.models.retweet.Retweet(
-                            legacy = twitter_openapi_python_generated.models.retweet_legacy.Retweet_legacy(
-                                full_text = '', ), 
-                            rest_id = '4', ), ), )
+                create_retweet = twitter_openapi_python_generated.models.delete_retweet_response_result.DeleteRetweetResponseResult(
+                    retweet_results = twitter_openapi_python_generated.models.delete_retweet.DeleteRetweet(
+                        result = [
+                            twitter_openapi_python_generated.models.retweet.Retweet(
+                                legacy = twitter_openapi_python_generated.models.retweet_legacy.Retweet_legacy(
+                                    full_text = '', ), 
+                                rest_id = '4', )
+                            ], ), )
             )
         else:
             return DeleteRetweetResponseData(

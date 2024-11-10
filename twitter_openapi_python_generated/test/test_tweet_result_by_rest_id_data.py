@@ -42,9 +42,6 @@ class TestTweetResultByRestIdData(unittest.TestCase):
             )
         else:
             return TweetResultByRestIdData(
-                tweet_result = twitter_openapi_python_generated.models.item_result.ItemResult(
-                    __typename = 'TimelineTweet', 
-                    result = null, ),
         )
         """
 

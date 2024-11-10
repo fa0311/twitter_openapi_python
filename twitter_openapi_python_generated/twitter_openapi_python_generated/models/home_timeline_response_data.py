@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.home_timeline_home import HomeTimelineHome
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class HomeTimelineResponseData(BaseModel):
     """
     HomeTimelineResponseData
     """ # noqa: E501
-    home: HomeTimelineHome
+    home: Optional[HomeTimelineHome] = None
     __properties: ClassVar[List[str]] = ["home"]
 
     model_config = ConfigDict(

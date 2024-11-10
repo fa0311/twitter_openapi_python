@@ -18,9 +18,9 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from twitter_openapi_python_generated.models.get_favoriters200_response import GetFavoriters200Response
-from twitter_openapi_python_generated.models.get_followers200_response import GetFollowers200Response
-from twitter_openapi_python_generated.models.get_retweeters200_response import GetRetweeters200Response
+from twitter_openapi_python_generated.models.follow_response import FollowResponse
+from twitter_openapi_python_generated.models.tweet_favoriters_response import TweetFavoritersResponse
+from twitter_openapi_python_generated.models.tweet_retweeters_response import TweetRetweetersResponse
 
 from twitter_openapi_python_generated.api_client import ApiClient, RequestSerialized
 from twitter_openapi_python_generated.api_response import ApiResponse
@@ -58,7 +58,7 @@ class UserListApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetFavoriters200Response:
+    ) -> TweetFavoritersResponse:
         """get_favoriters
 
         get tweet favoriters
@@ -102,7 +102,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFavoriters200Response",
+            '200': "TweetFavoritersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -133,7 +133,7 @@ class UserListApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetFavoriters200Response]:
+    ) -> ApiResponse[TweetFavoritersResponse]:
         """get_favoriters
 
         get tweet favoriters
@@ -177,7 +177,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFavoriters200Response",
+            '200': "TweetFavoritersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -252,7 +252,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFavoriters200Response",
+            '200': "TweetFavoritersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -316,6 +316,7 @@ class UserListApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -374,7 +375,7 @@ class UserListApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetFollowers200Response:
+    ) -> FollowResponse:
         """get_followers
 
         get user list of followers
@@ -418,7 +419,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFollowers200Response",
+            '200': "FollowResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -449,7 +450,7 @@ class UserListApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetFollowers200Response]:
+    ) -> ApiResponse[FollowResponse]:
         """get_followers
 
         get user list of followers
@@ -493,7 +494,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFollowers200Response",
+            '200': "FollowResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -568,7 +569,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFollowers200Response",
+            '200': "FollowResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -632,6 +633,7 @@ class UserListApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -690,7 +692,7 @@ class UserListApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetFollowers200Response:
+    ) -> FollowResponse:
         """get_followers_you_know
 
         get followers you know
@@ -734,7 +736,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFollowers200Response",
+            '200': "FollowResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -765,7 +767,7 @@ class UserListApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetFollowers200Response]:
+    ) -> ApiResponse[FollowResponse]:
         """get_followers_you_know
 
         get followers you know
@@ -809,7 +811,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFollowers200Response",
+            '200': "FollowResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -884,7 +886,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFollowers200Response",
+            '200': "FollowResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -948,6 +950,7 @@ class UserListApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -1006,7 +1009,7 @@ class UserListApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetFollowers200Response:
+    ) -> FollowResponse:
         """get_following
 
         get user list of following
@@ -1050,7 +1053,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFollowers200Response",
+            '200': "FollowResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1081,7 +1084,7 @@ class UserListApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetFollowers200Response]:
+    ) -> ApiResponse[FollowResponse]:
         """get_following
 
         get user list of following
@@ -1125,7 +1128,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFollowers200Response",
+            '200': "FollowResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1200,7 +1203,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFollowers200Response",
+            '200': "FollowResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1264,6 +1267,7 @@ class UserListApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -1322,7 +1326,7 @@ class UserListApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetRetweeters200Response:
+    ) -> TweetRetweetersResponse:
         """get_retweeters
 
         get tweet retweeters
@@ -1366,7 +1370,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRetweeters200Response",
+            '200': "TweetRetweetersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1397,7 +1401,7 @@ class UserListApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetRetweeters200Response]:
+    ) -> ApiResponse[TweetRetweetersResponse]:
         """get_retweeters
 
         get tweet retweeters
@@ -1441,7 +1445,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRetweeters200Response",
+            '200': "TweetRetweetersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1516,7 +1520,7 @@ class UserListApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRetweeters200Response",
+            '200': "TweetRetweetersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1580,6 +1584,7 @@ class UserListApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 

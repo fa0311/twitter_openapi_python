@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +27,9 @@ class SensitiveMediaWarning(BaseModel):
     """
     SensitiveMediaWarning
     """ # noqa: E501
-    adult_content: StrictBool
-    graphic_violence: StrictBool
-    other: StrictBool
+    adult_content: Optional[StrictBool] = None
+    graphic_violence: Optional[StrictBool] = None
+    other: Optional[StrictBool] = None
     __properties: ClassVar[List[str]] = ["adult_content", "graphic_violence", "other"]
 
     model_config = ConfigDict(
