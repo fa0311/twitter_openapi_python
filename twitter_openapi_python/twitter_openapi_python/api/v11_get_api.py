@@ -1,5 +1,4 @@
-from types import NoneType
-from typing import Any, Callable, Optional, Type, TypeVar
+from typing import Any, Callable, Optional, TypeVar
 
 import twitter_openapi_python_generated as twitter
 
@@ -7,7 +6,7 @@ from twitter_openapi_python.models import TwitterApiUtilsResponse
 from twitter_openapi_python.utils import build_response, get_legacy_kwargs
 
 T = TypeVar("T")
-ApiFnType = Callable[..., twitter.ApiResponse]
+ApiFnType = Callable[..., twitter.ApiResponse[T]]
 ParamType = dict[str, Any]
 
 
@@ -21,18 +20,15 @@ class V11GetApiUtils:
 
     def request(
         self,
-        apiFn: ApiFnType,
-        type: Type[T],
+        apiFn: "ApiFnType[T]",
         key: str,
         param: ParamType,
     ) -> TwitterApiUtilsResponse[T]:
         args = get_legacy_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(**args)
         data = res.data
-
         if not isinstance(data, type):
             raise Exception("Error")
-
         return build_response(response=res, data=data)
 
     def get_friends_following_list(
@@ -52,7 +48,6 @@ class V11GetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_friends_following_list_with_http_info,
-            type=NoneType,
             param=param,
             key="friends/following/list.json",
         )
@@ -69,7 +64,6 @@ class V11GetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_search_typeahead_with_http_info,
-            type=NoneType,
             param=param,
             key="search/typeahead.json",
         )

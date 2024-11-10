@@ -33,9 +33,7 @@ class InitialStateApiUtils:
     def get_initial_state(self, url: str) -> InitialStateApiUtilsResponse:
         response = self.request(url=url).data.decode("utf-8")
         reg = '<script type="text/javascript" charset="utf-8" nonce="{nonce}">{any}</script>'
-        js = re.search(
-            reg.format(nonce=r"([a-zA-Z0-9]{48})", any=r"([\s\S]*?)"), response
-        )
+        js = re.search(reg.format(nonce=r"([a-zA-Z0-9]{48})", any=r"([\s\S]*?)"), response)
 
         if js is None:
             raise Exception("js is None")
@@ -56,14 +54,14 @@ class InitialStateApiUtils:
         def get_user(e: dict[str, Any]) -> Optional[models.UserLegacy]:
             try:
                 entities = e["entities"]["users"]["entities"]
-                return models.UserLegacy.parse_obj(list(entities.values())[0])
+                return models.UserLegacy.model_validate(list(entities.values())[0])
             except Exception:
                 # todo: fix
                 return None
 
         def get_session(e: dict[str, Any]) -> Optional[models.Session]:
             try:
-                return models.Session.parse_obj(e["session"])
+                return models.Session.model_validate(e["session"])
             except Exception:
                 return None
 

@@ -1,4 +1,4 @@
-from typing import Any, Callable, Optional, Type, TypeVar
+from typing import Any, Callable, Optional, TypeVar
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
@@ -6,14 +6,14 @@ import twitter_openapi_python_generated.models as models
 from twitter_openapi_python.models import TwitterApiUtilsResponse, UserApiUtilsData
 from twitter_openapi_python.utils import (
     build_response,
-    check_error,
+    error_check,
     get_kwargs,
     user_or_null_converter,
 )
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[UserApiUtilsData]
-ApiFnType = Callable[..., twitter.ApiResponse]
+ApiFnType = Callable[..., twitter.ApiResponse[T]]
 ParamType = dict[str, Any]
 
 
@@ -27,27 +27,19 @@ class UserApiUtils:
 
     def request(
         self,
-        apiFn: ApiFnType,
+        apiFn: "ApiFnType[T]",
         convertFn: Callable[[T], models.UserResults],
-        type: Type[T],
         key: str,
         param: ParamType,
     ) -> ResponseType:
         args = get_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(**args)
-        checked = check_error(data=res, type=type)
-
-        result = convertFn(checked)
+        result = convertFn(res.data)
         if result.result is None:
-            # never reach this point.
             raise Exception("No user")
-
         user = user_or_null_converter(result.result)
-
         if user is None:
-            # never reach this point.
             raise Exception("No user")
-
         data = UserApiUtilsData(
             raw=result,
             user=user,
@@ -65,8 +57,7 @@ class UserApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_user_by_screen_name_with_http_info,
-            convertFn=lambda e: e.data.user,
-            type=models.UserResponse,
+            convertFn=lambda e: error_check(e.data.user, e.errors),
             key="UserByScreenName",
             param=param,
         )
@@ -81,8 +72,7 @@ class UserApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_user_by_rest_id_with_http_info,
-            convertFn=lambda e: e.data.user,
-            type=models.UserResponse,
+            convertFn=lambda e: error_check(e.data.user, e.errors),
             key="UserByRestId",
             param=param,
         )

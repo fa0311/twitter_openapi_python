@@ -28,6 +28,7 @@ def non_nullable(x: Optional[T]) -> T:
         raise Exception("No data")
     return x
 
+
 def non_nullable_list(x: List[Optional[T]]) -> List[T]:
     def filter_fn(x: Optional[T]) -> TypeGuard[T]:
         return x is not None
@@ -58,15 +59,13 @@ def get_legacy_kwargs(flag: ParamType, additional: ParamType) -> ParamType:
     return res | additional
 
 
-def check_error(data: twitter.ApiResponse, type: type[T]) -> T:
-    if data.data is None:
-        raise Exception("No data")
-    oneOf = data.data.actual_instance
-    if isinstance(oneOf, models.Errors):
-        raise Exception(oneOf)
-    if isinstance(oneOf, type):
-        return oneOf
-    raise Exception("Error")
+def error_check(data: Optional[T], error: Optional[List[models.ErrorResponse]]) -> T:
+    if data is None:
+        if error is None:
+            raise Exception("No data")
+        else:
+            raise Exception(", ".join([x.message for x in error]))
+    return data
 
 
 def instruction_to_entry(
@@ -263,10 +262,7 @@ def build_header(headers: Dict[str, str]) -> ApiUtilsHeader:
     )
 
 
-def build_response(
-    response: twitter.ApiResponse,
-    data: T1,
-) -> TwitterApiUtilsResponse[T1]:
+def build_response(response: twitter.ApiResponse, data: T1) -> TwitterApiUtilsResponse[T1]:
     if response.headers is None:
         raise Exception("headers is None")
 

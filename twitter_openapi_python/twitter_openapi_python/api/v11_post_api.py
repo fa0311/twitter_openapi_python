@@ -1,5 +1,4 @@
-from types import NoneType
-from typing import Any, Callable, Optional, Type, TypeVar
+from typing import Any, Callable, Optional, TypeVar
 
 import twitter_openapi_python_generated as twitter
 
@@ -7,7 +6,7 @@ from twitter_openapi_python.models import TwitterApiUtilsResponse
 from twitter_openapi_python.utils import build_response, get_legacy_kwargs
 
 T = TypeVar("T")
-ApiFnType = Callable[..., twitter.ApiResponse]
+ApiFnType = Callable[..., twitter.ApiResponse[T]]
 ParamType = dict[str, Any]
 
 
@@ -21,8 +20,7 @@ class V11PostApiUtils:
 
     def request(
         self,
-        apiFn: ApiFnType,
-        type: Type[T],
+        apiFn: "ApiFnType[T]",
         key: str,
         param: ParamType,
     ) -> TwitterApiUtilsResponse[T]:
@@ -46,7 +44,6 @@ class V11PostApiUtils:
 
         response = self.request(
             apiFn=self.api.post_create_friendships_with_http_info,
-            type=NoneType,
             param=param,
             key="friendships/create.json",
         )
@@ -63,7 +60,6 @@ class V11PostApiUtils:
 
         response = self.request(
             apiFn=self.api.post_destroy_friendships_with_http_info,
-            type=NoneType,
             param=param,
             key="friendships/destroy.json",
         )

@@ -1,4 +1,4 @@
-from typing import Any, Callable, List, Optional, Type, TypeVar
+from typing import Any, Callable, List, Optional, TypeVar
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
@@ -11,17 +11,16 @@ from twitter_openapi_python.models import (
 )
 from twitter_openapi_python.utils import (
     build_response,
-    check_error,
     entries_cursor,
+    error_check,
     get_kwargs,
     instruction_to_entry,
     tweet_entries_converter,
 )
-from twitter_openapi_python.utils.api import non_nullable
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[TweetApiUtilsData]]
-ApiFnType = Callable[..., twitter.ApiResponse]
+ApiFnType = Callable[..., twitter.ApiResponse[T]]
 ParamType = dict[str, Any]
 
 
@@ -35,17 +34,14 @@ class TweetApiUtils:
 
     def request(
         self,
-        apiFn: ApiFnType,
+        apiFn: "ApiFnType[T]",
         convertFn: Callable[[T], List[models.InstructionUnion]],
-        type: Type[T],
         key: str,
         param: ParamType,
     ) -> ResponseType:
         args = get_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(**args)
-        checked = check_error(data=res, type=type)
-
-        instruction = convertFn(checked)
+        instruction = convertFn(res.data)
         entry = instruction_to_entry(instruction)
         tweet_list = tweet_entries_converter(entry)
         raw = ApiUtilsRaw(
@@ -57,8 +53,7 @@ class TweetApiUtils:
             cursor=entries_cursor(entry),
             data=tweet_list,
         )
-
-        return build_response(response=res, data=data)
+        return build_response(res, data)
 
     def get_tweet_detail(
         self,
@@ -77,8 +72,7 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_tweet_detail_with_http_info,
-            convertFn=lambda e: e.data.threaded_conversation_with_injections_v2.instructions,
-            type=models.TweetDetailResponse,
+            convertFn=lambda e: error_check(e.data.threaded_conversation_with_injections_v2, e.errors).instructions,
             key="TweetDetail",
             param=param,
         )
@@ -104,8 +98,7 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_search_timeline_with_http_info,
-            convertFn=lambda e: e.data.search_by_raw_query.search_timeline.timeline.instructions,
-            type=models.SearchTimelineResponse,
+            convertFn=lambda e: error_check(e.data.search_by_raw_query, e.errors).search_timeline.timeline.instructions,
             key="SearchTimeline",
             param=param,
         )
@@ -127,8 +120,7 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_home_timeline_with_http_info,
-            convertFn=lambda e: e.data.home.home_timeline_urt.instructions,
-            type=models.TimelineResponse,
+            convertFn=lambda e: error_check(e.data.home, e.errors).home_timeline_urt.instructions,
             key="HomeTimeline",
             param=param,
         )
@@ -150,8 +142,7 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_home_latest_timeline_with_http_info,
-            convertFn=lambda e: e.data.home.home_timeline_urt.instructions,
-            type=models.TimelineResponse,
+            convertFn=lambda e: error_check(e.data.home, e.errors).home_timeline_urt.instructions,
             key="HomeLatestTimeline",
             param=param,
         )
@@ -174,10 +165,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_list_latest_tweets_timeline_with_http_info,
-            convertFn=lambda e: []
-            if (x := e.data.list.tweets_timeline.timeline) is None
-            else x.instructions,
-            type=models.ListLatestTweetsTimelineResponse,
+            convertFn=lambda e: error_check(
+                error_check(e.data.list, e.errors).tweets_timeline.timeline, e.errors
+            ).instructions,
             key="ListLatestTweetsTimeline",
             param=param,
         )
@@ -200,10 +190,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_tweets_with_http_info,
-            convertFn=lambda e: non_nullable(
-                e.data.user.result.timeline_v2.timeline
+            convertFn=lambda e: error_check(
+                error_check(e.data.user, e.errors).result.timeline_v2.timeline, e.errors
             ).instructions,
-            type=models.UserTweetsResponse,
             key="UserTweets",
             param=param,
         )
@@ -226,10 +215,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_tweets_and_replies_with_http_info,
-            convertFn=lambda e: non_nullable(
-                e.data.user.result.timeline_v2.timeline
+            convertFn=lambda e: error_check(
+                error_check(e.data.user, e.errors).result.timeline_v2.timeline, e.errors
             ).instructions,
-            type=models.UserTweetsResponse,
             key="UserTweetsAndReplies",
             param=param,
         )
@@ -252,10 +240,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_media_with_http_info,
-            convertFn=lambda e: non_nullable(
-                e.data.user.result.timeline_v2.timeline
+            convertFn=lambda e: error_check(
+                error_check(e.data.user, e.errors).result.timeline_v2.timeline, e.errors
             ).instructions,
-            type=models.UserTweetsResponse,
             key="UserMedia",
             param=param,
         )
@@ -278,10 +265,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_likes_with_http_info,
-            convertFn=lambda e: non_nullable(
-                e.data.user.result.timeline_v2.timeline
+            convertFn=lambda e: error_check(
+                error_check(e.data.user, e.errors).result.timeline_v2.timeline, e.errors
             ).instructions,
-            type=models.UserTweetsResponse,
             key="Likes",
             param=param,
         )
@@ -303,8 +289,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_bookmarks_with_http_info,
-            convertFn=lambda e: e.data.bookmark_timeline_v2.timeline.instructions,
-            type=models.BookmarksResponse,
+            convertFn=lambda e: error_check(
+                error_check(e.data, e.errors).bookmark_timeline_v2.timeline, e.errors
+            ).instructions,
             key="Bookmarks",
             param=param,
         )
