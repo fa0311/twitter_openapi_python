@@ -30,7 +30,7 @@ class UserVerificationInfoReason(BaseModel):
     UserVerificationInfoReason
     """ # noqa: E501
     description: UserVerificationInfoReasonDescription
-    override_verified_year: StrictInt
+    override_verified_year: StrictInt | None
     verified_since_msec: Annotated[str, Field(strict=True)]
     __properties: ClassVar[List[str]] = ["description", "override_verified_year", "verified_since_msec"]
 

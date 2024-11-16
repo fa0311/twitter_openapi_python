@@ -30,7 +30,7 @@ class UserLegacyExtendedProfileBirthdate(BaseModel):
     day: StrictInt
     month: StrictInt
     visibility: StrictStr
-    year: StrictInt
+    year: StrictInt | None
     year_visibility: StrictStr
     __properties: ClassVar[List[str]] = ["day", "month", "visibility", "year", "year_visibility"]
 
