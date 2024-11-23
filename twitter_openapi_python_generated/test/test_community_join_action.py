@@ -15,10 +15,10 @@
 
 import unittest
 
-from twitter_openapi_python_generated.models.community_join_action_result import CommunityJoinActionResult
+from twitter_openapi_python_generated.models.community_join_action import CommunityJoinAction
 
-class TestCommunityJoinActionResult(unittest.TestCase):
-    """CommunityJoinActionResult unit test stubs"""
+class TestCommunityJoinAction(unittest.TestCase):
+    """CommunityJoinAction unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,26 +26,26 @@ class TestCommunityJoinActionResult(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> CommunityJoinActionResult:
-        """Test CommunityJoinActionResult
+    def make_instance(self, include_optional) -> CommunityJoinAction:
+        """Test CommunityJoinAction
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `CommunityJoinActionResult`
+        # uncomment below to create an instance of `CommunityJoinAction`
         """
-        model = CommunityJoinActionResult()
+        model = CommunityJoinAction()
         if include_optional:
-            return CommunityJoinActionResult(
+            return CommunityJoinAction(
                 typename = 'TimelineTweet'
             )
         else:
-            return CommunityJoinActionResult(
+            return CommunityJoinAction(
                 typename = 'TimelineTweet',
         )
         """
 
-    def testCommunityJoinActionResult(self):
-        """Test CommunityJoinActionResult"""
+    def testCommunityJoinAction(self):
+        """Test CommunityJoinAction"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -24,9 +24,9 @@ from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CommunityJoinActionResult(BaseModel):
+class CommunityJoinAction(BaseModel):
     """
-    CommunityJoinActionResult
+    CommunityJoinAction
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
     __properties: ClassVar[List[str]] = ["__typename"]
@@ -49,7 +49,7 @@ class CommunityJoinActionResult(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CommunityJoinActionResult from a JSON string"""
+        """Create an instance of CommunityJoinAction from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +74,7 @@ class CommunityJoinActionResult(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CommunityJoinActionResult from a dict"""
+        """Create an instance of CommunityJoinAction from a dict"""
         if obj is None:
             return None
 

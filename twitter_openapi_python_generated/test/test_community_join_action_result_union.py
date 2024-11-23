@@ -15,10 +15,10 @@
 
 import unittest
 
-from twitter_openapi_python_generated.models.community_join_action_union import CommunityJoinActionUnion
+from twitter_openapi_python_generated.models.community_join_action_result_union import CommunityJoinActionResultUnion
 
-class TestCommunityJoinActionUnion(unittest.TestCase):
-    """CommunityJoinActionUnion unit test stubs"""
+class TestCommunityJoinActionResultUnion(unittest.TestCase):
+    """CommunityJoinActionResultUnion unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,30 @@ class TestCommunityJoinActionUnion(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> CommunityJoinActionUnion:
-        """Test CommunityJoinActionUnion
+    def make_instance(self, include_optional) -> CommunityJoinActionResultUnion:
+        """Test CommunityJoinActionResultUnion
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `CommunityJoinActionUnion`
+        # uncomment below to create an instance of `CommunityJoinActionResultUnion`
         """
-        model = CommunityJoinActionUnion()
+        model = CommunityJoinActionResultUnion()
         if include_optional:
-            return CommunityJoinActionUnion(
+            return CommunityJoinActionResultUnion(
                 typename = 'TimelineTweet',
                 message = '',
                 reason = 'ViewerRequestRequired'
             )
         else:
-            return CommunityJoinActionUnion(
+            return CommunityJoinActionResultUnion(
                 typename = 'TimelineTweet',
                 message = '',
                 reason = 'ViewerRequestRequired',
         )
         """
 
-    def testCommunityJoinActionUnion(self):
-        """Test CommunityJoinActionUnion"""
+    def testCommunityJoinActionResultUnion(self):
+        """Test CommunityJoinActionResultUnion"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

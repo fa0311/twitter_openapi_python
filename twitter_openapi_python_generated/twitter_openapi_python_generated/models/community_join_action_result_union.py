@@ -18,24 +18,24 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from twitter_openapi_python_generated.models.community_join_action_result import CommunityJoinActionResult
+from twitter_openapi_python_generated.models.community_join_action import CommunityJoinAction
 from twitter_openapi_python_generated.models.community_join_action_unavailable import CommunityJoinActionUnavailable
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-COMMUNITYJOINACTIONUNION_ONE_OF_SCHEMAS = ["CommunityJoinActionResult", "CommunityJoinActionUnavailable"]
+COMMUNITYJOINACTIONRESULTUNION_ONE_OF_SCHEMAS = ["CommunityJoinAction", "CommunityJoinActionUnavailable"]
 
-class CommunityJoinActionUnion(BaseModel):
+class CommunityJoinActionResultUnion(BaseModel):
     """
-    CommunityJoinActionUnion
+    CommunityJoinActionResultUnion
     """
-    # data type: CommunityJoinActionResult
-    oneof_schema_1_validator: Optional[CommunityJoinActionResult] = None
+    # data type: CommunityJoinAction
+    oneof_schema_1_validator: Optional[CommunityJoinAction] = None
     # data type: CommunityJoinActionUnavailable
     oneof_schema_2_validator: Optional[CommunityJoinActionUnavailable] = None
-    actual_instance: Optional[Union[CommunityJoinActionResult, CommunityJoinActionUnavailable]] = None
-    one_of_schemas: Set[str] = { "CommunityJoinActionResult", "CommunityJoinActionUnavailable" }
+    actual_instance: Optional[Union[CommunityJoinAction, CommunityJoinActionUnavailable]] = None
+    one_of_schemas: Set[str] = { "CommunityJoinAction", "CommunityJoinActionUnavailable" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -58,12 +58,12 @@ class CommunityJoinActionUnion(BaseModel):
 
     @field_validator('actual_instance')
     def actual_instance_must_validate_oneof(cls, v):
-        instance = CommunityJoinActionUnion.model_construct()
+        instance = CommunityJoinActionResultUnion.model_construct()
         error_messages = []
         match = 0
-        # validate data type: CommunityJoinActionResult
-        if not isinstance(v, CommunityJoinActionResult):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `CommunityJoinActionResult`")
+        # validate data type: CommunityJoinAction
+        if not isinstance(v, CommunityJoinAction):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `CommunityJoinAction`")
         else:
             match += 1
         # validate data type: CommunityJoinActionUnavailable
@@ -73,10 +73,10 @@ class CommunityJoinActionUnion(BaseModel):
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in CommunityJoinActionUnion with oneOf schemas: CommunityJoinActionResult, CommunityJoinActionUnavailable. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in CommunityJoinActionResultUnion with oneOf schemas: CommunityJoinAction, CommunityJoinActionUnavailable. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in CommunityJoinActionUnion with oneOf schemas: CommunityJoinActionResult, CommunityJoinActionUnavailable. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in CommunityJoinActionResultUnion with oneOf schemas: CommunityJoinAction, CommunityJoinActionUnavailable. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -96,9 +96,9 @@ class CommunityJoinActionUnion(BaseModel):
         if not _data_type:
             raise ValueError("Failed to lookup data type from the field `__typename` in the input.")
 
-        # check if data type is `CommunityJoinActionResult`
+        # check if data type is `CommunityJoinAction`
         if _data_type == "CommunityJoinAction":
-            instance.actual_instance = CommunityJoinActionResult.from_json(json_str)
+            instance.actual_instance = CommunityJoinAction.from_json(json_str)
             return instance
 
         # check if data type is `CommunityJoinActionUnavailable`
@@ -106,14 +106,9 @@ class CommunityJoinActionUnion(BaseModel):
             instance.actual_instance = CommunityJoinActionUnavailable.from_json(json_str)
             return instance
 
-        # check if data type is `CommunityJoinActionResult`
-        if _data_type == "CommunityJoinActionResult":
-            instance.actual_instance = CommunityJoinActionResult.from_json(json_str)
-            return instance
-
-        # deserialize data into CommunityJoinActionResult
+        # deserialize data into CommunityJoinAction
         try:
-            instance.actual_instance = CommunityJoinActionResult.from_json(json_str)
+            instance.actual_instance = CommunityJoinAction.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
@@ -126,10 +121,10 @@ class CommunityJoinActionUnion(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into CommunityJoinActionUnion with oneOf schemas: CommunityJoinActionResult, CommunityJoinActionUnavailable. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into CommunityJoinActionResultUnion with oneOf schemas: CommunityJoinAction, CommunityJoinActionUnavailable. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into CommunityJoinActionUnion with oneOf schemas: CommunityJoinActionResult, CommunityJoinActionUnavailable. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into CommunityJoinActionResultUnion with oneOf schemas: CommunityJoinAction, CommunityJoinActionUnavailable. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -143,7 +138,7 @@ class CommunityJoinActionUnion(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], CommunityJoinActionResult, CommunityJoinActionUnavailable]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], CommunityJoinAction, CommunityJoinActionUnavailable]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

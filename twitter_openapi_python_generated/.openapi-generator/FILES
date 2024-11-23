@@ -36,9 +36,9 @@ docs/CommunityActions.md
 docs/CommunityData.md
 docs/CommunityDeleteActionResult.md
 docs/CommunityInvitesResult.md
-docs/CommunityJoinActionResult.md
+docs/CommunityJoinAction.md
+docs/CommunityJoinActionResultUnion.md
 docs/CommunityJoinActionUnavailable.md
-docs/CommunityJoinActionUnion.md
 docs/CommunityJoinRequestsResult.md
 docs/CommunityLeaveActionResult.md
 docs/CommunityPinActionResult.md
@@ -320,9 +320,9 @@ test/test_community_actions.py
 test/test_community_data.py
 test/test_community_delete_action_result.py
 test/test_community_invites_result.py
-test/test_community_join_action_result.py
+test/test_community_join_action.py
+test/test_community_join_action_result_union.py
 test/test_community_join_action_unavailable.py
-test/test_community_join_action_union.py
 test/test_community_join_requests_result.py
 test/test_community_leave_action_result.py
 test/test_community_pin_action_result.py
@@ -615,9 +615,9 @@ twitter_openapi_python_generated/models/community_actions.py
 twitter_openapi_python_generated/models/community_data.py
 twitter_openapi_python_generated/models/community_delete_action_result.py
 twitter_openapi_python_generated/models/community_invites_result.py
-twitter_openapi_python_generated/models/community_join_action_result.py
+twitter_openapi_python_generated/models/community_join_action.py
+twitter_openapi_python_generated/models/community_join_action_result_union.py
 twitter_openapi_python_generated/models/community_join_action_unavailable.py
-twitter_openapi_python_generated/models/community_join_action_union.py
 twitter_openapi_python_generated/models/community_join_requests_result.py
 twitter_openapi_python_generated/models/community_leave_action_result.py
 twitter_openapi_python_generated/models/community_pin_action_result.py
