@@ -46,13 +46,6 @@ class TestHomeTimelineResponseData(unittest.TestCase):
             )
         else:
             return HomeTimelineResponseData(
-                home = twitter_openapi_python_generated.models.home_timeline_home.HomeTimelineHome(
-                    home_timeline_urt = twitter_openapi_python_generated.models.timeline.Timeline(
-                        instructions = [
-                            null
-                            ], 
-                        metadata = { }, 
-                        response_objects = { }, ), ),
         )
         """
 

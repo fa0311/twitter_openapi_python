@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class CreateBookmarkResponseData(BaseModel):
     """
     CreateBookmarkResponseData
     """ # noqa: E501
-    tweet_bookmark_put: StrictStr
+    tweet_bookmark_put: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["tweet_bookmark_put"]
 
     model_config = ConfigDict(

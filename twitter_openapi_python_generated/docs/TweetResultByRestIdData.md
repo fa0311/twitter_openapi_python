@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tweet_result** | [**ItemResult**](ItemResult.md) |  | 
+**tweet_result** | [**ItemResult**](ItemResult.md) |  | [optional] 
 
 ## Example
 

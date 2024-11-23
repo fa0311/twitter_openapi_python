@@ -18,13 +18,13 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from twitter_openapi_python_generated.models.get_bookmarks200_response import GetBookmarks200Response
-from twitter_openapi_python_generated.models.get_home_latest_timeline200_response import GetHomeLatestTimeline200Response
-from twitter_openapi_python_generated.models.get_likes200_response import GetLikes200Response
-from twitter_openapi_python_generated.models.get_list_latest_tweets_timeline200_response import GetListLatestTweetsTimeline200Response
-from twitter_openapi_python_generated.models.get_search_timeline200_response import GetSearchTimeline200Response
-from twitter_openapi_python_generated.models.get_tweet_detail200_response import GetTweetDetail200Response
-from twitter_openapi_python_generated.models.get_user_highlights_tweets200_response import GetUserHighlightsTweets200Response
+from twitter_openapi_python_generated.models.bookmarks_response import BookmarksResponse
+from twitter_openapi_python_generated.models.list_latest_tweets_timeline_response import ListLatestTweetsTimelineResponse
+from twitter_openapi_python_generated.models.search_timeline_response import SearchTimelineResponse
+from twitter_openapi_python_generated.models.timeline_response import TimelineResponse
+from twitter_openapi_python_generated.models.tweet_detail_response import TweetDetailResponse
+from twitter_openapi_python_generated.models.user_highlights_tweets_response import UserHighlightsTweetsResponse
+from twitter_openapi_python_generated.models.user_tweets_response import UserTweetsResponse
 
 from twitter_openapi_python_generated.api_client import ApiClient, RequestSerialized
 from twitter_openapi_python_generated.api_response import ApiResponse
@@ -62,7 +62,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetBookmarks200Response:
+    ) -> BookmarksResponse:
         """get_bookmarks
 
         get bookmarks
@@ -106,7 +106,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBookmarks200Response",
+            '200': "BookmarksResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -137,7 +137,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetBookmarks200Response]:
+    ) -> ApiResponse[BookmarksResponse]:
         """get_bookmarks
 
         get bookmarks
@@ -181,7 +181,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBookmarks200Response",
+            '200': "BookmarksResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -256,7 +256,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBookmarks200Response",
+            '200': "BookmarksResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -320,6 +320,7 @@ class TweetApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -378,7 +379,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetHomeLatestTimeline200Response:
+    ) -> TimelineResponse:
         """get_home_latest_timeline
 
         get tweet list of timeline
@@ -422,7 +423,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetHomeLatestTimeline200Response",
+            '200': "TimelineResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -453,7 +454,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetHomeLatestTimeline200Response]:
+    ) -> ApiResponse[TimelineResponse]:
         """get_home_latest_timeline
 
         get tweet list of timeline
@@ -497,7 +498,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetHomeLatestTimeline200Response",
+            '200': "TimelineResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -572,7 +573,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetHomeLatestTimeline200Response",
+            '200': "TimelineResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -636,6 +637,7 @@ class TweetApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -694,7 +696,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetHomeLatestTimeline200Response:
+    ) -> TimelineResponse:
         """get_home_timeline
 
         get tweet list of timeline
@@ -738,7 +740,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetHomeLatestTimeline200Response",
+            '200': "TimelineResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -769,7 +771,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetHomeLatestTimeline200Response]:
+    ) -> ApiResponse[TimelineResponse]:
         """get_home_timeline
 
         get tweet list of timeline
@@ -813,7 +815,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetHomeLatestTimeline200Response",
+            '200': "TimelineResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -888,7 +890,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetHomeLatestTimeline200Response",
+            '200': "TimelineResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -952,6 +954,7 @@ class TweetApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -1011,7 +1014,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetLikes200Response:
+    ) -> UserTweetsResponse:
         """get_likes
 
         get user likes tweets
@@ -1058,7 +1061,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLikes200Response",
+            '200': "UserTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1090,7 +1093,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetLikes200Response]:
+    ) -> ApiResponse[UserTweetsResponse]:
         """get_likes
 
         get user likes tweets
@@ -1137,7 +1140,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLikes200Response",
+            '200': "UserTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1216,7 +1219,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLikes200Response",
+            '200': "UserTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1285,6 +1288,7 @@ class TweetApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -1343,7 +1347,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetListLatestTweetsTimeline200Response:
+    ) -> ListLatestTweetsTimelineResponse:
         """get_list_latest_tweets_timeline
 
         get tweet list of timeline
@@ -1387,7 +1391,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetListLatestTweetsTimeline200Response",
+            '200': "ListLatestTweetsTimelineResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1418,7 +1422,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetListLatestTweetsTimeline200Response]:
+    ) -> ApiResponse[ListLatestTweetsTimelineResponse]:
         """get_list_latest_tweets_timeline
 
         get tweet list of timeline
@@ -1462,7 +1466,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetListLatestTweetsTimeline200Response",
+            '200': "ListLatestTweetsTimelineResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1537,7 +1541,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetListLatestTweetsTimeline200Response",
+            '200': "ListLatestTweetsTimelineResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1601,6 +1605,7 @@ class TweetApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -1659,7 +1664,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetSearchTimeline200Response:
+    ) -> SearchTimelineResponse:
         """get_search_timeline
 
         search tweet list. product:[Top, Latest, People, Photos, Videos]
@@ -1703,7 +1708,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchTimeline200Response",
+            '200': "SearchTimelineResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1734,7 +1739,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetSearchTimeline200Response]:
+    ) -> ApiResponse[SearchTimelineResponse]:
         """get_search_timeline
 
         search tweet list. product:[Top, Latest, People, Photos, Videos]
@@ -1778,7 +1783,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchTimeline200Response",
+            '200': "SearchTimelineResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1853,7 +1858,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchTimeline200Response",
+            '200': "SearchTimelineResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1917,6 +1922,7 @@ class TweetApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -1976,7 +1982,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTweetDetail200Response:
+    ) -> TweetDetailResponse:
         """get_tweet_detail
 
         get TweetDetail
@@ -2023,7 +2029,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTweetDetail200Response",
+            '200': "TweetDetailResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2055,7 +2061,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTweetDetail200Response]:
+    ) -> ApiResponse[TweetDetailResponse]:
         """get_tweet_detail
 
         get TweetDetail
@@ -2102,7 +2108,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTweetDetail200Response",
+            '200': "TweetDetailResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2181,7 +2187,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTweetDetail200Response",
+            '200': "TweetDetailResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2250,6 +2256,7 @@ class TweetApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -2308,7 +2315,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserHighlightsTweets200Response:
+    ) -> UserHighlightsTweetsResponse:
         """get_user_highlights_tweets
 
         get user highlights tweets
@@ -2352,7 +2359,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserHighlightsTweets200Response",
+            '200': "UserHighlightsTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2383,7 +2390,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserHighlightsTweets200Response]:
+    ) -> ApiResponse[UserHighlightsTweetsResponse]:
         """get_user_highlights_tweets
 
         get user highlights tweets
@@ -2427,7 +2434,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserHighlightsTweets200Response",
+            '200': "UserHighlightsTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2502,7 +2509,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserHighlightsTweets200Response",
+            '200': "UserHighlightsTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2566,6 +2573,7 @@ class TweetApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -2625,7 +2633,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetLikes200Response:
+    ) -> UserTweetsResponse:
         """get_user_media
 
         get user media tweets
@@ -2672,7 +2680,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLikes200Response",
+            '200': "UserTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2704,7 +2712,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetLikes200Response]:
+    ) -> ApiResponse[UserTweetsResponse]:
         """get_user_media
 
         get user media tweets
@@ -2751,7 +2759,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLikes200Response",
+            '200': "UserTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2830,7 +2838,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLikes200Response",
+            '200': "UserTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2899,6 +2907,7 @@ class TweetApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -2958,7 +2967,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetLikes200Response:
+    ) -> UserTweetsResponse:
         """get_user_tweets
 
         get user tweets
@@ -3005,7 +3014,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLikes200Response",
+            '200': "UserTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3037,7 +3046,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetLikes200Response]:
+    ) -> ApiResponse[UserTweetsResponse]:
         """get_user_tweets
 
         get user tweets
@@ -3084,7 +3093,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLikes200Response",
+            '200': "UserTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3163,7 +3172,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLikes200Response",
+            '200': "UserTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3232,6 +3241,7 @@ class TweetApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -3291,7 +3301,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetLikes200Response:
+    ) -> UserTweetsResponse:
         """get_user_tweets_and_replies
 
         get user replies tweets
@@ -3338,7 +3348,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLikes200Response",
+            '200': "UserTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3370,7 +3380,7 @@ class TweetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetLikes200Response]:
+    ) -> ApiResponse[UserTweetsResponse]:
         """get_user_tweets_and_replies
 
         get user replies tweets
@@ -3417,7 +3427,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLikes200Response",
+            '200': "UserTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3496,7 +3506,7 @@ class TweetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLikes200Response",
+            '200': "UserTweetsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3565,6 +3575,7 @@ class TweetApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 

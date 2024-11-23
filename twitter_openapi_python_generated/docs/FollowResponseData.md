@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | [**FollowResponseUser**](FollowResponseUser.md) |  | 
+**user** | [**FollowResponseUser**](FollowResponseUser.md) |  | [optional] 
 
 ## Example
 

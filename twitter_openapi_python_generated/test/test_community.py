@@ -42,8 +42,7 @@ class TestCommunity(unittest.TestCase):
                         delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
                             __typename = 'TimelineTweet', 
                             reason = 'Unavailable', ), 
-                        join_action_result = twitter_openapi_python_generated.models.community_join_action_result.CommunityJoinActionResult(
-                            __typename = , ), 
+                        join_action_result = null, 
                         leave_action_result = twitter_openapi_python_generated.models.community_leave_action_result.CommunityLeaveActionResult(
                             __typename = , 
                             message = '', 
@@ -104,8 +103,7 @@ class TestCommunity(unittest.TestCase):
                         delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
                             __typename = 'TimelineTweet', 
                             reason = 'Unavailable', ), 
-                        join_action_result = twitter_openapi_python_generated.models.community_join_action_result.CommunityJoinActionResult(
-                            __typename = , ), 
+                        join_action_result = null, 
                         leave_action_result = twitter_openapi_python_generated.models.community_leave_action_result.CommunityLeaveActionResult(
                             __typename = , 
                             message = '', 

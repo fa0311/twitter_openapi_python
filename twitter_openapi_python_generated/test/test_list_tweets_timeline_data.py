@@ -47,14 +47,6 @@ class TestListTweetsTimelineData(unittest.TestCase):
             )
         else:
             return ListTweetsTimelineData(
-                list = twitter_openapi_python_generated.models.list_tweets_timeline_list.ListTweetsTimelineList(
-                    tweets_timeline = twitter_openapi_python_generated.models.list_tweets_timeline.ListTweetsTimeline(
-                        timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                            instructions = [
-                                null
-                                ], 
-                            metadata = { }, 
-                            response_objects = { }, ), ), ),
         )
         """
 

@@ -1,4 +1,4 @@
-from typing import Any, Callable, List, Optional, Type, TypeVar
+from typing import Any, Callable, List, Optional, TypeVar
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
@@ -11,18 +11,17 @@ from twitter_openapi_python.models import (
 )
 from twitter_openapi_python.utils import (
     build_response,
-    check_error,
     entries_cursor,
+    error_check,
     get_kwargs,
     instruction_to_entry,
-    non_nullable,
     user_entries_converter,
     user_result_converter,
 )
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[UserApiUtilsData]]
-ApiFnType = Callable[..., twitter.ApiResponse]
+ApiFnType = Callable[..., twitter.ApiResponse[T]]
 ParamType = dict[str, Any]
 
 
@@ -36,17 +35,14 @@ class UserListApiUtils:
 
     def request(
         self,
-        apiFn: ApiFnType,
+        apiFn: "ApiFnType[T]",
         convertFn: Callable[[T], List[models.InstructionUnion]],
-        type: Type[T],
         key: str,
         param: ParamType,
     ) -> ResponseType:
         args = get_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(**args)
-        checked = check_error(data=res, type=type)
-
-        instruction = convertFn(checked)
+        instruction = convertFn(res.data)
         entry = instruction_to_entry(instruction)
         user_list = user_entries_converter(entry)
         user = user_result_converter(user_list)
@@ -79,8 +75,7 @@ class UserListApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_followers_with_http_info,
-            convertFn=lambda e: e.data.user.result.timeline.timeline.instructions,
-            type=models.FollowResponse,
+            convertFn=lambda e: error_check(e.data.user, e.errors).result.timeline.timeline.instructions,
             key="Followers",
             param=param,
         )
@@ -101,8 +96,7 @@ class UserListApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_following_with_http_info,
-            convertFn=lambda e: e.data.user.result.timeline.timeline.instructions,
-            type=models.FollowResponse,
+            convertFn=lambda e: error_check(e.data.user, e.errors).result.timeline.timeline.instructions,
             key="Following",
             param=param,
         )
@@ -123,8 +117,7 @@ class UserListApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_followers_you_know_with_http_info,
-            convertFn=lambda e: e.data.user.result.timeline.timeline.instructions,
-            type=models.FollowResponse,
+            convertFn=lambda e: error_check(e.data.user, e.errors).result.timeline.timeline.instructions,
             key="FollowersYouKnow",
             param=param,
         )
@@ -145,10 +138,9 @@ class UserListApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_favoriters_with_http_info,
-            convertFn=lambda e: non_nullable(
-                e.data.favoriters_timeline.timeline
+            convertFn=lambda e: error_check(
+                error_check(e.data.favoriters_timeline, e.errors).timeline, e.errors
             ).instructions,
-            type=models.TweetFavoritersResponse,
             key="Favoriters",
             param=param,
         )
@@ -169,10 +161,9 @@ class UserListApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_retweeters_with_http_info,
-            convertFn=lambda e: non_nullable(
-                e.data.retweeters_timeline.timeline
+            convertFn=lambda e: error_check(
+                error_check(e.data.retweeters_timeline, e.errors).timeline, e.errors
             ).instructions,
-            type=models.TweetRetweetersResponse,
             key="Retweeters",
             param=param,
         )

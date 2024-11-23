@@ -43,6 +43,7 @@ class TestUserTipJarSettings(unittest.TestCase):
                 gofundme_handle = '',
                 is_enabled = True,
                 patreon_handle = '',
+                pay_pal_handle = '',
                 venmo_handle = ''
             )
         else:

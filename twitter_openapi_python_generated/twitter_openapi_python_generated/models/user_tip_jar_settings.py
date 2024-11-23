@@ -34,8 +34,9 @@ class UserTipJarSettings(BaseModel):
     gofundme_handle: Optional[StrictStr] = None
     is_enabled: Optional[StrictBool] = None
     patreon_handle: Optional[StrictStr] = None
+    pay_pal_handle: Optional[StrictStr] = None
     venmo_handle: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["bandcamp_handle", "bitcoin_handle", "cash_app_handle", "ethereum_handle", "gofundme_handle", "is_enabled", "patreon_handle", "venmo_handle"]
+    __properties: ClassVar[List[str]] = ["bandcamp_handle", "bitcoin_handle", "cash_app_handle", "ethereum_handle", "gofundme_handle", "is_enabled", "patreon_handle", "pay_pal_handle", "venmo_handle"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -95,6 +96,7 @@ class UserTipJarSettings(BaseModel):
             "gofundme_handle": obj.get("gofundme_handle"),
             "is_enabled": obj.get("is_enabled"),
             "patreon_handle": obj.get("patreon_handle"),
+            "pay_pal_handle": obj.get("pay_pal_handle"),
             "venmo_handle": obj.get("venmo_handle")
         })
         return _obj

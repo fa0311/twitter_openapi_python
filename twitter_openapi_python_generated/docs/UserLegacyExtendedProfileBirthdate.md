@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **day** | **int** |  | 
 **month** | **int** |  | 
 **visibility** | **str** |  | 
-**year** | **int** |  | 
+**year** | **int** |  | [optional] 
 **year_visibility** | **str** |  | 
 
 ## Example

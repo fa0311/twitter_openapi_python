@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +30,7 @@ class UserLegacyExtendedProfileBirthdate(BaseModel):
     day: StrictInt
     month: StrictInt
     visibility: StrictStr
-    year: StrictInt
+    year: Optional[StrictInt] = None
     year_visibility: StrictStr
     __properties: ClassVar[List[str]] = ["day", "month", "visibility", "year", "year_visibility"]
 

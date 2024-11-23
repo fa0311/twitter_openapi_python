@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**affiliates_highlighted_label** | **Dict[str, object]** |  | 
+**affiliates_highlighted_label** | **Dict[str, object]** |  | [optional] 
 **business_account** | **Dict[str, object]** |  | [optional] 
 **creator_subscriptions_count** | **int** |  | [optional] 
 **has_graduated_access** | **bool** |  | [optional] 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | [**UserHighlightsTweetsUser**](UserHighlightsTweetsUser.md) |  | 
+**user** | [**UserHighlightsTweetsUser**](UserHighlightsTweetsUser.md) |  | [optional] 
 
 ## Example
 

@@ -1,4 +1,4 @@
-from typing import Any, Callable, Optional, Type, TypeVar
+from typing import Any, Callable, Optional, TypeVar
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
@@ -7,13 +7,13 @@ from twitter_openapi_python.models import TweetApiUtilsData, TwitterApiUtilsResp
 from twitter_openapi_python.utils import (
     build_response,
     build_tweet_api_utils,
-    check_error,
     get_kwargs,
 )
+from twitter_openapi_python.utils.api import error_check
 
 T1 = TypeVar("T1")
 T2 = TypeVar("T2")
-ApiFnType = Callable[..., twitter.ApiResponse]
+ApiFnType = Callable[..., twitter.ApiResponse[T1]]
 ParamType = dict[str, Any]
 
 
@@ -27,20 +27,15 @@ class DefaultApiUtils:
 
     def request(
         self,
-        apiFn: ApiFnType,
+        apiFn: "ApiFnType[T1]",
         convertFn: Callable[[T1], T2],
-        type1: Type[T1],
-        type2: Type[T2],
         key: str,
         param: ParamType,
-    ) -> TwitterApiUtilsResponse[T2]:
+    ):
         args = get_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(**args)
-        checked = check_error(data=res, type=type1)
-
-        data = convertFn(checked)
-
-        return build_response(response=res, data=data)
+        data = convertFn(res.data)
+        return build_response(res, data)
 
     def get_profile_spotlights_query(
         self,
@@ -55,9 +50,7 @@ class DefaultApiUtils:
 
         response = self.request(
             apiFn=self.api.get_profile_spotlights_query_with_http_info,
-            convertFn=lambda x: x.data.user_result_by_screen_name,
-            type1=models.ProfileResponse,
-            type2=models.UserResultByScreenName,
+            convertFn=lambda x: error_check(x.data.user_result_by_screen_name, x.errors),
             key="ProfileSpotlightsQuery",
             param=param,
         )
@@ -74,9 +67,9 @@ class DefaultApiUtils:
 
         response = self.request(
             apiFn=self.api.get_tweet_result_by_rest_id_with_http_info,
-            convertFn=lambda x: build_tweet_api_utils(x.data.tweet_result),
-            type1=models.TweetResultByRestIdResponse,
-            type2=TweetApiUtilsData,
+            convertFn=lambda x: error_check(
+                build_tweet_api_utils(error_check(x.data.tweet_result, x.errors)), x.errors
+            ),
             key="TweetResultByRestId",
             param=param,
         )

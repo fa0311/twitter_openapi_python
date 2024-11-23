@@ -30,9 +30,7 @@ class TestTweetApi(unittest.TestCase):
             print_tweet(tweet)
 
     def test_get_list_latest_tweets_timeline(self):
-        result = self.client.get_list_latest_tweets_timeline(
-            list_id="1141162794290520064"
-        )
+        result = self.client.get_list_latest_tweets_timeline(list_id="1141162794290520064")
         for tweet in list(filter(self.ad_fillter, result.data.data)):
             print_tweet(tweet)
 

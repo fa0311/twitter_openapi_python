@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**BookmarksResponseData**](BookmarksResponseData.md) |  | 
+**data** | [**BookmarksResponseData**](BookmarksResponseData.md) |  | [optional] 
+**errors** | [**List[ErrorResponse]**](ErrorResponse.md) |  | [optional] 
 
 ## Example
 

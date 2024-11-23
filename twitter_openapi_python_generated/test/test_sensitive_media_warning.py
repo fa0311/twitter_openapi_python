@@ -42,9 +42,6 @@ class TestSensitiveMediaWarning(unittest.TestCase):
             )
         else:
             return SensitiveMediaWarning(
-                adult_content = True,
-                graphic_violence = True,
-                other = True,
         )
         """
 

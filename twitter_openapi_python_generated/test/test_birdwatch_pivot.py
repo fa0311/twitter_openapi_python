@@ -75,34 +75,7 @@ class TestBirdwatchPivot(unittest.TestCase):
         else:
             return BirdwatchPivot(
                 destination_url = '',
-                footer = twitter_openapi_python_generated.models.birdwatch_pivot_footer.BirdwatchPivotFooter(
-                    entities = [
-                        twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
-                            from_index = 56, 
-                            ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
-                                text = '', 
-                                type = 'TimelineUrl', 
-                                url = '', 
-                                url_type = 'ExternalUrl', ), 
-                            to_index = 56, )
-                        ], 
-                    text = '', ),
                 icon_type = 'BirdwatchV1Icon',
-                note = twitter_openapi_python_generated.models.birdwatch_pivot_note.BirdwatchPivotNote(
-                    rest_id = '4', ),
-                shorttitle = '',
-                subtitle = twitter_openapi_python_generated.models.birdwatch_pivot_subtitle.BirdwatchPivotSubtitle(
-                    entities = [
-                        twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
-                            from_index = 56, 
-                            ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
-                                text = '', 
-                                type = 'TimelineUrl', 
-                                url = '', 
-                                url_type = 'ExternalUrl', ), 
-                            to_index = 56, )
-                        ], 
-                    text = '', ),
                 title = '',
         )
         """

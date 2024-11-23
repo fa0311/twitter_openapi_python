@@ -45,12 +45,6 @@ class TestTweetDetailResponseData(unittest.TestCase):
             )
         else:
             return TweetDetailResponseData(
-                threaded_conversation_with_injections_v2 = twitter_openapi_python_generated.models.timeline.Timeline(
-                    instructions = [
-                        null
-                        ], 
-                    metadata = { }, 
-                    response_objects = { }, ),
         )
         """
 

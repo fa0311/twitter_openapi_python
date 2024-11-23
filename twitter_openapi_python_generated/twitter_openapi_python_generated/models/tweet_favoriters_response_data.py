@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.timeline_v2 import TimelineV2
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class TweetFavoritersResponseData(BaseModel):
     """
     TweetFavoritersResponseData
     """ # noqa: E501
-    favoriters_timeline: TimelineV2
+    favoriters_timeline: Optional[TimelineV2] = None
     __properties: ClassVar[List[str]] = ["favoriters_timeline"]
 
     model_config = ConfigDict(

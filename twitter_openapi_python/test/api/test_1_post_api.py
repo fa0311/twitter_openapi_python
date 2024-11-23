@@ -19,6 +19,7 @@ class TestPostApi(unittest.TestCase):
     def test_post_delete_tweet(self):
         time = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
         result = self.client.post_create_tweet(tweet_text=f"Test{time}")
+        assert result.data.data.create_tweet
         tweet_id = result.data.data.create_tweet.tweet_results.result.rest_id
 
         result2 = self.client.post_delete_tweet(tweet_id=tweet_id)

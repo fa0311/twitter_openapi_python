@@ -39,6 +39,8 @@
 
 * `COMMUNITYJOINACTION` (value: `'CommunityJoinAction'`)
 
+* `COMMUNITYJOINACTIONUNAVAILABLE` (value: `'CommunityJoinActionUnavailable'`)
+
 * `COMMUNITYLEAVEACTIONUNAVAILABLE` (value: `'CommunityLeaveActionUnavailable'`)
 
 * `COMMUNITYTWEETPINACTIONUNAVAILABLE` (value: `'CommunityTweetPinActionUnavailable'`)

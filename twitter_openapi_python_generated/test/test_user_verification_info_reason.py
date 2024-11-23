@@ -61,7 +61,6 @@ class TestUserVerificationInfoReason(unittest.TestCase):
                             to_index = 56, )
                         ], 
                     text = '', ),
-                override_verified_year = 56,
                 verified_since_msec = '-80728',
         )
         """

@@ -77,8 +77,7 @@ class TestCreateTweetResponse(unittest.TestCase):
                                                 delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
                                                     __typename = , 
                                                     reason = 'Unavailable', ), 
-                                                join_action_result = twitter_openapi_python_generated.models.community_join_action_result.CommunityJoinActionResult(
-                                                    __typename = , ), 
+                                                join_action_result = null, 
                                                 leave_action_result = twitter_openapi_python_generated.models.community_leave_action_result.CommunityLeaveActionResult(
                                                     __typename = , 
                                                     message = '', 
@@ -474,7 +473,34 @@ class TestCreateTweetResponse(unittest.TestCase):
                                 unmention_data = { }, 
                                 views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                                     count = '4', 
-                                    state = 'Enabled', ), ), ), ), )
+                                    state = 'Enabled', ), ), ), ), ),
+                errors = [
+                    twitter_openapi_python_generated.models.error_response.ErrorResponse(
+                        code = 56, 
+                        extensions = twitter_openapi_python_generated.models.error_extensions.ErrorExtensions(
+                            code = 56, 
+                            kind = '', 
+                            name = '', 
+                            retry_after = 56, 
+                            source = '', 
+                            tracing = twitter_openapi_python_generated.models.tracing.Tracing(
+                                trace_id = 'bf325375e030fccb', ), ), 
+                        kind = '', 
+                        locations = [
+                            twitter_openapi_python_generated.models.location.Location(
+                                column = 56, 
+                                line = 56, )
+                            ], 
+                        message = '', 
+                        name = '', 
+                        path = [
+                            null
+                            ], 
+                        retry_after = 56, 
+                        source = '', 
+                        tracing = twitter_openapi_python_generated.models.tracing.Tracing(
+                            trace_id = 'bf325375e030fccb', ), )
+                    ]
             )
         else:
             return CreateTweetResponse(
@@ -519,8 +545,7 @@ class TestCreateTweetResponse(unittest.TestCase):
                                                 delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
                                                     __typename = , 
                                                     reason = 'Unavailable', ), 
-                                                join_action_result = twitter_openapi_python_generated.models.community_join_action_result.CommunityJoinActionResult(
-                                                    __typename = , ), 
+                                                join_action_result = null, 
                                                 leave_action_result = twitter_openapi_python_generated.models.community_leave_action_result.CommunityLeaveActionResult(
                                                     __typename = , 
                                                     message = '', 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**create_tweet** | [**CreateTweetResponseResult**](CreateTweetResponseResult.md) |  | 
+**create_tweet** | [**CreateTweetResponseResult**](CreateTweetResponseResult.md) |  | [optional] 
 
 ## Example
 

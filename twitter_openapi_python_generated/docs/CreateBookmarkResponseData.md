@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tweet_bookmark_put** | **str** |  | 
+**tweet_bookmark_put** | **str** |  | [optional] 
 
 ## Example
 

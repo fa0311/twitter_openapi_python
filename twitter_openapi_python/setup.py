@@ -5,13 +5,15 @@ import re
 from setuptools import find_packages, setup
 
 NAME = "twitter_openapi_python"
-VERSION = "0.0.26"
+VERSION = "0.0.29"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
-    "twitter_openapi_python_generated == 0.0.24",
+    "twitter_openapi_python_generated == 0.0.27",
     "pydantic >= 2.6",
 ]
-GITHUB_RAW_URL = "https://raw.githubusercontent.com/fa0311/twitter_openapi_python/refs/heads/master/twitter_openapi_python/"
+GITHUB_RAW_URL = (
+    "https://raw.githubusercontent.com/fa0311/twitter_openapi_python/refs/heads/master/twitter_openapi_python/"
+)
 
 
 def image_replace(text: str, url: str):

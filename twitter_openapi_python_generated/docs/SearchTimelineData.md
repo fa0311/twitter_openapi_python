@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**search_by_raw_query** | [**SearchByRawQuery**](SearchByRawQuery.md) |  | 
+**search_by_raw_query** | [**SearchByRawQuery**](SearchByRawQuery.md) |  | [optional] 
 
 ## Example
 

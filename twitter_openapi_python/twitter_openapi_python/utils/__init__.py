@@ -8,7 +8,7 @@ from twitter_openapi_python.utils.api import (
     build_header,
     build_response,
     build_tweet_api_utils,
-    check_error,
+    error_check,
     entries_cursor,
     get_kwargs,
     get_legacy_kwargs,

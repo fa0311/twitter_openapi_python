@@ -19,7 +19,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.error_response import ErrorResponse
 from twitter_openapi_python_generated.models.tweet_result_by_rest_id_data import TweetResultByRestIdData
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +30,8 @@ class TweetResultByRestIdResponse(BaseModel):
     TweetResultByRestIdResponse
     """ # noqa: E501
     data: TweetResultByRestIdData
-    __properties: ClassVar[List[str]] = ["data"]
+    errors: Optional[List[ErrorResponse]] = None
+    __properties: ClassVar[List[str]] = ["data", "errors"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,6 +75,13 @@ class TweetResultByRestIdResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of data
         if self.data:
             _dict['data'] = self.data.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in errors (list)
+        _items = []
+        if self.errors:
+            for _item_errors in self.errors:
+                if _item_errors:
+                    _items.append(_item_errors.to_dict())
+            _dict['errors'] = _items
         return _dict
 
     @classmethod
@@ -85,7 +94,8 @@ class TweetResultByRestIdResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": TweetResultByRestIdData.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": TweetResultByRestIdData.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "errors": [ErrorResponse.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None
         })
         return _obj
 

@@ -49,16 +49,6 @@ class TestFollowResponseData(unittest.TestCase):
             )
         else:
             return FollowResponseData(
-                user = twitter_openapi_python_generated.models.follow_response_user.FollowResponseUser(
-                    result = twitter_openapi_python_generated.models.follow_response_result.FollowResponseResult(
-                        __typename = 'TimelineTweet', 
-                        timeline = twitter_openapi_python_generated.models.follow_timeline.FollowTimeline(
-                            timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                                instructions = [
-                                    null
-                                    ], 
-                                metadata = { }, 
-                                response_objects = { }, ), ), ), ),
         )
         """
 

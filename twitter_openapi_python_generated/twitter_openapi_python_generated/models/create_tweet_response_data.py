@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.create_tweet_response_result import CreateTweetResponseResult
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class CreateTweetResponseData(BaseModel):
     """
     CreateTweetResponseData
     """ # noqa: E501
-    create_tweet: CreateTweetResponseResult
+    create_tweet: Optional[CreateTweetResponseResult] = None
     __properties: ClassVar[List[str]] = ["create_tweet"]
 
     model_config = ConfigDict(

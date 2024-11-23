@@ -1,4 +1,4 @@
-from typing import Any, Callable, Optional, Type, TypeVar
+from typing import Any, Callable, Optional, TypeVar
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
@@ -6,14 +6,14 @@ import twitter_openapi_python_generated.models as models
 from twitter_openapi_python.models import TwitterApiUtilsResponse, UserApiUtilsData
 from twitter_openapi_python.utils import (
     build_response,
-    check_error,
+    error_check,
     get_kwargs,
     user_result_converter,
 )
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[list[UserApiUtilsData]]
-ApiFnType = Callable[..., twitter.ApiResponse]
+ApiFnType = Callable[..., twitter.ApiResponse[T]]
 ParamType = dict[str, Any]
 
 
@@ -27,17 +27,14 @@ class UsersApiUtils:
 
     def request(
         self,
-        apiFn: ApiFnType,
+        apiFn: "ApiFnType[T]",
         convertFn: Callable[[T], list[models.UserResults]],
-        type: Type[T],
         key: str,
         param: ParamType,
     ) -> ResponseType:
         args = get_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(**args)
-        checked = check_error(data=res, type=type)
-
-        user_result = convertFn(checked)
+        user_result = convertFn(res.data)
         user = user_result_converter(user_result)
         return build_response(response=res, data=user)
 
@@ -51,8 +48,7 @@ class UsersApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_users_by_rest_ids_with_http_info,
-            convertFn=lambda e: e.data.users,
-            type=models.UsersResponse,
+            convertFn=lambda e: error_check(e.data.users, e.errors),
             key="UsersByRestIds",
             param=param,
         )

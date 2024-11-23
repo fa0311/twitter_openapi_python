@@ -18,8 +18,8 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from twitter_openapi_python_generated.models.get_profile_spotlights_query200_response import GetProfileSpotlightsQuery200Response
-from twitter_openapi_python_generated.models.get_tweet_result_by_rest_id200_response import GetTweetResultByRestId200Response
+from twitter_openapi_python_generated.models.profile_response import ProfileResponse
+from twitter_openapi_python_generated.models.tweet_result_by_rest_id_response import TweetResultByRestIdResponse
 
 from twitter_openapi_python_generated.api_client import ApiClient, RequestSerialized
 from twitter_openapi_python_generated.api_response import ApiResponse
@@ -57,7 +57,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetProfileSpotlightsQuery200Response:
+    ) -> ProfileResponse:
         """get_profile_spotlights_query
 
         get user by screen name
@@ -101,7 +101,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileSpotlightsQuery200Response",
+            '200': "ProfileResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -132,7 +132,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetProfileSpotlightsQuery200Response]:
+    ) -> ApiResponse[ProfileResponse]:
         """get_profile_spotlights_query
 
         get user by screen name
@@ -176,7 +176,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileSpotlightsQuery200Response",
+            '200': "ProfileResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -251,7 +251,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileSpotlightsQuery200Response",
+            '200': "ProfileResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -315,6 +315,7 @@ class DefaultApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -374,7 +375,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTweetResultByRestId200Response:
+    ) -> TweetResultByRestIdResponse:
         """get_tweet_result_by_rest_id
 
         get TweetResultByRestId
@@ -421,7 +422,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTweetResultByRestId200Response",
+            '200': "TweetResultByRestIdResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -453,7 +454,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTweetResultByRestId200Response]:
+    ) -> ApiResponse[TweetResultByRestIdResponse]:
         """get_tweet_result_by_rest_id
 
         get TweetResultByRestId
@@ -500,7 +501,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTweetResultByRestId200Response",
+            '200': "TweetResultByRestIdResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -579,7 +580,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTweetResultByRestId200Response",
+            '200': "TweetResultByRestIdResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -648,6 +649,7 @@ class DefaultApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 

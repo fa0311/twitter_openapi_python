@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.create_retweet_response_result import CreateRetweetResponseResult
+from twitter_openapi_python_generated.models.delete_retweet_response_result import DeleteRetweetResponseResult
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class DeleteRetweetResponseData(BaseModel):
     """
     DeleteRetweetResponseData
     """ # noqa: E501
-    create_retweet: Optional[CreateRetweetResponseResult] = None
+    create_retweet: Optional[DeleteRetweetResponseResult] = None
     __properties: ClassVar[List[str]] = ["create_retweet"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class DeleteRetweetResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "create_retweet": CreateRetweetResponseResult.from_dict(obj["create_retweet"]) if obj.get("create_retweet") is not None else None
+            "create_retweet": DeleteRetweetResponseResult.from_dict(obj["create_retweet"]) if obj.get("create_retweet") is not None else None
         })
         return _obj
 

@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **call_to_action** | [**BirdwatchPivotCallToAction**](BirdwatchPivotCallToAction.md) |  | [optional] 
 **destination_url** | **str** |  | 
-**footer** | [**BirdwatchPivotFooter**](BirdwatchPivotFooter.md) |  | 
+**footer** | [**BirdwatchPivotFooter**](BirdwatchPivotFooter.md) |  | [optional] 
 **icon_type** | **str** |  | 
-**note** | [**BirdwatchPivotNote**](BirdwatchPivotNote.md) |  | 
-**shorttitle** | **str** |  | 
-**subtitle** | [**BirdwatchPivotSubtitle**](BirdwatchPivotSubtitle.md) |  | 
+**note** | [**BirdwatchPivotNote**](BirdwatchPivotNote.md) |  | [optional] 
+**shorttitle** | **str** |  | [optional] 
+**subtitle** | [**BirdwatchPivotSubtitle**](BirdwatchPivotSubtitle.md) |  | [optional] 
 **title** | **str** |  | 
 **visual_style** | **str** |  | [optional] 
 

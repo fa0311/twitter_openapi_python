@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.user_verification_info_reason_description import UserVerificationInfoReasonDescription
 from typing import Optional, Set
@@ -30,7 +30,7 @@ class UserVerificationInfoReason(BaseModel):
     UserVerificationInfoReason
     """ # noqa: E501
     description: UserVerificationInfoReasonDescription
-    override_verified_year: StrictInt
+    override_verified_year: Optional[StrictInt] = None
     verified_since_msec: Annotated[str, Field(strict=True)]
     __properties: ClassVar[List[str]] = ["description", "override_verified_year", "verified_since_msec"]
 

@@ -19,22 +19,22 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
 from typing_extensions import Annotated
-from twitter_openapi_python_generated.models.post_create_bookmark200_response import PostCreateBookmark200Response
+from twitter_openapi_python_generated.models.create_bookmark_response import CreateBookmarkResponse
+from twitter_openapi_python_generated.models.create_retweet_response import CreateRetweetResponse
+from twitter_openapi_python_generated.models.create_tweet_response import CreateTweetResponse
+from twitter_openapi_python_generated.models.delete_bookmark_response import DeleteBookmarkResponse
+from twitter_openapi_python_generated.models.delete_retweet_response import DeleteRetweetResponse
+from twitter_openapi_python_generated.models.delete_tweet_response import DeleteTweetResponse
+from twitter_openapi_python_generated.models.favorite_tweet_response import FavoriteTweetResponse
 from twitter_openapi_python_generated.models.post_create_bookmark_request import PostCreateBookmarkRequest
-from twitter_openapi_python_generated.models.post_create_retweet200_response import PostCreateRetweet200Response
 from twitter_openapi_python_generated.models.post_create_retweet_request import PostCreateRetweetRequest
-from twitter_openapi_python_generated.models.post_create_tweet200_response import PostCreateTweet200Response
 from twitter_openapi_python_generated.models.post_create_tweet_request import PostCreateTweetRequest
-from twitter_openapi_python_generated.models.post_delete_bookmark200_response import PostDeleteBookmark200Response
 from twitter_openapi_python_generated.models.post_delete_bookmark_request import PostDeleteBookmarkRequest
-from twitter_openapi_python_generated.models.post_delete_retweet200_response import PostDeleteRetweet200Response
 from twitter_openapi_python_generated.models.post_delete_retweet_request import PostDeleteRetweetRequest
-from twitter_openapi_python_generated.models.post_delete_tweet200_response import PostDeleteTweet200Response
 from twitter_openapi_python_generated.models.post_delete_tweet_request import PostDeleteTweetRequest
-from twitter_openapi_python_generated.models.post_favorite_tweet200_response import PostFavoriteTweet200Response
 from twitter_openapi_python_generated.models.post_favorite_tweet_request import PostFavoriteTweetRequest
-from twitter_openapi_python_generated.models.post_unfavorite_tweet200_response import PostUnfavoriteTweet200Response
 from twitter_openapi_python_generated.models.post_unfavorite_tweet_request import PostUnfavoriteTweetRequest
+from twitter_openapi_python_generated.models.unfavorite_tweet_response import UnfavoriteTweetResponse
 
 from twitter_openapi_python_generated.api_client import ApiClient, RequestSerialized
 from twitter_openapi_python_generated.api_response import ApiResponse
@@ -71,7 +71,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostCreateBookmark200Response:
+    ) -> CreateBookmarkResponse:
         """post_create_bookmark
 
         create Bookmark
@@ -112,7 +112,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostCreateBookmark200Response",
+            '200': "CreateBookmarkResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -142,7 +142,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostCreateBookmark200Response]:
+    ) -> ApiResponse[CreateBookmarkResponse]:
         """post_create_bookmark
 
         create Bookmark
@@ -183,7 +183,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostCreateBookmark200Response",
+            '200': "CreateBookmarkResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -254,7 +254,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostCreateBookmark200Response",
+            '200': "CreateBookmarkResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -324,6 +324,7 @@ class PostApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -381,7 +382,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostCreateRetweet200Response:
+    ) -> CreateRetweetResponse:
         """post_create_retweet
 
         create Retweet
@@ -422,7 +423,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostCreateRetweet200Response",
+            '200': "CreateRetweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -452,7 +453,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostCreateRetweet200Response]:
+    ) -> ApiResponse[CreateRetweetResponse]:
         """post_create_retweet
 
         create Retweet
@@ -493,7 +494,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostCreateRetweet200Response",
+            '200': "CreateRetweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -564,7 +565,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostCreateRetweet200Response",
+            '200': "CreateRetweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -634,6 +635,7 @@ class PostApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -691,7 +693,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostCreateTweet200Response:
+    ) -> CreateTweetResponse:
         """post_create_tweet
 
         create Tweet
@@ -732,7 +734,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostCreateTweet200Response",
+            '200': "CreateTweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -762,7 +764,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostCreateTweet200Response]:
+    ) -> ApiResponse[CreateTweetResponse]:
         """post_create_tweet
 
         create Tweet
@@ -803,7 +805,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostCreateTweet200Response",
+            '200': "CreateTweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -874,7 +876,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostCreateTweet200Response",
+            '200': "CreateTweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -944,6 +946,7 @@ class PostApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -1001,7 +1004,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostDeleteBookmark200Response:
+    ) -> DeleteBookmarkResponse:
         """post_delete_bookmark
 
         delete Bookmark
@@ -1042,7 +1045,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostDeleteBookmark200Response",
+            '200': "DeleteBookmarkResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1072,7 +1075,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostDeleteBookmark200Response]:
+    ) -> ApiResponse[DeleteBookmarkResponse]:
         """post_delete_bookmark
 
         delete Bookmark
@@ -1113,7 +1116,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostDeleteBookmark200Response",
+            '200': "DeleteBookmarkResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1184,7 +1187,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostDeleteBookmark200Response",
+            '200': "DeleteBookmarkResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1254,6 +1257,7 @@ class PostApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -1311,7 +1315,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostDeleteRetweet200Response:
+    ) -> DeleteRetweetResponse:
         """post_delete_retweet
 
         delete Retweet
@@ -1352,7 +1356,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostDeleteRetweet200Response",
+            '200': "DeleteRetweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1382,7 +1386,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostDeleteRetweet200Response]:
+    ) -> ApiResponse[DeleteRetweetResponse]:
         """post_delete_retweet
 
         delete Retweet
@@ -1423,7 +1427,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostDeleteRetweet200Response",
+            '200': "DeleteRetweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1494,7 +1498,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostDeleteRetweet200Response",
+            '200': "DeleteRetweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1564,6 +1568,7 @@ class PostApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -1621,7 +1626,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostDeleteTweet200Response:
+    ) -> DeleteTweetResponse:
         """post_delete_tweet
 
         delete Retweet
@@ -1662,7 +1667,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostDeleteTweet200Response",
+            '200': "DeleteTweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1692,7 +1697,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostDeleteTweet200Response]:
+    ) -> ApiResponse[DeleteTweetResponse]:
         """post_delete_tweet
 
         delete Retweet
@@ -1733,7 +1738,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostDeleteTweet200Response",
+            '200': "DeleteTweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1804,7 +1809,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostDeleteTweet200Response",
+            '200': "DeleteTweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1874,6 +1879,7 @@ class PostApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -1931,7 +1937,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostFavoriteTweet200Response:
+    ) -> FavoriteTweetResponse:
         """post_favorite_tweet
 
         favorite Tweet
@@ -1972,7 +1978,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostFavoriteTweet200Response",
+            '200': "FavoriteTweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2002,7 +2008,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostFavoriteTweet200Response]:
+    ) -> ApiResponse[FavoriteTweetResponse]:
         """post_favorite_tweet
 
         favorite Tweet
@@ -2043,7 +2049,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostFavoriteTweet200Response",
+            '200': "FavoriteTweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2114,7 +2120,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostFavoriteTweet200Response",
+            '200': "FavoriteTweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2184,6 +2190,7 @@ class PostApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
@@ -2241,7 +2248,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostUnfavoriteTweet200Response:
+    ) -> UnfavoriteTweetResponse:
         """post_unfavorite_tweet
 
         unfavorite Tweet
@@ -2282,7 +2289,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostUnfavoriteTweet200Response",
+            '200': "UnfavoriteTweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2312,7 +2319,7 @@ class PostApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostUnfavoriteTweet200Response]:
+    ) -> ApiResponse[UnfavoriteTweetResponse]:
         """post_unfavorite_tweet
 
         unfavorite Tweet
@@ -2353,7 +2360,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostUnfavoriteTweet200Response",
+            '200': "UnfavoriteTweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2424,7 +2431,7 @@ class PostApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostUnfavoriteTweet200Response",
+            '200': "UnfavoriteTweetResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2494,6 +2501,7 @@ class PostApi:
         _auth_settings: List[str] = [
             'Accept', 
             'ClientLanguage', 
+            'Priority', 
             'Referer', 
             'SecFetchDest', 
             'SecChUaPlatform', 
