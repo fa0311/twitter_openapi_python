@@ -67,7 +67,7 @@ class TestFollowResponse(unittest.TestCase):
                         message = '', 
                         name = '', 
                         path = [
-                            ''
+                            null
                             ], 
                         retry_after = 56, 
                         source = '', 

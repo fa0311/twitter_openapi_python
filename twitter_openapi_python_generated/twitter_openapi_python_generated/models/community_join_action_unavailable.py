@@ -18,30 +18,26 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.community import Community
-from twitter_openapi_python_generated.models.user_results import UserResults
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List
+from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AuthorCommunityRelationship(BaseModel):
+class CommunityJoinActionUnavailable(BaseModel):
     """
-    AuthorCommunityRelationship
+    CommunityJoinActionUnavailable
     """ # noqa: E501
-    community_results: Community
-    role: Optional[StrictStr] = None
-    user_results: Optional[UserResults] = None
-    __properties: ClassVar[List[str]] = ["community_results", "role", "user_results"]
+    typename: TypeName = Field(alias="__typename")
+    message: StrictStr
+    reason: StrictStr
+    __properties: ClassVar[List[str]] = ["__typename", "message", "reason"]
 
-    @field_validator('role')
-    def role_validate_enum(cls, value):
+    @field_validator('reason')
+    def reason_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Member', 'Moderator', 'Admin']):
-            raise ValueError("must be one of enum values ('Member', 'Moderator', 'Admin')")
+        if value not in set(['ViewerRequestRequired']):
+            raise ValueError("must be one of enum values ('ViewerRequestRequired')")
         return value
 
     model_config = ConfigDict(
@@ -62,7 +58,7 @@ class AuthorCommunityRelationship(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AuthorCommunityRelationship from a JSON string"""
+        """Create an instance of CommunityJoinActionUnavailable from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -83,17 +79,11 @@ class AuthorCommunityRelationship(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of community_results
-        if self.community_results:
-            _dict['community_results'] = self.community_results.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of user_results
-        if self.user_results:
-            _dict['user_results'] = self.user_results.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AuthorCommunityRelationship from a dict"""
+        """Create an instance of CommunityJoinActionUnavailable from a dict"""
         if obj is None:
             return None
 
@@ -101,9 +91,9 @@ class AuthorCommunityRelationship(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "community_results": Community.from_dict(obj["community_results"]) if obj.get("community_results") is not None else None,
-            "role": obj.get("role"),
-            "user_results": UserResults.from_dict(obj["user_results"]) if obj.get("user_results") is not None else None
+            "__typename": obj.get("__typename"),
+            "message": obj.get("message"),
+            "reason": obj.get("reason")
         })
         return _obj
 

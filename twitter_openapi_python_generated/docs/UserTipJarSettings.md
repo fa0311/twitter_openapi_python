@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **gofundme_handle** | **str** |  | [optional] 
 **is_enabled** | **bool** |  | [optional] 
 **patreon_handle** | **str** |  | [optional] 
+**pay_pal_handle** | **str** |  | [optional] 
 **venmo_handle** | **str** |  | [optional] 
 
 ## Example

@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.community_delete_action_result import CommunityDeleteActionResult
-from twitter_openapi_python_generated.models.community_join_action_result import CommunityJoinActionResult
+from twitter_openapi_python_generated.models.community_join_action_union import CommunityJoinActionUnion
 from twitter_openapi_python_generated.models.community_leave_action_result import CommunityLeaveActionResult
 from twitter_openapi_python_generated.models.community_pin_action_result import CommunityPinActionResult
 from twitter_openapi_python_generated.models.community_unpin_action_result import CommunityUnpinActionResult
@@ -33,7 +33,7 @@ class CommunityActions(BaseModel):
     CommunityActions
     """ # noqa: E501
     delete_action_result: Optional[CommunityDeleteActionResult] = None
-    join_action_result: Optional[CommunityJoinActionResult] = None
+    join_action_result: Optional[CommunityJoinActionUnion] = None
     leave_action_result: Optional[CommunityLeaveActionResult] = None
     pin_action_result: Optional[CommunityPinActionResult] = None
     unpin_action_result: Optional[CommunityUnpinActionResult] = None
@@ -106,7 +106,7 @@ class CommunityActions(BaseModel):
 
         _obj = cls.model_validate({
             "delete_action_result": CommunityDeleteActionResult.from_dict(obj["delete_action_result"]) if obj.get("delete_action_result") is not None else None,
-            "join_action_result": CommunityJoinActionResult.from_dict(obj["join_action_result"]) if obj.get("join_action_result") is not None else None,
+            "join_action_result": CommunityJoinActionUnion.from_dict(obj["join_action_result"]) if obj.get("join_action_result") is not None else None,
             "leave_action_result": CommunityLeaveActionResult.from_dict(obj["leave_action_result"]) if obj.get("leave_action_result") is not None else None,
             "pin_action_result": CommunityPinActionResult.from_dict(obj["pin_action_result"]) if obj.get("pin_action_result") is not None else None,
             "unpin_action_result": CommunityUnpinActionResult.from_dict(obj["unpin_action_result"]) if obj.get("unpin_action_result") is not None else None

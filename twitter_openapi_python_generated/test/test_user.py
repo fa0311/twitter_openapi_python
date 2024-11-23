@@ -125,6 +125,7 @@ class TestUser(unittest.TestCase):
                     gofundme_handle = '', 
                     is_enabled = True, 
                     patreon_handle = '', 
+                    pay_pal_handle = '', 
                     venmo_handle = '', ),
                 user_seed_tweet_count = 56,
                 verification_info = twitter_openapi_python_generated.models.user_verification_info.UserVerificationInfo(
@@ -146,7 +147,6 @@ class TestUser(unittest.TestCase):
         else:
             return User(
                 typename = 'TimelineTweet',
-                affiliates_highlighted_label = { },
                 id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=',
                 is_blue_verified = True,
                 legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(

@@ -36,7 +36,7 @@ class ErrorResponse(BaseModel):
     locations: List[Location]
     message: StrictStr
     name: StrictStr
-    path: List[StrictStr]
+    path: List[Any]
     retry_after: Optional[StrictInt] = None
     source: StrictStr
     tracing: Tracing

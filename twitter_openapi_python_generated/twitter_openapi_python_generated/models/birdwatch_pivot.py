@@ -33,11 +33,11 @@ class BirdwatchPivot(BaseModel):
     """ # noqa: E501
     call_to_action: Optional[BirdwatchPivotCallToAction] = Field(default=None, alias="callToAction")
     destination_url: StrictStr = Field(alias="destinationUrl")
-    footer: BirdwatchPivotFooter
+    footer: Optional[BirdwatchPivotFooter] = None
     icon_type: StrictStr = Field(alias="iconType")
-    note: BirdwatchPivotNote
-    shorttitle: StrictStr
-    subtitle: BirdwatchPivotSubtitle
+    note: Optional[BirdwatchPivotNote] = None
+    shorttitle: Optional[StrictStr] = None
+    subtitle: Optional[BirdwatchPivotSubtitle] = None
     title: StrictStr
     visual_style: Optional[StrictStr] = Field(default=None, alias="visualStyle")
     __properties: ClassVar[List[str]] = ["callToAction", "destinationUrl", "footer", "iconType", "note", "shorttitle", "subtitle", "title", "visualStyle"]
@@ -55,8 +55,8 @@ class BirdwatchPivot(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['Default']):
-            raise ValueError("must be one of enum values ('Default')")
+        if value not in set(['Default', 'Tentative']):
+            raise ValueError("must be one of enum values ('Default', 'Tentative')")
         return value
 
     model_config = ConfigDict(

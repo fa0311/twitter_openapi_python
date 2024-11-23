@@ -36,7 +36,7 @@ class User(BaseModel):
     User
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
-    affiliates_highlighted_label: Dict[str, Any]
+    affiliates_highlighted_label: Optional[Dict[str, Any]] = None
     business_account: Optional[Dict[str, Any]] = None
     creator_subscriptions_count: Optional[StrictInt] = None
     has_graduated_access: Optional[StrictBool] = None

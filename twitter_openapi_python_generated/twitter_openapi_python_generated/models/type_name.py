@@ -45,6 +45,7 @@ class TypeName(str, Enum):
     COMMUNITY = 'Community'
     COMMUNITYDELETEACTIONUNAVAILABLE = 'CommunityDeleteActionUnavailable'
     COMMUNITYJOINACTION = 'CommunityJoinAction'
+    COMMUNITYJOINACTIONUNAVAILABLE = 'CommunityJoinActionUnavailable'
     COMMUNITYLEAVEACTIONUNAVAILABLE = 'CommunityLeaveActionUnavailable'
     COMMUNITYTWEETPINACTIONUNAVAILABLE = 'CommunityTweetPinActionUnavailable'
     COMMUNITYTWEETUNPINACTIONUNAVAILABLE = 'CommunityTweetUnpinActionUnavailable'

@@ -54,7 +54,7 @@ class TestErrorResponse(unittest.TestCase):
                 message = '',
                 name = '',
                 path = [
-                    ''
+                    null
                     ],
                 retry_after = 56,
                 source = '',
@@ -81,7 +81,7 @@ class TestErrorResponse(unittest.TestCase):
                 message = '',
                 name = '',
                 path = [
-                    ''
+                    null
                     ],
                 source = '',
                 tracing = twitter_openapi_python_generated.models.tracing.Tracing(

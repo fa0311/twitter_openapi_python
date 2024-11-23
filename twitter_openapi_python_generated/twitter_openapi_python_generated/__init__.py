@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.25"
+__version__ = "0.0.26"
 
 # import apis into sdk package
 from twitter_openapi_python_generated.api.default_api import DefaultApi
@@ -75,6 +75,8 @@ from twitter_openapi_python_generated.models.community_data import CommunityData
 from twitter_openapi_python_generated.models.community_delete_action_result import CommunityDeleteActionResult
 from twitter_openapi_python_generated.models.community_invites_result import CommunityInvitesResult
 from twitter_openapi_python_generated.models.community_join_action_result import CommunityJoinActionResult
+from twitter_openapi_python_generated.models.community_join_action_unavailable import CommunityJoinActionUnavailable
+from twitter_openapi_python_generated.models.community_join_action_union import CommunityJoinActionUnion
 from twitter_openapi_python_generated.models.community_join_requests_result import CommunityJoinRequestsResult
 from twitter_openapi_python_generated.models.community_leave_action_result import CommunityLeaveActionResult
 from twitter_openapi_python_generated.models.community_pin_action_result import CommunityPinActionResult

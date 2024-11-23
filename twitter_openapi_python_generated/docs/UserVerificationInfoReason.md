@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | [**UserVerificationInfoReasonDescription**](UserVerificationInfoReasonDescription.md) |  | 
-**override_verified_year** | **int** |  | 
+**override_verified_year** | **int** |  | [optional] 
 **verified_since_msec** | **str** |  | 
 
 ## Example

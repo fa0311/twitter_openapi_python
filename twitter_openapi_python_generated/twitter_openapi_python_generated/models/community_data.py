@@ -74,15 +74,15 @@ class CommunityData(BaseModel):
     @field_validator('invites_policy')
     def invites_policy_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['MemberInvitesAllowed']):
-            raise ValueError("must be one of enum values ('MemberInvitesAllowed')")
+        if value not in set(['MemberInvitesAllowed', 'ModeratorInvitesAllowed']):
+            raise ValueError("must be one of enum values ('MemberInvitesAllowed', 'ModeratorInvitesAllowed')")
         return value
 
     @field_validator('join_policy')
     def join_policy_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['Open']):
-            raise ValueError("must be one of enum values ('Open')")
+        if value not in set(['Open', 'RestrictedJoinRequestsRequireModeratorApproval']):
+            raise ValueError("must be one of enum values ('Open', 'RestrictedJoinRequestsRequireModeratorApproval')")
         return value
 
     @field_validator('role')

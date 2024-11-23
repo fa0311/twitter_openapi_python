@@ -47,7 +47,6 @@ class TestUserLegacyExtendedProfileBirthdate(unittest.TestCase):
                 day = 56,
                 month = 56,
                 visibility = 'Self',
-                year = 56,
                 year_visibility = 'Self',
         )
         """
