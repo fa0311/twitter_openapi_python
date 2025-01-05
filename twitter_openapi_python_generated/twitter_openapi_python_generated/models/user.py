@@ -41,6 +41,7 @@ class User(BaseModel):
     creator_subscriptions_count: Optional[StrictInt] = None
     has_graduated_access: Optional[StrictBool] = None
     has_hidden_likes_on_profile: Optional[StrictBool] = None
+    has_hidden_subscriptions_on_profile: Optional[StrictBool] = None
     has_nft_avatar: Optional[StrictBool] = None
     highlights_info: Optional[UserHighlightsInfo] = None
     id: Annotated[str, Field(strict=True)]
@@ -58,7 +59,7 @@ class User(BaseModel):
     tipjar_settings: Optional[UserTipJarSettings] = None
     user_seed_tweet_count: Optional[StrictInt] = None
     verification_info: Optional[UserVerificationInfo] = None
-    __properties: ClassVar[List[str]] = ["__typename", "affiliates_highlighted_label", "business_account", "creator_subscriptions_count", "has_graduated_access", "has_hidden_likes_on_profile", "has_nft_avatar", "highlights_info", "id", "is_blue_verified", "is_profile_translatable", "legacy", "legacy_extended_profile", "premium_gifting_eligible", "professional", "profile_image_shape", "rest_id", "super_follow_eligible", "super_followed_by", "super_following", "tipjar_settings", "user_seed_tweet_count", "verification_info"]
+    __properties: ClassVar[List[str]] = ["__typename", "affiliates_highlighted_label", "business_account", "creator_subscriptions_count", "has_graduated_access", "has_hidden_likes_on_profile", "has_hidden_subscriptions_on_profile", "has_nft_avatar", "highlights_info", "id", "is_blue_verified", "is_profile_translatable", "legacy", "legacy_extended_profile", "premium_gifting_eligible", "professional", "profile_image_shape", "rest_id", "super_follow_eligible", "super_followed_by", "super_following", "tipjar_settings", "user_seed_tweet_count", "verification_info"]
 
     @field_validator('id')
     def id_validate_regular_expression(cls, value):
@@ -156,6 +157,7 @@ class User(BaseModel):
             "creator_subscriptions_count": obj.get("creator_subscriptions_count"),
             "has_graduated_access": obj.get("has_graduated_access"),
             "has_hidden_likes_on_profile": obj.get("has_hidden_likes_on_profile"),
+            "has_hidden_subscriptions_on_profile": obj.get("has_hidden_subscriptions_on_profile"),
             "has_nft_avatar": obj.get("has_nft_avatar"),
             "highlights_info": UserHighlightsInfo.from_dict(obj["highlights_info"]) if obj.get("highlights_info") is not None else None,
             "id": obj.get("id"),

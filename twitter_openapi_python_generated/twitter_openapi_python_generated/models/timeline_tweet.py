@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.content_item_type import ContentItemType
 from twitter_openapi_python_generated.models.highlight import Highlight
@@ -33,13 +33,14 @@ class TimelineTweet(BaseModel):
     TimelineTweet
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
+    has_moderated_replies: Optional[StrictBool] = Field(default=None, alias="hasModeratedReplies")
     highlights: Optional[Highlight] = None
     item_type: ContentItemType = Field(alias="itemType")
     promoted_metadata: Optional[Dict[str, Any]] = Field(default=None, alias="promotedMetadata")
     social_context: Optional[SocialContextUnion] = Field(default=None, alias="socialContext")
     tweet_display_type: StrictStr = Field(alias="tweetDisplayType")
     tweet_results: ItemResult
-    __properties: ClassVar[List[str]] = ["__typename", "highlights", "itemType", "promotedMetadata", "socialContext", "tweetDisplayType", "tweet_results"]
+    __properties: ClassVar[List[str]] = ["__typename", "hasModeratedReplies", "highlights", "itemType", "promotedMetadata", "socialContext", "tweetDisplayType", "tweet_results"]
 
     @field_validator('tweet_display_type')
     def tweet_display_type_validate_enum(cls, value):
@@ -109,6 +110,7 @@ class TimelineTweet(BaseModel):
 
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
+            "hasModeratedReplies": obj.get("hasModeratedReplies"),
             "highlights": Highlight.from_dict(obj["highlights"]) if obj.get("highlights") is not None else None,
             "itemType": obj.get("itemType"),
             "promotedMetadata": obj.get("promotedMetadata"),

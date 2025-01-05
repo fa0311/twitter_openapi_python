@@ -26,8 +26,10 @@ from twitter_openapi_python_generated.models.author_community_relationship impor
 from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot
 from twitter_openapi_python_generated.models.community import Community
 from twitter_openapi_python_generated.models.community_relationship import CommunityRelationship
+from twitter_openapi_python_generated.models.grok_share_attachment import GrokShareAttachment
 from twitter_openapi_python_generated.models.note_tweet import NoteTweet
 from twitter_openapi_python_generated.models.super_follows_reply_user_result import SuperFollowsReplyUserResult
+from twitter_openapi_python_generated.models.trend_results import TrendResults
 from twitter_openapi_python_generated.models.tweet_card import TweetCard
 from twitter_openapi_python_generated.models.tweet_edit_control import TweetEditControl
 from twitter_openapi_python_generated.models.tweet_edit_prespective import TweetEditPrespective
@@ -53,6 +55,8 @@ class Tweet(BaseModel):
     core: Optional[UserResultCore] = None
     edit_control: Optional[TweetEditControl] = None
     edit_prespective: Optional[TweetEditPrespective] = None
+    grok_analysis_followups: Optional[List[StrictStr]] = None
+    grok_share_attachment: Optional[GrokShareAttachment] = None
     has_birdwatch_notes: Optional[StrictBool] = None
     is_translatable: Optional[StrictBool] = None
     legacy: Optional[TweetLegacy] = None
@@ -64,10 +68,11 @@ class Tweet(BaseModel):
     rest_id: Annotated[str, Field(strict=True)]
     source: Optional[StrictStr] = None
     super_follows_reply_user_result: Optional[SuperFollowsReplyUserResult] = Field(default=None, alias="superFollowsReplyUserResult")
+    trend_results: Optional[TrendResults] = None
     unified_card: Optional[UnifiedCard] = None
     unmention_data: Optional[Dict[str, Any]] = None
     views: Optional[TweetView] = None
-    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "community_relationship", "community_results", "core", "edit_control", "edit_prespective", "has_birdwatch_notes", "is_translatable", "legacy", "note_tweet", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "unified_card", "unmention_data", "views"]
+    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "community_relationship", "community_results", "core", "edit_control", "edit_prespective", "grok_analysis_followups", "grok_share_attachment", "has_birdwatch_notes", "is_translatable", "legacy", "note_tweet", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views"]
 
     @field_validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
@@ -142,6 +147,9 @@ class Tweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of edit_prespective
         if self.edit_prespective:
             _dict['edit_prespective'] = self.edit_prespective.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of grok_share_attachment
+        if self.grok_share_attachment:
+            _dict['grok_share_attachment'] = self.grok_share_attachment.to_dict()
         # override the default output from pydantic by calling `to_dict()` of legacy
         if self.legacy:
             _dict['legacy'] = self.legacy.to_dict()
@@ -160,6 +168,9 @@ class Tweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of super_follows_reply_user_result
         if self.super_follows_reply_user_result:
             _dict['superFollowsReplyUserResult'] = self.super_follows_reply_user_result.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of trend_results
+        if self.trend_results:
+            _dict['trend_results'] = self.trend_results.to_dict()
         # override the default output from pydantic by calling `to_dict()` of unified_card
         if self.unified_card:
             _dict['unified_card'] = self.unified_card.to_dict()
@@ -188,6 +199,8 @@ class Tweet(BaseModel):
             "core": UserResultCore.from_dict(obj["core"]) if obj.get("core") is not None else None,
             "edit_control": TweetEditControl.from_dict(obj["edit_control"]) if obj.get("edit_control") is not None else None,
             "edit_prespective": TweetEditPrespective.from_dict(obj["edit_prespective"]) if obj.get("edit_prespective") is not None else None,
+            "grok_analysis_followups": obj.get("grok_analysis_followups"),
+            "grok_share_attachment": GrokShareAttachment.from_dict(obj["grok_share_attachment"]) if obj.get("grok_share_attachment") is not None else None,
             "has_birdwatch_notes": obj.get("has_birdwatch_notes"),
             "is_translatable": obj.get("is_translatable"),
             "legacy": TweetLegacy.from_dict(obj["legacy"]) if obj.get("legacy") is not None else None,
@@ -199,6 +212,7 @@ class Tweet(BaseModel):
             "rest_id": obj.get("rest_id"),
             "source": obj.get("source"),
             "superFollowsReplyUserResult": SuperFollowsReplyUserResult.from_dict(obj["superFollowsReplyUserResult"]) if obj.get("superFollowsReplyUserResult") is not None else None,
+            "trend_results": TrendResults.from_dict(obj["trend_results"]) if obj.get("trend_results") is not None else None,
             "unified_card": UnifiedCard.from_dict(obj["unified_card"]) if obj.get("unified_card") is not None else None,
             "unmention_data": obj.get("unmention_data"),
             "views": TweetView.from_dict(obj["views"]) if obj.get("views") is not None else None

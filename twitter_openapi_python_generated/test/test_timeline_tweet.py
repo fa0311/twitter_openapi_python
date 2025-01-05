@@ -37,6 +37,7 @@ class TestTimelineTweet(unittest.TestCase):
         if include_optional:
             return TimelineTweet(
                 typename = 'TimelineTweet',
+                has_moderated_replies = True,
                 highlights = twitter_openapi_python_generated.models.highlight.Highlight(
                     text_highlights = [
                         twitter_openapi_python_generated.models.text_highlight.TextHighlight(

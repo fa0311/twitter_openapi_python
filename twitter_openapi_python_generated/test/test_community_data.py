@@ -100,49 +100,7 @@ class TestCommunityData(unittest.TestCase):
         else:
             return CommunityData(
                 typename = 'TimelineTweet',
-                actions = twitter_openapi_python_generated.models.community_actions.CommunityActions(
-                    delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
-                        __typename = 'TimelineTweet', 
-                        reason = 'Unavailable', ), 
-                    join_action_result = null, 
-                    leave_action_result = twitter_openapi_python_generated.models.community_leave_action_result.CommunityLeaveActionResult(
-                        __typename = 'TimelineTweet', 
-                        message = '', 
-                        reason = 'ViewerNotMember', ), 
-                    pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
-                        __typename = , ), 
-                    unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
-                        __typename = , ), ),
-                admin_results = twitter_openapi_python_generated.models.user_results.UserResults(
-                    result = null, ),
-                creator_results = twitter_openapi_python_generated.models.user_results.UserResults(
-                    result = null, ),
-                description = '',
                 id_str = '4',
-                invites_policy = 'MemberInvitesAllowed',
-                invites_result = twitter_openapi_python_generated.models.community_invites_result.CommunityInvitesResult(
-                    __typename = 'TimelineTweet', 
-                    message = '', 
-                    reason = 'Unavailable', ),
-                is_pinned = True,
-                join_policy = 'Open',
-                member_count = 56,
-                members_facepile_results = [
-                    twitter_openapi_python_generated.models.user_results.UserResults(
-                        result = null, )
-                    ],
-                moderator_count = 56,
-                name = '',
-                role = 'NonMember',
-                rules = [
-                    twitter_openapi_python_generated.models.community_rule.CommunityRule(
-                        description = '', 
-                        name = '', 
-                        rest_id = '4', )
-                    ],
-                search_tags = [
-                    ''
-                    ],
         )
         """
 
