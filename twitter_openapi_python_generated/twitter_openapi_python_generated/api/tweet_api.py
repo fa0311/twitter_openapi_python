@@ -2303,6 +2303,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2326,6 +2327,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2352,6 +2355,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2378,6 +2382,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2401,6 +2406,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2427,6 +2434,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2453,6 +2461,7 @@ class TweetApi:
         path_query_id: StrictStr,
         variables: StrictStr,
         features: StrictStr,
+        field_toggles: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2476,6 +2485,8 @@ class TweetApi:
         :type variables: str
         :param features: (required)
         :type features: str
+        :param field_toggles: (required)
+        :type field_toggles: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2502,6 +2513,7 @@ class TweetApi:
             path_query_id=path_query_id,
             variables=variables,
             features=features,
+            field_toggles=field_toggles,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2523,6 +2535,7 @@ class TweetApi:
         path_query_id,
         variables,
         features,
+        field_toggles,
         _request_auth,
         _content_type,
         _headers,
@@ -2554,6 +2567,10 @@ class TweetApi:
         if features is not None:
             
             _query_params.append(('features', features))
+            
+        if field_toggles is not None:
+            
+            _query_params.append(('fieldToggles', field_toggles))
             
         # process the header parameters
         # process the form parameters

@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **core** | [**UserResultCore**](UserResultCore.md) |  | [optional] 
 **edit_control** | [**TweetEditControl**](TweetEditControl.md) |  | [optional] 
 **edit_prespective** | [**TweetEditPrespective**](TweetEditPrespective.md) |  | [optional] 
+**grok_analysis_followups** | **List[str]** |  | [optional] 
+**grok_share_attachment** | [**GrokShareAttachment**](GrokShareAttachment.md) |  | [optional] 
 **has_birdwatch_notes** | **bool** |  | [optional] 
 **is_translatable** | **bool** |  | [optional] 
 **legacy** | [**TweetLegacy**](TweetLegacy.md) |  | [optional] 
@@ -26,6 +28,7 @@ Name | Type | Description | Notes
 **rest_id** | **str** |  | 
 **source** | **str** |  | [optional] 
 **super_follows_reply_user_result** | [**SuperFollowsReplyUserResult**](SuperFollowsReplyUserResult.md) |  | [optional] 
+**trend_results** | [**TrendResults**](TrendResults.md) |  | [optional] 
 **unified_card** | [**UnifiedCard**](UnifiedCard.md) |  | [optional] 
 **unmention_data** | **Dict[str, object]** |  | [optional] 
 **views** | [**TweetView**](TweetView.md) |  | [optional] 

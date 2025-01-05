@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **creator_subscriptions_count** | **int** |  | [optional] 
 **has_graduated_access** | **bool** |  | [optional] 
 **has_hidden_likes_on_profile** | **bool** |  | [optional] 
+**has_hidden_subscriptions_on_profile** | **bool** |  | [optional] 
 **has_nft_avatar** | **bool** |  | [optional] 
 **highlights_info** | [**UserHighlightsInfo**](UserHighlightsInfo.md) |  | [optional] 
 **id** | **str** |  | 

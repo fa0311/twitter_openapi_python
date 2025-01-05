@@ -205,36 +205,17 @@ class TestCreateTweetResponseResult(unittest.TestCase):
                         community_results = twitter_openapi_python_generated.models.community.Community(
                             result = twitter_openapi_python_generated.models.community_data.CommunityData(
                                 __typename = , 
-                                actions = , 
-                                admin_results = , 
                                 created_at = 56, 
-                                creator_results = , 
                                 description = '', 
                                 id_str = '4', 
                                 invites_policy = 'MemberInvitesAllowed', 
-                                invites_result = twitter_openapi_python_generated.models.community_invites_result.CommunityInvitesResult(
-                                    __typename = , 
-                                    message = '', 
-                                    reason = 'Unavailable', ), 
                                 is_pinned = True, 
                                 join_policy = 'Open', 
                                 member_count = 56, 
-                                members_facepile_results = [
-                                    
-                                    ], 
                                 moderator_count = 56, 
                                 name = '', 
                                 question = '', 
-                                role = 'NonMember', 
-                                rules = [
-                                    twitter_openapi_python_generated.models.community_rule.CommunityRule(
-                                        description = '', 
-                                        name = '', 
-                                        rest_id = '4', )
-                                    ], 
-                                search_tags = [
-                                    ''
-                                    ], ), ), 
+                                role = 'NonMember', ), ), 
                         core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
                             user_results = , ), 
                         edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(
@@ -255,6 +236,17 @@ class TestCreateTweetResponseResult(unittest.TestCase):
                         edit_prespective = twitter_openapi_python_generated.models.tweet_edit_prespective.TweetEditPrespective(
                             favorited = True, 
                             retweeted = True, ), 
+                        grok_analysis_followups = [
+                            ''
+                            ], 
+                        grok_share_attachment = twitter_openapi_python_generated.models.grok_share_attachment.GrokShareAttachment(
+                            items = [
+                                twitter_openapi_python_generated.models.grok_share_attachment_item.GrokShareAttachmentItem(
+                                    media_urls = [
+                                        ''
+                                        ], 
+                                    message = '', )
+                                ], ), 
                         has_birdwatch_notes = True, 
                         is_translatable = True, 
                         legacy = twitter_openapi_python_generated.models.tweet_legacy.TweetLegacy(
@@ -466,6 +458,8 @@ class TestCreateTweetResponseResult(unittest.TestCase):
                                 __typename = , 
                                 legacy = twitter_openapi_python_generated.models.super_follows_reply_user_result_legacy.SuperFollowsReplyUserResultLegacy(
                                     screen_name = '', ), ), ), 
+                        trend_results = twitter_openapi_python_generated.models.trend_results.TrendResults(
+                            rest_id = '4', ), 
                         unified_card = twitter_openapi_python_generated.models.unified_card.UnifiedCard(
                             card_fetch_state = 'NoCard', ), 
                         unmention_data = { }, 
@@ -644,36 +638,17 @@ class TestCreateTweetResponseResult(unittest.TestCase):
                         community_results = twitter_openapi_python_generated.models.community.Community(
                             result = twitter_openapi_python_generated.models.community_data.CommunityData(
                                 __typename = , 
-                                actions = , 
-                                admin_results = , 
                                 created_at = 56, 
-                                creator_results = , 
                                 description = '', 
                                 id_str = '4', 
                                 invites_policy = 'MemberInvitesAllowed', 
-                                invites_result = twitter_openapi_python_generated.models.community_invites_result.CommunityInvitesResult(
-                                    __typename = , 
-                                    message = '', 
-                                    reason = 'Unavailable', ), 
                                 is_pinned = True, 
                                 join_policy = 'Open', 
                                 member_count = 56, 
-                                members_facepile_results = [
-                                    
-                                    ], 
                                 moderator_count = 56, 
                                 name = '', 
                                 question = '', 
-                                role = 'NonMember', 
-                                rules = [
-                                    twitter_openapi_python_generated.models.community_rule.CommunityRule(
-                                        description = '', 
-                                        name = '', 
-                                        rest_id = '4', )
-                                    ], 
-                                search_tags = [
-                                    ''
-                                    ], ), ), 
+                                role = 'NonMember', ), ), 
                         core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
                             user_results = , ), 
                         edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(
@@ -694,6 +669,17 @@ class TestCreateTweetResponseResult(unittest.TestCase):
                         edit_prespective = twitter_openapi_python_generated.models.tweet_edit_prespective.TweetEditPrespective(
                             favorited = True, 
                             retweeted = True, ), 
+                        grok_analysis_followups = [
+                            ''
+                            ], 
+                        grok_share_attachment = twitter_openapi_python_generated.models.grok_share_attachment.GrokShareAttachment(
+                            items = [
+                                twitter_openapi_python_generated.models.grok_share_attachment_item.GrokShareAttachmentItem(
+                                    media_urls = [
+                                        ''
+                                        ], 
+                                    message = '', )
+                                ], ), 
                         has_birdwatch_notes = True, 
                         is_translatable = True, 
                         legacy = twitter_openapi_python_generated.models.tweet_legacy.TweetLegacy(
@@ -905,6 +891,8 @@ class TestCreateTweetResponseResult(unittest.TestCase):
                                 __typename = , 
                                 legacy = twitter_openapi_python_generated.models.super_follows_reply_user_result_legacy.SuperFollowsReplyUserResultLegacy(
                                     screen_name = '', ), ), ), 
+                        trend_results = twitter_openapi_python_generated.models.trend_results.TrendResults(
+                            rest_id = '4', ), 
                         unified_card = twitter_openapi_python_generated.models.unified_card.UnifiedCard(
                             card_fetch_state = 'NoCard', ), 
                         unmention_data = { }, 

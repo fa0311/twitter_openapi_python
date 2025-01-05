@@ -42,6 +42,7 @@ class TestUser(unittest.TestCase):
                 creator_subscriptions_count = 56,
                 has_graduated_access = True,
                 has_hidden_likes_on_profile = True,
+                has_hidden_subscriptions_on_profile = True,
                 has_nft_avatar = True,
                 highlights_info = twitter_openapi_python_generated.models.user_highlights_info.UserHighlightsInfo(
                     can_highlight_tweets = True, 

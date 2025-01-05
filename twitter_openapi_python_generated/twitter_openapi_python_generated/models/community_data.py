@@ -37,28 +37,28 @@ class CommunityData(BaseModel):
     CommunityData
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
-    actions: CommunityActions
-    admin_results: UserResults
+    actions: Optional[CommunityActions] = None
+    admin_results: Optional[UserResults] = None
     created_at: Optional[StrictInt] = None
-    creator_results: UserResults
+    creator_results: Optional[UserResults] = None
     custom_banner_media: Optional[Dict[str, Any]] = None
     default_banner_media: Optional[Dict[str, Any]] = None
-    description: StrictStr
+    description: Optional[StrictStr] = None
     id_str: Annotated[str, Field(strict=True)]
-    invites_policy: StrictStr
-    invites_result: CommunityInvitesResult
-    is_pinned: StrictBool
-    join_policy: StrictStr
+    invites_policy: Optional[StrictStr] = None
+    invites_result: Optional[CommunityInvitesResult] = None
+    is_pinned: Optional[StrictBool] = None
+    join_policy: Optional[StrictStr] = None
     join_requests_result: Optional[CommunityJoinRequestsResult] = None
-    member_count: StrictInt
-    members_facepile_results: List[UserResults]
-    moderator_count: StrictInt
-    name: StrictStr
+    member_count: Optional[StrictInt] = None
+    members_facepile_results: Optional[List[UserResults]] = None
+    moderator_count: Optional[StrictInt] = None
+    name: Optional[StrictStr] = None
     primary_community_topic: Optional[PrimaryCommunityTopic] = None
     question: Optional[StrictStr] = None
-    role: StrictStr
-    rules: List[CommunityRule]
-    search_tags: List[StrictStr]
+    role: Optional[StrictStr] = None
+    rules: Optional[List[CommunityRule]] = None
+    search_tags: Optional[List[StrictStr]] = None
     show_only_users_to_display: Optional[List[StrictStr]] = None
     urls: Optional[CommunityUrls] = None
     viewer_relationship: Optional[Dict[str, Any]] = None
@@ -74,6 +74,9 @@ class CommunityData(BaseModel):
     @field_validator('invites_policy')
     def invites_policy_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(['MemberInvitesAllowed', 'ModeratorInvitesAllowed']):
             raise ValueError("must be one of enum values ('MemberInvitesAllowed', 'ModeratorInvitesAllowed')")
         return value
@@ -81,6 +84,9 @@ class CommunityData(BaseModel):
     @field_validator('join_policy')
     def join_policy_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(['Open', 'RestrictedJoinRequestsRequireModeratorApproval']):
             raise ValueError("must be one of enum values ('Open', 'RestrictedJoinRequestsRequireModeratorApproval')")
         return value
@@ -88,6 +94,9 @@ class CommunityData(BaseModel):
     @field_validator('role')
     def role_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(['NonMember']):
             raise ValueError("must be one of enum values ('NonMember')")
         return value

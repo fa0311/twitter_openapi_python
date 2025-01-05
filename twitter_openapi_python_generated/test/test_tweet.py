@@ -294,6 +294,17 @@ class TestTweet(unittest.TestCase):
                 edit_prespective = twitter_openapi_python_generated.models.tweet_edit_prespective.TweetEditPrespective(
                     favorited = True, 
                     retweeted = True, ),
+                grok_analysis_followups = [
+                    ''
+                    ],
+                grok_share_attachment = twitter_openapi_python_generated.models.grok_share_attachment.GrokShareAttachment(
+                    items = [
+                        twitter_openapi_python_generated.models.grok_share_attachment_item.GrokShareAttachmentItem(
+                            media_urls = [
+                                ''
+                                ], 
+                            message = '', )
+                        ], ),
                 has_birdwatch_notes = True,
                 is_translatable = True,
                 legacy = twitter_openapi_python_generated.models.tweet_legacy.TweetLegacy(
@@ -597,6 +608,8 @@ class TestTweet(unittest.TestCase):
                         __typename = 'TimelineTweet', 
                         legacy = twitter_openapi_python_generated.models.super_follows_reply_user_result_legacy.SuperFollowsReplyUserResultLegacy(
                             screen_name = '', ), ), ),
+                trend_results = twitter_openapi_python_generated.models.trend_results.TrendResults(
+                    rest_id = '4', ),
                 unified_card = twitter_openapi_python_generated.models.unified_card.UnifiedCard(
                     card_fetch_state = 'NoCard', ),
                 unmention_data = { },

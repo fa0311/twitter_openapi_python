@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
+**has_moderated_replies** | **bool** |  | [optional] 
 **highlights** | [**Highlight**](Highlight.md) |  | [optional] 
 **item_type** | [**ContentItemType**](ContentItemType.md) |  | 
 **promoted_metadata** | **Dict[str, object]** |  | [optional] 

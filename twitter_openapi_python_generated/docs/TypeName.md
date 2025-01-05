@@ -27,6 +27,8 @@
 
 * `TWEETUNAVAILABLE` (value: `'TweetUnavailable'`)
 
+* `TWEETPREVIEWDISPLAY` (value: `'TweetPreviewDisplay'`)
+
 * `TWEET` (value: `'Tweet'`)
 
 * `USER` (value: `'User'`)
