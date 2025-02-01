@@ -5,7 +5,7 @@ import re
 from setuptools import find_packages, setup
 
 NAME = "twitter_openapi_python"
-VERSION = "0.0.31"
+VERSION = "0.0.32"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
     "twitter_openapi_python_generated == 0.0.29",

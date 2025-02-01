@@ -58,10 +58,12 @@ class TwitterOpenapiPythonClient:
 
 
 class TwitterOpenapiPython:
-    hash: str = "4b27150977e1bdd807de8969dc0ddd7918ac9923"
+    hash: str = "8b2d05d1525404a29730f740a259026502be7cbd"
     placeholder_url = "https://raw.githubusercontent.com/fa0311/twitter-openapi/{hash}/src/config/placeholder.json"
     header = "https://raw.githubusercontent.com/fa0311/latest-user-agent/refs/heads/main/header.json"
-    access_token: str = "AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA"
+    access_token: str = (
+        "AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA"
+    )
     twitter_url: str = "https://x.com/home"
     additional_browser_headers = {}
     additional_api_headers = {}
@@ -73,9 +75,7 @@ class TwitterOpenapiPython:
         ignore = ["host", "connection"]
 
         def getHader(name: str) -> dict[str, str]:
-            return {
-                key: value for key, value in data[name].items() if key not in ignore
-            }
+            return {key: value for key, value in data[name].items() if key not in ignore}
 
         return (
             {
@@ -107,17 +107,12 @@ class TwitterOpenapiPython:
     def kebab_to_upper_camel(self, text: dict[str, Any]) -> dict[str, Any]:
         res = {}
         for key, value in text.items():
-            new_key = "".join(
-                [x.capitalize() for x in self.remove_prefix(key).split("-")]
-            )
+            new_key = "".join([x.capitalize() for x in self.remove_prefix(key).split("-")])
             res[new_key] = value
         return res
 
     def cookie_normalize(self, cookie: list[str]) -> dict[str, str]:
-        return {
-            x.split("; ")[0].split("=")[0]: x.split("; ")[0].split("=")[1]
-            for x in cookie
-        }
+        return {x.split("; ")[0].split("=")[0]: x.split("; ")[0].split("=")[1] for x in cookie}
 
     def cookie_to_str(self, cookie: dict[str, str]) -> str:
         return "; ".join([f"{key}={value}" for key, value in cookie.items()])
