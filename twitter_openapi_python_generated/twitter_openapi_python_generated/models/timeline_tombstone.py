@@ -18,19 +18,33 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo
+from twitter_openapi_python_generated.models.content_item_type import ContentItemType
+from twitter_openapi_python_generated.models.tombstone_info import TombstoneInfo
+from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
 from typing_extensions import Self
 
-class FeedbackInfo(BaseModel):
+class TimelineTombstone(BaseModel):
     """
-    FeedbackInfo
+    TimelineTombstone
     """ # noqa: E501
-    client_event_info: Optional[ClientEventInfo] = Field(default=None, alias="clientEventInfo")
-    feedback_keys: Optional[List[StrictStr]] = Field(default=None, alias="feedbackKeys")
-    __properties: ClassVar[List[str]] = ["clientEventInfo", "feedbackKeys"]
+    typename: Optional[TypeName] = Field(default=None, alias="__typename")
+    item_type: Optional[ContentItemType] = Field(default=None, alias="itemType")
+    tombstone_display_type: Optional[StrictStr] = Field(default=None, alias="tombstoneDisplayType")
+    tombstone_info: Optional[TombstoneInfo] = Field(default=None, alias="tombstoneInfo")
+    __properties: ClassVar[List[str]] = ["__typename", "itemType", "tombstoneDisplayType", "tombstoneInfo"]
+
+    @field_validator('tombstone_display_type')
+    def tombstone_display_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['Inline']):
+            raise ValueError("must be one of enum values ('Inline')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +64,7 @@ class FeedbackInfo(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FeedbackInfo from a JSON string"""
+        """Create an instance of TimelineTombstone from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,14 +85,14 @@ class FeedbackInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of client_event_info
-        if self.client_event_info:
-            _dict['clientEventInfo'] = self.client_event_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of tombstone_info
+        if self.tombstone_info:
+            _dict['tombstoneInfo'] = self.tombstone_info.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FeedbackInfo from a dict"""
+        """Create an instance of TimelineTombstone from a dict"""
         if obj is None:
             return None
 
@@ -86,8 +100,10 @@ class FeedbackInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "clientEventInfo": ClientEventInfo.from_dict(obj["clientEventInfo"]) if obj.get("clientEventInfo") is not None else None,
-            "feedbackKeys": obj.get("feedbackKeys")
+            "__typename": obj.get("__typename"),
+            "itemType": obj.get("itemType"),
+            "tombstoneDisplayType": obj.get("tombstoneDisplayType"),
+            "tombstoneInfo": TombstoneInfo.from_dict(obj["tombstoneInfo"]) if obj.get("tombstoneInfo") is not None else None
         })
         return _obj
 

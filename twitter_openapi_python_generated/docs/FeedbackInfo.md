@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | [optional] 
 **feedback_keys** | **List[str]** |  | [optional] 
 
 ## Example

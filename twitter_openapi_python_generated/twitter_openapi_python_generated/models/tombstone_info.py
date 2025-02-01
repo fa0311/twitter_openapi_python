@@ -20,17 +20,17 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo
+from twitter_openapi_python_generated.models.tombstone_rich_text import TombstoneRichText
 from typing import Optional, Set
 from typing_extensions import Self
 
-class FeedbackInfo(BaseModel):
+class TombstoneInfo(BaseModel):
     """
-    FeedbackInfo
+    TombstoneInfo
     """ # noqa: E501
-    client_event_info: Optional[ClientEventInfo] = Field(default=None, alias="clientEventInfo")
-    feedback_keys: Optional[List[StrictStr]] = Field(default=None, alias="feedbackKeys")
-    __properties: ClassVar[List[str]] = ["clientEventInfo", "feedbackKeys"]
+    rich_text: Optional[TombstoneRichText] = Field(default=None, alias="richText")
+    text: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["richText", "text"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +50,7 @@ class FeedbackInfo(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FeedbackInfo from a JSON string"""
+        """Create an instance of TombstoneInfo from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,14 +71,14 @@ class FeedbackInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of client_event_info
-        if self.client_event_info:
-            _dict['clientEventInfo'] = self.client_event_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of rich_text
+        if self.rich_text:
+            _dict['richText'] = self.rich_text.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FeedbackInfo from a dict"""
+        """Create an instance of TombstoneInfo from a dict"""
         if obj is None:
             return None
 
@@ -86,8 +86,8 @@ class FeedbackInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "clientEventInfo": ClientEventInfo.from_dict(obj["clientEventInfo"]) if obj.get("clientEventInfo") is not None else None,
-            "feedbackKeys": obj.get("feedbackKeys")
+            "richText": TombstoneRichText.from_dict(obj["richText"]) if obj.get("richText") is not None else None,
+            "text": obj.get("text")
         })
         return _obj
 

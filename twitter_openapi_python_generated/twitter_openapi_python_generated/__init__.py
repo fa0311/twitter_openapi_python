@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.28"
+__version__ = "0.0.29"
 
 # import apis into sdk package
 from twitter_openapi_python_generated.api.default_api import DefaultApi
@@ -228,11 +228,16 @@ from twitter_openapi_python_generated.models.timeline_terminate_timeline import 
 from twitter_openapi_python_generated.models.timeline_timeline_cursor import TimelineTimelineCursor
 from twitter_openapi_python_generated.models.timeline_timeline_item import TimelineTimelineItem
 from twitter_openapi_python_generated.models.timeline_timeline_module import TimelineTimelineModule
+from twitter_openapi_python_generated.models.timeline_tombstone import TimelineTombstone
 from twitter_openapi_python_generated.models.timeline_topic_context import TimelineTopicContext
 from twitter_openapi_python_generated.models.timeline_tweet import TimelineTweet
 from twitter_openapi_python_generated.models.timeline_user import TimelineUser
 from twitter_openapi_python_generated.models.timeline_v2 import TimelineV2
 from twitter_openapi_python_generated.models.timestamp import Timestamp
+from twitter_openapi_python_generated.models.tombstone_entity import TombstoneEntity
+from twitter_openapi_python_generated.models.tombstone_info import TombstoneInfo
+from twitter_openapi_python_generated.models.tombstone_ref import TombstoneRef
+from twitter_openapi_python_generated.models.tombstone_rich_text import TombstoneRichText
 from twitter_openapi_python_generated.models.topic_context import TopicContext
 from twitter_openapi_python_generated.models.tracing import Tracing
 from twitter_openapi_python_generated.models.trend_results import TrendResults

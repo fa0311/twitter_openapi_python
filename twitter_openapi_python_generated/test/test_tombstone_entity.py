@@ -15,10 +15,10 @@
 
 import unittest
 
-from twitter_openapi_python_generated.models.feedback_info import FeedbackInfo
+from twitter_openapi_python_generated.models.tombstone_entity import TombstoneEntity
 
-class TestFeedbackInfo(unittest.TestCase):
-    """FeedbackInfo unit test stubs"""
+class TestTombstoneEntity(unittest.TestCase):
+    """TombstoneEntity unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,31 +26,30 @@ class TestFeedbackInfo(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> FeedbackInfo:
-        """Test FeedbackInfo
+    def make_instance(self, include_optional) -> TombstoneEntity:
+        """Test TombstoneEntity
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `FeedbackInfo`
+        # uncomment below to create an instance of `TombstoneEntity`
         """
-        model = FeedbackInfo()
+        model = TombstoneEntity()
         if include_optional:
-            return FeedbackInfo(
-                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
-                    component = '', 
-                    details = { }, 
-                    element = '', ),
-                feedback_keys = [
-                    ''
-                    ]
+            return TombstoneEntity(
+                from_index = 56,
+                ref = twitter_openapi_python_generated.models.tombstone_ref.TombstoneRef(
+                    type = 'TimelineUrl', 
+                    url = '', 
+                    url_type = 'ExternalUrl', ),
+                to_index = 56
             )
         else:
-            return FeedbackInfo(
+            return TombstoneEntity(
         )
         """
 
-    def testFeedbackInfo(self):
-        """Test FeedbackInfo"""
+    def testTombstoneEntity(self):
+        """Test TombstoneEntity"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

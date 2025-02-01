@@ -55,6 +55,7 @@ class Tweet(BaseModel):
     core: Optional[UserResultCore] = None
     edit_control: Optional[TweetEditControl] = None
     edit_prespective: Optional[TweetEditPrespective] = None
+    grok_analysis_button: Optional[StrictBool] = None
     grok_analysis_followups: Optional[List[StrictStr]] = None
     grok_share_attachment: Optional[GrokShareAttachment] = None
     has_birdwatch_notes: Optional[StrictBool] = None
@@ -72,7 +73,7 @@ class Tweet(BaseModel):
     unified_card: Optional[UnifiedCard] = None
     unmention_data: Optional[Dict[str, Any]] = None
     views: Optional[TweetView] = None
-    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "community_relationship", "community_results", "core", "edit_control", "edit_prespective", "grok_analysis_followups", "grok_share_attachment", "has_birdwatch_notes", "is_translatable", "legacy", "note_tweet", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views"]
+    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "community_relationship", "community_results", "core", "edit_control", "edit_prespective", "grok_analysis_button", "grok_analysis_followups", "grok_share_attachment", "has_birdwatch_notes", "is_translatable", "legacy", "note_tweet", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views"]
 
     @field_validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
@@ -199,6 +200,7 @@ class Tweet(BaseModel):
             "core": UserResultCore.from_dict(obj["core"]) if obj.get("core") is not None else None,
             "edit_control": TweetEditControl.from_dict(obj["edit_control"]) if obj.get("edit_control") is not None else None,
             "edit_prespective": TweetEditPrespective.from_dict(obj["edit_prespective"]) if obj.get("edit_prespective") is not None else None,
+            "grok_analysis_button": obj.get("grok_analysis_button"),
             "grok_analysis_followups": obj.get("grok_analysis_followups"),
             "grok_share_attachment": GrokShareAttachment.from_dict(obj["grok_share_attachment"]) if obj.get("grok_share_attachment") is not None else None,
             "has_birdwatch_notes": obj.get("has_birdwatch_notes"),

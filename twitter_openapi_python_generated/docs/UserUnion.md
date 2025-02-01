@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **is_profile_translatable** | **bool** |  | [optional] 
 **legacy** | [**UserLegacy**](UserLegacy.md) |  | 
 **legacy_extended_profile** | [**UserLegacyExtendedProfile**](UserLegacyExtendedProfile.md) |  | [optional] 
+**parody_commentary_fan_label** | **str** |  | [optional] 
 **premium_gifting_eligible** | **bool** |  | [optional] 
 **professional** | [**UserProfessional**](UserProfessional.md) |  | [optional] 
 **profile_image_shape** | **str** |  | 

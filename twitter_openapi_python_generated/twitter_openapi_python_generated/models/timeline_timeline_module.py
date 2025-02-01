@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo
 from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
 from twitter_openapi_python_generated.models.display_type import DisplayType
 from twitter_openapi_python_generated.models.feedback_info import FeedbackInfo
@@ -32,7 +33,7 @@ class TimelineTimelineModule(BaseModel):
     TimelineTimelineModule
     """ # noqa: E501
     typename: StrictStr = Field(alias="__typename")
-    client_event_info: Dict[str, Any] = Field(alias="clientEventInfo")
+    client_event_info: ClientEventInfo = Field(alias="clientEventInfo")
     display_type: DisplayType = Field(alias="displayType")
     entry_type: ContentEntryType = Field(alias="entryType")
     feedback_info: Optional[FeedbackInfo] = Field(default=None, alias="feedbackInfo")
@@ -81,6 +82,9 @@ class TimelineTimelineModule(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of client_event_info
+        if self.client_event_info:
+            _dict['clientEventInfo'] = self.client_event_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of feedback_info
         if self.feedback_info:
             _dict['feedbackInfo'] = self.feedback_info.to_dict()
@@ -104,7 +108,7 @@ class TimelineTimelineModule(BaseModel):
 
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
-            "clientEventInfo": obj.get("clientEventInfo"),
+            "clientEventInfo": ClientEventInfo.from_dict(obj["clientEventInfo"]) if obj.get("clientEventInfo") is not None else None,
             "displayType": obj.get("displayType"),
             "entryType": obj.get("entryType"),
             "feedbackInfo": FeedbackInfo.from_dict(obj["feedbackInfo"]) if obj.get("feedbackInfo") is not None else None,

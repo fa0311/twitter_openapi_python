@@ -33,6 +33,7 @@ class ContentItemType(str, Enum):
     TIMELINEPROMPT = 'TimelinePrompt'
     TIMELINEMESSAGEPROMPT = 'TimelineMessagePrompt'
     TIMELINECOMMUNITY = 'TimelineCommunity'
+    TIMELINETOMBSTONE = 'TimelineTombstone'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

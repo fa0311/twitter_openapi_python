@@ -37,10 +37,17 @@ class TestTimelineTimelineModule(unittest.TestCase):
         if include_optional:
             return TimelineTimelineModule(
                 typename = 'TimelineTweet',
-                client_event_info = { },
+                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                    component = '', 
+                    details = { }, 
+                    element = '', ),
                 display_type = 'Vertical',
                 entry_type = 'TimelineTimelineItem',
                 feedback_info = twitter_openapi_python_generated.models.feedback_info.FeedbackInfo(
+                    client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                        component = '', 
+                        details = { }, 
+                        element = '', ), 
                     feedback_keys = [
                         ''
                         ], ),
@@ -65,7 +72,10 @@ class TestTimelineTimelineModule(unittest.TestCase):
         else:
             return TimelineTimelineModule(
                 typename = 'TimelineTweet',
-                client_event_info = { },
+                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                    component = '', 
+                    details = { }, 
+                    element = '', ),
                 display_type = 'Vertical',
                 entry_type = 'TimelineTimelineItem',
         )

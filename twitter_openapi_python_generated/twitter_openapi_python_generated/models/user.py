@@ -49,6 +49,7 @@ class User(BaseModel):
     is_profile_translatable: Optional[StrictBool] = None
     legacy: UserLegacy
     legacy_extended_profile: Optional[UserLegacyExtendedProfile] = None
+    parody_commentary_fan_label: Optional[StrictStr] = None
     premium_gifting_eligible: Optional[StrictBool] = None
     professional: Optional[UserProfessional] = None
     profile_image_shape: StrictStr
@@ -59,13 +60,23 @@ class User(BaseModel):
     tipjar_settings: Optional[UserTipJarSettings] = None
     user_seed_tweet_count: Optional[StrictInt] = None
     verification_info: Optional[UserVerificationInfo] = None
-    __properties: ClassVar[List[str]] = ["__typename", "affiliates_highlighted_label", "business_account", "creator_subscriptions_count", "has_graduated_access", "has_hidden_likes_on_profile", "has_hidden_subscriptions_on_profile", "has_nft_avatar", "highlights_info", "id", "is_blue_verified", "is_profile_translatable", "legacy", "legacy_extended_profile", "premium_gifting_eligible", "professional", "profile_image_shape", "rest_id", "super_follow_eligible", "super_followed_by", "super_following", "tipjar_settings", "user_seed_tweet_count", "verification_info"]
+    __properties: ClassVar[List[str]] = ["__typename", "affiliates_highlighted_label", "business_account", "creator_subscriptions_count", "has_graduated_access", "has_hidden_likes_on_profile", "has_hidden_subscriptions_on_profile", "has_nft_avatar", "highlights_info", "id", "is_blue_verified", "is_profile_translatable", "legacy", "legacy_extended_profile", "parody_commentary_fan_label", "premium_gifting_eligible", "professional", "profile_image_shape", "rest_id", "super_follow_eligible", "super_followed_by", "super_following", "tipjar_settings", "user_seed_tweet_count", "verification_info"]
 
     @field_validator('id')
     def id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^([A-Za-z0-9+\/]{4})*([A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}==)?$", value):
             raise ValueError(r"must validate the regular expression /^([A-Za-z0-9+\/]{4})*([A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}==)?$/")
+        return value
+
+    @field_validator('parody_commentary_fan_label')
+    def parody_commentary_fan_label_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['None', 'Parody']):
+            raise ValueError("must be one of enum values ('None', 'Parody')")
         return value
 
     @field_validator('profile_image_shape')
@@ -165,6 +176,7 @@ class User(BaseModel):
             "is_profile_translatable": obj.get("is_profile_translatable"),
             "legacy": UserLegacy.from_dict(obj["legacy"]) if obj.get("legacy") is not None else None,
             "legacy_extended_profile": UserLegacyExtendedProfile.from_dict(obj["legacy_extended_profile"]) if obj.get("legacy_extended_profile") is not None else None,
+            "parody_commentary_fan_label": obj.get("parody_commentary_fan_label"),
             "premium_gifting_eligible": obj.get("premium_gifting_eligible"),
             "professional": UserProfessional.from_dict(obj["professional"]) if obj.get("professional") is not None else None,
             "profile_image_shape": obj.get("profile_image_shape"),

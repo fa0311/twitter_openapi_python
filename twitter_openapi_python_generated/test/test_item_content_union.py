@@ -60,7 +60,22 @@ class TestItemContentUnion(unittest.TestCase):
                 value = '',
                 user_display_type = 'User',
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
-                    result = null, )
+                    result = null, ),
+                tombstone_display_type = 'Inline',
+                tombstone_info = twitter_openapi_python_generated.models.tombstone_info.TombstoneInfo(
+                    rich_text = twitter_openapi_python_generated.models.tombstone_rich_text.TombstoneRichText(
+                        entities = [
+                            twitter_openapi_python_generated.models.tombstone_entity.TombstoneEntity(
+                                from_index = 56, 
+                                ref = twitter_openapi_python_generated.models.tombstone_ref.TombstoneRef(
+                                    type = 'TimelineUrl', 
+                                    url = '', 
+                                    url_type = 'ExternalUrl', ), 
+                                to_index = 56, )
+                            ], 
+                        rtl = True, 
+                        text = '', ), 
+                    text = '', )
             )
         else:
             return ItemContentUnion(
