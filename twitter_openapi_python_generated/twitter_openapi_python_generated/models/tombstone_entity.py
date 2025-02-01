@@ -18,19 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo
+from twitter_openapi_python_generated.models.tombstone_ref import TombstoneRef
 from typing import Optional, Set
 from typing_extensions import Self
 
-class FeedbackInfo(BaseModel):
+class TombstoneEntity(BaseModel):
     """
-    FeedbackInfo
+    TombstoneEntity
     """ # noqa: E501
-    client_event_info: Optional[ClientEventInfo] = Field(default=None, alias="clientEventInfo")
-    feedback_keys: Optional[List[StrictStr]] = Field(default=None, alias="feedbackKeys")
-    __properties: ClassVar[List[str]] = ["clientEventInfo", "feedbackKeys"]
+    from_index: Optional[StrictInt] = Field(default=None, alias="fromIndex")
+    ref: Optional[TombstoneRef] = None
+    to_index: Optional[StrictInt] = Field(default=None, alias="toIndex")
+    __properties: ClassVar[List[str]] = ["fromIndex", "ref", "toIndex"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +51,7 @@ class FeedbackInfo(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FeedbackInfo from a JSON string"""
+        """Create an instance of TombstoneEntity from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,14 +72,14 @@ class FeedbackInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of client_event_info
-        if self.client_event_info:
-            _dict['clientEventInfo'] = self.client_event_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of ref
+        if self.ref:
+            _dict['ref'] = self.ref.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FeedbackInfo from a dict"""
+        """Create an instance of TombstoneEntity from a dict"""
         if obj is None:
             return None
 
@@ -86,8 +87,9 @@ class FeedbackInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "clientEventInfo": ClientEventInfo.from_dict(obj["clientEventInfo"]) if obj.get("clientEventInfo") is not None else None,
-            "feedbackKeys": obj.get("feedbackKeys")
+            "fromIndex": obj.get("fromIndex"),
+            "ref": TombstoneRef.from_dict(obj["ref"]) if obj.get("ref") is not None else None,
+            "toIndex": obj.get("toIndex")
         })
         return _obj
 

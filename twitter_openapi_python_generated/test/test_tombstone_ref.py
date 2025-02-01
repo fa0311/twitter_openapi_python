@@ -15,10 +15,10 @@
 
 import unittest
 
-from twitter_openapi_python_generated.models.feedback_info import FeedbackInfo
+from twitter_openapi_python_generated.models.tombstone_ref import TombstoneRef
 
-class TestFeedbackInfo(unittest.TestCase):
-    """FeedbackInfo unit test stubs"""
+class TestTombstoneRef(unittest.TestCase):
+    """TombstoneRef unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,31 +26,27 @@ class TestFeedbackInfo(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> FeedbackInfo:
-        """Test FeedbackInfo
+    def make_instance(self, include_optional) -> TombstoneRef:
+        """Test TombstoneRef
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `FeedbackInfo`
+        # uncomment below to create an instance of `TombstoneRef`
         """
-        model = FeedbackInfo()
+        model = TombstoneRef()
         if include_optional:
-            return FeedbackInfo(
-                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
-                    component = '', 
-                    details = { }, 
-                    element = '', ),
-                feedback_keys = [
-                    ''
-                    ]
+            return TombstoneRef(
+                type = 'TimelineUrl',
+                url = '',
+                url_type = 'ExternalUrl'
             )
         else:
-            return FeedbackInfo(
+            return TombstoneRef(
         )
         """
 
-    def testFeedbackInfo(self):
-        """Test FeedbackInfo"""
+    def testTombstoneRef(self):
+        """Test TombstoneRef"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

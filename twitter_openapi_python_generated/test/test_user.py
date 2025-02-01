@@ -103,6 +103,7 @@ class TestUser(unittest.TestCase):
                         visibility = 'Self', 
                         year = 56, 
                         year_visibility = 'Self', ), ),
+                parody_commentary_fan_label = 'None',
                 premium_gifting_eligible = True,
                 professional = twitter_openapi_python_generated.models.user_professional.UserProfessional(
                     category = [

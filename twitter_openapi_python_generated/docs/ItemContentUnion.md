@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **value** | **str** |  | 
 **user_display_type** | **str** |  | 
 **user_results** | [**UserResults**](UserResults.md) |  | 
+**tombstone_display_type** | **str** |  | [optional] 
+**tombstone_info** | [**TombstoneInfo**](TombstoneInfo.md) |  | [optional] 
 
 ## Example
 

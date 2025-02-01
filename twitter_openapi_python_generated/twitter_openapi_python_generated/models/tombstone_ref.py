@@ -18,19 +18,39 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo
 from typing import Optional, Set
 from typing_extensions import Self
 
-class FeedbackInfo(BaseModel):
+class TombstoneRef(BaseModel):
     """
-    FeedbackInfo
+    TombstoneRef
     """ # noqa: E501
-    client_event_info: Optional[ClientEventInfo] = Field(default=None, alias="clientEventInfo")
-    feedback_keys: Optional[List[StrictStr]] = Field(default=None, alias="feedbackKeys")
-    __properties: ClassVar[List[str]] = ["clientEventInfo", "feedbackKeys"]
+    type: Optional[StrictStr] = None
+    url: Optional[StrictStr] = None
+    url_type: Optional[StrictStr] = Field(default=None, alias="urlType")
+    __properties: ClassVar[List[str]] = ["type", "url", "urlType"]
+
+    @field_validator('type')
+    def type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['TimelineUrl']):
+            raise ValueError("must be one of enum values ('TimelineUrl')")
+        return value
+
+    @field_validator('url_type')
+    def url_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['ExternalUrl']):
+            raise ValueError("must be one of enum values ('ExternalUrl')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +70,7 @@ class FeedbackInfo(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FeedbackInfo from a JSON string"""
+        """Create an instance of TombstoneRef from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,14 +91,11 @@ class FeedbackInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of client_event_info
-        if self.client_event_info:
-            _dict['clientEventInfo'] = self.client_event_info.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FeedbackInfo from a dict"""
+        """Create an instance of TombstoneRef from a dict"""
         if obj is None:
             return None
 
@@ -86,8 +103,9 @@ class FeedbackInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "clientEventInfo": ClientEventInfo.from_dict(obj["clientEventInfo"]) if obj.get("clientEventInfo") is not None else None,
-            "feedbackKeys": obj.get("feedbackKeys")
+            "type": obj.get("type"),
+            "url": obj.get("url"),
+            "urlType": obj.get("urlType")
         })
         return _obj
 

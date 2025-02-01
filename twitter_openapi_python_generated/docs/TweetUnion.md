@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **core** | [**UserResultCore**](UserResultCore.md) |  | [optional] 
 **edit_control** | [**TweetEditControl**](TweetEditControl.md) |  | [optional] 
 **edit_prespective** | [**TweetEditPrespective**](TweetEditPrespective.md) |  | [optional] 
+**grok_analysis_button** | **bool** |  | [optional] 
 **grok_analysis_followups** | **List[str]** |  | [optional] 
 **grok_share_attachment** | [**GrokShareAttachment**](GrokShareAttachment.md) |  | [optional] 
 **has_birdwatch_notes** | **bool** |  | [optional] 

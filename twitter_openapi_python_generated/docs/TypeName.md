@@ -25,6 +25,8 @@
 
 * `TIMELINECOMMUNITY` (value: `'TimelineCommunity'`)
 
+* `TIMELINETOMBSTONE` (value: `'TimelineTombstone'`)
+
 * `TWEETUNAVAILABLE` (value: `'TweetUnavailable'`)
 
 * `TWEETPREVIEWDISPLAY` (value: `'TweetPreviewDisplay'`)

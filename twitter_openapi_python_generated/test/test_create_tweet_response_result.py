@@ -236,6 +236,7 @@ class TestCreateTweetResponseResult(unittest.TestCase):
                         edit_prespective = twitter_openapi_python_generated.models.tweet_edit_prespective.TweetEditPrespective(
                             favorited = True, 
                             retweeted = True, ), 
+                        grok_analysis_button = True, 
                         grok_analysis_followups = [
                             ''
                             ], 
@@ -669,6 +670,7 @@ class TestCreateTweetResponseResult(unittest.TestCase):
                         edit_prespective = twitter_openapi_python_generated.models.tweet_edit_prespective.TweetEditPrespective(
                             favorited = True, 
                             retweeted = True, ), 
+                        grok_analysis_button = True, 
                         grok_analysis_followups = [
                             ''
                             ], 
