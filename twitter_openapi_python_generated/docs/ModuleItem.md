@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**dispensable** | **bool** |  | [optional] 
 **entry_id** | **str** |  | 
 **item** | [**ModuleEntry**](ModuleEntry.md) |  | 
 

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "twitter_openapi_python"
-version = "0.0.32"
+version = "0.0.35"
 description = "Twitter OpenAPI"
 authors = ["fa0311 <yuki@yuki0311.com>"]
 license = "proprietary" # or "AGPL-3.0-only"
@@ -13,8 +13,9 @@ include = ["twitter_openapi_python/py.typed"]
 [tool.poetry.dependencies]
 python = "^3.7"
 pydantic = ">=2.6"
+urllib3 = ">= 2.1.0 < 3.0.0"
 
-twitter-openapi-python-generated = "0.0.29"
+twitter-openapi-python-generated = "0.0.31"
 
 [tool.poetry.dev-dependencies]
 

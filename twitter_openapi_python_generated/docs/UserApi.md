@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **get_user_by_rest_id**
 > UserResponse get_user_by_rest_id(path_query_id, variables, features)
 
-
-
 get user by rest id
 
 ### Example
@@ -245,8 +243,6 @@ Name | Type | Description  | Notes
 
 # **get_user_by_screen_name**
 > UserResponse get_user_by_screen_name(path_query_id, variables, features, field_toggles)
-
-
 
 get user by screen name
 

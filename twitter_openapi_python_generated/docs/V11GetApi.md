@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **get_friends_following_list**
 > get_friends_following_list(include_profile_interstitial_type, include_blocking, include_blocked_by, include_followed_by, include_want_retweets, include_mute_edge, include_can_dm, include_can_media_tag, include_ext_has_nft_avatar, include_ext_is_blue_verified, include_ext_verified_type, include_ext_profile_image_shape, skip_status, cursor, user_id, count, with_total_count)
 
-
-
 get friends following list
 
 ### Example
@@ -270,8 +268,6 @@ void (empty response body)
 
 # **get_search_typeahead**
 > get_search_typeahead(include_ext_is_blue_verified, include_ext_verified_type, include_ext_profile_image_shape, q, src, result_type)
-
-
 
 get search typeahead
 

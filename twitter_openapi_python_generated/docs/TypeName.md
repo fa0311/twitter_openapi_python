@@ -27,6 +27,8 @@
 
 * `TIMELINETOMBSTONE` (value: `'TimelineTombstone'`)
 
+* `TIMELINETREND` (value: `'TimelineTrend'`)
+
 * `TWEETUNAVAILABLE` (value: `'TweetUnavailable'`)
 
 * `TWEETPREVIEWDISPLAY` (value: `'TweetPreviewDisplay'`)

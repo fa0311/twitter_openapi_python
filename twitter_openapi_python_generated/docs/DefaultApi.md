@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **get_profile_spotlights_query**
 > ProfileResponse get_profile_spotlights_query(path_query_id, variables, features)
 
-
-
 get user by screen name
 
 ### Example
@@ -245,8 +243,6 @@ Name | Type | Description  | Notes
 
 # **get_tweet_result_by_rest_id**
 > TweetResultByRestIdResponse get_tweet_result_by_rest_id(path_query_id, variables, features, field_toggles)
-
-
 
 get TweetResultByRestId
 

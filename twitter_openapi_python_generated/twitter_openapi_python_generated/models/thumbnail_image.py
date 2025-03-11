@@ -18,28 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
-from twitter_openapi_python_generated.models.module_entry import ModuleEntry
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ModuleItem(BaseModel):
+class ThumbnailImage(BaseModel):
     """
-    ModuleItem
+    ThumbnailImage
     """ # noqa: E501
-    dispensable: Optional[StrictBool] = None
-    entry_id: Annotated[str, Field(strict=True)] = Field(alias="entryId")
-    item: ModuleEntry
-    __properties: ClassVar[List[str]] = ["dispensable", "entryId", "item"]
-
-    @field_validator('entry_id')
-    def entry_id_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^(([a-z]+|[0-9]+|[0-9a-f]+)(-|$))+", value):
-            raise ValueError(r"must validate the regular expression /^(([a-z]+|[0-9]+|[0-9a-f]+)(-|$))+/")
-        return value
+    original_img_height: Optional[StrictInt] = None
+    original_img_url: Optional[StrictStr] = None
+    original_img_width: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["original_img_height", "original_img_url", "original_img_width"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -59,7 +50,7 @@ class ModuleItem(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ModuleItem from a JSON string"""
+        """Create an instance of ThumbnailImage from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,14 +71,11 @@ class ModuleItem(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of item
-        if self.item:
-            _dict['item'] = self.item.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ModuleItem from a dict"""
+        """Create an instance of ThumbnailImage from a dict"""
         if obj is None:
             return None
 
@@ -95,9 +83,9 @@ class ModuleItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "dispensable": obj.get("dispensable"),
-            "entryId": obj.get("entryId"),
-            "item": ModuleEntry.from_dict(obj["item"]) if obj.get("item") is not None else None
+            "original_img_height": obj.get("original_img_height"),
+            "original_img_url": obj.get("original_img_url"),
+            "original_img_width": obj.get("original_img_width")
         })
         return _obj
 

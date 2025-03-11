@@ -22,6 +22,13 @@ Name | Type | Description | Notes
 **user_results** | [**UserResults**](UserResults.md) |  | 
 **tombstone_display_type** | **str** |  | [optional] 
 **tombstone_info** | [**TombstoneInfo**](TombstoneInfo.md) |  | [optional] 
+**images** | [**List[TrendImage]**](TrendImage.md) |  | 
+**is_ai_trend** | **bool** |  | [optional] 
+**name** | **str** |  | 
+**social_context** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
+**thumbnail_image** | [**ThumbnailImage**](ThumbnailImage.md) |  | 
+**trend_metadata** | [**TrendMetadata**](TrendMetadata.md) |  | 
+**trend_url** | [**SocialContextLandingUrl**](SocialContextLandingUrl.md) |  | 
 
 ## Example
 
