@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **post_create_friendships**
 > post_create_friendships(include_blocked_by, include_blocking, include_can_dm, include_can_media_tag, include_ext_has_nft_avatar, include_ext_is_blue_verified, include_ext_profile_image_shape, include_ext_verified_type, include_followed_by, include_mute_edge, include_profile_interstitial_type, include_want_retweets, skip_status, user_id)
 
-
-
 post create friendships
 
 ### Example
@@ -264,8 +262,6 @@ void (empty response body)
 
 # **post_destroy_friendships**
 > post_destroy_friendships(include_blocked_by, include_blocking, include_can_dm, include_can_media_tag, include_ext_has_nft_avatar, include_ext_is_blue_verified, include_ext_profile_image_shape, include_ext_verified_type, include_followed_by, include_mute_edge, include_profile_interstitial_type, include_want_retweets, skip_status, user_id)
-
-
 
 post destroy friendships
 

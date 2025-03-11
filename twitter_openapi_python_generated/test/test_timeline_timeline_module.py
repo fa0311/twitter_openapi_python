@@ -55,6 +55,7 @@ class TestTimelineTimelineModule(unittest.TestCase):
                 header = { },
                 items = [
                     twitter_openapi_python_generated.models.module_item.ModuleItem(
+                        dispensable = True, 
                         entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
                             client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(

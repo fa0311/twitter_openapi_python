@@ -10,8 +10,6 @@ Method | HTTP request | Description
 # **get_users_by_rest_ids**
 > UsersResponse get_users_by_rest_ids(path_query_id, variables, features)
 
-
-
 get users by rest ids
 
 ### Example

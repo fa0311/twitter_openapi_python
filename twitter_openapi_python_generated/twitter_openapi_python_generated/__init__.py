@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.29"
+__version__ = "0.0.30"
 
 # import apis into sdk package
 from twitter_openapi_python_generated.api.default_api import DefaultApi
@@ -206,6 +206,7 @@ from twitter_openapi_python_generated.models.text import Text
 from twitter_openapi_python_generated.models.text_entity import TextEntity
 from twitter_openapi_python_generated.models.text_entity_ref import TextEntityRef
 from twitter_openapi_python_generated.models.text_highlight import TextHighlight
+from twitter_openapi_python_generated.models.thumbnail_image import ThumbnailImage
 from twitter_openapi_python_generated.models.timeline import Timeline
 from twitter_openapi_python_generated.models.timeline_add_entries import TimelineAddEntries
 from twitter_openapi_python_generated.models.timeline_add_entry import TimelineAddEntry
@@ -230,6 +231,7 @@ from twitter_openapi_python_generated.models.timeline_timeline_item import Timel
 from twitter_openapi_python_generated.models.timeline_timeline_module import TimelineTimelineModule
 from twitter_openapi_python_generated.models.timeline_tombstone import TimelineTombstone
 from twitter_openapi_python_generated.models.timeline_topic_context import TimelineTopicContext
+from twitter_openapi_python_generated.models.timeline_trend import TimelineTrend
 from twitter_openapi_python_generated.models.timeline_tweet import TimelineTweet
 from twitter_openapi_python_generated.models.timeline_user import TimelineUser
 from twitter_openapi_python_generated.models.timeline_v2 import TimelineV2
@@ -240,6 +242,8 @@ from twitter_openapi_python_generated.models.tombstone_ref import TombstoneRef
 from twitter_openapi_python_generated.models.tombstone_rich_text import TombstoneRichText
 from twitter_openapi_python_generated.models.topic_context import TopicContext
 from twitter_openapi_python_generated.models.tracing import Tracing
+from twitter_openapi_python_generated.models.trend_image import TrendImage
+from twitter_openapi_python_generated.models.trend_metadata import TrendMetadata
 from twitter_openapi_python_generated.models.trend_results import TrendResults
 from twitter_openapi_python_generated.models.tweet import Tweet
 from twitter_openapi_python_generated.models.tweet_card import TweetCard

@@ -10,8 +10,6 @@ Method | HTTP request | Description
 # **other**
 > OtherObjectAll other()
 
-
-
 This is not an actual endpoint
 
 ### Example

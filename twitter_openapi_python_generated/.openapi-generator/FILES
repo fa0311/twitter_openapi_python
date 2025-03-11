@@ -171,6 +171,7 @@ docs/Text.md
 docs/TextEntity.md
 docs/TextEntityRef.md
 docs/TextHighlight.md
+docs/ThumbnailImage.md
 docs/Timeline.md
 docs/TimelineAddEntries.md
 docs/TimelineAddEntry.md
@@ -195,6 +196,7 @@ docs/TimelineTimelineItem.md
 docs/TimelineTimelineModule.md
 docs/TimelineTombstone.md
 docs/TimelineTopicContext.md
+docs/TimelineTrend.md
 docs/TimelineTweet.md
 docs/TimelineUser.md
 docs/TimelineV2.md
@@ -205,6 +207,8 @@ docs/TombstoneRef.md
 docs/TombstoneRichText.md
 docs/TopicContext.md
 docs/Tracing.md
+docs/TrendImage.md
+docs/TrendMetadata.md
 docs/TrendResults.md
 docs/Tweet.md
 docs/TweetApi.md
@@ -470,6 +474,7 @@ test/test_text.py
 test/test_text_entity.py
 test/test_text_entity_ref.py
 test/test_text_highlight.py
+test/test_thumbnail_image.py
 test/test_timeline.py
 test/test_timeline_add_entries.py
 test/test_timeline_add_entry.py
@@ -494,6 +499,7 @@ test/test_timeline_timeline_item.py
 test/test_timeline_timeline_module.py
 test/test_timeline_tombstone.py
 test/test_timeline_topic_context.py
+test/test_timeline_trend.py
 test/test_timeline_tweet.py
 test/test_timeline_user.py
 test/test_timeline_v2.py
@@ -504,6 +510,8 @@ test/test_tombstone_ref.py
 test/test_tombstone_rich_text.py
 test/test_topic_context.py
 test/test_tracing.py
+test/test_trend_image.py
+test/test_trend_metadata.py
 test/test_trend_results.py
 test/test_tweet.py
 test/test_tweet_api.py
@@ -777,6 +785,7 @@ twitter_openapi_python_generated/models/text.py
 twitter_openapi_python_generated/models/text_entity.py
 twitter_openapi_python_generated/models/text_entity_ref.py
 twitter_openapi_python_generated/models/text_highlight.py
+twitter_openapi_python_generated/models/thumbnail_image.py
 twitter_openapi_python_generated/models/timeline.py
 twitter_openapi_python_generated/models/timeline_add_entries.py
 twitter_openapi_python_generated/models/timeline_add_entry.py
@@ -801,6 +810,7 @@ twitter_openapi_python_generated/models/timeline_timeline_item.py
 twitter_openapi_python_generated/models/timeline_timeline_module.py
 twitter_openapi_python_generated/models/timeline_tombstone.py
 twitter_openapi_python_generated/models/timeline_topic_context.py
+twitter_openapi_python_generated/models/timeline_trend.py
 twitter_openapi_python_generated/models/timeline_tweet.py
 twitter_openapi_python_generated/models/timeline_user.py
 twitter_openapi_python_generated/models/timeline_v2.py
@@ -811,6 +821,8 @@ twitter_openapi_python_generated/models/tombstone_ref.py
 twitter_openapi_python_generated/models/tombstone_rich_text.py
 twitter_openapi_python_generated/models/topic_context.py
 twitter_openapi_python_generated/models/tracing.py
+twitter_openapi_python_generated/models/trend_image.py
+twitter_openapi_python_generated/models/trend_metadata.py
 twitter_openapi_python_generated/models/trend_results.py
 twitter_openapi_python_generated/models/tweet.py
 twitter_openapi_python_generated/models/tweet_card.py

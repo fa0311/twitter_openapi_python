@@ -17,8 +17,6 @@ Method | HTTP request | Description
 # **post_create_bookmark**
 > CreateBookmarkResponse post_create_bookmark(path_query_id, post_create_bookmark_request)
 
-
-
 create Bookmark
 
 ### Example
@@ -250,8 +248,6 @@ Name | Type | Description  | Notes
 
 # **post_create_retweet**
 > CreateRetweetResponse post_create_retweet(path_query_id, post_create_retweet_request)
-
-
 
 create Retweet
 
@@ -485,8 +481,6 @@ Name | Type | Description  | Notes
 # **post_create_tweet**
 > CreateTweetResponse post_create_tweet(path_query_id, post_create_tweet_request)
 
-
-
 create Tweet
 
 ### Example
@@ -718,8 +712,6 @@ Name | Type | Description  | Notes
 
 # **post_delete_bookmark**
 > DeleteBookmarkResponse post_delete_bookmark(path_query_id, post_delete_bookmark_request)
-
-
 
 delete Bookmark
 
@@ -953,8 +945,6 @@ Name | Type | Description  | Notes
 # **post_delete_retweet**
 > DeleteRetweetResponse post_delete_retweet(path_query_id, post_delete_retweet_request)
 
-
-
 delete Retweet
 
 ### Example
@@ -1186,8 +1176,6 @@ Name | Type | Description  | Notes
 
 # **post_delete_tweet**
 > DeleteTweetResponse post_delete_tweet(path_query_id, post_delete_tweet_request)
-
-
 
 delete Retweet
 
@@ -1421,8 +1409,6 @@ Name | Type | Description  | Notes
 # **post_favorite_tweet**
 > FavoriteTweetResponse post_favorite_tweet(path_query_id, post_favorite_tweet_request)
 
-
-
 favorite Tweet
 
 ### Example
@@ -1654,8 +1640,6 @@ Name | Type | Description  | Notes
 
 # **post_unfavorite_tweet**
 > UnfavoriteTweetResponse post_unfavorite_tweet(path_query_id, post_unfavorite_tweet_request)
-
-
 
 unfavorite Tweet
 

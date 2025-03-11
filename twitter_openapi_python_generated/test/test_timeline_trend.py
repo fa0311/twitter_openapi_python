@@ -15,10 +15,10 @@
 
 import unittest
 
-from twitter_openapi_python_generated.models.item_content_union import ItemContentUnion
+from twitter_openapi_python_generated.models.timeline_trend import TimelineTrend
 
-class TestItemContentUnion(unittest.TestCase):
-    """ItemContentUnion unit test stubs"""
+class TestTimelineTrend(unittest.TestCase):
+    """TimelineTrend unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,61 +26,23 @@ class TestItemContentUnion(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ItemContentUnion:
-        """Test ItemContentUnion
+    def make_instance(self, include_optional) -> TimelineTrend:
+        """Test TimelineTrend
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ItemContentUnion`
+        # uncomment below to create an instance of `TimelineTrend`
         """
-        model = ItemContentUnion()
+        model = TimelineTrend()
         if include_optional:
-            return ItemContentUnion(
+            return TimelineTrend(
                 typename = 'TimelineTweet',
-                has_moderated_replies = True,
-                highlights = twitter_openapi_python_generated.models.highlight.Highlight(
-                    text_highlights = [
-                        twitter_openapi_python_generated.models.text_highlight.TextHighlight(
-                            end_index = 56, 
-                            start_index = 56, )
-                        ], ),
-                item_type = 'TimelineTweet',
-                promoted_metadata = { },
-                social_context = None,
-                tweet_display_type = 'Tweet',
-                tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
-                    __typename = 'TimelineTweet', 
-                    result = null, ),
-                cursor_type = 'Top',
-                display_treatment = twitter_openapi_python_generated.models.display_treatment.DisplayTreatment(
-                    action_text = '', 
-                    label_text = '', ),
-                entry_type = 'TimelineTimelineItem',
-                stop_on_empty_response = True,
-                value = '',
-                user_display_type = 'User',
-                user_results = twitter_openapi_python_generated.models.user_results.UserResults(
-                    result = null, ),
-                tombstone_display_type = 'Inline',
-                tombstone_info = twitter_openapi_python_generated.models.tombstone_info.TombstoneInfo(
-                    rich_text = twitter_openapi_python_generated.models.tombstone_rich_text.TombstoneRichText(
-                        entities = [
-                            twitter_openapi_python_generated.models.tombstone_entity.TombstoneEntity(
-                                from_index = 56, 
-                                ref = twitter_openapi_python_generated.models.tombstone_ref.TombstoneRef(
-                                    type = 'TimelineUrl', 
-                                    url = '', 
-                                    url_type = 'ExternalUrl', ), 
-                                to_index = 56, )
-                            ], 
-                        rtl = True, 
-                        text = '', ), 
-                    text = '', ),
                 images = [
                     twitter_openapi_python_generated.models.trend_image.TrendImage(
                         url = '', )
                     ],
                 is_ai_trend = True,
+                item_type = 'TimelineTweet',
                 name = '',
                 social_context = None,
                 thumbnail_image = twitter_openapi_python_generated.models.thumbnail_image.ThumbnailImage(
@@ -109,22 +71,13 @@ class TestItemContentUnion(unittest.TestCase):
                         title = '', ), )
             )
         else:
-            return ItemContentUnion(
+            return TimelineTrend(
                 typename = 'TimelineTweet',
-                item_type = 'TimelineTweet',
-                tweet_display_type = 'Tweet',
-                tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
-                    __typename = 'TimelineTweet', 
-                    result = null, ),
-                cursor_type = 'Top',
-                value = '',
-                user_display_type = 'User',
-                user_results = twitter_openapi_python_generated.models.user_results.UserResults(
-                    result = null, ),
                 images = [
                     twitter_openapi_python_generated.models.trend_image.TrendImage(
                         url = '', )
                     ],
+                item_type = 'TimelineTweet',
                 name = '',
                 thumbnail_image = twitter_openapi_python_generated.models.thumbnail_image.ThumbnailImage(
                     original_img_height = 56, 
@@ -153,8 +106,8 @@ class TestItemContentUnion(unittest.TestCase):
         )
         """
 
-    def testItemContentUnion(self):
-        """Test ItemContentUnion"""
+    def testTimelineTrend(self):
+        """Test TimelineTrend"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

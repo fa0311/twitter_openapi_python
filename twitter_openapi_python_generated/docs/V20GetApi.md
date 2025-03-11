@@ -10,8 +10,6 @@ Method | HTTP request | Description
 # **get_search_adaptive**
 > get_search_adaptive(include_profile_interstitial_type, include_blocking, include_blocked_by, include_followed_by, include_want_retweets, include_mute_edge, include_can_dm, include_can_media_tag, include_ext_has_nft_avatar, include_ext_is_blue_verified, include_ext_verified_type, include_ext_profile_image_shape, skip_status, cards_platform, include_cards, include_ext_alt_text, include_ext_limited_action_results, include_quote_count, include_reply_count, tweet_mode, include_ext_views, include_entities, include_user_entities, include_ext_media_color, include_ext_media_availability, include_ext_sensitive_media_warning, include_ext_trusted_friends_metadata, send_error_codes, simple_quoted_tweet, q, query_source, count, request_context, pc, spelling_corrections, include_ext_edit_control, ext)
 
-
-
 get search adaptive
 
 ### Example
