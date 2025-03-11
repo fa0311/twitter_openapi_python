@@ -5,10 +5,10 @@ import re
 from setuptools import find_packages, setup
 
 NAME = "twitter_openapi_python"
-VERSION = "0.0.32"
+VERSION = "0.0.33"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
-    "twitter_openapi_python_generated == 0.0.29",
+    "twitter_openapi_python_generated == 0.0.30",
     "pydantic >= 2.6",
 ]
 GITHUB_RAW_URL = (
