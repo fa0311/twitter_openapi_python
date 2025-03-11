@@ -33,6 +33,12 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_get_tweet_result_by_rest_id(self) -> None:
+        """Test case for get_tweet_result_by_rest_id
+
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
