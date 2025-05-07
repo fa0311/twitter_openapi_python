@@ -38,7 +38,8 @@ class TestListLatestTweetsTimelineResponse(unittest.TestCase):
             return ListLatestTweetsTimelineResponse(
                 data = twitter_openapi_python_generated.models.list_tweets_timeline_data.ListTweetsTimelineData(
                     list = twitter_openapi_python_generated.models.list_tweets_timeline_list.ListTweetsTimelineList(
-                        tweets_timeline = twitter_openapi_python_generated.models.list_tweets_timeline.ListTweetsTimeline(
+                        tweets_timeline = twitter_openapi_python_generated.models.timeline_result.TimelineResult(
+                            id = '', 
                             timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                                 instructions = [
                                     null
@@ -77,7 +78,8 @@ class TestListLatestTweetsTimelineResponse(unittest.TestCase):
             return ListLatestTweetsTimelineResponse(
                 data = twitter_openapi_python_generated.models.list_tweets_timeline_data.ListTweetsTimelineData(
                     list = twitter_openapi_python_generated.models.list_tweets_timeline_list.ListTweetsTimelineList(
-                        tweets_timeline = twitter_openapi_python_generated.models.list_tweets_timeline.ListTweetsTimeline(
+                        tweets_timeline = twitter_openapi_python_generated.models.timeline_result.TimelineResult(
+                            id = '', 
                             timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                                 instructions = [
                                     null

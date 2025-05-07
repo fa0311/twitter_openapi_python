@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**result** | [**UserTweetsResult**](UserTweetsResult.md) |  | 
+**result** | [**UserTweetsResultV1**](UserTweetsResultV1.md) |  | 
 
 ## Example
 

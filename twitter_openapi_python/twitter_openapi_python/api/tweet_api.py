@@ -1,7 +1,8 @@
-from typing import Any, Callable, List, Optional, TypeVar
+from typing import Any, Callable, List, Literal, Optional, TypeVar
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
+from x_client_transaction import ClientTransaction
 
 from twitter_openapi_python.models import (
     ApiUtilsRaw,
@@ -28,9 +29,10 @@ class TweetApiUtils:
     api: twitter.TweetApi
     flag: ParamType
 
-    def __init__(self, api: twitter.TweetApi, flag: ParamType):
+    def __init__(self, api: twitter.TweetApi, flag: ParamType, ct: ClientTransaction):
         self.api = api
         self.flag = flag
+        self.ct = ct
 
     def request(
         self,
@@ -39,7 +41,7 @@ class TweetApiUtils:
         key: str,
         param: ParamType,
     ) -> ResponseType:
-        args = get_kwargs(flag=self.flag[key], additional=param)
+        args = get_kwargs(flag=self.flag[key], additional=param, ct=self.ct)
         res = apiFn(**args)
         instruction = convertFn(res.data)
         entry = instruction_to_entry(instruction)
@@ -81,7 +83,7 @@ class TweetApiUtils:
     def get_search_timeline(
         self,
         raw_query: str,
-        product: Optional[str] = None,
+        product: Optional[Literal["Top", "Latest", "People", "Photos", "Videos"]] = None,
         cursor: Optional[str] = None,
         count: Optional[int] = None,
         extra_param: Optional[ParamType] = None,
@@ -191,7 +193,7 @@ class TweetApiUtils:
         response = self.request(
             apiFn=self.api.get_user_tweets_with_http_info,
             convertFn=lambda e: error_check(
-                error_check(e.data.user, e.errors).result.timeline_v2.timeline, e.errors
+                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
             ).instructions,
             key="UserTweets",
             param=param,
@@ -216,7 +218,7 @@ class TweetApiUtils:
         response = self.request(
             apiFn=self.api.get_user_tweets_and_replies_with_http_info,
             convertFn=lambda e: error_check(
-                error_check(e.data.user, e.errors).result.timeline_v2.timeline, e.errors
+                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
             ).instructions,
             key="UserTweetsAndReplies",
             param=param,
@@ -241,7 +243,7 @@ class TweetApiUtils:
         response = self.request(
             apiFn=self.api.get_user_media_with_http_info,
             convertFn=lambda e: error_check(
-                error_check(e.data.user, e.errors).result.timeline_v2.timeline, e.errors
+                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
             ).instructions,
             key="UserMedia",
             param=param,
@@ -266,7 +268,7 @@ class TweetApiUtils:
         response = self.request(
             apiFn=self.api.get_likes_with_http_info,
             convertFn=lambda e: error_check(
-                error_check(e.data.user, e.errors).result.timeline_v2.timeline, e.errors
+                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
             ).instructions,
             key="Likes",
             param=param,
@@ -293,6 +295,57 @@ class TweetApiUtils:
                 error_check(e.data, e.errors).bookmark_timeline_v2.timeline, e.errors
             ).instructions,
             key="Bookmarks",
+            param=param,
+        )
+        return response
+
+    def get_community_tweets_timeline(
+        self,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        rankingMode: Optional[Literal["Recency", "Relevance"]] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        param: ParamType = {}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if rankingMode is not None:
+            param["rankingMode"] = rankingMode
+        if extra_param is not None:
+            param.update(extra_param)
+
+        response = self.request(
+            apiFn=self.api.get_community_tweets_timeline_with_http_info,
+            convertFn=lambda e: error_check(
+                error_check(e.data, e.errors).community_results.result.ranked_community_timeline.timeline, e.errors
+            ).instructions,
+            key="CommunityTweetsTimeline",
+            param=param,
+        )
+        return response
+
+    def get_community_media_timeline(
+        self,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        param: ParamType = {}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+
+        response = self.request(
+            apiFn=self.api.get_community_media_timeline_with_http_info,
+            convertFn=lambda e: error_check(
+                error_check(e.data, e.errors).community_results.result.community_media_timeline.timeline, e.errors
+            ).instructions,
+            key="CommunityMediaTimeline",
             param=param,
         )
         return response

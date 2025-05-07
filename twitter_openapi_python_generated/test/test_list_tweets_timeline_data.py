@@ -37,7 +37,8 @@ class TestListTweetsTimelineData(unittest.TestCase):
         if include_optional:
             return ListTweetsTimelineData(
                 list = twitter_openapi_python_generated.models.list_tweets_timeline_list.ListTweetsTimelineList(
-                    tweets_timeline = twitter_openapi_python_generated.models.list_tweets_timeline.ListTweetsTimeline(
+                    tweets_timeline = twitter_openapi_python_generated.models.timeline_result.TimelineResult(
+                        id = '', 
                         timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                             instructions = [
                                 null
@@ -47,6 +48,15 @@ class TestListTweetsTimelineData(unittest.TestCase):
             )
         else:
             return ListTweetsTimelineData(
+                list = twitter_openapi_python_generated.models.list_tweets_timeline_list.ListTweetsTimelineList(
+                    tweets_timeline = twitter_openapi_python_generated.models.timeline_result.TimelineResult(
+                        id = '', 
+                        timeline = twitter_openapi_python_generated.models.timeline.Timeline(
+                            instructions = [
+                                null
+                                ], 
+                            metadata = { }, 
+                            response_objects = { }, ), ), ),
         )
         """
 

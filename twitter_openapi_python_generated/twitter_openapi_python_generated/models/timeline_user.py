@@ -41,8 +41,8 @@ class TimelineUser(BaseModel):
     @field_validator('user_display_type')
     def user_display_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['User', 'UserDetailed', 'SubscribableUser']):
-            raise ValueError("must be one of enum values ('User', 'UserDetailed', 'SubscribableUser')")
+        if value not in set(['User', 'UserDetailed', 'SubscribableUser', 'UserConcise']):
+            raise ValueError("must be one of enum values ('User', 'UserDetailed', 'SubscribableUser', 'UserConcise')")
         return value
 
     model_config = ConfigDict(

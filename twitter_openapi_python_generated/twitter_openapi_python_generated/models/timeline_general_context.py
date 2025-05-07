@@ -29,11 +29,12 @@ class TimelineGeneralContext(BaseModel):
     """
     TimelineGeneralContext
     """ # noqa: E501
+    context_image_urls: Optional[List[StrictStr]] = Field(default=None, alias="contextImageUrls")
     context_type: Optional[StrictStr] = Field(default=None, alias="contextType")
     landing_url: Optional[SocialContextLandingUrl] = Field(default=None, alias="landingUrl")
     text: Optional[StrictStr] = None
     type: Optional[SocialContextUnionType] = None
-    __properties: ClassVar[List[str]] = ["contextType", "landingUrl", "text", "type"]
+    __properties: ClassVar[List[str]] = ["contextImageUrls", "contextType", "landingUrl", "text", "type"]
 
     @field_validator('context_type')
     def context_type_validate_enum(cls, value):
@@ -41,8 +42,8 @@ class TimelineGeneralContext(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['Follow', 'Pin', 'Like', 'Location', 'Sparkle', 'Conversation', 'List', 'Community']):
-            raise ValueError("must be one of enum values ('Follow', 'Pin', 'Like', 'Location', 'Sparkle', 'Conversation', 'List', 'Community')")
+        if value not in set(['Follow', 'Pin', 'Like', 'Location', 'Sparkle', 'Conversation', 'List', 'Community', 'Facepile']):
+            raise ValueError("must be one of enum values ('Follow', 'Pin', 'Like', 'Location', 'Sparkle', 'Conversation', 'List', 'Community', 'Facepile')")
         return value
 
     model_config = ConfigDict(
@@ -99,6 +100,7 @@ class TimelineGeneralContext(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "contextImageUrls": obj.get("contextImageUrls"),
             "contextType": obj.get("contextType"),
             "landingUrl": SocialContextLandingUrl.from_dict(obj["landingUrl"]) if obj.get("landingUrl") is not None else None,
             "text": obj.get("text"),

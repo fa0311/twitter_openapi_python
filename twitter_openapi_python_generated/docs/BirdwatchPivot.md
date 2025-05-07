@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **shorttitle** | **str** |  | [optional] 
 **subtitle** | [**BirdwatchPivotSubtitle**](BirdwatchPivotSubtitle.md) |  | [optional] 
 **title** | **str** |  | 
+**title_detail** | **str** |  | [optional] 
 **visual_style** | **str** |  | [optional] 
 
 ## Example

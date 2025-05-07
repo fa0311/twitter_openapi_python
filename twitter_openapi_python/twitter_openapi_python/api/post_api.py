@@ -2,9 +2,11 @@ from typing import Any, Optional, TypeVar
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
+from x_client_transaction import ClientTransaction
 
 from twitter_openapi_python.models import TwitterApiUtilsResponse
 from twitter_openapi_python.utils import build_response, non_nullable
+from twitter_openapi_python.utils.api import get_headers
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[T]
@@ -15,9 +17,10 @@ class PostApiUtils:
     api: twitter.PostApi
     flag: ParamType
 
-    def __init__(self, api: twitter.PostApi, flag: ParamType):
+    def __init__(self, api: twitter.PostApi, flag: ParamType, ct: ClientTransaction):
         self.api = api
         self.flag = flag
+        self.ct = ct
 
     def post_create_tweet(
         self,
@@ -61,6 +64,7 @@ class PostApiUtils:
                 variables=variables,
                 features=features,
             ),
+            _headers=get_headers(self.flag["CreateTweet"], self.ct),
         )
         return build_response(res, res.data)
 
@@ -79,6 +83,7 @@ class PostApiUtils:
                 queryId=self.flag["DeleteTweet"]["queryId"],
                 variables=variables,
             ),
+            _headers=get_headers(self.flag["DeleteTweet"], self.ct),
         )
         return build_response(res, res.data)
 
@@ -97,6 +102,7 @@ class PostApiUtils:
                 queryId=self.flag["CreateRetweet"]["queryId"],
                 variables=variables,
             ),
+            _headers=get_headers(self.flag["CreateRetweet"], self.ct),
         )
         return build_response(res, res.data)
 
@@ -115,6 +121,7 @@ class PostApiUtils:
                 queryId=self.flag["DeleteRetweet"]["queryId"],
                 variables=variables,
             ),
+            _headers=get_headers(self.flag["DeleteRetweet"], self.ct),
         )
         return build_response(res, res.data)
 
@@ -134,6 +141,7 @@ class PostApiUtils:
                 queryId=self.flag["FavoriteTweet"]["queryId"],
                 variables=variables,
             ),
+            _headers=get_headers(self.flag["FavoriteTweet"], self.ct),
         )
         return build_response(res, res.data)
 
@@ -153,5 +161,6 @@ class PostApiUtils:
                 queryId=self.flag["UnfavoriteTweet"]["queryId"],
                 variables=variables,
             ),
+            _headers=get_headers(self.flag["UnfavoriteTweet"], self.ct),
         )
         return build_response(res, res.data)

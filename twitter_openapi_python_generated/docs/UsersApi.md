@@ -196,9 +196,9 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.UsersApi(api_client)
-    path_query_id = 'PyRggX3LQweP9nSF6PHliA' # str |  (default to 'PyRggX3LQweP9nSF6PHliA')
+    path_query_id = 'XArUHrueMW0KQdZUdqidrA' # str |  (default to 'XArUHrueMW0KQdZUdqidrA')
     variables = '{"userIds": ["44196397"]}' # str |  (default to '{"userIds": ["44196397"]}')
-    features = '{"profile_label_improvements_pcf_label_in_post_enabled": true, "rweb_tipjar_consumption_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}' # str |  (default to '{"profile_label_improvements_pcf_label_in_post_enabled": true, "rweb_tipjar_consumption_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}')
+    features = '{"profile_label_improvements_pcf_label_in_post_enabled": true, "rweb_tipjar_consumption_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}' # str |  (default to '{"profile_label_improvements_pcf_label_in_post_enabled": true, "rweb_tipjar_consumption_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}')
 
     try:
         api_response = api_instance.get_users_by_rest_ids(path_query_id, variables, features)
@@ -215,9 +215,9 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;PyRggX3LQweP9nSF6PHliA&#39;]
+ **path_query_id** | **str**|  | [default to &#39;XArUHrueMW0KQdZUdqidrA&#39;]
  **variables** | **str**|  | [default to &#39;{&quot;userIds&quot;: [&quot;44196397&quot;]}&#39;]
- **features** | **str**|  | [default to &#39;{&quot;profile_label_improvements_pcf_label_in_post_enabled&quot;: true, &quot;rweb_tipjar_consumption_enabled&quot;: true, &quot;responsive_web_graphql_exclude_directive_enabled&quot;: true, &quot;verified_phone_label_enabled&quot;: false, &quot;responsive_web_graphql_skip_user_profile_image_extensions_enabled&quot;: false, &quot;responsive_web_graphql_timeline_navigation_enabled&quot;: true}&#39;]
+ **features** | **str**|  | [default to &#39;{&quot;profile_label_improvements_pcf_label_in_post_enabled&quot;: true, &quot;rweb_tipjar_consumption_enabled&quot;: true, &quot;verified_phone_label_enabled&quot;: false, &quot;responsive_web_graphql_skip_user_profile_image_extensions_enabled&quot;: false, &quot;responsive_web_graphql_timeline_navigation_enabled&quot;: true}&#39;]
 
 ### Return type
 

@@ -106,7 +106,31 @@ class TestItemContentUnion(unittest.TestCase):
                                 key = '', 
                                 value = '', )
                             ], 
-                        title = '', ), )
+                        title = '', ), ),
+                id = '',
+                notification_icon = '',
+                notification_url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
+                    url = '', 
+                    url_type = 'DeepLink', 
+                    urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
+                        request_params = [
+                            twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
+                                key = '', 
+                                value = '', )
+                            ], 
+                        title = '', ), ),
+                rich_message = twitter_openapi_python_generated.models.rich_message.RichMessage(
+                    rtl = True, 
+                    text = '', ),
+                template = twitter_openapi_python_generated.models.notification_template.NotificationTemplate(
+                    __typename = 'TimelineTweet', 
+                    from_users = [
+                        None
+                        ], 
+                    target_objects = [
+                        None
+                        ], ),
+                timestamp_ms = ''
             )
         else:
             return ItemContentUnion(
@@ -121,15 +145,7 @@ class TestItemContentUnion(unittest.TestCase):
                 user_display_type = 'User',
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                     result = null, ),
-                images = [
-                    twitter_openapi_python_generated.models.trend_image.TrendImage(
-                        url = '', )
-                    ],
                 name = '',
-                thumbnail_image = twitter_openapi_python_generated.models.thumbnail_image.ThumbnailImage(
-                    original_img_height = 56, 
-                    original_img_url = '', 
-                    original_img_width = 56, ),
                 trend_metadata = twitter_openapi_python_generated.models.trend_metadata.TrendMetadata(
                     url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
                         url_type = 'DeepLink', 
@@ -150,6 +166,30 @@ class TestItemContentUnion(unittest.TestCase):
                                 value = '', )
                             ], 
                         title = '', ), ),
+                id = '',
+                notification_icon = '',
+                notification_url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
+                    url = '', 
+                    url_type = 'DeepLink', 
+                    urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
+                        request_params = [
+                            twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
+                                key = '', 
+                                value = '', )
+                            ], 
+                        title = '', ), ),
+                rich_message = twitter_openapi_python_generated.models.rich_message.RichMessage(
+                    rtl = True, 
+                    text = '', ),
+                template = twitter_openapi_python_generated.models.notification_template.NotificationTemplate(
+                    __typename = 'TimelineTweet', 
+                    from_users = [
+                        None
+                        ], 
+                    target_objects = [
+                        None
+                        ], ),
+                timestamp_ms = '',
         )
         """
 

@@ -73,16 +73,7 @@ class TestTimelineTrend(unittest.TestCase):
         else:
             return TimelineTrend(
                 typename = 'TimelineTweet',
-                images = [
-                    twitter_openapi_python_generated.models.trend_image.TrendImage(
-                        url = '', )
-                    ],
-                item_type = 'TimelineTweet',
                 name = '',
-                thumbnail_image = twitter_openapi_python_generated.models.thumbnail_image.ThumbnailImage(
-                    original_img_height = 56, 
-                    original_img_url = '', 
-                    original_img_width = 56, ),
                 trend_metadata = twitter_openapi_python_generated.models.trend_metadata.TrendMetadata(
                     url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
                         url_type = 'DeepLink', 

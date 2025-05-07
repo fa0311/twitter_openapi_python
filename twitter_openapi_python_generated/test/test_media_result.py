@@ -36,6 +36,9 @@ class TestMediaResult(unittest.TestCase):
         model = MediaResult()
         if include_optional:
             return MediaResult(
+                grok_image_annotation = twitter_openapi_python_generated.models.grok_image_annotation.GrokImageAnnotation(
+                    prompt = '', 
+                    upsampled_prompt = '', ),
                 media_key = ''
             )
         else:

@@ -15,10 +15,10 @@
 
 import unittest
 
-from twitter_openapi_python_generated.models.list_tweets_timeline import ListTweetsTimeline
+from twitter_openapi_python_generated.models.timeline_result import TimelineResult
 
-class TestListTweetsTimeline(unittest.TestCase):
-    """ListTweetsTimeline unit test stubs"""
+class TestTimelineResult(unittest.TestCase):
+    """TimelineResult unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,16 +26,17 @@ class TestListTweetsTimeline(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ListTweetsTimeline:
-        """Test ListTweetsTimeline
+    def make_instance(self, include_optional) -> TimelineResult:
+        """Test TimelineResult
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ListTweetsTimeline`
+        # uncomment below to create an instance of `TimelineResult`
         """
-        model = ListTweetsTimeline()
+        model = TimelineResult()
         if include_optional:
-            return ListTweetsTimeline(
+            return TimelineResult(
+                id = '',
                 timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                     instructions = [
                         null
@@ -44,12 +45,12 @@ class TestListTweetsTimeline(unittest.TestCase):
                     response_objects = { }, )
             )
         else:
-            return ListTweetsTimeline(
+            return TimelineResult(
         )
         """
 
-    def testListTweetsTimeline(self):
-        """Test ListTweetsTimeline"""
+    def testTimelineResult(self):
+        """Test TimelineResult"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

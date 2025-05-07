@@ -22,13 +22,19 @@ Name | Type | Description | Notes
 **user_results** | [**UserResults**](UserResults.md) |  | 
 **tombstone_display_type** | **str** |  | [optional] 
 **tombstone_info** | [**TombstoneInfo**](TombstoneInfo.md) |  | [optional] 
-**images** | [**List[TrendImage]**](TrendImage.md) |  | 
+**images** | [**List[TrendImage]**](TrendImage.md) |  | [optional] 
 **is_ai_trend** | **bool** |  | [optional] 
 **name** | **str** |  | 
 **social_context** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
-**thumbnail_image** | [**ThumbnailImage**](ThumbnailImage.md) |  | 
+**thumbnail_image** | [**ThumbnailImage**](ThumbnailImage.md) |  | [optional] 
 **trend_metadata** | [**TrendMetadata**](TrendMetadata.md) |  | 
 **trend_url** | [**SocialContextLandingUrl**](SocialContextLandingUrl.md) |  | 
+**id** | **str** |  | 
+**notification_icon** | **str** |  | 
+**notification_url** | [**SocialContextLandingUrl**](SocialContextLandingUrl.md) |  | 
+**rich_message** | [**RichMessage**](RichMessage.md) |  | 
+**template** | [**NotificationTemplate**](NotificationTemplate.md) |  | 
+**timestamp_ms** | **str** |  | 
 
 ## Example
 

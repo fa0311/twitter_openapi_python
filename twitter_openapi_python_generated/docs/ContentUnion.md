@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | 
+**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | [optional] 
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | 
 **feedback_info** | [**FeedbackInfo**](FeedbackInfo.md) |  | [optional] 
 **item_content** | [**ItemContentUnion**](ItemContentUnion.md) |  | 

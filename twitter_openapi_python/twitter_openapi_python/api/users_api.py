@@ -2,6 +2,7 @@ from typing import Any, Callable, Optional, TypeVar
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
+from x_client_transaction import ClientTransaction
 
 from twitter_openapi_python.models import TwitterApiUtilsResponse, UserApiUtilsData
 from twitter_openapi_python.utils import (
@@ -21,9 +22,10 @@ class UsersApiUtils:
     api: twitter.UsersApi
     flag: ParamType
 
-    def __init__(self, api: twitter.UsersApi, flag: ParamType):
+    def __init__(self, api: twitter.UsersApi, flag: ParamType, ct: ClientTransaction):
         self.api = api
         self.flag = flag
+        self.ct = ct
 
     def request(
         self,
@@ -32,7 +34,7 @@ class UsersApiUtils:
         key: str,
         param: ParamType,
     ) -> ResponseType:
-        args = get_kwargs(flag=self.flag[key], additional=param)
+        args = get_kwargs(flag=self.flag[key], additional=param, ct=self.ct)
         res = apiFn(**args)
         user_result = convertFn(res.data)
         user = user_result_converter(user_result)

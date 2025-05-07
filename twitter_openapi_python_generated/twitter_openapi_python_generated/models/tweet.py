@@ -26,7 +26,6 @@ from twitter_openapi_python_generated.models.author_community_relationship impor
 from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot
 from twitter_openapi_python_generated.models.community import Community
 from twitter_openapi_python_generated.models.community_relationship import CommunityRelationship
-from twitter_openapi_python_generated.models.grok_share_attachment import GrokShareAttachment
 from twitter_openapi_python_generated.models.note_tweet import NoteTweet
 from twitter_openapi_python_generated.models.super_follows_reply_user_result import SuperFollowsReplyUserResult
 from twitter_openapi_python_generated.models.trend_results import TrendResults
@@ -221,6 +220,7 @@ class Tweet(BaseModel):
         })
         return _obj
 
+from twitter_openapi_python_generated.models.grok_share_attachment import GrokShareAttachment
 from twitter_openapi_python_generated.models.item_result import ItemResult
 from twitter_openapi_python_generated.models.quoted_ref_result import QuotedRefResult
 from twitter_openapi_python_generated.models.tweet_legacy import TweetLegacy

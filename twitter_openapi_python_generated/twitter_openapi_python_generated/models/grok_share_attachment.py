@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from twitter_openapi_python_generated.models.grok_share_attachment_item import GrokShareAttachmentItem
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -93,4 +92,7 @@ class GrokShareAttachment(BaseModel):
         })
         return _obj
 
+from twitter_openapi_python_generated.models.grok_share_attachment_item import GrokShareAttachmentItem
+# TODO: Rewrite to not use raise_errors
+GrokShareAttachment.model_rebuild(raise_errors=False)
 

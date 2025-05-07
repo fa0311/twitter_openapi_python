@@ -35,6 +35,8 @@ class InstructionType(str, Enum):
     TIMELINESHOWALERT = 'TimelineShowAlert'
     TIMELINETERMINATETIMELINE = 'TimelineTerminateTimeline'
     TIMELINESHOWCOVER = 'TimelineShowCover'
+    TIMELINECLEARENTRIESUNREADSTATE = 'TimelineClearEntriesUnreadState'
+    TIMELINEMARKENTRIESUNREADGREATERTHANSORTINDEX = 'TimelineMarkEntriesUnreadGreaterThanSortIndex'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

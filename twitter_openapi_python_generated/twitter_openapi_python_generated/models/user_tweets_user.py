@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from twitter_openapi_python_generated.models.user_tweets_result import UserTweetsResult
+from twitter_openapi_python_generated.models.user_tweets_result_v1 import UserTweetsResultV1
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class UserTweetsUser(BaseModel):
     """
     UserTweetsUser
     """ # noqa: E501
-    result: UserTweetsResult
+    result: UserTweetsResultV1
     __properties: ClassVar[List[str]] = ["result"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class UserTweetsUser(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "result": UserTweetsResult.from_dict(obj["result"]) if obj.get("result") is not None else None
+            "result": UserTweetsResultV1.from_dict(obj["result"]) if obj.get("result") is not None else None
         })
         return _obj
 

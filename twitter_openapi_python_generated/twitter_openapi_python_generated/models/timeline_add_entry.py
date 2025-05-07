@@ -37,8 +37,8 @@ class TimelineAddEntry(BaseModel):
     @field_validator('entry_id')
     def entry_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not re.match(r"^(([a-z]+|[0-9]+|[0-9a-f]+)(-|$))+", value):
-            raise ValueError(r"must validate the regular expression /^(([a-z]+|[0-9]+|[0-9a-f]+)(-|$))+/")
+        if not re.match(r"^(([a-zA-Z]+|[0-9]+|[0-9a-f]+)(-|$))+", value):
+            raise ValueError(r"must validate the regular expression /^(([a-zA-Z]+|[0-9]+|[0-9a-f]+)(-|$))+/")
         return value
 
     @field_validator('sort_index')

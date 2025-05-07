@@ -18,18 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.timeline import Timeline
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
+from twitter_openapi_python_generated.models.about_community_results import AboutCommunityResults
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ListTweetsTimeline(BaseModel):
+class AboutCommunityTweetData(BaseModel):
     """
-    ListTweetsTimeline
+    AboutCommunityTweetData
     """ # noqa: E501
-    timeline: Optional[Timeline] = None
-    __properties: ClassVar[List[str]] = ["timeline"]
+    community_results: AboutCommunityResults = Field(alias="communityResults")
+    __properties: ClassVar[List[str]] = ["communityResults"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +49,7 @@ class ListTweetsTimeline(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ListTweetsTimeline from a JSON string"""
+        """Create an instance of AboutCommunityTweetData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,14 +70,14 @@ class ListTweetsTimeline(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of timeline
-        if self.timeline:
-            _dict['timeline'] = self.timeline.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of community_results
+        if self.community_results:
+            _dict['communityResults'] = self.community_results.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ListTweetsTimeline from a dict"""
+        """Create an instance of AboutCommunityTweetData from a dict"""
         if obj is None:
             return None
 
@@ -85,7 +85,7 @@ class ListTweetsTimeline(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "timeline": Timeline.from_dict(obj["timeline"]) if obj.get("timeline") is not None else None
+            "communityResults": AboutCommunityResults.from_dict(obj["communityResults"]) if obj.get("communityResults") is not None else None
         })
         return _obj
 

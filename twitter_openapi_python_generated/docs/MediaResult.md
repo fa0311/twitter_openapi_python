@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**grok_image_annotation** | [**GrokImageAnnotation**](GrokImageAnnotation.md) |  | [optional] 
 **media_key** | **str** |  | 
 
 ## Example

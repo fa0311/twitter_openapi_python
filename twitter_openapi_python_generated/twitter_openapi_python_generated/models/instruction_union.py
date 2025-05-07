@@ -21,6 +21,8 @@ from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.timeline_add_entries import TimelineAddEntries
 from twitter_openapi_python_generated.models.timeline_add_to_module import TimelineAddToModule
 from twitter_openapi_python_generated.models.timeline_clear_cache import TimelineClearCache
+from twitter_openapi_python_generated.models.timeline_clear_entries_unread_state import TimelineClearEntriesUnreadState
+from twitter_openapi_python_generated.models.timeline_mark_entries_unread_greater_than_sort_index import TimelineMarkEntriesUnreadGreaterThanSortIndex
 from twitter_openapi_python_generated.models.timeline_pin_entry import TimelinePinEntry
 from twitter_openapi_python_generated.models.timeline_replace_entry import TimelineReplaceEntry
 from twitter_openapi_python_generated.models.timeline_show_alert import TimelineShowAlert
@@ -30,7 +32,7 @@ from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-INSTRUCTIONUNION_ONE_OF_SCHEMAS = ["TimelineAddEntries", "TimelineAddToModule", "TimelineClearCache", "TimelinePinEntry", "TimelineReplaceEntry", "TimelineShowAlert", "TimelineShowCover", "TimelineTerminateTimeline"]
+INSTRUCTIONUNION_ONE_OF_SCHEMAS = ["TimelineAddEntries", "TimelineAddToModule", "TimelineClearCache", "TimelineClearEntriesUnreadState", "TimelineMarkEntriesUnreadGreaterThanSortIndex", "TimelinePinEntry", "TimelineReplaceEntry", "TimelineShowAlert", "TimelineShowCover", "TimelineTerminateTimeline"]
 
 class InstructionUnion(BaseModel):
     """
@@ -52,8 +54,12 @@ class InstructionUnion(BaseModel):
     oneof_schema_7_validator: Optional[TimelineTerminateTimeline] = None
     # data type: TimelineShowCover
     oneof_schema_8_validator: Optional[TimelineShowCover] = None
-    actual_instance: Optional[Union[TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline]] = None
-    one_of_schemas: Set[str] = { "TimelineAddEntries", "TimelineAddToModule", "TimelineClearCache", "TimelinePinEntry", "TimelineReplaceEntry", "TimelineShowAlert", "TimelineShowCover", "TimelineTerminateTimeline" }
+    # data type: TimelineClearEntriesUnreadState
+    oneof_schema_9_validator: Optional[TimelineClearEntriesUnreadState] = None
+    # data type: TimelineMarkEntriesUnreadGreaterThanSortIndex
+    oneof_schema_10_validator: Optional[TimelineMarkEntriesUnreadGreaterThanSortIndex] = None
+    actual_instance: Optional[Union[TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelineClearEntriesUnreadState, TimelineMarkEntriesUnreadGreaterThanSortIndex, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline]] = None
+    one_of_schemas: Set[str] = { "TimelineAddEntries", "TimelineAddToModule", "TimelineClearCache", "TimelineClearEntriesUnreadState", "TimelineMarkEntriesUnreadGreaterThanSortIndex", "TimelinePinEntry", "TimelineReplaceEntry", "TimelineShowAlert", "TimelineShowCover", "TimelineTerminateTimeline" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -119,12 +125,22 @@ class InstructionUnion(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `TimelineShowCover`")
         else:
             match += 1
+        # validate data type: TimelineClearEntriesUnreadState
+        if not isinstance(v, TimelineClearEntriesUnreadState):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `TimelineClearEntriesUnreadState`")
+        else:
+            match += 1
+        # validate data type: TimelineMarkEntriesUnreadGreaterThanSortIndex
+        if not isinstance(v, TimelineMarkEntriesUnreadGreaterThanSortIndex):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `TimelineMarkEntriesUnreadGreaterThanSortIndex`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelineClearEntriesUnreadState, TimelineMarkEntriesUnreadGreaterThanSortIndex, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelineClearEntriesUnreadState, TimelineMarkEntriesUnreadGreaterThanSortIndex, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -157,6 +173,16 @@ class InstructionUnion(BaseModel):
         # check if data type is `TimelineClearCache`
         if _data_type == "TimelineClearCache":
             instance.actual_instance = TimelineClearCache.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineClearEntriesUnreadState`
+        if _data_type == "TimelineClearEntriesUnreadState":
+            instance.actual_instance = TimelineClearEntriesUnreadState.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineMarkEntriesUnreadGreaterThanSortIndex`
+        if _data_type == "TimelineMarkEntriesUnreadGreaterThanSortIndex":
+            instance.actual_instance = TimelineMarkEntriesUnreadGreaterThanSortIndex.from_json(json_str)
             return instance
 
         # check if data type is `TimelinePinEntry`
@@ -232,13 +258,25 @@ class InstructionUnion(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into TimelineClearEntriesUnreadState
+        try:
+            instance.actual_instance = TimelineClearEntriesUnreadState.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into TimelineMarkEntriesUnreadGreaterThanSortIndex
+        try:
+            instance.actual_instance = TimelineMarkEntriesUnreadGreaterThanSortIndex.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelineClearEntriesUnreadState, TimelineMarkEntriesUnreadGreaterThanSortIndex, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into InstructionUnion with oneOf schemas: TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelineClearEntriesUnreadState, TimelineMarkEntriesUnreadGreaterThanSortIndex, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -252,7 +290,7 @@ class InstructionUnion(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], TimelineAddEntries, TimelineAddToModule, TimelineClearCache, TimelineClearEntriesUnreadState, TimelineMarkEntriesUnreadGreaterThanSortIndex, TimelinePinEntry, TimelineReplaceEntry, TimelineShowAlert, TimelineShowCover, TimelineTerminateTimeline]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

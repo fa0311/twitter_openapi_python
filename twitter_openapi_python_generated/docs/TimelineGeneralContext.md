@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**context_image_urls** | **List[str]** |  | [optional] 
 **context_type** | **str** |  | [optional] 
 **landing_url** | [**SocialContextLandingUrl**](SocialContextLandingUrl.md) |  | [optional] 
 **text** | **str** |  | [optional] 

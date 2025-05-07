@@ -126,7 +126,8 @@ class TestInstructionUnion(unittest.TestCase):
                                 to_index = 56, )
                             ], 
                         text = '', ), 
-                    type = 'TimelineHalfCover', )
+                    type = 'TimelineHalfCover', ),
+                sort_index = '4'
             )
         else:
             return InstructionUnion(
