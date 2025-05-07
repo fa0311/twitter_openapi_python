@@ -5,6 +5,7 @@ from typing import Any
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.configuration as conf
 import urllib3
+from x_client_transaction import ClientTransaction
 
 from twitter_openapi_python.api import (
     DefaultApiUtils,
@@ -17,6 +18,7 @@ from twitter_openapi_python.api import (
     V11GetApiUtils,
     V11PostApiUtils,
 )
+from twitter_openapi_python.tid import get_tid
 
 ParamType = dict[str, Any]
 
@@ -25,40 +27,41 @@ class TwitterOpenapiPythonClient:
     api: twitter.ApiClient
     placeholder: ParamType
 
-    def __init__(self, api: twitter.ApiClient, placeholder: ParamType):
+    def __init__(self, api: twitter.ApiClient, placeholder: ParamType, ct: ClientTransaction):
         self.api = api
         self.placeholder = placeholder
+        self.ct = ct
 
     def get_default_api(self) -> DefaultApiUtils:
-        return DefaultApiUtils(twitter.DefaultApi(self.api), self.placeholder)
+        return DefaultApiUtils(twitter.DefaultApi(self.api), self.placeholder, self.ct)
 
     def get_initial_state_api(self) -> InitialStateApiUtils:
         return InitialStateApiUtils(self.api)
 
     def get_post_api(self) -> PostApiUtils:
-        return PostApiUtils(twitter.PostApi(self.api), self.placeholder)
+        return PostApiUtils(twitter.PostApi(self.api), self.placeholder, self.ct)
 
     def get_tweet_api(self) -> TweetApiUtils:
-        return TweetApiUtils(twitter.TweetApi(self.api), self.placeholder)
+        return TweetApiUtils(twitter.TweetApi(self.api), self.placeholder, self.ct)
 
     def get_user_api(self) -> UserApiUtils:
-        return UserApiUtils(twitter.UserApi(self.api), self.placeholder)
+        return UserApiUtils(twitter.UserApi(self.api), self.placeholder, self.ct)
 
     def get_users_api(self) -> UsersApiUtils:
-        return UsersApiUtils(twitter.UsersApi(self.api), self.placeholder)
+        return UsersApiUtils(twitter.UsersApi(self.api), self.placeholder, self.ct)
 
     def get_user_list_api(self) -> UserListApiUtils:
-        return UserListApiUtils(twitter.UserListApi(self.api), self.placeholder)
+        return UserListApiUtils(twitter.UserListApi(self.api), self.placeholder, self.ct)
 
     def get_v11_get_api(self) -> V11GetApiUtils:
-        return V11GetApiUtils(twitter.V11GetApi(self.api), self.placeholder)
+        return V11GetApiUtils(twitter.V11GetApi(self.api), self.placeholder, self.ct)
 
     def get_v11_post_api(self) -> V11PostApiUtils:
-        return V11PostApiUtils(twitter.V11PostApi(self.api), self.placeholder)
+        return V11PostApiUtils(twitter.V11PostApi(self.api), self.placeholder, self.ct)
 
 
 class TwitterOpenapiPython:
-    hash: str = "227f4e3716dbb034500945c378bd7874b611f8f5"
+    hash: str = "54acb4a0cef6aea969d3a1c75d37d58d80b0e5c0"
     placeholder_url = "https://raw.githubusercontent.com/fa0311/twitter-openapi/{hash}/src/config/placeholder.json"
     header = "https://raw.githubusercontent.com/fa0311/latest-user-agent/refs/heads/main/header.json"
     access_token: str = (
@@ -123,7 +126,8 @@ class TwitterOpenapiPython:
     ) -> TwitterOpenapiPythonClient:
         http = urllib3.PoolManager()
         flag = http.request("GET", self.placeholder_url.format(hash=self.hash))
-        return TwitterOpenapiPythonClient(api, json.loads(flag.data))
+        ct = get_tid()
+        return TwitterOpenapiPythonClient(api, json.loads(flag.data), ct)
 
     def get_client_from_cookies(
         self,

@@ -3,6 +3,7 @@ from typing import Any, Dict, List, Mapping, Optional, TypeGuard, TypeVar
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
+from x_client_transaction import ClientTransaction
 
 from twitter_openapi_python.models import (
     ApiUtilsHeader,
@@ -36,7 +37,7 @@ def non_nullable_list(x: List[Optional[T]]) -> List[T]:
     return list(filter(filter_fn, x))
 
 
-def get_kwargs(flag: ParamType, additional: ParamType) -> ParamType:
+def get_kwargs(flag: ParamType, additional: ParamType, ct: ClientTransaction) -> ParamType:
     assert flag is not None
     kwargs = {"path_query_id": flag["queryId"]}
     if flag.get("variables") is not None:
@@ -45,7 +46,14 @@ def get_kwargs(flag: ParamType, additional: ParamType) -> ParamType:
         kwargs["features"] = json.dumps(flag["features"])
     if flag.get("fieldToggles") is not None:
         kwargs["field_toggles"] = json.dumps(flag["fieldToggles"])
+    if flag.get("@path") is not None:
+        kwargs["_headers"] = get_headers(flag, ct)
     return kwargs
+
+
+def get_headers(flag: ParamType, ct: ClientTransaction) -> Dict[str, str]:
+    tid = ct.generate_transaction_id(flag["@method"], flag["@path"])
+    return {"x-client-transaction-id": tid}
 
 
 def get_legacy_kwargs(flag: ParamType, additional: ParamType) -> ParamType:

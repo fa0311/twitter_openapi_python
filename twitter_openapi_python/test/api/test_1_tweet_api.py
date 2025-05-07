@@ -59,6 +59,16 @@ class TestTweetApi(unittest.TestCase):
         for tweet in list(filter(self.ad_fillter, result.data.data)):
             print_tweet(tweet)
 
+    def test_get_community_tweets_timeline(self):
+        result = self.client.get_community_tweets_timeline()
+        for tweet in list(filter(self.ad_fillter, result.data.data)):
+            print_tweet(tweet)
+
+    def test_get_community_media_timeline(self):
+        result = self.client.get_community_media_timeline()
+        for tweet in list(filter(self.ad_fillter, result.data.data)):
+            print_tweet(tweet)
+
 
 if __name__ == "__main__":
     unittest.main()
