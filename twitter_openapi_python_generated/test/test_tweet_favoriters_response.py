@@ -37,7 +37,8 @@ class TestTweetFavoritersResponse(unittest.TestCase):
         if include_optional:
             return TweetFavoritersResponse(
                 data = twitter_openapi_python_generated.models.tweet_favoriters_response_data.TweetFavoritersResponseData(
-                    favoriters_timeline = twitter_openapi_python_generated.models.timeline_v2.TimelineV2(
+                    favoriters_timeline = twitter_openapi_python_generated.models.timeline_result.TimelineResult(
+                        id = '', 
                         timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                             instructions = [
                                 null
@@ -75,7 +76,8 @@ class TestTweetFavoritersResponse(unittest.TestCase):
         else:
             return TweetFavoritersResponse(
                 data = twitter_openapi_python_generated.models.tweet_favoriters_response_data.TweetFavoritersResponseData(
-                    favoriters_timeline = twitter_openapi_python_generated.models.timeline_v2.TimelineV2(
+                    favoriters_timeline = twitter_openapi_python_generated.models.timeline_result.TimelineResult(
+                        id = '', 
                         timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                             instructions = [
                                 null

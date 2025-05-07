@@ -20,18 +20,16 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from twitter_openapi_python_generated.models.timeline_v2 import TimelineV2
-from twitter_openapi_python_generated.models.type_name import TypeName
+from twitter_openapi_python_generated.models.ranked_community_results import RankedCommunityResults
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UserTweetsResult(BaseModel):
+class RankedCommunityTweetData(BaseModel):
     """
-    UserTweetsResult
+    RankedCommunityTweetData
     """ # noqa: E501
-    typename: TypeName = Field(alias="__typename")
-    timeline_v2: TimelineV2
-    __properties: ClassVar[List[str]] = ["__typename", "timeline_v2"]
+    community_results: RankedCommunityResults = Field(alias="communityResults")
+    __properties: ClassVar[List[str]] = ["communityResults"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +49,7 @@ class UserTweetsResult(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of UserTweetsResult from a JSON string"""
+        """Create an instance of RankedCommunityTweetData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,14 +70,14 @@ class UserTweetsResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of timeline_v2
-        if self.timeline_v2:
-            _dict['timeline_v2'] = self.timeline_v2.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of community_results
+        if self.community_results:
+            _dict['communityResults'] = self.community_results.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of UserTweetsResult from a dict"""
+        """Create an instance of RankedCommunityTweetData from a dict"""
         if obj is None:
             return None
 
@@ -87,8 +85,7 @@ class UserTweetsResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "__typename": obj.get("__typename"),
-            "timeline_v2": TimelineV2.from_dict(obj["timeline_v2"]) if obj.get("timeline_v2") is not None else None
+            "communityResults": RankedCommunityResults.from_dict(obj["communityResults"]) if obj.get("communityResults") is not None else None
         })
         return _obj
 

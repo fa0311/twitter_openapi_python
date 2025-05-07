@@ -36,6 +36,8 @@ class TestPostCreateRetweetRequest(unittest.TestCase):
         model = PostCreateRetweetRequest()
         if include_optional:
             return PostCreateRetweetRequest(
+                method = 'POST',
+                path = '/i/api/graphql/ojPdsZsimiJrUGLR1sjUtA/CreateRetweet',
                 query_id = 'ojPdsZsimiJrUGLR1sjUtA',
                 variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(
                     dark_request = False, 
@@ -43,6 +45,8 @@ class TestPostCreateRetweetRequest(unittest.TestCase):
             )
         else:
             return PostCreateRetweetRequest(
+                method = 'POST',
+                path = '/i/api/graphql/ojPdsZsimiJrUGLR1sjUtA/CreateRetweet',
                 query_id = 'ojPdsZsimiJrUGLR1sjUtA',
                 variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(
                     dark_request = False, 

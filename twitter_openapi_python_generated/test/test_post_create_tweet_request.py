@@ -36,6 +36,8 @@ class TestPostCreateTweetRequest(unittest.TestCase):
         model = PostCreateTweetRequest()
         if include_optional:
             return PostCreateTweetRequest(
+                method = 'POST',
+                path = '/i/api/graphql/IID9x6WsdMnTlXnzXGq8ng/CreateTweet',
                 features = twitter_openapi_python_generated.models.post_create_tweet_request_features.postCreateTweet_request_features(
                     articles_preview_enabled = True, 
                     c9s_tweet_anatomy_moderator_badge_enabled = True, 
@@ -46,20 +48,27 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                     longform_notetweets_consumption_enabled = True, 
                     longform_notetweets_inline_media_enabled = True, 
                     longform_notetweets_rich_text_read_enabled = True, 
+                    premium_content_api_read_enabled = False, 
+                    profile_label_improvements_pcf_label_in_post_enabled = True, 
                     responsive_web_edit_tweet_api_enabled = True, 
                     responsive_web_enhance_cards_enabled = False, 
-                    responsive_web_graphql_exclude_directive_enabled = True, 
                     responsive_web_graphql_skip_user_profile_image_extensions_enabled = False, 
                     responsive_web_graphql_timeline_navigation_enabled = True, 
+                    responsive_web_grok_analysis_button_from_backend = False, 
+                    responsive_web_grok_analyze_button_fetch_trends_enabled = False, 
+                    responsive_web_grok_analyze_post_followups_enabled = True, 
+                    responsive_web_grok_image_annotation_enabled = True, 
+                    responsive_web_grok_share_attachment_enabled = True, 
+                    responsive_web_grok_show_grok_translated_post = False, 
+                    responsive_web_jetfuel_frame = False, 
                     responsive_web_twitter_article_tweet_consumption_enabled = True, 
                     rweb_tipjar_consumption_enabled = True, 
-                    rweb_video_timestamps_enabled = True, 
                     standardized_nudges_misinfo = True, 
                     tweet_awards_web_tipping_enabled = False, 
                     tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled = True, 
                     verified_phone_label_enabled = False, 
                     view_counts_everywhere_api_enabled = True, ),
-                query_id = 'xT36w0XM3A8jDynpkram2A',
+                query_id = 'IID9x6WsdMnTlXnzXGq8ng',
                 variables = twitter_openapi_python_generated.models.post_create_tweet_request_variables.postCreateTweet_request_variables(
                     attachment_url = 'https://x.com/elonmusk/status/1349129669258448897', 
                     conversation_control = twitter_openapi_python_generated.models.post_create_tweet_request_variables_conversation_control.postCreateTweet_request_variables_conversation_control(
@@ -87,6 +96,8 @@ class TestPostCreateTweetRequest(unittest.TestCase):
             )
         else:
             return PostCreateTweetRequest(
+                method = 'POST',
+                path = '/i/api/graphql/IID9x6WsdMnTlXnzXGq8ng/CreateTweet',
                 features = twitter_openapi_python_generated.models.post_create_tweet_request_features.postCreateTweet_request_features(
                     articles_preview_enabled = True, 
                     c9s_tweet_anatomy_moderator_badge_enabled = True, 
@@ -97,20 +108,27 @@ class TestPostCreateTweetRequest(unittest.TestCase):
                     longform_notetweets_consumption_enabled = True, 
                     longform_notetweets_inline_media_enabled = True, 
                     longform_notetweets_rich_text_read_enabled = True, 
+                    premium_content_api_read_enabled = False, 
+                    profile_label_improvements_pcf_label_in_post_enabled = True, 
                     responsive_web_edit_tweet_api_enabled = True, 
                     responsive_web_enhance_cards_enabled = False, 
-                    responsive_web_graphql_exclude_directive_enabled = True, 
                     responsive_web_graphql_skip_user_profile_image_extensions_enabled = False, 
                     responsive_web_graphql_timeline_navigation_enabled = True, 
+                    responsive_web_grok_analysis_button_from_backend = False, 
+                    responsive_web_grok_analyze_button_fetch_trends_enabled = False, 
+                    responsive_web_grok_analyze_post_followups_enabled = True, 
+                    responsive_web_grok_image_annotation_enabled = True, 
+                    responsive_web_grok_share_attachment_enabled = True, 
+                    responsive_web_grok_show_grok_translated_post = False, 
+                    responsive_web_jetfuel_frame = False, 
                     responsive_web_twitter_article_tweet_consumption_enabled = True, 
                     rweb_tipjar_consumption_enabled = True, 
-                    rweb_video_timestamps_enabled = True, 
                     standardized_nudges_misinfo = True, 
                     tweet_awards_web_tipping_enabled = False, 
                     tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled = True, 
                     verified_phone_label_enabled = False, 
                     view_counts_everywhere_api_enabled = True, ),
-                query_id = 'xT36w0XM3A8jDynpkram2A',
+                query_id = 'IID9x6WsdMnTlXnzXGq8ng',
                 variables = twitter_openapi_python_generated.models.post_create_tweet_request_variables.postCreateTweet_request_variables(
                     attachment_url = 'https://x.com/elonmusk/status/1349129669258448897', 
                     conversation_control = twitter_openapi_python_generated.models.post_create_tweet_request_variables_conversation_control.postCreateTweet_request_variables_conversation_control(

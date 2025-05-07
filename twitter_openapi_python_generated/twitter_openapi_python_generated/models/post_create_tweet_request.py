@@ -29,10 +29,12 @@ class PostCreateTweetRequest(BaseModel):
     """
     PostCreateTweetRequest
     """ # noqa: E501
+    method: StrictStr = Field(alias="@method")
+    path: StrictStr = Field(alias="@path")
     features: PostCreateTweetRequestFeatures
     query_id: StrictStr = Field(alias="queryId")
     variables: PostCreateTweetRequestVariables
-    __properties: ClassVar[List[str]] = ["features", "queryId", "variables"]
+    __properties: ClassVar[List[str]] = ["@method", "@path", "features", "queryId", "variables"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,8 +93,10 @@ class PostCreateTweetRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "@method": obj.get("@method") if obj.get("@method") is not None else 'POST',
+            "@path": obj.get("@path") if obj.get("@path") is not None else '/i/api/graphql/IID9x6WsdMnTlXnzXGq8ng/CreateTweet',
             "features": PostCreateTweetRequestFeatures.from_dict(obj["features"]) if obj.get("features") is not None else None,
-            "queryId": obj.get("queryId") if obj.get("queryId") is not None else 'xT36w0XM3A8jDynpkram2A',
+            "queryId": obj.get("queryId") if obj.get("queryId") is not None else 'IID9x6WsdMnTlXnzXGq8ng',
             "variables": PostCreateTweetRequestVariables.from_dict(obj["variables"]) if obj.get("variables") is not None else None
         })
         return _obj

@@ -33,7 +33,7 @@ class TimelineTimelineModule(BaseModel):
     TimelineTimelineModule
     """ # noqa: E501
     typename: StrictStr = Field(alias="__typename")
-    client_event_info: ClientEventInfo = Field(alias="clientEventInfo")
+    client_event_info: Optional[ClientEventInfo] = Field(default=None, alias="clientEventInfo")
     display_type: DisplayType = Field(alias="displayType")
     entry_type: ContentEntryType = Field(alias="entryType")
     feedback_info: Optional[FeedbackInfo] = Field(default=None, alias="feedbackInfo")

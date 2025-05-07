@@ -29,6 +29,10 @@
 
 * `TIMELINETREND` (value: `'TimelineTrend'`)
 
+* `TIMELINENOTIFICATION` (value: `'TimelineNotification'`)
+
+* `TIMELINENOTIFICATIONAGGREGATEUSERACTIONS` (value: `'TimelineNotificationAggregateUserActions'`)
+
 * `TWEETUNAVAILABLE` (value: `'TweetUnavailable'`)
 
 * `TWEETPREVIEWDISPLAY` (value: `'TweetPreviewDisplay'`)

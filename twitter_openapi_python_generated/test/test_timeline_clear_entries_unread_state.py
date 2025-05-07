@@ -15,10 +15,10 @@
 
 import unittest
 
-from twitter_openapi_python_generated.models.timeline_v2 import TimelineV2
+from twitter_openapi_python_generated.models.timeline_clear_entries_unread_state import TimelineClearEntriesUnreadState
 
-class TestTimelineV2(unittest.TestCase):
-    """TimelineV2 unit test stubs"""
+class TestTimelineClearEntriesUnreadState(unittest.TestCase):
+    """TimelineClearEntriesUnreadState unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,26 @@ class TestTimelineV2(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> TimelineV2:
-        """Test TimelineV2
+    def make_instance(self, include_optional) -> TimelineClearEntriesUnreadState:
+        """Test TimelineClearEntriesUnreadState
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `TimelineV2`
+        # uncomment below to create an instance of `TimelineClearEntriesUnreadState`
         """
-        model = TimelineV2()
+        model = TimelineClearEntriesUnreadState()
         if include_optional:
-            return TimelineV2(
-                timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                    instructions = [
-                        null
-                        ], 
-                    metadata = { }, 
-                    response_objects = { }, )
+            return TimelineClearEntriesUnreadState(
+                type = 'TimelineAddEntries'
             )
         else:
-            return TimelineV2(
+            return TimelineClearEntriesUnreadState(
+                type = 'TimelineAddEntries',
         )
         """
 
-    def testTimelineV2(self):
-        """Test TimelineV2"""
+    def testTimelineClearEntriesUnreadState(self):
+        """Test TimelineClearEntriesUnreadState"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

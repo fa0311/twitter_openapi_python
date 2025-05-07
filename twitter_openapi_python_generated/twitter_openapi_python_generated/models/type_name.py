@@ -40,6 +40,8 @@ class TypeName(str, Enum):
     TIMELINECOMMUNITY = 'TimelineCommunity'
     TIMELINETOMBSTONE = 'TimelineTombstone'
     TIMELINETREND = 'TimelineTrend'
+    TIMELINENOTIFICATION = 'TimelineNotification'
+    TIMELINENOTIFICATIONAGGREGATEUSERACTIONS = 'TimelineNotificationAggregateUserActions'
     TWEETUNAVAILABLE = 'TweetUnavailable'
     TWEETPREVIEWDISPLAY = 'TweetPreviewDisplay'
     TWEET = 'Tweet'

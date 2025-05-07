@@ -39,8 +39,9 @@ class BirdwatchPivot(BaseModel):
     shorttitle: Optional[StrictStr] = None
     subtitle: Optional[BirdwatchPivotSubtitle] = None
     title: StrictStr
+    title_detail: Optional[StrictStr] = Field(default=None, alias="titleDetail")
     visual_style: Optional[StrictStr] = Field(default=None, alias="visualStyle")
-    __properties: ClassVar[List[str]] = ["callToAction", "destinationUrl", "footer", "iconType", "note", "shorttitle", "subtitle", "title", "visualStyle"]
+    __properties: ClassVar[List[str]] = ["callToAction", "destinationUrl", "footer", "iconType", "note", "shorttitle", "subtitle", "title", "titleDetail", "visualStyle"]
 
     @field_validator('icon_type')
     def icon_type_validate_enum(cls, value):
@@ -130,6 +131,7 @@ class BirdwatchPivot(BaseModel):
             "shorttitle": obj.get("shorttitle"),
             "subtitle": BirdwatchPivotSubtitle.from_dict(obj["subtitle"]) if obj.get("subtitle") is not None else None,
             "title": obj.get("title"),
+            "titleDetail": obj.get("titleDetail"),
             "visualStyle": obj.get("visualStyle")
         })
         return _obj

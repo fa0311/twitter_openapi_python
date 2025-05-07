@@ -28,9 +28,11 @@ class PostDeleteBookmarkRequest(BaseModel):
     """
     PostDeleteBookmarkRequest
     """ # noqa: E501
+    method: StrictStr = Field(alias="@method")
+    path: StrictStr = Field(alias="@path")
     query_id: StrictStr = Field(alias="queryId")
     variables: PostCreateBookmarkRequestVariables
-    __properties: ClassVar[List[str]] = ["queryId", "variables"]
+    __properties: ClassVar[List[str]] = ["@method", "@path", "queryId", "variables"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,6 +88,8 @@ class PostDeleteBookmarkRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "@method": obj.get("@method") if obj.get("@method") is not None else 'POST',
+            "@path": obj.get("@path") if obj.get("@path") is not None else '/i/api/graphql/Wlmlj2-xzyS1GN3a6cj-mQ/DeleteBookmark',
             "queryId": obj.get("queryId") if obj.get("queryId") is not None else 'Wlmlj2-xzyS1GN3a6cj-mQ',
             "variables": PostCreateBookmarkRequestVariables.from_dict(obj["variables"]) if obj.get("variables") is not None else None
         })

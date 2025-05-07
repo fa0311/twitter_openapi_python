@@ -70,6 +70,7 @@ class TestBirdwatchPivot(unittest.TestCase):
                         ], 
                     text = '', ),
                 title = '',
+                title_detail = '',
                 visual_style = 'Default'
             )
         else:

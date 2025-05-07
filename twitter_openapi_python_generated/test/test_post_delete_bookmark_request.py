@@ -36,12 +36,16 @@ class TestPostDeleteBookmarkRequest(unittest.TestCase):
         model = PostDeleteBookmarkRequest()
         if include_optional:
             return PostDeleteBookmarkRequest(
+                method = 'POST',
+                path = '/i/api/graphql/Wlmlj2-xzyS1GN3a6cj-mQ/DeleteBookmark',
                 query_id = 'Wlmlj2-xzyS1GN3a6cj-mQ',
                 variables = twitter_openapi_python_generated.models.post_create_bookmark_request_variables.postCreateBookmark_request_variables(
                     tweet_id = '1349129669258448897', )
             )
         else:
             return PostDeleteBookmarkRequest(
+                method = 'POST',
+                path = '/i/api/graphql/Wlmlj2-xzyS1GN3a6cj-mQ/DeleteBookmark',
                 query_id = 'Wlmlj2-xzyS1GN3a6cj-mQ',
                 variables = twitter_openapi_python_generated.models.post_create_bookmark_request_variables.postCreateBookmark_request_variables(
                     tweet_id = '1349129669258448897', ),

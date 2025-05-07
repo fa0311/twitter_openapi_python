@@ -36,7 +36,8 @@ class TestTweetRetweetersResponseData(unittest.TestCase):
         model = TweetRetweetersResponseData()
         if include_optional:
             return TweetRetweetersResponseData(
-                retweeters_timeline = twitter_openapi_python_generated.models.timeline_v2.TimelineV2(
+                retweeters_timeline = twitter_openapi_python_generated.models.timeline_result.TimelineResult(
+                    id = '', 
                     timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                         instructions = [
                             null

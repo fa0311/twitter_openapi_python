@@ -81,10 +81,6 @@ class TestContentUnion(unittest.TestCase):
         else:
             return ContentUnion(
                 typename = 'TimelineTweet',
-                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
-                    component = '', 
-                    details = { }, 
-                    element = '', ),
                 entry_type = 'TimelineTimelineItem',
                 item_content = None,
                 display_type = 'Vertical',

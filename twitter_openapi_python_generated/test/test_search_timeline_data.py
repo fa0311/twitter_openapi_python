@@ -47,6 +47,14 @@ class TestSearchTimelineData(unittest.TestCase):
             )
         else:
             return SearchTimelineData(
+                search_by_raw_query = twitter_openapi_python_generated.models.search_by_raw_query.SearchByRawQuery(
+                    search_timeline = twitter_openapi_python_generated.models.search_timeline.SearchTimeline(
+                        timeline = twitter_openapi_python_generated.models.timeline.Timeline(
+                            instructions = [
+                                null
+                                ], 
+                            metadata = { }, 
+                            response_objects = { }, ), ), ),
         )
         """
 

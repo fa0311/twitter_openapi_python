@@ -6,12 +6,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**images** | [**List[TrendImage]**](TrendImage.md) |  | 
+**images** | [**List[TrendImage]**](TrendImage.md) |  | [optional] 
 **is_ai_trend** | **bool** |  | [optional] 
-**item_type** | [**ContentItemType**](ContentItemType.md) |  | 
+**item_type** | [**ContentItemType**](ContentItemType.md) |  | [optional] 
 **name** | **str** |  | 
 **social_context** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
-**thumbnail_image** | [**ThumbnailImage**](ThumbnailImage.md) |  | 
+**thumbnail_image** | [**ThumbnailImage**](ThumbnailImage.md) |  | [optional] 
 **trend_metadata** | [**TrendMetadata**](TrendMetadata.md) |  | 
 **trend_url** | [**SocialContextLandingUrl**](SocialContextLandingUrl.md) |  | 
 

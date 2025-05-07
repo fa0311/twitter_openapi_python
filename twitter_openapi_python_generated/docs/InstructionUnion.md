@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **direction** | **str** |  | 
 **client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | 
 **cover** | [**TimelineHalfCover**](TimelineHalfCover.md) |  | 
+**sort_index** | **str** |  | [optional] 
 
 ## Example
 

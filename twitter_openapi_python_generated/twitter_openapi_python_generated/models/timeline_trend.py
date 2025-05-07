@@ -35,12 +35,12 @@ class TimelineTrend(BaseModel):
     TimelineTrend
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
-    images: List[TrendImage]
+    images: Optional[List[TrendImage]] = None
     is_ai_trend: Optional[StrictBool] = None
-    item_type: ContentItemType = Field(alias="itemType")
+    item_type: Optional[ContentItemType] = Field(default=None, alias="itemType")
     name: StrictStr
     social_context: Optional[SocialContextUnion] = None
-    thumbnail_image: ThumbnailImage
+    thumbnail_image: Optional[ThumbnailImage] = None
     trend_metadata: TrendMetadata
     trend_url: SocialContextLandingUrl
     __properties: ClassVar[List[str]] = ["__typename", "images", "is_ai_trend", "itemType", "name", "social_context", "thumbnail_image", "trend_metadata", "trend_url"]

@@ -33,6 +33,24 @@ class TestTweetApi(unittest.TestCase):
         """
         pass
 
+    def test_get_community_about_timeline(self) -> None:
+        """Test case for get_community_about_timeline
+
+        """
+        pass
+
+    def test_get_community_media_timeline(self) -> None:
+        """Test case for get_community_media_timeline
+
+        """
+        pass
+
+    def test_get_community_tweets_timeline(self) -> None:
+        """Test case for get_community_tweets_timeline
+
+        """
+        pass
+
     def test_get_home_latest_timeline(self) -> None:
         """Test case for get_home_latest_timeline
 
@@ -53,6 +71,12 @@ class TestTweetApi(unittest.TestCase):
 
     def test_get_list_latest_tweets_timeline(self) -> None:
         """Test case for get_list_latest_tweets_timeline
+
+        """
+        pass
+
+    def test_get_notifications_timeline(self) -> None:
+        """Test case for get_notifications_timeline
 
         """
         pass

@@ -36,6 +36,9 @@ class TestSocialContextUnion(unittest.TestCase):
         model = SocialContextUnion()
         if include_optional:
             return SocialContextUnion(
+                context_image_urls = [
+                    ''
+                    ],
                 context_type = 'Follow',
                 landing_url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
                     url = '', 

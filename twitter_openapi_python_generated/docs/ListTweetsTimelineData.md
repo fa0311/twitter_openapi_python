@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**list** | [**ListTweetsTimelineList**](ListTweetsTimelineList.md) |  | [optional] 
+**list** | [**ListTweetsTimelineList**](ListTweetsTimelineList.md) |  | 
 
 ## Example
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**home** | [**HomeTimelineHome**](HomeTimelineHome.md) |  | [optional] 
+**home** | [**HomeTimelineHome**](HomeTimelineHome.md) |  | 
 
 ## Example
 

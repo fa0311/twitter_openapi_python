@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**method** | **str** |  | [default to 'POST']
+**path** | **str** |  | [default to '/i/api/graphql/ZYKSe-w7KEslx3JhSIk5LA/UnfavoriteTweet']
 **query_id** | **str** |  | [default to 'ZYKSe-w7KEslx3JhSIk5LA']
 **variables** | [**PostCreateRetweetRequestVariables**](PostCreateRetweetRequestVariables.md) |  | 
 

@@ -36,6 +36,9 @@ class TestTimelineGeneralContext(unittest.TestCase):
         model = TimelineGeneralContext()
         if include_optional:
             return TimelineGeneralContext(
+                context_image_urls = [
+                    ''
+                    ],
                 context_type = 'Follow',
                 landing_url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
                     url = '', 

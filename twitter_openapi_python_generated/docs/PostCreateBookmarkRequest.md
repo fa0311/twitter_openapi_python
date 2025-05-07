@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**method** | **str** |  | [default to 'POST']
+**path** | **str** |  | [default to '/i/api/graphql/aoDbu3RHznuiSkQ9aNM67Q/CreateBookmark']
 **query_id** | **str** |  | [default to 'aoDbu3RHznuiSkQ9aNM67Q']
 **variables** | [**PostCreateBookmarkRequestVariables**](PostCreateBookmarkRequestVariables.md) |  | 
 

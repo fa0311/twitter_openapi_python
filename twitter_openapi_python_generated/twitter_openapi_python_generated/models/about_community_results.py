@@ -19,17 +19,17 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.timeline import Timeline
+from typing import Any, ClassVar, Dict, List
+from twitter_openapi_python_generated.models.about_community_result import AboutCommunityResult
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TimelineV2(BaseModel):
+class AboutCommunityResults(BaseModel):
     """
-    TimelineV2
+    AboutCommunityResults
     """ # noqa: E501
-    timeline: Optional[Timeline] = None
-    __properties: ClassVar[List[str]] = ["timeline"]
+    result: AboutCommunityResult
+    __properties: ClassVar[List[str]] = ["result"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +49,7 @@ class TimelineV2(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TimelineV2 from a JSON string"""
+        """Create an instance of AboutCommunityResults from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,14 +70,14 @@ class TimelineV2(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of timeline
-        if self.timeline:
-            _dict['timeline'] = self.timeline.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of result
+        if self.result:
+            _dict['result'] = self.result.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TimelineV2 from a dict"""
+        """Create an instance of AboutCommunityResults from a dict"""
         if obj is None:
             return None
 
@@ -85,7 +85,7 @@ class TimelineV2(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "timeline": Timeline.from_dict(obj["timeline"]) if obj.get("timeline") is not None else None
+            "result": AboutCommunityResult.from_dict(obj["result"]) if obj.get("result") is not None else None
         })
         return _obj
 

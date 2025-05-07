@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**analysis_post_id_results** | [**AnalysisResults**](AnalysisResults.md) |  | [optional] 
 **media_urls** | **List[str]** |  | 
 **message** | **str** |  | 
 

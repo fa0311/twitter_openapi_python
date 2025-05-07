@@ -36,12 +36,16 @@ class TestPostCreateBookmarkRequest(unittest.TestCase):
         model = PostCreateBookmarkRequest()
         if include_optional:
             return PostCreateBookmarkRequest(
+                method = 'POST',
+                path = '/i/api/graphql/aoDbu3RHznuiSkQ9aNM67Q/CreateBookmark',
                 query_id = 'aoDbu3RHznuiSkQ9aNM67Q',
                 variables = twitter_openapi_python_generated.models.post_create_bookmark_request_variables.postCreateBookmark_request_variables(
                     tweet_id = '1349129669258448897', )
             )
         else:
             return PostCreateBookmarkRequest(
+                method = 'POST',
+                path = '/i/api/graphql/aoDbu3RHznuiSkQ9aNM67Q/CreateBookmark',
                 query_id = 'aoDbu3RHznuiSkQ9aNM67Q',
                 variables = twitter_openapi_python_generated.models.post_create_bookmark_request_variables.postCreateBookmark_request_variables(
                     tweet_id = '1349129669258448897', ),

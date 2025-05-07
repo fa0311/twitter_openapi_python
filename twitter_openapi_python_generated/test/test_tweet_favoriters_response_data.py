@@ -36,7 +36,8 @@ class TestTweetFavoritersResponseData(unittest.TestCase):
         model = TweetFavoritersResponseData()
         if include_optional:
             return TweetFavoritersResponseData(
-                favoriters_timeline = twitter_openapi_python_generated.models.timeline_v2.TimelineV2(
+                favoriters_timeline = twitter_openapi_python_generated.models.timeline_result.TimelineResult(
+                    id = '', 
                     timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                         instructions = [
                             null

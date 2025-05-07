@@ -36,12 +36,16 @@ class TestPostFavoriteTweetRequest(unittest.TestCase):
         model = PostFavoriteTweetRequest()
         if include_optional:
             return PostFavoriteTweetRequest(
+                method = 'POST',
+                path = '/i/api/graphql/lI07N6Otwv1PhnEgXILM7A/FavoriteTweet',
                 query_id = 'lI07N6Otwv1PhnEgXILM7A',
                 variables = twitter_openapi_python_generated.models.post_create_bookmark_request_variables.postCreateBookmark_request_variables(
                     tweet_id = '1349129669258448897', )
             )
         else:
             return PostFavoriteTweetRequest(
+                method = 'POST',
+                path = '/i/api/graphql/lI07N6Otwv1PhnEgXILM7A/FavoriteTweet',
                 query_id = 'lI07N6Otwv1PhnEgXILM7A',
                 variables = twitter_openapi_python_generated.models.post_create_bookmark_request_variables.postCreateBookmark_request_variables(
                     tweet_id = '1349129669258448897', ),

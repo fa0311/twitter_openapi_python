@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +27,10 @@ class GrokShareAttachmentItem(BaseModel):
     """
     GrokShareAttachmentItem
     """ # noqa: E501
+    analysis_post_id_results: Optional[AnalysisResults] = None
     media_urls: List[StrictStr]
     message: StrictStr
-    __properties: ClassVar[List[str]] = ["media_urls", "message"]
+    __properties: ClassVar[List[str]] = ["analysis_post_id_results", "media_urls", "message"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +71,9 @@ class GrokShareAttachmentItem(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of analysis_post_id_results
+        if self.analysis_post_id_results:
+            _dict['analysis_post_id_results'] = self.analysis_post_id_results.to_dict()
         return _dict
 
     @classmethod
@@ -82,9 +86,13 @@ class GrokShareAttachmentItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "analysis_post_id_results": AnalysisResults.from_dict(obj["analysis_post_id_results"]) if obj.get("analysis_post_id_results") is not None else None,
             "media_urls": obj.get("media_urls"),
             "message": obj.get("message")
         })
         return _obj
 
+from twitter_openapi_python_generated.models.analysis_results import AnalysisResults
+# TODO: Rewrite to not use raise_errors
+GrokShareAttachmentItem.model_rebuild(raise_errors=False)
 

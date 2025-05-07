@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**method** | **str** |  | [default to 'POST']
+**path** | **str** |  | [default to '/i/api/graphql/iQtK4dl5hBmXewYZuEOKVw/DeleteRetweet']
 **query_id** | **str** |  | [default to 'iQtK4dl5hBmXewYZuEOKVw']
 **variables** | [**PostDeleteRetweetRequestVariables**](PostDeleteRetweetRequestVariables.md) |  | 
 

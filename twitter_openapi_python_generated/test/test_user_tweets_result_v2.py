@@ -15,10 +15,10 @@
 
 import unittest
 
-from twitter_openapi_python_generated.models.user_tweets_result import UserTweetsResult
+from twitter_openapi_python_generated.models.user_tweets_result_v2 import UserTweetsResultV2
 
-class TestUserTweetsResult(unittest.TestCase):
-    """UserTweetsResult unit test stubs"""
+class TestUserTweetsResultV2(unittest.TestCase):
+    """UserTweetsResultV2 unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,18 +26,19 @@ class TestUserTweetsResult(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> UserTweetsResult:
-        """Test UserTweetsResult
+    def make_instance(self, include_optional) -> UserTweetsResultV2:
+        """Test UserTweetsResultV2
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `UserTweetsResult`
+        # uncomment below to create an instance of `UserTweetsResultV2`
         """
-        model = UserTweetsResult()
+        model = UserTweetsResultV2()
         if include_optional:
-            return UserTweetsResult(
+            return UserTweetsResultV2(
                 typename = 'TimelineTweet',
-                timeline_v2 = twitter_openapi_python_generated.models.timeline_v2.TimelineV2(
+                timeline_v2 = twitter_openapi_python_generated.models.timeline_result.TimelineResult(
+                    id = '', 
                     timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                         instructions = [
                             null
@@ -46,9 +47,10 @@ class TestUserTweetsResult(unittest.TestCase):
                         response_objects = { }, ), )
             )
         else:
-            return UserTweetsResult(
+            return UserTweetsResultV2(
                 typename = 'TimelineTweet',
-                timeline_v2 = twitter_openapi_python_generated.models.timeline_v2.TimelineV2(
+                timeline_v2 = twitter_openapi_python_generated.models.timeline_result.TimelineResult(
+                    id = '', 
                     timeline = twitter_openapi_python_generated.models.timeline.Timeline(
                         instructions = [
                             null
@@ -58,8 +60,8 @@ class TestUserTweetsResult(unittest.TestCase):
         )
         """
 
-    def testUserTweetsResult(self):
-        """Test UserTweetsResult"""
+    def testUserTweetsResultV2(self):
+        """Test UserTweetsResultV2"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

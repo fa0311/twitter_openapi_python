@@ -79,6 +79,9 @@ class TestTweetLegacy(unittest.TestCase):
                             media_key = '', 
                             media_results = twitter_openapi_python_generated.models.media_results.MediaResults(
                                 result = twitter_openapi_python_generated.models.media_result.MediaResult(
+                                    grok_image_annotation = twitter_openapi_python_generated.models.grok_image_annotation.GrokImageAnnotation(
+                                        prompt = '', 
+                                        upsampled_prompt = '', ), 
                                     media_key = '', ), ), 
                             media_url_https = '', 
                             original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
@@ -177,6 +180,9 @@ class TestTweetLegacy(unittest.TestCase):
                             media_key = '', 
                             media_results = twitter_openapi_python_generated.models.media_results.MediaResults(
                                 result = twitter_openapi_python_generated.models.media_result.MediaResult(
+                                    grok_image_annotation = twitter_openapi_python_generated.models.grok_image_annotation.GrokImageAnnotation(
+                                        prompt = '', 
+                                        upsampled_prompt = '', ), 
                                     media_key = '', ), ), 
                             media_url_https = '', 
                             original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
@@ -295,6 +301,9 @@ class TestTweetLegacy(unittest.TestCase):
                             media_key = '', 
                             media_results = twitter_openapi_python_generated.models.media_results.MediaResults(
                                 result = twitter_openapi_python_generated.models.media_result.MediaResult(
+                                    grok_image_annotation = twitter_openapi_python_generated.models.grok_image_annotation.GrokImageAnnotation(
+                                        prompt = '', 
+                                        upsampled_prompt = '', ), 
                                     media_key = '', ), ), 
                             media_url_https = '', 
                             original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
