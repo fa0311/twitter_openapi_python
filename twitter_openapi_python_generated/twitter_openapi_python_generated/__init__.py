@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.32"
+__version__ = "0.0.33"
 
 # import apis into sdk package
 from twitter_openapi_python_generated.api.default_api import DefaultApi

@@ -5,8 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**method** | **str** |  | [default to 'POST']
-**path** | **str** |  | [default to '/i/api/graphql/Wlmlj2-xzyS1GN3a6cj-mQ/DeleteBookmark']
 **query_id** | **str** |  | [default to 'Wlmlj2-xzyS1GN3a6cj-mQ']
 **variables** | [**PostCreateBookmarkRequestVariables**](PostCreateBookmarkRequestVariables.md) |  | 
 

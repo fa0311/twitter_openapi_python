@@ -36,8 +36,6 @@ class TestPostCreateTweetRequest(unittest.TestCase):
         model = PostCreateTweetRequest()
         if include_optional:
             return PostCreateTweetRequest(
-                method = 'POST',
-                path = '/i/api/graphql/IID9x6WsdMnTlXnzXGq8ng/CreateTweet',
                 features = twitter_openapi_python_generated.models.post_create_tweet_request_features.postCreateTweet_request_features(
                     articles_preview_enabled = True, 
                     c9s_tweet_anatomy_moderator_badge_enabled = True, 
@@ -96,8 +94,6 @@ class TestPostCreateTweetRequest(unittest.TestCase):
             )
         else:
             return PostCreateTweetRequest(
-                method = 'POST',
-                path = '/i/api/graphql/IID9x6WsdMnTlXnzXGq8ng/CreateTweet',
                 features = twitter_openapi_python_generated.models.post_create_tweet_request_features.postCreateTweet_request_features(
                     articles_preview_enabled = True, 
                     c9s_tweet_anatomy_moderator_badge_enabled = True, 

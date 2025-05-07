@@ -5,8 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**method** | **str** |  | [default to 'POST']
-**path** | **str** |  | [default to '/i/api/graphql/lI07N6Otwv1PhnEgXILM7A/FavoriteTweet']
 **query_id** | **str** |  | [default to 'lI07N6Otwv1PhnEgXILM7A']
 **variables** | [**PostCreateBookmarkRequestVariables**](PostCreateBookmarkRequestVariables.md) |  | 
 

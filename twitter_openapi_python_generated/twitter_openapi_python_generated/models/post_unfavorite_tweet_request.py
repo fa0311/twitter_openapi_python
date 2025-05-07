@@ -28,11 +28,9 @@ class PostUnfavoriteTweetRequest(BaseModel):
     """
     PostUnfavoriteTweetRequest
     """ # noqa: E501
-    method: StrictStr = Field(alias="@method")
-    path: StrictStr = Field(alias="@path")
     query_id: StrictStr = Field(alias="queryId")
     variables: PostCreateRetweetRequestVariables
-    __properties: ClassVar[List[str]] = ["@method", "@path", "queryId", "variables"]
+    __properties: ClassVar[List[str]] = ["queryId", "variables"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,8 +86,6 @@ class PostUnfavoriteTweetRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "@method": obj.get("@method") if obj.get("@method") is not None else 'POST',
-            "@path": obj.get("@path") if obj.get("@path") is not None else '/i/api/graphql/ZYKSe-w7KEslx3JhSIk5LA/UnfavoriteTweet',
             "queryId": obj.get("queryId") if obj.get("queryId") is not None else 'ZYKSe-w7KEslx3JhSIk5LA',
             "variables": PostCreateRetweetRequestVariables.from_dict(obj["variables"]) if obj.get("variables") is not None else None
         })

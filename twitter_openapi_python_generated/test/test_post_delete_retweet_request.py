@@ -36,8 +36,6 @@ class TestPostDeleteRetweetRequest(unittest.TestCase):
         model = PostDeleteRetweetRequest()
         if include_optional:
             return PostDeleteRetweetRequest(
-                method = 'POST',
-                path = '/i/api/graphql/iQtK4dl5hBmXewYZuEOKVw/DeleteRetweet',
                 query_id = 'iQtK4dl5hBmXewYZuEOKVw',
                 variables = twitter_openapi_python_generated.models.post_delete_retweet_request_variables.postDeleteRetweet_request_variables(
                     dark_request = False, 
@@ -45,8 +43,6 @@ class TestPostDeleteRetweetRequest(unittest.TestCase):
             )
         else:
             return PostDeleteRetweetRequest(
-                method = 'POST',
-                path = '/i/api/graphql/iQtK4dl5hBmXewYZuEOKVw/DeleteRetweet',
                 query_id = 'iQtK4dl5hBmXewYZuEOKVw',
                 variables = twitter_openapi_python_generated.models.post_delete_retweet_request_variables.postDeleteRetweet_request_variables(
                     dark_request = False, 

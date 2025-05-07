@@ -5,8 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**method** | **str** |  | [default to 'POST']
-**path** | **str** |  | [default to '/i/api/graphql/IID9x6WsdMnTlXnzXGq8ng/CreateTweet']
 **features** | [**PostCreateTweetRequestFeatures**](PostCreateTweetRequestFeatures.md) |  | 
 **query_id** | **str** |  | [default to 'IID9x6WsdMnTlXnzXGq8ng']
 **variables** | [**PostCreateTweetRequestVariables**](PostCreateTweetRequestVariables.md) |  | 

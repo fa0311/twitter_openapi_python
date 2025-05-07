@@ -5,8 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**method** | **str** |  | [default to 'POST']
-**path** | **str** |  | [default to '/i/api/graphql/VaenaVgh5q5ih7kvyVjgtg/DeleteTweet']
 **query_id** | **str** |  | [default to 'VaenaVgh5q5ih7kvyVjgtg']
 **variables** | [**PostCreateRetweetRequestVariables**](PostCreateRetweetRequestVariables.md) |  | 
 

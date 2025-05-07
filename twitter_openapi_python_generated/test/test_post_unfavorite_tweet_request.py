@@ -36,8 +36,6 @@ class TestPostUnfavoriteTweetRequest(unittest.TestCase):
         model = PostUnfavoriteTweetRequest()
         if include_optional:
             return PostUnfavoriteTweetRequest(
-                method = 'POST',
-                path = '/i/api/graphql/ZYKSe-w7KEslx3JhSIk5LA/UnfavoriteTweet',
                 query_id = 'ZYKSe-w7KEslx3JhSIk5LA',
                 variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(
                     dark_request = False, 
@@ -45,8 +43,6 @@ class TestPostUnfavoriteTweetRequest(unittest.TestCase):
             )
         else:
             return PostUnfavoriteTweetRequest(
-                method = 'POST',
-                path = '/i/api/graphql/ZYKSe-w7KEslx3JhSIk5LA/UnfavoriteTweet',
                 query_id = 'ZYKSe-w7KEslx3JhSIk5LA',
                 variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(
                     dark_request = False, 
