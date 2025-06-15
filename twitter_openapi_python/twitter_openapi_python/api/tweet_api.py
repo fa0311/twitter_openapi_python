@@ -301,12 +301,13 @@ class TweetApiUtils:
 
     def get_community_tweets_timeline(
         self,
+        community_id: str,
         cursor: Optional[str] = None,
         count: Optional[int] = None,
         rankingMode: Optional[Literal["Recency", "Relevance"]] = None,
         extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: ParamType = {}
+        param: ParamType = {"communityId": community_id}
         if cursor is not None:
             param["cursor"] = cursor
         if count is not None:
@@ -328,11 +329,12 @@ class TweetApiUtils:
 
     def get_community_media_timeline(
         self,
+        community_id: str,
         cursor: Optional[str] = None,
         count: Optional[int] = None,
         extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
-        param: ParamType = {}
+        param: ParamType = {"communityId": community_id}
         if cursor is not None:
             param["cursor"] = cursor
         if count is not None:

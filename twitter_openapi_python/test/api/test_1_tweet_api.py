@@ -60,12 +60,12 @@ class TestTweetApi(unittest.TestCase):
             print_tweet(tweet)
 
     def test_get_community_tweets_timeline(self):
-        result = self.client.get_community_tweets_timeline()
+        result = self.client.get_community_tweets_timeline(community_id="1489422448332197888")
         for tweet in list(filter(self.ad_fillter, result.data.data)):
             print_tweet(tweet)
 
     def test_get_community_media_timeline(self):
-        result = self.client.get_community_media_timeline()
+        result = self.client.get_community_media_timeline(community_id="1489422448332197888")
         for tweet in list(filter(self.ad_fillter, result.data.data)):
             print_tweet(tweet)
 
