@@ -54,10 +54,10 @@ class TwitterOpenapiPythonClient:
         return UserListApiUtils(twitter.UserListApi(self.api), self.placeholder, self.ct)
 
     def get_v11_get_api(self) -> V11GetApiUtils:
-        return V11GetApiUtils(twitter.V11GetApi(self.api), self.placeholder, self.ct)
+        return V11GetApiUtils(twitter.V11GetApi(self.api), self.placeholder)
 
     def get_v11_post_api(self) -> V11PostApiUtils:
-        return V11PostApiUtils(twitter.V11PostApi(self.api), self.placeholder, self.ct)
+        return V11PostApiUtils(twitter.V11PostApi(self.api), self.placeholder)
 
 
 class TwitterOpenapiPython:

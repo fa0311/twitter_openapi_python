@@ -9,6 +9,9 @@ def login():
     if Path("cookie.json").exists():
         with open("cookie.json", "r") as f:
             cookies_dict = json.load(f)
+
+        if isinstance(cookies_dict, list):
+            cookies_dict = {cookie['name']: cookie['value'] for cookie in cookies_dict}
         cookies = RequestsCookieJar()
         for key, value in cookies_dict.items():
             cookies.set(key, value)

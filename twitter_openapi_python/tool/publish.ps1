@@ -1,5 +1,5 @@
 pip install wheel twine
-Remove-Item twitter_openapi_python_generated.egg-info/*
+Remove-Item twitter_openapi_python.egg-info/*
 Remove-Item dist/*
 python setup.py sdist
 python setup.py bdist_wheel
