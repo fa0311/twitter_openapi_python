@@ -256,17 +256,17 @@ def build_cursor(list: list[models.TimelineTimelineCursor]) -> CursorApiUtilsRes
 def build_header(headers: Dict[str, str]) -> ApiUtilsHeader:
     return ApiUtilsHeader(
         raw=headers,
-        connection_hash=headers["x-connection-hash"],
-        content_type_options=headers["x-content-type-options"],
-        frame_options=headers["x-frame-options"],
+        connection_hash=headers.get("x-connection-hash", ""),
+        content_type_options=headers.get("x-content-type-options", ""),
+        frame_options=headers.get("x-frame-options", ""),
         rate_limit_limit=int(headers.get("x-rate-limit-limit", 0)),
         rate_limit_remaining=int(headers.get("x-rate-limit-remaining", 0)),
         rate_limit_reset=int(headers.get("x-rate-limit-reset", 0)),
-        response_time=int(headers["x-response-time"]),
+        response_time=int(headers.get("x-response-time", 0)),
         tfe_preserve_body=headers.get("x-tfe-preserve-body") == "true",
-        transaction_id=headers["x-transaction-id"],
-        twitter_response_tags=headers["x-twitter-response-tags"],
-        xss_protection=int(headers["x-xss-protection"]),
+        transaction_id=headers.get("x-transaction-id", ""),
+        twitter_response_tags=headers.get("x-twitter-response-tags", ""),
+        xss_protection=int(headers.get("x-xss-protection", 0)),
     )
 
 
