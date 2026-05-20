@@ -20,16 +20,17 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.community import Community
+from twitter_openapi_python_generated.models.community_result import CommunityResult
 from twitter_openapi_python_generated.models.user_results import UserResults
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class AuthorCommunityRelationship(BaseModel):
     """
     AuthorCommunityRelationship
     """ # noqa: E501
-    community_results: Community
+    community_results: CommunityResult
     role: Optional[StrictStr] = None
     user_results: Optional[UserResults] = None
     __properties: ClassVar[List[str]] = ["community_results", "role", "user_results"]
@@ -40,12 +41,13 @@ class AuthorCommunityRelationship(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['Member', 'Moderator', 'Admin']):
-            raise ValueError("must be one of enum values ('Member', 'Moderator', 'Admin')")
+        if value not in set(['Member', 'Moderator', 'Admin', 'NonMember']):
+            raise ValueError("must be one of enum values ('Member', 'Moderator', 'Admin', 'NonMember')")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -57,8 +59,7 @@ class AuthorCommunityRelationship(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -101,7 +102,7 @@ class AuthorCommunityRelationship(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "community_results": Community.from_dict(obj["community_results"]) if obj.get("community_results") is not None else None,
+            "community_results": CommunityResult.from_dict(obj["community_results"]) if obj.get("community_results") is not None else None,
             "role": obj.get("role"),
             "user_results": UserResults.from_dict(obj["user_results"]) if obj.get("user_results") is not None else None
         })

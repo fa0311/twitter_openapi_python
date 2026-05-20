@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.article_cover_media import ArticleCoverMedia
@@ -26,29 +26,37 @@ from twitter_openapi_python_generated.models.article_lifecycle_state import Arti
 from twitter_openapi_python_generated.models.article_metadata import ArticleMetadata
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ArticleResult(BaseModel):
     """
     ArticleResult
     """ # noqa: E501
-    cover_media: ArticleCoverMedia
+    content_state: Optional[Dict[str, Any]] = None
+    cover_media: Optional[ArticleCoverMedia] = None
     id: StrictStr
+    is_grok_summary_eligible: Optional[StrictBool] = None
     lifecycle_state: Optional[ArticleLifecycleState] = None
+    media_entities: Optional[List[ArticleCoverMedia]] = None
     metadata: ArticleMetadata
     preview_text: StrictStr
     rest_id: Annotated[str, Field(strict=True)]
     title: StrictStr
-    __properties: ClassVar[List[str]] = ["cover_media", "id", "lifecycle_state", "metadata", "preview_text", "rest_id", "title"]
+    __properties: ClassVar[List[str]] = ["content_state", "cover_media", "id", "is_grok_summary_eligible", "lifecycle_state", "media_entities", "metadata", "preview_text", "rest_id", "title"]
 
     @field_validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -60,8 +68,7 @@ class ArticleResult(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -92,6 +99,13 @@ class ArticleResult(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of lifecycle_state
         if self.lifecycle_state:
             _dict['lifecycle_state'] = self.lifecycle_state.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in media_entities (list)
+        _items = []
+        if self.media_entities:
+            for _item_media_entities in self.media_entities:
+                if _item_media_entities:
+                    _items.append(_item_media_entities.to_dict())
+            _dict['media_entities'] = _items
         # override the default output from pydantic by calling `to_dict()` of metadata
         if self.metadata:
             _dict['metadata'] = self.metadata.to_dict()
@@ -107,9 +121,12 @@ class ArticleResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "content_state": obj.get("content_state"),
             "cover_media": ArticleCoverMedia.from_dict(obj["cover_media"]) if obj.get("cover_media") is not None else None,
             "id": obj.get("id"),
+            "is_grok_summary_eligible": obj.get("is_grok_summary_eligible"),
             "lifecycle_state": ArticleLifecycleState.from_dict(obj["lifecycle_state"]) if obj.get("lifecycle_state") is not None else None,
+            "media_entities": [ArticleCoverMedia.from_dict(_item) for _item in obj["media_entities"]] if obj.get("media_entities") is not None else None,
             "metadata": ArticleMetadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None,
             "preview_text": obj.get("preview_text"),
             "rest_id": obj.get("rest_id"),

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **features** | [**PostCreateTweetRequestFeatures**](PostCreateTweetRequestFeatures.md) |  | 
-**query_id** | **str** |  | [default to 'IID9x6WsdMnTlXnzXGq8ng']
+**query_id** | **str** |  | [default to '5CdvsV_zjv4L64XFifAglw']
 **variables** | [**PostCreateTweetRequestVariables**](PostCreateTweetRequestVariables.md) |  | 
 
 ## Example

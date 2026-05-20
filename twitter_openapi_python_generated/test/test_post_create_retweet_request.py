@@ -36,14 +36,14 @@ class TestPostCreateRetweetRequest(unittest.TestCase):
         model = PostCreateRetweetRequest()
         if include_optional:
             return PostCreateRetweetRequest(
-                query_id = 'ojPdsZsimiJrUGLR1sjUtA',
+                query_id = 'mbRO74GrOvSfRcJnlMapnQ',
                 variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(
                     dark_request = False, 
                     tweet_id = '1349129669258448897', )
             )
         else:
             return PostCreateRetweetRequest(
-                query_id = 'ojPdsZsimiJrUGLR1sjUtA',
+                query_id = 'mbRO74GrOvSfRcJnlMapnQ',
                 variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(
                     dark_request = False, 
                     tweet_id = '1349129669258448897', ),

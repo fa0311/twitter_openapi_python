@@ -64,6 +64,7 @@ class TestNoteTweetResult(unittest.TestCase):
                                     reason = '', 
                                     status = 'Available', ), 
                                 features = twitter_openapi_python_generated.models.features.features(), 
+                                grok_post_id = '', 
                                 id_str = '4', 
                                 indices = [
                                     56
@@ -117,14 +118,21 @@ class TestNoteTweetResult(unittest.TestCase):
                                             url = '', )
                                         ], ), )
                             ], 
+                        smarttags = [
+                            twitter_openapi_python_generated.models.smarttag.Smarttag(
+                                indices = [
+                                    56
+                                    ], 
+                                tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                    info = { }, ), 
+                                text = '', )
+                            ], 
                         symbols = [
                             { }
                             ], 
                         timestamps = [
                             twitter_openapi_python_generated.models.timestamp.Timestamp(
-                                indices = [
-                                    56
-                                    ], 
+                                indices = , 
                                 seconds = 56, 
                                 text = '', )
                             ], 
@@ -186,6 +194,7 @@ class TestNoteTweetResult(unittest.TestCase):
                                     reason = '', 
                                     status = 'Available', ), 
                                 features = twitter_openapi_python_generated.models.features.features(), 
+                                grok_post_id = '', 
                                 id_str = '4', 
                                 indices = [
                                     56
@@ -239,14 +248,21 @@ class TestNoteTweetResult(unittest.TestCase):
                                             url = '', )
                                         ], ), )
                             ], 
+                        smarttags = [
+                            twitter_openapi_python_generated.models.smarttag.Smarttag(
+                                indices = [
+                                    56
+                                    ], 
+                                tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                    info = { }, ), 
+                                text = '', )
+                            ], 
                         symbols = [
                             { }
                             ], 
                         timestamps = [
                             twitter_openapi_python_generated.models.timestamp.Timestamp(
-                                indices = [
-                                    56
-                                    ], 
+                                indices = , 
                                 seconds = 56, 
                                 text = '', )
                             ], 

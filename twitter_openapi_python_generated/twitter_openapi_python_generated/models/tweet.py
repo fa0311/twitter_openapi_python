@@ -24,14 +24,18 @@ from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.article import Article
 from twitter_openapi_python_generated.models.author_community_relationship import AuthorCommunityRelationship
 from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot
-from twitter_openapi_python_generated.models.community import Community
 from twitter_openapi_python_generated.models.community_relationship import CommunityRelationship
+from twitter_openapi_python_generated.models.community_result import CommunityResult
+from twitter_openapi_python_generated.models.content_disclosure import ContentDisclosure
+from twitter_openapi_python_generated.models.grok_annotation import GrokAnnotation
+from twitter_openapi_python_generated.models.grok_translated_post_with_availability import GrokTranslatedPostWithAvailability
 from twitter_openapi_python_generated.models.note_tweet import NoteTweet
 from twitter_openapi_python_generated.models.super_follows_reply_user_result import SuperFollowsReplyUserResult
 from twitter_openapi_python_generated.models.trend_results import TrendResults
 from twitter_openapi_python_generated.models.tweet_card import TweetCard
 from twitter_openapi_python_generated.models.tweet_edit_control import TweetEditControl
 from twitter_openapi_python_generated.models.tweet_edit_prespective import TweetEditPrespective
+from twitter_openapi_python_generated.models.tweet_post_cta import TweetPostCta
 from twitter_openapi_python_generated.models.tweet_previous_counts import TweetPreviousCounts
 from twitter_openapi_python_generated.models.tweet_view import TweetView
 from twitter_openapi_python_generated.models.type_name import TypeName
@@ -39,6 +43,7 @@ from twitter_openapi_python_generated.models.unified_card import UnifiedCard
 from twitter_openapi_python_generated.models.user_result_core import UserResultCore
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class Tweet(BaseModel):
     """
@@ -50,17 +55,23 @@ class Tweet(BaseModel):
     birdwatch_pivot: Optional[BirdwatchPivot] = None
     card: Optional[TweetCard] = None
     community_relationship: Optional[CommunityRelationship] = None
-    community_results: Optional[Community] = None
+    community_results: Optional[CommunityResult] = None
+    content_disclosure: Optional[ContentDisclosure] = None
     core: Optional[UserResultCore] = None
     edit_control: Optional[TweetEditControl] = None
     edit_prespective: Optional[TweetEditPrespective] = None
     grok_analysis_button: Optional[StrictBool] = None
     grok_analysis_followups: Optional[List[StrictStr]] = None
+    grok_annotations: Optional[GrokAnnotation] = None
     grok_share_attachment: Optional[GrokShareAttachment] = None
+    grok_translated_post_with_availability: Optional[GrokTranslatedPostWithAvailability] = None
     has_birdwatch_notes: Optional[StrictBool] = None
     is_translatable: Optional[StrictBool] = None
     legacy: Optional[TweetLegacy] = None
     note_tweet: Optional[NoteTweet] = None
+    post_cta: Optional[TweetPostCta] = Field(default=None, alias="postCta")
+    post_image_description: Optional[StrictStr] = None
+    post_video_description: Optional[StrictStr] = None
     previous_counts: Optional[TweetPreviousCounts] = None
     quick_promote_eligibility: Optional[Dict[str, Any]] = None
     quoted_ref_result: Optional[QuotedRefResult] = Field(default=None, alias="quotedRefResult")
@@ -72,17 +83,21 @@ class Tweet(BaseModel):
     unified_card: Optional[UnifiedCard] = None
     unmention_data: Optional[Dict[str, Any]] = None
     views: Optional[TweetView] = None
-    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "community_relationship", "community_results", "core", "edit_control", "edit_prespective", "grok_analysis_button", "grok_analysis_followups", "grok_share_attachment", "has_birdwatch_notes", "is_translatable", "legacy", "note_tweet", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views"]
+    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "community_relationship", "community_results", "content_disclosure", "core", "edit_control", "edit_prespective", "grok_analysis_button", "grok_analysis_followups", "grok_annotations", "grok_share_attachment", "grok_translated_post_with_availability", "has_birdwatch_notes", "is_translatable", "legacy", "note_tweet", "postCta", "post_image_description", "post_video_description", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views"]
 
     @field_validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -94,8 +109,7 @@ class Tweet(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -138,6 +152,9 @@ class Tweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of community_results
         if self.community_results:
             _dict['community_results'] = self.community_results.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of content_disclosure
+        if self.content_disclosure:
+            _dict['content_disclosure'] = self.content_disclosure.to_dict()
         # override the default output from pydantic by calling `to_dict()` of core
         if self.core:
             _dict['core'] = self.core.to_dict()
@@ -147,15 +164,24 @@ class Tweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of edit_prespective
         if self.edit_prespective:
             _dict['edit_prespective'] = self.edit_prespective.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of grok_annotations
+        if self.grok_annotations:
+            _dict['grok_annotations'] = self.grok_annotations.to_dict()
         # override the default output from pydantic by calling `to_dict()` of grok_share_attachment
         if self.grok_share_attachment:
             _dict['grok_share_attachment'] = self.grok_share_attachment.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of grok_translated_post_with_availability
+        if self.grok_translated_post_with_availability:
+            _dict['grok_translated_post_with_availability'] = self.grok_translated_post_with_availability.to_dict()
         # override the default output from pydantic by calling `to_dict()` of legacy
         if self.legacy:
             _dict['legacy'] = self.legacy.to_dict()
         # override the default output from pydantic by calling `to_dict()` of note_tweet
         if self.note_tweet:
             _dict['note_tweet'] = self.note_tweet.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of post_cta
+        if self.post_cta:
+            _dict['postCta'] = self.post_cta.to_dict()
         # override the default output from pydantic by calling `to_dict()` of previous_counts
         if self.previous_counts:
             _dict['previous_counts'] = self.previous_counts.to_dict()
@@ -195,17 +221,23 @@ class Tweet(BaseModel):
             "birdwatch_pivot": BirdwatchPivot.from_dict(obj["birdwatch_pivot"]) if obj.get("birdwatch_pivot") is not None else None,
             "card": TweetCard.from_dict(obj["card"]) if obj.get("card") is not None else None,
             "community_relationship": CommunityRelationship.from_dict(obj["community_relationship"]) if obj.get("community_relationship") is not None else None,
-            "community_results": Community.from_dict(obj["community_results"]) if obj.get("community_results") is not None else None,
+            "community_results": CommunityResult.from_dict(obj["community_results"]) if obj.get("community_results") is not None else None,
+            "content_disclosure": ContentDisclosure.from_dict(obj["content_disclosure"]) if obj.get("content_disclosure") is not None else None,
             "core": UserResultCore.from_dict(obj["core"]) if obj.get("core") is not None else None,
             "edit_control": TweetEditControl.from_dict(obj["edit_control"]) if obj.get("edit_control") is not None else None,
             "edit_prespective": TweetEditPrespective.from_dict(obj["edit_prespective"]) if obj.get("edit_prespective") is not None else None,
             "grok_analysis_button": obj.get("grok_analysis_button"),
             "grok_analysis_followups": obj.get("grok_analysis_followups"),
+            "grok_annotations": GrokAnnotation.from_dict(obj["grok_annotations"]) if obj.get("grok_annotations") is not None else None,
             "grok_share_attachment": GrokShareAttachment.from_dict(obj["grok_share_attachment"]) if obj.get("grok_share_attachment") is not None else None,
+            "grok_translated_post_with_availability": GrokTranslatedPostWithAvailability.from_dict(obj["grok_translated_post_with_availability"]) if obj.get("grok_translated_post_with_availability") is not None else None,
             "has_birdwatch_notes": obj.get("has_birdwatch_notes"),
             "is_translatable": obj.get("is_translatable"),
             "legacy": TweetLegacy.from_dict(obj["legacy"]) if obj.get("legacy") is not None else None,
             "note_tweet": NoteTweet.from_dict(obj["note_tweet"]) if obj.get("note_tweet") is not None else None,
+            "postCta": TweetPostCta.from_dict(obj["postCta"]) if obj.get("postCta") is not None else None,
+            "post_image_description": obj.get("post_image_description"),
+            "post_video_description": obj.get("post_video_description"),
             "previous_counts": TweetPreviousCounts.from_dict(obj["previous_counts"]) if obj.get("previous_counts") is not None else None,
             "quick_promote_eligibility": obj.get("quick_promote_eligibility"),
             "quotedRefResult": QuotedRefResult.from_dict(obj["quotedRefResult"]) if obj.get("quotedRefResult") is not None else None,

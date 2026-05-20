@@ -58,6 +58,7 @@ class TestMedia(unittest.TestCase):
                     reason = '', 
                     status = 'Available', ),
                 features = twitter_openapi_python_generated.models.features.features(),
+                grok_post_id = '',
                 id_str = '4',
                 indices = [
                     56

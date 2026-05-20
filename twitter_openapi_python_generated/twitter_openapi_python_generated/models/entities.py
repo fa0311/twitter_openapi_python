@@ -21,25 +21,29 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.media import Media
+from twitter_openapi_python_generated.models.smarttag import Smarttag
 from twitter_openapi_python_generated.models.timestamp import Timestamp
 from twitter_openapi_python_generated.models.url import Url
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class Entities(BaseModel):
     """
     Entities
     """ # noqa: E501
-    hashtags: List[Dict[str, Any]]
+    hashtags: Optional[List[Dict[str, Any]]] = None
     media: Optional[List[Media]] = None
-    symbols: List[Dict[str, Any]]
+    smarttags: Optional[List[Smarttag]] = None
+    symbols: Optional[List[Dict[str, Any]]] = None
     timestamps: Optional[List[Timestamp]] = None
-    urls: List[Url]
-    user_mentions: List[Dict[str, Any]]
-    __properties: ClassVar[List[str]] = ["hashtags", "media", "symbols", "timestamps", "urls", "user_mentions"]
+    urls: Optional[List[Url]] = None
+    user_mentions: Optional[List[Dict[str, Any]]] = None
+    __properties: ClassVar[List[str]] = ["hashtags", "media", "smarttags", "symbols", "timestamps", "urls", "user_mentions"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -51,8 +55,7 @@ class Entities(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -84,6 +87,13 @@ class Entities(BaseModel):
                 if _item_media:
                     _items.append(_item_media.to_dict())
             _dict['media'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in smarttags (list)
+        _items = []
+        if self.smarttags:
+            for _item_smarttags in self.smarttags:
+                if _item_smarttags:
+                    _items.append(_item_smarttags.to_dict())
+            _dict['smarttags'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in timestamps (list)
         _items = []
         if self.timestamps:
@@ -112,6 +122,7 @@ class Entities(BaseModel):
         _obj = cls.model_validate({
             "hashtags": obj.get("hashtags"),
             "media": [Media.from_dict(_item) for _item in obj["media"]] if obj.get("media") is not None else None,
+            "smarttags": [Smarttag.from_dict(_item) for _item in obj["smarttags"]] if obj.get("smarttags") is not None else None,
             "symbols": obj.get("symbols"),
             "timestamps": [Timestamp.from_dict(_item) for _item in obj["timestamps"]] if obj.get("timestamps") is not None else None,
             "urls": [Url.from_dict(_item) for _item in obj["urls"]] if obj.get("urls") is not None else None,

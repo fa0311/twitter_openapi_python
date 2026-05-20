@@ -19,17 +19,20 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.article_preview import ArticlePreview
 from twitter_openapi_python_generated.models.tweet_preview_display_tweet_view_count import TweetPreviewDisplayTweetViewCount
 from twitter_openapi_python_generated.models.user_result_core import UserResultCore
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class TweetPreviewDisplayTweet(BaseModel):
     """
     TweetPreviewDisplayTweet
     """ # noqa: E501
+    article_preview: Optional[ArticlePreview] = None
     bookmark_count: StrictInt
     core: UserResultCore
     created_at: Annotated[str, Field(strict=True)]
@@ -41,11 +44,14 @@ class TweetPreviewDisplayTweet(BaseModel):
     retweet_count: StrictInt
     text: StrictStr
     view_count: TweetPreviewDisplayTweetViewCount
-    __properties: ClassVar[List[str]] = ["bookmark_count", "core", "created_at", "entities", "favorite_count", "quote_count", "reply_count", "rest_id", "retweet_count", "text", "view_count"]
+    __properties: ClassVar[List[str]] = ["article_preview", "bookmark_count", "core", "created_at", "entities", "favorite_count", "quote_count", "reply_count", "rest_id", "retweet_count", "text", "view_count"]
 
     @field_validator('created_at')
     def created_at_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$", value):
             raise ValueError(r"must validate the regular expression /^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$/")
         return value
@@ -53,12 +59,16 @@ class TweetPreviewDisplayTweet(BaseModel):
     @field_validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -70,8 +80,7 @@ class TweetPreviewDisplayTweet(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -96,6 +105,9 @@ class TweetPreviewDisplayTweet(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of article_preview
+        if self.article_preview:
+            _dict['article_preview'] = self.article_preview.to_dict()
         # override the default output from pydantic by calling `to_dict()` of core
         if self.core:
             _dict['core'] = self.core.to_dict()
@@ -114,6 +126,7 @@ class TweetPreviewDisplayTweet(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "article_preview": ArticlePreview.from_dict(obj["article_preview"]) if obj.get("article_preview") is not None else None,
             "bookmark_count": obj.get("bookmark_count"),
             "core": UserResultCore.from_dict(obj["core"]) if obj.get("core") is not None else None,
             "created_at": obj.get("created_at"),

@@ -5,6 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**grok_translated_community_note_with_availability** | [**GrokTranslatedCommunityNoteWithAvailability**](GrokTranslatedCommunityNoteWithAvailability.md) |  | [optional] 
+**is_community_note_translatable** | **bool** |  | [optional] 
+**language** | **str** |  | [optional] 
 **rest_id** | **str** |  | 
 
 ## Example

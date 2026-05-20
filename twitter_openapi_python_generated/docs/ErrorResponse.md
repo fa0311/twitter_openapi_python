@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **locations** | [**List[Location]**](Location.md) |  | 
 **message** | **str** |  | 
 **name** | **str** |  | 
-**path** | **List[object]** |  | 
+**path** | [**List[ErrorResponsePathInner]**](ErrorResponsePathInner.md) |  | 
 **retry_after** | **int** |  | [optional] 
 **source** | **str** |  | 
 **tracing** | [**Tracing**](Tracing.md) |  | 

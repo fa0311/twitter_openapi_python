@@ -48,6 +48,28 @@ class TestTweetPreviewDisplay(unittest.TestCase):
                             action = 'Reply', )
                         ], ),
                 tweet = twitter_openapi_python_generated.models.tweet_preview_display_tweet.TweetPreviewDisplayTweet(
+                    article_preview = twitter_openapi_python_generated.models.article_preview.ArticlePreview(
+                        article_id = 56, 
+                        cover_media = twitter_openapi_python_generated.models.article_cover_media.ArticleCoverMedia(
+                            id = '', 
+                            media_id = '4', 
+                            media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
+                                __typename = 'TimelineTweet', 
+                                color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
+                                    palette = [
+                                        twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
+                                            percentage = 1.337, 
+                                            rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
+                                                blue = 56, 
+                                                green = 56, 
+                                                red = 56, ), )
+                                        ], ), 
+                                original_img_height = 56, 
+                                original_img_url = '', 
+                                original_img_width = 56, ), 
+                            media_key = '', ), 
+                        preview_text = '', 
+                        title = '', ), 
                     bookmark_count = 56, 
                     core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
                         user_results = twitter_openapi_python_generated.models.user_results.UserResults(
@@ -77,6 +99,28 @@ class TestTweetPreviewDisplay(unittest.TestCase):
                             action = 'Reply', )
                         ], ),
                 tweet = twitter_openapi_python_generated.models.tweet_preview_display_tweet.TweetPreviewDisplayTweet(
+                    article_preview = twitter_openapi_python_generated.models.article_preview.ArticlePreview(
+                        article_id = 56, 
+                        cover_media = twitter_openapi_python_generated.models.article_cover_media.ArticleCoverMedia(
+                            id = '', 
+                            media_id = '4', 
+                            media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
+                                __typename = 'TimelineTweet', 
+                                color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
+                                    palette = [
+                                        twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
+                                            percentage = 1.337, 
+                                            rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
+                                                blue = 56, 
+                                                green = 56, 
+                                                red = 56, ), )
+                                        ], ), 
+                                original_img_height = 56, 
+                                original_img_url = '', 
+                                original_img_width = 56, ), 
+                            media_key = '', ), 
+                        preview_text = '', 
+                        title = '', ), 
                     bookmark_count = 56, 
                     core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
                         user_results = twitter_openapi_python_generated.models.user_results.UserResults(

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **entry** | [**TimelineAddEntry**](TimelineAddEntry.md) |  | 
 **entry_id_to_replace** | **str** |  | 
 **alert_type** | **str** |  | [optional] 
+**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | 
 **color_config** | **Dict[str, object]** |  | [optional] 
 **display_duration_ms** | **int** |  | [optional] 
 **display_location** | **str** |  | [optional] 
@@ -21,7 +22,6 @@ Name | Type | Description | Notes
 **trigger_delay_ms** | **int** |  | [optional] 
 **users_results** | [**List[UserResults]**](UserResults.md) |  | 
 **direction** | **str** |  | 
-**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | 
 **cover** | [**TimelineHalfCover**](TimelineHalfCover.md) |  | 
 **sort_index** | **str** |  | [optional] 
 

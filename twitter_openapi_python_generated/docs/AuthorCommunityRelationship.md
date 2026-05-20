@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**community_results** | [**Community**](Community.md) |  | 
+**community_results** | [**CommunityResult**](CommunityResult.md) |  | 
 **role** | **str** |  | [optional] 
 **user_results** | [**UserResults**](UserResults.md) |  | [optional] 
 

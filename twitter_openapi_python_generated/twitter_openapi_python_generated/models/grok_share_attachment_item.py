@@ -22,18 +22,21 @@ from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class GrokShareAttachmentItem(BaseModel):
     """
     GrokShareAttachmentItem
     """ # noqa: E501
     analysis_post_id_results: Optional[AnalysisResults] = None
+    deepsearch_headers: Optional[List[Dict[str, Any]]] = None
     media_urls: List[StrictStr]
     message: StrictStr
-    __properties: ClassVar[List[str]] = ["analysis_post_id_results", "media_urls", "message"]
+    __properties: ClassVar[List[str]] = ["analysis_post_id_results", "deepsearch_headers", "media_urls", "message"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -45,8 +48,7 @@ class GrokShareAttachmentItem(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -87,6 +89,7 @@ class GrokShareAttachmentItem(BaseModel):
 
         _obj = cls.model_validate({
             "analysis_post_id_results": AnalysisResults.from_dict(obj["analysis_post_id_results"]) if obj.get("analysis_post_id_results") is not None else None,
+            "deepsearch_headers": obj.get("deepsearch_headers"),
             "media_urls": obj.get("media_urls"),
             "message": obj.get("message")
         })

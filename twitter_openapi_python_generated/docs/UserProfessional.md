@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**category** | [**List[UserProfessionalCategory]**](UserProfessionalCategory.md) |  | 
+**category** | [**List[UserProfessionalCategory]**](UserProfessionalCategory.md) |  | [optional] 
 **professional_type** | **str** |  | 
 **rest_id** | **str** |  | 
 

@@ -37,6 +37,9 @@ class TestUserResultByScreenNameResult(unittest.TestCase):
         if include_optional:
             return UserResultByScreenNameResult(
                 typename = 'TimelineTweet',
+                core = twitter_openapi_python_generated.models.user_result_by_screen_name_core.UserResultByScreenNameCore(
+                    name = '', 
+                    screen_name = '', ),
                 id = 'G',
                 legacy = twitter_openapi_python_generated.models.user_result_by_screen_name_legacy.UserResultByScreenNameLegacy(
                     blocked_by = True, 
@@ -46,22 +49,31 @@ class TestUserResultByScreenNameResult(unittest.TestCase):
                     name = '', 
                     protected = True, 
                     screen_name = '', ),
+                privacy = twitter_openapi_python_generated.models.user_result_privacy.UserResultPrivacy(
+                    protected = True, ),
                 profilemodules = { },
+                relationship_perspectives = twitter_openapi_python_generated.models.user_result_relationship_perspectives.UserResultRelationshipPerspectives(
+                    blocked_by = True, 
+                    blocking = True, 
+                    followed_by = True, 
+                    following = True, ),
                 rest_id = '4'
             )
         else:
             return UserResultByScreenNameResult(
                 typename = 'TimelineTweet',
+                core = twitter_openapi_python_generated.models.user_result_by_screen_name_core.UserResultByScreenNameCore(
+                    name = '', 
+                    screen_name = '', ),
                 id = 'G',
-                legacy = twitter_openapi_python_generated.models.user_result_by_screen_name_legacy.UserResultByScreenNameLegacy(
+                privacy = twitter_openapi_python_generated.models.user_result_privacy.UserResultPrivacy(
+                    protected = True, ),
+                profilemodules = { },
+                relationship_perspectives = twitter_openapi_python_generated.models.user_result_relationship_perspectives.UserResultRelationshipPerspectives(
                     blocked_by = True, 
                     blocking = True, 
                     followed_by = True, 
-                    following = True, 
-                    name = '', 
-                    protected = True, 
-                    screen_name = '', ),
-                profilemodules = { },
+                    following = True, ),
                 rest_id = '4',
         )
         """

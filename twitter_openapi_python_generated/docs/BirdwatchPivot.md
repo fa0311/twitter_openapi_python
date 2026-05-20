@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **call_to_action** | [**BirdwatchPivotCallToAction**](BirdwatchPivotCallToAction.md) |  | [optional] 
 **destination_url** | **str** |  | 
 **footer** | [**BirdwatchPivotFooter**](BirdwatchPivotFooter.md) |  | [optional] 
+**footer_icon_type** | **str** |  | [optional] 
 **icon_type** | **str** |  | 
 **note** | [**BirdwatchPivotNote**](BirdwatchPivotNote.md) |  | [optional] 
 **shorttitle** | **str** |  | [optional] 

@@ -37,7 +37,9 @@ class TestTimelineCoverBehavior(unittest.TestCase):
         if include_optional:
             return TimelineCoverBehavior(
                 type = 'TimelineCoverBehaviorDismiss',
-                url = None
+                url = twitter_openapi_python_generated.models.timeline_cover_behavior_url.TimelineCoverBehaviorUrl(
+                    url = '', 
+                    url_type = 'ExternalUrl', )
             )
         else:
             return TimelineCoverBehavior(

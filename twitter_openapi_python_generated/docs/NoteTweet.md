@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**is_expandable** | **bool** |  | 
+**is_expandable** | **bool** |  | [optional] 
 **note_tweet_results** | [**NoteTweetResult**](NoteTweetResult.md) |  | 
 
 ## Example

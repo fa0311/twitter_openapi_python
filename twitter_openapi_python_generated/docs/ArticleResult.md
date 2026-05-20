@@ -5,9 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cover_media** | [**ArticleCoverMedia**](ArticleCoverMedia.md) |  | 
+**content_state** | **Dict[str, object]** |  | [optional] 
+**cover_media** | [**ArticleCoverMedia**](ArticleCoverMedia.md) |  | [optional] 
 **id** | **str** |  | 
+**is_grok_summary_eligible** | **bool** |  | [optional] 
 **lifecycle_state** | [**ArticleLifecycleState**](ArticleLifecycleState.md) |  | [optional] 
+**media_entities** | [**List[ArticleCoverMedia]**](ArticleCoverMedia.md) |  | [optional] 
 **metadata** | [**ArticleMetadata**](ArticleMetadata.md) |  | 
 **preview_text** | **str** |  | 
 **rest_id** | **str** |  | 

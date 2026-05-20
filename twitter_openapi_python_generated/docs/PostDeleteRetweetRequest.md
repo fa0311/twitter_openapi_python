@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query_id** | **str** |  | [default to 'iQtK4dl5hBmXewYZuEOKVw']
+**query_id** | **str** |  | [default to 'ZyZigVsNiFO6v1dEks1eWg']
 **variables** | [**PostDeleteRetweetRequestVariables**](PostDeleteRetweetRequestVariables.md) |  | 
 
 ## Example

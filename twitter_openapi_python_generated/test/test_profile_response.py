@@ -41,6 +41,9 @@ class TestProfileResponse(unittest.TestCase):
                         id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                         result = twitter_openapi_python_generated.models.user_result_by_screen_name_result.UserResultByScreenNameResult(
                             __typename = 'TimelineTweet', 
+                            core = twitter_openapi_python_generated.models.user_result_by_screen_name_core.UserResultByScreenNameCore(
+                                name = '', 
+                                screen_name = '', ), 
                             id = 'G', 
                             legacy = twitter_openapi_python_generated.models.user_result_by_screen_name_legacy.UserResultByScreenNameLegacy(
                                 blocked_by = True, 
@@ -50,7 +53,14 @@ class TestProfileResponse(unittest.TestCase):
                                 name = '', 
                                 protected = True, 
                                 screen_name = '', ), 
+                            privacy = twitter_openapi_python_generated.models.user_result_privacy.UserResultPrivacy(
+                                protected = True, ), 
                             profilemodules = { }, 
+                            relationship_perspectives = twitter_openapi_python_generated.models.user_result_relationship_perspectives.UserResultRelationshipPerspectives(
+                                blocked_by = True, 
+                                blocking = True, 
+                                followed_by = True, 
+                                following = True, ), 
                             rest_id = '4', ), ), ),
                 errors = [
                     twitter_openapi_python_generated.models.error_response.ErrorResponse(
@@ -87,6 +97,9 @@ class TestProfileResponse(unittest.TestCase):
                         id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                         result = twitter_openapi_python_generated.models.user_result_by_screen_name_result.UserResultByScreenNameResult(
                             __typename = 'TimelineTweet', 
+                            core = twitter_openapi_python_generated.models.user_result_by_screen_name_core.UserResultByScreenNameCore(
+                                name = '', 
+                                screen_name = '', ), 
                             id = 'G', 
                             legacy = twitter_openapi_python_generated.models.user_result_by_screen_name_legacy.UserResultByScreenNameLegacy(
                                 blocked_by = True, 
@@ -96,7 +109,14 @@ class TestProfileResponse(unittest.TestCase):
                                 name = '', 
                                 protected = True, 
                                 screen_name = '', ), 
+                            privacy = twitter_openapi_python_generated.models.user_result_privacy.UserResultPrivacy(
+                                protected = True, ), 
                             profilemodules = { }, 
+                            relationship_perspectives = twitter_openapi_python_generated.models.user_result_relationship_perspectives.UserResultRelationshipPerspectives(
+                                blocked_by = True, 
+                                blocking = True, 
+                                followed_by = True, 
+                                following = True, ), 
                             rest_id = '4', ), ), ),
         )
         """

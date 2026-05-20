@@ -19,22 +19,24 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from twitter_openapi_python_generated.models.super_follows_reply_user_result_legacy import SuperFollowsReplyUserResultLegacy
+from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.super_follows_reply_user_result_core import SuperFollowsReplyUserResultCore
 from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class SuperFollowsReplyUserResultData(BaseModel):
     """
     SuperFollowsReplyUserResultData
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
-    legacy: SuperFollowsReplyUserResultLegacy
-    __properties: ClassVar[List[str]] = ["__typename", "legacy"]
+    core: Optional[SuperFollowsReplyUserResultCore] = None
+    __properties: ClassVar[List[str]] = ["__typename", "core"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -46,8 +48,7 @@ class SuperFollowsReplyUserResultData(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -72,9 +73,9 @@ class SuperFollowsReplyUserResultData(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of legacy
-        if self.legacy:
-            _dict['legacy'] = self.legacy.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of core
+        if self.core:
+            _dict['core'] = self.core.to_dict()
         return _dict
 
     @classmethod
@@ -88,7 +89,7 @@ class SuperFollowsReplyUserResultData(BaseModel):
 
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
-            "legacy": SuperFollowsReplyUserResultLegacy.from_dict(obj["legacy"]) if obj.get("legacy") is not None else None
+            "core": SuperFollowsReplyUserResultCore.from_dict(obj["core"]) if obj.get("core") is not None else None
         })
         return _obj
 

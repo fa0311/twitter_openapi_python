@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **analysis_post_id_results** | [**AnalysisResults**](AnalysisResults.md) |  | [optional] 
+**deepsearch_headers** | **List[Dict[str, object]]** |  | [optional] 
 **media_urls** | **List[str]** |  | 
 **message** | **str** |  | 
 

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **ext_alt_text** | **str** |  | [optional] 
 **ext_media_availability** | [**ExtMediaAvailability**](ExtMediaAvailability.md) |  | [optional] 
 **features** | **object** |  | [optional] 
+**grok_post_id** | **UUID** |  | [optional] 
 **id_str** | **str** |  | 
 **indices** | **List[int]** |  | 
 **media_stats** | [**MediaStats**](MediaStats.md) |  | [optional] 

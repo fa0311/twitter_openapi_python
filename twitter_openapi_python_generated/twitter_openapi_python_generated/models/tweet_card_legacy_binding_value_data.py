@@ -24,6 +24,7 @@ from twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_dat
 from twitter_openapi_python_generated.models.user_value import UserValue
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class TweetCardLegacyBindingValueData(BaseModel):
     """
@@ -39,7 +40,8 @@ class TweetCardLegacyBindingValueData(BaseModel):
     __properties: ClassVar[List[str]] = ["boolean_value", "image_color_value", "image_value", "scribe_key", "string_value", "type", "user_value"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -51,8 +53,7 @@ class TweetCardLegacyBindingValueData(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

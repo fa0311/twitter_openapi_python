@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**legacy** | [**SuperFollowsReplyUserResultLegacy**](SuperFollowsReplyUserResultLegacy.md) |  | 
+**core** | [**SuperFollowsReplyUserResultCore**](SuperFollowsReplyUserResultCore.md) |  | [optional] 
 
 ## Example
 
