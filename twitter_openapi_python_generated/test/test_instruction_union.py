@@ -66,6 +66,10 @@ class TestInstructionUnion(unittest.TestCase):
                     sort_index = '4', ),
                 entry_id_to_replace = '',
                 alert_type = 'NewTweets',
+                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                    component = '', 
+                    details = { }, 
+                    element = '', ),
                 color_config = { },
                 display_duration_ms = 56,
                 display_location = 'Top',
@@ -81,10 +85,6 @@ class TestInstructionUnion(unittest.TestCase):
                         result = null, )
                     ],
                 direction = 'Top',
-                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
-                    component = '', 
-                    details = { }, 
-                    element = '', ),
                 cover = twitter_openapi_python_generated.models.timeline_half_cover.TimelineHalfCover(
                     dismissible = True, 
                     half_cover_display_type = 'Cover', 
@@ -103,7 +103,9 @@ class TestInstructionUnion(unittest.TestCase):
                             action = 'primary_cta', ), 
                         cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
                             type = 'TimelineCoverBehaviorDismiss', 
-                            url = null, ), ), 
+                            url = twitter_openapi_python_generated.models.timeline_cover_behavior_url.TimelineCoverBehaviorUrl(
+                                url = '', 
+                                url_type = 'ExternalUrl', ), ), ), 
                     primary_text = twitter_openapi_python_generated.models.text.Text(
                         entities = [
                             twitter_openapi_python_generated.models.text_entity.TextEntity(
@@ -159,6 +161,10 @@ class TestInstructionUnion(unittest.TestCase):
                     entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                     sort_index = '4', ),
                 entry_id_to_replace = '',
+                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                    component = '', 
+                    details = { }, 
+                    element = '', ),
                 rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlert_richText(
                     entities = [
                         { }
@@ -169,10 +175,6 @@ class TestInstructionUnion(unittest.TestCase):
                         result = null, )
                     ],
                 direction = 'Top',
-                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
-                    component = '', 
-                    details = { }, 
-                    element = '', ),
                 cover = twitter_openapi_python_generated.models.timeline_half_cover.TimelineHalfCover(
                     dismissible = True, 
                     half_cover_display_type = 'Cover', 
@@ -191,7 +193,9 @@ class TestInstructionUnion(unittest.TestCase):
                             action = 'primary_cta', ), 
                         cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
                             type = 'TimelineCoverBehaviorDismiss', 
-                            url = null, ), ), 
+                            url = twitter_openapi_python_generated.models.timeline_cover_behavior_url.TimelineCoverBehaviorUrl(
+                                url = '', 
+                                url_type = 'ExternalUrl', ), ), ), 
                     primary_text = twitter_openapi_python_generated.models.text.Text(
                         entities = [
                             twitter_openapi_python_generated.models.text_entity.TextEntity(

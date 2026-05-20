@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.post_create_retweet_request_variables import PostCreateRetweetRequestVariables
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class PostCreateRetweetRequest(BaseModel):
     """
@@ -33,7 +34,8 @@ class PostCreateRetweetRequest(BaseModel):
     __properties: ClassVar[List[str]] = ["queryId", "variables"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -45,8 +47,7 @@ class PostCreateRetweetRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -86,7 +87,7 @@ class PostCreateRetweetRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "queryId": obj.get("queryId") if obj.get("queryId") is not None else 'ojPdsZsimiJrUGLR1sjUtA',
+            "queryId": obj.get("queryId") if obj.get("queryId") is not None else 'mbRO74GrOvSfRcJnlMapnQ',
             "variables": PostCreateRetweetRequestVariables.from_dict(obj["variables"]) if obj.get("variables") is not None else None
         })
         return _obj

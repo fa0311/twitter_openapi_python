@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**article_preview** | [**ArticlePreview**](ArticlePreview.md) |  | [optional] 
 **bookmark_count** | **int** |  | 
 **core** | [**UserResultCore**](UserResultCore.md) |  | 
 **created_at** | **str** |  | 

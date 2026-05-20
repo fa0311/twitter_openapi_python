@@ -56,7 +56,9 @@ class TypeName(str, Enum):
     COMMUNITYTWEETUNPINACTIONUNAVAILABLE = 'CommunityTweetUnpinActionUnavailable'
     COMMUNITYINVITESUNAVAILABLE = 'CommunityInvitesUnavailable'
     COMMUNITYJOINREQUESTSUNAVAILABLE = 'CommunityJoinRequestsUnavailable'
+    COMMUNITYUNAVAILABLE = 'CommunityUnavailable'
     APIIMAGE = 'ApiImage'
+    TIMELINERICHTEXTUSER = 'TimelineRichTextUser'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

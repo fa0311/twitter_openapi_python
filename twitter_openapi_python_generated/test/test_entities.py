@@ -63,6 +63,7 @@ class TestEntities(unittest.TestCase):
                             reason = '', 
                             status = 'Available', ), 
                         features = twitter_openapi_python_generated.models.features.features(), 
+                        grok_post_id = '', 
                         id_str = '4', 
                         indices = [
                             56
@@ -116,6 +117,15 @@ class TestEntities(unittest.TestCase):
                                     url = '', )
                                 ], ), )
                     ],
+                smarttags = [
+                    twitter_openapi_python_generated.models.smarttag.Smarttag(
+                        indices = [
+                            56
+                            ], 
+                        tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                            info = { }, ), 
+                        text = '', )
+                    ],
                 symbols = [
                     { }
                     ],
@@ -142,24 +152,6 @@ class TestEntities(unittest.TestCase):
             )
         else:
             return Entities(
-                hashtags = [
-                    { }
-                    ],
-                symbols = [
-                    { }
-                    ],
-                urls = [
-                    twitter_openapi_python_generated.models.url.Url(
-                        display_url = '', 
-                        expanded_url = '', 
-                        indices = [
-                            56
-                            ], 
-                        url = '', )
-                    ],
-                user_mentions = [
-                    { }
-                    ],
         )
         """
 

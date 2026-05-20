@@ -38,8 +38,16 @@ class TestUser(unittest.TestCase):
             return User(
                 typename = 'TimelineTweet',
                 affiliates_highlighted_label = { },
+                avatar = twitter_openapi_python_generated.models.user_avatar.UserAvatar(
+                    image_url = '', ),
                 business_account = { },
+                core = twitter_openapi_python_generated.models.user_core.UserCore(
+                    created_at = 'Sat Dec 31 23:59:59 +0000 2023', 
+                    name = '', 
+                    screen_name = '', ),
                 creator_subscriptions_count = 56,
+                dm_permissions = twitter_openapi_python_generated.models.user_dm_permissions.UserDmPermissions(
+                    can_dm = True, ),
                 has_graduated_access = True,
                 has_hidden_likes_on_profile = True,
                 has_hidden_subscriptions_on_profile = True,
@@ -88,14 +96,18 @@ class TestUser(unittest.TestCase):
                     protected = True, 
                     screen_name = '', 
                     statuses_count = 56, 
+                    time_zone = '', 
                     translator_type = '', 
                     url = '', 
+                    utc_offset = 56, 
                     verified = True, 
                     verified_type = 'Business', 
                     want_retweets = True, 
+                    withheld_description = '', 
                     withheld_in_countries = [
                         ''
-                        ], ),
+                        ], 
+                    withheld_scope = '', ),
                 legacy_extended_profile = twitter_openapi_python_generated.models.user_legacy_extended_profile.UserLegacyExtendedProfile(
                     birthdate = twitter_openapi_python_generated.models.user_legacy_extended_profile_birthdate.UserLegacyExtendedProfileBirthdate(
                         day = 56, 
@@ -103,8 +115,14 @@ class TestUser(unittest.TestCase):
                         visibility = 'Self', 
                         year = 56, 
                         year_visibility = 'Self', ), ),
+                location = twitter_openapi_python_generated.models.user_location.UserLocation(
+                    location = '', ),
+                media_permissions = twitter_openapi_python_generated.models.user_media_permissions.UserMediaPermissions(
+                    can_media_tag = True, ),
                 parody_commentary_fan_label = 'None',
                 premium_gifting_eligible = True,
+                privacy = twitter_openapi_python_generated.models.user_privacy.UserPrivacy(
+                    protected = True, ),
                 professional = twitter_openapi_python_generated.models.user_professional.UserProfessional(
                     category = [
                         twitter_openapi_python_generated.models.user_professional_category.UserProfessionalCategory(
@@ -114,11 +132,23 @@ class TestUser(unittest.TestCase):
                         ], 
                     professional_type = 'Business', 
                     rest_id = '4', ),
+                profile_bio = twitter_openapi_python_generated.models.profile_bio.ProfileBio(
+                    description = '', ),
+                profile_description_language = '',
                 profile_image_shape = 'Circle',
+                profile_sort_enabled = True,
+                relationship_perspectives = twitter_openapi_python_generated.models.user_relationship_perspectives.UserRelationshipPerspectives(
+                    blocked_by = True, 
+                    blocking = True, 
+                    followed_by = True, 
+                    following = True, ),
                 rest_id = '4',
                 super_follow_eligible = True,
                 super_followed_by = True,
                 super_following = True,
+                super_follows_user_profile = twitter_openapi_python_generated.models.user_profile.UserProfile(
+                    super_follows_user_profile = twitter_openapi_python_generated.models.super_follow_user_profile.SuperFollowUserProfile(
+                        is_active = True, ), ),
                 tipjar_settings = twitter_openapi_python_generated.models.user_tip_jar_settings.UserTipJarSettings(
                     bandcamp_handle = '', 
                     bitcoin_handle = '', 
@@ -130,6 +160,9 @@ class TestUser(unittest.TestCase):
                     pay_pal_handle = '', 
                     venmo_handle = '', ),
                 user_seed_tweet_count = 56,
+                verification = twitter_openapi_python_generated.models.user_verification.UserVerification(
+                    verified = True, 
+                    verified_type = 'Business', ),
                 verification_info = twitter_openapi_python_generated.models.user_verification_info.UserVerificationInfo(
                     is_identity_verified = True, 
                     reason = twitter_openapi_python_generated.models.user_verification_info_reason.UserVerificationInfoReason(
@@ -144,7 +177,10 @@ class TestUser(unittest.TestCase):
                                 ], 
                             text = '', ), 
                         override_verified_year = 56, 
-                        verified_since_msec = '-80728', ), )
+                        verified_since_msec = '-80728', ), ),
+                verified_user_profiles = twitter_openapi_python_generated.models.user_profile.UserProfile(
+                    super_follows_user_profile = twitter_openapi_python_generated.models.super_follow_user_profile.SuperFollowUserProfile(
+                        is_active = True, ), )
             )
         else:
             return User(
@@ -189,14 +225,18 @@ class TestUser(unittest.TestCase):
                     protected = True, 
                     screen_name = '', 
                     statuses_count = 56, 
+                    time_zone = '', 
                     translator_type = '', 
                     url = '', 
+                    utc_offset = 56, 
                     verified = True, 
                     verified_type = 'Business', 
                     want_retweets = True, 
+                    withheld_description = '', 
                     withheld_in_countries = [
                         ''
-                        ], ),
+                        ], 
+                    withheld_scope = '', ),
                 profile_image_shape = 'Circle',
                 rest_id = '4',
         )

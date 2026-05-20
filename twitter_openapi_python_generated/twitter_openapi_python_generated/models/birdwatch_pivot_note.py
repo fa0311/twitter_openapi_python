@@ -18,28 +18,37 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.grok_translated_community_note_with_availability import GrokTranslatedCommunityNoteWithAvailability
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class BirdwatchPivotNote(BaseModel):
     """
     BirdwatchPivotNote
     """ # noqa: E501
+    grok_translated_community_note_with_availability: Optional[GrokTranslatedCommunityNoteWithAvailability] = None
+    is_community_note_translatable: Optional[StrictBool] = None
+    language: Optional[StrictStr] = None
     rest_id: Annotated[str, Field(strict=True)]
-    __properties: ClassVar[List[str]] = ["rest_id"]
+    __properties: ClassVar[List[str]] = ["grok_translated_community_note_with_availability", "is_community_note_translatable", "language", "rest_id"]
 
     @field_validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -51,8 +60,7 @@ class BirdwatchPivotNote(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -77,6 +85,9 @@ class BirdwatchPivotNote(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of grok_translated_community_note_with_availability
+        if self.grok_translated_community_note_with_availability:
+            _dict['grok_translated_community_note_with_availability'] = self.grok_translated_community_note_with_availability.to_dict()
         return _dict
 
     @classmethod
@@ -89,6 +100,9 @@ class BirdwatchPivotNote(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "grok_translated_community_note_with_availability": GrokTranslatedCommunityNoteWithAvailability.from_dict(obj["grok_translated_community_note_with_availability"]) if obj.get("grok_translated_community_note_with_availability") is not None else None,
+            "is_community_note_translatable": obj.get("is_community_note_translatable"),
+            "language": obj.get("language"),
             "rest_id": obj.get("rest_id")
         })
         return _obj

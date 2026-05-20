@@ -18,21 +18,99 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
-from twitter_openapi_python_generated.models.community_data import CommunityData
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.community_actions import CommunityActions
+from twitter_openapi_python_generated.models.community_invites_result import CommunityInvitesResult
+from twitter_openapi_python_generated.models.community_join_requests_result import CommunityJoinRequestsResult
+from twitter_openapi_python_generated.models.community_rule import CommunityRule
+from twitter_openapi_python_generated.models.community_urls import CommunityUrls
+from twitter_openapi_python_generated.models.primary_community_topic import PrimaryCommunityTopic
+from twitter_openapi_python_generated.models.type_name import TypeName
+from twitter_openapi_python_generated.models.user_results import UserResults
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class Community(BaseModel):
     """
     Community
     """ # noqa: E501
-    result: CommunityData
-    __properties: ClassVar[List[str]] = ["result"]
+    typename: TypeName = Field(alias="__typename")
+    actions: Optional[CommunityActions] = None
+    admin_results: Optional[UserResults] = None
+    created_at: Optional[StrictInt] = None
+    creator_results: Optional[UserResults] = None
+    custom_banner_media: Optional[Dict[str, Any]] = None
+    default_banner_media: Optional[Dict[str, Any]] = None
+    description: Optional[StrictStr] = None
+    id_str: Optional[Annotated[str, Field(strict=True)]] = None
+    invites_policy: Optional[StrictStr] = None
+    invites_result: Optional[CommunityInvitesResult] = None
+    is_pinned: Optional[StrictBool] = None
+    join_policy: Optional[StrictStr] = None
+    join_requests_result: Optional[CommunityJoinRequestsResult] = None
+    member_count: Optional[StrictInt] = None
+    members_facepile_results: Optional[List[UserResults]] = None
+    moderator_count: Optional[StrictInt] = None
+    name: Optional[StrictStr] = None
+    primary_community_topic: Optional[PrimaryCommunityTopic] = None
+    question: Optional[StrictStr] = None
+    role: Optional[StrictStr] = None
+    rules: Optional[List[CommunityRule]] = None
+    search_tags: Optional[List[StrictStr]] = None
+    show_only_users_to_display: Optional[List[StrictStr]] = None
+    urls: Optional[CommunityUrls] = None
+    viewer_relationship: Optional[Dict[str, Any]] = None
+    __properties: ClassVar[List[str]] = ["__typename", "actions", "admin_results", "created_at", "creator_results", "custom_banner_media", "default_banner_media", "description", "id_str", "invites_policy", "invites_result", "is_pinned", "join_policy", "join_requests_result", "member_count", "members_facepile_results", "moderator_count", "name", "primary_community_topic", "question", "role", "rules", "search_tags", "show_only_users_to_display", "urls", "viewer_relationship"]
+
+    @field_validator('id_str')
+    def id_str_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not isinstance(value, str):
+            value = str(value)
+
+        if not re.match(r"^[0-9]+$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]+$/")
+        return value
+
+    @field_validator('invites_policy')
+    def invites_policy_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['MemberInvitesAllowed', 'ModeratorInvitesAllowed']):
+            raise ValueError("must be one of enum values ('MemberInvitesAllowed', 'ModeratorInvitesAllowed')")
+        return value
+
+    @field_validator('join_policy')
+    def join_policy_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['Open', 'RestrictedJoinRequestsRequireModeratorApproval']):
+            raise ValueError("must be one of enum values ('Open', 'RestrictedJoinRequestsRequireModeratorApproval')")
+        return value
+
+    @field_validator('role')
+    def role_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['NonMember']):
+            raise ValueError("must be one of enum values ('NonMember')")
+        return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -44,8 +122,7 @@ class Community(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -70,9 +147,41 @@ class Community(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of result
-        if self.result:
-            _dict['result'] = self.result.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of actions
+        if self.actions:
+            _dict['actions'] = self.actions.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of admin_results
+        if self.admin_results:
+            _dict['admin_results'] = self.admin_results.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of creator_results
+        if self.creator_results:
+            _dict['creator_results'] = self.creator_results.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of invites_result
+        if self.invites_result:
+            _dict['invites_result'] = self.invites_result.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of join_requests_result
+        if self.join_requests_result:
+            _dict['join_requests_result'] = self.join_requests_result.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in members_facepile_results (list)
+        _items = []
+        if self.members_facepile_results:
+            for _item_members_facepile_results in self.members_facepile_results:
+                if _item_members_facepile_results:
+                    _items.append(_item_members_facepile_results.to_dict())
+            _dict['members_facepile_results'] = _items
+        # override the default output from pydantic by calling `to_dict()` of primary_community_topic
+        if self.primary_community_topic:
+            _dict['primary_community_topic'] = self.primary_community_topic.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in rules (list)
+        _items = []
+        if self.rules:
+            for _item_rules in self.rules:
+                if _item_rules:
+                    _items.append(_item_rules.to_dict())
+            _dict['rules'] = _items
+        # override the default output from pydantic by calling `to_dict()` of urls
+        if self.urls:
+            _dict['urls'] = self.urls.to_dict()
         return _dict
 
     @classmethod
@@ -85,7 +194,32 @@ class Community(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "result": CommunityData.from_dict(obj["result"]) if obj.get("result") is not None else None
+            "__typename": obj.get("__typename"),
+            "actions": CommunityActions.from_dict(obj["actions"]) if obj.get("actions") is not None else None,
+            "admin_results": UserResults.from_dict(obj["admin_results"]) if obj.get("admin_results") is not None else None,
+            "created_at": obj.get("created_at"),
+            "creator_results": UserResults.from_dict(obj["creator_results"]) if obj.get("creator_results") is not None else None,
+            "custom_banner_media": obj.get("custom_banner_media"),
+            "default_banner_media": obj.get("default_banner_media"),
+            "description": obj.get("description"),
+            "id_str": obj.get("id_str"),
+            "invites_policy": obj.get("invites_policy"),
+            "invites_result": CommunityInvitesResult.from_dict(obj["invites_result"]) if obj.get("invites_result") is not None else None,
+            "is_pinned": obj.get("is_pinned"),
+            "join_policy": obj.get("join_policy"),
+            "join_requests_result": CommunityJoinRequestsResult.from_dict(obj["join_requests_result"]) if obj.get("join_requests_result") is not None else None,
+            "member_count": obj.get("member_count"),
+            "members_facepile_results": [UserResults.from_dict(_item) for _item in obj["members_facepile_results"]] if obj.get("members_facepile_results") is not None else None,
+            "moderator_count": obj.get("moderator_count"),
+            "name": obj.get("name"),
+            "primary_community_topic": PrimaryCommunityTopic.from_dict(obj["primary_community_topic"]) if obj.get("primary_community_topic") is not None else None,
+            "question": obj.get("question"),
+            "role": obj.get("role"),
+            "rules": [CommunityRule.from_dict(_item) for _item in obj["rules"]] if obj.get("rules") is not None else None,
+            "search_tags": obj.get("search_tags"),
+            "show_only_users_to_display": obj.get("show_only_users_to_display"),
+            "urls": CommunityUrls.from_dict(obj["urls"]) if obj.get("urls") is not None else None,
+            "viewer_relationship": obj.get("viewer_relationship")
         })
         return _obj
 

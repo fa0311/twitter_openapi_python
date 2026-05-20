@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **conversation_id_str** | **str** |  | 
 **created_at** | **str** |  | 
 **display_text_range** | **List[int]** |  | 
-**entities** | [**Entities**](Entities.md) |  | 
+**entities** | [**Entities**](Entities.md) |  | [optional] 
 **extended_entities** | [**ExtendedEntities**](ExtendedEntities.md) |  | [optional] 
 **favorite_count** | **int** |  | 
 **favorited** | **bool** |  | 

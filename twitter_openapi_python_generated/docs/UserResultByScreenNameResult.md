@@ -6,9 +6,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
+**core** | [**UserResultByScreenNameCore**](UserResultByScreenNameCore.md) |  | 
 **id** | **str** |  | 
-**legacy** | [**UserResultByScreenNameLegacy**](UserResultByScreenNameLegacy.md) |  | 
+**legacy** | [**UserResultByScreenNameLegacy**](UserResultByScreenNameLegacy.md) |  | [optional] 
+**privacy** | [**UserResultPrivacy**](UserResultPrivacy.md) |  | 
 **profilemodules** | **Dict[str, object]** |  | 
+**relationship_perspectives** | [**UserResultRelationshipPerspectives**](UserResultRelationshipPerspectives.md) |  | 
 **rest_id** | **str** |  | 
 
 ## Example

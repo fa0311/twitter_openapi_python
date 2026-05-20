@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alert_type** | **str** |  | [optional] 
+**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | [optional] 
 **color_config** | **Dict[str, object]** |  | [optional] 
 **display_duration_ms** | **int** |  | [optional] 
 **display_location** | **str** |  | [optional] 

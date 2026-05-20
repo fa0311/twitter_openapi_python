@@ -27,6 +27,12 @@ class TestUserListApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_get_blue_verified_followers(self) -> None:
+        """Test case for get_blue_verified_followers
+
+        """
+        pass
+
     def test_get_favoriters(self) -> None:
         """Test case for get_favoriters
 

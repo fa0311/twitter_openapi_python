@@ -73,18 +73,21 @@ class TestUserLegacy(unittest.TestCase):
                 protected = True,
                 screen_name = '',
                 statuses_count = 56,
+                time_zone = '',
                 translator_type = '',
                 url = '',
+                utc_offset = 56,
                 verified = True,
                 verified_type = 'Business',
                 want_retweets = True,
+                withheld_description = '',
                 withheld_in_countries = [
                     ''
-                    ]
+                    ],
+                withheld_scope = ''
             )
         else:
             return UserLegacy(
-                created_at = 'Sat Dec 31 23:59:59 +0000 2023',
                 default_profile = True,
                 default_profile_image = True,
                 description = '',
@@ -96,20 +99,16 @@ class TestUserLegacy(unittest.TestCase):
                 has_custom_timelines = True,
                 is_translator = True,
                 listed_count = 56,
-                location = '',
                 media_count = 56,
-                name = '',
                 normal_followers_count = 56,
-                pinned_tweet_ids_str = [
-                    ''
-                    ],
                 possibly_sensitive = True,
-                profile_image_url_https = '',
                 profile_interstitial_type = '',
-                screen_name = '',
                 statuses_count = 56,
+                time_zone = '',
                 translator_type = '',
-                verified = True,
+                utc_offset = 56,
+                withheld_description = '',
+                withheld_scope = '',
         )
         """
 

@@ -58,7 +58,9 @@ class TestTimelineShowCover(unittest.TestCase):
                             action = 'primary_cta', ), 
                         cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
                             type = 'TimelineCoverBehaviorDismiss', 
-                            url = null, ), ), 
+                            url = twitter_openapi_python_generated.models.timeline_cover_behavior_url.TimelineCoverBehaviorUrl(
+                                url = '', 
+                                url_type = 'ExternalUrl', ), ), ), 
                     primary_text = twitter_openapi_python_generated.models.text.Text(
                         entities = [
                             twitter_openapi_python_generated.models.text_entity.TextEntity(
@@ -108,7 +110,9 @@ class TestTimelineShowCover(unittest.TestCase):
                             action = 'primary_cta', ), 
                         cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
                             type = 'TimelineCoverBehaviorDismiss', 
-                            url = null, ), ), 
+                            url = twitter_openapi_python_generated.models.timeline_cover_behavior_url.TimelineCoverBehaviorUrl(
+                                url = '', 
+                                url_type = 'ExternalUrl', ), ), ), 
                     primary_text = twitter_openapi_python_generated.models.text.Text(
                         entities = [
                             twitter_openapi_python_generated.models.text_entity.TextEntity(

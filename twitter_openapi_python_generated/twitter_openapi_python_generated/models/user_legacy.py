@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class UserLegacy(BaseModel):
     """
@@ -32,7 +33,7 @@ class UserLegacy(BaseModel):
     blocking: Optional[StrictBool] = None
     can_dm: Optional[StrictBool] = None
     can_media_tag: Optional[StrictBool] = None
-    created_at: Annotated[str, Field(strict=True)]
+    created_at: Optional[Annotated[str, Field(strict=True)]] = None
     default_profile: StrictBool
     default_profile_image: StrictBool
     description: StrictStr
@@ -47,33 +48,43 @@ class UserLegacy(BaseModel):
     has_custom_timelines: StrictBool
     is_translator: StrictBool
     listed_count: StrictInt
-    location: StrictStr
+    location: Optional[StrictStr] = None
     media_count: StrictInt
     muting: Optional[StrictBool] = None
-    name: StrictStr
+    name: Optional[StrictStr] = None
     normal_followers_count: StrictInt
     notifications: Optional[StrictBool] = None
-    pinned_tweet_ids_str: List[StrictStr]
+    pinned_tweet_ids_str: Optional[List[StrictStr]] = None
     possibly_sensitive: StrictBool
     profile_banner_extensions: Optional[Dict[str, Any]] = None
     profile_banner_url: Optional[StrictStr] = None
     profile_image_extensions: Optional[Dict[str, Any]] = None
-    profile_image_url_https: StrictStr
+    profile_image_url_https: Optional[StrictStr] = None
     profile_interstitial_type: StrictStr
     protected: Optional[StrictBool] = None
-    screen_name: StrictStr
+    screen_name: Optional[StrictStr] = None
     statuses_count: StrictInt
+    time_zone: StrictStr
     translator_type: StrictStr
     url: Optional[StrictStr] = None
-    verified: StrictBool
+    utc_offset: StrictInt
+    verified: Optional[StrictBool] = None
     verified_type: Optional[StrictStr] = None
     want_retweets: Optional[StrictBool] = None
+    withheld_description: StrictStr
     withheld_in_countries: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["blocked_by", "blocking", "can_dm", "can_media_tag", "created_at", "default_profile", "default_profile_image", "description", "entities", "fast_followers_count", "favourites_count", "follow_request_sent", "followed_by", "followers_count", "following", "friends_count", "has_custom_timelines", "is_translator", "listed_count", "location", "media_count", "muting", "name", "normal_followers_count", "notifications", "pinned_tweet_ids_str", "possibly_sensitive", "profile_banner_extensions", "profile_banner_url", "profile_image_extensions", "profile_image_url_https", "profile_interstitial_type", "protected", "screen_name", "statuses_count", "translator_type", "url", "verified", "verified_type", "want_retweets", "withheld_in_countries"]
+    withheld_scope: StrictStr
+    __properties: ClassVar[List[str]] = ["blocked_by", "blocking", "can_dm", "can_media_tag", "created_at", "default_profile", "default_profile_image", "description", "entities", "fast_followers_count", "favourites_count", "follow_request_sent", "followed_by", "followers_count", "following", "friends_count", "has_custom_timelines", "is_translator", "listed_count", "location", "media_count", "muting", "name", "normal_followers_count", "notifications", "pinned_tweet_ids_str", "possibly_sensitive", "profile_banner_extensions", "profile_banner_url", "profile_image_extensions", "profile_image_url_https", "profile_interstitial_type", "protected", "screen_name", "statuses_count", "time_zone", "translator_type", "url", "utc_offset", "verified", "verified_type", "want_retweets", "withheld_description", "withheld_in_countries", "withheld_scope"]
 
     @field_validator('created_at')
     def created_at_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$", value):
             raise ValueError(r"must validate the regular expression /^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$/")
         return value
@@ -89,7 +100,8 @@ class UserLegacy(BaseModel):
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -101,8 +113,7 @@ class UserLegacy(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -174,12 +185,16 @@ class UserLegacy(BaseModel):
             "protected": obj.get("protected"),
             "screen_name": obj.get("screen_name"),
             "statuses_count": obj.get("statuses_count"),
+            "time_zone": obj.get("time_zone"),
             "translator_type": obj.get("translator_type"),
             "url": obj.get("url"),
+            "utc_offset": obj.get("utc_offset"),
             "verified": obj.get("verified"),
             "verified_type": obj.get("verified_type"),
             "want_retweets": obj.get("want_retweets"),
-            "withheld_in_countries": obj.get("withheld_in_countries")
+            "withheld_description": obj.get("withheld_description"),
+            "withheld_in_countries": obj.get("withheld_in_countries"),
+            "withheld_scope": obj.get("withheld_scope")
         })
         return _obj
 

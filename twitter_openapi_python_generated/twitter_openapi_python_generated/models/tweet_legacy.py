@@ -28,6 +28,7 @@ from twitter_openapi_python_generated.models.self_thread import SelfThread
 from twitter_openapi_python_generated.models.tweet_legacy_scopes import TweetLegacyScopes
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class TweetLegacy(BaseModel):
     """
@@ -39,7 +40,7 @@ class TweetLegacy(BaseModel):
     conversation_id_str: Annotated[str, Field(strict=True)]
     created_at: Annotated[str, Field(strict=True)]
     display_text_range: List[StrictInt]
-    entities: Entities
+    entities: Optional[Entities] = None
     extended_entities: Optional[ExtendedEntities] = None
     favorite_count: StrictInt
     favorited: StrictBool
@@ -69,6 +70,9 @@ class TweetLegacy(BaseModel):
     @field_validator('conversation_id_str')
     def conversation_id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
@@ -76,6 +80,9 @@ class TweetLegacy(BaseModel):
     @field_validator('created_at')
     def created_at_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$", value):
             raise ValueError(r"must validate the regular expression /^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$/")
         return value
@@ -83,6 +90,9 @@ class TweetLegacy(BaseModel):
     @field_validator('id_str')
     def id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
@@ -93,6 +103,9 @@ class TweetLegacy(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
@@ -102,6 +115,9 @@ class TweetLegacy(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
@@ -123,6 +139,9 @@ class TweetLegacy(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
@@ -130,12 +149,16 @@ class TweetLegacy(BaseModel):
     @field_validator('user_id_str')
     def user_id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -147,8 +170,7 @@ class TweetLegacy(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

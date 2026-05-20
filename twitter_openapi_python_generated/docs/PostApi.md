@@ -436,7 +436,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.PostApi(api_client)
-    path_query_id = 'ojPdsZsimiJrUGLR1sjUtA' # str |  (default to 'ojPdsZsimiJrUGLR1sjUtA')
+    path_query_id = 'mbRO74GrOvSfRcJnlMapnQ' # str |  (default to 'mbRO74GrOvSfRcJnlMapnQ')
     post_create_retweet_request = twitter_openapi_python_generated.PostCreateRetweetRequest() # PostCreateRetweetRequest | body
 
     try:
@@ -454,7 +454,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;ojPdsZsimiJrUGLR1sjUtA&#39;]
+ **path_query_id** | **str**|  | [default to &#39;mbRO74GrOvSfRcJnlMapnQ&#39;]
  **post_create_retweet_request** | [**PostCreateRetweetRequest**](PostCreateRetweetRequest.md)| body | 
 
 ### Return type
@@ -668,7 +668,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.PostApi(api_client)
-    path_query_id = 'IID9x6WsdMnTlXnzXGq8ng' # str |  (default to 'IID9x6WsdMnTlXnzXGq8ng')
+    path_query_id = '5CdvsV_zjv4L64XFifAglw' # str |  (default to '5CdvsV_zjv4L64XFifAglw')
     post_create_tweet_request = twitter_openapi_python_generated.PostCreateTweetRequest() # PostCreateTweetRequest | body
 
     try:
@@ -686,7 +686,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;IID9x6WsdMnTlXnzXGq8ng&#39;]
+ **path_query_id** | **str**|  | [default to &#39;5CdvsV_zjv4L64XFifAglw&#39;]
  **post_create_tweet_request** | [**PostCreateTweetRequest**](PostCreateTweetRequest.md)| body | 
 
 ### Return type
@@ -1132,7 +1132,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.PostApi(api_client)
-    path_query_id = 'iQtK4dl5hBmXewYZuEOKVw' # str |  (default to 'iQtK4dl5hBmXewYZuEOKVw')
+    path_query_id = 'ZyZigVsNiFO6v1dEks1eWg' # str |  (default to 'ZyZigVsNiFO6v1dEks1eWg')
     post_delete_retweet_request = twitter_openapi_python_generated.PostDeleteRetweetRequest() # PostDeleteRetweetRequest | body
 
     try:
@@ -1150,7 +1150,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;iQtK4dl5hBmXewYZuEOKVw&#39;]
+ **path_query_id** | **str**|  | [default to &#39;ZyZigVsNiFO6v1dEks1eWg&#39;]
  **post_delete_retweet_request** | [**PostDeleteRetweetRequest**](PostDeleteRetweetRequest.md)| body | 
 
 ### Return type

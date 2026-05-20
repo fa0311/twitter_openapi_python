@@ -36,6 +36,7 @@ class TestArticleResult(unittest.TestCase):
         model = ArticleResult()
         if include_optional:
             return ArticleResult(
+                content_state = { },
                 cover_media = twitter_openapi_python_generated.models.article_cover_media.ArticleCoverMedia(
                     id = '', 
                     media_id = '4', 
@@ -55,8 +56,29 @@ class TestArticleResult(unittest.TestCase):
                         original_img_width = 56, ), 
                     media_key = '', ),
                 id = '',
+                is_grok_summary_eligible = True,
                 lifecycle_state = twitter_openapi_python_generated.models.article_lifecycle_state.ArticleLifecycleState(
                     modified_at_secs = 56, ),
+                media_entities = [
+                    twitter_openapi_python_generated.models.article_cover_media.ArticleCoverMedia(
+                        id = '', 
+                        media_id = '4', 
+                        media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
+                            __typename = 'TimelineTweet', 
+                            color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
+                                palette = [
+                                    twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
+                                        percentage = 1.337, 
+                                        rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
+                                            blue = 56, 
+                                            green = 56, 
+                                            red = 56, ), )
+                                    ], ), 
+                            original_img_height = 56, 
+                            original_img_url = '', 
+                            original_img_width = 56, ), 
+                        media_key = '', )
+                    ],
                 metadata = twitter_openapi_python_generated.models.article_metadata.ArticleMetadata(
                     first_published_at_secs = 56, ),
                 preview_text = '',
@@ -65,24 +87,6 @@ class TestArticleResult(unittest.TestCase):
             )
         else:
             return ArticleResult(
-                cover_media = twitter_openapi_python_generated.models.article_cover_media.ArticleCoverMedia(
-                    id = '', 
-                    media_id = '4', 
-                    media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
-                        __typename = 'TimelineTweet', 
-                        color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
-                            palette = [
-                                twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
-                                    percentage = 1.337, 
-                                    rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
-                                        blue = 56, 
-                                        green = 56, 
-                                        red = 56, ), )
-                                ], ), 
-                        original_img_height = 56, 
-                        original_img_url = '', 
-                        original_img_width = 56, ), 
-                    media_key = '', ),
                 id = '',
                 metadata = twitter_openapi_python_generated.models.article_metadata.ArticleMetadata(
                     first_published_at_secs = 56, ),

@@ -15,10 +15,10 @@
 
 import unittest
 
-from twitter_openapi_python_generated.models.community_data import CommunityData
+from twitter_openapi_python_generated.models.community_union import CommunityUnion
 
-class TestCommunityData(unittest.TestCase):
-    """CommunityData unit test stubs"""
+class TestCommunityUnion(unittest.TestCase):
+    """CommunityUnion unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,16 +26,16 @@ class TestCommunityData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> CommunityData:
-        """Test CommunityData
+    def make_instance(self, include_optional) -> CommunityUnion:
+        """Test CommunityUnion
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `CommunityData`
+        # uncomment below to create an instance of `CommunityUnion`
         """
-        model = CommunityData()
+        model = CommunityUnion()
         if include_optional:
-            return CommunityData(
+            return CommunityUnion(
                 typename = 'TimelineTweet',
                 actions = twitter_openapi_python_generated.models.community_actions.CommunityActions(
                     delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
@@ -98,14 +98,13 @@ class TestCommunityData(unittest.TestCase):
                 viewer_relationship = { }
             )
         else:
-            return CommunityData(
+            return CommunityUnion(
                 typename = 'TimelineTweet',
-                id_str = '4',
         )
         """
 
-    def testCommunityData(self):
-        """Test CommunityData"""
+    def testCommunityUnion(self):
+        """Test CommunityUnion"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

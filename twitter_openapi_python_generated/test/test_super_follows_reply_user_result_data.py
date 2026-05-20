@@ -37,14 +37,12 @@ class TestSuperFollowsReplyUserResultData(unittest.TestCase):
         if include_optional:
             return SuperFollowsReplyUserResultData(
                 typename = 'TimelineTweet',
-                legacy = twitter_openapi_python_generated.models.super_follows_reply_user_result_legacy.SuperFollowsReplyUserResultLegacy(
+                core = twitter_openapi_python_generated.models.super_follows_reply_user_result_core.SuperFollowsReplyUserResultCore(
                     screen_name = '', )
             )
         else:
             return SuperFollowsReplyUserResultData(
                 typename = 'TimelineTweet',
-                legacy = twitter_openapi_python_generated.models.super_follows_reply_user_result_legacy.SuperFollowsReplyUserResultLegacy(
-                    screen_name = '', ),
         )
         """
 

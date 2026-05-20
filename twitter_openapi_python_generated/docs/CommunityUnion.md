@@ -1,4 +1,4 @@
-# CommunityData
+# CommunityUnion
 
 
 ## Properties
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **custom_banner_media** | **Dict[str, object]** |  | [optional] 
 **default_banner_media** | **Dict[str, object]** |  | [optional] 
 **description** | **str** |  | [optional] 
-**id_str** | **str** |  | 
+**id_str** | **str** |  | [optional] 
 **invites_policy** | **str** |  | [optional] 
 **invites_result** | [**CommunityInvitesResult**](CommunityInvitesResult.md) |  | [optional] 
 **is_pinned** | **bool** |  | [optional] 
@@ -35,19 +35,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from twitter_openapi_python_generated.models.community_data import CommunityData
+from twitter_openapi_python_generated.models.community_union import CommunityUnion
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of CommunityData from a JSON string
-community_data_instance = CommunityData.from_json(json)
+# create an instance of CommunityUnion from a JSON string
+community_union_instance = CommunityUnion.from_json(json)
 # print the JSON string representation of the object
-print(CommunityData.to_json())
+print(CommunityUnion.to_json())
 
 # convert the object into a dict
-community_data_dict = community_data_instance.to_dict()
-# create an instance of CommunityData from a dict
-community_data_from_dict = CommunityData.from_dict(community_data_dict)
+community_union_dict = community_union_instance.to_dict()
+# create an instance of CommunityUnion from a dict
+community_union_from_dict = CommunityUnion.from_dict(community_union_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.content_union import ContentUnion
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class TimelineAddEntry(BaseModel):
     """
@@ -37,6 +38,9 @@ class TimelineAddEntry(BaseModel):
     @field_validator('entry_id')
     def entry_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^(([a-zA-Z]+|[0-9]+|[0-9a-f]+)(-|$))+", value):
             raise ValueError(r"must validate the regular expression /^(([a-zA-Z]+|[0-9]+|[0-9a-f]+)(-|$))+/")
         return value
@@ -44,12 +48,16 @@ class TimelineAddEntry(BaseModel):
     @field_validator('sort_index')
     def sort_index_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /[0-9]+$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -61,8 +69,7 @@ class TimelineAddEntry(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

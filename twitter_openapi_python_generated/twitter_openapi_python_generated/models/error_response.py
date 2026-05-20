@@ -21,10 +21,12 @@ import json
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.error_extensions import ErrorExtensions
+from twitter_openapi_python_generated.models.error_response_path_inner import ErrorResponsePathInner
 from twitter_openapi_python_generated.models.location import Location
 from twitter_openapi_python_generated.models.tracing import Tracing
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ErrorResponse(BaseModel):
     """
@@ -36,14 +38,15 @@ class ErrorResponse(BaseModel):
     locations: List[Location]
     message: StrictStr
     name: StrictStr
-    path: List[Any]
+    path: List[ErrorResponsePathInner]
     retry_after: Optional[StrictInt] = None
     source: StrictStr
     tracing: Tracing
     __properties: ClassVar[List[str]] = ["code", "extensions", "kind", "locations", "message", "name", "path", "retry_after", "source", "tracing"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -55,8 +58,7 @@ class ErrorResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -91,6 +93,13 @@ class ErrorResponse(BaseModel):
                 if _item_locations:
                     _items.append(_item_locations.to_dict())
             _dict['locations'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in path (list)
+        _items = []
+        if self.path:
+            for _item_path in self.path:
+                if _item_path:
+                    _items.append(_item_path.to_dict())
+            _dict['path'] = _items
         # override the default output from pydantic by calling `to_dict()` of tracing
         if self.tracing:
             _dict['tracing'] = self.tracing.to_dict()
@@ -112,7 +121,7 @@ class ErrorResponse(BaseModel):
             "locations": [Location.from_dict(_item) for _item in obj["locations"]] if obj.get("locations") is not None else None,
             "message": obj.get("message"),
             "name": obj.get("name"),
-            "path": obj.get("path"),
+            "path": [ErrorResponsePathInner.from_dict(_item) for _item in obj["path"]] if obj.get("path") is not None else None,
             "retry_after": obj.get("retry_after"),
             "source": obj.get("source"),
             "tracing": Tracing.from_dict(obj["tracing"]) if obj.get("tracing") is not None else None

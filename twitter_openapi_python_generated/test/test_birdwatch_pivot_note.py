@@ -36,6 +36,27 @@ class TestBirdwatchPivotNote(unittest.TestCase):
         model = BirdwatchPivotNote()
         if include_optional:
             return BirdwatchPivotNote(
+                grok_translated_community_note_with_availability = twitter_openapi_python_generated.models.grok_translated_community_note_with_availability.GrokTranslatedCommunityNoteWithAvailability(
+                    data = twitter_openapi_python_generated.models.grok_translated_community_note.GrokTranslatedCommunityNote(
+                        destination_language = '', 
+                        rich_text_entities = [
+                            twitter_openapi_python_generated.models.grok_entity.GrokEntity(
+                                from_index = '', 
+                                ref = twitter_openapi_python_generated.models.grok_entity_ref.GrokEntityRef(
+                                    display_url = '', 
+                                    expanded_url = '', 
+                                    text = '', 
+                                    type = 'TimelineUrl', 
+                                    url = '', 
+                                    url_type = 'ExternalUrl', ), 
+                                to_index = '', )
+                            ], 
+                        source_language = '', 
+                        translation = '', 
+                        translation_available = True, ), 
+                    is_available = True, ),
+                is_community_note_translatable = True,
+                language = '',
                 rest_id = '4'
             )
         else:

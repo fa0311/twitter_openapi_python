@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from uuid import UUID
 from twitter_openapi_python_generated.models.additional_media_info import AdditionalMediaInfo
 from twitter_openapi_python_generated.models.allow_download_status import AllowDownloadStatus
 from twitter_openapi_python_generated.models.ext_media_availability import ExtMediaAvailability
@@ -32,6 +33,7 @@ from twitter_openapi_python_generated.models.media_video_info import MediaVideoI
 from twitter_openapi_python_generated.models.sensitive_media_warning import SensitiveMediaWarning
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class MediaExtended(BaseModel):
     """
@@ -44,6 +46,7 @@ class MediaExtended(BaseModel):
     ext_alt_text: Optional[StrictStr] = None
     ext_media_availability: Optional[ExtMediaAvailability] = None
     features: Optional[Dict[str, Any]] = None
+    grok_post_id: Optional[UUID] = None
     id_str: Annotated[str, Field(strict=True)]
     indices: List[StrictInt]
     media_stats: Optional[MediaStats] = Field(default=None, alias="mediaStats")
@@ -58,11 +61,14 @@ class MediaExtended(BaseModel):
     type: StrictStr
     url: StrictStr
     video_info: Optional[MediaVideoInfo] = None
-    __properties: ClassVar[List[str]] = ["additional_media_info", "allow_download_status", "display_url", "expanded_url", "ext_alt_text", "ext_media_availability", "features", "id_str", "indices", "mediaStats", "media_key", "media_results", "media_url_https", "original_info", "sensitive_media_warning", "sizes", "source_status_id_str", "source_user_id_str", "type", "url", "video_info"]
+    __properties: ClassVar[List[str]] = ["additional_media_info", "allow_download_status", "display_url", "expanded_url", "ext_alt_text", "ext_media_availability", "features", "grok_post_id", "id_str", "indices", "mediaStats", "media_key", "media_results", "media_url_https", "original_info", "sensitive_media_warning", "sizes", "source_status_id_str", "source_user_id_str", "type", "url", "video_info"]
 
     @field_validator('id_str')
     def id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
@@ -73,6 +79,9 @@ class MediaExtended(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
@@ -82,6 +91,9 @@ class MediaExtended(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
@@ -95,7 +107,8 @@ class MediaExtended(BaseModel):
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -107,8 +120,7 @@ class MediaExtended(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -179,6 +191,7 @@ class MediaExtended(BaseModel):
             "ext_alt_text": obj.get("ext_alt_text"),
             "ext_media_availability": ExtMediaAvailability.from_dict(obj["ext_media_availability"]) if obj.get("ext_media_availability") is not None else None,
             "features": obj.get("features"),
+            "grok_post_id": obj.get("grok_post_id"),
             "id_str": obj.get("id_str"),
             "indices": obj.get("indices"),
             "mediaStats": MediaStats.from_dict(obj["mediaStats"]) if obj.get("mediaStats") is not None else None,

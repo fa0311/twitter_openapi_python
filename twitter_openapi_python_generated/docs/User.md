@@ -7,8 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
 **affiliates_highlighted_label** | **Dict[str, object]** |  | [optional] 
+**avatar** | [**UserAvatar**](UserAvatar.md) |  | [optional] 
 **business_account** | **Dict[str, object]** |  | [optional] 
+**core** | [**UserCore**](UserCore.md) |  | [optional] 
 **creator_subscriptions_count** | **int** |  | [optional] 
+**dm_permissions** | [**UserDmPermissions**](UserDmPermissions.md) |  | [optional] 
 **has_graduated_access** | **bool** |  | [optional] 
 **has_hidden_likes_on_profile** | **bool** |  | [optional] 
 **has_hidden_subscriptions_on_profile** | **bool** |  | [optional] 
@@ -19,17 +22,27 @@ Name | Type | Description | Notes
 **is_profile_translatable** | **bool** |  | [optional] 
 **legacy** | [**UserLegacy**](UserLegacy.md) |  | 
 **legacy_extended_profile** | [**UserLegacyExtendedProfile**](UserLegacyExtendedProfile.md) |  | [optional] 
+**location** | [**UserLocation**](UserLocation.md) |  | [optional] 
+**media_permissions** | [**UserMediaPermissions**](UserMediaPermissions.md) |  | [optional] 
 **parody_commentary_fan_label** | **str** |  | [optional] 
 **premium_gifting_eligible** | **bool** |  | [optional] 
+**privacy** | [**UserPrivacy**](UserPrivacy.md) |  | [optional] 
 **professional** | [**UserProfessional**](UserProfessional.md) |  | [optional] 
+**profile_bio** | [**ProfileBio**](ProfileBio.md) |  | [optional] 
+**profile_description_language** | **str** |  | [optional] 
 **profile_image_shape** | **str** |  | 
+**profile_sort_enabled** | **bool** |  | [optional] 
+**relationship_perspectives** | [**UserRelationshipPerspectives**](UserRelationshipPerspectives.md) |  | [optional] 
 **rest_id** | **str** |  | 
 **super_follow_eligible** | **bool** |  | [optional] 
 **super_followed_by** | **bool** |  | [optional] 
 **super_following** | **bool** |  | [optional] 
+**super_follows_user_profile** | [**UserProfile**](UserProfile.md) |  | [optional] 
 **tipjar_settings** | [**UserTipJarSettings**](UserTipJarSettings.md) |  | [optional] 
 **user_seed_tweet_count** | **int** |  | [optional] 
+**verification** | [**UserVerification**](UserVerification.md) |  | [optional] 
 **verification_info** | [**UserVerificationInfo**](UserVerificationInfo.md) |  | [optional] 
+**verified_user_profiles** | [**UserProfile**](UserProfile.md) |  | [optional] 
 
 ## Example
 

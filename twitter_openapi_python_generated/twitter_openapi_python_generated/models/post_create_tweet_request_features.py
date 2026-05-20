@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, StrictBool
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class PostCreateTweetRequestFeatures(BaseModel):
     """
@@ -30,36 +31,44 @@ class PostCreateTweetRequestFeatures(BaseModel):
     articles_preview_enabled: StrictBool
     c9s_tweet_anatomy_moderator_badge_enabled: StrictBool
     communities_web_enable_tweet_community_results_fetch: StrictBool
-    creator_subscriptions_quote_tweet_preview_enabled: StrictBool
+    content_disclosure_ai_generated_indicator_enabled: StrictBool
+    content_disclosure_indicator_enabled: StrictBool
     freedom_of_speech_not_reach_fetch_enabled: StrictBool
     graphql_is_translatable_rweb_tweet_is_translatable_enabled: StrictBool
     longform_notetweets_consumption_enabled: StrictBool
     longform_notetweets_inline_media_enabled: StrictBool
     longform_notetweets_rich_text_read_enabled: StrictBool
+    post_ctas_fetch_enabled: StrictBool
     premium_content_api_read_enabled: StrictBool
     profile_label_improvements_pcf_label_in_post_enabled: StrictBool
     responsive_web_edit_tweet_api_enabled: StrictBool
-    responsive_web_enhance_cards_enabled: StrictBool
     responsive_web_graphql_skip_user_profile_image_extensions_enabled: StrictBool
     responsive_web_graphql_timeline_navigation_enabled: StrictBool
     responsive_web_grok_analysis_button_from_backend: StrictBool
     responsive_web_grok_analyze_button_fetch_trends_enabled: StrictBool
     responsive_web_grok_analyze_post_followups_enabled: StrictBool
+    responsive_web_grok_annotations_enabled: StrictBool
+    responsive_web_grok_community_note_auto_translation_is_enabled: StrictBool
     responsive_web_grok_image_annotation_enabled: StrictBool
+    responsive_web_grok_imagine_annotation_enabled: StrictBool
     responsive_web_grok_share_attachment_enabled: StrictBool
     responsive_web_grok_show_grok_translated_post: StrictBool
     responsive_web_jetfuel_frame: StrictBool
+    responsive_web_profile_redirect_enabled: StrictBool
     responsive_web_twitter_article_tweet_consumption_enabled: StrictBool
+    rweb_cashtags_composer_attachment_enabled: StrictBool
+    rweb_cashtags_enabled: StrictBool
+    rweb_conversational_replies_downvote_enabled: StrictBool
     rweb_tipjar_consumption_enabled: StrictBool
     standardized_nudges_misinfo: StrictBool
-    tweet_awards_web_tipping_enabled: StrictBool
     tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled: StrictBool
     verified_phone_label_enabled: StrictBool
     view_counts_everywhere_api_enabled: StrictBool
-    __properties: ClassVar[List[str]] = ["articles_preview_enabled", "c9s_tweet_anatomy_moderator_badge_enabled", "communities_web_enable_tweet_community_results_fetch", "creator_subscriptions_quote_tweet_preview_enabled", "freedom_of_speech_not_reach_fetch_enabled", "graphql_is_translatable_rweb_tweet_is_translatable_enabled", "longform_notetweets_consumption_enabled", "longform_notetweets_inline_media_enabled", "longform_notetweets_rich_text_read_enabled", "premium_content_api_read_enabled", "profile_label_improvements_pcf_label_in_post_enabled", "responsive_web_edit_tweet_api_enabled", "responsive_web_enhance_cards_enabled", "responsive_web_graphql_skip_user_profile_image_extensions_enabled", "responsive_web_graphql_timeline_navigation_enabled", "responsive_web_grok_analysis_button_from_backend", "responsive_web_grok_analyze_button_fetch_trends_enabled", "responsive_web_grok_analyze_post_followups_enabled", "responsive_web_grok_image_annotation_enabled", "responsive_web_grok_share_attachment_enabled", "responsive_web_grok_show_grok_translated_post", "responsive_web_jetfuel_frame", "responsive_web_twitter_article_tweet_consumption_enabled", "rweb_tipjar_consumption_enabled", "standardized_nudges_misinfo", "tweet_awards_web_tipping_enabled", "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled", "verified_phone_label_enabled", "view_counts_everywhere_api_enabled"]
+    __properties: ClassVar[List[str]] = ["articles_preview_enabled", "c9s_tweet_anatomy_moderator_badge_enabled", "communities_web_enable_tweet_community_results_fetch", "content_disclosure_ai_generated_indicator_enabled", "content_disclosure_indicator_enabled", "freedom_of_speech_not_reach_fetch_enabled", "graphql_is_translatable_rweb_tweet_is_translatable_enabled", "longform_notetweets_consumption_enabled", "longform_notetweets_inline_media_enabled", "longform_notetweets_rich_text_read_enabled", "post_ctas_fetch_enabled", "premium_content_api_read_enabled", "profile_label_improvements_pcf_label_in_post_enabled", "responsive_web_edit_tweet_api_enabled", "responsive_web_graphql_skip_user_profile_image_extensions_enabled", "responsive_web_graphql_timeline_navigation_enabled", "responsive_web_grok_analysis_button_from_backend", "responsive_web_grok_analyze_button_fetch_trends_enabled", "responsive_web_grok_analyze_post_followups_enabled", "responsive_web_grok_annotations_enabled", "responsive_web_grok_community_note_auto_translation_is_enabled", "responsive_web_grok_image_annotation_enabled", "responsive_web_grok_imagine_annotation_enabled", "responsive_web_grok_share_attachment_enabled", "responsive_web_grok_show_grok_translated_post", "responsive_web_jetfuel_frame", "responsive_web_profile_redirect_enabled", "responsive_web_twitter_article_tweet_consumption_enabled", "rweb_cashtags_composer_attachment_enabled", "rweb_cashtags_enabled", "rweb_conversational_replies_downvote_enabled", "rweb_tipjar_consumption_enabled", "standardized_nudges_misinfo", "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled", "verified_phone_label_enabled", "view_counts_everywhere_api_enabled"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -71,8 +80,7 @@ class PostCreateTweetRequestFeatures(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -112,29 +120,36 @@ class PostCreateTweetRequestFeatures(BaseModel):
             "articles_preview_enabled": obj.get("articles_preview_enabled") if obj.get("articles_preview_enabled") is not None else True,
             "c9s_tweet_anatomy_moderator_badge_enabled": obj.get("c9s_tweet_anatomy_moderator_badge_enabled") if obj.get("c9s_tweet_anatomy_moderator_badge_enabled") is not None else True,
             "communities_web_enable_tweet_community_results_fetch": obj.get("communities_web_enable_tweet_community_results_fetch") if obj.get("communities_web_enable_tweet_community_results_fetch") is not None else True,
-            "creator_subscriptions_quote_tweet_preview_enabled": obj.get("creator_subscriptions_quote_tweet_preview_enabled") if obj.get("creator_subscriptions_quote_tweet_preview_enabled") is not None else False,
+            "content_disclosure_ai_generated_indicator_enabled": obj.get("content_disclosure_ai_generated_indicator_enabled") if obj.get("content_disclosure_ai_generated_indicator_enabled") is not None else True,
+            "content_disclosure_indicator_enabled": obj.get("content_disclosure_indicator_enabled") if obj.get("content_disclosure_indicator_enabled") is not None else True,
             "freedom_of_speech_not_reach_fetch_enabled": obj.get("freedom_of_speech_not_reach_fetch_enabled") if obj.get("freedom_of_speech_not_reach_fetch_enabled") is not None else True,
             "graphql_is_translatable_rweb_tweet_is_translatable_enabled": obj.get("graphql_is_translatable_rweb_tweet_is_translatable_enabled") if obj.get("graphql_is_translatable_rweb_tweet_is_translatable_enabled") is not None else True,
             "longform_notetweets_consumption_enabled": obj.get("longform_notetweets_consumption_enabled") if obj.get("longform_notetweets_consumption_enabled") is not None else True,
-            "longform_notetweets_inline_media_enabled": obj.get("longform_notetweets_inline_media_enabled") if obj.get("longform_notetweets_inline_media_enabled") is not None else True,
+            "longform_notetweets_inline_media_enabled": obj.get("longform_notetweets_inline_media_enabled") if obj.get("longform_notetweets_inline_media_enabled") is not None else False,
             "longform_notetweets_rich_text_read_enabled": obj.get("longform_notetweets_rich_text_read_enabled") if obj.get("longform_notetweets_rich_text_read_enabled") is not None else True,
+            "post_ctas_fetch_enabled": obj.get("post_ctas_fetch_enabled") if obj.get("post_ctas_fetch_enabled") is not None else True,
             "premium_content_api_read_enabled": obj.get("premium_content_api_read_enabled") if obj.get("premium_content_api_read_enabled") is not None else False,
             "profile_label_improvements_pcf_label_in_post_enabled": obj.get("profile_label_improvements_pcf_label_in_post_enabled") if obj.get("profile_label_improvements_pcf_label_in_post_enabled") is not None else True,
             "responsive_web_edit_tweet_api_enabled": obj.get("responsive_web_edit_tweet_api_enabled") if obj.get("responsive_web_edit_tweet_api_enabled") is not None else True,
-            "responsive_web_enhance_cards_enabled": obj.get("responsive_web_enhance_cards_enabled") if obj.get("responsive_web_enhance_cards_enabled") is not None else False,
             "responsive_web_graphql_skip_user_profile_image_extensions_enabled": obj.get("responsive_web_graphql_skip_user_profile_image_extensions_enabled") if obj.get("responsive_web_graphql_skip_user_profile_image_extensions_enabled") is not None else False,
             "responsive_web_graphql_timeline_navigation_enabled": obj.get("responsive_web_graphql_timeline_navigation_enabled") if obj.get("responsive_web_graphql_timeline_navigation_enabled") is not None else True,
-            "responsive_web_grok_analysis_button_from_backend": obj.get("responsive_web_grok_analysis_button_from_backend") if obj.get("responsive_web_grok_analysis_button_from_backend") is not None else False,
+            "responsive_web_grok_analysis_button_from_backend": obj.get("responsive_web_grok_analysis_button_from_backend") if obj.get("responsive_web_grok_analysis_button_from_backend") is not None else True,
             "responsive_web_grok_analyze_button_fetch_trends_enabled": obj.get("responsive_web_grok_analyze_button_fetch_trends_enabled") if obj.get("responsive_web_grok_analyze_button_fetch_trends_enabled") is not None else False,
             "responsive_web_grok_analyze_post_followups_enabled": obj.get("responsive_web_grok_analyze_post_followups_enabled") if obj.get("responsive_web_grok_analyze_post_followups_enabled") is not None else True,
+            "responsive_web_grok_annotations_enabled": obj.get("responsive_web_grok_annotations_enabled") if obj.get("responsive_web_grok_annotations_enabled") is not None else True,
+            "responsive_web_grok_community_note_auto_translation_is_enabled": obj.get("responsive_web_grok_community_note_auto_translation_is_enabled") if obj.get("responsive_web_grok_community_note_auto_translation_is_enabled") is not None else True,
             "responsive_web_grok_image_annotation_enabled": obj.get("responsive_web_grok_image_annotation_enabled") if obj.get("responsive_web_grok_image_annotation_enabled") is not None else True,
+            "responsive_web_grok_imagine_annotation_enabled": obj.get("responsive_web_grok_imagine_annotation_enabled") if obj.get("responsive_web_grok_imagine_annotation_enabled") is not None else True,
             "responsive_web_grok_share_attachment_enabled": obj.get("responsive_web_grok_share_attachment_enabled") if obj.get("responsive_web_grok_share_attachment_enabled") is not None else True,
-            "responsive_web_grok_show_grok_translated_post": obj.get("responsive_web_grok_show_grok_translated_post") if obj.get("responsive_web_grok_show_grok_translated_post") is not None else False,
-            "responsive_web_jetfuel_frame": obj.get("responsive_web_jetfuel_frame") if obj.get("responsive_web_jetfuel_frame") is not None else False,
+            "responsive_web_grok_show_grok_translated_post": obj.get("responsive_web_grok_show_grok_translated_post") if obj.get("responsive_web_grok_show_grok_translated_post") is not None else True,
+            "responsive_web_jetfuel_frame": obj.get("responsive_web_jetfuel_frame") if obj.get("responsive_web_jetfuel_frame") is not None else True,
+            "responsive_web_profile_redirect_enabled": obj.get("responsive_web_profile_redirect_enabled") if obj.get("responsive_web_profile_redirect_enabled") is not None else False,
             "responsive_web_twitter_article_tweet_consumption_enabled": obj.get("responsive_web_twitter_article_tweet_consumption_enabled") if obj.get("responsive_web_twitter_article_tweet_consumption_enabled") is not None else True,
-            "rweb_tipjar_consumption_enabled": obj.get("rweb_tipjar_consumption_enabled") if obj.get("rweb_tipjar_consumption_enabled") is not None else True,
+            "rweb_cashtags_composer_attachment_enabled": obj.get("rweb_cashtags_composer_attachment_enabled") if obj.get("rweb_cashtags_composer_attachment_enabled") is not None else True,
+            "rweb_cashtags_enabled": obj.get("rweb_cashtags_enabled") if obj.get("rweb_cashtags_enabled") is not None else True,
+            "rweb_conversational_replies_downvote_enabled": obj.get("rweb_conversational_replies_downvote_enabled") if obj.get("rweb_conversational_replies_downvote_enabled") is not None else False,
+            "rweb_tipjar_consumption_enabled": obj.get("rweb_tipjar_consumption_enabled") if obj.get("rweb_tipjar_consumption_enabled") is not None else False,
             "standardized_nudges_misinfo": obj.get("standardized_nudges_misinfo") if obj.get("standardized_nudges_misinfo") is not None else True,
-            "tweet_awards_web_tipping_enabled": obj.get("tweet_awards_web_tipping_enabled") if obj.get("tweet_awards_web_tipping_enabled") is not None else False,
             "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": obj.get("tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled") if obj.get("tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled") is not None else True,
             "verified_phone_label_enabled": obj.get("verified_phone_label_enabled") if obj.get("verified_phone_label_enabled") is not None else False,
             "view_counts_everywhere_api_enabled": obj.get("view_counts_everywhere_api_enabled") if obj.get("view_counts_everywhere_api_enabled") is not None else True

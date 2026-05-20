@@ -26,6 +26,7 @@ from twitter_openapi_python_generated.models.birdwatch_pivot_note import Birdwat
 from twitter_openapi_python_generated.models.birdwatch_pivot_subtitle import BirdwatchPivotSubtitle
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class BirdwatchPivot(BaseModel):
     """
@@ -34,6 +35,7 @@ class BirdwatchPivot(BaseModel):
     call_to_action: Optional[BirdwatchPivotCallToAction] = Field(default=None, alias="callToAction")
     destination_url: StrictStr = Field(alias="destinationUrl")
     footer: Optional[BirdwatchPivotFooter] = None
+    footer_icon_type: Optional[StrictStr] = Field(default=None, alias="footerIconType")
     icon_type: StrictStr = Field(alias="iconType")
     note: Optional[BirdwatchPivotNote] = None
     shorttitle: Optional[StrictStr] = None
@@ -41,13 +43,23 @@ class BirdwatchPivot(BaseModel):
     title: StrictStr
     title_detail: Optional[StrictStr] = Field(default=None, alias="titleDetail")
     visual_style: Optional[StrictStr] = Field(default=None, alias="visualStyle")
-    __properties: ClassVar[List[str]] = ["callToAction", "destinationUrl", "footer", "iconType", "note", "shorttitle", "subtitle", "title", "titleDetail", "visualStyle"]
+    __properties: ClassVar[List[str]] = ["callToAction", "destinationUrl", "footer", "footerIconType", "iconType", "note", "shorttitle", "subtitle", "title", "titleDetail", "visualStyle"]
+
+    @field_validator('footer_icon_type')
+    def footer_icon_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['BirdwatchEyeOff']):
+            raise ValueError("must be one of enum values ('BirdwatchEyeOff')")
+        return value
 
     @field_validator('icon_type')
     def icon_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['BirdwatchV1Icon']):
-            raise ValueError("must be one of enum values ('BirdwatchV1Icon')")
+        if value not in set(['BirdwatchV1Icon', 'BirdwatchCameraVideo']):
+            raise ValueError("must be one of enum values ('BirdwatchV1Icon', 'BirdwatchCameraVideo')")
         return value
 
     @field_validator('visual_style')
@@ -61,7 +73,8 @@ class BirdwatchPivot(BaseModel):
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -73,8 +86,7 @@ class BirdwatchPivot(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -126,6 +138,7 @@ class BirdwatchPivot(BaseModel):
             "callToAction": BirdwatchPivotCallToAction.from_dict(obj["callToAction"]) if obj.get("callToAction") is not None else None,
             "destinationUrl": obj.get("destinationUrl"),
             "footer": BirdwatchPivotFooter.from_dict(obj["footer"]) if obj.get("footer") is not None else None,
+            "footerIconType": obj.get("footerIconType"),
             "iconType": obj.get("iconType"),
             "note": BirdwatchPivotNote.from_dict(obj["note"]) if obj.get("note") is not None else None,
             "shorttitle": obj.get("shorttitle"),

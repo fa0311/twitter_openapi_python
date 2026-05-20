@@ -47,12 +47,6 @@ class TestUserProfessional(unittest.TestCase):
             )
         else:
             return UserProfessional(
-                category = [
-                    twitter_openapi_python_generated.models.user_professional_category.UserProfessionalCategory(
-                        icon_name = '', 
-                        id = 56, 
-                        name = '', )
-                    ],
                 professional_type = 'Business',
                 rest_id = '4',
         )

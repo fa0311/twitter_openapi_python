@@ -42,6 +42,7 @@ class TestGrokShareAttachmentItem(unittest.TestCase):
                         article = twitter_openapi_python_generated.models.article.Article(
                             article_results = twitter_openapi_python_generated.models.article_results.ArticleResults(
                                 result = twitter_openapi_python_generated.models.article_result.ArticleResult(
+                                    content_state = { }, 
                                     cover_media = twitter_openapi_python_generated.models.article_cover_media.ArticleCoverMedia(
                                         id = '', 
                                         media_id = '4', 
@@ -60,75 +61,38 @@ class TestGrokShareAttachmentItem(unittest.TestCase):
                                             original_img_width = 56, ), 
                                         media_key = '', ), 
                                     id = '', 
+                                    is_grok_summary_eligible = True, 
                                     lifecycle_state = twitter_openapi_python_generated.models.article_lifecycle_state.ArticleLifecycleState(
                                         modified_at_secs = 56, ), 
+                                    media_entities = [
+                                        twitter_openapi_python_generated.models.article_cover_media.ArticleCoverMedia(
+                                            id = '', 
+                                            media_id = '4', 
+                                            media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
+                                                color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
+                                                    palette = [
+                                                        twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
+                                                            percentage = 1.337, 
+                                                            rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
+                                                                blue = 56, 
+                                                                green = 56, 
+                                                                red = 56, ), )
+                                                        ], ), 
+                                                original_img_height = 56, 
+                                                original_img_url = '', 
+                                                original_img_width = 56, ), 
+                                            media_key = '', )
+                                        ], 
                                     metadata = twitter_openapi_python_generated.models.article_metadata.ArticleMetadata(
                                         first_published_at_secs = 56, ), 
                                     preview_text = '', 
                                     rest_id = '4', 
                                     title = '', ), ), ), 
                         author_community_relationship = twitter_openapi_python_generated.models.author_community_relationship.AuthorCommunityRelationship(
-                            community_results = twitter_openapi_python_generated.models.community.Community(
-                                result = twitter_openapi_python_generated.models.community_data.CommunityData(
-                                    __typename = 'TimelineTweet', 
-                                    actions = twitter_openapi_python_generated.models.community_actions.CommunityActions(
-                                        delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
-                                            __typename = , 
-                                            reason = 'Unavailable', ), 
-                                        join_action_result = null, 
-                                        leave_action_result = twitter_openapi_python_generated.models.community_leave_action_result.CommunityLeaveActionResult(
-                                            __typename = , 
-                                            message = '', 
-                                            reason = 'ViewerNotMember', ), 
-                                        pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
-                                            __typename = , ), 
-                                        unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
-                                            __typename = , ), ), 
-                                    admin_results = twitter_openapi_python_generated.models.user_results.UserResults(), 
-                                    created_at = 56, 
-                                    creator_results = twitter_openapi_python_generated.models.user_results.UserResults(), 
-                                    custom_banner_media = { }, 
-                                    default_banner_media = { }, 
-                                    description = '', 
-                                    id_str = '4', 
-                                    invites_policy = 'MemberInvitesAllowed', 
-                                    invites_result = twitter_openapi_python_generated.models.community_invites_result.CommunityInvitesResult(
-                                        __typename = , 
-                                        message = '', 
-                                        reason = 'Unavailable', ), 
-                                    is_pinned = True, 
-                                    join_policy = 'Open', 
-                                    join_requests_result = twitter_openapi_python_generated.models.community_join_requests_result.CommunityJoinRequestsResult(
-                                        __typename = , ), 
-                                    member_count = 56, 
-                                    members_facepile_results = [
-                                        
-                                        ], 
-                                    moderator_count = 56, 
-                                    name = '', 
-                                    primary_community_topic = twitter_openapi_python_generated.models.primary_community_topic.PrimaryCommunityTopic(
-                                        topic_id = '4', 
-                                        topic_name = '', ), 
-                                    question = '', 
-                                    role = 'NonMember', 
-                                    rules = [
-                                        twitter_openapi_python_generated.models.community_rule.CommunityRule(
-                                            description = '', 
-                                            name = '', 
-                                            rest_id = '4', )
-                                        ], 
-                                    search_tags = [
-                                        ''
-                                        ], 
-                                    show_only_users_to_display = [
-                                        ''
-                                        ], 
-                                    urls = twitter_openapi_python_generated.models.community_urls.CommunityUrls(
-                                        permalink = twitter_openapi_python_generated.models.community_urls_permalink.CommunityUrlsPermalink(
-                                            url = '', ), ), 
-                                    viewer_relationship = { }, ), ), 
+                            community_results = twitter_openapi_python_generated.models.community_result.CommunityResult(
+                                result = null, ), 
                             role = 'Member', 
-                            user_results = , ), 
+                            user_results = twitter_openapi_python_generated.models.user_results.UserResults(), ), 
                         birdwatch_pivot = twitter_openapi_python_generated.models.birdwatch_pivot.BirdwatchPivot(
                             call_to_action = twitter_openapi_python_generated.models.birdwatch_pivot_call_to_action.BirdwatchPivotCallToAction(
                                 destination_url = '', 
@@ -147,8 +111,30 @@ class TestGrokShareAttachmentItem(unittest.TestCase):
                                         to_index = 56, )
                                     ], 
                                 text = '', ), 
+                            footer_icon_type = 'BirdwatchEyeOff', 
                             icon_type = 'BirdwatchV1Icon', 
                             note = twitter_openapi_python_generated.models.birdwatch_pivot_note.BirdwatchPivotNote(
+                                grok_translated_community_note_with_availability = twitter_openapi_python_generated.models.grok_translated_community_note_with_availability.GrokTranslatedCommunityNoteWithAvailability(
+                                    data = twitter_openapi_python_generated.models.grok_translated_community_note.GrokTranslatedCommunityNote(
+                                        destination_language = '', 
+                                        rich_text_entities = [
+                                            twitter_openapi_python_generated.models.grok_entity.GrokEntity(
+                                                from_index = '', 
+                                                ref = twitter_openapi_python_generated.models.grok_entity_ref.GrokEntityRef(
+                                                    display_url = '', 
+                                                    expanded_url = '', 
+                                                    text = '', 
+                                                    type = 'TimelineUrl', 
+                                                    url = '', 
+                                                    url_type = 'ExternalUrl', ), 
+                                                to_index = '', )
+                                            ], 
+                                        source_language = '', 
+                                        translation = '', 
+                                        translation_available = True, ), 
+                                    is_available = True, ), 
+                                is_community_note_translatable = True, 
+                                language = '', 
                                 rest_id = '4', ), 
                             shorttitle = '', 
                             subtitle = twitter_openapi_python_generated.models.birdwatch_pivot_subtitle.BirdwatchPivotSubtitle(
@@ -195,28 +181,35 @@ class TestGrokShareAttachmentItem(unittest.TestCase):
                                 name = '', 
                                 url = '', 
                                 user_refs_results = [
-                                    
+                                    twitter_openapi_python_generated.models.user_results.UserResults()
                                     ], ), 
                             rest_id = '', ), 
                         community_relationship = twitter_openapi_python_generated.models.community_relationship.CommunityRelationship(
-                            actions = twitter_openapi_python_generated.models.community_actions.CommunityActions(), 
+                            actions = twitter_openapi_python_generated.models.community_actions.CommunityActions(
+                                delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
+                                    __typename = 'TimelineTweet', 
+                                    reason = 'Unavailable', ), 
+                                join_action_result = null, 
+                                leave_action_result = twitter_openapi_python_generated.models.community_leave_action_result.CommunityLeaveActionResult(
+                                    __typename = , 
+                                    message = '', 
+                                    reason = 'ViewerNotMember', ), 
+                                pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
+                                    __typename = , ), 
+                                unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
+                                    __typename = , ), ), 
                             id = '', 
                             moderation_state = { }, 
                             rest_id = '4', ), 
-                        community_results = twitter_openapi_python_generated.models.community.Community(
-                            result = twitter_openapi_python_generated.models.community_data.CommunityData(
-                                __typename = , 
-                                created_at = 56, 
-                                description = '', 
-                                id_str = '4', 
-                                invites_policy = 'MemberInvitesAllowed', 
-                                is_pinned = True, 
-                                join_policy = 'Open', 
-                                member_count = 56, 
-                                moderator_count = 56, 
-                                name = '', 
-                                question = '', 
-                                role = 'NonMember', ), ), 
+                        community_results = twitter_openapi_python_generated.models.community_result.CommunityResult(
+                            result = null, ), 
+                        content_disclosure = twitter_openapi_python_generated.models.content_disclosure.ContentDisclosure(
+                            advertising_disclosure = twitter_openapi_python_generated.models.content_disclosure_advertising_disclosure.ContentDisclosureAdvertisingDisclosure(
+                                is_paid_promotion = True, ), 
+                            ai_generated_disclosure = twitter_openapi_python_generated.models.content_disclosure_ai_generated_disclosure.ContentDisclosureAiGeneratedDisclosure(
+                                ai_generated_detection_source = 'C2paClient', 
+                                can_edit = True, 
+                                has_ai_generated_media = True, ), ), 
                         core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
                             user_results = , ), 
                         edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(
@@ -241,14 +234,21 @@ class TestGrokShareAttachmentItem(unittest.TestCase):
                         grok_analysis_followups = [
                             ''
                             ], 
+                        grok_annotations = twitter_openapi_python_generated.models.grok_annotation.GrokAnnotation(
+                            is_image_editable_by_grok = True, ), 
                         grok_share_attachment = twitter_openapi_python_generated.models.grok_share_attachment.GrokShareAttachment(
                             items = [
                                 twitter_openapi_python_generated.models.grok_share_attachment_item.GrokShareAttachmentItem(
+                                    deepsearch_headers = [
+                                        { }
+                                        ], 
                                     media_urls = [
                                         ''
                                         ], 
                                     message = '', )
                                 ], ), 
+                        grok_translated_post_with_availability = twitter_openapi_python_generated.models.grok_translated_post_with_availability.GrokTranslatedPostWithAvailability(
+                            is_available = True, ), 
                         has_birdwatch_notes = True, 
                         is_translatable = True, 
                         legacy = twitter_openapi_python_generated.models.tweet_legacy.TweetLegacy(
@@ -260,12 +260,9 @@ class TestGrokShareAttachmentItem(unittest.TestCase):
                             display_text_range = [
                                 56
                                 ], 
-                            entities = twitter_openapi_python_generated.models.entities.Entities(
-                                hashtags = [
-                                    { }
-                                    ], 
+                            extended_entities = twitter_openapi_python_generated.models.extended_entities.ExtendedEntities(
                                 media = [
-                                    twitter_openapi_python_generated.models.media.Media(
+                                    twitter_openapi_python_generated.models.media_extended.MediaExtended(
                                         additional_media_info = twitter_openapi_python_generated.models.additional_media_info.AdditionalMediaInfo(
                                             call_to_actions = twitter_openapi_python_generated.models.additional_media_info_call_to_actions.AdditionalMediaInfoCallToActions(
                                                 visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
@@ -287,10 +284,13 @@ class TestGrokShareAttachmentItem(unittest.TestCase):
                                             reason = '', 
                                             status = 'Available', ), 
                                         features = twitter_openapi_python_generated.models.features.features(), 
+                                        grok_post_id = '', 
                                         id_str = '4', 
                                         indices = [
                                             56
                                             ], 
+                                        media_stats = twitter_openapi_python_generated.models.media_stats.MediaStats(
+                                            view_count = 56, ), 
                                         media_key = '', 
                                         media_results = twitter_openapi_python_generated.models.media_results.MediaResults(
                                             result = twitter_openapi_python_generated.models.media_result.MediaResult(
@@ -339,53 +339,6 @@ class TestGrokShareAttachmentItem(unittest.TestCase):
                                                     content_type = '', 
                                                     url = '', )
                                                 ], ), )
-                                    ], 
-                                symbols = [
-                                    { }
-                                    ], 
-                                timestamps = [
-                                    twitter_openapi_python_generated.models.timestamp.Timestamp(
-                                        indices = [
-                                            56
-                                            ], 
-                                        seconds = 56, 
-                                        text = '', )
-                                    ], 
-                                urls = [
-                                    twitter_openapi_python_generated.models.url.Url(
-                                        display_url = '', 
-                                        expanded_url = '', 
-                                        indices = , 
-                                        url = '', )
-                                    ], 
-                                user_mentions = [
-                                    { }
-                                    ], ), 
-                            extended_entities = twitter_openapi_python_generated.models.extended_entities.ExtendedEntities(
-                                media = [
-                                    twitter_openapi_python_generated.models.media_extended.MediaExtended(
-                                        display_url = '', 
-                                        expanded_url = '', 
-                                        ext_alt_text = '', 
-                                        features = twitter_openapi_python_generated.models.features.features(), 
-                                        id_str = '4', 
-                                        indices = , 
-                                        media_stats = twitter_openapi_python_generated.models.media_stats.MediaStats(
-                                            view_count = 56, ), 
-                                        media_key = '', 
-                                        media_url_https = '', 
-                                        original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
-                                            height = 56, 
-                                            width = 56, ), 
-                                        sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
-                                            large = , 
-                                            medium = , 
-                                            small = , 
-                                            thumb = , ), 
-                                        source_status_id_str = '4', 
-                                        source_user_id_str = '4', 
-                                        type = 'photo', 
-                                        url = '', )
                                     ], ), 
                             favorite_count = 56, 
                             favorited = True, 
@@ -423,8 +376,23 @@ class TestGrokShareAttachmentItem(unittest.TestCase):
                                         hashtags = [
                                             { }
                                             ], 
+                                        smarttags = [
+                                            twitter_openapi_python_generated.models.smarttag.Smarttag(
+                                                indices = [
+                                                    56
+                                                    ], 
+                                                tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                                    info = { }, ), 
+                                                text = '', )
+                                            ], 
                                         symbols = [
                                             { }
+                                            ], 
+                                        timestamps = [
+                                            twitter_openapi_python_generated.models.timestamp.Timestamp(
+                                                indices = , 
+                                                seconds = 56, 
+                                                text = '', )
                                             ], 
                                         urls = [
                                             twitter_openapi_python_generated.models.url.Url(
@@ -447,6 +415,27 @@ class TestGrokShareAttachmentItem(unittest.TestCase):
                                                 to_index = 56, )
                                             ], ), 
                                     text = '', ), ), ), 
+                        post_cta = twitter_openapi_python_generated.models.tweet_post_cta.TweetPostCta(
+                            display_locations = [
+                                'TweetDetails'
+                                ], 
+                            post_cta = twitter_openapi_python_generated.models.post_cta.PostCta(
+                                action_url = '', 
+                                background_color = '', 
+                                show_chevron = True, 
+                                stroke_color = '', 
+                                title_text = twitter_openapi_python_generated.models.post_cta_title_text.PostCtaTitleText(
+                                    entities = [
+                                        twitter_openapi_python_generated.models.post_cta_title_text_entity.PostCtaTitleTextEntity(
+                                            from_index = 56, 
+                                            ref = twitter_openapi_python_generated.models.post_cta_title_text_entity_ref.PostCtaTitleTextEntityRef(
+                                                __typename = , ), 
+                                            to_index = 56, )
+                                        ], 
+                                    text = '', ), ), 
+                            scribe_id = '', ), 
+                        post_image_description = '', 
+                        post_video_description = '', 
                         previous_counts = twitter_openapi_python_generated.models.tweet_previous_counts.TweetPreviousCounts(
                             bookmark_count = 56, 
                             favorite_count = 56, 
@@ -460,9 +449,7 @@ class TestGrokShareAttachmentItem(unittest.TestCase):
                         source = '', 
                         super_follows_reply_user_result = twitter_openapi_python_generated.models.super_follows_reply_user_result.SuperFollowsReplyUserResult(
                             result = twitter_openapi_python_generated.models.super_follows_reply_user_result_data.SuperFollowsReplyUserResultData(
-                                __typename = , 
-                                legacy = twitter_openapi_python_generated.models.super_follows_reply_user_result_legacy.SuperFollowsReplyUserResultLegacy(
-                                    screen_name = '', ), ), ), 
+                                __typename = , ), ), 
                         trend_results = twitter_openapi_python_generated.models.trend_results.TrendResults(
                             rest_id = '4', ), 
                         unified_card = twitter_openapi_python_generated.models.unified_card.UnifiedCard(
@@ -471,6 +458,9 @@ class TestGrokShareAttachmentItem(unittest.TestCase):
                         views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                             count = '4', 
                             state = 'Enabled', ), ), ),
+                deepsearch_headers = [
+                    { }
+                    ],
                 media_urls = [
                     ''
                     ],

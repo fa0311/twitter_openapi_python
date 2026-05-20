@@ -19,27 +19,37 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.type_name import TypeName
+from twitter_openapi_python_generated.models.user_result_by_screen_name_core import UserResultByScreenNameCore
 from twitter_openapi_python_generated.models.user_result_by_screen_name_legacy import UserResultByScreenNameLegacy
+from twitter_openapi_python_generated.models.user_result_privacy import UserResultPrivacy
+from twitter_openapi_python_generated.models.user_result_relationship_perspectives import UserResultRelationshipPerspectives
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class UserResultByScreenNameResult(BaseModel):
     """
     UserResultByScreenNameResult
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
+    core: UserResultByScreenNameCore
     id: Annotated[str, Field(strict=True)]
-    legacy: UserResultByScreenNameLegacy
+    legacy: Optional[UserResultByScreenNameLegacy] = None
+    privacy: UserResultPrivacy
     profilemodules: Dict[str, Any]
+    relationship_perspectives: UserResultRelationshipPerspectives
     rest_id: Annotated[str, Field(strict=True)]
-    __properties: ClassVar[List[str]] = ["__typename", "id", "legacy", "profilemodules", "rest_id"]
+    __properties: ClassVar[List[str]] = ["__typename", "core", "id", "legacy", "privacy", "profilemodules", "relationship_perspectives", "rest_id"]
 
     @field_validator('id')
     def id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9a-zA-Z=]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9a-zA-Z=]+$/")
         return value
@@ -47,12 +57,16 @@ class UserResultByScreenNameResult(BaseModel):
     @field_validator('rest_id')
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -64,8 +78,7 @@ class UserResultByScreenNameResult(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -90,9 +103,18 @@ class UserResultByScreenNameResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of core
+        if self.core:
+            _dict['core'] = self.core.to_dict()
         # override the default output from pydantic by calling `to_dict()` of legacy
         if self.legacy:
             _dict['legacy'] = self.legacy.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of privacy
+        if self.privacy:
+            _dict['privacy'] = self.privacy.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of relationship_perspectives
+        if self.relationship_perspectives:
+            _dict['relationship_perspectives'] = self.relationship_perspectives.to_dict()
         return _dict
 
     @classmethod
@@ -106,9 +128,12 @@ class UserResultByScreenNameResult(BaseModel):
 
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
+            "core": UserResultByScreenNameCore.from_dict(obj["core"]) if obj.get("core") is not None else None,
             "id": obj.get("id"),
             "legacy": UserResultByScreenNameLegacy.from_dict(obj["legacy"]) if obj.get("legacy") is not None else None,
+            "privacy": UserResultPrivacy.from_dict(obj["privacy"]) if obj.get("privacy") is not None else None,
             "profilemodules": obj.get("profilemodules"),
+            "relationship_perspectives": UserResultRelationshipPerspectives.from_dict(obj["relationship_perspectives"]) if obj.get("relationship_perspectives") is not None else None,
             "rest_id": obj.get("rest_id")
         })
         return _obj

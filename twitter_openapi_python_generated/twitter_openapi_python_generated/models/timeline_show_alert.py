@@ -20,17 +20,20 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo
 from twitter_openapi_python_generated.models.instruction_type import InstructionType
 from twitter_openapi_python_generated.models.timeline_show_alert_rich_text import TimelineShowAlertRichText
 from twitter_openapi_python_generated.models.user_results import UserResults
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class TimelineShowAlert(BaseModel):
     """
     TimelineShowAlert
     """ # noqa: E501
     alert_type: Optional[StrictStr] = Field(default=None, alias="alertType")
+    client_event_info: Optional[ClientEventInfo] = Field(default=None, alias="clientEventInfo")
     color_config: Optional[Dict[str, Any]] = Field(default=None, alias="colorConfig")
     display_duration_ms: Optional[StrictInt] = Field(default=None, alias="displayDurationMs")
     display_location: Optional[StrictStr] = Field(default=None, alias="displayLocation")
@@ -39,7 +42,7 @@ class TimelineShowAlert(BaseModel):
     trigger_delay_ms: Optional[StrictInt] = Field(default=None, alias="triggerDelayMs")
     type: InstructionType
     users_results: List[UserResults] = Field(alias="usersResults")
-    __properties: ClassVar[List[str]] = ["alertType", "colorConfig", "displayDurationMs", "displayLocation", "iconDisplayInfo", "richText", "triggerDelayMs", "type", "usersResults"]
+    __properties: ClassVar[List[str]] = ["alertType", "clientEventInfo", "colorConfig", "displayDurationMs", "displayLocation", "iconDisplayInfo", "richText", "triggerDelayMs", "type", "usersResults"]
 
     @field_validator('alert_type')
     def alert_type_validate_enum(cls, value):
@@ -62,7 +65,8 @@ class TimelineShowAlert(BaseModel):
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -74,8 +78,7 @@ class TimelineShowAlert(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -100,6 +103,9 @@ class TimelineShowAlert(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of client_event_info
+        if self.client_event_info:
+            _dict['clientEventInfo'] = self.client_event_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of rich_text
         if self.rich_text:
             _dict['richText'] = self.rich_text.to_dict()
@@ -123,6 +129,7 @@ class TimelineShowAlert(BaseModel):
 
         _obj = cls.model_validate({
             "alertType": obj.get("alertType"),
+            "clientEventInfo": ClientEventInfo.from_dict(obj["clientEventInfo"]) if obj.get("clientEventInfo") is not None else None,
             "colorConfig": obj.get("colorConfig"),
             "displayDurationMs": obj.get("displayDurationMs"),
             "displayLocation": obj.get("displayLocation"),

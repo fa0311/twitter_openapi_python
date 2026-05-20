@@ -38,14 +38,14 @@ class TestSuperFollowsReplyUserResult(unittest.TestCase):
             return SuperFollowsReplyUserResult(
                 result = twitter_openapi_python_generated.models.super_follows_reply_user_result_data.SuperFollowsReplyUserResultData(
                     __typename = 'TimelineTweet', 
-                    legacy = twitter_openapi_python_generated.models.super_follows_reply_user_result_legacy.SuperFollowsReplyUserResultLegacy(
+                    core = twitter_openapi_python_generated.models.super_follows_reply_user_result_core.SuperFollowsReplyUserResultCore(
                         screen_name = '', ), )
             )
         else:
             return SuperFollowsReplyUserResult(
                 result = twitter_openapi_python_generated.models.super_follows_reply_user_result_data.SuperFollowsReplyUserResultData(
                     __typename = 'TimelineTweet', 
-                    legacy = twitter_openapi_python_generated.models.super_follows_reply_user_result_legacy.SuperFollowsReplyUserResultLegacy(
+                    core = twitter_openapi_python_generated.models.super_follows_reply_user_result_core.SuperFollowsReplyUserResultCore(
                         screen_name = '', ), ),
         )
         """

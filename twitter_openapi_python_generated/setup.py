@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Twitter OpenAPI
 
@@ -22,12 +20,12 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "twitter_openapi_python_generated"
-VERSION = "0.0.33"
-PYTHON_REQUIRES = ">= 3.8"
+VERSION = "0.0.34"
+PYTHON_REQUIRES = ">= 3.10"
 REQUIRES = [
-    "urllib3 >= 1.25.3, < 3.0.0",
+    "urllib3 >= 2.1.0, < 3.0.0",
     "python-dateutil >= 2.8.2",
-    "pydantic >= 2",
+    "pydantic >= 2.11",
     "typing-extensions >= 4.7.1",
 ]
 
@@ -42,7 +40,7 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
-    license="custom license or AGPL-3.0-or-later",
+    license="LicenseRef-Custom OR AGPL-3.0-or-later",
     long_description_content_type='text/markdown',
     long_description="""\
     Twitter OpenAPI(Swagger) specification

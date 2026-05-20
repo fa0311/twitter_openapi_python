@@ -26,6 +26,7 @@ from twitter_openapi_python_generated.models.one_factor_login_eligibility import
 from twitter_openapi_python_generated.models.user_features import UserFeatures
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class Session(BaseModel):
     """
@@ -50,6 +51,9 @@ class Session(BaseModel):
     @field_validator('country')
     def country_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[A-Z]{2}$", value):
             raise ValueError(r"must validate the regular expression /^[A-Z]{2}$/")
         return value
@@ -57,6 +61,9 @@ class Session(BaseModel):
     @field_validator('guest_id')
     def guest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
@@ -64,6 +71,9 @@ class Session(BaseModel):
     @field_validator('language')
     def language_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[a-z]{2}$", value):
             raise ValueError(r"must validate the regular expression /^[a-z]{2}$/")
         return value
@@ -78,12 +88,16 @@ class Session(BaseModel):
     @field_validator('user_id')
     def user_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -95,8 +109,7 @@ class Session(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
