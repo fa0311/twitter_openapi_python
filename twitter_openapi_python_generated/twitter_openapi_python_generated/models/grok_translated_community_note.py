@@ -79,8 +79,7 @@ class GrokTranslatedCommunityNote(BaseModel):
         _items = []
         if self.rich_text_entities:
             for _item_rich_text_entities in self.rich_text_entities:
-                if _item_rich_text_entities:
-                    _items.append(_item_rich_text_entities.to_dict())
+                _items.append(_item_rich_text_entities.to_dict() if _item_rich_text_entities is not None else None)
             _dict['rich_text_entities'] = _items
         return _dict
 

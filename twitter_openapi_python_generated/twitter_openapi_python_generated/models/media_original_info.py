@@ -77,8 +77,7 @@ class MediaOriginalInfo(BaseModel):
         _items = []
         if self.focus_rects:
             for _item_focus_rects in self.focus_rects:
-                if _item_focus_rects:
-                    _items.append(_item_focus_rects.to_dict())
+                _items.append(_item_focus_rects.to_dict() if _item_focus_rects is not None else None)
             _dict['focus_rects'] = _items
         return _dict
 

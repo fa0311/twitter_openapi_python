@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,15 +30,13 @@ class UserValue(BaseModel):
     UserValue
     """ # noqa: E501
     id_str: Annotated[str, Field(strict=True)]
-    __properties: ClassVar[List[str]] = ["id_str"]
+    path: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["id_str", "path"]
 
-    @field_validator('id_str')
+    @field_validator('id_str', mode="before")
     def id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
@@ -93,7 +91,8 @@ class UserValue(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id_str": obj.get("id_str")
+            "id_str": obj.get("id_str"),
+            "path": obj.get("path")
         })
         return _obj
 

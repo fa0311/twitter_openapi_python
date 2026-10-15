@@ -92,9 +92,10 @@ class SocialContextUnion(BaseModel):
         match = 0
 
         # use oneOf discriminator to lookup the data type
-        _data_type = json.loads(json_str).get("type")
+        _discriminator_property = "type"
+        _data_type = json.loads(json_str).get(_discriminator_property)
         if not _data_type:
-            raise ValueError("Failed to lookup data type from the field `type` in the input.")
+            raise ValueError(f"Failed to lookup data type from the field `{_discriminator_property}` in the input.")
 
         # check if data type is `TimelineGeneralContext`
         if _data_type == "TimelineGeneralContext":

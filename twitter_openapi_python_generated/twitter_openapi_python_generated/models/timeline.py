@@ -77,8 +77,7 @@ class Timeline(BaseModel):
         _items = []
         if self.instructions:
             for _item_instructions in self.instructions:
-                if _item_instructions:
-                    _items.append(_item_instructions.to_dict())
+                _items.append(_item_instructions.to_dict() if _item_instructions is not None else None)
             _dict['instructions'] = _items
         return _dict
 

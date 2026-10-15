@@ -29,7 +29,7 @@ class PostFavoriteTweetRequest(BaseModel):
     """
     PostFavoriteTweetRequest
     """ # noqa: E501
-    query_id: StrictStr = Field(alias="queryId")
+    query_id: StrictStr = Field(alias="queryId", json_schema_extra={"examples": ["lI07N6Otwv1PhnEgXILM7A"]})
     variables: PostCreateBookmarkRequestVariables
     __properties: ClassVar[List[str]] = ["queryId", "variables"]
 

@@ -36,14 +36,14 @@ class TestPostDeleteTweetRequest(unittest.TestCase):
         model = PostDeleteTweetRequest()
         if include_optional:
             return PostDeleteTweetRequest(
-                query_id = 'VaenaVgh5q5ih7kvyVjgtg',
+                query_id = 'nxpZCY2K-I6QoFHAHeojFQ',
                 variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(
                     dark_request = False, 
                     tweet_id = '1349129669258448897', )
             )
         else:
             return PostDeleteTweetRequest(
-                query_id = 'VaenaVgh5q5ih7kvyVjgtg',
+                query_id = 'nxpZCY2K-I6QoFHAHeojFQ',
                 variables = twitter_openapi_python_generated.models.post_create_retweet_request_variables.postCreateRetweet_request_variables(
                     dark_request = False, 
                     tweet_id = '1349129669258448897', ),

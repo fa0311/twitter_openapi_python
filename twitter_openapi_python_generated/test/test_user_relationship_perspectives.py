@@ -39,7 +39,9 @@ class TestUserRelationshipPerspectives(unittest.TestCase):
                 blocked_by = True,
                 blocking = True,
                 followed_by = True,
-                following = True
+                following = True,
+                live_following = True,
+                muting = True
             )
         else:
             return UserRelationshipPerspectives(

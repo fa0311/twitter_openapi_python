@@ -35,23 +35,17 @@ class TimelineAddEntry(BaseModel):
     sort_index: Annotated[str, Field(strict=True)] = Field(alias="sortIndex")
     __properties: ClassVar[List[str]] = ["content", "entryId", "sortIndex"]
 
-    @field_validator('entry_id')
+    @field_validator('entry_id', mode="before")
     def entry_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(([a-zA-Z]+|[0-9]+|[0-9a-f]+)(-|$))+", value):
+        if isinstance(value, str) and not re.match(r"^(([a-zA-Z]+|[0-9]+|[0-9a-f]+)(-|$))+", value):
             raise ValueError(r"must validate the regular expression /^(([a-zA-Z]+|[0-9]+|[0-9a-f]+)(-|$))+/")
         return value
 
-    @field_validator('sort_index')
+    @field_validator('sort_index', mode="before")
     def sort_index_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /[0-9]+$/")
         return value
 

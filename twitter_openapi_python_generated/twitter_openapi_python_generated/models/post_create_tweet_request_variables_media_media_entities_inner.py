@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class PostCreateTweetRequestVariablesMediaMediaEntitiesInner(BaseModel):
     """
     PostCreateTweetRequestVariablesMediaMediaEntitiesInner
     """ # noqa: E501
-    media_id: StrictStr
+    media_id: StrictStr = Field(json_schema_extra={"examples": ["1111111111111111111"]})
     tagged_users: List[StrictStr]
     __properties: ClassVar[List[str]] = ["media_id", "tagged_users"]
 

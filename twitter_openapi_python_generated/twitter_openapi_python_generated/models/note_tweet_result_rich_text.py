@@ -75,8 +75,7 @@ class NoteTweetResultRichText(BaseModel):
         _items = []
         if self.richtext_tags:
             for _item_richtext_tags in self.richtext_tags:
-                if _item_richtext_tags:
-                    _items.append(_item_richtext_tags.to_dict())
+                _items.append(_item_richtext_tags.to_dict() if _item_richtext_tags is not None else None)
             _dict['richtext_tags'] = _items
         return _dict
 

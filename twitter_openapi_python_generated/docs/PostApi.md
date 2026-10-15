@@ -668,7 +668,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.PostApi(api_client)
-    path_query_id = '5CdvsV_zjv4L64XFifAglw' # str |  (default to '5CdvsV_zjv4L64XFifAglw')
+    path_query_id = 'wR5Z_lEibLvkew3tF9w-Sg' # str |  (default to 'wR5Z_lEibLvkew3tF9w-Sg')
     post_create_tweet_request = twitter_openapi_python_generated.PostCreateTweetRequest() # PostCreateTweetRequest | body
 
     try:
@@ -686,7 +686,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;5CdvsV_zjv4L64XFifAglw&#39;]
+ **path_query_id** | **str**|  | [default to &#39;wR5Z_lEibLvkew3tF9w-Sg&#39;]
  **post_create_tweet_request** | [**PostCreateTweetRequest**](PostCreateTweetRequest.md)| body | 
 
 ### Return type
@@ -1364,7 +1364,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.PostApi(api_client)
-    path_query_id = 'VaenaVgh5q5ih7kvyVjgtg' # str |  (default to 'VaenaVgh5q5ih7kvyVjgtg')
+    path_query_id = 'nxpZCY2K-I6QoFHAHeojFQ' # str |  (default to 'nxpZCY2K-I6QoFHAHeojFQ')
     post_delete_tweet_request = twitter_openapi_python_generated.PostDeleteTweetRequest() # PostDeleteTweetRequest | body
 
     try:
@@ -1382,7 +1382,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;VaenaVgh5q5ih7kvyVjgtg&#39;]
+ **path_query_id** | **str**|  | [default to &#39;nxpZCY2K-I6QoFHAHeojFQ&#39;]
  **post_delete_tweet_request** | [**PostDeleteTweetRequest**](PostDeleteTweetRequest.md)| body | 
 
 ### Return type

@@ -38,6 +38,7 @@ class TestBirdwatchEntity(unittest.TestCase):
             return BirdwatchEntity(
                 from_index = 56,
                 ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                    expanded_url = '', 
                     text = '', 
                     type = 'TimelineUrl', 
                     url = '', 
@@ -48,6 +49,7 @@ class TestBirdwatchEntity(unittest.TestCase):
             return BirdwatchEntity(
                 from_index = 56,
                 ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                    expanded_url = '', 
                     text = '', 
                     type = 'TimelineUrl', 
                     url = '', 

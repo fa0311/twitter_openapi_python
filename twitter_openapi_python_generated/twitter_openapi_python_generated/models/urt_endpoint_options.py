@@ -76,8 +76,7 @@ class UrtEndpointOptions(BaseModel):
         _items = []
         if self.request_params:
             for _item_request_params in self.request_params:
-                if _item_request_params:
-                    _items.append(_item_request_params.to_dict())
+                _items.append(_item_request_params.to_dict() if _item_request_params is not None else None)
             _dict['requestParams'] = _items
         return _dict
 

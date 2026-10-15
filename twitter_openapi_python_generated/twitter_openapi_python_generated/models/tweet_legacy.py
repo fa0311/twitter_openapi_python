@@ -38,7 +38,7 @@ class TweetLegacy(BaseModel):
     bookmarked: StrictBool
     conversation_control: Optional[Dict[str, Any]] = None
     conversation_id_str: Annotated[str, Field(strict=True)]
-    created_at: Annotated[str, Field(strict=True)]
+    created_at: Annotated[str, Field(strict=True)] = Field(json_schema_extra={"examples": ["Sat Dec 31 23:59:59 +0000 2023"]})
     display_text_range: List[StrictInt]
     entities: Optional[Entities] = None
     extended_entities: Optional[ExtendedEntities] = None
@@ -67,59 +67,44 @@ class TweetLegacy(BaseModel):
     user_id_str: Annotated[str, Field(strict=True)]
     __properties: ClassVar[List[str]] = ["bookmark_count", "bookmarked", "conversation_control", "conversation_id_str", "created_at", "display_text_range", "entities", "extended_entities", "favorite_count", "favorited", "full_text", "id_str", "in_reply_to_screen_name", "in_reply_to_status_id_str", "in_reply_to_user_id_str", "is_quote_status", "lang", "limited_actions", "place", "possibly_sensitive", "possibly_sensitive_editable", "quote_count", "quoted_status_id_str", "quoted_status_permalink", "reply_count", "retweet_count", "retweeted", "retweeted_status_result", "scopes", "self_thread", "user_id_str"]
 
-    @field_validator('conversation_id_str')
+    @field_validator('conversation_id_str', mode="before")
     def conversation_id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    @field_validator('created_at')
+    @field_validator('created_at', mode="before")
     def created_at_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$", value):
+        if isinstance(value, str) and not re.match(r"^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$", value):
             raise ValueError(r"must validate the regular expression /^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$/")
         return value
 
-    @field_validator('id_str')
+    @field_validator('id_str', mode="before")
     def id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    @field_validator('in_reply_to_status_id_str')
+    @field_validator('in_reply_to_status_id_str', mode="before")
     def in_reply_to_status_id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    @field_validator('in_reply_to_user_id_str')
+    @field_validator('in_reply_to_user_id_str', mode="before")
     def in_reply_to_user_id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
@@ -133,26 +118,20 @@ class TweetLegacy(BaseModel):
             raise ValueError("must be one of enum values ('limited_replies', 'non_compliant', 'dynamic_product_ad', 'stale_tweet', 'community_tweet_non_member_public_community', 'community_tweet_non_member_closed_community', 'blocked_viewer')")
         return value
 
-    @field_validator('quoted_status_id_str')
+    @field_validator('quoted_status_id_str', mode="before")
     def quoted_status_id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    @field_validator('user_id_str')
+    @field_validator('user_id_str', mode="before")
     def user_id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 

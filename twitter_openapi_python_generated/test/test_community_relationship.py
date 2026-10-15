@@ -46,9 +46,9 @@ class TestCommunityRelationship(unittest.TestCase):
                         message = '', 
                         reason = 'ViewerNotMember', ), 
                     pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
-                        __typename = , ), 
+                        __typename = 'TimelineTweet', ), 
                     unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
-                        __typename = , ), ),
+                        __typename = 'TimelineTweet', ), ),
                 id = '',
                 moderation_state = { },
                 rest_id = '4'
@@ -65,9 +65,9 @@ class TestCommunityRelationship(unittest.TestCase):
                         message = '', 
                         reason = 'ViewerNotMember', ), 
                     pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
-                        __typename = , ), 
+                        __typename = 'TimelineTweet', ), 
                     unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
-                        __typename = , ), ),
+                        __typename = 'TimelineTweet', ), ),
                 id = '',
                 moderation_state = { },
                 rest_id = '4',

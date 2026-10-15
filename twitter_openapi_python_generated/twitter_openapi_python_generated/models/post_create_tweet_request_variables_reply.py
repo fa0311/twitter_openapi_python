@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class PostCreateTweetRequestVariablesReply(BaseModel):
     PostCreateTweetRequestVariablesReply
     """ # noqa: E501
     exclude_reply_user_ids: List[Dict[str, Any]]
-    in_reply_to_tweet_id: StrictStr
+    in_reply_to_tweet_id: StrictStr = Field(json_schema_extra={"examples": ["1111111111111111111"]})
     __properties: ClassVar[List[str]] = ["exclude_reply_user_ids", "in_reply_to_tweet_id"]
 
     model_config = ConfigDict(

@@ -65,6 +65,7 @@ class TestArticleResults(unittest.TestCase):
                             id = '', 
                             media_id = '4', 
                             media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
+                                __typename = 'TimelineTweet', 
                                 color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
                                     palette = [
                                         twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
@@ -116,6 +117,7 @@ class TestArticleResults(unittest.TestCase):
                             id = '', 
                             media_id = '4', 
                             media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
+                                __typename = 'TimelineTweet', 
                                 color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
                                     palette = [
                                         twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(

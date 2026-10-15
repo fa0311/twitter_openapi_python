@@ -105,6 +105,18 @@ class TestTweetApi(unittest.TestCase):
         """
         pass
 
+    def test_get_user_originals_timeline(self) -> None:
+        """Test case for get_user_originals_timeline
+
+        """
+        pass
+
+    def test_get_user_replies_timeline(self) -> None:
+        """Test case for get_user_replies_timeline
+
+        """
+        pass
+
     def test_get_user_tweets(self) -> None:
         """Test case for get_user_tweets
 
@@ -113,6 +125,12 @@ class TestTweetApi(unittest.TestCase):
 
     def test_get_user_tweets_and_replies(self) -> None:
         """Test case for get_user_tweets_and_replies
+
+        """
+        pass
+
+    def test_get_user_video_timeline(self) -> None:
+        """Test case for get_user_video_timeline
 
         """
         pass

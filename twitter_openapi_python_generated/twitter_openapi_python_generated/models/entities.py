@@ -84,29 +84,25 @@ class Entities(BaseModel):
         _items = []
         if self.media:
             for _item_media in self.media:
-                if _item_media:
-                    _items.append(_item_media.to_dict())
+                _items.append(_item_media.to_dict() if _item_media is not None else None)
             _dict['media'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in smarttags (list)
         _items = []
         if self.smarttags:
             for _item_smarttags in self.smarttags:
-                if _item_smarttags:
-                    _items.append(_item_smarttags.to_dict())
+                _items.append(_item_smarttags.to_dict() if _item_smarttags is not None else None)
             _dict['smarttags'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in timestamps (list)
         _items = []
         if self.timestamps:
             for _item_timestamps in self.timestamps:
-                if _item_timestamps:
-                    _items.append(_item_timestamps.to_dict())
+                _items.append(_item_timestamps.to_dict() if _item_timestamps is not None else None)
             _dict['timestamps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in urls (list)
         _items = []
         if self.urls:
             for _item_urls in self.urls:
-                if _item_urls:
-                    _items.append(_item_urls.to_dict())
+                _items.append(_item_urls.to_dict() if _item_urls is not None else None)
             _dict['urls'] = _items
         return _dict
 

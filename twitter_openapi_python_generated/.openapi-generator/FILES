@@ -34,6 +34,7 @@ docs/BookmarksResponse.md
 docs/BookmarksResponseData.md
 docs/BookmarksTimeline.md
 docs/Callback.md
+docs/CashtagAttachment.md
 docs/ClientEventInfo.md
 docs/CommunitiesActions.md
 docs/Community.md
@@ -186,6 +187,8 @@ docs/PostFavoriteTweetRequest.md
 docs/PostUnfavoriteTweetRequest.md
 docs/PrimaryCommunityTopic.md
 docs/ProfileBio.md
+docs/ProfileBioEntities.md
+docs/ProfileBioEntitiesUrls.md
 docs/ProfileResponse.md
 docs/ProfileResponseData.md
 docs/QuotedRefResult.md
@@ -309,8 +312,10 @@ docs/Url.md
 docs/UrtEndpointOptions.md
 docs/UrtEndpointRequestParams.md
 docs/User.md
+docs/UserActionCounts.md
 docs/UserApi.md
 docs/UserAvatar.md
+docs/UserBanner.md
 docs/UserCore.md
 docs/UserDmPermissions.md
 docs/UserFeatures.md
@@ -326,10 +331,15 @@ docs/UserLegacyExtendedProfileBirthdate.md
 docs/UserListApi.md
 docs/UserLocation.md
 docs/UserMediaPermissions.md
+docs/UserNotificationsSettings.md
+docs/UserPinnedItems.md
 docs/UserPrivacy.md
 docs/UserProfessional.md
 docs/UserProfessionalCategory.md
 docs/UserProfile.md
+docs/UserProfileMetadata.md
+docs/UserProfileTranslation.md
+docs/UserRelationshipCounts.md
 docs/UserRelationshipPerspectives.md
 docs/UserResponse.md
 docs/UserResponseData.md
@@ -342,6 +352,7 @@ docs/UserResultPrivacy.md
 docs/UserResultRelationshipPerspectives.md
 docs/UserResults.md
 docs/UserTipJarSettings.md
+docs/UserTweetCounts.md
 docs/UserTweetsData.md
 docs/UserTweetsResponse.md
 docs/UserTweetsResultV1.md
@@ -356,6 +367,7 @@ docs/UserVerificationInfoReason.md
 docs/UserVerificationInfoReasonDescription.md
 docs/UserVerificationInfoReasonDescriptionEntities.md
 docs/UserVerificationInfoReasonDescriptionEntitiesRef.md
+docs/UserWebsite.md
 docs/UsersApi.md
 docs/UsersResponse.md
 docs/UsersResponseData.md
@@ -400,6 +412,7 @@ test/test_bookmarks_response.py
 test/test_bookmarks_response_data.py
 test/test_bookmarks_timeline.py
 test/test_callback.py
+test/test_cashtag_attachment.py
 test/test_client_event_info.py
 test/test_communities_actions.py
 test/test_community.py
@@ -552,6 +565,8 @@ test/test_post_favorite_tweet_request.py
 test/test_post_unfavorite_tweet_request.py
 test/test_primary_community_topic.py
 test/test_profile_bio.py
+test/test_profile_bio_entities.py
+test/test_profile_bio_entities_urls.py
 test/test_profile_response.py
 test/test_profile_response_data.py
 test/test_quoted_ref_result.py
@@ -675,8 +690,10 @@ test/test_url.py
 test/test_urt_endpoint_options.py
 test/test_urt_endpoint_request_params.py
 test/test_user.py
+test/test_user_action_counts.py
 test/test_user_api.py
 test/test_user_avatar.py
+test/test_user_banner.py
 test/test_user_core.py
 test/test_user_dm_permissions.py
 test/test_user_features.py
@@ -692,10 +709,15 @@ test/test_user_legacy_extended_profile_birthdate.py
 test/test_user_list_api.py
 test/test_user_location.py
 test/test_user_media_permissions.py
+test/test_user_notifications_settings.py
+test/test_user_pinned_items.py
 test/test_user_privacy.py
 test/test_user_professional.py
 test/test_user_professional_category.py
 test/test_user_profile.py
+test/test_user_profile_metadata.py
+test/test_user_profile_translation.py
+test/test_user_relationship_counts.py
 test/test_user_relationship_perspectives.py
 test/test_user_response.py
 test/test_user_response_data.py
@@ -708,6 +730,7 @@ test/test_user_result_privacy.py
 test/test_user_result_relationship_perspectives.py
 test/test_user_results.py
 test/test_user_tip_jar_settings.py
+test/test_user_tweet_counts.py
 test/test_user_tweets_data.py
 test/test_user_tweets_response.py
 test/test_user_tweets_result_v1.py
@@ -722,6 +745,7 @@ test/test_user_verification_info_reason.py
 test/test_user_verification_info_reason_description.py
 test/test_user_verification_info_reason_description_entities.py
 test/test_user_verification_info_reason_description_entities_ref.py
+test/test_user_website.py
 test/test_users_api.py
 test/test_users_response.py
 test/test_users_response_data.py
@@ -777,6 +801,7 @@ twitter_openapi_python_generated/models/bookmarks_response.py
 twitter_openapi_python_generated/models/bookmarks_response_data.py
 twitter_openapi_python_generated/models/bookmarks_timeline.py
 twitter_openapi_python_generated/models/callback.py
+twitter_openapi_python_generated/models/cashtag_attachment.py
 twitter_openapi_python_generated/models/client_event_info.py
 twitter_openapi_python_generated/models/communities_actions.py
 twitter_openapi_python_generated/models/community.py
@@ -926,6 +951,8 @@ twitter_openapi_python_generated/models/post_favorite_tweet_request.py
 twitter_openapi_python_generated/models/post_unfavorite_tweet_request.py
 twitter_openapi_python_generated/models/primary_community_topic.py
 twitter_openapi_python_generated/models/profile_bio.py
+twitter_openapi_python_generated/models/profile_bio_entities.py
+twitter_openapi_python_generated/models/profile_bio_entities_urls.py
 twitter_openapi_python_generated/models/profile_response.py
 twitter_openapi_python_generated/models/profile_response_data.py
 twitter_openapi_python_generated/models/quoted_ref_result.py
@@ -1048,7 +1075,9 @@ twitter_openapi_python_generated/models/url.py
 twitter_openapi_python_generated/models/urt_endpoint_options.py
 twitter_openapi_python_generated/models/urt_endpoint_request_params.py
 twitter_openapi_python_generated/models/user.py
+twitter_openapi_python_generated/models/user_action_counts.py
 twitter_openapi_python_generated/models/user_avatar.py
+twitter_openapi_python_generated/models/user_banner.py
 twitter_openapi_python_generated/models/user_core.py
 twitter_openapi_python_generated/models/user_dm_permissions.py
 twitter_openapi_python_generated/models/user_features.py
@@ -1063,10 +1092,15 @@ twitter_openapi_python_generated/models/user_legacy_extended_profile.py
 twitter_openapi_python_generated/models/user_legacy_extended_profile_birthdate.py
 twitter_openapi_python_generated/models/user_location.py
 twitter_openapi_python_generated/models/user_media_permissions.py
+twitter_openapi_python_generated/models/user_notifications_settings.py
+twitter_openapi_python_generated/models/user_pinned_items.py
 twitter_openapi_python_generated/models/user_privacy.py
 twitter_openapi_python_generated/models/user_professional.py
 twitter_openapi_python_generated/models/user_professional_category.py
 twitter_openapi_python_generated/models/user_profile.py
+twitter_openapi_python_generated/models/user_profile_metadata.py
+twitter_openapi_python_generated/models/user_profile_translation.py
+twitter_openapi_python_generated/models/user_relationship_counts.py
 twitter_openapi_python_generated/models/user_relationship_perspectives.py
 twitter_openapi_python_generated/models/user_response.py
 twitter_openapi_python_generated/models/user_response_data.py
@@ -1079,6 +1113,7 @@ twitter_openapi_python_generated/models/user_result_privacy.py
 twitter_openapi_python_generated/models/user_result_relationship_perspectives.py
 twitter_openapi_python_generated/models/user_results.py
 twitter_openapi_python_generated/models/user_tip_jar_settings.py
+twitter_openapi_python_generated/models/user_tweet_counts.py
 twitter_openapi_python_generated/models/user_tweets_data.py
 twitter_openapi_python_generated/models/user_tweets_response.py
 twitter_openapi_python_generated/models/user_tweets_result_v1.py
@@ -1093,6 +1128,7 @@ twitter_openapi_python_generated/models/user_verification_info_reason.py
 twitter_openapi_python_generated/models/user_verification_info_reason_description.py
 twitter_openapi_python_generated/models/user_verification_info_reason_description_entities.py
 twitter_openapi_python_generated/models/user_verification_info_reason_description_entities_ref.py
+twitter_openapi_python_generated/models/user_website.py
 twitter_openapi_python_generated/models/users_response.py
 twitter_openapi_python_generated/models/users_response_data.py
 twitter_openapi_python_generated/py.typed

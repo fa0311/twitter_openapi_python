@@ -39,8 +39,8 @@ class ContentDisclosureAiGeneratedDisclosure(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['C2paClient', 'ContentDisclosureAiGeneratedDisclosure', 'UserDeclared']):
-            raise ValueError("must be one of enum values ('C2paClient', 'ContentDisclosureAiGeneratedDisclosure', 'UserDeclared')")
+        if value not in set(['C2paClient', 'ContentDisclosureAiGeneratedDisclosure', 'UserDeclared', 'GrokSignature']):
+            raise ValueError("must be one of enum values ('C2paClient', 'ContentDisclosureAiGeneratedDisclosure', 'UserDeclared', 'GrokSignature')")
         return value
 
     model_config = ConfigDict(

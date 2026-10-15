@@ -41,7 +41,7 @@ class TimelineShowAlert(BaseModel):
     rich_text: TimelineShowAlertRichText = Field(alias="richText")
     trigger_delay_ms: Optional[StrictInt] = Field(default=None, alias="triggerDelayMs")
     type: InstructionType
-    users_results: List[UserResults] = Field(alias="usersResults")
+    users_results: Optional[List[UserResults]] = Field(alias="usersResults")
     __properties: ClassVar[List[str]] = ["alertType", "clientEventInfo", "colorConfig", "displayDurationMs", "displayLocation", "iconDisplayInfo", "richText", "triggerDelayMs", "type", "usersResults"]
 
     @field_validator('alert_type')
@@ -113,9 +113,13 @@ class TimelineShowAlert(BaseModel):
         _items = []
         if self.users_results:
             for _item_users_results in self.users_results:
-                if _item_users_results:
-                    _items.append(_item_users_results.to_dict())
+                _items.append(_item_users_results.to_dict() if _item_users_results is not None else None)
             _dict['usersResults'] = _items
+        # set to None if users_results (nullable) is None
+        # and model_fields_set contains the field
+        if self.users_results is None and "users_results" in self.model_fields_set:
+            _dict['usersResults'] = None
+
         return _dict
 
     @classmethod

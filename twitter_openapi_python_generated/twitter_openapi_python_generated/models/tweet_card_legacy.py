@@ -81,8 +81,7 @@ class TweetCardLegacy(BaseModel):
         _items = []
         if self.binding_values:
             for _item_binding_values in self.binding_values:
-                if _item_binding_values:
-                    _items.append(_item_binding_values.to_dict())
+                _items.append(_item_binding_values.to_dict() if _item_binding_values is not None else None)
             _dict['binding_values'] = _items
         # override the default output from pydantic by calling `to_dict()` of card_platform
         if self.card_platform:
@@ -91,8 +90,7 @@ class TweetCardLegacy(BaseModel):
         _items = []
         if self.user_refs_results:
             for _item_user_refs_results in self.user_refs_results:
-                if _item_user_refs_results:
-                    _items.append(_item_user_refs_results.to_dict())
+                _items.append(_item_user_refs_results.to_dict() if _item_user_refs_results is not None else None)
             _dict['user_refs_results'] = _items
         return _dict
 

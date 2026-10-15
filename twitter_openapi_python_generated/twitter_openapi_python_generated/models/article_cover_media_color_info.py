@@ -75,8 +75,7 @@ class ArticleCoverMediaColorInfo(BaseModel):
         _items = []
         if self.palette:
             for _item_palette in self.palette:
-                if _item_palette:
-                    _items.append(_item_palette.to_dict())
+                _items.append(_item_palette.to_dict() if _item_palette is not None else None)
             _dict['palette'] = _items
         return _dict
 

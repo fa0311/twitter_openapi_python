@@ -75,8 +75,7 @@ class Highlight(BaseModel):
         _items = []
         if self.text_highlights:
             for _item_text_highlights in self.text_highlights:
-                if _item_text_highlights:
-                    _items.append(_item_text_highlights.to_dict())
+                _items.append(_item_text_highlights.to_dict() if _item_text_highlights is not None else None)
             _dict['textHighlights'] = _items
         return _dict
 

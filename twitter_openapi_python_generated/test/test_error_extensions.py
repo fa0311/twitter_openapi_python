@@ -50,8 +50,6 @@ class TestErrorExtensions(unittest.TestCase):
                 kind = '',
                 name = '',
                 source = '',
-                tracing = twitter_openapi_python_generated.models.tracing.Tracing(
-                    trace_id = 'bf325375e030fccb', ),
         )
         """
 

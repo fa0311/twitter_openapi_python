@@ -103,10 +103,18 @@ class TestGrokTranslatedPostWithAvailability(unittest.TestCase):
                                         h = 56, 
                                         resize = 'crop', 
                                         w = 56, ), 
-                                    small = , 
-                                    thumb = , ), 
+                                    small = twitter_openapi_python_generated.models.media_size.MediaSize(
+                                        h = 56, 
+                                        resize = 'crop', 
+                                        w = 56, ), 
+                                    thumb = twitter_openapi_python_generated.models.media_size.MediaSize(
+                                        h = 56, 
+                                        resize = 'crop', 
+                                        w = 56, ), ), 
                                 source_status_id_str = '4', 
                                 source_user_id_str = '4', 
+                                source_user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                                    result = null, ), 
                                 type = 'photo', 
                                 url = '', 
                                 video_info = twitter_openapi_python_generated.models.media_video_info.MediaVideoInfo(
@@ -135,7 +143,9 @@ class TestGrokTranslatedPostWithAvailability(unittest.TestCase):
                             ], 
                         timestamps = [
                             twitter_openapi_python_generated.models.timestamp.Timestamp(
-                                indices = , 
+                                indices = [
+                                    56
+                                    ], 
                                 seconds = 56, 
                                 text = '', )
                             ], 
@@ -143,7 +153,9 @@ class TestGrokTranslatedPostWithAvailability(unittest.TestCase):
                             twitter_openapi_python_generated.models.url.Url(
                                 display_url = '', 
                                 expanded_url = '', 
-                                indices = , 
+                                indices = [
+                                    56
+                                    ], 
                                 url = '', )
                             ], 
                         user_mentions = [

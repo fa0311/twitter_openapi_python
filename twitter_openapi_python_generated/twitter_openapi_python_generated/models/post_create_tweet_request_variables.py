@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.post_create_tweet_request_variables_conversation_control import PostCreateTweetRequestVariablesConversationControl
 from twitter_openapi_python_generated.models.post_create_tweet_request_variables_media import PostCreateTweetRequestVariablesMedia
@@ -31,14 +31,14 @@ class PostCreateTweetRequestVariables(BaseModel):
     """
     PostCreateTweetRequestVariables
     """ # noqa: E501
-    attachment_url: Optional[StrictStr] = 'https://x.com/elonmusk/status/1349129669258448897'
+    attachment_url: Optional[StrictStr] = Field(default='https://x.com/elonmusk/status/1349129669258448897', json_schema_extra={"examples": ["https://x.com/elonmusk/status/1349129669258448897"]})
     conversation_control: Optional[PostCreateTweetRequestVariablesConversationControl] = None
-    dark_request: StrictBool
+    dark_request: StrictBool = Field(json_schema_extra={"examples": [False]})
     disallowed_reply_options: Optional[Dict[str, Any]] = None
     media: PostCreateTweetRequestVariablesMedia
     reply: Optional[PostCreateTweetRequestVariablesReply] = None
     semantic_annotation_ids: List[Dict[str, Any]]
-    tweet_text: StrictStr
+    tweet_text: StrictStr = Field(json_schema_extra={"examples": ["test"]})
     __properties: ClassVar[List[str]] = ["attachment_url", "conversation_control", "dark_request", "disallowed_reply_options", "media", "reply", "semantic_annotation_ids", "tweet_text"]
 
     model_config = ConfigDict(

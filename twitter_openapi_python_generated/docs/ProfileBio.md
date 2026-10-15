@@ -6,6 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **str** |  | 
+**entities** | [**ProfileBioEntities**](ProfileBioEntities.md) |  | [optional] 
+**withheld_in_countries** | **List[str]** |  | [optional] 
 
 ## Example
 

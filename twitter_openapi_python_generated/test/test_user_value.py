@@ -36,7 +36,10 @@ class TestUserValue(unittest.TestCase):
         model = UserValue()
         if include_optional:
             return UserValue(
-                id_str = '4'
+                id_str = '4',
+                path = [
+                    ''
+                    ]
             )
         else:
             return UserValue(

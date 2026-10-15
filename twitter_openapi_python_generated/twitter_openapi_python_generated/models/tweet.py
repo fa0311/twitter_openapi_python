@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.article import Article
 from twitter_openapi_python_generated.models.author_community_relationship import AuthorCommunityRelationship
 from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot
+from twitter_openapi_python_generated.models.cashtag_attachment import CashtagAttachment
 from twitter_openapi_python_generated.models.community_relationship import CommunityRelationship
 from twitter_openapi_python_generated.models.community_result import CommunityResult
 from twitter_openapi_python_generated.models.content_disclosure import ContentDisclosure
@@ -54,6 +55,7 @@ class Tweet(BaseModel):
     author_community_relationship: Optional[AuthorCommunityRelationship] = None
     birdwatch_pivot: Optional[BirdwatchPivot] = None
     card: Optional[TweetCard] = None
+    cashtag_attachments: Optional[List[CashtagAttachment]] = None
     community_relationship: Optional[CommunityRelationship] = None
     community_results: Optional[CommunityResult] = None
     content_disclosure: Optional[ContentDisclosure] = None
@@ -68,6 +70,7 @@ class Tweet(BaseModel):
     has_birdwatch_notes: Optional[StrictBool] = None
     is_translatable: Optional[StrictBool] = None
     legacy: Optional[TweetLegacy] = None
+    nested_quoted_tweet_results: Optional[ItemResult] = None
     note_tweet: Optional[NoteTweet] = None
     post_cta: Optional[TweetPostCta] = Field(default=None, alias="postCta")
     post_image_description: Optional[StrictStr] = None
@@ -83,15 +86,12 @@ class Tweet(BaseModel):
     unified_card: Optional[UnifiedCard] = None
     unmention_data: Optional[Dict[str, Any]] = None
     views: Optional[TweetView] = None
-    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "community_relationship", "community_results", "content_disclosure", "core", "edit_control", "edit_prespective", "grok_analysis_button", "grok_analysis_followups", "grok_annotations", "grok_share_attachment", "grok_translated_post_with_availability", "has_birdwatch_notes", "is_translatable", "legacy", "note_tweet", "postCta", "post_image_description", "post_video_description", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views"]
+    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "cashtag_attachments", "community_relationship", "community_results", "content_disclosure", "core", "edit_control", "edit_prespective", "grok_analysis_button", "grok_analysis_followups", "grok_annotations", "grok_share_attachment", "grok_translated_post_with_availability", "has_birdwatch_notes", "is_translatable", "legacy", "nested_quoted_tweet_results", "note_tweet", "postCta", "post_image_description", "post_video_description", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views"]
 
-    @field_validator('rest_id')
+    @field_validator('rest_id', mode="before")
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
@@ -146,6 +146,12 @@ class Tweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of card
         if self.card:
             _dict['card'] = self.card.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in cashtag_attachments (list)
+        _items = []
+        if self.cashtag_attachments:
+            for _item_cashtag_attachments in self.cashtag_attachments:
+                _items.append(_item_cashtag_attachments.to_dict() if _item_cashtag_attachments is not None else None)
+            _dict['cashtag_attachments'] = _items
         # override the default output from pydantic by calling `to_dict()` of community_relationship
         if self.community_relationship:
             _dict['community_relationship'] = self.community_relationship.to_dict()
@@ -176,6 +182,9 @@ class Tweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of legacy
         if self.legacy:
             _dict['legacy'] = self.legacy.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of nested_quoted_tweet_results
+        if self.nested_quoted_tweet_results:
+            _dict['nested_quoted_tweet_results'] = self.nested_quoted_tweet_results.to_dict()
         # override the default output from pydantic by calling `to_dict()` of note_tweet
         if self.note_tweet:
             _dict['note_tweet'] = self.note_tweet.to_dict()
@@ -220,6 +229,7 @@ class Tweet(BaseModel):
             "author_community_relationship": AuthorCommunityRelationship.from_dict(obj["author_community_relationship"]) if obj.get("author_community_relationship") is not None else None,
             "birdwatch_pivot": BirdwatchPivot.from_dict(obj["birdwatch_pivot"]) if obj.get("birdwatch_pivot") is not None else None,
             "card": TweetCard.from_dict(obj["card"]) if obj.get("card") is not None else None,
+            "cashtag_attachments": [CashtagAttachment.from_dict(_item) for _item in obj["cashtag_attachments"]] if obj.get("cashtag_attachments") is not None else None,
             "community_relationship": CommunityRelationship.from_dict(obj["community_relationship"]) if obj.get("community_relationship") is not None else None,
             "community_results": CommunityResult.from_dict(obj["community_results"]) if obj.get("community_results") is not None else None,
             "content_disclosure": ContentDisclosure.from_dict(obj["content_disclosure"]) if obj.get("content_disclosure") is not None else None,
@@ -234,6 +244,7 @@ class Tweet(BaseModel):
             "has_birdwatch_notes": obj.get("has_birdwatch_notes"),
             "is_translatable": obj.get("is_translatable"),
             "legacy": TweetLegacy.from_dict(obj["legacy"]) if obj.get("legacy") is not None else None,
+            "nested_quoted_tweet_results": ItemResult.from_dict(obj["nested_quoted_tweet_results"]) if obj.get("nested_quoted_tweet_results") is not None else None,
             "note_tweet": NoteTweet.from_dict(obj["note_tweet"]) if obj.get("note_tweet") is not None else None,
             "postCta": TweetPostCta.from_dict(obj["postCta"]) if obj.get("postCta") is not None else None,
             "post_image_description": obj.get("post_image_description"),

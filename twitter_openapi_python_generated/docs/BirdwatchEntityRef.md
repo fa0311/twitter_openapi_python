@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**expanded_url** | **str** |  | [optional] 
 **text** | **str** |  | [optional] 
 **type** | **str** |  | 
 **url** | **str** |  | [optional] 

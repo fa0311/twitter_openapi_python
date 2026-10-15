@@ -79,8 +79,7 @@ class TimelineAddToModule(BaseModel):
         _items = []
         if self.module_items:
             for _item_module_items in self.module_items:
-                if _item_module_items:
-                    _items.append(_item_module_items.to_dict())
+                _items.append(_item_module_items.to_dict() if _item_module_items is not None else None)
             _dict['moduleItems'] = _items
         return _dict
 

@@ -36,7 +36,31 @@ class TestProfileBio(unittest.TestCase):
         model = ProfileBio()
         if include_optional:
             return ProfileBio(
-                description = ''
+                description = '',
+                entities = twitter_openapi_python_generated.models.profile_bio_entities.ProfileBioEntities(
+                    description = twitter_openapi_python_generated.models.profile_bio_entities_urls.ProfileBioEntitiesUrls(
+                        urls = [
+                            twitter_openapi_python_generated.models.url.Url(
+                                display_url = '', 
+                                expanded_url = '', 
+                                indices = [
+                                    56
+                                    ], 
+                                url = '', )
+                            ], ), 
+                    url = twitter_openapi_python_generated.models.profile_bio_entities_urls.ProfileBioEntitiesUrls(
+                        urls = [
+                            twitter_openapi_python_generated.models.url.Url(
+                                display_url = '', 
+                                expanded_url = '', 
+                                indices = [
+                                    56
+                                    ], 
+                                url = '', )
+                            ], ), ),
+                withheld_in_countries = [
+                    ''
+                    ]
             )
         else:
             return ProfileBio(

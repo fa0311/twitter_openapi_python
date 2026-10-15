@@ -29,7 +29,7 @@ class PostDeleteRetweetRequest(BaseModel):
     """
     PostDeleteRetweetRequest
     """ # noqa: E501
-    query_id: StrictStr = Field(alias="queryId")
+    query_id: StrictStr = Field(alias="queryId", json_schema_extra={"examples": ["ZyZigVsNiFO6v1dEks1eWg"]})
     variables: PostDeleteRetweetRequestVariables
     __properties: ClassVar[List[str]] = ["queryId", "variables"]
 

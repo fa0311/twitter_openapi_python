@@ -28,11 +28,12 @@ class BirdwatchEntityRef(BaseModel):
     """
     BirdwatchEntityRef
     """ # noqa: E501
+    expanded_url: Optional[StrictStr] = Field(default=None, alias="expandedUrl")
     text: Optional[StrictStr] = None
     type: StrictStr
     url: Optional[StrictStr] = None
     url_type: Optional[StrictStr] = Field(default=None, alias="urlType")
-    __properties: ClassVar[List[str]] = ["text", "type", "url", "urlType"]
+    __properties: ClassVar[List[str]] = ["expandedUrl", "text", "type", "url", "urlType"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -102,6 +103,7 @@ class BirdwatchEntityRef(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "expandedUrl": obj.get("expandedUrl"),
             "text": obj.get("text"),
             "type": obj.get("type"),
             "url": obj.get("url"),

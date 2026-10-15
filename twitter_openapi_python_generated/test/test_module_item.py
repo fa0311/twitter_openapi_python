@@ -44,6 +44,10 @@ class TestModuleItem(unittest.TestCase):
                         details = { }, 
                         element = '', ), 
                     feedback_info = twitter_openapi_python_generated.models.feedback_info.FeedbackInfo(
+                        client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                            component = '', 
+                            details = { }, 
+                            element = '', ), 
                         feedback_keys = [
                             ''
                             ], ), 
@@ -58,6 +62,10 @@ class TestModuleItem(unittest.TestCase):
                         details = { }, 
                         element = '', ), 
                     feedback_info = twitter_openapi_python_generated.models.feedback_info.FeedbackInfo(
+                        client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                            component = '', 
+                            details = { }, 
+                            element = '', ), 
                         feedback_keys = [
                             ''
                             ], ), 

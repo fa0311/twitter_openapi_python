@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.34"
+__version__ = "0.0.35"
 
 # Define package exports
 __all__ = [
@@ -69,6 +69,7 @@ __all__ = [
     "BookmarksResponseData",
     "BookmarksTimeline",
     "Callback",
+    "CashtagAttachment",
     "ClientEventInfo",
     "CommunitiesActions",
     "Community",
@@ -218,6 +219,8 @@ __all__ = [
     "PostUnfavoriteTweetRequest",
     "PrimaryCommunityTopic",
     "ProfileBio",
+    "ProfileBioEntities",
+    "ProfileBioEntitiesUrls",
     "ProfileResponse",
     "ProfileResponseData",
     "QuotedRefResult",
@@ -340,7 +343,9 @@ __all__ = [
     "UrtEndpointOptions",
     "UrtEndpointRequestParams",
     "User",
+    "UserActionCounts",
     "UserAvatar",
+    "UserBanner",
     "UserCore",
     "UserDmPermissions",
     "UserFeatures",
@@ -355,10 +360,15 @@ __all__ = [
     "UserLegacyExtendedProfileBirthdate",
     "UserLocation",
     "UserMediaPermissions",
+    "UserNotificationsSettings",
+    "UserPinnedItems",
     "UserPrivacy",
     "UserProfessional",
     "UserProfessionalCategory",
     "UserProfile",
+    "UserProfileMetadata",
+    "UserProfileTranslation",
+    "UserRelationshipCounts",
     "UserRelationshipPerspectives",
     "UserResponse",
     "UserResponseData",
@@ -371,6 +381,7 @@ __all__ = [
     "UserResultRelationshipPerspectives",
     "UserResults",
     "UserTipJarSettings",
+    "UserTweetCounts",
     "UserTweetsData",
     "UserTweetsResponse",
     "UserTweetsResultV1",
@@ -385,6 +396,7 @@ __all__ = [
     "UserVerificationInfoReasonDescription",
     "UserVerificationInfoReasonDescriptionEntities",
     "UserVerificationInfoReasonDescriptionEntitiesRef",
+    "UserWebsite",
     "UsersResponse",
     "UsersResponseData",
 ]
@@ -444,6 +456,7 @@ from twitter_openapi_python_generated.models.bookmarks_response import Bookmarks
 from twitter_openapi_python_generated.models.bookmarks_response_data import BookmarksResponseData as BookmarksResponseData
 from twitter_openapi_python_generated.models.bookmarks_timeline import BookmarksTimeline as BookmarksTimeline
 from twitter_openapi_python_generated.models.callback import Callback as Callback
+from twitter_openapi_python_generated.models.cashtag_attachment import CashtagAttachment as CashtagAttachment
 from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo as ClientEventInfo
 from twitter_openapi_python_generated.models.communities_actions import CommunitiesActions as CommunitiesActions
 from twitter_openapi_python_generated.models.community import Community as Community
@@ -593,6 +606,8 @@ from twitter_openapi_python_generated.models.post_favorite_tweet_request import 
 from twitter_openapi_python_generated.models.post_unfavorite_tweet_request import PostUnfavoriteTweetRequest as PostUnfavoriteTweetRequest
 from twitter_openapi_python_generated.models.primary_community_topic import PrimaryCommunityTopic as PrimaryCommunityTopic
 from twitter_openapi_python_generated.models.profile_bio import ProfileBio as ProfileBio
+from twitter_openapi_python_generated.models.profile_bio_entities import ProfileBioEntities as ProfileBioEntities
+from twitter_openapi_python_generated.models.profile_bio_entities_urls import ProfileBioEntitiesUrls as ProfileBioEntitiesUrls
 from twitter_openapi_python_generated.models.profile_response import ProfileResponse as ProfileResponse
 from twitter_openapi_python_generated.models.profile_response_data import ProfileResponseData as ProfileResponseData
 from twitter_openapi_python_generated.models.quoted_ref_result import QuotedRefResult as QuotedRefResult
@@ -715,7 +730,9 @@ from twitter_openapi_python_generated.models.url import Url as Url
 from twitter_openapi_python_generated.models.urt_endpoint_options import UrtEndpointOptions as UrtEndpointOptions
 from twitter_openapi_python_generated.models.urt_endpoint_request_params import UrtEndpointRequestParams as UrtEndpointRequestParams
 from twitter_openapi_python_generated.models.user import User as User
+from twitter_openapi_python_generated.models.user_action_counts import UserActionCounts as UserActionCounts
 from twitter_openapi_python_generated.models.user_avatar import UserAvatar as UserAvatar
+from twitter_openapi_python_generated.models.user_banner import UserBanner as UserBanner
 from twitter_openapi_python_generated.models.user_core import UserCore as UserCore
 from twitter_openapi_python_generated.models.user_dm_permissions import UserDmPermissions as UserDmPermissions
 from twitter_openapi_python_generated.models.user_features import UserFeatures as UserFeatures
@@ -730,10 +747,15 @@ from twitter_openapi_python_generated.models.user_legacy_extended_profile import
 from twitter_openapi_python_generated.models.user_legacy_extended_profile_birthdate import UserLegacyExtendedProfileBirthdate as UserLegacyExtendedProfileBirthdate
 from twitter_openapi_python_generated.models.user_location import UserLocation as UserLocation
 from twitter_openapi_python_generated.models.user_media_permissions import UserMediaPermissions as UserMediaPermissions
+from twitter_openapi_python_generated.models.user_notifications_settings import UserNotificationsSettings as UserNotificationsSettings
+from twitter_openapi_python_generated.models.user_pinned_items import UserPinnedItems as UserPinnedItems
 from twitter_openapi_python_generated.models.user_privacy import UserPrivacy as UserPrivacy
 from twitter_openapi_python_generated.models.user_professional import UserProfessional as UserProfessional
 from twitter_openapi_python_generated.models.user_professional_category import UserProfessionalCategory as UserProfessionalCategory
 from twitter_openapi_python_generated.models.user_profile import UserProfile as UserProfile
+from twitter_openapi_python_generated.models.user_profile_metadata import UserProfileMetadata as UserProfileMetadata
+from twitter_openapi_python_generated.models.user_profile_translation import UserProfileTranslation as UserProfileTranslation
+from twitter_openapi_python_generated.models.user_relationship_counts import UserRelationshipCounts as UserRelationshipCounts
 from twitter_openapi_python_generated.models.user_relationship_perspectives import UserRelationshipPerspectives as UserRelationshipPerspectives
 from twitter_openapi_python_generated.models.user_response import UserResponse as UserResponse
 from twitter_openapi_python_generated.models.user_response_data import UserResponseData as UserResponseData
@@ -746,6 +768,7 @@ from twitter_openapi_python_generated.models.user_result_privacy import UserResu
 from twitter_openapi_python_generated.models.user_result_relationship_perspectives import UserResultRelationshipPerspectives as UserResultRelationshipPerspectives
 from twitter_openapi_python_generated.models.user_results import UserResults as UserResults
 from twitter_openapi_python_generated.models.user_tip_jar_settings import UserTipJarSettings as UserTipJarSettings
+from twitter_openapi_python_generated.models.user_tweet_counts import UserTweetCounts as UserTweetCounts
 from twitter_openapi_python_generated.models.user_tweets_data import UserTweetsData as UserTweetsData
 from twitter_openapi_python_generated.models.user_tweets_response import UserTweetsResponse as UserTweetsResponse
 from twitter_openapi_python_generated.models.user_tweets_result_v1 import UserTweetsResultV1 as UserTweetsResultV1
@@ -760,6 +783,7 @@ from twitter_openapi_python_generated.models.user_verification_info_reason impor
 from twitter_openapi_python_generated.models.user_verification_info_reason_description import UserVerificationInfoReasonDescription as UserVerificationInfoReasonDescription
 from twitter_openapi_python_generated.models.user_verification_info_reason_description_entities import UserVerificationInfoReasonDescriptionEntities as UserVerificationInfoReasonDescriptionEntities
 from twitter_openapi_python_generated.models.user_verification_info_reason_description_entities_ref import UserVerificationInfoReasonDescriptionEntitiesRef as UserVerificationInfoReasonDescriptionEntitiesRef
+from twitter_openapi_python_generated.models.user_website import UserWebsite as UserWebsite
 from twitter_openapi_python_generated.models.users_response import UsersResponse as UsersResponse
 from twitter_openapi_python_generated.models.users_response_data import UsersResponseData as UsersResponseData
 

@@ -91,8 +91,7 @@ class CoverCta(BaseModel):
         _items = []
         if self.callbacks:
             for _item_callbacks in self.callbacks:
-                if _item_callbacks:
-                    _items.append(_item_callbacks.to_dict())
+                _items.append(_item_callbacks.to_dict() if _item_callbacks is not None else None)
             _dict['callbacks'] = _items
         # override the default output from pydantic by calling `to_dict()` of client_event_info
         if self.client_event_info:

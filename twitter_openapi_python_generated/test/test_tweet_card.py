@@ -52,7 +52,10 @@ class TestTweetCard(unittest.TestCase):
                                 string_value = '', 
                                 type = '', 
                                 user_value = twitter_openapi_python_generated.models.user_value.UserValue(
-                                    id_str = '4', ), ), )
+                                    id_str = '4', 
+                                    path = [
+                                        ''
+                                        ], ), ), )
                         ], 
                     card_platform = twitter_openapi_python_generated.models.tweet_card_platform_data.TweetCardPlatformData(
                         platform = twitter_openapi_python_generated.models.tweet_card_platform.TweetCardPlatform(

@@ -49,7 +49,10 @@ class TestTweetCardLegacyBindingValue(unittest.TestCase):
                     string_value = '', 
                     type = '', 
                     user_value = twitter_openapi_python_generated.models.user_value.UserValue(
-                        id_str = '4', ), )
+                        id_str = '4', 
+                        path = [
+                            ''
+                            ], ), )
             )
         else:
             return TweetCardLegacyBindingValue(
@@ -66,7 +69,10 @@ class TestTweetCardLegacyBindingValue(unittest.TestCase):
                     string_value = '', 
                     type = '', 
                     user_value = twitter_openapi_python_generated.models.user_value.UserValue(
-                        id_str = '4', ), ),
+                        id_str = '4', 
+                        path = [
+                            ''
+                            ], ), ),
         )
         """
 

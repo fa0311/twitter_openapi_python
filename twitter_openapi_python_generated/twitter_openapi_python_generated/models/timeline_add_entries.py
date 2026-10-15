@@ -77,8 +77,7 @@ class TimelineAddEntries(BaseModel):
         _items = []
         if self.entries:
             for _item_entries in self.entries:
-                if _item_entries:
-                    _items.append(_item_entries.to_dict())
+                _items.append(_item_entries.to_dict() if _item_entries is not None else None)
             _dict['entries'] = _items
         return _dict
 
