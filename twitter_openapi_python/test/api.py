@@ -50,10 +50,11 @@ def print_user(user: api.UserApiUtilsData) -> None:
 
 
 def print_legacy_user(user: api.User) -> None:
-    u = user.legacy
     logging.info(screen_name(user))
-    logging.info(f"listedCount: {u.listed_count}")
-    logging.info(f"followedBy: {u.followed_by} following: {u.following}")
-    text = f"friends_count: {u.friends_count} followers_count: {u.followers_count}"
-    logging.info(text)
+    if user.relationship_perspectives:
+        p = user.relationship_perspectives
+        logging.info(f"followedBy: {p.followed_by} following: {p.following}")
+    if user.relationship_counts:
+        c = user.relationship_counts
+        logging.info(f"following: {c.following} followers: {c.followers}")
     logging.info("┄" * 50)

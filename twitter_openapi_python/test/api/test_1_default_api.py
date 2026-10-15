@@ -13,10 +13,12 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_get_profile_spotlights_query(self):
         result = self.client.get_profile_spotlights_query(screen_name="elonmusk")
-        legacy = result.data.result.legacy
+        user = result.data.result
 
-        logging.info(legacy.screen_name)
-        logging.info(f"followed_by: {legacy.followed_by} following: {legacy.following}")
+        logging.info(user.core.screen_name)
+        logging.info(
+            f"followed_by: {user.relationship_perspectives.followed_by} following: {user.relationship_perspectives.following}"
+        )
 
     def test_get_tweet_result_by_rest_id(self):
         result = self.client.get_tweet_result_by_rest_id(tweet_id="1349129669258448897")

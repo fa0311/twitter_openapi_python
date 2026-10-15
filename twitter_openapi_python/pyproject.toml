@@ -1,15 +1,15 @@
 [project]
 name = "twitter_openapi_python"
-version = "0.0.44"
+version = "0.0.45"
 description = "Twitter OpenAPI"
 authors = [{ name = "fa0311", email = "yuki@yuki0311.com" }]
 readme = "README.md"
 license = "LicenseRef-Custom OR AGPL-3.0-or-later"
 license-files = ["LICENSE", "LICENSE.AGPL"]
 keywords = ["twitter", "api", "python", "scraper"]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
-    "twitter_openapi_python_generated==0.0.34",
+    "twitter_openapi_python_generated==0.0.35",
     "pydantic>=2.6",
     "requests>=2.31.0,<3.0.0",
     "urllib3>=2.1.0,<3.0.0",

@@ -26,12 +26,7 @@ class V11PostApiUtils:
     ) -> TwitterApiUtilsResponse[T]:
         args = get_legacy_kwargs(flag=self.flag[key], additional=param)
         res = apiFn(**args)
-        data = res.data
-
-        if not isinstance(data, type):
-            raise Exception("Error")
-
-        return build_response(response=res, data=data)
+        return build_response(response=res, data=res.data)
 
     def post_create_friendships(
         self,
