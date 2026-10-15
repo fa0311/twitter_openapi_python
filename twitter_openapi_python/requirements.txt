@@ -1,5 +1,0 @@
-pydantic >= 2.6
-twitter-openapi-python-generated==0.0.34
-urllib3 >= 2.1.0, < 3.0.0
-xclienttransaction >= 1.0.1, < 2.0.0
-requests >= 2.31.0, < 3.0.0

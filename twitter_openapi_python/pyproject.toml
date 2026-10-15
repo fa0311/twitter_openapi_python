@@ -1,34 +1,43 @@
-[tool.poetry]
+[project]
 name = "twitter_openapi_python"
 version = "0.0.44"
 description = "Twitter OpenAPI"
-authors = ["fa0311 <yuki@yuki0311.com>"]
-license = "proprietary" # or "AGPL-3.0-only"
+authors = [{ name = "fa0311", email = "yuki@yuki0311.com" }]
 readme = "README.md"
-license_file = "LICENSE"
-repository = "https://github.com/fa0311/twitter_openapi_python"
+license = "LicenseRef-Custom OR AGPL-3.0-or-later"
+license-files = ["LICENSE", "LICENSE.AGPL"]
 keywords = ["twitter", "api", "python", "scraper"]
-include = ["twitter_openapi_python/py.typed"]
+requires-python = ">=3.9"
+dependencies = [
+    "twitter_openapi_python_generated==0.0.34",
+    "pydantic>=2.6",
+    "requests>=2.31.0,<3.0.0",
+    "urllib3>=2.1.0,<3.0.0",
+    "xclienttransaction>=1.0.1,<2.0.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.7"
-pydantic = ">=2.6"
-requests = ">=2.31.0,<3.0.0"
-urllib3 = ">= 2.1.0 < 3.0.0"
-xclienttransaction = ">= 1.0.0 < 2.0.0"
+[project.urls]
+Repository = "https://github.com/fa0311/twitter_openapi_python"
 
-twitter-openapi-python-generated = "0.0.34"
+[dependency-groups]
+dev = ["pytest", "ruff", "pyright"]
 
-[tool.poetry.dev-dependencies]
+[tool.uv.sources]
+twitter_openapi_python_generated = { path = "../twitter_openapi_python_generated", editable = true }
 
 [build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "twitter_openapi_python"
+module-root = ""
 
 [tool.pylint.'MESSAGES CONTROL']
 extension-pkg-whitelist = "pydantic"
 
 [tool.pyright]
+extraPaths = ["../twitter_openapi_python_generated"]
 reportPrivateImportUsage = false
 typeCheckingMode = "standard"
 
