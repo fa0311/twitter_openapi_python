@@ -49,6 +49,21 @@ class TestTweetApi(unittest.TestCase):
         for tweet in list(filter(self.ad_fillter, result.data.data)):
             print_tweet(tweet)
 
+    def test_get_user_originals_timeline(self):
+        result = self.client.get_user_originals_timeline(user_id="44196397")
+        for tweet in list(filter(self.ad_fillter, result.data.data)):
+            print_tweet(tweet)
+
+    def test_get_user_replies_timeline(self):
+        result = self.client.get_user_replies_timeline(user_id="44196397")
+        for tweet in list(filter(self.ad_fillter, result.data.data)):
+            print_tweet(tweet)
+
+    def test_get_user_video_timeline(self):
+        result = self.client.get_user_video_timeline(user_id="44196397")
+        for tweet in list(filter(self.ad_fillter, result.data.data)):
+            print_tweet(tweet)
+
     def test_get_likes(self):
         result = self.client.get_likes(user_id="1787148517779406848")  # @ptcpz3
         for tweet in list(filter(self.ad_fillter, result.data.data)):

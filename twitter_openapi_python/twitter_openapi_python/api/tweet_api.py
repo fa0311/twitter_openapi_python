@@ -200,6 +200,81 @@ class TweetApiUtils:
         )
         return response
 
+    def get_user_originals_timeline(
+        self,
+        user_id: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        param: ParamType = {"userId": user_id}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+
+        response = self.request(
+            apiFn=self.api.get_user_originals_timeline_with_http_info,
+            convertFn=lambda e: error_check(
+                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
+            ).instructions,
+            key="UserOriginalsTimeline",
+            param=param,
+        )
+        return response
+
+    def get_user_replies_timeline(
+        self,
+        user_id: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        param: ParamType = {"userId": user_id}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+
+        response = self.request(
+            apiFn=self.api.get_user_replies_timeline_with_http_info,
+            convertFn=lambda e: error_check(
+                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
+            ).instructions,
+            key="UserRepliesTimeline",
+            param=param,
+        )
+        return response
+
+    def get_user_video_timeline(
+        self,
+        user_id: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        param: ParamType = {"userId": user_id}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+
+        response = self.request(
+            apiFn=self.api.get_user_video_timeline_with_http_info,
+            convertFn=lambda e: error_check(
+                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
+            ).instructions,
+            key="UserVideoTimeline",
+            param=param,
+        )
+        return response
+
     def get_user_tweets_and_replies(
         self,
         user_id: str,
