@@ -65,6 +65,7 @@ class User(BaseModel):
     creator_subscriptions_count: Optional[StrictInt] = None
     dm_permissions: Optional[UserDmPermissions] = None
     follow_request_sent: Optional[StrictBool] = None
+    grok_translated_bio_with_availability: Optional[GrokTranslatedBioWithAvailability] = None
     has_graduated_access: Optional[StrictBool] = None
     has_hidden_likes_on_profile: Optional[StrictBool] = None
     has_hidden_subscriptions_on_profile: Optional[StrictBool] = None
@@ -105,7 +106,7 @@ class User(BaseModel):
     verification_info: Optional[UserVerificationInfo] = None
     verified_user_profiles: Optional[UserProfile] = None
     website: Optional[UserWebsite] = None
-    __properties: ClassVar[List[str]] = ["__typename", "action_counts", "affiliates_highlighted_label", "avatar", "banner", "business_account", "core", "creator_subscriptions_count", "dm_permissions", "follow_request_sent", "has_graduated_access", "has_hidden_likes_on_profile", "has_hidden_subscriptions_on_profile", "has_nft_avatar", "highlights_info", "id", "is_blue_verified", "is_profile_translatable", "is_verified_organization", "legacy", "legacy_extended_profile", "location", "media_permissions", "notifications_settings", "parody_commentary_fan_label", "pinned_items", "possibly_sensitive", "premium_gifting_eligible", "privacy", "professional", "profile_bio", "profile_description_language", "profile_image_shape", "profile_metadata", "profile_sort_enabled", "profile_translation", "relationship_counts", "relationship_perspectives", "rest_id", "super_follow_eligible", "super_followed_by", "super_following", "super_follows_user_profile", "tipjar_settings", "tweet_counts", "user_seed_tweet_count", "verification", "verification_info", "verified_user_profiles", "website"]
+    __properties: ClassVar[List[str]] = ["__typename", "action_counts", "affiliates_highlighted_label", "avatar", "banner", "business_account", "core", "creator_subscriptions_count", "dm_permissions", "follow_request_sent", "grok_translated_bio_with_availability", "has_graduated_access", "has_hidden_likes_on_profile", "has_hidden_subscriptions_on_profile", "has_nft_avatar", "highlights_info", "id", "is_blue_verified", "is_profile_translatable", "is_verified_organization", "legacy", "legacy_extended_profile", "location", "media_permissions", "notifications_settings", "parody_commentary_fan_label", "pinned_items", "possibly_sensitive", "premium_gifting_eligible", "privacy", "professional", "profile_bio", "profile_description_language", "profile_image_shape", "profile_metadata", "profile_sort_enabled", "profile_translation", "relationship_counts", "relationship_perspectives", "rest_id", "super_follow_eligible", "super_followed_by", "super_following", "super_follows_user_profile", "tipjar_settings", "tweet_counts", "user_seed_tweet_count", "verification", "verification_info", "verified_user_profiles", "website"]
 
     @field_validator('id', mode="before")
     def id_validate_regular_expression(cls, value):
@@ -192,6 +193,9 @@ class User(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of dm_permissions
         if self.dm_permissions:
             _dict['dm_permissions'] = self.dm_permissions.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of grok_translated_bio_with_availability
+        if self.grok_translated_bio_with_availability:
+            _dict['grok_translated_bio_with_availability'] = self.grok_translated_bio_with_availability.to_dict()
         # override the default output from pydantic by calling `to_dict()` of highlights_info
         if self.highlights_info:
             _dict['highlights_info'] = self.highlights_info.to_dict()
@@ -277,6 +281,7 @@ class User(BaseModel):
             "creator_subscriptions_count": obj.get("creator_subscriptions_count"),
             "dm_permissions": UserDmPermissions.from_dict(obj["dm_permissions"]) if obj.get("dm_permissions") is not None else None,
             "follow_request_sent": obj.get("follow_request_sent"),
+            "grok_translated_bio_with_availability": GrokTranslatedBioWithAvailability.from_dict(obj["grok_translated_bio_with_availability"]) if obj.get("grok_translated_bio_with_availability") is not None else None,
             "has_graduated_access": obj.get("has_graduated_access"),
             "has_hidden_likes_on_profile": obj.get("has_hidden_likes_on_profile"),
             "has_hidden_subscriptions_on_profile": obj.get("has_hidden_subscriptions_on_profile"),
@@ -320,4 +325,7 @@ class User(BaseModel):
         })
         return _obj
 
+from twitter_openapi_python_generated.models.grok_translated_bio_with_availability import GrokTranslatedBioWithAvailability
+# TODO: Rewrite to not use raise_errors
+User.model_rebuild(raise_errors=False)
 

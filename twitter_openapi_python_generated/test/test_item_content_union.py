@@ -82,71 +82,14 @@ class TestItemContentUnion(unittest.TestCase):
                     ],
                 is_ai_trend = True,
                 name = '',
+                rank = '4',
                 social_context = None,
                 thumbnail_image = twitter_openapi_python_generated.models.thumbnail_image.ThumbnailImage(
                     original_img_height = 56, 
                     original_img_url = '', 
                     original_img_width = 56, ),
                 trend_metadata = twitter_openapi_python_generated.models.trend_metadata.TrendMetadata(
-                    url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
-                        url_type = 'DeepLink', 
-                        urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
-                            request_params = [
-                                twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
-                                    key = '', 
-                                    value = '', )
-                                ], 
-                            title = '', ), ), ),
-                trend_url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
-                    url = '', 
-                    url_type = 'DeepLink', 
-                    urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
-                        request_params = [
-                            twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
-                                key = '', 
-                                value = '', )
-                            ], 
-                        title = '', ), ),
-                id = '',
-                notification_icon = '',
-                notification_url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
-                    url = '', 
-                    url_type = 'DeepLink', 
-                    urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
-                        request_params = [
-                            twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
-                                key = '', 
-                                value = '', )
-                            ], 
-                        title = '', ), ),
-                rich_message = twitter_openapi_python_generated.models.rich_message.RichMessage(
-                    rtl = True, 
-                    text = '', ),
-                template = twitter_openapi_python_generated.models.notification_template.NotificationTemplate(
-                    __typename = 'TimelineTweet', 
-                    from_users = [
-                        None
-                        ], 
-                    target_objects = [
-                        None
-                        ], ),
-                timestamp_ms = ''
-            )
-        else:
-            return ItemContentUnion(
-                typename = 'TimelineTweet',
-                item_type = 'TimelineTweet',
-                tweet_display_type = 'Tweet',
-                tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
-                    __typename = 'TimelineTweet', 
-                    result = null, ),
-                cursor_type = 'Top',
-                value = '',
-                user_display_type = 'User',
-                user_results = twitter_openapi_python_generated.models.user_results.UserResults(
-                    result = null, ),
-                name = '',
-                trend_metadata = twitter_openapi_python_generated.models.trend_metadata.TrendMetadata(
+                    domain_context = '', 
                     url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
                         url_type = 'DeepLink', 
                         urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
@@ -190,6 +133,155 @@ class TestItemContentUnion(unittest.TestCase):
                         None
                         ], ),
                 timestamp_ms = '',
+                height = 56,
+                payload = '',
+                display_type = '',
+                list = twitter_openapi_python_generated.models.twitter_list.TwitterList(
+                    created_at = 56, 
+                    default_banner_media = twitter_openapi_python_generated.models.list_banner_media.ListBannerMedia(
+                        media_info = twitter_openapi_python_generated.models.list_banner_media_info.ListBannerMediaInfo(
+                            original_img_height = 56, 
+                            original_img_url = '', 
+                            original_img_width = 56, 
+                            salient_rect = twitter_openapi_python_generated.models.list_banner_media_salient_rect.ListBannerMediaSalientRect(
+                                height = 56, 
+                                left = 56, 
+                                top = 56, 
+                                width = 56, ), ), ), 
+                    default_banner_media_results = { }, 
+                    description = '', 
+                    facepile_urls = [
+                        ''
+                        ], 
+                    followers_context = '', 
+                    following = True, 
+                    id = '', 
+                    id_str = '4', 
+                    is_member = True, 
+                    member_count = 56, 
+                    members_context = '', 
+                    mode = 'Public', 
+                    muting = True, 
+                    name = '', 
+                    pinning = True, 
+                    subscriber_count = 56, 
+                    user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                        result = null, ), ),
+                text = '',
+                url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
+                    url = '', 
+                    url_type = 'DeepLink', 
+                    urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
+                        request_params = [
+                            twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
+                                key = '', 
+                                value = '', )
+                            ], 
+                        title = '', ), )
+            )
+        else:
+            return ItemContentUnion(
+                typename = 'TimelineTweet',
+                item_type = 'TimelineTweet',
+                tweet_display_type = 'Tweet',
+                tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
+                    __typename = 'TimelineTweet', 
+                    result = null, ),
+                cursor_type = 'Top',
+                value = '',
+                user_display_type = 'User',
+                user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                    result = null, ),
+                name = '',
+                trend_metadata = twitter_openapi_python_generated.models.trend_metadata.TrendMetadata(
+                    domain_context = '', 
+                    url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
+                        url_type = 'DeepLink', 
+                        urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
+                            request_params = [
+                                twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
+                                    key = '', 
+                                    value = '', )
+                                ], 
+                            title = '', ), ), ),
+                trend_url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
+                    url = '', 
+                    url_type = 'DeepLink', 
+                    urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
+                        request_params = [
+                            twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
+                                key = '', 
+                                value = '', )
+                            ], 
+                        title = '', ), ),
+                id = '',
+                notification_icon = '',
+                notification_url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
+                    url = '', 
+                    url_type = 'DeepLink', 
+                    urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
+                        request_params = [
+                            twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
+                                key = '', 
+                                value = '', )
+                            ], 
+                        title = '', ), ),
+                rich_message = twitter_openapi_python_generated.models.rich_message.RichMessage(
+                    rtl = True, 
+                    text = '', ),
+                template = twitter_openapi_python_generated.models.notification_template.NotificationTemplate(
+                    __typename = 'TimelineTweet', 
+                    from_users = [
+                        None
+                        ], 
+                    target_objects = [
+                        None
+                        ], ),
+                timestamp_ms = '',
+                height = 56,
+                payload = '',
+                list = twitter_openapi_python_generated.models.twitter_list.TwitterList(
+                    created_at = 56, 
+                    default_banner_media = twitter_openapi_python_generated.models.list_banner_media.ListBannerMedia(
+                        media_info = twitter_openapi_python_generated.models.list_banner_media_info.ListBannerMediaInfo(
+                            original_img_height = 56, 
+                            original_img_url = '', 
+                            original_img_width = 56, 
+                            salient_rect = twitter_openapi_python_generated.models.list_banner_media_salient_rect.ListBannerMediaSalientRect(
+                                height = 56, 
+                                left = 56, 
+                                top = 56, 
+                                width = 56, ), ), ), 
+                    default_banner_media_results = { }, 
+                    description = '', 
+                    facepile_urls = [
+                        ''
+                        ], 
+                    followers_context = '', 
+                    following = True, 
+                    id = '', 
+                    id_str = '4', 
+                    is_member = True, 
+                    member_count = 56, 
+                    members_context = '', 
+                    mode = 'Public', 
+                    muting = True, 
+                    name = '', 
+                    pinning = True, 
+                    subscriber_count = 56, 
+                    user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                        result = null, ), ),
+                text = '',
+                url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
+                    url = '', 
+                    url_type = 'DeepLink', 
+                    urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
+                        request_params = [
+                            twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
+                                key = '', 
+                                value = '', )
+                            ], 
+                        title = '', ), ),
         )
         """
 

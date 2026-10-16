@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_params** | [**List[UrtEndpointRequestParams]**](UrtEndpointRequestParams.md) |  | 
-**title** | **str** |  | 
+**title** | **str** |  | [optional] 
 
 ## Example
 

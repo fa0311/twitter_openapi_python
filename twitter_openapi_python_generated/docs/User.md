@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **creator_subscriptions_count** | **int** |  | [optional] 
 **dm_permissions** | [**UserDmPermissions**](UserDmPermissions.md) |  | [optional] 
 **follow_request_sent** | **bool** |  | [optional] 
+**grok_translated_bio_with_availability** | [**GrokTranslatedBioWithAvailability**](GrokTranslatedBioWithAvailability.md) |  | [optional] 
 **has_graduated_access** | **bool** |  | [optional] 
 **has_hidden_likes_on_profile** | **bool** |  | [optional] 
 **has_hidden_subscriptions_on_profile** | **bool** |  | [optional] 

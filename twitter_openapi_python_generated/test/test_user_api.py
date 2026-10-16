@@ -27,6 +27,18 @@ class TestUserApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_get_fetch_draft_tweets(self) -> None:
+        """Test case for get_fetch_draft_tweets
+
+        """
+        pass
+
+    def test_get_fetch_scheduled_tweets(self) -> None:
+        """Test case for get_fetch_scheduled_tweets
+
+        """
+        pass
+
     def test_get_user_by_rest_id(self) -> None:
         """Test case for get_user_by_rest_id
 
@@ -35,6 +47,12 @@ class TestUserApi(unittest.TestCase):
 
     def test_get_user_by_screen_name(self) -> None:
         """Test case for get_user_by_screen_name
+
+        """
+        pass
+
+    def test_get_viewer_badge_counts(self) -> None:
+        """Test case for get_viewer_badge_counts
 
         """
         pass

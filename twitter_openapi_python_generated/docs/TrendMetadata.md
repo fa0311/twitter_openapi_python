@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**domain_context** | **str** |  | [optional] 
 **url** | [**SocialContextLandingUrl**](SocialContextLandingUrl.md) |  | [optional] 
 
 ## Example

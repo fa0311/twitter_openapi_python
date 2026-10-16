@@ -2,6 +2,7 @@ import json
 import logging
 from pathlib import Path
 from typing import Optional
+from urllib.parse import unquote
 
 import twitter_openapi_python as api
 
@@ -23,6 +24,14 @@ def get_client() -> api.TwitterOpenapiPythonClient:
         "sec-ch-ua-platform": '"Windows"',
     }
     return client.get_client_from_cookies(cookies_dict)
+
+
+def get_user_id() -> str:
+    """The authenticated account's id (likes are only visible for the account itself since 2024)."""
+    with open("cookie.json", "r") as f:
+        cookies = json.load(f)
+    twid = {k["name"]: k["value"] for k in cookies}["twid"] if isinstance(cookies, list) else cookies["twid"]
+    return unquote(twid).removeprefix("u=")
 
 
 def get_guest_client() -> api.TwitterOpenapiPythonClient:

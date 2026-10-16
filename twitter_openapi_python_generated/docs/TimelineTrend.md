@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **is_ai_trend** | **bool** |  | [optional] 
 **item_type** | [**ContentItemType**](ContentItemType.md) |  | [optional] 
 **name** | **str** |  | 
+**rank** | **str** |  | [optional] 
 **social_context** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
 **thumbnail_image** | [**ThumbnailImage**](ThumbnailImage.md) |  | [optional] 
 **trend_metadata** | [**TrendMetadata**](TrendMetadata.md) |  | 

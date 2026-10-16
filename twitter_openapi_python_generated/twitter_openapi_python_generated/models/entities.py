@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.media import Media
 from twitter_openapi_python_generated.models.smarttag import Smarttag
 from twitter_openapi_python_generated.models.timestamp import Timestamp
 from twitter_openapi_python_generated.models.url import Url
@@ -126,4 +125,7 @@ class Entities(BaseModel):
         })
         return _obj
 
+from twitter_openapi_python_generated.models.media import Media
+# TODO: Rewrite to not use raise_errors
+Entities.model_rebuild(raise_errors=False)
 

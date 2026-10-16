@@ -19,6 +19,8 @@ import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
 from twitter_openapi_python_generated.models.timeline_community import TimelineCommunity
+from twitter_openapi_python_generated.models.timeline_frame import TimelineFrame
+from twitter_openapi_python_generated.models.timeline_label import TimelineLabel
 from twitter_openapi_python_generated.models.timeline_message_prompt import TimelineMessagePrompt
 from twitter_openapi_python_generated.models.timeline_notification import TimelineNotification
 from twitter_openapi_python_generated.models.timeline_prompt import TimelinePrompt
@@ -26,12 +28,13 @@ from twitter_openapi_python_generated.models.timeline_timeline_cursor import Tim
 from twitter_openapi_python_generated.models.timeline_tombstone import TimelineTombstone
 from twitter_openapi_python_generated.models.timeline_trend import TimelineTrend
 from twitter_openapi_python_generated.models.timeline_tweet import TimelineTweet
+from twitter_openapi_python_generated.models.timeline_twitter_list import TimelineTwitterList
 from twitter_openapi_python_generated.models.timeline_user import TimelineUser
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-ITEMCONTENTUNION_ONE_OF_SCHEMAS = ["TimelineCommunity", "TimelineMessagePrompt", "TimelineNotification", "TimelinePrompt", "TimelineTimelineCursor", "TimelineTombstone", "TimelineTrend", "TimelineTweet", "TimelineUser"]
+ITEMCONTENTUNION_ONE_OF_SCHEMAS = ["TimelineCommunity", "TimelineFrame", "TimelineLabel", "TimelineMessagePrompt", "TimelineNotification", "TimelinePrompt", "TimelineTimelineCursor", "TimelineTombstone", "TimelineTrend", "TimelineTweet", "TimelineTwitterList", "TimelineUser"]
 
 class ItemContentUnion(BaseModel):
     """
@@ -55,8 +58,14 @@ class ItemContentUnion(BaseModel):
     oneof_schema_8_validator: Optional[TimelineTrend] = None
     # data type: TimelineNotification
     oneof_schema_9_validator: Optional[TimelineNotification] = None
-    actual_instance: Optional[Union[TimelineCommunity, TimelineMessagePrompt, TimelineNotification, TimelinePrompt, TimelineTimelineCursor, TimelineTombstone, TimelineTrend, TimelineTweet, TimelineUser]] = None
-    one_of_schemas: Set[str] = { "TimelineCommunity", "TimelineMessagePrompt", "TimelineNotification", "TimelinePrompt", "TimelineTimelineCursor", "TimelineTombstone", "TimelineTrend", "TimelineTweet", "TimelineUser" }
+    # data type: TimelineFrame
+    oneof_schema_10_validator: Optional[TimelineFrame] = None
+    # data type: TimelineTwitterList
+    oneof_schema_11_validator: Optional[TimelineTwitterList] = None
+    # data type: TimelineLabel
+    oneof_schema_12_validator: Optional[TimelineLabel] = None
+    actual_instance: Optional[Union[TimelineCommunity, TimelineFrame, TimelineLabel, TimelineMessagePrompt, TimelineNotification, TimelinePrompt, TimelineTimelineCursor, TimelineTombstone, TimelineTrend, TimelineTweet, TimelineTwitterList, TimelineUser]] = None
+    one_of_schemas: Set[str] = { "TimelineCommunity", "TimelineFrame", "TimelineLabel", "TimelineMessagePrompt", "TimelineNotification", "TimelinePrompt", "TimelineTimelineCursor", "TimelineTombstone", "TimelineTrend", "TimelineTweet", "TimelineTwitterList", "TimelineUser" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -127,12 +136,27 @@ class ItemContentUnion(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `TimelineNotification`")
         else:
             match += 1
+        # validate data type: TimelineFrame
+        if not isinstance(v, TimelineFrame):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `TimelineFrame`")
+        else:
+            match += 1
+        # validate data type: TimelineTwitterList
+        if not isinstance(v, TimelineTwitterList):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `TimelineTwitterList`")
+        else:
+            match += 1
+        # validate data type: TimelineLabel
+        if not isinstance(v, TimelineLabel):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `TimelineLabel`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in ItemContentUnion with oneOf schemas: TimelineCommunity, TimelineMessagePrompt, TimelineNotification, TimelinePrompt, TimelineTimelineCursor, TimelineTombstone, TimelineTrend, TimelineTweet, TimelineUser. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in ItemContentUnion with oneOf schemas: TimelineCommunity, TimelineFrame, TimelineLabel, TimelineMessagePrompt, TimelineNotification, TimelinePrompt, TimelineTimelineCursor, TimelineTombstone, TimelineTrend, TimelineTweet, TimelineTwitterList, TimelineUser. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in ItemContentUnion with oneOf schemas: TimelineCommunity, TimelineMessagePrompt, TimelineNotification, TimelinePrompt, TimelineTimelineCursor, TimelineTombstone, TimelineTrend, TimelineTweet, TimelineUser. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in ItemContentUnion with oneOf schemas: TimelineCommunity, TimelineFrame, TimelineLabel, TimelineMessagePrompt, TimelineNotification, TimelinePrompt, TimelineTimelineCursor, TimelineTombstone, TimelineTrend, TimelineTweet, TimelineTwitterList, TimelineUser. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -156,6 +180,16 @@ class ItemContentUnion(BaseModel):
         # check if data type is `TimelineCommunity`
         if _data_type == "TimelineCommunity":
             instance.actual_instance = TimelineCommunity.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineFrame`
+        if _data_type == "TimelineFrame":
+            instance.actual_instance = TimelineFrame.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineLabel`
+        if _data_type == "TimelineLabel":
+            instance.actual_instance = TimelineLabel.from_json(json_str)
             return instance
 
         # check if data type is `TimelineMessagePrompt`
@@ -191,6 +225,11 @@ class ItemContentUnion(BaseModel):
         # check if data type is `TimelineTweet`
         if _data_type == "TimelineTweet":
             instance.actual_instance = TimelineTweet.from_json(json_str)
+            return instance
+
+        # check if data type is `TimelineTwitterList`
+        if _data_type == "TimelineTwitterList":
+            instance.actual_instance = TimelineTwitterList.from_json(json_str)
             return instance
 
         # check if data type is `TimelineUser`
@@ -252,13 +291,31 @@ class ItemContentUnion(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into TimelineFrame
+        try:
+            instance.actual_instance = TimelineFrame.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into TimelineTwitterList
+        try:
+            instance.actual_instance = TimelineTwitterList.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into TimelineLabel
+        try:
+            instance.actual_instance = TimelineLabel.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into ItemContentUnion with oneOf schemas: TimelineCommunity, TimelineMessagePrompt, TimelineNotification, TimelinePrompt, TimelineTimelineCursor, TimelineTombstone, TimelineTrend, TimelineTweet, TimelineUser. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into ItemContentUnion with oneOf schemas: TimelineCommunity, TimelineFrame, TimelineLabel, TimelineMessagePrompt, TimelineNotification, TimelinePrompt, TimelineTimelineCursor, TimelineTombstone, TimelineTrend, TimelineTweet, TimelineTwitterList, TimelineUser. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into ItemContentUnion with oneOf schemas: TimelineCommunity, TimelineMessagePrompt, TimelineNotification, TimelinePrompt, TimelineTimelineCursor, TimelineTombstone, TimelineTrend, TimelineTweet, TimelineUser. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ItemContentUnion with oneOf schemas: TimelineCommunity, TimelineFrame, TimelineLabel, TimelineMessagePrompt, TimelineNotification, TimelinePrompt, TimelineTimelineCursor, TimelineTombstone, TimelineTrend, TimelineTweet, TimelineTwitterList, TimelineUser. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -272,7 +329,7 @@ class ItemContentUnion(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], TimelineCommunity, TimelineMessagePrompt, TimelineNotification, TimelinePrompt, TimelineTimelineCursor, TimelineTombstone, TimelineTrend, TimelineTweet, TimelineUser]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], TimelineCommunity, TimelineFrame, TimelineLabel, TimelineMessagePrompt, TimelineNotification, TimelinePrompt, TimelineTimelineCursor, TimelineTombstone, TimelineTrend, TimelineTweet, TimelineTwitterList, TimelineUser]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

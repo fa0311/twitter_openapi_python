@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.urt_endpoint_request_params import UrtEndpointRequestParams
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +30,7 @@ class UrtEndpointOptions(BaseModel):
     UrtEndpointOptions
     """ # noqa: E501
     request_params: List[UrtEndpointRequestParams] = Field(alias="requestParams")
-    title: StrictStr
+    title: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["requestParams", "title"]
 
     model_config = ConfigDict(

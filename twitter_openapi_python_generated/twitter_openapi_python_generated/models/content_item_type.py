@@ -36,6 +36,9 @@ class ContentItemType(str, Enum):
     TIMELINETOMBSTONE = 'TimelineTombstone'
     TIMELINETREND = 'TimelineTrend'
     TIMELINENOTIFICATION = 'TimelineNotification'
+    TIMELINEFRAME = 'TimelineFrame'
+    TIMELINETWITTERLIST = 'TimelineTwitterList'
+    TIMELINELABEL = 'TimelineLabel'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

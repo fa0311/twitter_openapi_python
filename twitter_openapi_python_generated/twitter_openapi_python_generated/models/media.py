@@ -22,7 +22,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_v
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from uuid import UUID
-from twitter_openapi_python_generated.models.additional_media_info import AdditionalMediaInfo
 from twitter_openapi_python_generated.models.allow_download_status import AllowDownloadStatus
 from twitter_openapi_python_generated.models.ext_media_availability import ExtMediaAvailability
 from twitter_openapi_python_generated.models.media_original_info import MediaOriginalInfo
@@ -30,7 +29,6 @@ from twitter_openapi_python_generated.models.media_results import MediaResults
 from twitter_openapi_python_generated.models.media_sizes import MediaSizes
 from twitter_openapi_python_generated.models.media_video_info import MediaVideoInfo
 from twitter_openapi_python_generated.models.sensitive_media_warning import SensitiveMediaWarning
-from twitter_openapi_python_generated.models.user_results import UserResults
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -200,4 +198,8 @@ class Media(BaseModel):
         })
         return _obj
 
+from twitter_openapi_python_generated.models.additional_media_info import AdditionalMediaInfo
+from twitter_openapi_python_generated.models.user_results import UserResults
+# TODO: Rewrite to not use raise_errors
+Media.model_rebuild(raise_errors=False)
 

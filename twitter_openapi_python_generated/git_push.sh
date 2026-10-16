@@ -14,12 +14,12 @@ if [ -z "${git_host}" ]; then
 fi
 
 if [ -z "${git_user_id}" ]; then
-    git_user_id="fa0311"
+    git_user_id="GIT_USER_ID"
     echo "[INFO] No command line input provided. Set \${git_user_id} to ${git_user_id}"
 fi
 
 if [ -z "${git_repo_id}" ]; then
-    git_repo_id="twitter_openapi_python"
+    git_repo_id="GIT_REPO_ID"
     echo "[INFO] No command line input provided. Set \${git_repo_id} to ${git_repo_id}"
 fi
 

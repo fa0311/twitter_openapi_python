@@ -18,7 +18,7 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/fa0311/twitter_openapi_python"
+Repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
 
 [dependency-groups]
 dev = [

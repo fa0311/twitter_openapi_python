@@ -41,7 +41,7 @@ class ErrorResponse(BaseModel):
     path: List[ErrorResponsePathInner]
     retry_after: Optional[StrictInt] = None
     source: StrictStr
-    tracing: Tracing
+    tracing: Optional[Tracing] = None
     __properties: ClassVar[List[str]] = ["code", "extensions", "kind", "locations", "message", "name", "path", "retry_after", "source", "tracing"]
 
     model_config = ConfigDict(

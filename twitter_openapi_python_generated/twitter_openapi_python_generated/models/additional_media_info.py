@@ -21,7 +21,6 @@ import json
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.additional_media_info_call_to_actions import AdditionalMediaInfoCallToActions
-from twitter_openapi_python_generated.models.user_result_core import UserResultCore
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -104,4 +103,7 @@ class AdditionalMediaInfo(BaseModel):
         })
         return _obj
 
+from twitter_openapi_python_generated.models.user_result_core import UserResultCore
+# TODO: Rewrite to not use raise_errors
+AdditionalMediaInfo.model_rebuild(raise_errors=False)
 

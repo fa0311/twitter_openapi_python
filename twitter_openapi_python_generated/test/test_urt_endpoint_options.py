@@ -50,7 +50,6 @@ class TestUrtEndpointOptions(unittest.TestCase):
                         key = '', 
                         value = '', )
                     ],
-                title = '',
         )
         """
 

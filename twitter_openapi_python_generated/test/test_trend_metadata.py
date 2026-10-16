@@ -36,6 +36,7 @@ class TestTrendMetadata(unittest.TestCase):
         model = TrendMetadata()
         if include_optional:
             return TrendMetadata(
+                domain_context = '',
                 url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
                     url_type = 'DeepLink', 
                     urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(

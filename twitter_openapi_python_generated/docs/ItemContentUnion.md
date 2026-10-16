@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **images** | [**List[TrendImage]**](TrendImage.md) |  | [optional] 
 **is_ai_trend** | **bool** |  | [optional] 
 **name** | **str** |  | 
+**rank** | **str** |  | [optional] 
 **social_context** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
 **thumbnail_image** | [**ThumbnailImage**](ThumbnailImage.md) |  | [optional] 
 **trend_metadata** | [**TrendMetadata**](TrendMetadata.md) |  | 
@@ -35,6 +36,12 @@ Name | Type | Description | Notes
 **rich_message** | [**RichMessage**](RichMessage.md) |  | 
 **template** | [**NotificationTemplate**](NotificationTemplate.md) |  | 
 **timestamp_ms** | **str** |  | 
+**height** | **int** |  | 
+**payload** | **str** |  | 
+**display_type** | **str** |  | [optional] 
+**list** | [**TwitterList**](TwitterList.md) |  | 
+**text** | **str** |  | 
+**url** | [**SocialContextLandingUrl**](SocialContextLandingUrl.md) |  | 
 
 ## Example
 

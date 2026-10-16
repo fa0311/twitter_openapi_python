@@ -44,12 +44,14 @@ class TestTimelineTrend(unittest.TestCase):
                 is_ai_trend = True,
                 item_type = 'TimelineTweet',
                 name = '',
+                rank = '4',
                 social_context = None,
                 thumbnail_image = twitter_openapi_python_generated.models.thumbnail_image.ThumbnailImage(
                     original_img_height = 56, 
                     original_img_url = '', 
                     original_img_width = 56, ),
                 trend_metadata = twitter_openapi_python_generated.models.trend_metadata.TrendMetadata(
+                    domain_context = '', 
                     url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
                         url_type = 'DeepLink', 
                         urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
@@ -75,6 +77,7 @@ class TestTimelineTrend(unittest.TestCase):
                 typename = 'TimelineTweet',
                 name = '',
                 trend_metadata = twitter_openapi_python_generated.models.trend_metadata.TrendMetadata(
+                    domain_context = '', 
                     url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
                         url_type = 'DeepLink', 
                         urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(

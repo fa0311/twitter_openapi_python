@@ -39,6 +39,12 @@ class TestTweetApi(unittest.TestCase):
         """
         pass
 
+    def test_get_community_discovery_timeline(self) -> None:
+        """Test case for get_community_discovery_timeline
+
+        """
+        pass
+
     def test_get_community_media_timeline(self) -> None:
         """Test case for get_community_media_timeline
 
@@ -47,6 +53,24 @@ class TestTweetApi(unittest.TestCase):
 
     def test_get_community_tweets_timeline(self) -> None:
         """Test case for get_community_tweets_timeline
+
+        """
+        pass
+
+    def test_get_connect_tab_timeline(self) -> None:
+        """Test case for get_connect_tab_timeline
+
+        """
+        pass
+
+    def test_get_explore_page(self) -> None:
+        """Test case for get_explore_page
+
+        """
+        pass
+
+    def test_get_generic_timeline_by_id(self) -> None:
+        """Test case for get_generic_timeline_by_id
 
         """
         pass
@@ -113,6 +137,18 @@ class TestTweetApi(unittest.TestCase):
 
     def test_get_user_replies_timeline(self) -> None:
         """Test case for get_user_replies_timeline
+
+        """
+        pass
+
+    def test_get_user_reposts_timeline(self) -> None:
+        """Test case for get_user_reposts_timeline
+
+        """
+        pass
+
+    def test_get_user_super_follow_tweets(self) -> None:
+        """Test case for get_user_super_follow_tweets
 
         """
         pass
