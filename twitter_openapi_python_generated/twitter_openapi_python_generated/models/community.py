@@ -50,6 +50,7 @@ class Community(BaseModel):
     id_str: Optional[Annotated[str, Field(strict=True)]] = None
     invites_policy: Optional[StrictStr] = None
     invites_result: Optional[CommunityInvitesResult] = None
+    is_nsfw: Optional[StrictBool] = None
     is_pinned: Optional[StrictBool] = None
     join_policy: Optional[StrictStr] = None
     join_requests_result: Optional[CommunityJoinRequestsResult] = None
@@ -65,7 +66,7 @@ class Community(BaseModel):
     show_only_users_to_display: Optional[List[StrictStr]] = None
     urls: Optional[CommunityUrls] = None
     viewer_relationship: Optional[CommunityViewerRelationship] = None
-    __properties: ClassVar[List[str]] = ["__typename", "actions", "admin_results", "created_at", "creator_results", "custom_banner_media", "default_banner_media", "description", "id_str", "invites_policy", "invites_result", "is_pinned", "join_policy", "join_requests_result", "member_count", "members_facepile_results", "moderator_count", "name", "primary_community_topic", "question", "role", "rules", "search_tags", "show_only_users_to_display", "urls", "viewer_relationship"]
+    __properties: ClassVar[List[str]] = ["__typename", "actions", "admin_results", "created_at", "creator_results", "custom_banner_media", "default_banner_media", "description", "id_str", "invites_policy", "invites_result", "is_nsfw", "is_pinned", "join_policy", "join_requests_result", "member_count", "members_facepile_results", "moderator_count", "name", "primary_community_topic", "question", "role", "rules", "search_tags", "show_only_users_to_display", "urls", "viewer_relationship"]
 
     @field_validator('id_str', mode="before")
     def id_str_validate_regular_expression(cls, value):
@@ -211,6 +212,7 @@ class Community(BaseModel):
             "id_str": obj.get("id_str"),
             "invites_policy": obj.get("invites_policy"),
             "invites_result": CommunityInvitesResult.from_dict(obj["invites_result"]) if obj.get("invites_result") is not None else None,
+            "is_nsfw": obj.get("is_nsfw"),
             "is_pinned": obj.get("is_pinned"),
             "join_policy": obj.get("join_policy"),
             "join_requests_result": CommunityJoinRequestsResult.from_dict(obj["join_requests_result"]) if obj.get("join_requests_result") is not None else None,

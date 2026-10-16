@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.timeline import Timeline
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class SearchTimeline(BaseModel):
     """
     SearchTimeline
     """ # noqa: E501
-    timeline: Timeline
+    timeline: Optional[Timeline] = None
     __properties: ClassVar[List[str]] = ["timeline"]
 
     model_config = ConfigDict(

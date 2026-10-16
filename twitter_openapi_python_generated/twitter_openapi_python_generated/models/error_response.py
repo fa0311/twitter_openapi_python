@@ -32,7 +32,7 @@ class ErrorResponse(BaseModel):
     """
     ErrorResponse
     """ # noqa: E501
-    code: StrictInt
+    code: Optional[StrictInt] = None
     extensions: ErrorExtensions
     kind: StrictStr
     locations: List[Location]

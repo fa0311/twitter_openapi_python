@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 # Define package exports
 __all__ = [
@@ -202,6 +202,7 @@ __all__ = [
     "GrokTranslatedCommunityNoteWithAvailability",
     "GrokTranslatedPost",
     "GrokTranslatedPostWithAvailability",
+    "GroupedTrend",
     "Hashtag",
     "Highlight",
     "HomeTimelineHome",
@@ -368,10 +369,18 @@ __all__ = [
     "TimelineLabel",
     "TimelineMarkEntriesUnreadGreaterThanSortIndex",
     "TimelineMessagePrompt",
+    "TimelineMessagePromptButton",
+    "TimelineMessagePromptButtonAction",
+    "TimelineMessagePromptContent",
+    "TimelineMessagePromptRichText",
+    "TimelineMessagePromptRichTextEntity",
+    "TimelineMessagePromptRichTextEntityRef",
     "TimelineMetadata",
     "TimelineNotification",
     "TimelinePinEntry",
     "TimelinePrompt",
+    "TimelinePromptCallback",
+    "TimelinePromptContent",
     "TimelineReplaceEntry",
     "TimelineResponse",
     "TimelineResponseObjects",
@@ -713,6 +722,7 @@ from twitter_openapi_python_generated.models.grok_translated_community_note impo
 from twitter_openapi_python_generated.models.grok_translated_community_note_with_availability import GrokTranslatedCommunityNoteWithAvailability as GrokTranslatedCommunityNoteWithAvailability
 from twitter_openapi_python_generated.models.grok_translated_post import GrokTranslatedPost as GrokTranslatedPost
 from twitter_openapi_python_generated.models.grok_translated_post_with_availability import GrokTranslatedPostWithAvailability as GrokTranslatedPostWithAvailability
+from twitter_openapi_python_generated.models.grouped_trend import GroupedTrend as GroupedTrend
 from twitter_openapi_python_generated.models.hashtag import Hashtag as Hashtag
 from twitter_openapi_python_generated.models.highlight import Highlight as Highlight
 from twitter_openapi_python_generated.models.home_timeline_home import HomeTimelineHome as HomeTimelineHome
@@ -879,10 +889,18 @@ from twitter_openapi_python_generated.models.timeline_half_cover import Timeline
 from twitter_openapi_python_generated.models.timeline_label import TimelineLabel as TimelineLabel
 from twitter_openapi_python_generated.models.timeline_mark_entries_unread_greater_than_sort_index import TimelineMarkEntriesUnreadGreaterThanSortIndex as TimelineMarkEntriesUnreadGreaterThanSortIndex
 from twitter_openapi_python_generated.models.timeline_message_prompt import TimelineMessagePrompt as TimelineMessagePrompt
+from twitter_openapi_python_generated.models.timeline_message_prompt_button import TimelineMessagePromptButton as TimelineMessagePromptButton
+from twitter_openapi_python_generated.models.timeline_message_prompt_button_action import TimelineMessagePromptButtonAction as TimelineMessagePromptButtonAction
+from twitter_openapi_python_generated.models.timeline_message_prompt_content import TimelineMessagePromptContent as TimelineMessagePromptContent
+from twitter_openapi_python_generated.models.timeline_message_prompt_rich_text import TimelineMessagePromptRichText as TimelineMessagePromptRichText
+from twitter_openapi_python_generated.models.timeline_message_prompt_rich_text_entity import TimelineMessagePromptRichTextEntity as TimelineMessagePromptRichTextEntity
+from twitter_openapi_python_generated.models.timeline_message_prompt_rich_text_entity_ref import TimelineMessagePromptRichTextEntityRef as TimelineMessagePromptRichTextEntityRef
 from twitter_openapi_python_generated.models.timeline_metadata import TimelineMetadata as TimelineMetadata
 from twitter_openapi_python_generated.models.timeline_notification import TimelineNotification as TimelineNotification
 from twitter_openapi_python_generated.models.timeline_pin_entry import TimelinePinEntry as TimelinePinEntry
 from twitter_openapi_python_generated.models.timeline_prompt import TimelinePrompt as TimelinePrompt
+from twitter_openapi_python_generated.models.timeline_prompt_callback import TimelinePromptCallback as TimelinePromptCallback
+from twitter_openapi_python_generated.models.timeline_prompt_content import TimelinePromptContent as TimelinePromptContent
 from twitter_openapi_python_generated.models.timeline_replace_entry import TimelineReplaceEntry as TimelineReplaceEntry
 from twitter_openapi_python_generated.models.timeline_response import TimelineResponse as TimelineResponse
 from twitter_openapi_python_generated.models.timeline_response_objects import TimelineResponseObjects as TimelineResponseObjects

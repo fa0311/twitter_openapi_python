@@ -29,7 +29,7 @@ class ErrorExtensions(BaseModel):
     """
     ErrorExtensions
     """ # noqa: E501
-    code: StrictInt
+    code: Optional[StrictInt] = None
     kind: StrictStr
     name: StrictStr
     retry_after: Optional[StrictInt] = None

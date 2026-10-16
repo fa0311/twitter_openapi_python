@@ -36,10 +36,55 @@ class TestTimelinePrompt(unittest.TestCase):
         model = TimelinePrompt()
         if include_optional:
             return TimelinePrompt(
-                typename = 'TimelineTweet'
+                typename = 'TimelineTweet',
+                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                    component = '', 
+                    details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                        conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                            conversation_section = 'HighQuality', ), 
+                        timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                            controller_data = '', 
+                            injection_type = '', 
+                            source_data = '', ), ), 
+                    element = '', ),
+                content = twitter_openapi_python_generated.models.timeline_prompt_content.TimelinePromptContent(
+                    confirmation = '', 
+                    content_type = 'TimelineRelevancePrompt', 
+                    display_type = 'Compact', 
+                    is_relevant_callback = twitter_openapi_python_generated.models.timeline_prompt_callback.TimelinePromptCallback(
+                        endpoint = '', ), 
+                    is_relevant_text = '', 
+                    not_relevant_callback = twitter_openapi_python_generated.models.timeline_prompt_callback.TimelinePromptCallback(
+                        endpoint = '', ), 
+                    not_relevant_text = '', 
+                    title = '', ),
+                item_type = 'TimelineTweet'
             )
         else:
             return TimelinePrompt(
+                typename = 'TimelineTweet',
+                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                    component = '', 
+                    details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                        conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                            conversation_section = 'HighQuality', ), 
+                        timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                            controller_data = '', 
+                            injection_type = '', 
+                            source_data = '', ), ), 
+                    element = '', ),
+                content = twitter_openapi_python_generated.models.timeline_prompt_content.TimelinePromptContent(
+                    confirmation = '', 
+                    content_type = 'TimelineRelevancePrompt', 
+                    display_type = 'Compact', 
+                    is_relevant_callback = twitter_openapi_python_generated.models.timeline_prompt_callback.TimelinePromptCallback(
+                        endpoint = '', ), 
+                    is_relevant_text = '', 
+                    not_relevant_callback = twitter_openapi_python_generated.models.timeline_prompt_callback.TimelinePromptCallback(
+                        endpoint = '', ), 
+                    not_relevant_text = '', 
+                    title = '', ),
+                item_type = 'TimelineTweet',
         )
         """
 

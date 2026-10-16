@@ -46,7 +46,6 @@ class TestErrorExtensions(unittest.TestCase):
             )
         else:
             return ErrorExtensions(
-                code = 56,
                 kind = '',
                 name = '',
                 source = '',

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **int** |  | 
+**code** | **int** |  | [optional] 
 **extensions** | [**ErrorExtensions**](ErrorExtensions.md) |  | 
 **kind** | **str** |  | 
 **locations** | [**List[Location]**](Location.md) |  | 

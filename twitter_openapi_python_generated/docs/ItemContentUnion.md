@@ -20,8 +20,12 @@ Name | Type | Description | Notes
 **value** | **str** |  | 
 **user_display_type** | **str** |  | 
 **user_results** | [**UserResults**](UserResults.md) |  | 
+**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | 
+**content** | [**TimelineMessagePromptContent**](TimelineMessagePromptContent.md) |  | 
+**community_results** | [**CommunityResult**](CommunityResult.md) |  | 
 **tombstone_display_type** | **str** |  | [optional] 
 **tombstone_info** | [**TombstoneInfo**](TombstoneInfo.md) |  | [optional] 
+**grouped_trends** | [**List[GroupedTrend]**](GroupedTrend.md) |  | [optional] 
 **images** | [**List[TrendImage]**](TrendImage.md) |  | [optional] 
 **is_ai_trend** | **bool** |  | [optional] 
 **name** | **str** |  | 
