@@ -5,23 +5,22 @@ import twitter_openapi_python_generated.models as models
 from x_client_transaction import ClientTransaction
 
 from twitter_openapi_python.models import (
-    ApiUtilsRaw,
     TimelineApiUtilsResponse,
     TwitterApiUtilsResponse,
     UserApiUtilsData,
 )
 from twitter_openapi_python.utils import (
-    build_response,
-    entries_cursor,
+    data_request,
     error_check,
-    get_kwargs,
-    instruction_to_entry,
+    list_entries_converter,
+    timeline_request,
     user_entries_converter,
     user_result_converter,
 )
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[UserApiUtilsData]]
+ListResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[models.TwitterList]]
 ApiFnType = Callable[..., twitter.ApiResponse[T]]
 ParamType = dict[str, Any]
 
@@ -42,24 +41,14 @@ class UserListApiUtils:
         key: str,
         param: ParamType,
     ) -> ResponseType:
-        args = get_kwargs(flag=self.flag[key], additional=param, ct=self.ct)
-        res = apiFn(**args)
-        instruction = convertFn(res.data)
-        entry = instruction_to_entry(instruction)
-        user_list = user_entries_converter(entry)
-        user = user_result_converter(user_list)
-
-        raw = ApiUtilsRaw(
-            instruction=instruction,
-            entry=entry,
+        return timeline_request(
+            apiFn,
+            self.flag[key],
+            self.ct,
+            convertFn,
+            param,
+            lambda entry: user_result_converter(user_entries_converter(entry)),
         )
-        data = TimelineApiUtilsResponse[UserApiUtilsData](
-            raw=raw,
-            cursor=entries_cursor(entry),
-            data=user,
-        )
-
-        return build_response(response=res, data=data)
 
     def get_followers(
         self,
@@ -168,4 +157,148 @@ class UserListApiUtils:
             ).instructions,
             key="Retweeters",
             param=param,
+        )
+
+    def get_blue_verified_followers(
+        self,
+        user_id: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        param: ParamType = {"userId": user_id}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+        return self.request(
+            apiFn=self.api.get_blue_verified_followers_with_http_info,
+            convertFn=lambda e: error_check(e.data.user, e.errors).result.timeline.timeline.instructions,
+            key="BlueVerifiedFollowers",
+            param=param,
+        )
+
+    def get_list_members(
+        self,
+        list_id: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        param: ParamType = {"listId": list_id}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+        return self.request(
+            apiFn=self.api.get_list_members_with_http_info,
+            convertFn=lambda e: error_check(e.data.list.members_timeline.timeline, e.errors).instructions,
+            key="ListMembers",
+            param=param,
+        )
+
+    def get_list_subscribers(
+        self,
+        list_id: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        param: ParamType = {"listId": list_id}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+        return self.request(
+            apiFn=self.api.get_list_subscribers_with_http_info,
+            convertFn=lambda e: error_check(e.data.list.subscribers_timeline.timeline, e.errors).instructions,
+            key="ListSubscribers",
+            param=param,
+        )
+
+    def get_list_creation_recommended_users(
+        self,
+        list_id: str,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        """Empty unless list_id is one of the authenticated account's lists."""
+        param: ParamType = {"listId": list_id}
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+        return self.request(
+            apiFn=self.api.get_list_creation_recommended_users_with_http_info,
+            convertFn=lambda e: t.instructions if (t := e.data.list.recommended_users.timeline) else [],
+            key="ListCreationRecommendedUsers",
+            param=param,
+        )
+
+    def get_list_edit_recommended_users(
+        self,
+        list_id: str,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        """Empty unless list_id is one of the authenticated account's lists."""
+        param: ParamType = {"listId": list_id}
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+        return self.request(
+            apiFn=self.api.get_list_edit_recommended_users_with_http_info,
+            convertFn=lambda e: t.instructions if (t := e.data.list.recommended_users.timeline) else [],
+            key="ListEditRecommendedUsers",
+            param=param,
+        )
+
+    def get_list_ownerships(
+        self,
+        user_id: str,
+        is_list_member_target_user_id: Optional[str] = None,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ListResponseType:
+        """Lists owned by user_id; is_list_member_target_user_id marks the lists that user is a member of."""
+        param: ParamType = {"userId": user_id}
+        if is_list_member_target_user_id is not None:
+            param["isListMemberTargetUserId"] = is_list_member_target_user_id
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+        return timeline_request(
+            self.api.get_list_ownerships_with_http_info,
+            self.flag["ListOwnerships"],
+            self.ct,
+            lambda e: error_check(error_check(e.data.user, e.errors).result.timeline.timeline, e.errors).instructions,
+            param,
+            list_entries_converter,
+        )
+
+    def get_list_by_rest_id(
+        self,
+        list_id: str,
+        extra_param: Optional[ParamType] = None,
+    ) -> TwitterApiUtilsResponse[models.TwitterList]:
+        param: ParamType = {"listId": list_id}
+        if extra_param is not None:
+            param.update(extra_param)
+        return data_request(
+            self.api.get_list_by_rest_id_with_http_info,
+            self.flag["ListByRestId"],
+            self.ct,
+            lambda e: error_check(e.data, e.errors).list,
+            param,
         )

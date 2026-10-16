@@ -41,6 +41,38 @@ class TestPostApi(unittest.TestCase):
         result = self.client.post_unfavorite_tweet(tweet_id="1349129669258448897")
         self.assertEqual(result.raw.response.status_code, 200)
 
+    def test_post_create_bookmark(self):
+        result = self.client.post_create_bookmark(tweet_id="1349129669258448897")
+        self.assertEqual(result.raw.response.status_code, 200)
+
+        result2 = self.client.post_delete_bookmark(tweet_id="1349129669258448897")
+        self.assertEqual(result2.raw.response.status_code, 200)
+
+    def test_post_create_list(self):
+        time = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
+        result = self.client.post_create_list(name=f"Test{time}", description="twitter_openapi_python", is_private=True)
+        self.assertEqual(result.raw.response.status_code, 200)
+        list_id = result.data.data.list.id_str
+
+        result2 = self.client.post_list_add_member(list_id=list_id, user_id="44196397")
+        self.assertEqual(result2.raw.response.status_code, 200)
+        self.assertEqual(result2.data.data.list.member_count, 1)
+
+        result3 = self.client.post_list_remove_member(list_id=list_id, user_id="44196397")
+        self.assertEqual(result3.raw.response.status_code, 200)
+
+        result4 = self.client.post_delete_list(list_id=list_id)
+        self.assertEqual(result4.raw.response.status_code, 200)
+
+    def test_post_create_draft_tweet(self):
+        time = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
+        result = self.client.post_create_draft_tweet(status=f"Test{time}")
+        self.assertEqual(result.raw.response.status_code, 200)
+        draft_id = result.data.data.tweet.rest_id
+
+        result2 = self.client.post_delete_draft_tweets(draft_tweet_ids=[draft_id])
+        self.assertEqual(result2.raw.response.status_code, 200)
+
 
 if __name__ == "__main__":
     unittest.main()
