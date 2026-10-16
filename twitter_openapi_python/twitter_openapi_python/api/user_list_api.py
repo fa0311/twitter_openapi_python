@@ -302,3 +302,73 @@ class UserListApiUtils:
             lambda e: error_check(e.data, e.errors).list,
             param,
         )
+
+    def get_list_search_timeline(
+        self,
+        raw_query: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ListResponseType:
+        param: ParamType = {"rawQuery": raw_query}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+        return timeline_request(
+            self.api.get_list_search_timeline_with_http_info,
+            self.flag["ListSearchTimeline"],
+            self.ct,
+            lambda e: error_check(e.data.search_by_raw_query.list_search_timeline.timeline, e.errors).instructions,
+            param,
+            list_entries_converter,
+        )
+
+    def get_combined_lists(
+        self,
+        user_id: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ListResponseType:
+        """Lists a user owns or follows."""
+        param: ParamType = {"userId": user_id}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+        return timeline_request(
+            self.api.get_combined_lists_with_http_info,
+            self.flag["CombinedLists"],
+            self.ct,
+            lambda e: error_check(error_check(e.data.user, e.errors).result.timeline.timeline, e.errors).instructions,
+            param,
+            list_entries_converter,
+        )
+
+    def get_lists_management_page_timeline(
+        self,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ListResponseType:
+        """The account's lists management page."""
+        param: ParamType = {}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+        return timeline_request(
+            self.api.get_lists_management_page_timeline_with_http_info,
+            self.flag["ListsManagementPageTimeline"],
+            self.ct,
+            lambda e: error_check(e.data.viewer.list_management_timeline.timeline, e.errors).instructions,
+            param,
+            list_entries_converter,
+        )

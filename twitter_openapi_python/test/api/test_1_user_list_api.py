@@ -70,6 +70,21 @@ class TestUserListApi(unittest.TestCase):
         result = self.client.get_list_by_rest_id(list_id="1141162794290520064")
         logging.info(f"{result.data.name}: {result.data.member_count} members")
 
+    def test_get_list_search_timeline(self):
+        result = self.client.get_list_search_timeline(raw_query="test")
+        for twitter_list in result.data.data:
+            logging.info(twitter_list.name)
+
+    def test_get_combined_lists(self):
+        result = self.client.get_combined_lists(user_id="44196397")
+        for twitter_list in result.data.data:
+            logging.info(twitter_list.name)
+
+    def test_get_lists_management_page_timeline(self):
+        result = self.client.get_lists_management_page_timeline()
+        for twitter_list in result.data.data:
+            logging.info(twitter_list.name)
+
 
 if __name__ == "__main__":
     unittest.main()

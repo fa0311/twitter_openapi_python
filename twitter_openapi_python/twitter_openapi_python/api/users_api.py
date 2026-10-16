@@ -7,6 +7,7 @@ from x_client_transaction import ClientTransaction
 from twitter_openapi_python.models import TwitterApiUtilsResponse, UserApiUtilsData
 from twitter_openapi_python.utils import (
     build_response,
+    data_request,
     error_check,
     get_kwargs,
     user_result_converter,
@@ -53,4 +54,21 @@ class UsersApiUtils:
             convertFn=lambda e: error_check(e.data.users, e.errors),
             key="UsersByRestIds",
             param=param,
+        )
+
+    def get_users_verified_avatars(
+        self,
+        user_ids: list[str],
+        extra_param: Optional[ParamType] = None,
+    ) -> TwitterApiUtilsResponse[list[models.VerifiedAvatarUser]]:
+        """Partial users (avatar shape, verification) for the given ids."""
+        param: ParamType = {"userIds": user_ids}
+        if extra_param is not None:
+            param.update(extra_param)
+        return data_request(
+            self.api.get_users_verified_avatars_with_http_info,
+            self.flag["UsersVerifiedAvatars"],
+            self.ct,
+            lambda e: [x.result for x in error_check(e.data, e.errors).users_results],
+            param,
         )

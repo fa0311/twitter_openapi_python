@@ -27,6 +27,26 @@ class TestDefaultApi(unittest.TestCase):
         assert result.data.tweet.legacy is not None
         logging.info(result.data.tweet.legacy.full_text)
 
+    def test_get_authenticate_periscope(self):
+        result = self.client.get_authenticate_periscope()
+        logging.info(f"token length: {len(result.data)}")
+
+    def test_get_creator_studio_tab_bar_item_query(self):
+        result = self.client.get_creator_studio_tab_bar_item_query()
+        logging.info(f"tasks: {len(result.data.xpayments_audience_rewards_tasks)}")
+
+    def test_get_data_saver_mode(self):
+        result = self.client.get_data_saver_mode()
+        logging.info(result.data.viewer)
+
+    def test_get_grok_home(self):
+        result = self.client.get_grok_home()
+        logging.info(f"grok {result.data.grok_version}: {[m.name for m in result.data.grok_model_options]}")
+
+    def test_get_pinned_timelines(self):
+        result = self.client.get_pinned_timelines()
+        logging.info(f"pinned: {len(result.data.pinned_timelines)}")
+
 
 if __name__ == "__main__":
     unittest.main()
