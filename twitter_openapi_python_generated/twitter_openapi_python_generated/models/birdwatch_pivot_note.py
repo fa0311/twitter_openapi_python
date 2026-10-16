@@ -36,13 +36,10 @@ class BirdwatchPivotNote(BaseModel):
     rest_id: Annotated[str, Field(strict=True)]
     __properties: ClassVar[List[str]] = ["grok_translated_community_note_with_availability", "is_community_note_translatable", "language", "rest_id"]
 
-    @field_validator('rest_id')
+    @field_validator('rest_id', mode="before")
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 

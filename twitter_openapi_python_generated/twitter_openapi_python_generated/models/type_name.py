@@ -28,6 +28,10 @@ class TypeName(str, Enum):
     allowed enum values
     """
     TIMELINETWEET = 'TimelineTweet'
+    SEGMENTEDTIMELINES = 'SegmentedTimelines'
+    TIMELINEFRAME = 'TimelineFrame'
+    TIMELINETWITTERLIST = 'TimelineTwitterList'
+    TIMELINELABEL = 'TimelineLabel'
     TIMELINETIMELINEITEM = 'TimelineTimelineItem'
     TIMELINEUSER = 'TimelineUser'
     TIMELINETIMELINECURSOR = 'TimelineTimelineCursor'

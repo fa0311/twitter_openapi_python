@@ -23,7 +23,9 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.profile_bio import ProfileBio
 from twitter_openapi_python_generated.models.type_name import TypeName
+from twitter_openapi_python_generated.models.user_action_counts import UserActionCounts
 from twitter_openapi_python_generated.models.user_avatar import UserAvatar
+from twitter_openapi_python_generated.models.user_banner import UserBanner
 from twitter_openapi_python_generated.models.user_core import UserCore
 from twitter_openapi_python_generated.models.user_dm_permissions import UserDmPermissions
 from twitter_openapi_python_generated.models.user_highlights_info import UserHighlightsInfo
@@ -31,13 +33,20 @@ from twitter_openapi_python_generated.models.user_legacy import UserLegacy
 from twitter_openapi_python_generated.models.user_legacy_extended_profile import UserLegacyExtendedProfile
 from twitter_openapi_python_generated.models.user_location import UserLocation
 from twitter_openapi_python_generated.models.user_media_permissions import UserMediaPermissions
+from twitter_openapi_python_generated.models.user_notifications_settings import UserNotificationsSettings
+from twitter_openapi_python_generated.models.user_pinned_items import UserPinnedItems
 from twitter_openapi_python_generated.models.user_privacy import UserPrivacy
 from twitter_openapi_python_generated.models.user_professional import UserProfessional
 from twitter_openapi_python_generated.models.user_profile import UserProfile
+from twitter_openapi_python_generated.models.user_profile_metadata import UserProfileMetadata
+from twitter_openapi_python_generated.models.user_profile_translation import UserProfileTranslation
+from twitter_openapi_python_generated.models.user_relationship_counts import UserRelationshipCounts
 from twitter_openapi_python_generated.models.user_relationship_perspectives import UserRelationshipPerspectives
 from twitter_openapi_python_generated.models.user_tip_jar_settings import UserTipJarSettings
+from twitter_openapi_python_generated.models.user_tweet_counts import UserTweetCounts
 from twitter_openapi_python_generated.models.user_verification import UserVerification
 from twitter_openapi_python_generated.models.user_verification_info import UserVerificationInfo
+from twitter_openapi_python_generated.models.user_website import UserWebsite
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -47,12 +56,16 @@ class User(BaseModel):
     User
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
+    action_counts: Optional[UserActionCounts] = None
     affiliates_highlighted_label: Optional[Dict[str, Any]] = None
     avatar: Optional[UserAvatar] = None
+    banner: Optional[UserBanner] = None
     business_account: Optional[Dict[str, Any]] = None
     core: Optional[UserCore] = None
     creator_subscriptions_count: Optional[StrictInt] = None
     dm_permissions: Optional[UserDmPermissions] = None
+    follow_request_sent: Optional[StrictBool] = None
+    grok_translated_bio_with_availability: Optional[GrokTranslatedBioWithAvailability] = None
     has_graduated_access: Optional[StrictBool] = None
     has_hidden_likes_on_profile: Optional[StrictBool] = None
     has_hidden_subscriptions_on_profile: Optional[StrictBool] = None
@@ -61,18 +74,25 @@ class User(BaseModel):
     id: Annotated[str, Field(strict=True)]
     is_blue_verified: StrictBool
     is_profile_translatable: Optional[StrictBool] = None
-    legacy: UserLegacy
+    is_verified_organization: Optional[StrictBool] = None
+    legacy: Optional[UserLegacy] = None
     legacy_extended_profile: Optional[UserLegacyExtendedProfile] = None
     location: Optional[UserLocation] = None
     media_permissions: Optional[UserMediaPermissions] = None
+    notifications_settings: Optional[UserNotificationsSettings] = None
     parody_commentary_fan_label: Optional[StrictStr] = None
+    pinned_items: Optional[UserPinnedItems] = None
+    possibly_sensitive: Optional[StrictBool] = None
     premium_gifting_eligible: Optional[StrictBool] = None
     privacy: Optional[UserPrivacy] = None
     professional: Optional[UserProfessional] = None
     profile_bio: Optional[ProfileBio] = None
     profile_description_language: Optional[StrictStr] = None
     profile_image_shape: StrictStr
+    profile_metadata: Optional[UserProfileMetadata] = None
     profile_sort_enabled: Optional[StrictBool] = None
+    profile_translation: Optional[UserProfileTranslation] = None
+    relationship_counts: Optional[UserRelationshipCounts] = None
     relationship_perspectives: Optional[UserRelationshipPerspectives] = None
     rest_id: Annotated[str, Field(strict=True)]
     super_follow_eligible: Optional[StrictBool] = None
@@ -80,19 +100,18 @@ class User(BaseModel):
     super_following: Optional[StrictBool] = None
     super_follows_user_profile: Optional[UserProfile] = None
     tipjar_settings: Optional[UserTipJarSettings] = None
+    tweet_counts: Optional[UserTweetCounts] = None
     user_seed_tweet_count: Optional[StrictInt] = None
     verification: Optional[UserVerification] = None
     verification_info: Optional[UserVerificationInfo] = None
     verified_user_profiles: Optional[UserProfile] = None
-    __properties: ClassVar[List[str]] = ["__typename", "affiliates_highlighted_label", "avatar", "business_account", "core", "creator_subscriptions_count", "dm_permissions", "has_graduated_access", "has_hidden_likes_on_profile", "has_hidden_subscriptions_on_profile", "has_nft_avatar", "highlights_info", "id", "is_blue_verified", "is_profile_translatable", "legacy", "legacy_extended_profile", "location", "media_permissions", "parody_commentary_fan_label", "premium_gifting_eligible", "privacy", "professional", "profile_bio", "profile_description_language", "profile_image_shape", "profile_sort_enabled", "relationship_perspectives", "rest_id", "super_follow_eligible", "super_followed_by", "super_following", "super_follows_user_profile", "tipjar_settings", "user_seed_tweet_count", "verification", "verification_info", "verified_user_profiles"]
+    website: Optional[UserWebsite] = None
+    __properties: ClassVar[List[str]] = ["__typename", "action_counts", "affiliates_highlighted_label", "avatar", "banner", "business_account", "core", "creator_subscriptions_count", "dm_permissions", "follow_request_sent", "grok_translated_bio_with_availability", "has_graduated_access", "has_hidden_likes_on_profile", "has_hidden_subscriptions_on_profile", "has_nft_avatar", "highlights_info", "id", "is_blue_verified", "is_profile_translatable", "is_verified_organization", "legacy", "legacy_extended_profile", "location", "media_permissions", "notifications_settings", "parody_commentary_fan_label", "pinned_items", "possibly_sensitive", "premium_gifting_eligible", "privacy", "professional", "profile_bio", "profile_description_language", "profile_image_shape", "profile_metadata", "profile_sort_enabled", "profile_translation", "relationship_counts", "relationship_perspectives", "rest_id", "super_follow_eligible", "super_followed_by", "super_following", "super_follows_user_profile", "tipjar_settings", "tweet_counts", "user_seed_tweet_count", "verification", "verification_info", "verified_user_profiles", "website"]
 
-    @field_validator('id')
+    @field_validator('id', mode="before")
     def id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^([A-Za-z0-9+\/]{4})*([A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}==)?$", value):
+        if isinstance(value, str) and not re.match(r"^([A-Za-z0-9+\/]{4})*([A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}==)?$", value):
             raise ValueError(r"must validate the regular expression /^([A-Za-z0-9+\/]{4})*([A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}==)?$/")
         return value
 
@@ -113,13 +132,10 @@ class User(BaseModel):
             raise ValueError("must be one of enum values ('Circle', 'Square', 'Hexagon')")
         return value
 
-    @field_validator('rest_id')
+    @field_validator('rest_id', mode="before")
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
@@ -162,15 +178,24 @@ class User(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of action_counts
+        if self.action_counts:
+            _dict['action_counts'] = self.action_counts.to_dict()
         # override the default output from pydantic by calling `to_dict()` of avatar
         if self.avatar:
             _dict['avatar'] = self.avatar.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of banner
+        if self.banner:
+            _dict['banner'] = self.banner.to_dict()
         # override the default output from pydantic by calling `to_dict()` of core
         if self.core:
             _dict['core'] = self.core.to_dict()
         # override the default output from pydantic by calling `to_dict()` of dm_permissions
         if self.dm_permissions:
             _dict['dm_permissions'] = self.dm_permissions.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of grok_translated_bio_with_availability
+        if self.grok_translated_bio_with_availability:
+            _dict['grok_translated_bio_with_availability'] = self.grok_translated_bio_with_availability.to_dict()
         # override the default output from pydantic by calling `to_dict()` of highlights_info
         if self.highlights_info:
             _dict['highlights_info'] = self.highlights_info.to_dict()
@@ -186,6 +211,12 @@ class User(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of media_permissions
         if self.media_permissions:
             _dict['media_permissions'] = self.media_permissions.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of notifications_settings
+        if self.notifications_settings:
+            _dict['notifications_settings'] = self.notifications_settings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of pinned_items
+        if self.pinned_items:
+            _dict['pinned_items'] = self.pinned_items.to_dict()
         # override the default output from pydantic by calling `to_dict()` of privacy
         if self.privacy:
             _dict['privacy'] = self.privacy.to_dict()
@@ -195,6 +226,15 @@ class User(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of profile_bio
         if self.profile_bio:
             _dict['profile_bio'] = self.profile_bio.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of profile_metadata
+        if self.profile_metadata:
+            _dict['profile_metadata'] = self.profile_metadata.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of profile_translation
+        if self.profile_translation:
+            _dict['profile_translation'] = self.profile_translation.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of relationship_counts
+        if self.relationship_counts:
+            _dict['relationship_counts'] = self.relationship_counts.to_dict()
         # override the default output from pydantic by calling `to_dict()` of relationship_perspectives
         if self.relationship_perspectives:
             _dict['relationship_perspectives'] = self.relationship_perspectives.to_dict()
@@ -204,6 +244,9 @@ class User(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of tipjar_settings
         if self.tipjar_settings:
             _dict['tipjar_settings'] = self.tipjar_settings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of tweet_counts
+        if self.tweet_counts:
+            _dict['tweet_counts'] = self.tweet_counts.to_dict()
         # override the default output from pydantic by calling `to_dict()` of verification
         if self.verification:
             _dict['verification'] = self.verification.to_dict()
@@ -213,6 +256,9 @@ class User(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of verified_user_profiles
         if self.verified_user_profiles:
             _dict['verified_user_profiles'] = self.verified_user_profiles.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of website
+        if self.website:
+            _dict['website'] = self.website.to_dict()
         return _dict
 
     @classmethod
@@ -226,12 +272,16 @@ class User(BaseModel):
 
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
+            "action_counts": UserActionCounts.from_dict(obj["action_counts"]) if obj.get("action_counts") is not None else None,
             "affiliates_highlighted_label": obj.get("affiliates_highlighted_label"),
             "avatar": UserAvatar.from_dict(obj["avatar"]) if obj.get("avatar") is not None else None,
+            "banner": UserBanner.from_dict(obj["banner"]) if obj.get("banner") is not None else None,
             "business_account": obj.get("business_account"),
             "core": UserCore.from_dict(obj["core"]) if obj.get("core") is not None else None,
             "creator_subscriptions_count": obj.get("creator_subscriptions_count"),
             "dm_permissions": UserDmPermissions.from_dict(obj["dm_permissions"]) if obj.get("dm_permissions") is not None else None,
+            "follow_request_sent": obj.get("follow_request_sent"),
+            "grok_translated_bio_with_availability": GrokTranslatedBioWithAvailability.from_dict(obj["grok_translated_bio_with_availability"]) if obj.get("grok_translated_bio_with_availability") is not None else None,
             "has_graduated_access": obj.get("has_graduated_access"),
             "has_hidden_likes_on_profile": obj.get("has_hidden_likes_on_profile"),
             "has_hidden_subscriptions_on_profile": obj.get("has_hidden_subscriptions_on_profile"),
@@ -240,18 +290,25 @@ class User(BaseModel):
             "id": obj.get("id"),
             "is_blue_verified": obj.get("is_blue_verified"),
             "is_profile_translatable": obj.get("is_profile_translatable"),
+            "is_verified_organization": obj.get("is_verified_organization"),
             "legacy": UserLegacy.from_dict(obj["legacy"]) if obj.get("legacy") is not None else None,
             "legacy_extended_profile": UserLegacyExtendedProfile.from_dict(obj["legacy_extended_profile"]) if obj.get("legacy_extended_profile") is not None else None,
             "location": UserLocation.from_dict(obj["location"]) if obj.get("location") is not None else None,
             "media_permissions": UserMediaPermissions.from_dict(obj["media_permissions"]) if obj.get("media_permissions") is not None else None,
+            "notifications_settings": UserNotificationsSettings.from_dict(obj["notifications_settings"]) if obj.get("notifications_settings") is not None else None,
             "parody_commentary_fan_label": obj.get("parody_commentary_fan_label"),
+            "pinned_items": UserPinnedItems.from_dict(obj["pinned_items"]) if obj.get("pinned_items") is not None else None,
+            "possibly_sensitive": obj.get("possibly_sensitive"),
             "premium_gifting_eligible": obj.get("premium_gifting_eligible"),
             "privacy": UserPrivacy.from_dict(obj["privacy"]) if obj.get("privacy") is not None else None,
             "professional": UserProfessional.from_dict(obj["professional"]) if obj.get("professional") is not None else None,
             "profile_bio": ProfileBio.from_dict(obj["profile_bio"]) if obj.get("profile_bio") is not None else None,
             "profile_description_language": obj.get("profile_description_language"),
             "profile_image_shape": obj.get("profile_image_shape"),
+            "profile_metadata": UserProfileMetadata.from_dict(obj["profile_metadata"]) if obj.get("profile_metadata") is not None else None,
             "profile_sort_enabled": obj.get("profile_sort_enabled"),
+            "profile_translation": UserProfileTranslation.from_dict(obj["profile_translation"]) if obj.get("profile_translation") is not None else None,
+            "relationship_counts": UserRelationshipCounts.from_dict(obj["relationship_counts"]) if obj.get("relationship_counts") is not None else None,
             "relationship_perspectives": UserRelationshipPerspectives.from_dict(obj["relationship_perspectives"]) if obj.get("relationship_perspectives") is not None else None,
             "rest_id": obj.get("rest_id"),
             "super_follow_eligible": obj.get("super_follow_eligible"),
@@ -259,11 +316,16 @@ class User(BaseModel):
             "super_following": obj.get("super_following"),
             "super_follows_user_profile": UserProfile.from_dict(obj["super_follows_user_profile"]) if obj.get("super_follows_user_profile") is not None else None,
             "tipjar_settings": UserTipJarSettings.from_dict(obj["tipjar_settings"]) if obj.get("tipjar_settings") is not None else None,
+            "tweet_counts": UserTweetCounts.from_dict(obj["tweet_counts"]) if obj.get("tweet_counts") is not None else None,
             "user_seed_tweet_count": obj.get("user_seed_tweet_count"),
             "verification": UserVerification.from_dict(obj["verification"]) if obj.get("verification") is not None else None,
             "verification_info": UserVerificationInfo.from_dict(obj["verification_info"]) if obj.get("verification_info") is not None else None,
-            "verified_user_profiles": UserProfile.from_dict(obj["verified_user_profiles"]) if obj.get("verified_user_profiles") is not None else None
+            "verified_user_profiles": UserProfile.from_dict(obj["verified_user_profiles"]) if obj.get("verified_user_profiles") is not None else None,
+            "website": UserWebsite.from_dict(obj["website"]) if obj.get("website") is not None else None
         })
         return _obj
 
+from twitter_openapi_python_generated.models.grok_translated_bio_with_availability import GrokTranslatedBioWithAvailability
+# TODO: Rewrite to not use raise_errors
+User.model_rebuild(raise_errors=False)
 

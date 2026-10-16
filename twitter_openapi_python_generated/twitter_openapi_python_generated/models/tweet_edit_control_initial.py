@@ -35,23 +35,17 @@ class TweetEditControlInitial(BaseModel):
     is_edit_eligible: StrictBool
     __properties: ClassVar[List[str]] = ["edit_tweet_ids", "editable_until_msecs", "edits_remaining", "is_edit_eligible"]
 
-    @field_validator('editable_until_msecs')
+    @field_validator('editable_until_msecs', mode="before")
     def editable_until_msecs_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    @field_validator('edits_remaining')
+    @field_validator('edits_remaining', mode="before")
     def edits_remaining_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 

@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from twitter_openapi_python_generated.models.user_results import UserResults
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -90,4 +89,7 @@ class UserResultCore(BaseModel):
         })
         return _obj
 
+from twitter_openapi_python_generated.models.user_results import UserResults
+# TODO: Rewrite to not use raise_errors
+UserResultCore.model_rebuild(raise_errors=False)
 

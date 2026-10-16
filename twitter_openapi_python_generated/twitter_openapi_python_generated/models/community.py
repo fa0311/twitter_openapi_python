@@ -65,16 +65,13 @@ class Community(BaseModel):
     viewer_relationship: Optional[Dict[str, Any]] = None
     __properties: ClassVar[List[str]] = ["__typename", "actions", "admin_results", "created_at", "creator_results", "custom_banner_media", "default_banner_media", "description", "id_str", "invites_policy", "invites_result", "is_pinned", "join_policy", "join_requests_result", "member_count", "members_facepile_results", "moderator_count", "name", "primary_community_topic", "question", "role", "rules", "search_tags", "show_only_users_to_display", "urls", "viewer_relationship"]
 
-    @field_validator('id_str')
+    @field_validator('id_str', mode="before")
     def id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
@@ -166,8 +163,7 @@ class Community(BaseModel):
         _items = []
         if self.members_facepile_results:
             for _item_members_facepile_results in self.members_facepile_results:
-                if _item_members_facepile_results:
-                    _items.append(_item_members_facepile_results.to_dict())
+                _items.append(_item_members_facepile_results.to_dict() if _item_members_facepile_results is not None else None)
             _dict['members_facepile_results'] = _items
         # override the default output from pydantic by calling `to_dict()` of primary_community_topic
         if self.primary_community_topic:
@@ -176,8 +172,7 @@ class Community(BaseModel):
         _items = []
         if self.rules:
             for _item_rules in self.rules:
-                if _item_rules:
-                    _items.append(_item_rules.to_dict())
+                _items.append(_item_rules.to_dict() if _item_rules is not None else None)
             _dict['rules'] = _items
         # override the default output from pydantic by calling `to_dict()` of urls
         if self.urls:

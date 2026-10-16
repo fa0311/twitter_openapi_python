@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **blocking** | **bool** |  | [optional] 
 **followed_by** | **bool** |  | [optional] 
 **following** | **bool** |  | [optional] 
+**live_following** | **bool** |  | [optional] 
+**muting** | **bool** |  | [optional] 
 
 ## Example
 

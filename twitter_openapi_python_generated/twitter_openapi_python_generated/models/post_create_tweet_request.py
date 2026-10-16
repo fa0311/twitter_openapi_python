@@ -31,7 +31,7 @@ class PostCreateTweetRequest(BaseModel):
     PostCreateTweetRequest
     """ # noqa: E501
     features: PostCreateTweetRequestFeatures
-    query_id: StrictStr = Field(alias="queryId")
+    query_id: StrictStr = Field(alias="queryId", json_schema_extra={"examples": ["wR5Z_lEibLvkew3tF9w-Sg"]})
     variables: PostCreateTweetRequestVariables
     __properties: ClassVar[List[str]] = ["features", "queryId", "variables"]
 
@@ -93,7 +93,7 @@ class PostCreateTweetRequest(BaseModel):
 
         _obj = cls.model_validate({
             "features": PostCreateTweetRequestFeatures.from_dict(obj["features"]) if obj.get("features") is not None else None,
-            "queryId": obj.get("queryId") if obj.get("queryId") is not None else '5CdvsV_zjv4L64XFifAglw',
+            "queryId": obj.get("queryId") if obj.get("queryId") is not None else 'wR5Z_lEibLvkew3tF9w-Sg',
             "variables": PostCreateTweetRequestVariables.from_dict(obj["variables"]) if obj.get("variables") is not None else None
         })
         return _obj

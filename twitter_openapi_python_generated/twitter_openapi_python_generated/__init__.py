@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.34"
+__version__ = "0.0.35"
 
 # Define package exports
 __all__ = [
@@ -58,6 +58,7 @@ __all__ = [
     "ArticleResult",
     "ArticleResults",
     "AuthorCommunityRelationship",
+    "BadgeCounts",
     "BirdwatchEntity",
     "BirdwatchEntityRef",
     "BirdwatchPivot",
@@ -69,12 +70,16 @@ __all__ = [
     "BookmarksResponseData",
     "BookmarksTimeline",
     "Callback",
+    "CashtagAttachment",
     "ClientEventInfo",
     "CommunitiesActions",
     "Community",
     "CommunityAboutTimelineResponse",
     "CommunityActions",
     "CommunityDeleteActionResult",
+    "CommunityDiscoveryTimelineResponse",
+    "CommunityDiscoveryTimelineResponseData",
+    "CommunityDiscoveryTimelineViewer",
     "CommunityInvitesResult",
     "CommunityJoinAction",
     "CommunityJoinActionResultUnion",
@@ -92,6 +97,8 @@ __all__ = [
     "CommunityUnpinActionResult",
     "CommunityUrls",
     "CommunityUrlsPermalink",
+    "ConnectTabTimelineResponse",
+    "ConnectTabTimelineResponseData",
     "ContentDisclosure",
     "ContentDisclosureAdvertisingDisclosure",
     "ContentDisclosureAiGeneratedDisclosure",
@@ -102,6 +109,9 @@ __all__ = [
     "CoverCta",
     "CreateBookmarkResponse",
     "CreateBookmarkResponseData",
+    "CreateDraftTweetResponse",
+    "CreateDraftTweetResponseData",
+    "CreateDraftTweetResponseTweet",
     "CreateRetweet",
     "CreateRetweetResponse",
     "CreateRetweetResponseData",
@@ -114,6 +124,10 @@ __all__ = [
     "CursorType",
     "DeleteBookmarkResponse",
     "DeleteBookmarkResponseData",
+    "DeleteDraftTweetsResponse",
+    "DeleteDraftTweetsResponseData",
+    "DeleteListResponse",
+    "DeleteListResponseData",
     "DeleteRetweet",
     "DeleteRetweetResponse",
     "DeleteRetweetResponseData",
@@ -123,26 +137,46 @@ __all__ = [
     "DeleteTweetResponseResult",
     "DisplayTreatment",
     "DisplayType",
+    "DraftList",
+    "DraftTweet",
+    "DraftTweetCreateRequest",
+    "DraftTweetUser",
+    "DraftTweetUserResults",
+    "DraftTweetsViewer",
     "Entities",
     "ErrorExtensions",
     "ErrorResponse",
     "ErrorResponsePathInner",
+    "ExplorePage",
+    "ExplorePageBody",
+    "ExplorePageResponse",
+    "ExplorePageResponseData",
+    "ExploreTimeline",
+    "ExploreTimelineScribeConfig",
     "ExtMediaAvailability",
     "ExtendedEntities",
     "FavoriteTweet",
     "FavoriteTweetResponse",
     "FeedbackInfo",
+    "FetchDraftTweetsResponse",
+    "FetchDraftTweetsResponseData",
+    "FetchScheduledTweetsResponse",
+    "FetchScheduledTweetsResponseData",
     "FollowResponse",
     "FollowResponseData",
     "FollowResponseResult",
     "FollowResponseUser",
     "FollowTimeline",
+    "GenericTimelineByIdResponse",
+    "GenericTimelineByIdResponseData",
     "GrokAnnotation",
     "GrokEntity",
     "GrokEntityRef",
     "GrokImageAnnotation",
     "GrokShareAttachment",
     "GrokShareAttachmentItem",
+    "GrokTranslatedBio",
+    "GrokTranslatedBioWithAvailability",
     "GrokTranslatedCommunityNote",
     "GrokTranslatedCommunityNoteWithAvailability",
     "GrokTranslatedPost",
@@ -155,7 +189,21 @@ __all__ = [
     "ItemContentUnion",
     "ItemResult",
     "LimitedActionResultsData",
+    "ListBannerMedia",
+    "ListBannerMediaInfo",
+    "ListBannerMediaSalientRect",
     "ListLatestTweetsTimelineResponse",
+    "ListMembersList",
+    "ListMembersResponse",
+    "ListMembersResponseData",
+    "ListRecommendedUsersList",
+    "ListRecommendedUsersResponse",
+    "ListRecommendedUsersResponseData",
+    "ListResponse",
+    "ListResponseData",
+    "ListSubscribersList",
+    "ListSubscribersResponse",
+    "ListSubscribersResponseData",
     "ListTweetsTimelineData",
     "ListTweetsTimelineList",
     "Location",
@@ -194,6 +242,12 @@ __all__ = [
     "OtherObjectAll",
     "PostCreateBookmarkRequest",
     "PostCreateBookmarkRequestVariables",
+    "PostCreateDraftTweetRequest",
+    "PostCreateDraftTweetRequestVariables",
+    "PostCreateDraftTweetRequestVariablesPostTweetRequest",
+    "PostCreateListRequest",
+    "PostCreateListRequestFeatures",
+    "PostCreateListRequestVariables",
     "PostCreateRetweetRequest",
     "PostCreateRetweetRequestVariables",
     "PostCreateTweetRequest",
@@ -211,13 +265,22 @@ __all__ = [
     "PostCtaUserResultsAvatar",
     "PostCtaUserResultsResult",
     "PostDeleteBookmarkRequest",
+    "PostDeleteDraftTweetsRequest",
+    "PostDeleteDraftTweetsRequestVariables",
+    "PostDeleteListRequest",
+    "PostDeleteListRequestVariables",
     "PostDeleteRetweetRequest",
     "PostDeleteRetweetRequestVariables",
     "PostDeleteTweetRequest",
     "PostFavoriteTweetRequest",
+    "PostListAddMemberRequest",
+    "PostListAddMemberRequestVariables",
+    "PostListRemoveMemberRequest",
     "PostUnfavoriteTweetRequest",
     "PrimaryCommunityTopic",
     "ProfileBio",
+    "ProfileBioEntities",
+    "ProfileBioEntitiesUrls",
     "ProfileResponse",
     "ProfileResponseData",
     "QuotedRefResult",
@@ -228,6 +291,7 @@ __all__ = [
     "Retweet",
     "RetweetLegacy",
     "RichMessage",
+    "ScheduledTweetsViewer",
     "SearchByRawQuery",
     "SearchTimeline",
     "SearchTimelineData",
@@ -259,8 +323,10 @@ __all__ = [
     "TimelineCommunity",
     "TimelineCoverBehavior",
     "TimelineCoverBehaviorUrl",
+    "TimelineFrame",
     "TimelineGeneralContext",
     "TimelineHalfCover",
+    "TimelineLabel",
     "TimelineMarkEntriesUnreadGreaterThanSortIndex",
     "TimelineMessagePrompt",
     "TimelineNotification",
@@ -280,6 +346,7 @@ __all__ = [
     "TimelineTopicContext",
     "TimelineTrend",
     "TimelineTweet",
+    "TimelineTwitterList",
     "TimelineUser",
     "Timestamp",
     "TombstoneEntity",
@@ -332,6 +399,7 @@ __all__ = [
     "TweetUnion",
     "TweetView",
     "TweetWithVisibilityResults",
+    "TwitterList",
     "TypeName",
     "UnfavoriteTweet",
     "UnfavoriteTweetResponse",
@@ -340,7 +408,9 @@ __all__ = [
     "UrtEndpointOptions",
     "UrtEndpointRequestParams",
     "User",
+    "UserActionCounts",
     "UserAvatar",
+    "UserBanner",
     "UserCore",
     "UserDmPermissions",
     "UserFeatures",
@@ -355,10 +425,15 @@ __all__ = [
     "UserLegacyExtendedProfileBirthdate",
     "UserLocation",
     "UserMediaPermissions",
+    "UserNotificationsSettings",
+    "UserPinnedItems",
     "UserPrivacy",
     "UserProfessional",
     "UserProfessionalCategory",
     "UserProfile",
+    "UserProfileMetadata",
+    "UserProfileTranslation",
+    "UserRelationshipCounts",
     "UserRelationshipPerspectives",
     "UserResponse",
     "UserResponseData",
@@ -371,6 +446,7 @@ __all__ = [
     "UserResultRelationshipPerspectives",
     "UserResults",
     "UserTipJarSettings",
+    "UserTweetCounts",
     "UserTweetsData",
     "UserTweetsResponse",
     "UserTweetsResultV1",
@@ -385,8 +461,14 @@ __all__ = [
     "UserVerificationInfoReasonDescription",
     "UserVerificationInfoReasonDescriptionEntities",
     "UserVerificationInfoReasonDescriptionEntitiesRef",
+    "UserWebsite",
     "UsersResponse",
     "UsersResponseData",
+    "ViewerBadgeCountsResponse",
+    "ViewerBadgeCountsResponseData",
+    "ViewerBadgeCountsResult",
+    "ViewerBadgeCountsUserResults",
+    "ViewerBadgeCountsViewer",
 ]
 
 # import apis into sdk package
@@ -433,6 +515,7 @@ from twitter_openapi_python_generated.models.article_preview import ArticlePrevi
 from twitter_openapi_python_generated.models.article_result import ArticleResult as ArticleResult
 from twitter_openapi_python_generated.models.article_results import ArticleResults as ArticleResults
 from twitter_openapi_python_generated.models.author_community_relationship import AuthorCommunityRelationship as AuthorCommunityRelationship
+from twitter_openapi_python_generated.models.badge_counts import BadgeCounts as BadgeCounts
 from twitter_openapi_python_generated.models.birdwatch_entity import BirdwatchEntity as BirdwatchEntity
 from twitter_openapi_python_generated.models.birdwatch_entity_ref import BirdwatchEntityRef as BirdwatchEntityRef
 from twitter_openapi_python_generated.models.birdwatch_pivot import BirdwatchPivot as BirdwatchPivot
@@ -444,12 +527,16 @@ from twitter_openapi_python_generated.models.bookmarks_response import Bookmarks
 from twitter_openapi_python_generated.models.bookmarks_response_data import BookmarksResponseData as BookmarksResponseData
 from twitter_openapi_python_generated.models.bookmarks_timeline import BookmarksTimeline as BookmarksTimeline
 from twitter_openapi_python_generated.models.callback import Callback as Callback
+from twitter_openapi_python_generated.models.cashtag_attachment import CashtagAttachment as CashtagAttachment
 from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo as ClientEventInfo
 from twitter_openapi_python_generated.models.communities_actions import CommunitiesActions as CommunitiesActions
 from twitter_openapi_python_generated.models.community import Community as Community
 from twitter_openapi_python_generated.models.community_about_timeline_response import CommunityAboutTimelineResponse as CommunityAboutTimelineResponse
 from twitter_openapi_python_generated.models.community_actions import CommunityActions as CommunityActions
 from twitter_openapi_python_generated.models.community_delete_action_result import CommunityDeleteActionResult as CommunityDeleteActionResult
+from twitter_openapi_python_generated.models.community_discovery_timeline_response import CommunityDiscoveryTimelineResponse as CommunityDiscoveryTimelineResponse
+from twitter_openapi_python_generated.models.community_discovery_timeline_response_data import CommunityDiscoveryTimelineResponseData as CommunityDiscoveryTimelineResponseData
+from twitter_openapi_python_generated.models.community_discovery_timeline_viewer import CommunityDiscoveryTimelineViewer as CommunityDiscoveryTimelineViewer
 from twitter_openapi_python_generated.models.community_invites_result import CommunityInvitesResult as CommunityInvitesResult
 from twitter_openapi_python_generated.models.community_join_action import CommunityJoinAction as CommunityJoinAction
 from twitter_openapi_python_generated.models.community_join_action_result_union import CommunityJoinActionResultUnion as CommunityJoinActionResultUnion
@@ -467,6 +554,8 @@ from twitter_openapi_python_generated.models.community_union import CommunityUni
 from twitter_openapi_python_generated.models.community_unpin_action_result import CommunityUnpinActionResult as CommunityUnpinActionResult
 from twitter_openapi_python_generated.models.community_urls import CommunityUrls as CommunityUrls
 from twitter_openapi_python_generated.models.community_urls_permalink import CommunityUrlsPermalink as CommunityUrlsPermalink
+from twitter_openapi_python_generated.models.connect_tab_timeline_response import ConnectTabTimelineResponse as ConnectTabTimelineResponse
+from twitter_openapi_python_generated.models.connect_tab_timeline_response_data import ConnectTabTimelineResponseData as ConnectTabTimelineResponseData
 from twitter_openapi_python_generated.models.content_disclosure import ContentDisclosure as ContentDisclosure
 from twitter_openapi_python_generated.models.content_disclosure_advertising_disclosure import ContentDisclosureAdvertisingDisclosure as ContentDisclosureAdvertisingDisclosure
 from twitter_openapi_python_generated.models.content_disclosure_ai_generated_disclosure import ContentDisclosureAiGeneratedDisclosure as ContentDisclosureAiGeneratedDisclosure
@@ -477,6 +566,9 @@ from twitter_openapi_python_generated.models.conversation_control import Convers
 from twitter_openapi_python_generated.models.cover_cta import CoverCta as CoverCta
 from twitter_openapi_python_generated.models.create_bookmark_response import CreateBookmarkResponse as CreateBookmarkResponse
 from twitter_openapi_python_generated.models.create_bookmark_response_data import CreateBookmarkResponseData as CreateBookmarkResponseData
+from twitter_openapi_python_generated.models.create_draft_tweet_response import CreateDraftTweetResponse as CreateDraftTweetResponse
+from twitter_openapi_python_generated.models.create_draft_tweet_response_data import CreateDraftTweetResponseData as CreateDraftTweetResponseData
+from twitter_openapi_python_generated.models.create_draft_tweet_response_tweet import CreateDraftTweetResponseTweet as CreateDraftTweetResponseTweet
 from twitter_openapi_python_generated.models.create_retweet import CreateRetweet as CreateRetweet
 from twitter_openapi_python_generated.models.create_retweet_response import CreateRetweetResponse as CreateRetweetResponse
 from twitter_openapi_python_generated.models.create_retweet_response_data import CreateRetweetResponseData as CreateRetweetResponseData
@@ -489,6 +581,10 @@ from twitter_openapi_python_generated.models.cta_client_event_info import CtaCli
 from twitter_openapi_python_generated.models.cursor_type import CursorType as CursorType
 from twitter_openapi_python_generated.models.delete_bookmark_response import DeleteBookmarkResponse as DeleteBookmarkResponse
 from twitter_openapi_python_generated.models.delete_bookmark_response_data import DeleteBookmarkResponseData as DeleteBookmarkResponseData
+from twitter_openapi_python_generated.models.delete_draft_tweets_response import DeleteDraftTweetsResponse as DeleteDraftTweetsResponse
+from twitter_openapi_python_generated.models.delete_draft_tweets_response_data import DeleteDraftTweetsResponseData as DeleteDraftTweetsResponseData
+from twitter_openapi_python_generated.models.delete_list_response import DeleteListResponse as DeleteListResponse
+from twitter_openapi_python_generated.models.delete_list_response_data import DeleteListResponseData as DeleteListResponseData
 from twitter_openapi_python_generated.models.delete_retweet import DeleteRetweet as DeleteRetweet
 from twitter_openapi_python_generated.models.delete_retweet_response import DeleteRetweetResponse as DeleteRetweetResponse
 from twitter_openapi_python_generated.models.delete_retweet_response_data import DeleteRetweetResponseData as DeleteRetweetResponseData
@@ -498,26 +594,46 @@ from twitter_openapi_python_generated.models.delete_tweet_response_data import D
 from twitter_openapi_python_generated.models.delete_tweet_response_result import DeleteTweetResponseResult as DeleteTweetResponseResult
 from twitter_openapi_python_generated.models.display_treatment import DisplayTreatment as DisplayTreatment
 from twitter_openapi_python_generated.models.display_type import DisplayType as DisplayType
+from twitter_openapi_python_generated.models.draft_list import DraftList as DraftList
+from twitter_openapi_python_generated.models.draft_tweet import DraftTweet as DraftTweet
+from twitter_openapi_python_generated.models.draft_tweet_create_request import DraftTweetCreateRequest as DraftTweetCreateRequest
+from twitter_openapi_python_generated.models.draft_tweet_user import DraftTweetUser as DraftTweetUser
+from twitter_openapi_python_generated.models.draft_tweet_user_results import DraftTweetUserResults as DraftTweetUserResults
+from twitter_openapi_python_generated.models.draft_tweets_viewer import DraftTweetsViewer as DraftTweetsViewer
 from twitter_openapi_python_generated.models.entities import Entities as Entities
 from twitter_openapi_python_generated.models.error_extensions import ErrorExtensions as ErrorExtensions
 from twitter_openapi_python_generated.models.error_response import ErrorResponse as ErrorResponse
 from twitter_openapi_python_generated.models.error_response_path_inner import ErrorResponsePathInner as ErrorResponsePathInner
+from twitter_openapi_python_generated.models.explore_page import ExplorePage as ExplorePage
+from twitter_openapi_python_generated.models.explore_page_body import ExplorePageBody as ExplorePageBody
+from twitter_openapi_python_generated.models.explore_page_response import ExplorePageResponse as ExplorePageResponse
+from twitter_openapi_python_generated.models.explore_page_response_data import ExplorePageResponseData as ExplorePageResponseData
+from twitter_openapi_python_generated.models.explore_timeline import ExploreTimeline as ExploreTimeline
+from twitter_openapi_python_generated.models.explore_timeline_scribe_config import ExploreTimelineScribeConfig as ExploreTimelineScribeConfig
 from twitter_openapi_python_generated.models.ext_media_availability import ExtMediaAvailability as ExtMediaAvailability
 from twitter_openapi_python_generated.models.extended_entities import ExtendedEntities as ExtendedEntities
 from twitter_openapi_python_generated.models.favorite_tweet import FavoriteTweet as FavoriteTweet
 from twitter_openapi_python_generated.models.favorite_tweet_response import FavoriteTweetResponse as FavoriteTweetResponse
 from twitter_openapi_python_generated.models.feedback_info import FeedbackInfo as FeedbackInfo
+from twitter_openapi_python_generated.models.fetch_draft_tweets_response import FetchDraftTweetsResponse as FetchDraftTweetsResponse
+from twitter_openapi_python_generated.models.fetch_draft_tweets_response_data import FetchDraftTweetsResponseData as FetchDraftTweetsResponseData
+from twitter_openapi_python_generated.models.fetch_scheduled_tweets_response import FetchScheduledTweetsResponse as FetchScheduledTweetsResponse
+from twitter_openapi_python_generated.models.fetch_scheduled_tweets_response_data import FetchScheduledTweetsResponseData as FetchScheduledTweetsResponseData
 from twitter_openapi_python_generated.models.follow_response import FollowResponse as FollowResponse
 from twitter_openapi_python_generated.models.follow_response_data import FollowResponseData as FollowResponseData
 from twitter_openapi_python_generated.models.follow_response_result import FollowResponseResult as FollowResponseResult
 from twitter_openapi_python_generated.models.follow_response_user import FollowResponseUser as FollowResponseUser
 from twitter_openapi_python_generated.models.follow_timeline import FollowTimeline as FollowTimeline
+from twitter_openapi_python_generated.models.generic_timeline_by_id_response import GenericTimelineByIdResponse as GenericTimelineByIdResponse
+from twitter_openapi_python_generated.models.generic_timeline_by_id_response_data import GenericTimelineByIdResponseData as GenericTimelineByIdResponseData
 from twitter_openapi_python_generated.models.grok_annotation import GrokAnnotation as GrokAnnotation
 from twitter_openapi_python_generated.models.grok_entity import GrokEntity as GrokEntity
 from twitter_openapi_python_generated.models.grok_entity_ref import GrokEntityRef as GrokEntityRef
 from twitter_openapi_python_generated.models.grok_image_annotation import GrokImageAnnotation as GrokImageAnnotation
 from twitter_openapi_python_generated.models.grok_share_attachment import GrokShareAttachment as GrokShareAttachment
 from twitter_openapi_python_generated.models.grok_share_attachment_item import GrokShareAttachmentItem as GrokShareAttachmentItem
+from twitter_openapi_python_generated.models.grok_translated_bio import GrokTranslatedBio as GrokTranslatedBio
+from twitter_openapi_python_generated.models.grok_translated_bio_with_availability import GrokTranslatedBioWithAvailability as GrokTranslatedBioWithAvailability
 from twitter_openapi_python_generated.models.grok_translated_community_note import GrokTranslatedCommunityNote as GrokTranslatedCommunityNote
 from twitter_openapi_python_generated.models.grok_translated_community_note_with_availability import GrokTranslatedCommunityNoteWithAvailability as GrokTranslatedCommunityNoteWithAvailability
 from twitter_openapi_python_generated.models.grok_translated_post import GrokTranslatedPost as GrokTranslatedPost
@@ -530,7 +646,21 @@ from twitter_openapi_python_generated.models.instruction_union import Instructio
 from twitter_openapi_python_generated.models.item_content_union import ItemContentUnion as ItemContentUnion
 from twitter_openapi_python_generated.models.item_result import ItemResult as ItemResult
 from twitter_openapi_python_generated.models.limited_action_results_data import LimitedActionResultsData as LimitedActionResultsData
+from twitter_openapi_python_generated.models.list_banner_media import ListBannerMedia as ListBannerMedia
+from twitter_openapi_python_generated.models.list_banner_media_info import ListBannerMediaInfo as ListBannerMediaInfo
+from twitter_openapi_python_generated.models.list_banner_media_salient_rect import ListBannerMediaSalientRect as ListBannerMediaSalientRect
 from twitter_openapi_python_generated.models.list_latest_tweets_timeline_response import ListLatestTweetsTimelineResponse as ListLatestTweetsTimelineResponse
+from twitter_openapi_python_generated.models.list_members_list import ListMembersList as ListMembersList
+from twitter_openapi_python_generated.models.list_members_response import ListMembersResponse as ListMembersResponse
+from twitter_openapi_python_generated.models.list_members_response_data import ListMembersResponseData as ListMembersResponseData
+from twitter_openapi_python_generated.models.list_recommended_users_list import ListRecommendedUsersList as ListRecommendedUsersList
+from twitter_openapi_python_generated.models.list_recommended_users_response import ListRecommendedUsersResponse as ListRecommendedUsersResponse
+from twitter_openapi_python_generated.models.list_recommended_users_response_data import ListRecommendedUsersResponseData as ListRecommendedUsersResponseData
+from twitter_openapi_python_generated.models.list_response import ListResponse as ListResponse
+from twitter_openapi_python_generated.models.list_response_data import ListResponseData as ListResponseData
+from twitter_openapi_python_generated.models.list_subscribers_list import ListSubscribersList as ListSubscribersList
+from twitter_openapi_python_generated.models.list_subscribers_response import ListSubscribersResponse as ListSubscribersResponse
+from twitter_openapi_python_generated.models.list_subscribers_response_data import ListSubscribersResponseData as ListSubscribersResponseData
 from twitter_openapi_python_generated.models.list_tweets_timeline_data import ListTweetsTimelineData as ListTweetsTimelineData
 from twitter_openapi_python_generated.models.list_tweets_timeline_list import ListTweetsTimelineList as ListTweetsTimelineList
 from twitter_openapi_python_generated.models.location import Location as Location
@@ -569,6 +699,12 @@ from twitter_openapi_python_generated.models.one_factor_login_eligibility import
 from twitter_openapi_python_generated.models.other_object_all import OtherObjectAll as OtherObjectAll
 from twitter_openapi_python_generated.models.post_create_bookmark_request import PostCreateBookmarkRequest as PostCreateBookmarkRequest
 from twitter_openapi_python_generated.models.post_create_bookmark_request_variables import PostCreateBookmarkRequestVariables as PostCreateBookmarkRequestVariables
+from twitter_openapi_python_generated.models.post_create_draft_tweet_request import PostCreateDraftTweetRequest as PostCreateDraftTweetRequest
+from twitter_openapi_python_generated.models.post_create_draft_tweet_request_variables import PostCreateDraftTweetRequestVariables as PostCreateDraftTweetRequestVariables
+from twitter_openapi_python_generated.models.post_create_draft_tweet_request_variables_post_tweet_request import PostCreateDraftTweetRequestVariablesPostTweetRequest as PostCreateDraftTweetRequestVariablesPostTweetRequest
+from twitter_openapi_python_generated.models.post_create_list_request import PostCreateListRequest as PostCreateListRequest
+from twitter_openapi_python_generated.models.post_create_list_request_features import PostCreateListRequestFeatures as PostCreateListRequestFeatures
+from twitter_openapi_python_generated.models.post_create_list_request_variables import PostCreateListRequestVariables as PostCreateListRequestVariables
 from twitter_openapi_python_generated.models.post_create_retweet_request import PostCreateRetweetRequest as PostCreateRetweetRequest
 from twitter_openapi_python_generated.models.post_create_retweet_request_variables import PostCreateRetweetRequestVariables as PostCreateRetweetRequestVariables
 from twitter_openapi_python_generated.models.post_create_tweet_request import PostCreateTweetRequest as PostCreateTweetRequest
@@ -586,13 +722,22 @@ from twitter_openapi_python_generated.models.post_cta_user_results import PostCt
 from twitter_openapi_python_generated.models.post_cta_user_results_avatar import PostCtaUserResultsAvatar as PostCtaUserResultsAvatar
 from twitter_openapi_python_generated.models.post_cta_user_results_result import PostCtaUserResultsResult as PostCtaUserResultsResult
 from twitter_openapi_python_generated.models.post_delete_bookmark_request import PostDeleteBookmarkRequest as PostDeleteBookmarkRequest
+from twitter_openapi_python_generated.models.post_delete_draft_tweets_request import PostDeleteDraftTweetsRequest as PostDeleteDraftTweetsRequest
+from twitter_openapi_python_generated.models.post_delete_draft_tweets_request_variables import PostDeleteDraftTweetsRequestVariables as PostDeleteDraftTweetsRequestVariables
+from twitter_openapi_python_generated.models.post_delete_list_request import PostDeleteListRequest as PostDeleteListRequest
+from twitter_openapi_python_generated.models.post_delete_list_request_variables import PostDeleteListRequestVariables as PostDeleteListRequestVariables
 from twitter_openapi_python_generated.models.post_delete_retweet_request import PostDeleteRetweetRequest as PostDeleteRetweetRequest
 from twitter_openapi_python_generated.models.post_delete_retweet_request_variables import PostDeleteRetweetRequestVariables as PostDeleteRetweetRequestVariables
 from twitter_openapi_python_generated.models.post_delete_tweet_request import PostDeleteTweetRequest as PostDeleteTweetRequest
 from twitter_openapi_python_generated.models.post_favorite_tweet_request import PostFavoriteTweetRequest as PostFavoriteTweetRequest
+from twitter_openapi_python_generated.models.post_list_add_member_request import PostListAddMemberRequest as PostListAddMemberRequest
+from twitter_openapi_python_generated.models.post_list_add_member_request_variables import PostListAddMemberRequestVariables as PostListAddMemberRequestVariables
+from twitter_openapi_python_generated.models.post_list_remove_member_request import PostListRemoveMemberRequest as PostListRemoveMemberRequest
 from twitter_openapi_python_generated.models.post_unfavorite_tweet_request import PostUnfavoriteTweetRequest as PostUnfavoriteTweetRequest
 from twitter_openapi_python_generated.models.primary_community_topic import PrimaryCommunityTopic as PrimaryCommunityTopic
 from twitter_openapi_python_generated.models.profile_bio import ProfileBio as ProfileBio
+from twitter_openapi_python_generated.models.profile_bio_entities import ProfileBioEntities as ProfileBioEntities
+from twitter_openapi_python_generated.models.profile_bio_entities_urls import ProfileBioEntitiesUrls as ProfileBioEntitiesUrls
 from twitter_openapi_python_generated.models.profile_response import ProfileResponse as ProfileResponse
 from twitter_openapi_python_generated.models.profile_response_data import ProfileResponseData as ProfileResponseData
 from twitter_openapi_python_generated.models.quoted_ref_result import QuotedRefResult as QuotedRefResult
@@ -603,6 +748,7 @@ from twitter_openapi_python_generated.models.ranked_community_tweet_data import 
 from twitter_openapi_python_generated.models.retweet import Retweet as Retweet
 from twitter_openapi_python_generated.models.retweet_legacy import RetweetLegacy as RetweetLegacy
 from twitter_openapi_python_generated.models.rich_message import RichMessage as RichMessage
+from twitter_openapi_python_generated.models.scheduled_tweets_viewer import ScheduledTweetsViewer as ScheduledTweetsViewer
 from twitter_openapi_python_generated.models.search_by_raw_query import SearchByRawQuery as SearchByRawQuery
 from twitter_openapi_python_generated.models.search_timeline import SearchTimeline as SearchTimeline
 from twitter_openapi_python_generated.models.search_timeline_data import SearchTimelineData as SearchTimelineData
@@ -634,8 +780,10 @@ from twitter_openapi_python_generated.models.timeline_clear_entries_unread_state
 from twitter_openapi_python_generated.models.timeline_community import TimelineCommunity as TimelineCommunity
 from twitter_openapi_python_generated.models.timeline_cover_behavior import TimelineCoverBehavior as TimelineCoverBehavior
 from twitter_openapi_python_generated.models.timeline_cover_behavior_url import TimelineCoverBehaviorUrl as TimelineCoverBehaviorUrl
+from twitter_openapi_python_generated.models.timeline_frame import TimelineFrame as TimelineFrame
 from twitter_openapi_python_generated.models.timeline_general_context import TimelineGeneralContext as TimelineGeneralContext
 from twitter_openapi_python_generated.models.timeline_half_cover import TimelineHalfCover as TimelineHalfCover
+from twitter_openapi_python_generated.models.timeline_label import TimelineLabel as TimelineLabel
 from twitter_openapi_python_generated.models.timeline_mark_entries_unread_greater_than_sort_index import TimelineMarkEntriesUnreadGreaterThanSortIndex as TimelineMarkEntriesUnreadGreaterThanSortIndex
 from twitter_openapi_python_generated.models.timeline_message_prompt import TimelineMessagePrompt as TimelineMessagePrompt
 from twitter_openapi_python_generated.models.timeline_notification import TimelineNotification as TimelineNotification
@@ -655,6 +803,7 @@ from twitter_openapi_python_generated.models.timeline_tombstone import TimelineT
 from twitter_openapi_python_generated.models.timeline_topic_context import TimelineTopicContext as TimelineTopicContext
 from twitter_openapi_python_generated.models.timeline_trend import TimelineTrend as TimelineTrend
 from twitter_openapi_python_generated.models.timeline_tweet import TimelineTweet as TimelineTweet
+from twitter_openapi_python_generated.models.timeline_twitter_list import TimelineTwitterList as TimelineTwitterList
 from twitter_openapi_python_generated.models.timeline_user import TimelineUser as TimelineUser
 from twitter_openapi_python_generated.models.timestamp import Timestamp as Timestamp
 from twitter_openapi_python_generated.models.tombstone_entity import TombstoneEntity as TombstoneEntity
@@ -707,6 +856,7 @@ from twitter_openapi_python_generated.models.tweet_unavailable import TweetUnava
 from twitter_openapi_python_generated.models.tweet_union import TweetUnion as TweetUnion
 from twitter_openapi_python_generated.models.tweet_view import TweetView as TweetView
 from twitter_openapi_python_generated.models.tweet_with_visibility_results import TweetWithVisibilityResults as TweetWithVisibilityResults
+from twitter_openapi_python_generated.models.twitter_list import TwitterList as TwitterList
 from twitter_openapi_python_generated.models.type_name import TypeName as TypeName
 from twitter_openapi_python_generated.models.unfavorite_tweet import UnfavoriteTweet as UnfavoriteTweet
 from twitter_openapi_python_generated.models.unfavorite_tweet_response import UnfavoriteTweetResponse as UnfavoriteTweetResponse
@@ -715,7 +865,9 @@ from twitter_openapi_python_generated.models.url import Url as Url
 from twitter_openapi_python_generated.models.urt_endpoint_options import UrtEndpointOptions as UrtEndpointOptions
 from twitter_openapi_python_generated.models.urt_endpoint_request_params import UrtEndpointRequestParams as UrtEndpointRequestParams
 from twitter_openapi_python_generated.models.user import User as User
+from twitter_openapi_python_generated.models.user_action_counts import UserActionCounts as UserActionCounts
 from twitter_openapi_python_generated.models.user_avatar import UserAvatar as UserAvatar
+from twitter_openapi_python_generated.models.user_banner import UserBanner as UserBanner
 from twitter_openapi_python_generated.models.user_core import UserCore as UserCore
 from twitter_openapi_python_generated.models.user_dm_permissions import UserDmPermissions as UserDmPermissions
 from twitter_openapi_python_generated.models.user_features import UserFeatures as UserFeatures
@@ -730,10 +882,15 @@ from twitter_openapi_python_generated.models.user_legacy_extended_profile import
 from twitter_openapi_python_generated.models.user_legacy_extended_profile_birthdate import UserLegacyExtendedProfileBirthdate as UserLegacyExtendedProfileBirthdate
 from twitter_openapi_python_generated.models.user_location import UserLocation as UserLocation
 from twitter_openapi_python_generated.models.user_media_permissions import UserMediaPermissions as UserMediaPermissions
+from twitter_openapi_python_generated.models.user_notifications_settings import UserNotificationsSettings as UserNotificationsSettings
+from twitter_openapi_python_generated.models.user_pinned_items import UserPinnedItems as UserPinnedItems
 from twitter_openapi_python_generated.models.user_privacy import UserPrivacy as UserPrivacy
 from twitter_openapi_python_generated.models.user_professional import UserProfessional as UserProfessional
 from twitter_openapi_python_generated.models.user_professional_category import UserProfessionalCategory as UserProfessionalCategory
 from twitter_openapi_python_generated.models.user_profile import UserProfile as UserProfile
+from twitter_openapi_python_generated.models.user_profile_metadata import UserProfileMetadata as UserProfileMetadata
+from twitter_openapi_python_generated.models.user_profile_translation import UserProfileTranslation as UserProfileTranslation
+from twitter_openapi_python_generated.models.user_relationship_counts import UserRelationshipCounts as UserRelationshipCounts
 from twitter_openapi_python_generated.models.user_relationship_perspectives import UserRelationshipPerspectives as UserRelationshipPerspectives
 from twitter_openapi_python_generated.models.user_response import UserResponse as UserResponse
 from twitter_openapi_python_generated.models.user_response_data import UserResponseData as UserResponseData
@@ -746,6 +903,7 @@ from twitter_openapi_python_generated.models.user_result_privacy import UserResu
 from twitter_openapi_python_generated.models.user_result_relationship_perspectives import UserResultRelationshipPerspectives as UserResultRelationshipPerspectives
 from twitter_openapi_python_generated.models.user_results import UserResults as UserResults
 from twitter_openapi_python_generated.models.user_tip_jar_settings import UserTipJarSettings as UserTipJarSettings
+from twitter_openapi_python_generated.models.user_tweet_counts import UserTweetCounts as UserTweetCounts
 from twitter_openapi_python_generated.models.user_tweets_data import UserTweetsData as UserTweetsData
 from twitter_openapi_python_generated.models.user_tweets_response import UserTweetsResponse as UserTweetsResponse
 from twitter_openapi_python_generated.models.user_tweets_result_v1 import UserTweetsResultV1 as UserTweetsResultV1
@@ -760,6 +918,12 @@ from twitter_openapi_python_generated.models.user_verification_info_reason impor
 from twitter_openapi_python_generated.models.user_verification_info_reason_description import UserVerificationInfoReasonDescription as UserVerificationInfoReasonDescription
 from twitter_openapi_python_generated.models.user_verification_info_reason_description_entities import UserVerificationInfoReasonDescriptionEntities as UserVerificationInfoReasonDescriptionEntities
 from twitter_openapi_python_generated.models.user_verification_info_reason_description_entities_ref import UserVerificationInfoReasonDescriptionEntitiesRef as UserVerificationInfoReasonDescriptionEntitiesRef
+from twitter_openapi_python_generated.models.user_website import UserWebsite as UserWebsite
 from twitter_openapi_python_generated.models.users_response import UsersResponse as UsersResponse
 from twitter_openapi_python_generated.models.users_response_data import UsersResponseData as UsersResponseData
+from twitter_openapi_python_generated.models.viewer_badge_counts_response import ViewerBadgeCountsResponse as ViewerBadgeCountsResponse
+from twitter_openapi_python_generated.models.viewer_badge_counts_response_data import ViewerBadgeCountsResponseData as ViewerBadgeCountsResponseData
+from twitter_openapi_python_generated.models.viewer_badge_counts_result import ViewerBadgeCountsResult as ViewerBadgeCountsResult
+from twitter_openapi_python_generated.models.viewer_badge_counts_user_results import ViewerBadgeCountsUserResults as ViewerBadgeCountsUserResults
+from twitter_openapi_python_generated.models.viewer_badge_counts_viewer import ViewerBadgeCountsViewer as ViewerBadgeCountsViewer
 

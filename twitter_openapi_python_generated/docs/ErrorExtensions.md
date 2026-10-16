@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **retry_after** | **int** |  | [optional] 
 **source** | **str** |  | 
-**tracing** | [**Tracing**](Tracing.md) |  | 
+**tracing** | [**Tracing**](Tracing.md) |  | [optional] 
 
 ## Example
 

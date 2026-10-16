@@ -5,6 +5,14 @@
 
 * `TIMELINETWEET` (value: `'TimelineTweet'`)
 
+* `SEGMENTEDTIMELINES` (value: `'SegmentedTimelines'`)
+
+* `TIMELINEFRAME` (value: `'TimelineFrame'`)
+
+* `TIMELINETWITTERLIST` (value: `'TimelineTwitterList'`)
+
+* `TIMELINELABEL` (value: `'TimelineLabel'`)
+
 * `TIMELINETIMELINEITEM` (value: `'TimelineTimelineItem'`)
 
 * `TIMELINEUSER` (value: `'TimelineUser'`)

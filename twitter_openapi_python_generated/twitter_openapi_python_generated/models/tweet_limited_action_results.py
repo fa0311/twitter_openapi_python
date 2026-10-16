@@ -75,8 +75,7 @@ class TweetLimitedActionResults(BaseModel):
         _items = []
         if self.limited_actions:
             for _item_limited_actions in self.limited_actions:
-                if _item_limited_actions:
-                    _items.append(_item_limited_actions.to_dict())
+                _items.append(_item_limited_actions.to_dict() if _item_limited_actions is not None else None)
             _dict['limited_actions'] = _items
         return _dict
 

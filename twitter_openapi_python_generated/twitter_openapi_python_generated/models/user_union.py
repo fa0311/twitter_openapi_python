@@ -18,7 +18,6 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from twitter_openapi_python_generated.models.user import User
 from twitter_openapi_python_generated.models.user_unavailable import UserUnavailable
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
@@ -92,9 +91,10 @@ class UserUnion(BaseModel):
         match = 0
 
         # use oneOf discriminator to lookup the data type
-        _data_type = json.loads(json_str).get("__typename")
+        _discriminator_property = "__typename"
+        _data_type = json.loads(json_str).get(_discriminator_property)
         if not _data_type:
-            raise ValueError("Failed to lookup data type from the field `__typename` in the input.")
+            raise ValueError(f"Failed to lookup data type from the field `{_discriminator_property}` in the input.")
 
         # check if data type is `User`
         if _data_type == "User":
@@ -153,4 +153,7 @@ class UserUnion(BaseModel):
         """Returns the string representation of the actual instance"""
         return pprint.pformat(self.model_dump())
 
+from twitter_openapi_python_generated.models.user import User
+# TODO: Rewrite to not use raise_errors
+UserUnion.model_rebuild(raise_errors=False)
 

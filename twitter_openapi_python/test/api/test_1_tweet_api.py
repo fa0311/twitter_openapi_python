@@ -1,7 +1,7 @@
 import unittest
 
 import twitter_openapi_python as api
-from test.api import get_client, print_tweet
+from test.api import get_client, get_user_id, print_tweet
 from twitter_openapi_python.models import TweetApiUtilsData
 
 
@@ -49,8 +49,23 @@ class TestTweetApi(unittest.TestCase):
         for tweet in list(filter(self.ad_fillter, result.data.data)):
             print_tweet(tweet)
 
+    def test_get_user_originals_timeline(self):
+        result = self.client.get_user_originals_timeline(user_id="44196397")
+        for tweet in list(filter(self.ad_fillter, result.data.data)):
+            print_tweet(tweet)
+
+    def test_get_user_replies_timeline(self):
+        result = self.client.get_user_replies_timeline(user_id="44196397")
+        for tweet in list(filter(self.ad_fillter, result.data.data)):
+            print_tweet(tweet)
+
+    def test_get_user_video_timeline(self):
+        result = self.client.get_user_video_timeline(user_id="44196397")
+        for tweet in list(filter(self.ad_fillter, result.data.data)):
+            print_tweet(tweet)
+
     def test_get_likes(self):
-        result = self.client.get_likes(user_id="1787148517779406848")  # @ptcpz3
+        result = self.client.get_likes(user_id=get_user_id())  # only the account's own likes are visible
         for tweet in list(filter(self.ad_fillter, result.data.data)):
             print_tweet(tweet)
 

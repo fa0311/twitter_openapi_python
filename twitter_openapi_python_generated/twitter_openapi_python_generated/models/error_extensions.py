@@ -34,7 +34,7 @@ class ErrorExtensions(BaseModel):
     name: StrictStr
     retry_after: Optional[StrictInt] = None
     source: StrictStr
-    tracing: Tracing
+    tracing: Optional[Tracing] = None
     __properties: ClassVar[List[str]] = ["code", "kind", "name", "retry_after", "source", "tracing"]
 
     model_config = ConfigDict(

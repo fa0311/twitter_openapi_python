@@ -75,8 +75,7 @@ class NoteTweetResultMedia(BaseModel):
         _items = []
         if self.inline_media:
             for _item_inline_media in self.inline_media:
-                if _item_inline_media:
-                    _items.append(_item_inline_media.to_dict())
+                _items.append(_item_inline_media.to_dict() if _item_inline_media is not None else None)
             _dict['inline_media'] = _items
         return _dict
 

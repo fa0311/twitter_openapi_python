@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.post_create_tweet_request_variables_media_media_entities_inner import PostCreateTweetRequestVariablesMediaMediaEntitiesInner
 from typing import Optional, Set
@@ -30,7 +30,7 @@ class PostCreateTweetRequestVariablesMedia(BaseModel):
     PostCreateTweetRequestVariablesMedia
     """ # noqa: E501
     media_entities: Optional[List[PostCreateTweetRequestVariablesMediaMediaEntitiesInner]] = None
-    possibly_sensitive: StrictBool
+    possibly_sensitive: StrictBool = Field(json_schema_extra={"examples": [False]})
     __properties: ClassVar[List[str]] = ["media_entities", "possibly_sensitive"]
 
     model_config = ConfigDict(
@@ -76,8 +76,7 @@ class PostCreateTweetRequestVariablesMedia(BaseModel):
         _items = []
         if self.media_entities:
             for _item_media_entities in self.media_entities:
-                if _item_media_entities:
-                    _items.append(_item_media_entities.to_dict())
+                _items.append(_item_media_entities.to_dict() if _item_media_entities is not None else None)
             _dict['media_entities'] = _items
         return _dict
 

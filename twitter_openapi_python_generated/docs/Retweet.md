@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**legacy** | [**RetweetLegacy**](RetweetLegacy.md) |  | 
+**legacy** | [**RetweetLegacy**](RetweetLegacy.md) |  | [optional] 
 **rest_id** | **str** |  | 
 
 ## Example

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.type_name import TypeName
@@ -37,30 +37,25 @@ class UserResultByScreenNameResult(BaseModel):
     typename: TypeName = Field(alias="__typename")
     core: UserResultByScreenNameCore
     id: Annotated[str, Field(strict=True)]
+    is_verified_organization: Optional[StrictBool] = None
     legacy: Optional[UserResultByScreenNameLegacy] = None
     privacy: UserResultPrivacy
     profilemodules: Dict[str, Any]
     relationship_perspectives: UserResultRelationshipPerspectives
     rest_id: Annotated[str, Field(strict=True)]
-    __properties: ClassVar[List[str]] = ["__typename", "core", "id", "legacy", "privacy", "profilemodules", "relationship_perspectives", "rest_id"]
+    __properties: ClassVar[List[str]] = ["__typename", "core", "id", "is_verified_organization", "legacy", "privacy", "profilemodules", "relationship_perspectives", "rest_id"]
 
-    @field_validator('id')
+    @field_validator('id', mode="before")
     def id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9a-zA-Z=]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9a-zA-Z=]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9a-zA-Z=]+$/")
         return value
 
-    @field_validator('rest_id')
+    @field_validator('rest_id', mode="before")
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
@@ -130,6 +125,7 @@ class UserResultByScreenNameResult(BaseModel):
             "__typename": obj.get("__typename"),
             "core": UserResultByScreenNameCore.from_dict(obj["core"]) if obj.get("core") is not None else None,
             "id": obj.get("id"),
+            "is_verified_organization": obj.get("is_verified_organization"),
             "legacy": UserResultByScreenNameLegacy.from_dict(obj["legacy"]) if obj.get("legacy") is not None else None,
             "privacy": UserResultPrivacy.from_dict(obj["privacy"]) if obj.get("privacy") is not None else None,
             "profilemodules": obj.get("profilemodules"),

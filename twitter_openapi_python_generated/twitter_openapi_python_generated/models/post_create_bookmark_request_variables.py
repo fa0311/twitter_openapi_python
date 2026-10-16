@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class PostCreateBookmarkRequestVariables(BaseModel):
     """
     PostCreateBookmarkRequestVariables
     """ # noqa: E501
-    tweet_id: StrictStr
+    tweet_id: StrictStr = Field(json_schema_extra={"examples": ["1349129669258448897"]})
     __properties: ClassVar[List[str]] = ["tweet_id"]
 
     model_config = ConfigDict(

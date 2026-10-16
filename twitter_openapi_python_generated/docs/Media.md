@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **sizes** | [**MediaSizes**](MediaSizes.md) |  | 
 **source_status_id_str** | **str** |  | [optional] 
 **source_user_id_str** | **str** |  | [optional] 
+**source_user_results** | [**UserResults**](UserResults.md) |  | [optional] 
 **type** | **str** |  | 
 **url** | **str** |  | 
 **video_info** | [**MediaVideoInfo**](MediaVideoInfo.md) |  | [optional] 

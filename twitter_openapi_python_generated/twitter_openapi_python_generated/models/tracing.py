@@ -32,13 +32,10 @@ class Tracing(BaseModel):
     trace_id: Annotated[str, Field(strict=True)]
     __properties: ClassVar[List[str]] = ["trace_id"]
 
-    @field_validator('trace_id')
+    @field_validator('trace_id', mode="before")
     def trace_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9a-f]{16}$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9a-f]{16}$", value):
             raise ValueError(r"must validate the regular expression /^[0-9a-f]{16}$/")
         return value
 

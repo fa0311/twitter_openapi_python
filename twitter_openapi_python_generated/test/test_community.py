@@ -47,9 +47,9 @@ class TestCommunity(unittest.TestCase):
                         message = '', 
                         reason = 'ViewerNotMember', ), 
                     pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
-                        __typename = , ), 
+                        __typename = 'TimelineTweet', ), 
                     unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
-                        __typename = , ), ),
+                        __typename = 'TimelineTweet', ), ),
                 admin_results = twitter_openapi_python_generated.models.user_results.UserResults(
                     result = null, ),
                 created_at = 56,

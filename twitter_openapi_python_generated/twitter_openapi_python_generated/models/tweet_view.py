@@ -33,16 +33,13 @@ class TweetView(BaseModel):
     state: StrictStr
     __properties: ClassVar[List[str]] = ["count", "state"]
 
-    @field_validator('count')
+    @field_validator('count', mode="before")
     def count_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 

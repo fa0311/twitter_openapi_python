@@ -40,6 +40,7 @@ class TestBirdwatchPivotFooter(unittest.TestCase):
                     twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
                         from_index = 56, 
                         ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                            expanded_url = '', 
                             text = '', 
                             type = 'TimelineUrl', 
                             url = '', 
@@ -54,6 +55,7 @@ class TestBirdwatchPivotFooter(unittest.TestCase):
                     twitter_openapi_python_generated.models.birdwatch_entity.BirdwatchEntity(
                         from_index = 56, 
                         ref = twitter_openapi_python_generated.models.birdwatch_entity_ref.BirdwatchEntityRef(
+                            expanded_url = '', 
                             text = '', 
                             type = 'TimelineUrl', 
                             url = '', 

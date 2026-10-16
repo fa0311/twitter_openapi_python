@@ -42,8 +42,6 @@ class TestRetweet(unittest.TestCase):
             )
         else:
             return Retweet(
-                legacy = twitter_openapi_python_generated.models.retweet_legacy.Retweet_legacy(
-                    full_text = '', ),
                 rest_id = '4',
         )
         """

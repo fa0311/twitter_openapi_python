@@ -29,7 +29,7 @@ class PostCreateRetweetRequest(BaseModel):
     """
     PostCreateRetweetRequest
     """ # noqa: E501
-    query_id: StrictStr = Field(alias="queryId")
+    query_id: StrictStr = Field(alias="queryId", json_schema_extra={"examples": ["mbRO74GrOvSfRcJnlMapnQ"]})
     variables: PostCreateRetweetRequestVariables
     __properties: ClassVar[List[str]] = ["queryId", "variables"]
 

@@ -5,12 +5,18 @@ All URIs are relative to *https://x.com/i/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**post_create_bookmark**](PostApi.md#post_create_bookmark) | **POST** /graphql/{pathQueryId}/CreateBookmark | 
+[**post_create_draft_tweet**](PostApi.md#post_create_draft_tweet) | **POST** /graphql/{pathQueryId}/CreateDraftTweet | 
+[**post_create_list**](PostApi.md#post_create_list) | **POST** /graphql/{pathQueryId}/CreateList | 
 [**post_create_retweet**](PostApi.md#post_create_retweet) | **POST** /graphql/{pathQueryId}/CreateRetweet | 
 [**post_create_tweet**](PostApi.md#post_create_tweet) | **POST** /graphql/{pathQueryId}/CreateTweet | 
 [**post_delete_bookmark**](PostApi.md#post_delete_bookmark) | **POST** /graphql/{pathQueryId}/DeleteBookmark | 
+[**post_delete_draft_tweets**](PostApi.md#post_delete_draft_tweets) | **POST** /graphql/{pathQueryId}/DeleteDraftTweets | 
+[**post_delete_list**](PostApi.md#post_delete_list) | **POST** /graphql/{pathQueryId}/DeleteList | 
 [**post_delete_retweet**](PostApi.md#post_delete_retweet) | **POST** /graphql/{pathQueryId}/DeleteRetweet | 
 [**post_delete_tweet**](PostApi.md#post_delete_tweet) | **POST** /graphql/{pathQueryId}/DeleteTweet | 
 [**post_favorite_tweet**](PostApi.md#post_favorite_tweet) | **POST** /graphql/{pathQueryId}/FavoriteTweet | 
+[**post_list_add_member**](PostApi.md#post_list_add_member) | **POST** /graphql/{pathQueryId}/ListAddMember | 
+[**post_list_remove_member**](PostApi.md#post_list_remove_member) | **POST** /graphql/{pathQueryId}/ListRemoveMember | 
 [**post_unfavorite_tweet**](PostApi.md#post_unfavorite_tweet) | **POST** /graphql/{pathQueryId}/UnfavoriteTweet | 
 
 
@@ -228,6 +234,470 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateBookmarkResponse**](CreateBookmarkResponse.md)
+
+### Authorization
+
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  * x-connection-hash -  <br>  * x-rate-limit-limit -  <br>  * x-rate-limit-remaining -  <br>  * x-rate-limit-reset -  <br>  * x-response-time -  <br>  * x-tfe-preserve-body -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_create_draft_tweet**
+> CreateDraftTweetResponse post_create_draft_tweet(path_query_id, post_create_draft_tweet_request)
+
+save a draft
+
+### Example
+
+* Api Key Authentication (Accept):
+* Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
+* Api Key Authentication (Referer):
+* Api Key Authentication (SecFetchDest):
+* Api Key Authentication (SecChUaPlatform):
+* Api Key Authentication (SecFetchMode):
+* Api Key Authentication (CsrfToken):
+* Api Key Authentication (ClientUuid):
+* Bearer Authentication (BearerAuth):
+* Api Key Authentication (GuestToken):
+* Api Key Authentication (SecChUa):
+* Api Key Authentication (CookieGt0):
+* Api Key Authentication (ClientTransactionId):
+* Api Key Authentication (ActiveUser):
+* Api Key Authentication (CookieCt0):
+* Api Key Authentication (UserAgent):
+* Api Key Authentication (AcceptLanguage):
+* Api Key Authentication (SecFetchSite):
+* Api Key Authentication (AuthType):
+* Api Key Authentication (CookieAuthToken):
+* Api Key Authentication (SecChUaMobile):
+* Api Key Authentication (AcceptEncoding):
+
+```python
+import twitter_openapi_python_generated
+from twitter_openapi_python_generated.models.create_draft_tweet_response import CreateDraftTweetResponse
+from twitter_openapi_python_generated.models.post_create_draft_tweet_request import PostCreateDraftTweetRequest
+from twitter_openapi_python_generated.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://x.com/i/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = twitter_openapi_python_generated.Configuration(
+    host = "https://x.com/i/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Accept
+configuration.api_key['Accept'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Accept'] = 'Bearer'
+
+# Configure API key authorization: ClientLanguage
+configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
+
+# Configure API key authorization: Referer
+configuration.api_key['Referer'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Referer'] = 'Bearer'
+
+# Configure API key authorization: SecFetchDest
+configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
+
+# Configure API key authorization: SecChUaPlatform
+configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaPlatform'] = 'Bearer'
+
+# Configure API key authorization: SecFetchMode
+configuration.api_key['SecFetchMode'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchMode'] = 'Bearer'
+
+# Configure API key authorization: CsrfToken
+configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+
+# Configure API key authorization: ClientUuid
+configuration.api_key['ClientUuid'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientUuid'] = 'Bearer'
+
+# Configure Bearer authorization: BearerAuth
+configuration = twitter_openapi_python_generated.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Configure API key authorization: GuestToken
+configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+
+# Configure API key authorization: SecChUa
+configuration.api_key['SecChUa'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUa'] = 'Bearer'
+
+# Configure API key authorization: CookieGt0
+configuration.api_key['CookieGt0'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieGt0'] = 'Bearer'
+
+# Configure API key authorization: ClientTransactionId
+configuration.api_key['ClientTransactionId'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientTransactionId'] = 'Bearer'
+
+# Configure API key authorization: ActiveUser
+configuration.api_key['ActiveUser'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ActiveUser'] = 'Bearer'
+
+# Configure API key authorization: CookieCt0
+configuration.api_key['CookieCt0'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieCt0'] = 'Bearer'
+
+# Configure API key authorization: UserAgent
+configuration.api_key['UserAgent'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['UserAgent'] = 'Bearer'
+
+# Configure API key authorization: AcceptLanguage
+configuration.api_key['AcceptLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptLanguage'] = 'Bearer'
+
+# Configure API key authorization: SecFetchSite
+configuration.api_key['SecFetchSite'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchSite'] = 'Bearer'
+
+# Configure API key authorization: AuthType
+configuration.api_key['AuthType'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AuthType'] = 'Bearer'
+
+# Configure API key authorization: CookieAuthToken
+configuration.api_key['CookieAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieAuthToken'] = 'Bearer'
+
+# Configure API key authorization: SecChUaMobile
+configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaMobile'] = 'Bearer'
+
+# Configure API key authorization: AcceptEncoding
+configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptEncoding'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = twitter_openapi_python_generated.PostApi(api_client)
+    path_query_id = 'cH9HZWz_EW9gnswvA4ZRiQ' # str |  (default to 'cH9HZWz_EW9gnswvA4ZRiQ')
+    post_create_draft_tweet_request = twitter_openapi_python_generated.PostCreateDraftTweetRequest() # PostCreateDraftTweetRequest | body
+
+    try:
+        api_response = api_instance.post_create_draft_tweet(path_query_id, post_create_draft_tweet_request)
+        print("The response of PostApi->post_create_draft_tweet:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PostApi->post_create_draft_tweet: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path_query_id** | **str**|  | [default to &#39;cH9HZWz_EW9gnswvA4ZRiQ&#39;]
+ **post_create_draft_tweet_request** | [**PostCreateDraftTweetRequest**](PostCreateDraftTweetRequest.md)| body | 
+
+### Return type
+
+[**CreateDraftTweetResponse**](CreateDraftTweetResponse.md)
+
+### Authorization
+
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  * x-connection-hash -  <br>  * x-rate-limit-limit -  <br>  * x-rate-limit-remaining -  <br>  * x-rate-limit-reset -  <br>  * x-response-time -  <br>  * x-tfe-preserve-body -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_create_list**
+> ListResponse post_create_list(path_query_id, post_create_list_request)
+
+create list
+
+### Example
+
+* Api Key Authentication (Accept):
+* Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
+* Api Key Authentication (Referer):
+* Api Key Authentication (SecFetchDest):
+* Api Key Authentication (SecChUaPlatform):
+* Api Key Authentication (SecFetchMode):
+* Api Key Authentication (CsrfToken):
+* Api Key Authentication (ClientUuid):
+* Bearer Authentication (BearerAuth):
+* Api Key Authentication (GuestToken):
+* Api Key Authentication (SecChUa):
+* Api Key Authentication (CookieGt0):
+* Api Key Authentication (ClientTransactionId):
+* Api Key Authentication (ActiveUser):
+* Api Key Authentication (CookieCt0):
+* Api Key Authentication (UserAgent):
+* Api Key Authentication (AcceptLanguage):
+* Api Key Authentication (SecFetchSite):
+* Api Key Authentication (AuthType):
+* Api Key Authentication (CookieAuthToken):
+* Api Key Authentication (SecChUaMobile):
+* Api Key Authentication (AcceptEncoding):
+
+```python
+import twitter_openapi_python_generated
+from twitter_openapi_python_generated.models.list_response import ListResponse
+from twitter_openapi_python_generated.models.post_create_list_request import PostCreateListRequest
+from twitter_openapi_python_generated.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://x.com/i/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = twitter_openapi_python_generated.Configuration(
+    host = "https://x.com/i/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Accept
+configuration.api_key['Accept'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Accept'] = 'Bearer'
+
+# Configure API key authorization: ClientLanguage
+configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
+
+# Configure API key authorization: Referer
+configuration.api_key['Referer'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Referer'] = 'Bearer'
+
+# Configure API key authorization: SecFetchDest
+configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
+
+# Configure API key authorization: SecChUaPlatform
+configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaPlatform'] = 'Bearer'
+
+# Configure API key authorization: SecFetchMode
+configuration.api_key['SecFetchMode'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchMode'] = 'Bearer'
+
+# Configure API key authorization: CsrfToken
+configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+
+# Configure API key authorization: ClientUuid
+configuration.api_key['ClientUuid'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientUuid'] = 'Bearer'
+
+# Configure Bearer authorization: BearerAuth
+configuration = twitter_openapi_python_generated.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Configure API key authorization: GuestToken
+configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+
+# Configure API key authorization: SecChUa
+configuration.api_key['SecChUa'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUa'] = 'Bearer'
+
+# Configure API key authorization: CookieGt0
+configuration.api_key['CookieGt0'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieGt0'] = 'Bearer'
+
+# Configure API key authorization: ClientTransactionId
+configuration.api_key['ClientTransactionId'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientTransactionId'] = 'Bearer'
+
+# Configure API key authorization: ActiveUser
+configuration.api_key['ActiveUser'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ActiveUser'] = 'Bearer'
+
+# Configure API key authorization: CookieCt0
+configuration.api_key['CookieCt0'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieCt0'] = 'Bearer'
+
+# Configure API key authorization: UserAgent
+configuration.api_key['UserAgent'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['UserAgent'] = 'Bearer'
+
+# Configure API key authorization: AcceptLanguage
+configuration.api_key['AcceptLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptLanguage'] = 'Bearer'
+
+# Configure API key authorization: SecFetchSite
+configuration.api_key['SecFetchSite'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchSite'] = 'Bearer'
+
+# Configure API key authorization: AuthType
+configuration.api_key['AuthType'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AuthType'] = 'Bearer'
+
+# Configure API key authorization: CookieAuthToken
+configuration.api_key['CookieAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieAuthToken'] = 'Bearer'
+
+# Configure API key authorization: SecChUaMobile
+configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaMobile'] = 'Bearer'
+
+# Configure API key authorization: AcceptEncoding
+configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptEncoding'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = twitter_openapi_python_generated.PostApi(api_client)
+    path_query_id = 'zdGzorOEOslDL4XEbe2INw' # str |  (default to 'zdGzorOEOslDL4XEbe2INw')
+    post_create_list_request = twitter_openapi_python_generated.PostCreateListRequest() # PostCreateListRequest | body
+
+    try:
+        api_response = api_instance.post_create_list(path_query_id, post_create_list_request)
+        print("The response of PostApi->post_create_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PostApi->post_create_list: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path_query_id** | **str**|  | [default to &#39;zdGzorOEOslDL4XEbe2INw&#39;]
+ **post_create_list_request** | [**PostCreateListRequest**](PostCreateListRequest.md)| body | 
+
+### Return type
+
+[**ListResponse**](ListResponse.md)
 
 ### Authorization
 
@@ -668,7 +1138,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.PostApi(api_client)
-    path_query_id = '5CdvsV_zjv4L64XFifAglw' # str |  (default to '5CdvsV_zjv4L64XFifAglw')
+    path_query_id = 'wR5Z_lEibLvkew3tF9w-Sg' # str |  (default to 'wR5Z_lEibLvkew3tF9w-Sg')
     post_create_tweet_request = twitter_openapi_python_generated.PostCreateTweetRequest() # PostCreateTweetRequest | body
 
     try:
@@ -686,7 +1156,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;5CdvsV_zjv4L64XFifAglw&#39;]
+ **path_query_id** | **str**|  | [default to &#39;wR5Z_lEibLvkew3tF9w-Sg&#39;]
  **post_create_tweet_request** | [**PostCreateTweetRequest**](PostCreateTweetRequest.md)| body | 
 
 ### Return type
@@ -924,6 +1394,470 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeleteBookmarkResponse**](DeleteBookmarkResponse.md)
+
+### Authorization
+
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  * x-connection-hash -  <br>  * x-rate-limit-limit -  <br>  * x-rate-limit-remaining -  <br>  * x-rate-limit-reset -  <br>  * x-response-time -  <br>  * x-tfe-preserve-body -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_delete_draft_tweets**
+> DeleteDraftTweetsResponse post_delete_draft_tweets(path_query_id, post_delete_draft_tweets_request)
+
+delete drafts
+
+### Example
+
+* Api Key Authentication (Accept):
+* Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
+* Api Key Authentication (Referer):
+* Api Key Authentication (SecFetchDest):
+* Api Key Authentication (SecChUaPlatform):
+* Api Key Authentication (SecFetchMode):
+* Api Key Authentication (CsrfToken):
+* Api Key Authentication (ClientUuid):
+* Bearer Authentication (BearerAuth):
+* Api Key Authentication (GuestToken):
+* Api Key Authentication (SecChUa):
+* Api Key Authentication (CookieGt0):
+* Api Key Authentication (ClientTransactionId):
+* Api Key Authentication (ActiveUser):
+* Api Key Authentication (CookieCt0):
+* Api Key Authentication (UserAgent):
+* Api Key Authentication (AcceptLanguage):
+* Api Key Authentication (SecFetchSite):
+* Api Key Authentication (AuthType):
+* Api Key Authentication (CookieAuthToken):
+* Api Key Authentication (SecChUaMobile):
+* Api Key Authentication (AcceptEncoding):
+
+```python
+import twitter_openapi_python_generated
+from twitter_openapi_python_generated.models.delete_draft_tweets_response import DeleteDraftTweetsResponse
+from twitter_openapi_python_generated.models.post_delete_draft_tweets_request import PostDeleteDraftTweetsRequest
+from twitter_openapi_python_generated.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://x.com/i/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = twitter_openapi_python_generated.Configuration(
+    host = "https://x.com/i/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Accept
+configuration.api_key['Accept'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Accept'] = 'Bearer'
+
+# Configure API key authorization: ClientLanguage
+configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
+
+# Configure API key authorization: Referer
+configuration.api_key['Referer'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Referer'] = 'Bearer'
+
+# Configure API key authorization: SecFetchDest
+configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
+
+# Configure API key authorization: SecChUaPlatform
+configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaPlatform'] = 'Bearer'
+
+# Configure API key authorization: SecFetchMode
+configuration.api_key['SecFetchMode'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchMode'] = 'Bearer'
+
+# Configure API key authorization: CsrfToken
+configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+
+# Configure API key authorization: ClientUuid
+configuration.api_key['ClientUuid'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientUuid'] = 'Bearer'
+
+# Configure Bearer authorization: BearerAuth
+configuration = twitter_openapi_python_generated.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Configure API key authorization: GuestToken
+configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+
+# Configure API key authorization: SecChUa
+configuration.api_key['SecChUa'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUa'] = 'Bearer'
+
+# Configure API key authorization: CookieGt0
+configuration.api_key['CookieGt0'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieGt0'] = 'Bearer'
+
+# Configure API key authorization: ClientTransactionId
+configuration.api_key['ClientTransactionId'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientTransactionId'] = 'Bearer'
+
+# Configure API key authorization: ActiveUser
+configuration.api_key['ActiveUser'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ActiveUser'] = 'Bearer'
+
+# Configure API key authorization: CookieCt0
+configuration.api_key['CookieCt0'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieCt0'] = 'Bearer'
+
+# Configure API key authorization: UserAgent
+configuration.api_key['UserAgent'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['UserAgent'] = 'Bearer'
+
+# Configure API key authorization: AcceptLanguage
+configuration.api_key['AcceptLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptLanguage'] = 'Bearer'
+
+# Configure API key authorization: SecFetchSite
+configuration.api_key['SecFetchSite'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchSite'] = 'Bearer'
+
+# Configure API key authorization: AuthType
+configuration.api_key['AuthType'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AuthType'] = 'Bearer'
+
+# Configure API key authorization: CookieAuthToken
+configuration.api_key['CookieAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieAuthToken'] = 'Bearer'
+
+# Configure API key authorization: SecChUaMobile
+configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaMobile'] = 'Bearer'
+
+# Configure API key authorization: AcceptEncoding
+configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptEncoding'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = twitter_openapi_python_generated.PostApi(api_client)
+    path_query_id = 'h0rzaIYc9-v3zTQvx1J8OA' # str |  (default to 'h0rzaIYc9-v3zTQvx1J8OA')
+    post_delete_draft_tweets_request = twitter_openapi_python_generated.PostDeleteDraftTweetsRequest() # PostDeleteDraftTweetsRequest | body
+
+    try:
+        api_response = api_instance.post_delete_draft_tweets(path_query_id, post_delete_draft_tweets_request)
+        print("The response of PostApi->post_delete_draft_tweets:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PostApi->post_delete_draft_tweets: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path_query_id** | **str**|  | [default to &#39;h0rzaIYc9-v3zTQvx1J8OA&#39;]
+ **post_delete_draft_tweets_request** | [**PostDeleteDraftTweetsRequest**](PostDeleteDraftTweetsRequest.md)| body | 
+
+### Return type
+
+[**DeleteDraftTweetsResponse**](DeleteDraftTweetsResponse.md)
+
+### Authorization
+
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  * x-connection-hash -  <br>  * x-rate-limit-limit -  <br>  * x-rate-limit-remaining -  <br>  * x-rate-limit-reset -  <br>  * x-response-time -  <br>  * x-tfe-preserve-body -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_delete_list**
+> DeleteListResponse post_delete_list(path_query_id, post_delete_list_request)
+
+delete list
+
+### Example
+
+* Api Key Authentication (Accept):
+* Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
+* Api Key Authentication (Referer):
+* Api Key Authentication (SecFetchDest):
+* Api Key Authentication (SecChUaPlatform):
+* Api Key Authentication (SecFetchMode):
+* Api Key Authentication (CsrfToken):
+* Api Key Authentication (ClientUuid):
+* Bearer Authentication (BearerAuth):
+* Api Key Authentication (GuestToken):
+* Api Key Authentication (SecChUa):
+* Api Key Authentication (CookieGt0):
+* Api Key Authentication (ClientTransactionId):
+* Api Key Authentication (ActiveUser):
+* Api Key Authentication (CookieCt0):
+* Api Key Authentication (UserAgent):
+* Api Key Authentication (AcceptLanguage):
+* Api Key Authentication (SecFetchSite):
+* Api Key Authentication (AuthType):
+* Api Key Authentication (CookieAuthToken):
+* Api Key Authentication (SecChUaMobile):
+* Api Key Authentication (AcceptEncoding):
+
+```python
+import twitter_openapi_python_generated
+from twitter_openapi_python_generated.models.delete_list_response import DeleteListResponse
+from twitter_openapi_python_generated.models.post_delete_list_request import PostDeleteListRequest
+from twitter_openapi_python_generated.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://x.com/i/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = twitter_openapi_python_generated.Configuration(
+    host = "https://x.com/i/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Accept
+configuration.api_key['Accept'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Accept'] = 'Bearer'
+
+# Configure API key authorization: ClientLanguage
+configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
+
+# Configure API key authorization: Referer
+configuration.api_key['Referer'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Referer'] = 'Bearer'
+
+# Configure API key authorization: SecFetchDest
+configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
+
+# Configure API key authorization: SecChUaPlatform
+configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaPlatform'] = 'Bearer'
+
+# Configure API key authorization: SecFetchMode
+configuration.api_key['SecFetchMode'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchMode'] = 'Bearer'
+
+# Configure API key authorization: CsrfToken
+configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+
+# Configure API key authorization: ClientUuid
+configuration.api_key['ClientUuid'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientUuid'] = 'Bearer'
+
+# Configure Bearer authorization: BearerAuth
+configuration = twitter_openapi_python_generated.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Configure API key authorization: GuestToken
+configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+
+# Configure API key authorization: SecChUa
+configuration.api_key['SecChUa'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUa'] = 'Bearer'
+
+# Configure API key authorization: CookieGt0
+configuration.api_key['CookieGt0'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieGt0'] = 'Bearer'
+
+# Configure API key authorization: ClientTransactionId
+configuration.api_key['ClientTransactionId'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientTransactionId'] = 'Bearer'
+
+# Configure API key authorization: ActiveUser
+configuration.api_key['ActiveUser'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ActiveUser'] = 'Bearer'
+
+# Configure API key authorization: CookieCt0
+configuration.api_key['CookieCt0'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieCt0'] = 'Bearer'
+
+# Configure API key authorization: UserAgent
+configuration.api_key['UserAgent'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['UserAgent'] = 'Bearer'
+
+# Configure API key authorization: AcceptLanguage
+configuration.api_key['AcceptLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptLanguage'] = 'Bearer'
+
+# Configure API key authorization: SecFetchSite
+configuration.api_key['SecFetchSite'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchSite'] = 'Bearer'
+
+# Configure API key authorization: AuthType
+configuration.api_key['AuthType'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AuthType'] = 'Bearer'
+
+# Configure API key authorization: CookieAuthToken
+configuration.api_key['CookieAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieAuthToken'] = 'Bearer'
+
+# Configure API key authorization: SecChUaMobile
+configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaMobile'] = 'Bearer'
+
+# Configure API key authorization: AcceptEncoding
+configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptEncoding'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = twitter_openapi_python_generated.PostApi(api_client)
+    path_query_id = 'UnN9Th1BDbeLjpgjGSpL3Q' # str |  (default to 'UnN9Th1BDbeLjpgjGSpL3Q')
+    post_delete_list_request = twitter_openapi_python_generated.PostDeleteListRequest() # PostDeleteListRequest | body
+
+    try:
+        api_response = api_instance.post_delete_list(path_query_id, post_delete_list_request)
+        print("The response of PostApi->post_delete_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PostApi->post_delete_list: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path_query_id** | **str**|  | [default to &#39;UnN9Th1BDbeLjpgjGSpL3Q&#39;]
+ **post_delete_list_request** | [**PostDeleteListRequest**](PostDeleteListRequest.md)| body | 
+
+### Return type
+
+[**DeleteListResponse**](DeleteListResponse.md)
 
 ### Authorization
 
@@ -1364,7 +2298,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.PostApi(api_client)
-    path_query_id = 'VaenaVgh5q5ih7kvyVjgtg' # str |  (default to 'VaenaVgh5q5ih7kvyVjgtg')
+    path_query_id = 'nxpZCY2K-I6QoFHAHeojFQ' # str |  (default to 'nxpZCY2K-I6QoFHAHeojFQ')
     post_delete_tweet_request = twitter_openapi_python_generated.PostDeleteTweetRequest() # PostDeleteTweetRequest | body
 
     try:
@@ -1382,7 +2316,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;VaenaVgh5q5ih7kvyVjgtg&#39;]
+ **path_query_id** | **str**|  | [default to &#39;nxpZCY2K-I6QoFHAHeojFQ&#39;]
  **post_delete_tweet_request** | [**PostDeleteTweetRequest**](PostDeleteTweetRequest.md)| body | 
 
 ### Return type
@@ -1620,6 +2554,470 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FavoriteTweetResponse**](FavoriteTweetResponse.md)
+
+### Authorization
+
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  * x-connection-hash -  <br>  * x-rate-limit-limit -  <br>  * x-rate-limit-remaining -  <br>  * x-rate-limit-reset -  <br>  * x-response-time -  <br>  * x-tfe-preserve-body -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_list_add_member**
+> ListResponse post_list_add_member(path_query_id, post_list_add_member_request)
+
+add a member to a list
+
+### Example
+
+* Api Key Authentication (Accept):
+* Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
+* Api Key Authentication (Referer):
+* Api Key Authentication (SecFetchDest):
+* Api Key Authentication (SecChUaPlatform):
+* Api Key Authentication (SecFetchMode):
+* Api Key Authentication (CsrfToken):
+* Api Key Authentication (ClientUuid):
+* Bearer Authentication (BearerAuth):
+* Api Key Authentication (GuestToken):
+* Api Key Authentication (SecChUa):
+* Api Key Authentication (CookieGt0):
+* Api Key Authentication (ClientTransactionId):
+* Api Key Authentication (ActiveUser):
+* Api Key Authentication (CookieCt0):
+* Api Key Authentication (UserAgent):
+* Api Key Authentication (AcceptLanguage):
+* Api Key Authentication (SecFetchSite):
+* Api Key Authentication (AuthType):
+* Api Key Authentication (CookieAuthToken):
+* Api Key Authentication (SecChUaMobile):
+* Api Key Authentication (AcceptEncoding):
+
+```python
+import twitter_openapi_python_generated
+from twitter_openapi_python_generated.models.list_response import ListResponse
+from twitter_openapi_python_generated.models.post_list_add_member_request import PostListAddMemberRequest
+from twitter_openapi_python_generated.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://x.com/i/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = twitter_openapi_python_generated.Configuration(
+    host = "https://x.com/i/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Accept
+configuration.api_key['Accept'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Accept'] = 'Bearer'
+
+# Configure API key authorization: ClientLanguage
+configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
+
+# Configure API key authorization: Referer
+configuration.api_key['Referer'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Referer'] = 'Bearer'
+
+# Configure API key authorization: SecFetchDest
+configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
+
+# Configure API key authorization: SecChUaPlatform
+configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaPlatform'] = 'Bearer'
+
+# Configure API key authorization: SecFetchMode
+configuration.api_key['SecFetchMode'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchMode'] = 'Bearer'
+
+# Configure API key authorization: CsrfToken
+configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+
+# Configure API key authorization: ClientUuid
+configuration.api_key['ClientUuid'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientUuid'] = 'Bearer'
+
+# Configure Bearer authorization: BearerAuth
+configuration = twitter_openapi_python_generated.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Configure API key authorization: GuestToken
+configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+
+# Configure API key authorization: SecChUa
+configuration.api_key['SecChUa'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUa'] = 'Bearer'
+
+# Configure API key authorization: CookieGt0
+configuration.api_key['CookieGt0'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieGt0'] = 'Bearer'
+
+# Configure API key authorization: ClientTransactionId
+configuration.api_key['ClientTransactionId'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientTransactionId'] = 'Bearer'
+
+# Configure API key authorization: ActiveUser
+configuration.api_key['ActiveUser'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ActiveUser'] = 'Bearer'
+
+# Configure API key authorization: CookieCt0
+configuration.api_key['CookieCt0'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieCt0'] = 'Bearer'
+
+# Configure API key authorization: UserAgent
+configuration.api_key['UserAgent'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['UserAgent'] = 'Bearer'
+
+# Configure API key authorization: AcceptLanguage
+configuration.api_key['AcceptLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptLanguage'] = 'Bearer'
+
+# Configure API key authorization: SecFetchSite
+configuration.api_key['SecFetchSite'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchSite'] = 'Bearer'
+
+# Configure API key authorization: AuthType
+configuration.api_key['AuthType'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AuthType'] = 'Bearer'
+
+# Configure API key authorization: CookieAuthToken
+configuration.api_key['CookieAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieAuthToken'] = 'Bearer'
+
+# Configure API key authorization: SecChUaMobile
+configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaMobile'] = 'Bearer'
+
+# Configure API key authorization: AcceptEncoding
+configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptEncoding'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = twitter_openapi_python_generated.PostApi(api_client)
+    path_query_id = '-Kf1YVC1rNKkPvPFk7YXZw' # str |  (default to '-Kf1YVC1rNKkPvPFk7YXZw')
+    post_list_add_member_request = twitter_openapi_python_generated.PostListAddMemberRequest() # PostListAddMemberRequest | body
+
+    try:
+        api_response = api_instance.post_list_add_member(path_query_id, post_list_add_member_request)
+        print("The response of PostApi->post_list_add_member:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PostApi->post_list_add_member: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path_query_id** | **str**|  | [default to &#39;-Kf1YVC1rNKkPvPFk7YXZw&#39;]
+ **post_list_add_member_request** | [**PostListAddMemberRequest**](PostListAddMemberRequest.md)| body | 
+
+### Return type
+
+[**ListResponse**](ListResponse.md)
+
+### Authorization
+
+[Accept](../README.md#Accept), [ClientLanguage](../README.md#ClientLanguage), [Priority](../README.md#Priority), [Referer](../README.md#Referer), [SecFetchDest](../README.md#SecFetchDest), [SecChUaPlatform](../README.md#SecChUaPlatform), [SecFetchMode](../README.md#SecFetchMode), [CsrfToken](../README.md#CsrfToken), [ClientUuid](../README.md#ClientUuid), [BearerAuth](../README.md#BearerAuth), [GuestToken](../README.md#GuestToken), [SecChUa](../README.md#SecChUa), [CookieGt0](../README.md#CookieGt0), [ClientTransactionId](../README.md#ClientTransactionId), [ActiveUser](../README.md#ActiveUser), [CookieCt0](../README.md#CookieCt0), [UserAgent](../README.md#UserAgent), [AcceptLanguage](../README.md#AcceptLanguage), [SecFetchSite](../README.md#SecFetchSite), [AuthType](../README.md#AuthType), [CookieAuthToken](../README.md#CookieAuthToken), [SecChUaMobile](../README.md#SecChUaMobile), [AcceptEncoding](../README.md#AcceptEncoding)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  * x-connection-hash -  <br>  * x-rate-limit-limit -  <br>  * x-rate-limit-remaining -  <br>  * x-rate-limit-reset -  <br>  * x-response-time -  <br>  * x-tfe-preserve-body -  <br>  * x-transaction-id -  <br>  * x-twitter-response-tags -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_list_remove_member**
+> ListResponse post_list_remove_member(path_query_id, post_list_remove_member_request)
+
+remove a member from a list
+
+### Example
+
+* Api Key Authentication (Accept):
+* Api Key Authentication (ClientLanguage):
+* Api Key Authentication (Priority):
+* Api Key Authentication (Referer):
+* Api Key Authentication (SecFetchDest):
+* Api Key Authentication (SecChUaPlatform):
+* Api Key Authentication (SecFetchMode):
+* Api Key Authentication (CsrfToken):
+* Api Key Authentication (ClientUuid):
+* Bearer Authentication (BearerAuth):
+* Api Key Authentication (GuestToken):
+* Api Key Authentication (SecChUa):
+* Api Key Authentication (CookieGt0):
+* Api Key Authentication (ClientTransactionId):
+* Api Key Authentication (ActiveUser):
+* Api Key Authentication (CookieCt0):
+* Api Key Authentication (UserAgent):
+* Api Key Authentication (AcceptLanguage):
+* Api Key Authentication (SecFetchSite):
+* Api Key Authentication (AuthType):
+* Api Key Authentication (CookieAuthToken):
+* Api Key Authentication (SecChUaMobile):
+* Api Key Authentication (AcceptEncoding):
+
+```python
+import twitter_openapi_python_generated
+from twitter_openapi_python_generated.models.list_response import ListResponse
+from twitter_openapi_python_generated.models.post_list_remove_member_request import PostListRemoveMemberRequest
+from twitter_openapi_python_generated.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://x.com/i/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = twitter_openapi_python_generated.Configuration(
+    host = "https://x.com/i/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Accept
+configuration.api_key['Accept'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Accept'] = 'Bearer'
+
+# Configure API key authorization: ClientLanguage
+configuration.api_key['ClientLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientLanguage'] = 'Bearer'
+
+# Configure API key authorization: Priority
+configuration.api_key['Priority'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Priority'] = 'Bearer'
+
+# Configure API key authorization: Referer
+configuration.api_key['Referer'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Referer'] = 'Bearer'
+
+# Configure API key authorization: SecFetchDest
+configuration.api_key['SecFetchDest'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchDest'] = 'Bearer'
+
+# Configure API key authorization: SecChUaPlatform
+configuration.api_key['SecChUaPlatform'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaPlatform'] = 'Bearer'
+
+# Configure API key authorization: SecFetchMode
+configuration.api_key['SecFetchMode'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchMode'] = 'Bearer'
+
+# Configure API key authorization: CsrfToken
+configuration.api_key['CsrfToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CsrfToken'] = 'Bearer'
+
+# Configure API key authorization: ClientUuid
+configuration.api_key['ClientUuid'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientUuid'] = 'Bearer'
+
+# Configure Bearer authorization: BearerAuth
+configuration = twitter_openapi_python_generated.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Configure API key authorization: GuestToken
+configuration.api_key['GuestToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['GuestToken'] = 'Bearer'
+
+# Configure API key authorization: SecChUa
+configuration.api_key['SecChUa'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUa'] = 'Bearer'
+
+# Configure API key authorization: CookieGt0
+configuration.api_key['CookieGt0'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieGt0'] = 'Bearer'
+
+# Configure API key authorization: ClientTransactionId
+configuration.api_key['ClientTransactionId'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ClientTransactionId'] = 'Bearer'
+
+# Configure API key authorization: ActiveUser
+configuration.api_key['ActiveUser'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ActiveUser'] = 'Bearer'
+
+# Configure API key authorization: CookieCt0
+configuration.api_key['CookieCt0'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieCt0'] = 'Bearer'
+
+# Configure API key authorization: UserAgent
+configuration.api_key['UserAgent'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['UserAgent'] = 'Bearer'
+
+# Configure API key authorization: AcceptLanguage
+configuration.api_key['AcceptLanguage'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptLanguage'] = 'Bearer'
+
+# Configure API key authorization: SecFetchSite
+configuration.api_key['SecFetchSite'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecFetchSite'] = 'Bearer'
+
+# Configure API key authorization: AuthType
+configuration.api_key['AuthType'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AuthType'] = 'Bearer'
+
+# Configure API key authorization: CookieAuthToken
+configuration.api_key['CookieAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['CookieAuthToken'] = 'Bearer'
+
+# Configure API key authorization: SecChUaMobile
+configuration.api_key['SecChUaMobile'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecChUaMobile'] = 'Bearer'
+
+# Configure API key authorization: AcceptEncoding
+configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['AcceptEncoding'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = twitter_openapi_python_generated.PostApi(api_client)
+    path_query_id = '_2o1-wSMWGFSi5HUscn1Hw' # str |  (default to '_2o1-wSMWGFSi5HUscn1Hw')
+    post_list_remove_member_request = twitter_openapi_python_generated.PostListRemoveMemberRequest() # PostListRemoveMemberRequest | body
+
+    try:
+        api_response = api_instance.post_list_remove_member(path_query_id, post_list_remove_member_request)
+        print("The response of PostApi->post_list_remove_member:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PostApi->post_list_remove_member: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path_query_id** | **str**|  | [default to &#39;_2o1-wSMWGFSi5HUscn1Hw&#39;]
+ **post_list_remove_member_request** | [**PostListRemoveMemberRequest**](PostListRemoveMemberRequest.md)| body | 
+
+### Return type
+
+[**ListResponse**](ListResponse.md)
 
 ### Authorization
 

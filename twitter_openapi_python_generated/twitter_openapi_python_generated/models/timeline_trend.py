@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.content_item_type import ContentItemType
 from twitter_openapi_python_generated.models.social_context_landing_url import SocialContextLandingUrl
 from twitter_openapi_python_generated.models.social_context_union import SocialContextUnion
@@ -40,11 +41,22 @@ class TimelineTrend(BaseModel):
     is_ai_trend: Optional[StrictBool] = None
     item_type: Optional[ContentItemType] = Field(default=None, alias="itemType")
     name: StrictStr
+    rank: Optional[Annotated[str, Field(strict=True)]] = None
     social_context: Optional[SocialContextUnion] = None
     thumbnail_image: Optional[ThumbnailImage] = None
     trend_metadata: TrendMetadata
     trend_url: SocialContextLandingUrl
-    __properties: ClassVar[List[str]] = ["__typename", "images", "is_ai_trend", "itemType", "name", "social_context", "thumbnail_image", "trend_metadata", "trend_url"]
+    __properties: ClassVar[List[str]] = ["__typename", "images", "is_ai_trend", "itemType", "name", "rank", "social_context", "thumbnail_image", "trend_metadata", "trend_url"]
+
+    @field_validator('rank', mode="before")
+    def rank_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]+$/")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -89,8 +101,7 @@ class TimelineTrend(BaseModel):
         _items = []
         if self.images:
             for _item_images in self.images:
-                if _item_images:
-                    _items.append(_item_images.to_dict())
+                _items.append(_item_images.to_dict() if _item_images is not None else None)
             _dict['images'] = _items
         # override the default output from pydantic by calling `to_dict()` of social_context
         if self.social_context:
@@ -121,6 +132,7 @@ class TimelineTrend(BaseModel):
             "is_ai_trend": obj.get("is_ai_trend"),
             "itemType": obj.get("itemType"),
             "name": obj.get("name"),
+            "rank": obj.get("rank"),
             "social_context": SocialContextUnion.from_dict(obj["social_context"]) if obj.get("social_context") is not None else None,
             "thumbnail_image": ThumbnailImage.from_dict(obj["thumbnail_image"]) if obj.get("thumbnail_image") is not None else None,
             "trend_metadata": TrendMetadata.from_dict(obj["trend_metadata"]) if obj.get("trend_metadata") is not None else None,

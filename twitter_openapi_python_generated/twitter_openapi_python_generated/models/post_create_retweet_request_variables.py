@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,8 +28,8 @@ class PostCreateRetweetRequestVariables(BaseModel):
     """
     PostCreateRetweetRequestVariables
     """ # noqa: E501
-    dark_request: StrictBool
-    tweet_id: StrictStr
+    dark_request: StrictBool = Field(json_schema_extra={"examples": [False]})
+    tweet_id: StrictStr = Field(json_schema_extra={"examples": ["1349129669258448897"]})
     __properties: ClassVar[List[str]] = ["dark_request", "tweet_id"]
 
     model_config = ConfigDict(

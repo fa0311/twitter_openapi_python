@@ -33,6 +33,18 @@ class TestPostApi(unittest.TestCase):
         """
         pass
 
+    def test_post_create_draft_tweet(self) -> None:
+        """Test case for post_create_draft_tweet
+
+        """
+        pass
+
+    def test_post_create_list(self) -> None:
+        """Test case for post_create_list
+
+        """
+        pass
+
     def test_post_create_retweet(self) -> None:
         """Test case for post_create_retweet
 
@@ -51,6 +63,18 @@ class TestPostApi(unittest.TestCase):
         """
         pass
 
+    def test_post_delete_draft_tweets(self) -> None:
+        """Test case for post_delete_draft_tweets
+
+        """
+        pass
+
+    def test_post_delete_list(self) -> None:
+        """Test case for post_delete_list
+
+        """
+        pass
+
     def test_post_delete_retweet(self) -> None:
         """Test case for post_delete_retweet
 
@@ -65,6 +89,18 @@ class TestPostApi(unittest.TestCase):
 
     def test_post_favorite_tweet(self) -> None:
         """Test case for post_favorite_tweet
+
+        """
+        pass
+
+    def test_post_list_add_member(self) -> None:
+        """Test case for post_list_add_member
+
+        """
+        pass
+
+    def test_post_list_remove_member(self) -> None:
+        """Test case for post_list_remove_member
 
         """
         pass

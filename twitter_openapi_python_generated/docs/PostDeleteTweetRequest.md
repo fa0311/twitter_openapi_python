@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query_id** | **str** |  | [default to 'VaenaVgh5q5ih7kvyVjgtg']
+**query_id** | **str** |  | [default to 'nxpZCY2K-I6QoFHAHeojFQ']
 **variables** | [**PostCreateRetweetRequestVariables**](PostCreateRetweetRequestVariables.md) |  | 
 
 ## Example

@@ -36,13 +36,10 @@ class ArticleCoverMedia(BaseModel):
     media_key: StrictStr
     __properties: ClassVar[List[str]] = ["id", "media_id", "media_info", "media_key"]
 
-    @field_validator('media_id')
+    @field_validator('media_id', mode="before")
     def media_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 

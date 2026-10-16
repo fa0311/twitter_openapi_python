@@ -35,13 +35,10 @@ class UserVerificationInfoReason(BaseModel):
     verified_since_msec: Annotated[str, Field(strict=True)]
     __properties: ClassVar[List[str]] = ["description", "override_verified_year", "verified_since_msec"]
 
-    @field_validator('verified_since_msec')
+    @field_validator('verified_since_msec', mode="before")
     def verified_since_msec_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-?[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^-?[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^-?[0-9]+$/")
         return value
 

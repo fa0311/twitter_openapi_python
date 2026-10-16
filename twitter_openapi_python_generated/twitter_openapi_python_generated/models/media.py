@@ -22,7 +22,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_v
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from uuid import UUID
-from twitter_openapi_python_generated.models.additional_media_info import AdditionalMediaInfo
 from twitter_openapi_python_generated.models.allow_download_status import AllowDownloadStatus
 from twitter_openapi_python_generated.models.ext_media_availability import ExtMediaAvailability
 from twitter_openapi_python_generated.models.media_original_info import MediaOriginalInfo
@@ -56,44 +55,36 @@ class Media(BaseModel):
     sizes: MediaSizes
     source_status_id_str: Optional[Annotated[str, Field(strict=True)]] = None
     source_user_id_str: Optional[Annotated[str, Field(strict=True)]] = None
+    source_user_results: Optional[UserResults] = None
     type: StrictStr
     url: StrictStr
     video_info: Optional[MediaVideoInfo] = None
-    __properties: ClassVar[List[str]] = ["additional_media_info", "allow_download_status", "display_url", "expanded_url", "ext_alt_text", "ext_media_availability", "features", "grok_post_id", "id_str", "indices", "media_key", "media_results", "media_url_https", "original_info", "sensitive_media_warning", "sizes", "source_status_id_str", "source_user_id_str", "type", "url", "video_info"]
+    __properties: ClassVar[List[str]] = ["additional_media_info", "allow_download_status", "display_url", "expanded_url", "ext_alt_text", "ext_media_availability", "features", "grok_post_id", "id_str", "indices", "media_key", "media_results", "media_url_https", "original_info", "sensitive_media_warning", "sizes", "source_status_id_str", "source_user_id_str", "source_user_results", "type", "url", "video_info"]
 
-    @field_validator('id_str')
+    @field_validator('id_str', mode="before")
     def id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    @field_validator('source_status_id_str')
+    @field_validator('source_status_id_str', mode="before")
     def source_status_id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    @field_validator('source_user_id_str')
+    @field_validator('source_user_id_str', mode="before")
     def source_user_id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
@@ -164,6 +155,9 @@ class Media(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of sizes
         if self.sizes:
             _dict['sizes'] = self.sizes.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of source_user_results
+        if self.source_user_results:
+            _dict['source_user_results'] = self.source_user_results.to_dict()
         # override the default output from pydantic by calling `to_dict()` of video_info
         if self.video_info:
             _dict['video_info'] = self.video_info.to_dict()
@@ -197,10 +191,15 @@ class Media(BaseModel):
             "sizes": MediaSizes.from_dict(obj["sizes"]) if obj.get("sizes") is not None else None,
             "source_status_id_str": obj.get("source_status_id_str"),
             "source_user_id_str": obj.get("source_user_id_str"),
+            "source_user_results": UserResults.from_dict(obj["source_user_results"]) if obj.get("source_user_results") is not None else None,
             "type": obj.get("type"),
             "url": obj.get("url"),
             "video_info": MediaVideoInfo.from_dict(obj["video_info"]) if obj.get("video_info") is not None else None
         })
         return _obj
 
+from twitter_openapi_python_generated.models.additional_media_info import AdditionalMediaInfo
+from twitter_openapi_python_generated.models.user_results import UserResults
+# TODO: Rewrite to not use raise_errors
+Media.model_rebuild(raise_errors=False)
 

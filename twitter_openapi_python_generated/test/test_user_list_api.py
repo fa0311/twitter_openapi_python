@@ -57,6 +57,42 @@ class TestUserListApi(unittest.TestCase):
         """
         pass
 
+    def test_get_list_by_rest_id(self) -> None:
+        """Test case for get_list_by_rest_id
+
+        """
+        pass
+
+    def test_get_list_creation_recommended_users(self) -> None:
+        """Test case for get_list_creation_recommended_users
+
+        """
+        pass
+
+    def test_get_list_edit_recommended_users(self) -> None:
+        """Test case for get_list_edit_recommended_users
+
+        """
+        pass
+
+    def test_get_list_members(self) -> None:
+        """Test case for get_list_members
+
+        """
+        pass
+
+    def test_get_list_ownerships(self) -> None:
+        """Test case for get_list_ownerships
+
+        """
+        pass
+
+    def test_get_list_subscribers(self) -> None:
+        """Test case for get_list_subscribers
+
+        """
+        pass
+
     def test_get_retweeters(self) -> None:
         """Test case for get_retweeters
 

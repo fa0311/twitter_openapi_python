@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.social_context_landing_url import SocialContextLandingUrl
 from typing import Optional, Set
@@ -29,8 +29,9 @@ class TrendMetadata(BaseModel):
     """
     TrendMetadata
     """ # noqa: E501
+    domain_context: Optional[StrictStr] = None
     url: Optional[SocialContextLandingUrl] = None
-    __properties: ClassVar[List[str]] = ["url"]
+    __properties: ClassVar[List[str]] = ["domain_context", "url"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -86,6 +87,7 @@ class TrendMetadata(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "domain_context": obj.get("domain_context"),
             "url": SocialContextLandingUrl.from_dict(obj["url"]) if obj.get("url") is not None else None
         })
         return _obj

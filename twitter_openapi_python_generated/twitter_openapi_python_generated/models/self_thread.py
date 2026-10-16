@@ -32,13 +32,10 @@ class SelfThread(BaseModel):
     id_str: Annotated[str, Field(strict=True)]
     __properties: ClassVar[List[str]] = ["id_str"]
 
-    @field_validator('id_str')
+    @field_validator('id_str', mode="before")
     def id_str_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 

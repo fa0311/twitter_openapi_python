@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **path** | [**List[ErrorResponsePathInner]**](ErrorResponsePathInner.md) |  | 
 **retry_after** | **int** |  | [optional] 
 **source** | **str** |  | 
-**tracing** | [**Tracing**](Tracing.md) |  | 
+**tracing** | [**Tracing**](Tracing.md) |  | [optional] 
 
 ## Example
 

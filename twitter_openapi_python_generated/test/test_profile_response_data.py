@@ -44,6 +44,7 @@ class TestProfileResponseData(unittest.TestCase):
                             name = '', 
                             screen_name = '', ), 
                         id = 'G', 
+                        is_verified_organization = True, 
                         legacy = twitter_openapi_python_generated.models.user_result_by_screen_name_legacy.UserResultByScreenNameLegacy(
                             blocked_by = True, 
                             blocking = True, 

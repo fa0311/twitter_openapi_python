@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id_str** | **str** |  | 
+**path** | **List[str]** |  | [optional] 
 
 ## Example
 

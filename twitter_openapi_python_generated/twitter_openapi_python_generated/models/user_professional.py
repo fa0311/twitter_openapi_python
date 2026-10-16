@@ -42,13 +42,10 @@ class UserProfessional(BaseModel):
             raise ValueError("must be one of enum values ('Business', 'Creator')")
         return value
 
-    @field_validator('rest_id')
+    @field_validator('rest_id', mode="before")
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
@@ -95,8 +92,7 @@ class UserProfessional(BaseModel):
         _items = []
         if self.category:
             for _item_category in self.category:
-                if _item_category:
-                    _items.append(_item_category.to_dict())
+                _items.append(_item_category.to_dict() if _item_category is not None else None)
             _dict['category'] = _items
         return _dict
 

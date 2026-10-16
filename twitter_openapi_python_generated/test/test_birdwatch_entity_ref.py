@@ -36,6 +36,7 @@ class TestBirdwatchEntityRef(unittest.TestCase):
         model = BirdwatchEntityRef()
         if include_optional:
             return BirdwatchEntityRef(
+                expanded_url = '',
                 text = '',
                 type = 'TimelineUrl',
                 url = '',

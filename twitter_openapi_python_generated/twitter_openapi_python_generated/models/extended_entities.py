@@ -75,8 +75,7 @@ class ExtendedEntities(BaseModel):
         _items = []
         if self.media:
             for _item_media in self.media:
-                if _item_media:
-                    _items.append(_item_media.to_dict())
+                _items.append(_item_media.to_dict() if _item_media is not None else None)
             _dict['media'] = _items
         return _dict
 

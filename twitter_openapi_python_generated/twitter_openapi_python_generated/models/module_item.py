@@ -35,13 +35,10 @@ class ModuleItem(BaseModel):
     item: ModuleEntry
     __properties: ClassVar[List[str]] = ["dispensable", "entryId", "item"]
 
-    @field_validator('entry_id')
+    @field_validator('entry_id', mode="before")
     def entry_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(([a-zA-Z]+|[0-9]+|[0-9a-f]+)(-|$))+", value):
+        if isinstance(value, str) and not re.match(r"^(([a-zA-Z]+|[0-9]+|[0-9a-f]+)(-|$))+", value):
             raise ValueError(r"must validate the regular expression /^(([a-zA-Z]+|[0-9]+|[0-9a-f]+)(-|$))+/")
         return value
 

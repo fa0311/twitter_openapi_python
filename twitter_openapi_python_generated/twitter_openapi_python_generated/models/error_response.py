@@ -41,7 +41,7 @@ class ErrorResponse(BaseModel):
     path: List[ErrorResponsePathInner]
     retry_after: Optional[StrictInt] = None
     source: StrictStr
-    tracing: Tracing
+    tracing: Optional[Tracing] = None
     __properties: ClassVar[List[str]] = ["code", "extensions", "kind", "locations", "message", "name", "path", "retry_after", "source", "tracing"]
 
     model_config = ConfigDict(
@@ -90,15 +90,13 @@ class ErrorResponse(BaseModel):
         _items = []
         if self.locations:
             for _item_locations in self.locations:
-                if _item_locations:
-                    _items.append(_item_locations.to_dict())
+                _items.append(_item_locations.to_dict() if _item_locations is not None else None)
             _dict['locations'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in path (list)
         _items = []
         if self.path:
             for _item_path in self.path:
-                if _item_path:
-                    _items.append(_item_path.to_dict())
+                _items.append(_item_path.to_dict() if _item_path is not None else None)
             _dict['path'] = _items
         # override the default output from pydantic by calling `to_dict()` of tracing
         if self.tracing:

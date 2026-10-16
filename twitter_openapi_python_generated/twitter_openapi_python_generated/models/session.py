@@ -48,33 +48,24 @@ class Session(BaseModel):
     user_id: Annotated[str, Field(strict=True)]
     __properties: ClassVar[List[str]] = ["SsoInitTokens", "communitiesActions", "country", "guestId", "hasCommunityMemberships", "isActiveCreator", "isRestrictedSession", "isSuperFollowSubscriber", "language", "oneFactorLoginEligibility", "superFollowersCount", "superFollowsApplicationStatus", "userFeatures", "user_id"]
 
-    @field_validator('country')
+    @field_validator('country', mode="before")
     def country_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[A-Z]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^[A-Z]{2}$", value):
             raise ValueError(r"must validate the regular expression /^[A-Z]{2}$/")
         return value
 
-    @field_validator('guest_id')
+    @field_validator('guest_id', mode="before")
     def guest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 
-    @field_validator('language')
+    @field_validator('language', mode="before")
     def language_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[a-z]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^[a-z]{2}$", value):
             raise ValueError(r"must validate the regular expression /^[a-z]{2}$/")
         return value
 
@@ -85,13 +76,10 @@ class Session(BaseModel):
             raise ValueError("must be one of enum values ('NotStarted')")
         return value
 
-    @field_validator('user_id')
+    @field_validator('user_id', mode="before")
     def user_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 

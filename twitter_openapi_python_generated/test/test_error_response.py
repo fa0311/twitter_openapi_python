@@ -84,8 +84,6 @@ class TestErrorResponse(unittest.TestCase):
                     null
                     ],
                 source = '',
-                tracing = twitter_openapi_python_generated.models.tracing.Tracing(
-                    trace_id = 'bf325375e030fccb', ),
         )
         """
 

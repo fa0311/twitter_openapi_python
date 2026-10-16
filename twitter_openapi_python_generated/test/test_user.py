@@ -37,8 +37,12 @@ class TestUser(unittest.TestCase):
         if include_optional:
             return User(
                 typename = 'TimelineTweet',
+                action_counts = twitter_openapi_python_generated.models.user_action_counts.UserActionCounts(
+                    favorites_count = 56, ),
                 affiliates_highlighted_label = { },
                 avatar = twitter_openapi_python_generated.models.user_avatar.UserAvatar(
+                    image_url = '', ),
+                banner = twitter_openapi_python_generated.models.user_banner.UserBanner(
                     image_url = '', ),
                 business_account = { },
                 core = twitter_openapi_python_generated.models.user_core.UserCore(
@@ -48,6 +52,135 @@ class TestUser(unittest.TestCase):
                 creator_subscriptions_count = 56,
                 dm_permissions = twitter_openapi_python_generated.models.user_dm_permissions.UserDmPermissions(
                     can_dm = True, ),
+                follow_request_sent = True,
+                grok_translated_bio_with_availability = twitter_openapi_python_generated.models.grok_translated_bio_with_availability.GrokTranslatedBioWithAvailability(
+                    data = twitter_openapi_python_generated.models.grok_translated_bio.GrokTranslatedBio(
+                        destination_language = '', 
+                        entities = twitter_openapi_python_generated.models.entities.Entities(
+                            hashtags = [
+                                { }
+                                ], 
+                            media = [
+                                twitter_openapi_python_generated.models.media.Media(
+                                    additional_media_info = twitter_openapi_python_generated.models.additional_media_info.AdditionalMediaInfo(
+                                        call_to_actions = twitter_openapi_python_generated.models.additional_media_info_call_to_actions.AdditionalMediaInfoCallToActions(
+                                            visit_site = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
+                                                url = '', ), 
+                                            watch_now = twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url.AdditionalMediaInfoCallToActionsUrl(
+                                                url = '', ), ), 
+                                        description = '', 
+                                        embeddable = True, 
+                                        monetizable = True, 
+                                        source_user = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
+                                            user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                                                result = null, ), ), 
+                                        title = '', ), 
+                                    allow_download_status = twitter_openapi_python_generated.models.allow_download_status.AllowDownloadStatus(
+                                        allow_download = True, ), 
+                                    display_url = '', 
+                                    expanded_url = '', 
+                                    ext_alt_text = '', 
+                                    ext_media_availability = twitter_openapi_python_generated.models.ext_media_availability.ExtMediaAvailability(
+                                        reason = '', 
+                                        status = 'Available', ), 
+                                    features = twitter_openapi_python_generated.models.features.features(), 
+                                    grok_post_id = '', 
+                                    id_str = '4', 
+                                    indices = [
+                                        56
+                                        ], 
+                                    media_key = '', 
+                                    media_results = twitter_openapi_python_generated.models.media_results.MediaResults(
+                                        result = twitter_openapi_python_generated.models.media_result.MediaResult(
+                                            grok_image_annotation = twitter_openapi_python_generated.models.grok_image_annotation.GrokImageAnnotation(
+                                                prompt = '', 
+                                                upsampled_prompt = '', ), 
+                                            media_key = '', ), ), 
+                                    media_url_https = '', 
+                                    original_info = twitter_openapi_python_generated.models.media_original_info.MediaOriginalInfo(
+                                        focus_rects = [
+                                            twitter_openapi_python_generated.models.media_original_info_focus_rect.MediaOriginalInfoFocusRect(
+                                                h = 56, 
+                                                w = 56, 
+                                                x = 56, 
+                                                y = 56, )
+                                            ], 
+                                        height = 56, 
+                                        width = 56, ), 
+                                    sensitive_media_warning = twitter_openapi_python_generated.models.sensitive_media_warning.SensitiveMediaWarning(
+                                        adult_content = True, 
+                                        graphic_violence = True, 
+                                        other = True, ), 
+                                    sizes = twitter_openapi_python_generated.models.media_sizes.MediaSizes(
+                                        large = twitter_openapi_python_generated.models.media_size.MediaSize(
+                                            h = 56, 
+                                            resize = 'crop', 
+                                            w = 56, ), 
+                                        medium = twitter_openapi_python_generated.models.media_size.MediaSize(
+                                            h = 56, 
+                                            resize = 'crop', 
+                                            w = 56, ), 
+                                        small = twitter_openapi_python_generated.models.media_size.MediaSize(
+                                            h = 56, 
+                                            resize = 'crop', 
+                                            w = 56, ), 
+                                        thumb = twitter_openapi_python_generated.models.media_size.MediaSize(
+                                            h = 56, 
+                                            resize = 'crop', 
+                                            w = 56, ), ), 
+                                    source_status_id_str = '4', 
+                                    source_user_id_str = '4', 
+                                    source_user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                                        result = null, ), 
+                                    type = 'photo', 
+                                    url = '', 
+                                    video_info = twitter_openapi_python_generated.models.media_video_info.MediaVideoInfo(
+                                        aspect_ratio = [
+                                            56
+                                            ], 
+                                        duration_millis = 56, 
+                                        variants = [
+                                            twitter_openapi_python_generated.models.media_video_info_variant.MediaVideoInfoVariant(
+                                                bitrate = 56, 
+                                                content_type = '', 
+                                                url = '', )
+                                            ], ), )
+                                ], 
+                            smarttags = [
+                                twitter_openapi_python_generated.models.smarttag.Smarttag(
+                                    indices = [
+                                        56
+                                        ], 
+                                    tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                        info = { }, ), 
+                                    text = '', )
+                                ], 
+                            symbols = [
+                                { }
+                                ], 
+                            timestamps = [
+                                twitter_openapi_python_generated.models.timestamp.Timestamp(
+                                    indices = [
+                                        56
+                                        ], 
+                                    seconds = 56, 
+                                    text = '', )
+                                ], 
+                            urls = [
+                                twitter_openapi_python_generated.models.url.Url(
+                                    display_url = '', 
+                                    expanded_url = '', 
+                                    indices = [
+                                        56
+                                        ], 
+                                    url = '', )
+                                ], 
+                            user_mentions = [
+                                { }
+                                ], ), 
+                        source_language = '', 
+                        translation = '', ), 
+                    is_available = True, ),
                 has_graduated_access = True,
                 has_hidden_likes_on_profile = True,
                 has_hidden_subscriptions_on_profile = True,
@@ -58,6 +191,7 @@ class TestUser(unittest.TestCase):
                 id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=',
                 is_blue_verified = True,
                 is_profile_translatable = True,
+                is_verified_organization = True,
                 legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
                     blocked_by = True, 
                     blocking = True, 
@@ -119,7 +253,14 @@ class TestUser(unittest.TestCase):
                     location = '', ),
                 media_permissions = twitter_openapi_python_generated.models.user_media_permissions.UserMediaPermissions(
                     can_media_tag = True, ),
+                notifications_settings = twitter_openapi_python_generated.models.user_notifications_settings.UserNotificationsSettings(
+                    notifications_enabled = True, ),
                 parody_commentary_fan_label = 'None',
+                pinned_items = twitter_openapi_python_generated.models.user_pinned_items.UserPinnedItems(
+                    tweet_ids_str = [
+                        '4'
+                        ], ),
+                possibly_sensitive = True,
                 premium_gifting_eligible = True,
                 privacy = twitter_openapi_python_generated.models.user_privacy.UserPrivacy(
                     protected = True, ),
@@ -133,15 +274,48 @@ class TestUser(unittest.TestCase):
                     professional_type = 'Business', 
                     rest_id = '4', ),
                 profile_bio = twitter_openapi_python_generated.models.profile_bio.ProfileBio(
-                    description = '', ),
+                    description = '', 
+                    entities = twitter_openapi_python_generated.models.profile_bio_entities.ProfileBioEntities(
+                        description = twitter_openapi_python_generated.models.profile_bio_entities_urls.ProfileBioEntitiesUrls(
+                            urls = [
+                                twitter_openapi_python_generated.models.url.Url(
+                                    display_url = '', 
+                                    expanded_url = '', 
+                                    indices = [
+                                        56
+                                        ], 
+                                    url = '', )
+                                ], ), 
+                        url = twitter_openapi_python_generated.models.profile_bio_entities_urls.ProfileBioEntitiesUrls(
+                            urls = [
+                                twitter_openapi_python_generated.models.url.Url(
+                                    display_url = '', 
+                                    expanded_url = '', 
+                                    indices = [
+                                        56
+                                        ], 
+                                    url = '', )
+                                ], ), ), 
+                    withheld_in_countries = [
+                        ''
+                        ], ),
                 profile_description_language = '',
                 profile_image_shape = 'Circle',
+                profile_metadata = twitter_openapi_python_generated.models.user_profile_metadata.UserProfileMetadata(
+                    profile_interstitial_type = '', ),
                 profile_sort_enabled = True,
+                profile_translation = twitter_openapi_python_generated.models.user_profile_translation.UserProfileTranslation(
+                    translator_type = '', ),
+                relationship_counts = twitter_openapi_python_generated.models.user_relationship_counts.UserRelationshipCounts(
+                    followers = 56, 
+                    following = 56, ),
                 relationship_perspectives = twitter_openapi_python_generated.models.user_relationship_perspectives.UserRelationshipPerspectives(
                     blocked_by = True, 
                     blocking = True, 
                     followed_by = True, 
-                    following = True, ),
+                    following = True, 
+                    live_following = True, 
+                    muting = True, ),
                 rest_id = '4',
                 super_follow_eligible = True,
                 super_followed_by = True,
@@ -159,6 +333,9 @@ class TestUser(unittest.TestCase):
                     patreon_handle = '', 
                     pay_pal_handle = '', 
                     venmo_handle = '', ),
+                tweet_counts = twitter_openapi_python_generated.models.user_tweet_counts.UserTweetCounts(
+                    media_tweets = 56, 
+                    tweets = 56, ),
                 user_seed_tweet_count = 56,
                 verification = twitter_openapi_python_generated.models.user_verification.UserVerification(
                     verified = True, 
@@ -180,63 +357,15 @@ class TestUser(unittest.TestCase):
                         verified_since_msec = '-80728', ), ),
                 verified_user_profiles = twitter_openapi_python_generated.models.user_profile.UserProfile(
                     super_follows_user_profile = twitter_openapi_python_generated.models.super_follow_user_profile.SuperFollowUserProfile(
-                        is_active = True, ), )
+                        is_active = True, ), ),
+                website = twitter_openapi_python_generated.models.user_website.UserWebsite(
+                    url = '', )
             )
         else:
             return User(
                 typename = 'TimelineTweet',
                 id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=',
                 is_blue_verified = True,
-                legacy = twitter_openapi_python_generated.models.user_legacy.UserLegacy(
-                    blocked_by = True, 
-                    blocking = True, 
-                    can_dm = True, 
-                    can_media_tag = True, 
-                    created_at = 'Sat Dec 31 23:59:59 +0000 2023', 
-                    default_profile = True, 
-                    default_profile_image = True, 
-                    description = '', 
-                    entities = { }, 
-                    fast_followers_count = 56, 
-                    favourites_count = 56, 
-                    follow_request_sent = True, 
-                    followed_by = True, 
-                    followers_count = 56, 
-                    following = True, 
-                    friends_count = 56, 
-                    has_custom_timelines = True, 
-                    is_translator = True, 
-                    listed_count = 56, 
-                    location = '', 
-                    media_count = 56, 
-                    muting = True, 
-                    name = '', 
-                    normal_followers_count = 56, 
-                    notifications = True, 
-                    pinned_tweet_ids_str = [
-                        ''
-                        ], 
-                    possibly_sensitive = True, 
-                    profile_banner_extensions = twitter_openapi_python_generated.models.profile_banner_extensions.profile_banner_extensions(), 
-                    profile_banner_url = '', 
-                    profile_image_extensions = twitter_openapi_python_generated.models.profile_image_extensions.profile_image_extensions(), 
-                    profile_image_url_https = '', 
-                    profile_interstitial_type = '', 
-                    protected = True, 
-                    screen_name = '', 
-                    statuses_count = 56, 
-                    time_zone = '', 
-                    translator_type = '', 
-                    url = '', 
-                    utc_offset = 56, 
-                    verified = True, 
-                    verified_type = 'Business', 
-                    want_retweets = True, 
-                    withheld_description = '', 
-                    withheld_in_countries = [
-                        ''
-                        ], 
-                    withheld_scope = '', ),
                 profile_image_shape = 'Circle',
                 rest_id = '4',
         )

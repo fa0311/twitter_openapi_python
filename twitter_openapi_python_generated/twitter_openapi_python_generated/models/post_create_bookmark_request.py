@@ -29,7 +29,7 @@ class PostCreateBookmarkRequest(BaseModel):
     """
     PostCreateBookmarkRequest
     """ # noqa: E501
-    query_id: StrictStr = Field(alias="queryId")
+    query_id: StrictStr = Field(alias="queryId", json_schema_extra={"examples": ["aoDbu3RHznuiSkQ9aNM67Q"]})
     variables: PostCreateBookmarkRequestVariables
     __properties: ClassVar[List[str]] = ["queryId", "variables"]
 

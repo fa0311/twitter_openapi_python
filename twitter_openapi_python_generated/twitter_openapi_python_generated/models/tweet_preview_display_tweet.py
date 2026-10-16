@@ -35,7 +35,7 @@ class TweetPreviewDisplayTweet(BaseModel):
     article_preview: Optional[ArticlePreview] = None
     bookmark_count: StrictInt
     core: UserResultCore
-    created_at: Annotated[str, Field(strict=True)]
+    created_at: Annotated[str, Field(strict=True)] = Field(json_schema_extra={"examples": ["Sat Dec 31 23:59:59 +0000 2023"]})
     entities: Dict[str, Any]
     favorite_count: StrictInt
     quote_count: StrictInt
@@ -46,23 +46,17 @@ class TweetPreviewDisplayTweet(BaseModel):
     view_count: TweetPreviewDisplayTweetViewCount
     __properties: ClassVar[List[str]] = ["article_preview", "bookmark_count", "core", "created_at", "entities", "favorite_count", "quote_count", "reply_count", "rest_id", "retweet_count", "text", "view_count"]
 
-    @field_validator('created_at')
+    @field_validator('created_at', mode="before")
     def created_at_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$", value):
+        if isinstance(value, str) and not re.match(r"^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$", value):
             raise ValueError(r"must validate the regular expression /^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0[1-9]|[12][0-9]|3[01]) (0[0-9]|1[0-9]|2[0-3])(: ?)([0-5][0-9])(: ?)([0-5][0-9]) ([+-][0-9]{4}) ([0-9]{4})$/")
         return value
 
-    @field_validator('rest_id')
+    @field_validator('rest_id', mode="before")
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 

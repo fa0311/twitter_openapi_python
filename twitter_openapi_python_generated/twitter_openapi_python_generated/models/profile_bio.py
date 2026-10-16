@@ -19,7 +19,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.profile_bio_entities import ProfileBioEntities
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,7 +30,9 @@ class ProfileBio(BaseModel):
     ProfileBio
     """ # noqa: E501
     description: StrictStr
-    __properties: ClassVar[List[str]] = ["description"]
+    entities: Optional[ProfileBioEntities] = None
+    withheld_in_countries: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["description", "entities", "withheld_in_countries"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -70,6 +73,9 @@ class ProfileBio(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of entities
+        if self.entities:
+            _dict['entities'] = self.entities.to_dict()
         return _dict
 
     @classmethod
@@ -82,7 +88,9 @@ class ProfileBio(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "description": obj.get("description")
+            "description": obj.get("description"),
+            "entities": ProfileBioEntities.from_dict(obj["entities"]) if obj.get("entities") is not None else None,
+            "withheld_in_countries": obj.get("withheld_in_countries")
         })
         return _obj
 

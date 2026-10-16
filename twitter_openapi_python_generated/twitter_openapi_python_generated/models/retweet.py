@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.retweet_legacy import RetweetLegacy
 from typing import Optional, Set
@@ -30,17 +30,14 @@ class Retweet(BaseModel):
     """
     Retweet
     """ # noqa: E501
-    legacy: RetweetLegacy
+    legacy: Optional[RetweetLegacy] = None
     rest_id: Annotated[str, Field(strict=True)]
     __properties: ClassVar[List[str]] = ["legacy", "rest_id"]
 
-    @field_validator('rest_id')
+    @field_validator('rest_id', mode="before")
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]+$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value
 

@@ -29,7 +29,7 @@ class PostDeleteTweetRequest(BaseModel):
     """
     PostDeleteTweetRequest
     """ # noqa: E501
-    query_id: StrictStr = Field(alias="queryId")
+    query_id: StrictStr = Field(alias="queryId", json_schema_extra={"examples": ["nxpZCY2K-I6QoFHAHeojFQ"]})
     variables: PostCreateRetweetRequestVariables
     __properties: ClassVar[List[str]] = ["queryId", "variables"]
 
@@ -87,7 +87,7 @@ class PostDeleteTweetRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "queryId": obj.get("queryId") if obj.get("queryId") is not None else 'VaenaVgh5q5ih7kvyVjgtg',
+            "queryId": obj.get("queryId") if obj.get("queryId") is not None else 'nxpZCY2K-I6QoFHAHeojFQ',
             "variables": PostCreateRetweetRequestVariables.from_dict(obj["variables"]) if obj.get("variables") is not None else None
         })
         return _obj

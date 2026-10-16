@@ -32,7 +32,9 @@ class UserRelationshipPerspectives(BaseModel):
     blocking: Optional[StrictBool] = None
     followed_by: Optional[StrictBool] = None
     following: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["blocked_by", "blocking", "followed_by", "following"]
+    live_following: Optional[StrictBool] = None
+    muting: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["blocked_by", "blocking", "followed_by", "following", "live_following", "muting"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -88,7 +90,9 @@ class UserRelationshipPerspectives(BaseModel):
             "blocked_by": obj.get("blocked_by"),
             "blocking": obj.get("blocking"),
             "followed_by": obj.get("followed_by"),
-            "following": obj.get("following")
+            "following": obj.get("following"),
+            "live_following": obj.get("live_following"),
+            "muting": obj.get("muting")
         })
         return _obj
 
