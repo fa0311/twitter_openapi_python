@@ -36,7 +36,7 @@ class TestModuleFooter(unittest.TestCase):
         model = ModuleFooter()
         if include_optional:
             return ModuleFooter(
-                display_type = 'Classic',
+                display_type = '',
                 landing_url = twitter_openapi_python_generated.models.landing_url.LandingUrl(
                     url = '', 
                     url_type = 'DeepLink', ),
@@ -44,7 +44,7 @@ class TestModuleFooter(unittest.TestCase):
             )
         else:
             return ModuleFooter(
-                display_type = 'Classic',
+                display_type = '',
                 landing_url = twitter_openapi_python_generated.models.landing_url.LandingUrl(
                     url = '', 
                     url_type = 'DeepLink', ),

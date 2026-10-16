@@ -28,6 +28,7 @@ from twitter_openapi_python_generated.models.social_context_union import SocialC
 from twitter_openapi_python_generated.models.thumbnail_image import ThumbnailImage
 from twitter_openapi_python_generated.models.trend_image import TrendImage
 from twitter_openapi_python_generated.models.trend_metadata import TrendMetadata
+from twitter_openapi_python_generated.models.trend_promoted_metadata import TrendPromotedMetadata
 from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
 from typing_extensions import Self
@@ -38,17 +39,19 @@ class TimelineTrend(BaseModel):
     TimelineTrend
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
+    description: Optional[StrictStr] = None
     grouped_trends: Optional[List[GroupedTrend]] = None
     images: Optional[List[TrendImage]] = None
     is_ai_trend: Optional[StrictBool] = None
     item_type: Optional[ContentItemType] = Field(default=None, alias="itemType")
     name: StrictStr
+    promoted_metadata: Optional[TrendPromotedMetadata] = None
     rank: Optional[Annotated[str, Field(strict=True)]] = None
     social_context: Optional[SocialContextUnion] = None
     thumbnail_image: Optional[ThumbnailImage] = None
     trend_metadata: TrendMetadata
     trend_url: SocialContextLandingUrl
-    __properties: ClassVar[List[str]] = ["__typename", "grouped_trends", "images", "is_ai_trend", "itemType", "name", "rank", "social_context", "thumbnail_image", "trend_metadata", "trend_url"]
+    __properties: ClassVar[List[str]] = ["__typename", "description", "grouped_trends", "images", "is_ai_trend", "itemType", "name", "promoted_metadata", "rank", "social_context", "thumbnail_image", "trend_metadata", "trend_url"]
 
     @field_validator('rank', mode="before")
     def rank_validate_regular_expression(cls, value):
@@ -111,6 +114,9 @@ class TimelineTrend(BaseModel):
             for _item_images in self.images:
                 _items.append(_item_images.to_dict() if _item_images is not None else None)
             _dict['images'] = _items
+        # override the default output from pydantic by calling `to_dict()` of promoted_metadata
+        if self.promoted_metadata:
+            _dict['promoted_metadata'] = self.promoted_metadata.to_dict()
         # override the default output from pydantic by calling `to_dict()` of social_context
         if self.social_context:
             _dict['social_context'] = self.social_context.to_dict()
@@ -136,11 +142,13 @@ class TimelineTrend(BaseModel):
 
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
+            "description": obj.get("description"),
             "grouped_trends": [GroupedTrend.from_dict(_item) for _item in obj["grouped_trends"]] if obj.get("grouped_trends") is not None else None,
             "images": [TrendImage.from_dict(_item) for _item in obj["images"]] if obj.get("images") is not None else None,
             "is_ai_trend": obj.get("is_ai_trend"),
             "itemType": obj.get("itemType"),
             "name": obj.get("name"),
+            "promoted_metadata": TrendPromotedMetadata.from_dict(obj["promoted_metadata"]) if obj.get("promoted_metadata") is not None else None,
             "rank": obj.get("rank"),
             "social_context": SocialContextUnion.from_dict(obj["social_context"]) if obj.get("social_context") is not None else None,
             "thumbnail_image": ThumbnailImage.from_dict(obj["thumbnail_image"]) if obj.get("thumbnail_image") is not None else None,

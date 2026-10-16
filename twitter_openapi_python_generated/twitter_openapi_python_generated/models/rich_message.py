@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.rich_message_entity import RichMessageEntity
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,9 +29,10 @@ class RichMessage(BaseModel):
     """
     RichMessage
     """ # noqa: E501
+    entities: Optional[List[RichMessageEntity]] = None
     rtl: Optional[StrictBool] = None
     text: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["rtl", "text"]
+    __properties: ClassVar[List[str]] = ["entities", "rtl", "text"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -71,6 +73,12 @@ class RichMessage(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in entities (list)
+        _items = []
+        if self.entities:
+            for _item_entities in self.entities:
+                _items.append(_item_entities.to_dict() if _item_entities is not None else None)
+            _dict['entities'] = _items
         return _dict
 
     @classmethod
@@ -83,6 +91,7 @@ class RichMessage(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "entities": [RichMessageEntity.from_dict(_item) for _item in obj["entities"]] if obj.get("entities") is not None else None,
             "rtl": obj.get("rtl"),
             "text": obj.get("text")
         })

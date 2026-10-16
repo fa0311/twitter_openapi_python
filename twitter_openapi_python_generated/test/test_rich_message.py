@@ -36,6 +36,17 @@ class TestRichMessage(unittest.TestCase):
         model = RichMessage()
         if include_optional:
             return RichMessage(
+                entities = [
+                    twitter_openapi_python_generated.models.rich_message_entity.RichMessageEntity(
+                        from_index = 56, 
+                        ref = twitter_openapi_python_generated.models.rich_message_entity_ref.RichMessageEntityRef(
+                            id = '4', 
+                            type = 'TimelineRichTextUser', 
+                            url = '', 
+                            user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                                result = null, ), ), 
+                        to_index = 56, )
+                    ],
                 rtl = True,
                 text = ''
             )

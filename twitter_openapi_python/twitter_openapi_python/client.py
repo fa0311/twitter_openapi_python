@@ -8,6 +8,8 @@ import urllib3
 from x_client_transaction import ClientTransaction
 
 from twitter_openapi_python.api import (
+    BirdwatchApiUtils,
+    CommunityApiUtils,
     DefaultApiUtils,
     InitialStateApiUtils,
     PostApiUtils,
@@ -31,6 +33,12 @@ class TwitterOpenapiPythonClient:
         self.api = api
         self.placeholder = placeholder
         self.ct = ct
+
+    def get_birdwatch_api(self) -> BirdwatchApiUtils:
+        return BirdwatchApiUtils(twitter.BirdwatchApi(self.api), self.placeholder, self.ct)
+
+    def get_community_api(self) -> CommunityApiUtils:
+        return CommunityApiUtils(twitter.CommunityApi(self.api), self.placeholder, self.ct)
 
     def get_default_api(self) -> DefaultApiUtils:
         return DefaultApiUtils(twitter.DefaultApi(self.api), self.placeholder, self.ct)
@@ -61,7 +69,7 @@ class TwitterOpenapiPythonClient:
 
 
 class TwitterOpenapiPython:
-    hash: str = "ec7d907e12cfaca5b93dde55522dcc6045457570"
+    hash: str = "127fa210d7f9b0252276c86a1860a7db816d9d69"
     placeholder_url = "https://raw.githubusercontent.com/fa0311/twitter-openapi/{hash}/src/config/placeholder.json"
     header = "https://raw.githubusercontent.com/fa0311/latest-user-agent/refs/heads/main/header.json"
     access_token: str = (

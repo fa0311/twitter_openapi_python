@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **has_moderated_replies** | **bool** |  | [optional] 
 **highlights** | [**Highlight**](Highlight.md) |  | [optional] 
 **item_type** | [**ContentItemType**](ContentItemType.md) |  | 
-**promoted_metadata** | [**PromotedMetadata**](PromotedMetadata.md) |  | [optional] 
+**promoted_metadata** | [**EventSummaryPromotedMetadata**](EventSummaryPromotedMetadata.md) |  | 
 **social_context** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
 **tweet_display_type** | **str** |  | 
 **tweet_results** | [**ItemResult**](ItemResult.md) |  | 
@@ -25,10 +25,12 @@ Name | Type | Description | Notes
 **community_results** | [**CommunityResult**](CommunityResult.md) |  | 
 **tombstone_display_type** | **str** |  | [optional] 
 **tombstone_info** | [**TombstoneInfo**](TombstoneInfo.md) |  | [optional] 
+**description** | **str** |  | [optional] 
 **grouped_trends** | [**List[GroupedTrend]**](GroupedTrend.md) |  | [optional] 
 **images** | [**List[TrendImage]**](TrendImage.md) |  | [optional] 
 **is_ai_trend** | **bool** |  | [optional] 
 **name** | **str** |  | 
+**promoted_metadata** | [**TrendPromotedMetadata**](TrendPromotedMetadata.md) |  | [optional] 
 **rank** | **str** |  | [optional] 
 **social_context** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
 **thumbnail_image** | [**ThumbnailImage**](ThumbnailImage.md) |  | [optional] 
@@ -46,6 +48,11 @@ Name | Type | Description | Notes
 **list** | [**TwitterList**](TwitterList.md) |  | 
 **text** | **str** |  | 
 **url** | [**SocialContextLandingUrl**](SocialContextLandingUrl.md) |  | 
+**event** | [**EventSummaryEvent**](EventSummaryEvent.md) |  | 
+**event_summary_display_type** | **str** |  | 
+**event_summary_url** | [**SocialContextLandingUrl**](SocialContextLandingUrl.md) |  | 
+**media** | [**EventSummaryMedia**](EventSummaryMedia.md) |  | 
+**title** | **str** |  | 
 
 ## Example
 

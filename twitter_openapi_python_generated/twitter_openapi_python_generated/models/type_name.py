@@ -32,6 +32,7 @@ class TypeName(str, Enum):
     TIMELINEFRAME = 'TimelineFrame'
     TIMELINETWITTERLIST = 'TimelineTwitterList'
     TIMELINELABEL = 'TimelineLabel'
+    TIMELINEEVENTSUMMARY = 'TimelineEventSummary'
     TIMELINETIMELINEITEM = 'TimelineTimelineItem'
     TIMELINEUSER = 'TimelineUser'
     TIMELINETIMELINECURSOR = 'TimelineTimelineCursor'
@@ -64,6 +65,8 @@ class TypeName(str, Enum):
     APIIMAGE = 'ApiImage'
     APIMEDIA = 'ApiMedia'
     COMMUNITYUSERDEFAULTMODERATIONSTATE = 'CommunityUserDefaultModerationState'
+    COMMUNITYHASHTAGSLICE = 'CommunityHashtagSlice'
+    COMMUNITYLISTMEMBERSACTION = 'CommunityListMembersAction'
     CTALIMITEDACTIONPROMPT = 'CtaLimitedActionPrompt'
     TIMELINERICHTEXTUSER = 'TimelineRichTextUser'
 

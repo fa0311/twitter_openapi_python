@@ -636,3 +636,47 @@ class TweetApiUtils:
             param,
             lambda entry: user_result_converter(user_entries_converter(entry)),
         )
+
+    def get_bookmark_search_timeline(
+        self,
+        raw_query: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        """Search the account's bookmarks."""
+        param: ParamType = {"rawQuery": raw_query}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+
+        response = self.request(
+            apiFn=self.api.get_bookmark_search_timeline_with_http_info,
+            convertFn=lambda e: error_check(
+                e.data.search_by_raw_query.bookmarks_search_timeline.timeline, e.errors
+            ).instructions,
+            key="BookmarkSearchTimeline",
+            param=param,
+        )
+        return response
+
+    def get_explore_sidebar(
+        self,
+        extra_param: Optional[ParamType] = None,
+    ) -> TrendResponseType:
+        """Trends of the explore sidebar."""
+        param: ParamType = {}
+        if extra_param is not None:
+            param.update(extra_param)
+
+        return timeline_request(
+            self.api.get_explore_sidebar_with_http_info,
+            self.flag["ExploreSidebar"],
+            self.ct,
+            lambda e: error_check(e.data.explore_sidebar.timeline, e.errors).instructions,
+            param,
+            trend_entries_converter,
+        )

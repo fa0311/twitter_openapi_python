@@ -33,6 +33,12 @@ class TestUserListApi(unittest.TestCase):
         """
         pass
 
+    def test_get_combined_lists(self) -> None:
+        """Test case for get_combined_lists
+
+        """
+        pass
+
     def test_get_favoriters(self) -> None:
         """Test case for get_favoriters
 
@@ -87,8 +93,20 @@ class TestUserListApi(unittest.TestCase):
         """
         pass
 
+    def test_get_list_search_timeline(self) -> None:
+        """Test case for get_list_search_timeline
+
+        """
+        pass
+
     def test_get_list_subscribers(self) -> None:
         """Test case for get_list_subscribers
+
+        """
+        pass
+
+    def test_get_lists_management_page_timeline(self) -> None:
+        """Test case for get_lists_management_page_timeline
 
         """
         pass

@@ -33,6 +33,12 @@ class TestUsersApi(unittest.TestCase):
         """
         pass
 
+    def test_get_users_verified_avatars(self) -> None:
+        """Test case for get_users_verified_avatars
+
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

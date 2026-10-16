@@ -131,6 +131,16 @@ class TestTweetApi(unittest.TestCase):
         for user in result.data.data:
             print_user(user)
 
+    def test_get_bookmark_search_timeline(self):
+        result = self.client.get_bookmark_search_timeline(raw_query="test")
+        for tweet in list(filter(self.ad_fillter, result.data.data)):
+            print_tweet(tweet)
+
+    def test_get_explore_sidebar(self):
+        result = self.client.get_explore_sidebar()
+        for trend in result.data.data:
+            logging.info(trend.name)
+
 
 if __name__ == "__main__":
     unittest.main()

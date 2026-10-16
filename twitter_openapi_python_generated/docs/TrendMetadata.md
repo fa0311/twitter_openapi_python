@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **domain_context** | **str** |  | [optional] 
+**meta_description** | **str** |  | [optional] 
 **url** | [**SocialContextLandingUrl**](SocialContextLandingUrl.md) |  | [optional] 
 
 ## Example

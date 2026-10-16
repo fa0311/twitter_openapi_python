@@ -42,6 +42,9 @@ class TestTimelineTimelineModule(unittest.TestCase):
                     details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                         conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
                             conversation_section = 'HighQuality', ), 
+                        notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
+                            impression_id = '', 
+                            metadata = '', ), 
                         timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
                             controller_data = '', 
                             injection_type = '', 
@@ -59,7 +62,7 @@ class TestTimelineTimelineModule(unittest.TestCase):
                         ], 
                     feedback_metadata = '', ),
                 footer = twitter_openapi_python_generated.models.module_footer.ModuleFooter(
-                    display_type = 'Classic', 
+                    display_type = '', 
                     landing_url = twitter_openapi_python_generated.models.landing_url.LandingUrl(
                         url = '', 
                         url_type = 'DeepLink', ), 
@@ -78,6 +81,9 @@ class TestTimelineTimelineModule(unittest.TestCase):
                                 details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                                     conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
                                         conversation_section = 'HighQuality', ), 
+                                    notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
+                                        impression_id = '', 
+                                        metadata = '', ), 
                                     timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
                                         controller_data = '', 
                                         injection_type = '', 

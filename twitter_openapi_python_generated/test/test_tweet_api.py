@@ -27,6 +27,12 @@ class TestTweetApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_get_bookmark_search_timeline(self) -> None:
+        """Test case for get_bookmark_search_timeline
+
+        """
+        pass
+
     def test_get_bookmarks(self) -> None:
         """Test case for get_bookmarks
 
@@ -65,6 +71,12 @@ class TestTweetApi(unittest.TestCase):
 
     def test_get_explore_page(self) -> None:
         """Test case for get_explore_page
+
+        """
+        pass
+
+    def test_get_explore_sidebar(self) -> None:
+        """Test case for get_explore_sidebar
 
         """
         pass

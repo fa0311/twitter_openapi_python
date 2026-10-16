@@ -2,6 +2,8 @@
 
 # flake8: noqa
 
+from twitter_openapi_python.api.birdwatch_api import BirdwatchApiUtils
+from twitter_openapi_python.api.community_api import CommunityApiUtils
 from twitter_openapi_python.api.default_api import DefaultApiUtils
 from twitter_openapi_python.api.initial_state_api import InitialStateApiUtils
 from twitter_openapi_python.api.post_api import PostApiUtils

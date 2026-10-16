@@ -44,7 +44,8 @@ class TestAdMetadataContainer(unittest.TestCase):
                 is_quick_promote = True,
                 render_legacy_website_card = True,
                 render_sales_cta_website_card = True,
-                show_overlay_on_first_card = True
+                show_overlay_on_first_card = True,
+                unified_card_override = ''
             )
         else:
             return AdMetadataContainer(

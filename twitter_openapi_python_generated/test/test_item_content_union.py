@@ -45,27 +45,20 @@ class TestItemContentUnion(unittest.TestCase):
                             start_index = 56, )
                         ], ),
                 item_type = 'TimelineTweet',
-                promoted_metadata = twitter_openapi_python_generated.models.promoted_metadata.PromotedMetadata(
-                    ad_metadata_container = twitter_openapi_python_generated.models.ad_metadata_container.AdMetadataContainer(
-                        destination_url_params = [
-                            twitter_openapi_python_generated.models.key_value.KeyValue(
-                                key = '', 
-                                value = '', )
-                            ], 
+                promoted_metadata = twitter_openapi_python_generated.models.event_summary_promoted_metadata.EventSummaryPromotedMetadata(
+                    ad_metadata_container = twitter_openapi_python_generated.models.event_summary_ad_metadata_container.EventSummaryAdMetadataContainer(
                         is_quick_promote = True, 
-                        render_legacy_website_card = True, 
-                        render_sales_cta_website_card = True, 
-                        show_overlay_on_first_card = True, ), 
+                        render_sales_cta_website_card = True, ), 
                     advertiser_results = twitter_openapi_python_generated.models.user_results.UserResults(
                         result = null, ), 
-                    click_tracking_info = twitter_openapi_python_generated.models.click_tracking_info.ClickTrackingInfo(
-                        url_params = [
-                            twitter_openapi_python_generated.models.key_value.KeyValue(
-                                key = '', 
-                                value = '', )
-                            ], ), 
+                    disclosure_type = '', 
                     impression_id = '', 
-                    impression_string = '', ),
+                    impression_string = '', 
+                    promoted_trend = twitter_openapi_python_generated.models.promoted_trend.PromotedTrend(
+                        rest_id = '4', ), 
+                    promoted_trend_description = '', 
+                    promoted_trend_name = '', 
+                    promoted_trend_query_term = '', ),
                 social_context = None,
                 tweet_display_type = 'Tweet',
                 tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
@@ -86,6 +79,9 @@ class TestItemContentUnion(unittest.TestCase):
                     details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                         conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
                             conversation_section = 'HighQuality', ), 
+                        notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
+                            impression_id = '', 
+                            metadata = '', ), 
                         timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
                             controller_data = '', 
                             injection_type = '', 
@@ -128,6 +124,7 @@ class TestItemContentUnion(unittest.TestCase):
                         rtl = True, 
                         text = '', ), 
                     text = '', ),
+                description = '',
                 grouped_trends = [
                     twitter_openapi_python_generated.models.grouped_trend.GroupedTrend(
                         name = '', 
@@ -147,6 +144,17 @@ class TestItemContentUnion(unittest.TestCase):
                     ],
                 is_ai_trend = True,
                 name = '',
+                promoted_metadata = twitter_openapi_python_generated.models.trend_promoted_metadata.TrendPromotedMetadata(
+                    advertiser_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                        result = null, ), 
+                    disclosure_type = '', 
+                    impression_id = '', 
+                    impression_string = '', 
+                    promoted_trend = twitter_openapi_python_generated.models.promoted_trend.PromotedTrend(
+                        rest_id = '4', ), 
+                    promoted_trend_description = '', 
+                    promoted_trend_name = '', 
+                    promoted_trend_query_term = '', ),
                 rank = '4',
                 social_context = None,
                 thumbnail_image = twitter_openapi_python_generated.models.thumbnail_image.ThumbnailImage(
@@ -155,6 +163,7 @@ class TestItemContentUnion(unittest.TestCase):
                     original_img_width = 56, ),
                 trend_metadata = twitter_openapi_python_generated.models.trend_metadata.TrendMetadata(
                     domain_context = '', 
+                    meta_description = '', 
                     url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
                         url_type = 'DeepLink', 
                         urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
@@ -187,6 +196,17 @@ class TestItemContentUnion(unittest.TestCase):
                             ], 
                         title = '', ), ),
                 rich_message = twitter_openapi_python_generated.models.rich_message.RichMessage(
+                    entities = [
+                        twitter_openapi_python_generated.models.rich_message_entity.RichMessageEntity(
+                            from_index = 56, 
+                            ref = twitter_openapi_python_generated.models.rich_message_entity_ref.RichMessageEntityRef(
+                                id = '4', 
+                                type = 'TimelineRichTextUser', 
+                                url = '', 
+                                user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                                    result = null, ), ), 
+                            to_index = 56, )
+                        ], 
                     rtl = True, 
                     text = '', ),
                 template = twitter_openapi_python_generated.models.notification_template.NotificationTemplate(
@@ -301,12 +321,49 @@ class TestItemContentUnion(unittest.TestCase):
                                 key = '', 
                                 value = '', )
                             ], 
-                        title = '', ), )
+                        title = '', ), ),
+                event = twitter_openapi_python_generated.models.event_summary_event.EventSummaryEvent(
+                    rest_id = '4', ),
+                event_summary_display_type = '',
+                event_summary_url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
+                    url = '', 
+                    url_type = 'DeepLink', 
+                    urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
+                        request_params = [
+                            twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
+                                key = '', 
+                                value = '', )
+                            ], 
+                        title = '', ), ),
+                media = twitter_openapi_python_generated.models.event_summary_media.EventSummaryMedia(
+                    media_entity = twitter_openapi_python_generated.models.event_summary_media_entity.EventSummaryMediaEntity(
+                        tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
+                            __typename = 'TimelineTweet', 
+                            result = null, ), 
+                        type = '', ), 
+                    media_key = twitter_openapi_python_generated.models.event_summary_media_key.EventSummaryMediaKey(
+                        category = 56, 
+                        id = '', ), ),
+                title = ''
             )
         else:
             return ItemContentUnion(
                 typename = 'TimelineTweet',
                 item_type = 'TimelineTweet',
+                promoted_metadata = twitter_openapi_python_generated.models.event_summary_promoted_metadata.EventSummaryPromotedMetadata(
+                    ad_metadata_container = twitter_openapi_python_generated.models.event_summary_ad_metadata_container.EventSummaryAdMetadataContainer(
+                        is_quick_promote = True, 
+                        render_sales_cta_website_card = True, ), 
+                    advertiser_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                        result = null, ), 
+                    disclosure_type = '', 
+                    impression_id = '', 
+                    impression_string = '', 
+                    promoted_trend = twitter_openapi_python_generated.models.promoted_trend.PromotedTrend(
+                        rest_id = '4', ), 
+                    promoted_trend_description = '', 
+                    promoted_trend_name = '', 
+                    promoted_trend_query_term = '', ),
                 tweet_display_type = 'Tweet',
                 tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
                     __typename = 'TimelineTweet', 
@@ -321,6 +378,9 @@ class TestItemContentUnion(unittest.TestCase):
                     details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                         conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
                             conversation_section = 'HighQuality', ), 
+                        notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
+                            impression_id = '', 
+                            metadata = '', ), 
                         timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
                             controller_data = '', 
                             injection_type = '', 
@@ -351,6 +411,7 @@ class TestItemContentUnion(unittest.TestCase):
                 name = '',
                 trend_metadata = twitter_openapi_python_generated.models.trend_metadata.TrendMetadata(
                     domain_context = '', 
+                    meta_description = '', 
                     url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
                         url_type = 'DeepLink', 
                         urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
@@ -383,6 +444,17 @@ class TestItemContentUnion(unittest.TestCase):
                             ], 
                         title = '', ), ),
                 rich_message = twitter_openapi_python_generated.models.rich_message.RichMessage(
+                    entities = [
+                        twitter_openapi_python_generated.models.rich_message_entity.RichMessageEntity(
+                            from_index = 56, 
+                            ref = twitter_openapi_python_generated.models.rich_message_entity_ref.RichMessageEntityRef(
+                                id = '4', 
+                                type = 'TimelineRichTextUser', 
+                                url = '', 
+                                user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                                    result = null, ), ), 
+                            to_index = 56, )
+                        ], 
                     rtl = True, 
                     text = '', ),
                 template = twitter_openapi_python_generated.models.notification_template.NotificationTemplate(
@@ -497,6 +569,29 @@ class TestItemContentUnion(unittest.TestCase):
                                 value = '', )
                             ], 
                         title = '', ), ),
+                event = twitter_openapi_python_generated.models.event_summary_event.EventSummaryEvent(
+                    rest_id = '4', ),
+                event_summary_display_type = '',
+                event_summary_url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
+                    url = '', 
+                    url_type = 'DeepLink', 
+                    urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
+                        request_params = [
+                            twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
+                                key = '', 
+                                value = '', )
+                            ], 
+                        title = '', ), ),
+                media = twitter_openapi_python_generated.models.event_summary_media.EventSummaryMedia(
+                    media_entity = twitter_openapi_python_generated.models.event_summary_media_entity.EventSummaryMediaEntity(
+                        tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
+                            __typename = 'TimelineTweet', 
+                            result = null, ), 
+                        type = '', ), 
+                    media_key = twitter_openapi_python_generated.models.event_summary_media_key.EventSummaryMediaKey(
+                        category = 56, 
+                        id = '', ), ),
+                title = '',
         )
         """
 

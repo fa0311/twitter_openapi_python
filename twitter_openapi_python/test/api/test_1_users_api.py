@@ -1,3 +1,4 @@
+import logging
 import unittest
 from test.api import get_client, print_legacy_user
 
@@ -15,6 +16,11 @@ class TestUserApi(unittest.TestCase):
         result = self.client.get_users_by_rest_ids(user_ids=["44196397", "44196397"])
         for user in result.data:
             print_legacy_user(user.user.legacy)
+
+    def test_get_users_verified_avatars(self):
+        result = self.client.get_users_verified_avatars(user_ids=["44196397"])
+        for user in result.data:
+            logging.info(f"{user.rest_id}: blue={user.is_blue_verified} shape={user.profile_image_shape}")
 
 
 if __name__ == "__main__":

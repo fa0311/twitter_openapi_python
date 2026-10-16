@@ -51,6 +51,17 @@ class TestTimelineNotification(unittest.TestCase):
                             ], 
                         title = '', ), ),
                 rich_message = twitter_openapi_python_generated.models.rich_message.RichMessage(
+                    entities = [
+                        twitter_openapi_python_generated.models.rich_message_entity.RichMessageEntity(
+                            from_index = 56, 
+                            ref = twitter_openapi_python_generated.models.rich_message_entity_ref.RichMessageEntityRef(
+                                id = '4', 
+                                type = 'TimelineRichTextUser', 
+                                url = '', 
+                                user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                                    result = null, ), ), 
+                            to_index = 56, )
+                        ], 
                     rtl = True, 
                     text = '', ),
                 template = twitter_openapi_python_generated.models.notification_template.NotificationTemplate(
@@ -80,6 +91,17 @@ class TestTimelineNotification(unittest.TestCase):
                             ], 
                         title = '', ), ),
                 rich_message = twitter_openapi_python_generated.models.rich_message.RichMessage(
+                    entities = [
+                        twitter_openapi_python_generated.models.rich_message_entity.RichMessageEntity(
+                            from_index = 56, 
+                            ref = twitter_openapi_python_generated.models.rich_message_entity_ref.RichMessageEntityRef(
+                                id = '4', 
+                                type = 'TimelineRichTextUser', 
+                                url = '', 
+                                user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                                    result = null, ), ), 
+                            to_index = 56, )
+                        ], 
                     rtl = True, 
                     text = '', ),
                 template = twitter_openapi_python_generated.models.notification_template.NotificationTemplate(
