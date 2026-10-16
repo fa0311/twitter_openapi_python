@@ -1,4 +1,4 @@
-from typing import Any, Generic, List, Optional, TypeVar
+from typing import Generic, List, Optional, TypeVar
 
 # from twitter_openapi_python_generated.api_response import ApiResponse
 import twitter_openapi_python_generated.models as models
@@ -26,7 +26,7 @@ class TweetApiUtilsData(BaseModel):
     replies: List["TweetApiUtilsData"] = Field(default_factory=list)
     quoted: Optional["TweetApiUtilsData"] = Field(default=None)
     retweeted: Optional["TweetApiUtilsData"] = Field(default=None)
-    promoted_metadata: Optional[dict[str, Any]] = Field(default=None)
+    promoted_metadata: Optional[models.PromotedMetadata] = Field(default=None)
 
 
 class UserApiUtilsData(BaseModel):
