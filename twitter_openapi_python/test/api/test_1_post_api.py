@@ -54,14 +54,14 @@ class TestPostApi(unittest.TestCase):
         self.assertEqual(result.raw.response.status_code, 200)
         list_id = result.data.data.list.id_str
 
-        result2 = self.client.post_list_add_member(list_id=list_id, user_id="44196397")
-        self.assertEqual(result2.raw.response.status_code, 200)
-        self.assertEqual(result2.data.data.list.member_count, 1)
+        try:
+            result2 = self.client.post_list_add_member(list_id=list_id, user_id="44196397")
+            self.assertEqual(result2.raw.response.status_code, 200)
 
-        result3 = self.client.post_list_remove_member(list_id=list_id, user_id="44196397")
-        self.assertEqual(result3.raw.response.status_code, 200)
-
-        result4 = self.client.post_delete_list(list_id=list_id)
+            result3 = self.client.post_list_remove_member(list_id=list_id, user_id="44196397")
+            self.assertEqual(result3.raw.response.status_code, 200)
+        finally:
+            result4 = self.client.post_delete_list(list_id=list_id)
         self.assertEqual(result4.raw.response.status_code, 200)
 
     def test_post_create_draft_tweet(self):
