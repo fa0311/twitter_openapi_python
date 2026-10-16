@@ -14,6 +14,7 @@ class TestUserApi(unittest.TestCase):
         result = self.client.get_user_by_screen_name(screen_name="elonmusk")
         print_user(result.data)
 
+    @unittest.skip("X answers UserByRestId / UsersByRestIds with 403 outside a browser (Cloudflare), the parameters are the frontend's")
     def test_get_user_by_rest_id(self):
         result = self.client.get_user_by_rest_id(user_id="44196397")
         print_user(result.data)
