@@ -21,6 +21,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.instruction_union import InstructionUnion
+from twitter_openapi_python_generated.models.timeline_metadata import TimelineMetadata
+from twitter_openapi_python_generated.models.timeline_response_objects import TimelineResponseObjects
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,8 +32,8 @@ class Timeline(BaseModel):
     Timeline
     """ # noqa: E501
     instructions: List[InstructionUnion]
-    metadata: Optional[Dict[str, Any]] = None
-    response_objects: Optional[Dict[str, Any]] = Field(default=None, alias="responseObjects")
+    metadata: Optional[TimelineMetadata] = None
+    response_objects: Optional[TimelineResponseObjects] = Field(default=None, alias="responseObjects")
     __properties: ClassVar[List[str]] = ["instructions", "metadata", "responseObjects"]
 
     model_config = ConfigDict(
@@ -79,6 +81,12 @@ class Timeline(BaseModel):
             for _item_instructions in self.instructions:
                 _items.append(_item_instructions.to_dict() if _item_instructions is not None else None)
             _dict['instructions'] = _items
+        # override the default output from pydantic by calling `to_dict()` of metadata
+        if self.metadata:
+            _dict['metadata'] = self.metadata.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of response_objects
+        if self.response_objects:
+            _dict['responseObjects'] = self.response_objects.to_dict()
         return _dict
 
     @classmethod
@@ -92,8 +100,8 @@ class Timeline(BaseModel):
 
         _obj = cls.model_validate({
             "instructions": [InstructionUnion.from_dict(_item) for _item in obj["instructions"]] if obj.get("instructions") is not None else None,
-            "metadata": obj.get("metadata"),
-            "responseObjects": obj.get("responseObjects")
+            "metadata": TimelineMetadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None,
+            "responseObjects": TimelineResponseObjects.from_dict(obj["responseObjects"]) if obj.get("responseObjects") is not None else None
         })
         return _obj
 

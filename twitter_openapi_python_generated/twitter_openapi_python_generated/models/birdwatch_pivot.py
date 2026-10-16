@@ -51,8 +51,8 @@ class BirdwatchPivot(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['BirdwatchEyeOff']):
-            raise ValueError("must be one of enum values ('BirdwatchEyeOff')")
+        if value not in set(['BirdwatchEyeOff', 'BirdwatchLevelLow']):
+            raise ValueError("must be one of enum values ('BirdwatchEyeOff', 'BirdwatchLevelLow')")
         return value
 
     @field_validator('icon_type')

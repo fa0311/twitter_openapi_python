@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **original_img_height** | **int** |  | 
 **original_img_url** | **str** |  | 
 **original_img_width** | **int** |  | 
-**salient_rect** | [**ListBannerMediaSalientRect**](ListBannerMediaSalientRect.md) |  | 
+**salient_rect** | [**MediaSalientRect**](MediaSalientRect.md) |  | 
 
 ## Example
 

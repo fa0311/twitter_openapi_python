@@ -24,7 +24,10 @@ from twitter_openapi_python_generated.models.client_event_info import ClientEven
 from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
 from twitter_openapi_python_generated.models.display_type import DisplayType
 from twitter_openapi_python_generated.models.feedback_info import FeedbackInfo
+from twitter_openapi_python_generated.models.module_footer import ModuleFooter
+from twitter_openapi_python_generated.models.module_header import ModuleHeader
 from twitter_openapi_python_generated.models.module_item import ModuleItem
+from twitter_openapi_python_generated.models.module_metadata import ModuleMetadata
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -38,10 +41,10 @@ class TimelineTimelineModule(BaseModel):
     display_type: DisplayType = Field(alias="displayType")
     entry_type: ContentEntryType = Field(alias="entryType")
     feedback_info: Optional[FeedbackInfo] = Field(default=None, alias="feedbackInfo")
-    footer: Optional[Dict[str, Any]] = None
-    header: Optional[Dict[str, Any]] = None
+    footer: Optional[ModuleFooter] = None
+    header: Optional[ModuleHeader] = None
     items: Optional[List[ModuleItem]] = None
-    metadata: Optional[Dict[str, Any]] = None
+    metadata: Optional[ModuleMetadata] = None
     __properties: ClassVar[List[str]] = ["__typename", "clientEventInfo", "displayType", "entryType", "feedbackInfo", "footer", "header", "items", "metadata"]
 
     model_config = ConfigDict(
@@ -89,12 +92,21 @@ class TimelineTimelineModule(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of feedback_info
         if self.feedback_info:
             _dict['feedbackInfo'] = self.feedback_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of footer
+        if self.footer:
+            _dict['footer'] = self.footer.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of header
+        if self.header:
+            _dict['header'] = self.header.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in items (list)
         _items = []
         if self.items:
             for _item_items in self.items:
                 _items.append(_item_items.to_dict() if _item_items is not None else None)
             _dict['items'] = _items
+        # override the default output from pydantic by calling `to_dict()` of metadata
+        if self.metadata:
+            _dict['metadata'] = self.metadata.to_dict()
         return _dict
 
     @classmethod
@@ -112,10 +124,10 @@ class TimelineTimelineModule(BaseModel):
             "displayType": obj.get("displayType"),
             "entryType": obj.get("entryType"),
             "feedbackInfo": FeedbackInfo.from_dict(obj["feedbackInfo"]) if obj.get("feedbackInfo") is not None else None,
-            "footer": obj.get("footer"),
-            "header": obj.get("header"),
+            "footer": ModuleFooter.from_dict(obj["footer"]) if obj.get("footer") is not None else None,
+            "header": ModuleHeader.from_dict(obj["header"]) if obj.get("header") is not None else None,
             "items": [ModuleItem.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
-            "metadata": obj.get("metadata")
+            "metadata": ModuleMetadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None
         })
         return _obj
 

@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.list_banner_media import ListBannerMedia
+from twitter_openapi_python_generated.models.list_banner_media_results import ListBannerMediaResults
 from twitter_openapi_python_generated.models.user_results import UserResults
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,8 +33,10 @@ class TwitterList(BaseModel):
     TwitterList
     """ # noqa: E501
     created_at: StrictInt
+    custom_banner_media: Optional[ListBannerMedia] = None
+    custom_banner_media_results: Optional[ListBannerMediaResults] = None
     default_banner_media: ListBannerMedia
-    default_banner_media_results: Dict[str, Any]
+    default_banner_media_results: ListBannerMediaResults
     description: StrictStr
     facepile_urls: List[StrictStr]
     followers_context: Optional[StrictStr] = None
@@ -49,7 +52,7 @@ class TwitterList(BaseModel):
     pinning: StrictBool
     subscriber_count: StrictInt
     user_results: UserResults
-    __properties: ClassVar[List[str]] = ["created_at", "default_banner_media", "default_banner_media_results", "description", "facepile_urls", "followers_context", "following", "id", "id_str", "is_member", "member_count", "members_context", "mode", "muting", "name", "pinning", "subscriber_count", "user_results"]
+    __properties: ClassVar[List[str]] = ["created_at", "custom_banner_media", "custom_banner_media_results", "default_banner_media", "default_banner_media_results", "description", "facepile_urls", "followers_context", "following", "id", "id_str", "is_member", "member_count", "members_context", "mode", "muting", "name", "pinning", "subscriber_count", "user_results"]
 
     @field_validator('id_str', mode="before")
     def id_str_validate_regular_expression(cls, value):
@@ -104,9 +107,18 @@ class TwitterList(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of custom_banner_media
+        if self.custom_banner_media:
+            _dict['custom_banner_media'] = self.custom_banner_media.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of custom_banner_media_results
+        if self.custom_banner_media_results:
+            _dict['custom_banner_media_results'] = self.custom_banner_media_results.to_dict()
         # override the default output from pydantic by calling `to_dict()` of default_banner_media
         if self.default_banner_media:
             _dict['default_banner_media'] = self.default_banner_media.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of default_banner_media_results
+        if self.default_banner_media_results:
+            _dict['default_banner_media_results'] = self.default_banner_media_results.to_dict()
         # override the default output from pydantic by calling `to_dict()` of user_results
         if self.user_results:
             _dict['user_results'] = self.user_results.to_dict()
@@ -123,8 +135,10 @@ class TwitterList(BaseModel):
 
         _obj = cls.model_validate({
             "created_at": obj.get("created_at"),
+            "custom_banner_media": ListBannerMedia.from_dict(obj["custom_banner_media"]) if obj.get("custom_banner_media") is not None else None,
+            "custom_banner_media_results": ListBannerMediaResults.from_dict(obj["custom_banner_media_results"]) if obj.get("custom_banner_media_results") is not None else None,
             "default_banner_media": ListBannerMedia.from_dict(obj["default_banner_media"]) if obj.get("default_banner_media") is not None else None,
-            "default_banner_media_results": obj.get("default_banner_media_results"),
+            "default_banner_media_results": ListBannerMediaResults.from_dict(obj["default_banner_media_results"]) if obj.get("default_banner_media_results") is not None else None,
             "description": obj.get("description"),
             "facepile_urls": obj.get("facepile_urls"),
             "followers_context": obj.get("followers_context"),

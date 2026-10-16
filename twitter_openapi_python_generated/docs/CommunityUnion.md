@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **admin_results** | [**UserResults**](UserResults.md) |  | [optional] 
 **created_at** | **int** |  | [optional] 
 **creator_results** | [**UserResults**](UserResults.md) |  | [optional] 
-**custom_banner_media** | **Dict[str, object]** |  | [optional] 
-**default_banner_media** | **Dict[str, object]** |  | [optional] 
+**custom_banner_media** | [**CommunityBannerMedia**](CommunityBannerMedia.md) |  | [optional] 
+**default_banner_media** | [**CommunityBannerMedia**](CommunityBannerMedia.md) |  | [optional] 
 **description** | **str** |  | [optional] 
 **id_str** | **str** |  | [optional] 
 **invites_policy** | **str** |  | [optional] 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **search_tags** | **List[str]** |  | [optional] 
 **show_only_users_to_display** | **List[str]** |  | [optional] 
 **urls** | [**CommunityUrls**](CommunityUrls.md) |  | [optional] 
-**viewer_relationship** | **Dict[str, object]** |  | [optional] 
+**viewer_relationship** | [**CommunityViewerRelationship**](CommunityViewerRelationship.md) |  | [optional] 
 
 ## Example
 

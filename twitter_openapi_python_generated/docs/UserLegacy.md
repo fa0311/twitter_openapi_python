@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **default_profile** | **bool** |  | 
 **default_profile_image** | **bool** |  | 
 **description** | **str** |  | 
-**entities** | **Dict[str, object]** |  | 
+**entities** | [**ProfileBioEntities**](ProfileBioEntities.md) |  | 
 **fast_followers_count** | **int** |  | 
 **favourites_count** | **int** |  | 
 **follow_request_sent** | **bool** |  | [optional] 

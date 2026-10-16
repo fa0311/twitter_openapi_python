@@ -44,16 +44,23 @@ class TestTimelineAddToModule(unittest.TestCase):
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
                             client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                                 component = '', 
-                                details = { }, 
+                                details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                                    conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                                        conversation_section = 'HighQuality', ), 
+                                    timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                                        controller_data = '', 
+                                        injection_type = '', 
+                                        source_data = '', ), ), 
                                 element = '', ), 
                             feedback_info = twitter_openapi_python_generated.models.feedback_info.FeedbackInfo(
-                                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                                client_event_info = twitter_openapi_python_generated.models.feedback_client_event_info.FeedbackClientEventInfo(
+                                    action = '', 
                                     component = '', 
-                                    details = { }, 
                                     element = '', ), 
                                 feedback_keys = [
                                     ''
-                                    ], ), 
+                                    ], 
+                                feedback_metadata = '', ), 
                             item_content = null, ), )
                     ],
                 prepend = True,
@@ -69,16 +76,23 @@ class TestTimelineAddToModule(unittest.TestCase):
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
                             client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                                 component = '', 
-                                details = { }, 
+                                details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                                    conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                                        conversation_section = 'HighQuality', ), 
+                                    timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                                        controller_data = '', 
+                                        injection_type = '', 
+                                        source_data = '', ), ), 
                                 element = '', ), 
                             feedback_info = twitter_openapi_python_generated.models.feedback_info.FeedbackInfo(
-                                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                                client_event_info = twitter_openapi_python_generated.models.feedback_client_event_info.FeedbackClientEventInfo(
+                                    action = '', 
                                     component = '', 
-                                    details = { }, 
                                     element = '', ), 
                                 feedback_keys = [
                                     ''
-                                    ], ), 
+                                    ], 
+                                feedback_metadata = '', ), 
                             item_content = null, ), )
                     ],
                 type = 'TimelineAddEntries',

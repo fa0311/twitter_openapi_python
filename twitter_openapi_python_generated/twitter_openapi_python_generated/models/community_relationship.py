@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.community_actions import CommunityActions
+from twitter_openapi_python_generated.models.community_moderation_state import CommunityModerationState
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -32,7 +33,7 @@ class CommunityRelationship(BaseModel):
     """ # noqa: E501
     actions: CommunityActions
     id: StrictStr
-    moderation_state: Dict[str, Any]
+    moderation_state: CommunityModerationState
     rest_id: Annotated[str, Field(strict=True)]
     __properties: ClassVar[List[str]] = ["actions", "id", "moderation_state", "rest_id"]
 
@@ -85,6 +86,9 @@ class CommunityRelationship(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of actions
         if self.actions:
             _dict['actions'] = self.actions.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of moderation_state
+        if self.moderation_state:
+            _dict['moderation_state'] = self.moderation_state.to_dict()
         return _dict
 
     @classmethod
@@ -99,7 +103,7 @@ class CommunityRelationship(BaseModel):
         _obj = cls.model_validate({
             "actions": CommunityActions.from_dict(obj["actions"]) if obj.get("actions") is not None else None,
             "id": obj.get("id"),
-            "moderation_state": obj.get("moderation_state"),
+            "moderation_state": CommunityModerationState.from_dict(obj["moderation_state"]) if obj.get("moderation_state") is not None else None,
             "rest_id": obj.get("rest_id")
         })
         return _obj

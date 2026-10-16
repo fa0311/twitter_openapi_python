@@ -37,7 +37,11 @@ class TestEntities(unittest.TestCase):
         if include_optional:
             return Entities(
                 hashtags = [
-                    { }
+                    twitter_openapi_python_generated.models.hashtag.Hashtag(
+                        indices = [
+                            56
+                            ], 
+                        text = '', )
                     ],
                 media = [
                     twitter_openapi_python_generated.models.media.Media(
@@ -131,11 +135,17 @@ class TestEntities(unittest.TestCase):
                             56
                             ], 
                         tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                            info = { }, ), 
+                            info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
                         text = '', )
                     ],
                 symbols = [
-                    { }
+                    twitter_openapi_python_generated.models.symbol.Symbol(
+                        indices = [
+                            56
+                            ], 
+                        tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                            info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
+                        text = '', )
                     ],
                 timestamps = [
                     twitter_openapi_python_generated.models.timestamp.Timestamp(
@@ -155,7 +165,14 @@ class TestEntities(unittest.TestCase):
                         url = '', )
                     ],
                 user_mentions = [
-                    { }
+                    twitter_openapi_python_generated.models.user_mention.UserMention(
+                        id = '4', 
+                        id_str = '4', 
+                        indices = [
+                            56
+                            ], 
+                        name = '', 
+                        screen_name = '', )
                     ]
             )
         else:

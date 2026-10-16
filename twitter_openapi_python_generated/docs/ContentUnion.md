@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **feedback_info** | [**FeedbackInfo**](FeedbackInfo.md) |  | [optional] 
 **item_content** | [**ItemContentUnion**](ItemContentUnion.md) |  | 
 **display_type** | [**DisplayType**](DisplayType.md) |  | 
-**footer** | **Dict[str, object]** |  | [optional] 
-**header** | **Dict[str, object]** |  | [optional] 
+**footer** | [**ModuleFooter**](ModuleFooter.md) |  | [optional] 
+**header** | [**ModuleHeader**](ModuleHeader.md) |  | [optional] 
 **items** | [**List[ModuleItem]**](ModuleItem.md) |  | [optional] 
-**metadata** | **Dict[str, object]** |  | [optional] 
+**metadata** | [**ModuleMetadata**](ModuleMetadata.md) |  | [optional] 
 **cursor_type** | [**CursorType**](CursorType.md) |  | 
 **display_treatment** | [**DisplayTreatment**](DisplayTreatment.md) |  | [optional] 
 **item_type** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 

@@ -62,6 +62,9 @@ class TypeName(str, Enum):
     COMMUNITYJOINREQUESTSUNAVAILABLE = 'CommunityJoinRequestsUnavailable'
     COMMUNITYUNAVAILABLE = 'CommunityUnavailable'
     APIIMAGE = 'ApiImage'
+    APIMEDIA = 'ApiMedia'
+    COMMUNITYUSERDEFAULTMODERATIONSTATE = 'CommunityUserDefaultModerationState'
+    CTALIMITEDACTIONPROMPT = 'CtaLimitedActionPrompt'
     TIMELINERICHTEXTUSER = 'TimelineRichTextUser'
 
     @classmethod

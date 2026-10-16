@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **has_moderated_replies** | **bool** |  | [optional] 
 **highlights** | [**Highlight**](Highlight.md) |  | [optional] 
 **item_type** | [**ContentItemType**](ContentItemType.md) |  | 
-**promoted_metadata** | **Dict[str, object]** |  | [optional] 
+**promoted_metadata** | [**PromotedMetadata**](PromotedMetadata.md) |  | [optional] 
 **social_context** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
 **tweet_display_type** | **str** |  | 
 **tweet_results** | [**ItemResult**](ItemResult.md) |  | 

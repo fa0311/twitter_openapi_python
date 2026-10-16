@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.media_color_info import MediaColorInfo
 from twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data_image import TweetCardLegacyBindingValueDataImage
 from twitter_openapi_python_generated.models.user_value import UserValue
 from typing import Optional, Set
@@ -31,7 +32,7 @@ class TweetCardLegacyBindingValueData(BaseModel):
     TweetCardLegacyBindingValueData
     """ # noqa: E501
     boolean_value: Optional[StrictBool] = None
-    image_color_value: Optional[Dict[str, Any]] = None
+    image_color_value: Optional[MediaColorInfo] = None
     image_value: Optional[TweetCardLegacyBindingValueDataImage] = None
     scribe_key: Optional[StrictStr] = None
     string_value: Optional[StrictStr] = None
@@ -78,6 +79,9 @@ class TweetCardLegacyBindingValueData(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of image_color_value
+        if self.image_color_value:
+            _dict['image_color_value'] = self.image_color_value.to_dict()
         # override the default output from pydantic by calling `to_dict()` of image_value
         if self.image_value:
             _dict['image_value'] = self.image_value.to_dict()
@@ -97,7 +101,7 @@ class TweetCardLegacyBindingValueData(BaseModel):
 
         _obj = cls.model_validate({
             "boolean_value": obj.get("boolean_value"),
-            "image_color_value": obj.get("image_color_value"),
+            "image_color_value": MediaColorInfo.from_dict(obj["image_color_value"]) if obj.get("image_color_value") is not None else None,
             "image_value": TweetCardLegacyBindingValueDataImage.from_dict(obj["image_value"]) if obj.get("image_value") is not None else None,
             "scribe_key": obj.get("scribe_key"),
             "string_value": obj.get("string_value"),

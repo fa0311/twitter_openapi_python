@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
+from twitter_openapi_python_generated.models.smarttag_tag_info import SmarttagTagInfo
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,7 +29,7 @@ class SmarttagTag(BaseModel):
     """
     SmarttagTag
     """ # noqa: E501
-    info: Dict[str, Any]
+    info: SmarttagTagInfo
     __properties: ClassVar[List[str]] = ["info"]
 
     model_config = ConfigDict(
@@ -70,6 +71,9 @@ class SmarttagTag(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of info
+        if self.info:
+            _dict['info'] = self.info.to_dict()
         return _dict
 
     @classmethod
@@ -82,7 +86,7 @@ class SmarttagTag(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "info": obj.get("info")
+            "info": SmarttagTagInfo.from_dict(obj["info"]) if obj.get("info") is not None else None
         })
         return _obj
 

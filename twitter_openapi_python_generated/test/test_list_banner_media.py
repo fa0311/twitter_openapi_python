@@ -40,7 +40,7 @@ class TestListBannerMedia(unittest.TestCase):
                     original_img_height = 56, 
                     original_img_url = '', 
                     original_img_width = 56, 
-                    salient_rect = twitter_openapi_python_generated.models.list_banner_media_salient_rect.ListBannerMediaSalientRect(
+                    salient_rect = twitter_openapi_python_generated.models.media_salient_rect.MediaSalientRect(
                         height = 56, 
                         left = 56, 
                         top = 56, 
@@ -52,7 +52,7 @@ class TestListBannerMedia(unittest.TestCase):
                     original_img_height = 56, 
                     original_img_url = '', 
                     original_img_width = 56, 
-                    salient_rect = twitter_openapi_python_generated.models.list_banner_media_salient_rect.ListBannerMediaSalientRect(
+                    salient_rect = twitter_openapi_python_generated.models.media_salient_rect.MediaSalientRect(
                         height = 56, 
                         left = 56, 
                         top = 56, 

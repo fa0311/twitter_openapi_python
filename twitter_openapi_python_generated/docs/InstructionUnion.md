@@ -12,15 +12,15 @@ Name | Type | Description | Notes
 **prepend** | **bool** |  | [optional] 
 **entry** | [**TimelineAddEntry**](TimelineAddEntry.md) |  | 
 **entry_id_to_replace** | **str** |  | 
-**alert_type** | **str** |  | [optional] 
+**alert_type** | **str** |  | 
 **client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | 
-**color_config** | **Dict[str, object]** |  | [optional] 
-**display_duration_ms** | **int** |  | [optional] 
-**display_location** | **str** |  | [optional] 
-**icon_display_info** | **Dict[str, object]** |  | [optional] 
+**color_config** | [**TimelineShowAlertColorConfig**](TimelineShowAlertColorConfig.md) |  | 
+**display_duration_ms** | **int** |  | 
+**display_location** | **str** |  | 
+**icon_display_info** | [**TimelineShowAlertIconDisplayInfo**](TimelineShowAlertIconDisplayInfo.md) |  | 
 **rich_text** | [**TimelineShowAlertRichText**](TimelineShowAlertRichText.md) |  | 
-**trigger_delay_ms** | **int** |  | [optional] 
-**users_results** | [**List[UserResults]**](UserResults.md) |  | 
+**trigger_delay_ms** | **int** |  | 
+**users_results** | [**List[UserResults]**](UserResults.md) |  | [optional] 
 **direction** | **str** |  | 
 **cover** | [**TimelineHalfCover**](TimelineHalfCover.md) |  | 
 **sort_index** | **str** |  | [optional] 

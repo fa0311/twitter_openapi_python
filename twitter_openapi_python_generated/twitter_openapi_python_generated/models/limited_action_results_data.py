@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,13 +30,6 @@ class LimitedActionResultsData(BaseModel):
     """ # noqa: E501
     action: StrictStr
     __properties: ClassVar[List[str]] = ["action"]
-
-    @field_validator('action')
-    def action_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Reply', 'Retweet', 'QuoteTweet', 'Like', 'React', 'AddToBookmarks', 'AddToMoment', 'PinToProfile', 'ViewHiddenReplies', 'VoteOnPoll', 'ShowRetweetActionMenu', 'ReplyDownVote', 'SendViaDm', 'ViewPostEngagements']):
-            raise ValueError("must be one of enum values ('Reply', 'Retweet', 'QuoteTweet', 'Like', 'React', 'AddToBookmarks', 'AddToMoment', 'PinToProfile', 'ViewHiddenReplies', 'VoteOnPoll', 'ShowRetweetActionMenu', 'ReplyDownVote', 'SendViaDm', 'ViewPostEngagements')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

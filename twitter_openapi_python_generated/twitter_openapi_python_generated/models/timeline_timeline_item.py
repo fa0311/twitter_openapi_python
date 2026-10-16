@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo
 from twitter_openapi_python_generated.models.content_entry_type import ContentEntryType
+from twitter_openapi_python_generated.models.feedback_info import FeedbackInfo
 from twitter_openapi_python_generated.models.item_content_union import ItemContentUnion
 from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
@@ -35,7 +36,7 @@ class TimelineTimelineItem(BaseModel):
     typename: TypeName = Field(alias="__typename")
     client_event_info: Optional[ClientEventInfo] = Field(default=None, alias="clientEventInfo")
     entry_type: ContentEntryType = Field(alias="entryType")
-    feedback_info: Optional[Dict[str, Any]] = Field(default=None, alias="feedbackInfo")
+    feedback_info: Optional[FeedbackInfo] = Field(default=None, alias="feedbackInfo")
     item_content: ItemContentUnion = Field(alias="itemContent")
     __properties: ClassVar[List[str]] = ["__typename", "clientEventInfo", "entryType", "feedbackInfo", "itemContent"]
 
@@ -81,6 +82,9 @@ class TimelineTimelineItem(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of client_event_info
         if self.client_event_info:
             _dict['clientEventInfo'] = self.client_event_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of feedback_info
+        if self.feedback_info:
+            _dict['feedbackInfo'] = self.feedback_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of item_content
         if self.item_content:
             _dict['itemContent'] = self.item_content.to_dict()
@@ -99,7 +103,7 @@ class TimelineTimelineItem(BaseModel):
             "__typename": obj.get("__typename"),
             "clientEventInfo": ClientEventInfo.from_dict(obj["clientEventInfo"]) if obj.get("clientEventInfo") is not None else None,
             "entryType": obj.get("entryType"),
-            "feedbackInfo": obj.get("feedbackInfo"),
+            "feedbackInfo": FeedbackInfo.from_dict(obj["feedbackInfo"]) if obj.get("feedbackInfo") is not None else None,
             "itemContent": ItemContentUnion.from_dict(obj["itemContent"]) if obj.get("itemContent") is not None else None
         })
         return _obj

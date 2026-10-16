@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
 **action_counts** | [**UserActionCounts**](UserActionCounts.md) |  | [optional] 
-**affiliates_highlighted_label** | **Dict[str, object]** |  | [optional] 
+**affiliates_highlighted_label** | [**AffiliatesHighlightedLabel**](AffiliatesHighlightedLabel.md) |  | [optional] 
 **avatar** | [**UserAvatar**](UserAvatar.md) |  | [optional] 
 **banner** | [**UserBanner**](UserBanner.md) |  | [optional] 
-**business_account** | **Dict[str, object]** |  | [optional] 
+**business_account** | **object** |  | [optional] 
 **core** | [**UserCore**](UserCore.md) |  | [optional] 
 **creator_subscriptions_count** | **int** |  | [optional] 
 **dm_permissions** | [**UserDmPermissions**](UserDmPermissions.md) |  | [optional] 

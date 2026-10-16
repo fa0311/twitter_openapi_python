@@ -40,11 +40,11 @@ class TestArticleCoverMedia(unittest.TestCase):
                 media_id = '4',
                 media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
                     __typename = 'TimelineTweet', 
-                    color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
+                    color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
                         palette = [
-                            twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
+                            twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
                                 percentage = 1.337, 
-                                rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
+                                rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
                                     blue = 56, 
                                     green = 56, 
                                     red = 56, ), )
@@ -60,11 +60,11 @@ class TestArticleCoverMedia(unittest.TestCase):
                 media_id = '4',
                 media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
                     __typename = 'TimelineTweet', 
-                    color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
+                    color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
                         palette = [
-                            twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
+                            twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
                                 percentage = 1.337, 
-                                rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
+                                rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
                                     blue = 56, 
                                     green = 56, 
                                     red = 56, ), )

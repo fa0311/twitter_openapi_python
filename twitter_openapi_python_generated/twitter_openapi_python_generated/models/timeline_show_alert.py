@@ -22,6 +22,8 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_v
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo
 from twitter_openapi_python_generated.models.instruction_type import InstructionType
+from twitter_openapi_python_generated.models.timeline_show_alert_color_config import TimelineShowAlertColorConfig
+from twitter_openapi_python_generated.models.timeline_show_alert_icon_display_info import TimelineShowAlertIconDisplayInfo
 from twitter_openapi_python_generated.models.timeline_show_alert_rich_text import TimelineShowAlertRichText
 from twitter_openapi_python_generated.models.user_results import UserResults
 from typing import Optional, Set
@@ -32,24 +34,21 @@ class TimelineShowAlert(BaseModel):
     """
     TimelineShowAlert
     """ # noqa: E501
-    alert_type: Optional[StrictStr] = Field(default=None, alias="alertType")
-    client_event_info: Optional[ClientEventInfo] = Field(default=None, alias="clientEventInfo")
-    color_config: Optional[Dict[str, Any]] = Field(default=None, alias="colorConfig")
-    display_duration_ms: Optional[StrictInt] = Field(default=None, alias="displayDurationMs")
-    display_location: Optional[StrictStr] = Field(default=None, alias="displayLocation")
-    icon_display_info: Optional[Dict[str, Any]] = Field(default=None, alias="iconDisplayInfo")
+    alert_type: StrictStr = Field(alias="alertType")
+    client_event_info: ClientEventInfo = Field(alias="clientEventInfo")
+    color_config: TimelineShowAlertColorConfig = Field(alias="colorConfig")
+    display_duration_ms: StrictInt = Field(alias="displayDurationMs")
+    display_location: StrictStr = Field(alias="displayLocation")
+    icon_display_info: TimelineShowAlertIconDisplayInfo = Field(alias="iconDisplayInfo")
     rich_text: TimelineShowAlertRichText = Field(alias="richText")
-    trigger_delay_ms: Optional[StrictInt] = Field(default=None, alias="triggerDelayMs")
+    trigger_delay_ms: StrictInt = Field(alias="triggerDelayMs")
     type: InstructionType
-    users_results: Optional[List[UserResults]] = Field(alias="usersResults")
+    users_results: Optional[List[UserResults]] = Field(default=None, alias="usersResults")
     __properties: ClassVar[List[str]] = ["alertType", "clientEventInfo", "colorConfig", "displayDurationMs", "displayLocation", "iconDisplayInfo", "richText", "triggerDelayMs", "type", "usersResults"]
 
     @field_validator('alert_type')
     def alert_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['NewTweets']):
             raise ValueError("must be one of enum values ('NewTweets')")
         return value
@@ -57,9 +56,6 @@ class TimelineShowAlert(BaseModel):
     @field_validator('display_location')
     def display_location_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['Top']):
             raise ValueError("must be one of enum values ('Top')")
         return value
@@ -106,6 +102,12 @@ class TimelineShowAlert(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of client_event_info
         if self.client_event_info:
             _dict['clientEventInfo'] = self.client_event_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of color_config
+        if self.color_config:
+            _dict['colorConfig'] = self.color_config.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of icon_display_info
+        if self.icon_display_info:
+            _dict['iconDisplayInfo'] = self.icon_display_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of rich_text
         if self.rich_text:
             _dict['richText'] = self.rich_text.to_dict()
@@ -115,11 +117,6 @@ class TimelineShowAlert(BaseModel):
             for _item_users_results in self.users_results:
                 _items.append(_item_users_results.to_dict() if _item_users_results is not None else None)
             _dict['usersResults'] = _items
-        # set to None if users_results (nullable) is None
-        # and model_fields_set contains the field
-        if self.users_results is None and "users_results" in self.model_fields_set:
-            _dict['usersResults'] = None
-
         return _dict
 
     @classmethod
@@ -134,10 +131,10 @@ class TimelineShowAlert(BaseModel):
         _obj = cls.model_validate({
             "alertType": obj.get("alertType"),
             "clientEventInfo": ClientEventInfo.from_dict(obj["clientEventInfo"]) if obj.get("clientEventInfo") is not None else None,
-            "colorConfig": obj.get("colorConfig"),
+            "colorConfig": TimelineShowAlertColorConfig.from_dict(obj["colorConfig"]) if obj.get("colorConfig") is not None else None,
             "displayDurationMs": obj.get("displayDurationMs"),
             "displayLocation": obj.get("displayLocation"),
-            "iconDisplayInfo": obj.get("iconDisplayInfo"),
+            "iconDisplayInfo": TimelineShowAlertIconDisplayInfo.from_dict(obj["iconDisplayInfo"]) if obj.get("iconDisplayInfo") is not None else None,
             "richText": TimelineShowAlertRichText.from_dict(obj["richText"]) if obj.get("richText") is not None else None,
             "triggerDelayMs": obj.get("triggerDelayMs"),
             "type": obj.get("type"),

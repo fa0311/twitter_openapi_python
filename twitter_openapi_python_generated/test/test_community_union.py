@@ -55,8 +55,48 @@ class TestCommunityUnion(unittest.TestCase):
                 created_at = 56,
                 creator_results = twitter_openapi_python_generated.models.user_results.UserResults(
                     result = null, ),
-                custom_banner_media = { },
-                default_banner_media = { },
+                custom_banner_media = twitter_openapi_python_generated.models.community_banner_media.CommunityBannerMedia(
+                    id = '', 
+                    media_info = twitter_openapi_python_generated.models.community_banner_media_info.CommunityBannerMediaInfo(
+                        __typename = 'TimelineTweet', 
+                        color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
+                            palette = [
+                                twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
+                                    percentage = 1.337, 
+                                    rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
+                                        blue = 56, 
+                                        green = 56, 
+                                        red = 56, ), )
+                                ], ), 
+                        original_img_height = 56, 
+                        original_img_url = '', 
+                        original_img_width = 56, 
+                        salient_rect = twitter_openapi_python_generated.models.media_salient_rect.MediaSalientRect(
+                            height = 56, 
+                            left = 56, 
+                            top = 56, 
+                            width = 56, ), ), ),
+                default_banner_media = twitter_openapi_python_generated.models.community_banner_media.CommunityBannerMedia(
+                    id = '', 
+                    media_info = twitter_openapi_python_generated.models.community_banner_media_info.CommunityBannerMediaInfo(
+                        __typename = 'TimelineTweet', 
+                        color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
+                            palette = [
+                                twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
+                                    percentage = 1.337, 
+                                    rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
+                                        blue = 56, 
+                                        green = 56, 
+                                        red = 56, ), )
+                                ], ), 
+                        original_img_height = 56, 
+                        original_img_url = '', 
+                        original_img_width = 56, 
+                        salient_rect = twitter_openapi_python_generated.models.media_salient_rect.MediaSalientRect(
+                            height = 56, 
+                            left = 56, 
+                            top = 56, 
+                            width = 56, ), ), ),
                 description = '',
                 id_str = '4',
                 invites_policy = 'MemberInvitesAllowed',
@@ -95,7 +135,10 @@ class TestCommunityUnion(unittest.TestCase):
                 urls = twitter_openapi_python_generated.models.community_urls.CommunityUrls(
                     permalink = twitter_openapi_python_generated.models.community_urls_permalink.CommunityUrlsPermalink(
                         url = '', ), ),
-                viewer_relationship = { }
+                viewer_relationship = twitter_openapi_python_generated.models.community_viewer_relationship.CommunityViewerRelationship(
+                    id = '', 
+                    moderation_state = twitter_openapi_python_generated.models.community_moderation_state.CommunityModerationState(
+                        __typename = 'TimelineTweet', ), )
             )
         else:
             return CommunityUnion(

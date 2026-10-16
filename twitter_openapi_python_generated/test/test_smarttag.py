@@ -40,7 +40,7 @@ class TestSmarttag(unittest.TestCase):
                     56
                     ],
                 tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                    info = { }, ),
+                    info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ),
                 text = ''
             )
         else:
@@ -49,7 +49,7 @@ class TestSmarttag(unittest.TestCase):
                     56
                     ],
                 tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                    info = { }, ),
+                    info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ),
                 text = '',
         )
         """

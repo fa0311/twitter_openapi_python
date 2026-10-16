@@ -45,7 +45,7 @@ class TestTweetPreviewDisplay(unittest.TestCase):
                 limited_action_results = twitter_openapi_python_generated.models.tweet_limited_action_results.TweetLimitedActionResults(
                     limited_actions = [
                         twitter_openapi_python_generated.models.limited_action_results_data.LimitedActionResultsData(
-                            action = 'Reply', )
+                            action = '', )
                         ], ),
                 tweet = twitter_openapi_python_generated.models.tweet_preview_display_tweet.TweetPreviewDisplayTweet(
                     article_preview = twitter_openapi_python_generated.models.article_preview.ArticlePreview(
@@ -55,11 +55,11 @@ class TestTweetPreviewDisplay(unittest.TestCase):
                             media_id = '4', 
                             media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
                                 __typename = 'TimelineTweet', 
-                                color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
+                                color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
                                     palette = [
-                                        twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
+                                        twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
                                             percentage = 1.337, 
-                                            rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
+                                            rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
                                                 blue = 56, 
                                                 green = 56, 
                                                 red = 56, ), )
@@ -96,7 +96,7 @@ class TestTweetPreviewDisplay(unittest.TestCase):
                 limited_action_results = twitter_openapi_python_generated.models.tweet_limited_action_results.TweetLimitedActionResults(
                     limited_actions = [
                         twitter_openapi_python_generated.models.limited_action_results_data.LimitedActionResultsData(
-                            action = 'Reply', )
+                            action = '', )
                         ], ),
                 tweet = twitter_openapi_python_generated.models.tweet_preview_display_tweet.TweetPreviewDisplayTweet(
                     article_preview = twitter_openapi_python_generated.models.article_preview.ArticlePreview(
@@ -106,11 +106,11 @@ class TestTweetPreviewDisplay(unittest.TestCase):
                             media_id = '4', 
                             media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
                                 __typename = 'TimelineTweet', 
-                                color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
+                                color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
                                     palette = [
-                                        twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
+                                        twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
                                             percentage = 1.337, 
-                                            rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
+                                            rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
                                                 blue = 56, 
                                                 green = 56, 
                                                 red = 56, ), )

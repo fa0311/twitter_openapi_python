@@ -22,10 +22,12 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.community_actions import CommunityActions
+from twitter_openapi_python_generated.models.community_banner_media import CommunityBannerMedia
 from twitter_openapi_python_generated.models.community_invites_result import CommunityInvitesResult
 from twitter_openapi_python_generated.models.community_join_requests_result import CommunityJoinRequestsResult
 from twitter_openapi_python_generated.models.community_rule import CommunityRule
 from twitter_openapi_python_generated.models.community_urls import CommunityUrls
+from twitter_openapi_python_generated.models.community_viewer_relationship import CommunityViewerRelationship
 from twitter_openapi_python_generated.models.primary_community_topic import PrimaryCommunityTopic
 from twitter_openapi_python_generated.models.type_name import TypeName
 from twitter_openapi_python_generated.models.user_results import UserResults
@@ -42,8 +44,8 @@ class Community(BaseModel):
     admin_results: Optional[UserResults] = None
     created_at: Optional[StrictInt] = None
     creator_results: Optional[UserResults] = None
-    custom_banner_media: Optional[Dict[str, Any]] = None
-    default_banner_media: Optional[Dict[str, Any]] = None
+    custom_banner_media: Optional[CommunityBannerMedia] = None
+    default_banner_media: Optional[CommunityBannerMedia] = None
     description: Optional[StrictStr] = None
     id_str: Optional[Annotated[str, Field(strict=True)]] = None
     invites_policy: Optional[StrictStr] = None
@@ -62,7 +64,7 @@ class Community(BaseModel):
     search_tags: Optional[List[StrictStr]] = None
     show_only_users_to_display: Optional[List[StrictStr]] = None
     urls: Optional[CommunityUrls] = None
-    viewer_relationship: Optional[Dict[str, Any]] = None
+    viewer_relationship: Optional[CommunityViewerRelationship] = None
     __properties: ClassVar[List[str]] = ["__typename", "actions", "admin_results", "created_at", "creator_results", "custom_banner_media", "default_banner_media", "description", "id_str", "invites_policy", "invites_result", "is_pinned", "join_policy", "join_requests_result", "member_count", "members_facepile_results", "moderator_count", "name", "primary_community_topic", "question", "role", "rules", "search_tags", "show_only_users_to_display", "urls", "viewer_relationship"]
 
     @field_validator('id_str', mode="before")
@@ -153,6 +155,12 @@ class Community(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of creator_results
         if self.creator_results:
             _dict['creator_results'] = self.creator_results.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of custom_banner_media
+        if self.custom_banner_media:
+            _dict['custom_banner_media'] = self.custom_banner_media.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of default_banner_media
+        if self.default_banner_media:
+            _dict['default_banner_media'] = self.default_banner_media.to_dict()
         # override the default output from pydantic by calling `to_dict()` of invites_result
         if self.invites_result:
             _dict['invites_result'] = self.invites_result.to_dict()
@@ -177,6 +185,9 @@ class Community(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of urls
         if self.urls:
             _dict['urls'] = self.urls.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of viewer_relationship
+        if self.viewer_relationship:
+            _dict['viewer_relationship'] = self.viewer_relationship.to_dict()
         return _dict
 
     @classmethod
@@ -194,8 +205,8 @@ class Community(BaseModel):
             "admin_results": UserResults.from_dict(obj["admin_results"]) if obj.get("admin_results") is not None else None,
             "created_at": obj.get("created_at"),
             "creator_results": UserResults.from_dict(obj["creator_results"]) if obj.get("creator_results") is not None else None,
-            "custom_banner_media": obj.get("custom_banner_media"),
-            "default_banner_media": obj.get("default_banner_media"),
+            "custom_banner_media": CommunityBannerMedia.from_dict(obj["custom_banner_media"]) if obj.get("custom_banner_media") is not None else None,
+            "default_banner_media": CommunityBannerMedia.from_dict(obj["default_banner_media"]) if obj.get("default_banner_media") is not None else None,
             "description": obj.get("description"),
             "id_str": obj.get("id_str"),
             "invites_policy": obj.get("invites_policy"),
@@ -214,7 +225,7 @@ class Community(BaseModel):
             "search_tags": obj.get("search_tags"),
             "show_only_users_to_display": obj.get("show_only_users_to_display"),
             "urls": CommunityUrls.from_dict(obj["urls"]) if obj.get("urls") is not None else None,
-            "viewer_relationship": obj.get("viewer_relationship")
+            "viewer_relationship": CommunityViewerRelationship.from_dict(obj["viewer_relationship"]) if obj.get("viewer_relationship") is not None else None
         })
         return _obj
 

@@ -20,9 +20,12 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.hashtag import Hashtag
 from twitter_openapi_python_generated.models.smarttag import Smarttag
+from twitter_openapi_python_generated.models.symbol import Symbol
 from twitter_openapi_python_generated.models.timestamp import Timestamp
 from twitter_openapi_python_generated.models.url import Url
+from twitter_openapi_python_generated.models.user_mention import UserMention
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -31,13 +34,13 @@ class Entities(BaseModel):
     """
     Entities
     """ # noqa: E501
-    hashtags: Optional[List[Dict[str, Any]]] = None
+    hashtags: Optional[List[Hashtag]] = None
     media: Optional[List[Media]] = None
     smarttags: Optional[List[Smarttag]] = None
-    symbols: Optional[List[Dict[str, Any]]] = None
+    symbols: Optional[List[Symbol]] = None
     timestamps: Optional[List[Timestamp]] = None
     urls: Optional[List[Url]] = None
-    user_mentions: Optional[List[Dict[str, Any]]] = None
+    user_mentions: Optional[List[UserMention]] = None
     __properties: ClassVar[List[str]] = ["hashtags", "media", "smarttags", "symbols", "timestamps", "urls", "user_mentions"]
 
     model_config = ConfigDict(
@@ -79,6 +82,12 @@ class Entities(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in hashtags (list)
+        _items = []
+        if self.hashtags:
+            for _item_hashtags in self.hashtags:
+                _items.append(_item_hashtags.to_dict() if _item_hashtags is not None else None)
+            _dict['hashtags'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in media (list)
         _items = []
         if self.media:
@@ -91,6 +100,12 @@ class Entities(BaseModel):
             for _item_smarttags in self.smarttags:
                 _items.append(_item_smarttags.to_dict() if _item_smarttags is not None else None)
             _dict['smarttags'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in symbols (list)
+        _items = []
+        if self.symbols:
+            for _item_symbols in self.symbols:
+                _items.append(_item_symbols.to_dict() if _item_symbols is not None else None)
+            _dict['symbols'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in timestamps (list)
         _items = []
         if self.timestamps:
@@ -103,6 +118,12 @@ class Entities(BaseModel):
             for _item_urls in self.urls:
                 _items.append(_item_urls.to_dict() if _item_urls is not None else None)
             _dict['urls'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in user_mentions (list)
+        _items = []
+        if self.user_mentions:
+            for _item_user_mentions in self.user_mentions:
+                _items.append(_item_user_mentions.to_dict() if _item_user_mentions is not None else None)
+            _dict['user_mentions'] = _items
         return _dict
 
     @classmethod
@@ -115,13 +136,13 @@ class Entities(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "hashtags": obj.get("hashtags"),
+            "hashtags": [Hashtag.from_dict(_item) for _item in obj["hashtags"]] if obj.get("hashtags") is not None else None,
             "media": [Media.from_dict(_item) for _item in obj["media"]] if obj.get("media") is not None else None,
             "smarttags": [Smarttag.from_dict(_item) for _item in obj["smarttags"]] if obj.get("smarttags") is not None else None,
-            "symbols": obj.get("symbols"),
+            "symbols": [Symbol.from_dict(_item) for _item in obj["symbols"]] if obj.get("symbols") is not None else None,
             "timestamps": [Timestamp.from_dict(_item) for _item in obj["timestamps"]] if obj.get("timestamps") is not None else None,
             "urls": [Url.from_dict(_item) for _item in obj["urls"]] if obj.get("urls") is not None else None,
-            "user_mentions": obj.get("user_mentions")
+            "user_mentions": [UserMention.from_dict(_item) for _item in obj["user_mentions"]] if obj.get("user_mentions") is not None else None
         })
         return _obj
 

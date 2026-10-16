@@ -5,16 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**alert_type** | **str** |  | [optional] 
-**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | [optional] 
-**color_config** | **Dict[str, object]** |  | [optional] 
-**display_duration_ms** | **int** |  | [optional] 
-**display_location** | **str** |  | [optional] 
-**icon_display_info** | **Dict[str, object]** |  | [optional] 
+**alert_type** | **str** |  | 
+**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | 
+**color_config** | [**TimelineShowAlertColorConfig**](TimelineShowAlertColorConfig.md) |  | 
+**display_duration_ms** | **int** |  | 
+**display_location** | **str** |  | 
+**icon_display_info** | [**TimelineShowAlertIconDisplayInfo**](TimelineShowAlertIconDisplayInfo.md) |  | 
 **rich_text** | [**TimelineShowAlertRichText**](TimelineShowAlertRichText.md) |  | 
-**trigger_delay_ms** | **int** |  | [optional] 
+**trigger_delay_ms** | **int** |  | 
 **type** | [**InstructionType**](InstructionType.md) |  | 
-**users_results** | [**List[UserResults]**](UserResults.md) |  | 
+**users_results** | [**List[UserResults]**](UserResults.md) |  | [optional] 
 
 ## Example
 

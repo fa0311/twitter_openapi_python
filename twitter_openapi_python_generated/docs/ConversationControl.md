@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mode** | **str** |  | 
+**conversation_owner_results** | [**ConversationOwnerResults**](ConversationOwnerResults.md) |  | 
+**policy** | **str** |  | 
 
 ## Example
 

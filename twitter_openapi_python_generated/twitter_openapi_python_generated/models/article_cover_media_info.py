@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.article_cover_media_color_info import ArticleCoverMediaColorInfo
+from twitter_openapi_python_generated.models.media_color_info import MediaColorInfo
 from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,7 @@ class ArticleCoverMediaInfo(BaseModel):
     ArticleCoverMediaInfo
     """ # noqa: E501
     typename: Optional[TypeName] = Field(default=None, alias="__typename")
-    color_info: ArticleCoverMediaColorInfo
+    color_info: MediaColorInfo
     original_img_height: StrictInt
     original_img_url: StrictStr
     original_img_width: StrictInt
@@ -92,7 +92,7 @@ class ArticleCoverMediaInfo(BaseModel):
 
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
-            "color_info": ArticleCoverMediaColorInfo.from_dict(obj["color_info"]) if obj.get("color_info") is not None else None,
+            "color_info": MediaColorInfo.from_dict(obj["color_info"]) if obj.get("color_info") is not None else None,
             "original_img_height": obj.get("original_img_height"),
             "original_img_url": obj.get("original_img_url"),
             "original_img_width": obj.get("original_img_width")

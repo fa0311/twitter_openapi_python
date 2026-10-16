@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
+from twitter_openapi_python_generated.models.conversation_owner_results import ConversationOwnerResults
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,15 +29,9 @@ class ConversationControl(BaseModel):
     """
     ConversationControl
     """ # noqa: E501
-    mode: StrictStr
-    __properties: ClassVar[List[str]] = ["mode"]
-
-    @field_validator('mode')
-    def mode_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Community', 'Verified', 'ByInvitation']):
-            raise ValueError("must be one of enum values ('Community', 'Verified', 'ByInvitation')")
-        return value
+    conversation_owner_results: ConversationOwnerResults
+    policy: StrictStr
+    __properties: ClassVar[List[str]] = ["conversation_owner_results", "policy"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -77,6 +72,9 @@ class ConversationControl(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of conversation_owner_results
+        if self.conversation_owner_results:
+            _dict['conversation_owner_results'] = self.conversation_owner_results.to_dict()
         return _dict
 
     @classmethod
@@ -89,7 +87,8 @@ class ConversationControl(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "mode": obj.get("mode")
+            "conversation_owner_results": ConversationOwnerResults.from_dict(obj["conversation_owner_results"]) if obj.get("conversation_owner_results") is not None else None,
+            "policy": obj.get("policy")
         })
         return _obj
 

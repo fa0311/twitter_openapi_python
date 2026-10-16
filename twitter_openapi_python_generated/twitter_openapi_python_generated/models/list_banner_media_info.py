@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
-from twitter_openapi_python_generated.models.list_banner_media_salient_rect import ListBannerMediaSalientRect
+from twitter_openapi_python_generated.models.media_salient_rect import MediaSalientRect
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -32,7 +32,7 @@ class ListBannerMediaInfo(BaseModel):
     original_img_height: StrictInt
     original_img_url: StrictStr
     original_img_width: StrictInt
-    salient_rect: ListBannerMediaSalientRect
+    salient_rect: MediaSalientRect
     __properties: ClassVar[List[str]] = ["original_img_height", "original_img_url", "original_img_width", "salient_rect"]
 
     model_config = ConfigDict(
@@ -92,7 +92,7 @@ class ListBannerMediaInfo(BaseModel):
             "original_img_height": obj.get("original_img_height"),
             "original_img_url": obj.get("original_img_url"),
             "original_img_width": obj.get("original_img_width"),
-            "salient_rect": ListBannerMediaSalientRect.from_dict(obj["salient_rect"]) if obj.get("salient_rect") is not None else None
+            "salient_rect": MediaSalientRect.from_dict(obj["salient_rect"]) if obj.get("salient_rect") is not None else None
         })
         return _obj
 

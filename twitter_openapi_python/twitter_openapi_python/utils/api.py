@@ -153,7 +153,7 @@ def user_or_null_converter(user: models.UserUnion) -> Optional[models.User]:
 
 def build_tweet_api_utils(
     result: models.ItemResult,
-    promoted_metadata: Optional[dict[str, Any]] = None,
+    promoted_metadata: Optional[models.PromotedMetadata] = None,
     reply: Optional[List[models.TimelineTweet]] = None,
 ) -> Optional[TweetApiUtilsData]:
     tweet = tweet_results_converter(result)

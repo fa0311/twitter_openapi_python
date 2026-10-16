@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entities** | **List[Dict[str, object]]** |  | [optional] 
-**text** | **str** |  | [optional] 
+**entities** | **List[object]** |  | 
+**text** | **str** |  | 
 
 ## Example
 

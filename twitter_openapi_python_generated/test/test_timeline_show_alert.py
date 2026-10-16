@@ -39,15 +39,26 @@ class TestTimelineShowAlert(unittest.TestCase):
                 alert_type = 'NewTweets',
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                     component = '', 
-                    details = { }, 
+                    details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                        conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                            conversation_section = 'HighQuality', ), 
+                        timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                            controller_data = '', 
+                            injection_type = '', 
+                            source_data = '', ), ), 
                     element = '', ),
-                color_config = { },
+                color_config = twitter_openapi_python_generated.models.timeline_show_alert_color_config.TimelineShowAlertColorConfig(
+                    background = '', 
+                    border = '', 
+                    text = '', ),
                 display_duration_ms = 56,
                 display_location = 'Top',
-                icon_display_info = { },
-                rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlert_richText(
+                icon_display_info = twitter_openapi_python_generated.models.timeline_show_alert_icon_display_info.TimelineShowAlertIconDisplayInfo(
+                    icon = '', 
+                    tint = '', ),
+                rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlertRichText(
                     entities = [
-                        { }
+                        None
                         ], 
                     text = '', ),
                 trigger_delay_ms = 56,
@@ -59,16 +70,33 @@ class TestTimelineShowAlert(unittest.TestCase):
             )
         else:
             return TimelineShowAlert(
-                rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlert_richText(
+                alert_type = 'NewTweets',
+                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                    component = '', 
+                    details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                        conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                            conversation_section = 'HighQuality', ), 
+                        timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                            controller_data = '', 
+                            injection_type = '', 
+                            source_data = '', ), ), 
+                    element = '', ),
+                color_config = twitter_openapi_python_generated.models.timeline_show_alert_color_config.TimelineShowAlertColorConfig(
+                    background = '', 
+                    border = '', 
+                    text = '', ),
+                display_duration_ms = 56,
+                display_location = 'Top',
+                icon_display_info = twitter_openapi_python_generated.models.timeline_show_alert_icon_display_info.TimelineShowAlertIconDisplayInfo(
+                    icon = '', 
+                    tint = '', ),
+                rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlertRichText(
                     entities = [
-                        { }
+                        None
                         ], 
                     text = '', ),
+                trigger_delay_ms = 56,
                 type = 'TimelineAddEntries',
-                users_results = [
-                    twitter_openapi_python_generated.models.user_results.UserResults(
-                        result = null, )
-                    ],
         )
         """
 

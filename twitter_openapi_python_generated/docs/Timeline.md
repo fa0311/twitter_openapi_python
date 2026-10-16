@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **instructions** | [**List[InstructionUnion]**](InstructionUnion.md) |  | 
-**metadata** | **Dict[str, object]** |  | [optional] 
-**response_objects** | **Dict[str, object]** |  | [optional] 
+**metadata** | [**TimelineMetadata**](TimelineMetadata.md) |  | [optional] 
+**response_objects** | [**TimelineResponseObjects**](TimelineResponseObjects.md) |  | [optional] 
 
 ## Example
 
