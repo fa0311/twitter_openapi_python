@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **render_legacy_website_card** | **bool** |  | 
 **render_sales_cta_website_card** | **bool** |  | 
 **show_overlay_on_first_card** | **bool** |  | [optional] 
+**unified_card_override** | **str** |  | [optional] 
 
 ## Example
 

@@ -30,8 +30,9 @@ class TrendMetadata(BaseModel):
     TrendMetadata
     """ # noqa: E501
     domain_context: Optional[StrictStr] = None
+    meta_description: Optional[StrictStr] = None
     url: Optional[SocialContextLandingUrl] = None
-    __properties: ClassVar[List[str]] = ["domain_context", "url"]
+    __properties: ClassVar[List[str]] = ["domain_context", "meta_description", "url"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -88,6 +89,7 @@ class TrendMetadata(BaseModel):
 
         _obj = cls.model_validate({
             "domain_context": obj.get("domain_context"),
+            "meta_description": obj.get("meta_description"),
             "url": SocialContextLandingUrl.from_dict(obj["url"]) if obj.get("url") is not None else None
         })
         return _obj

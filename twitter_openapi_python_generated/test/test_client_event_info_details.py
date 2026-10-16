@@ -38,6 +38,9 @@ class TestClientEventInfoDetails(unittest.TestCase):
             return ClientEventInfoDetails(
                 conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
                     conversation_section = 'HighQuality', ),
+                notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
+                    impression_id = '', 
+                    metadata = '', ),
                 timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
                     controller_data = '', 
                     injection_type = '', 
@@ -45,10 +48,6 @@ class TestClientEventInfoDetails(unittest.TestCase):
             )
         else:
             return ClientEventInfoDetails(
-                timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
-                    controller_data = '', 
-                    injection_type = '', 
-                    source_data = '', ),
         )
         """
 

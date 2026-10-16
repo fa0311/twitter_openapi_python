@@ -55,7 +55,8 @@ class TestTimelineTweet(unittest.TestCase):
                         is_quick_promote = True, 
                         render_legacy_website_card = True, 
                         render_sales_cta_website_card = True, 
-                        show_overlay_on_first_card = True, ), 
+                        show_overlay_on_first_card = True, 
+                        unified_card_override = '', ), 
                     advertiser_results = twitter_openapi_python_generated.models.user_results.UserResults(
                         result = null, ), 
                     click_tracking_info = twitter_openapi_python_generated.models.click_tracking_info.ClickTrackingInfo(

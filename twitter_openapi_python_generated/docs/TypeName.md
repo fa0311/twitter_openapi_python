@@ -13,6 +13,8 @@
 
 * `TIMELINELABEL` (value: `'TimelineLabel'`)
 
+* `TIMELINEEVENTSUMMARY` (value: `'TimelineEventSummary'`)
+
 * `TIMELINETIMELINEITEM` (value: `'TimelineTimelineItem'`)
 
 * `TIMELINEUSER` (value: `'TimelineUser'`)
@@ -76,6 +78,10 @@
 * `APIMEDIA` (value: `'ApiMedia'`)
 
 * `COMMUNITYUSERDEFAULTMODERATIONSTATE` (value: `'CommunityUserDefaultModerationState'`)
+
+* `COMMUNITYHASHTAGSLICE` (value: `'CommunityHashtagSlice'`)
+
+* `COMMUNITYLISTMEMBERSACTION` (value: `'CommunityListMembersAction'`)
 
 * `CTALIMITEDACTIONPROMPT` (value: `'CtaLimitedActionPrompt'`)
 

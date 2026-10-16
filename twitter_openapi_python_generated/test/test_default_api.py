@@ -27,6 +27,36 @@ class TestDefaultApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_get_authenticate_periscope(self) -> None:
+        """Test case for get_authenticate_periscope
+
+        """
+        pass
+
+    def test_get_creator_studio_tab_bar_item_query(self) -> None:
+        """Test case for get_creator_studio_tab_bar_item_query
+
+        """
+        pass
+
+    def test_get_data_saver_mode(self) -> None:
+        """Test case for get_data_saver_mode
+
+        """
+        pass
+
+    def test_get_grok_home(self) -> None:
+        """Test case for get_grok_home
+
+        """
+        pass
+
+    def test_get_pinned_timelines(self) -> None:
+        """Test case for get_pinned_timelines
+
+        """
+        pass
+
     def test_get_profile_spotlights_query(self) -> None:
         """Test case for get_profile_spotlights_query
 

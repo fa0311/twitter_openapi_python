@@ -61,7 +61,7 @@ class TestTweetFavoritersResponseData(unittest.TestCase):
                                             element = '', ), 
                                         confirmation = '', 
                                         confirmation_display_type = 'BottomSheet', 
-                                        feedback_type = 'DontLike', 
+                                        feedback_type = '', 
                                         feedback_url = '', 
                                         has_undo_action = True, 
                                         icon = 'Frown', 

@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.conversation_details import ConversationDetails
+from twitter_openapi_python_generated.models.notification_details import NotificationDetails
 from twitter_openapi_python_generated.models.timelines_details import TimelinesDetails
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,8 +32,9 @@ class ClientEventInfoDetails(BaseModel):
     ClientEventInfoDetails
     """ # noqa: E501
     conversation_details: Optional[ConversationDetails] = Field(default=None, alias="conversationDetails")
-    timelines_details: TimelinesDetails = Field(alias="timelinesDetails")
-    __properties: ClassVar[List[str]] = ["conversationDetails", "timelinesDetails"]
+    notification_details: Optional[NotificationDetails] = Field(default=None, alias="notificationDetails")
+    timelines_details: Optional[TimelinesDetails] = Field(default=None, alias="timelinesDetails")
+    __properties: ClassVar[List[str]] = ["conversationDetails", "notificationDetails", "timelinesDetails"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -76,6 +78,9 @@ class ClientEventInfoDetails(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of conversation_details
         if self.conversation_details:
             _dict['conversationDetails'] = self.conversation_details.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of notification_details
+        if self.notification_details:
+            _dict['notificationDetails'] = self.notification_details.to_dict()
         # override the default output from pydantic by calling `to_dict()` of timelines_details
         if self.timelines_details:
             _dict['timelinesDetails'] = self.timelines_details.to_dict()
@@ -92,6 +97,7 @@ class ClientEventInfoDetails(BaseModel):
 
         _obj = cls.model_validate({
             "conversationDetails": ConversationDetails.from_dict(obj["conversationDetails"]) if obj.get("conversationDetails") is not None else None,
+            "notificationDetails": NotificationDetails.from_dict(obj["notificationDetails"]) if obj.get("notificationDetails") is not None else None,
             "timelinesDetails": TimelinesDetails.from_dict(obj["timelinesDetails"]) if obj.get("timelinesDetails") is not None else None
         })
         return _obj

@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**entities** | [**List[RichMessageEntity]**](RichMessageEntity.md) |  | [optional] 
 **rtl** | **bool** |  | [optional] 
 **text** | **str** |  | [optional] 
 

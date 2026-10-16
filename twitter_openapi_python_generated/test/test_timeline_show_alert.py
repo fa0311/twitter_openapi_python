@@ -42,6 +42,9 @@ class TestTimelineShowAlert(unittest.TestCase):
                     details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                         conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
                             conversation_section = 'HighQuality', ), 
+                        notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
+                            impression_id = '', 
+                            metadata = '', ), 
                         timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
                             controller_data = '', 
                             injection_type = '', 
@@ -76,6 +79,9 @@ class TestTimelineShowAlert(unittest.TestCase):
                     details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                         conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
                             conversation_section = 'HighQuality', ), 
+                        notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
+                            impression_id = '', 
+                            metadata = '', ), 
                         timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
                             controller_data = '', 
                             injection_type = '', 

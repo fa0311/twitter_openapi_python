@@ -6,11 +6,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
+**description** | **str** |  | [optional] 
 **grouped_trends** | [**List[GroupedTrend]**](GroupedTrend.md) |  | [optional] 
 **images** | [**List[TrendImage]**](TrendImage.md) |  | [optional] 
 **is_ai_trend** | **bool** |  | [optional] 
 **item_type** | [**ContentItemType**](ContentItemType.md) |  | [optional] 
 **name** | **str** |  | 
+**promoted_metadata** | [**TrendPromotedMetadata**](TrendPromotedMetadata.md) |  | [optional] 
 **rank** | **str** |  | [optional] 
 **social_context** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
 **thumbnail_image** | [**ThumbnailImage**](ThumbnailImage.md) |  | [optional] 

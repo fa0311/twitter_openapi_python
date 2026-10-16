@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.landing_url import LandingUrl
 from typing import Optional, Set
@@ -33,13 +33,6 @@ class ModuleFooter(BaseModel):
     landing_url: LandingUrl = Field(alias="landingUrl")
     text: StrictStr
     __properties: ClassVar[List[str]] = ["displayType", "landingUrl", "text"]
-
-    @field_validator('display_type')
-    def display_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Classic']):
-            raise ValueError("must be one of enum values ('Classic')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -37,6 +37,7 @@ class TestTimelineTrend(unittest.TestCase):
         if include_optional:
             return TimelineTrend(
                 typename = 'TimelineTweet',
+                description = '',
                 grouped_trends = [
                     twitter_openapi_python_generated.models.grouped_trend.GroupedTrend(
                         name = '', 
@@ -57,6 +58,17 @@ class TestTimelineTrend(unittest.TestCase):
                 is_ai_trend = True,
                 item_type = 'TimelineTweet',
                 name = '',
+                promoted_metadata = twitter_openapi_python_generated.models.trend_promoted_metadata.TrendPromotedMetadata(
+                    advertiser_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                        result = null, ), 
+                    disclosure_type = '', 
+                    impression_id = '', 
+                    impression_string = '', 
+                    promoted_trend = twitter_openapi_python_generated.models.promoted_trend.PromotedTrend(
+                        rest_id = '4', ), 
+                    promoted_trend_description = '', 
+                    promoted_trend_name = '', 
+                    promoted_trend_query_term = '', ),
                 rank = '4',
                 social_context = None,
                 thumbnail_image = twitter_openapi_python_generated.models.thumbnail_image.ThumbnailImage(
@@ -65,6 +77,7 @@ class TestTimelineTrend(unittest.TestCase):
                     original_img_width = 56, ),
                 trend_metadata = twitter_openapi_python_generated.models.trend_metadata.TrendMetadata(
                     domain_context = '', 
+                    meta_description = '', 
                     url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
                         url_type = 'DeepLink', 
                         urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
@@ -91,6 +104,7 @@ class TestTimelineTrend(unittest.TestCase):
                 name = '',
                 trend_metadata = twitter_openapi_python_generated.models.trend_metadata.TrendMetadata(
                     domain_context = '', 
+                    meta_description = '', 
                     url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
                         url_type = 'DeepLink', 
                         urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(

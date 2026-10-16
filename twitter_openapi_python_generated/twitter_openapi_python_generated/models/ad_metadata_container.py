@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.key_value import KeyValue
 from typing import Optional, Set
@@ -34,7 +34,8 @@ class AdMetadataContainer(BaseModel):
     render_legacy_website_card: StrictBool = Field(alias="renderLegacyWebsiteCard")
     render_sales_cta_website_card: StrictBool = Field(alias="renderSalesCtaWebsiteCard")
     show_overlay_on_first_card: Optional[StrictBool] = Field(default=None, alias="showOverlayOnFirstCard")
-    __properties: ClassVar[List[str]] = ["destinationUrlParams", "isQuickPromote", "renderLegacyWebsiteCard", "renderSalesCtaWebsiteCard", "showOverlayOnFirstCard"]
+    unified_card_override: Optional[StrictStr] = Field(default=None, alias="unifiedCardOverride")
+    __properties: ClassVar[List[str]] = ["destinationUrlParams", "isQuickPromote", "renderLegacyWebsiteCard", "renderSalesCtaWebsiteCard", "showOverlayOnFirstCard", "unifiedCardOverride"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -97,7 +98,8 @@ class AdMetadataContainer(BaseModel):
             "isQuickPromote": obj.get("isQuickPromote"),
             "renderLegacyWebsiteCard": obj.get("renderLegacyWebsiteCard"),
             "renderSalesCtaWebsiteCard": obj.get("renderSalesCtaWebsiteCard"),
-            "showOverlayOnFirstCard": obj.get("showOverlayOnFirstCard")
+            "showOverlayOnFirstCard": obj.get("showOverlayOnFirstCard"),
+            "unifiedCardOverride": obj.get("unifiedCardOverride")
         })
         return _obj
 

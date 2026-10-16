@@ -1,6 +1,8 @@
 # flake8: noqa
 
 # import apis into api package
+from twitter_openapi_python_generated.api.birdwatch_api import BirdwatchApi
+from twitter_openapi_python_generated.api.community_api import CommunityApi
 from twitter_openapi_python_generated.api.default_api import DefaultApi
 from twitter_openapi_python_generated.api.other_api import OtherApi
 from twitter_openapi_python_generated.api.post_api import PostApi

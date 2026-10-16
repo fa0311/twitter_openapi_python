@@ -45,7 +45,7 @@ class TestFeedbackAction(unittest.TestCase):
                     element = '', ),
                 confirmation = '',
                 confirmation_display_type = 'BottomSheet',
-                feedback_type = 'DontLike',
+                feedback_type = '',
                 feedback_url = '',
                 has_undo_action = True,
                 icon = 'Frown',
@@ -54,7 +54,7 @@ class TestFeedbackAction(unittest.TestCase):
         else:
             return FeedbackAction(
                 confirmation = '',
-                feedback_type = 'DontLike',
+                feedback_type = '',
                 has_undo_action = True,
                 prompt = '',
         )

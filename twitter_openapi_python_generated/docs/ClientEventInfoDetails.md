@@ -6,7 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conversation_details** | [**ConversationDetails**](ConversationDetails.md) |  | [optional] 
-**timelines_details** | [**TimelinesDetails**](TimelinesDetails.md) |  | 
+**notification_details** | [**NotificationDetails**](NotificationDetails.md) |  | [optional] 
+**timelines_details** | [**TimelinesDetails**](TimelinesDetails.md) |  | [optional] 
 
 ## Example
 

@@ -50,13 +50,6 @@ class FeedbackAction(BaseModel):
             raise ValueError("must be one of enum values ('BottomSheet', 'Inline')")
         return value
 
-    @field_validator('feedback_type')
-    def feedback_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['DontLike', 'GiveFeedback', 'NotCredible', 'NotRelevant', 'SeeFewer']):
-            raise ValueError("must be one of enum values ('DontLike', 'GiveFeedback', 'NotCredible', 'NotRelevant', 'SeeFewer')")
-        return value
-
     @field_validator('icon')
     def icon_validate_enum(cls, value):
         """Validates the enum"""
