@@ -93,7 +93,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_search_timeline_with_http_info,
-            convertFn=lambda e: error_check(e.data.search_by_raw_query, e.errors).search_timeline.timeline.instructions,
+            convertFn=lambda e: error_check(
+                error_check(e.data.search_by_raw_query, e.errors).search_timeline.timeline, e.errors
+            ).instructions,
             key="SearchTimeline",
             param=param,
         )
