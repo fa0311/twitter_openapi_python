@@ -1,0 +1,43 @@
+name: publish
+
+# Builds both packages on every push to master and uploads them to PyPI through
+# trusted publishing (OIDC, no token); versions that are already on PyPI are
+# skipped by the upload action. The generated package goes first because the
+# wrapper pins its exact version.
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: pypi-publish
+  cancel-in-progress: false
+
+jobs:
+  generated:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.0
+      - run: uv build --directory twitter_openapi_python_generated
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: twitter_openapi_python_generated/dist
+          skip-existing: true
+
+  wrapper:
+    needs: generated
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.0
+      - run: uv build --directory twitter_openapi_python
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: twitter_openapi_python/dist
+          skip-existing: true
