@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.client_event_info_details import ClientEventInfoDetails
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,7 +30,7 @@ class ClientEventInfo(BaseModel):
     ClientEventInfo
     """ # noqa: E501
     component: Optional[StrictStr] = None
-    details: Optional[Dict[str, Any]] = None
+    details: Optional[ClientEventInfoDetails] = None
     element: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["component", "details", "element"]
 
@@ -72,6 +73,9 @@ class ClientEventInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of details
+        if self.details:
+            _dict['details'] = self.details.to_dict()
         return _dict
 
     @classmethod
@@ -85,7 +89,7 @@ class ClientEventInfo(BaseModel):
 
         _obj = cls.model_validate({
             "component": obj.get("component"),
-            "details": obj.get("details"),
+            "details": ClientEventInfoDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
             "element": obj.get("element")
         })
         return _obj

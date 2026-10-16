@@ -45,7 +45,27 @@ class TestItemContentUnion(unittest.TestCase):
                             start_index = 56, )
                         ], ),
                 item_type = 'TimelineTweet',
-                promoted_metadata = { },
+                promoted_metadata = twitter_openapi_python_generated.models.promoted_metadata.PromotedMetadata(
+                    ad_metadata_container = twitter_openapi_python_generated.models.ad_metadata_container.AdMetadataContainer(
+                        destination_url_params = [
+                            twitter_openapi_python_generated.models.key_value.KeyValue(
+                                key = '', 
+                                value = '', )
+                            ], 
+                        is_quick_promote = True, 
+                        render_legacy_website_card = True, 
+                        render_sales_cta_website_card = True, 
+                        show_overlay_on_first_card = True, ), 
+                    advertiser_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                        result = null, ), 
+                    click_tracking_info = twitter_openapi_python_generated.models.click_tracking_info.ClickTrackingInfo(
+                        url_params = [
+                            twitter_openapi_python_generated.models.key_value.KeyValue(
+                                key = '', 
+                                value = '', )
+                            ], ), 
+                    impression_id = '', 
+                    impression_string = '', ),
                 social_context = None,
                 tweet_display_type = 'Tweet',
                 tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
@@ -138,17 +158,76 @@ class TestItemContentUnion(unittest.TestCase):
                 display_type = '',
                 list = twitter_openapi_python_generated.models.twitter_list.TwitterList(
                     created_at = 56, 
+                    custom_banner_media = twitter_openapi_python_generated.models.list_banner_media.ListBannerMedia(
+                        media_info = twitter_openapi_python_generated.models.list_banner_media_info.ListBannerMediaInfo(
+                            original_img_height = 56, 
+                            original_img_url = '', 
+                            original_img_width = 56, 
+                            salient_rect = twitter_openapi_python_generated.models.media_salient_rect.MediaSalientRect(
+                                height = 56, 
+                                left = 56, 
+                                top = 56, 
+                                width = 56, ), ), ), 
+                    custom_banner_media_results = twitter_openapi_python_generated.models.list_banner_media_results.ListBannerMediaResults(
+                        result = twitter_openapi_python_generated.models.api_media.ApiMedia(
+                            __typename = 'TimelineTweet', 
+                            id = '', 
+                            media_id = '4', 
+                            media_info = twitter_openapi_python_generated.models.api_image.ApiImage(
+                                __typename = 'TimelineTweet', 
+                                color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
+                                    palette = [
+                                        twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
+                                            percentage = 1.337, 
+                                            rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
+                                                blue = 56, 
+                                                green = 56, 
+                                                red = 56, ), )
+                                        ], ), 
+                                original_img_height = 56, 
+                                original_img_url = '', 
+                                original_img_width = 56, 
+                                salient_rect = twitter_openapi_python_generated.models.media_salient_rect.MediaSalientRect(
+                                    height = 56, 
+                                    left = 56, 
+                                    top = 56, 
+                                    width = 56, ), ), 
+                            media_key = '', ), ), 
                     default_banner_media = twitter_openapi_python_generated.models.list_banner_media.ListBannerMedia(
                         media_info = twitter_openapi_python_generated.models.list_banner_media_info.ListBannerMediaInfo(
                             original_img_height = 56, 
                             original_img_url = '', 
                             original_img_width = 56, 
-                            salient_rect = twitter_openapi_python_generated.models.list_banner_media_salient_rect.ListBannerMediaSalientRect(
+                            salient_rect = twitter_openapi_python_generated.models.media_salient_rect.MediaSalientRect(
                                 height = 56, 
                                 left = 56, 
                                 top = 56, 
                                 width = 56, ), ), ), 
-                    default_banner_media_results = { }, 
+                    default_banner_media_results = twitter_openapi_python_generated.models.list_banner_media_results.ListBannerMediaResults(
+                        result = twitter_openapi_python_generated.models.api_media.ApiMedia(
+                            __typename = 'TimelineTweet', 
+                            id = '', 
+                            media_id = '4', 
+                            media_info = twitter_openapi_python_generated.models.api_image.ApiImage(
+                                __typename = 'TimelineTweet', 
+                                color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
+                                    palette = [
+                                        twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
+                                            percentage = 1.337, 
+                                            rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
+                                                blue = 56, 
+                                                green = 56, 
+                                                red = 56, ), )
+                                        ], ), 
+                                original_img_height = 56, 
+                                original_img_url = '', 
+                                original_img_width = 56, 
+                                salient_rect = twitter_openapi_python_generated.models.media_salient_rect.MediaSalientRect(
+                                    height = 56, 
+                                    left = 56, 
+                                    top = 56, 
+                                    width = 56, ), ), 
+                            media_key = '', ), ), 
                     description = '', 
                     facepile_urls = [
                         ''
@@ -242,17 +321,76 @@ class TestItemContentUnion(unittest.TestCase):
                 payload = '',
                 list = twitter_openapi_python_generated.models.twitter_list.TwitterList(
                     created_at = 56, 
+                    custom_banner_media = twitter_openapi_python_generated.models.list_banner_media.ListBannerMedia(
+                        media_info = twitter_openapi_python_generated.models.list_banner_media_info.ListBannerMediaInfo(
+                            original_img_height = 56, 
+                            original_img_url = '', 
+                            original_img_width = 56, 
+                            salient_rect = twitter_openapi_python_generated.models.media_salient_rect.MediaSalientRect(
+                                height = 56, 
+                                left = 56, 
+                                top = 56, 
+                                width = 56, ), ), ), 
+                    custom_banner_media_results = twitter_openapi_python_generated.models.list_banner_media_results.ListBannerMediaResults(
+                        result = twitter_openapi_python_generated.models.api_media.ApiMedia(
+                            __typename = 'TimelineTweet', 
+                            id = '', 
+                            media_id = '4', 
+                            media_info = twitter_openapi_python_generated.models.api_image.ApiImage(
+                                __typename = 'TimelineTweet', 
+                                color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
+                                    palette = [
+                                        twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
+                                            percentage = 1.337, 
+                                            rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
+                                                blue = 56, 
+                                                green = 56, 
+                                                red = 56, ), )
+                                        ], ), 
+                                original_img_height = 56, 
+                                original_img_url = '', 
+                                original_img_width = 56, 
+                                salient_rect = twitter_openapi_python_generated.models.media_salient_rect.MediaSalientRect(
+                                    height = 56, 
+                                    left = 56, 
+                                    top = 56, 
+                                    width = 56, ), ), 
+                            media_key = '', ), ), 
                     default_banner_media = twitter_openapi_python_generated.models.list_banner_media.ListBannerMedia(
                         media_info = twitter_openapi_python_generated.models.list_banner_media_info.ListBannerMediaInfo(
                             original_img_height = 56, 
                             original_img_url = '', 
                             original_img_width = 56, 
-                            salient_rect = twitter_openapi_python_generated.models.list_banner_media_salient_rect.ListBannerMediaSalientRect(
+                            salient_rect = twitter_openapi_python_generated.models.media_salient_rect.MediaSalientRect(
                                 height = 56, 
                                 left = 56, 
                                 top = 56, 
                                 width = 56, ), ), ), 
-                    default_banner_media_results = { }, 
+                    default_banner_media_results = twitter_openapi_python_generated.models.list_banner_media_results.ListBannerMediaResults(
+                        result = twitter_openapi_python_generated.models.api_media.ApiMedia(
+                            __typename = 'TimelineTweet', 
+                            id = '', 
+                            media_id = '4', 
+                            media_info = twitter_openapi_python_generated.models.api_image.ApiImage(
+                                __typename = 'TimelineTweet', 
+                                color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
+                                    palette = [
+                                        twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
+                                            percentage = 1.337, 
+                                            rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
+                                                blue = 56, 
+                                                green = 56, 
+                                                red = 56, ), )
+                                        ], ), 
+                                original_img_height = 56, 
+                                original_img_url = '', 
+                                original_img_width = 56, 
+                                salient_rect = twitter_openapi_python_generated.models.media_salient_rect.MediaSalientRect(
+                                    height = 56, 
+                                    left = 56, 
+                                    top = 56, 
+                                    width = 56, ), ), 
+                            media_key = '', ), ), 
                     description = '', 
                     facepile_urls = [
                         ''

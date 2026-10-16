@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**info** | **Dict[str, object]** |  | 
+**info** | [**SmarttagTagInfo**](SmarttagTagInfo.md) |  | 
 
 ## Example
 

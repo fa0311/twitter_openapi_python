@@ -30,6 +30,7 @@ from twitter_openapi_python_generated.models.community_result import CommunityRe
 from twitter_openapi_python_generated.models.content_disclosure import ContentDisclosure
 from twitter_openapi_python_generated.models.grok_annotation import GrokAnnotation
 from twitter_openapi_python_generated.models.grok_translated_post_with_availability import GrokTranslatedPostWithAvailability
+from twitter_openapi_python_generated.models.jetfuel_attachment import JetfuelAttachment
 from twitter_openapi_python_generated.models.note_tweet import NoteTweet
 from twitter_openapi_python_generated.models.super_follows_reply_user_result import SuperFollowsReplyUserResult
 from twitter_openapi_python_generated.models.trend_results import TrendResults
@@ -69,6 +70,7 @@ class Tweet(BaseModel):
     grok_translated_post_with_availability: Optional[GrokTranslatedPostWithAvailability] = None
     has_birdwatch_notes: Optional[StrictBool] = None
     is_translatable: Optional[StrictBool] = None
+    jetfuel_attachment: Optional[JetfuelAttachment] = None
     legacy: Optional[TweetLegacy] = None
     nested_quoted_tweet_results: Optional[ItemResult] = None
     note_tweet: Optional[NoteTweet] = None
@@ -86,7 +88,7 @@ class Tweet(BaseModel):
     unified_card: Optional[UnifiedCard] = None
     unmention_data: Optional[Dict[str, Any]] = None
     views: Optional[TweetView] = None
-    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "cashtag_attachments", "community_relationship", "community_results", "content_disclosure", "core", "edit_control", "edit_prespective", "grok_analysis_button", "grok_analysis_followups", "grok_annotations", "grok_share_attachment", "grok_translated_post_with_availability", "has_birdwatch_notes", "is_translatable", "legacy", "nested_quoted_tweet_results", "note_tweet", "postCta", "post_image_description", "post_video_description", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views"]
+    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "cashtag_attachments", "community_relationship", "community_results", "content_disclosure", "core", "edit_control", "edit_prespective", "grok_analysis_button", "grok_analysis_followups", "grok_annotations", "grok_share_attachment", "grok_translated_post_with_availability", "has_birdwatch_notes", "is_translatable", "jetfuel_attachment", "legacy", "nested_quoted_tweet_results", "note_tweet", "postCta", "post_image_description", "post_video_description", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views"]
 
     @field_validator('rest_id', mode="before")
     def rest_id_validate_regular_expression(cls, value):
@@ -179,6 +181,9 @@ class Tweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of grok_translated_post_with_availability
         if self.grok_translated_post_with_availability:
             _dict['grok_translated_post_with_availability'] = self.grok_translated_post_with_availability.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of jetfuel_attachment
+        if self.jetfuel_attachment:
+            _dict['jetfuel_attachment'] = self.jetfuel_attachment.to_dict()
         # override the default output from pydantic by calling `to_dict()` of legacy
         if self.legacy:
             _dict['legacy'] = self.legacy.to_dict()
@@ -243,6 +248,7 @@ class Tweet(BaseModel):
             "grok_translated_post_with_availability": GrokTranslatedPostWithAvailability.from_dict(obj["grok_translated_post_with_availability"]) if obj.get("grok_translated_post_with_availability") is not None else None,
             "has_birdwatch_notes": obj.get("has_birdwatch_notes"),
             "is_translatable": obj.get("is_translatable"),
+            "jetfuel_attachment": JetfuelAttachment.from_dict(obj["jetfuel_attachment"]) if obj.get("jetfuel_attachment") is not None else None,
             "legacy": TweetLegacy.from_dict(obj["legacy"]) if obj.get("legacy") is not None else None,
             "nested_quoted_tweet_results": ItemResult.from_dict(obj["nested_quoted_tweet_results"]) if obj.get("nested_quoted_tweet_results") is not None else None,
             "note_tweet": NoteTweet.from_dict(obj["note_tweet"]) if obj.get("note_tweet") is not None else None,

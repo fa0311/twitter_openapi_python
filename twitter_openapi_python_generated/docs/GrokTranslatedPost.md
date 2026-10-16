@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**associated_data** | **Dict[str, object]** |  | [optional] 
+**associated_data** | **object** |  | [optional] 
 **destination_language** | **str** |  | [optional] 
 **entities** | [**Entities**](Entities.md) |  | [optional] 
 **preview_translation** | **str** |  | [optional] 

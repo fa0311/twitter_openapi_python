@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.affiliates_highlighted_label import AffiliatesHighlightedLabel
 from twitter_openapi_python_generated.models.profile_bio import ProfileBio
 from twitter_openapi_python_generated.models.type_name import TypeName
 from twitter_openapi_python_generated.models.user_action_counts import UserActionCounts
@@ -57,7 +58,7 @@ class User(BaseModel):
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
     action_counts: Optional[UserActionCounts] = None
-    affiliates_highlighted_label: Optional[Dict[str, Any]] = None
+    affiliates_highlighted_label: Optional[AffiliatesHighlightedLabel] = None
     avatar: Optional[UserAvatar] = None
     banner: Optional[UserBanner] = None
     business_account: Optional[Dict[str, Any]] = None
@@ -181,6 +182,9 @@ class User(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of action_counts
         if self.action_counts:
             _dict['action_counts'] = self.action_counts.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of affiliates_highlighted_label
+        if self.affiliates_highlighted_label:
+            _dict['affiliates_highlighted_label'] = self.affiliates_highlighted_label.to_dict()
         # override the default output from pydantic by calling `to_dict()` of avatar
         if self.avatar:
             _dict['avatar'] = self.avatar.to_dict()
@@ -273,7 +277,7 @@ class User(BaseModel):
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
             "action_counts": UserActionCounts.from_dict(obj["action_counts"]) if obj.get("action_counts") is not None else None,
-            "affiliates_highlighted_label": obj.get("affiliates_highlighted_label"),
+            "affiliates_highlighted_label": AffiliatesHighlightedLabel.from_dict(obj["affiliates_highlighted_label"]) if obj.get("affiliates_highlighted_label") is not None else None,
             "avatar": UserAvatar.from_dict(obj["avatar"]) if obj.get("avatar") is not None else None,
             "banner": UserBanner.from_dict(obj["banner"]) if obj.get("banner") is not None else None,
             "business_account": obj.get("business_account"),

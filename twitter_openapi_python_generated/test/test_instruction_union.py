@@ -51,16 +51,23 @@ class TestInstructionUnion(unittest.TestCase):
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
                             client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                                 component = '', 
-                                details = { }, 
+                                details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                                    conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                                        conversation_section = 'HighQuality', ), 
+                                    timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                                        controller_data = '', 
+                                        injection_type = '', 
+                                        source_data = '', ), ), 
                                 element = '', ), 
                             feedback_info = twitter_openapi_python_generated.models.feedback_info.FeedbackInfo(
-                                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                                client_event_info = twitter_openapi_python_generated.models.feedback_client_event_info.FeedbackClientEventInfo(
+                                    action = '', 
                                     component = '', 
-                                    details = { }, 
                                     element = '', ), 
                                 feedback_keys = [
                                     ''
-                                    ], ), 
+                                    ], 
+                                feedback_metadata = '', ), 
                             item_content = null, ), )
                     ],
                 prepend = True,
@@ -72,15 +79,26 @@ class TestInstructionUnion(unittest.TestCase):
                 alert_type = 'NewTweets',
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                     component = '', 
-                    details = { }, 
+                    details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                        conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                            conversation_section = 'HighQuality', ), 
+                        timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                            controller_data = '', 
+                            injection_type = '', 
+                            source_data = '', ), ), 
                     element = '', ),
-                color_config = { },
+                color_config = twitter_openapi_python_generated.models.timeline_show_alert_color_config.TimelineShowAlertColorConfig(
+                    background = '', 
+                    border = '', 
+                    text = '', ),
                 display_duration_ms = 56,
                 display_location = 'Top',
-                icon_display_info = { },
-                rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlert_richText(
+                icon_display_info = twitter_openapi_python_generated.models.timeline_show_alert_icon_display_info.TimelineShowAlertIconDisplayInfo(
+                    icon = '', 
+                    tint = '', ),
+                rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlertRichText(
                     entities = [
-                        { }
+                        None
                         ], 
                     text = '', ),
                 trigger_delay_ms = 56,
@@ -152,16 +170,23 @@ class TestInstructionUnion(unittest.TestCase):
                         item = twitter_openapi_python_generated.models.module_entry.ModuleEntry(
                             client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                                 component = '', 
-                                details = { }, 
+                                details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                                    conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                                        conversation_section = 'HighQuality', ), 
+                                    timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                                        controller_data = '', 
+                                        injection_type = '', 
+                                        source_data = '', ), ), 
                                 element = '', ), 
                             feedback_info = twitter_openapi_python_generated.models.feedback_info.FeedbackInfo(
-                                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                                client_event_info = twitter_openapi_python_generated.models.feedback_client_event_info.FeedbackClientEventInfo(
+                                    action = '', 
                                     component = '', 
-                                    details = { }, 
                                     element = '', ), 
                                 feedback_keys = [
                                     ''
-                                    ], ), 
+                                    ], 
+                                feedback_metadata = '', ), 
                             item_content = null, ), )
                     ],
                 entry = twitter_openapi_python_generated.models.timeline_add_entry.TimelineAddEntry(
@@ -169,19 +194,32 @@ class TestInstructionUnion(unittest.TestCase):
                     entry_id = '25375e030fccba00917317c574773100bf03b5f', 
                     sort_index = '4', ),
                 entry_id_to_replace = '',
+                alert_type = 'NewTweets',
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                     component = '', 
-                    details = { }, 
+                    details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                        conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                            conversation_section = 'HighQuality', ), 
+                        timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                            controller_data = '', 
+                            injection_type = '', 
+                            source_data = '', ), ), 
                     element = '', ),
-                rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlert_richText(
+                color_config = twitter_openapi_python_generated.models.timeline_show_alert_color_config.TimelineShowAlertColorConfig(
+                    background = '', 
+                    border = '', 
+                    text = '', ),
+                display_duration_ms = 56,
+                display_location = 'Top',
+                icon_display_info = twitter_openapi_python_generated.models.timeline_show_alert_icon_display_info.TimelineShowAlertIconDisplayInfo(
+                    icon = '', 
+                    tint = '', ),
+                rich_text = twitter_openapi_python_generated.models.timeline_show_alert_rich_text.TimelineShowAlertRichText(
                     entities = [
-                        { }
+                        None
                         ], 
                     text = '', ),
-                users_results = [
-                    twitter_openapi_python_generated.models.user_results.UserResults(
-                        result = null, )
-                    ],
+                trigger_delay_ms = 56,
                 direction = 'Top',
                 cover = twitter_openapi_python_generated.models.timeline_half_cover.TimelineHalfCover(
                     dismissible = True, 

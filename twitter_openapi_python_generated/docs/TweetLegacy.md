@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bookmark_count** | **int** |  | 
 **bookmarked** | **bool** |  | 
-**conversation_control** | **Dict[str, object]** |  | [optional] 
+**conversation_control** | [**ConversationControl**](ConversationControl.md) |  | [optional] 
 **conversation_id_str** | **str** |  | 
 **created_at** | **str** |  | 
 **display_text_range** | **List[int]** |  | 

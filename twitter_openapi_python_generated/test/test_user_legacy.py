@@ -44,7 +44,27 @@ class TestUserLegacy(unittest.TestCase):
                 default_profile = True,
                 default_profile_image = True,
                 description = '',
-                entities = { },
+                entities = twitter_openapi_python_generated.models.profile_bio_entities.ProfileBioEntities(
+                    description = twitter_openapi_python_generated.models.profile_bio_entities_urls.ProfileBioEntitiesUrls(
+                        urls = [
+                            twitter_openapi_python_generated.models.url.Url(
+                                display_url = '', 
+                                expanded_url = '', 
+                                indices = [
+                                    56
+                                    ], 
+                                url = '', )
+                            ], ), 
+                    url = twitter_openapi_python_generated.models.profile_bio_entities_urls.ProfileBioEntitiesUrls(
+                        urls = [
+                            twitter_openapi_python_generated.models.url.Url(
+                                display_url = '', 
+                                expanded_url = '', 
+                                indices = [
+                                    56
+                                    ], 
+                                url = '', )
+                            ], ), ),
                 fast_followers_count = 56,
                 favourites_count = 56,
                 follow_request_sent = True,
@@ -91,7 +111,27 @@ class TestUserLegacy(unittest.TestCase):
                 default_profile = True,
                 default_profile_image = True,
                 description = '',
-                entities = { },
+                entities = twitter_openapi_python_generated.models.profile_bio_entities.ProfileBioEntities(
+                    description = twitter_openapi_python_generated.models.profile_bio_entities_urls.ProfileBioEntitiesUrls(
+                        urls = [
+                            twitter_openapi_python_generated.models.url.Url(
+                                display_url = '', 
+                                expanded_url = '', 
+                                indices = [
+                                    56
+                                    ], 
+                                url = '', )
+                            ], ), 
+                    url = twitter_openapi_python_generated.models.profile_bio_entities_urls.ProfileBioEntitiesUrls(
+                        urls = [
+                            twitter_openapi_python_generated.models.url.Url(
+                                display_url = '', 
+                                expanded_url = '', 
+                                indices = [
+                                    56
+                                    ], 
+                                url = '', )
+                            ], ), ),
                 fast_followers_count = 56,
                 favourites_count = 56,
                 followers_count = 56,

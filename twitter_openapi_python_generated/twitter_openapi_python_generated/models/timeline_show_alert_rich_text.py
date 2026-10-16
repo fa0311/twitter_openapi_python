@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,8 +28,8 @@ class TimelineShowAlertRichText(BaseModel):
     """
     TimelineShowAlertRichText
     """ # noqa: E501
-    entities: Optional[List[Dict[str, Any]]] = None
-    text: Optional[StrictStr] = None
+    entities: List[Dict[str, Any]]
+    text: StrictStr
     __properties: ClassVar[List[str]] = ["entities", "text"]
 
     model_config = ConfigDict(

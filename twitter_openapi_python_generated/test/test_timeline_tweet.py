@@ -45,7 +45,27 @@ class TestTimelineTweet(unittest.TestCase):
                             start_index = 56, )
                         ], ),
                 item_type = 'TimelineTweet',
-                promoted_metadata = { },
+                promoted_metadata = twitter_openapi_python_generated.models.promoted_metadata.PromotedMetadata(
+                    ad_metadata_container = twitter_openapi_python_generated.models.ad_metadata_container.AdMetadataContainer(
+                        destination_url_params = [
+                            twitter_openapi_python_generated.models.key_value.KeyValue(
+                                key = '', 
+                                value = '', )
+                            ], 
+                        is_quick_promote = True, 
+                        render_legacy_website_card = True, 
+                        render_sales_cta_website_card = True, 
+                        show_overlay_on_first_card = True, ), 
+                    advertiser_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                        result = null, ), 
+                    click_tracking_info = twitter_openapi_python_generated.models.click_tracking_info.ClickTrackingInfo(
+                        url_params = [
+                            twitter_openapi_python_generated.models.key_value.KeyValue(
+                                key = '', 
+                                value = '', )
+                            ], ), 
+                    impression_id = '', 
+                    impression_string = '', ),
                 social_context = None,
                 tweet_display_type = 'Tweet',
                 tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(

@@ -31,13 +31,17 @@ class UserProfessional(BaseModel):
     UserProfessional
     """ # noqa: E501
     category: Optional[List[UserProfessionalCategory]] = None
-    professional_type: StrictStr
+    id: Optional[StrictStr] = None
+    professional_type: Optional[StrictStr] = None
     rest_id: Annotated[str, Field(strict=True)]
-    __properties: ClassVar[List[str]] = ["category", "professional_type", "rest_id"]
+    __properties: ClassVar[List[str]] = ["category", "id", "professional_type", "rest_id"]
 
     @field_validator('professional_type')
     def professional_type_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(['Business', 'Creator']):
             raise ValueError("must be one of enum values ('Business', 'Creator')")
         return value
@@ -107,6 +111,7 @@ class UserProfessional(BaseModel):
 
         _obj = cls.model_validate({
             "category": [UserProfessionalCategory.from_dict(_item) for _item in obj["category"]] if obj.get("category") is not None else None,
+            "id": obj.get("id"),
             "professional_type": obj.get("professional_type"),
             "rest_id": obj.get("rest_id")
         })

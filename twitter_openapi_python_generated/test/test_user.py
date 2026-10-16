@@ -39,12 +39,37 @@ class TestUser(unittest.TestCase):
                 typename = 'TimelineTweet',
                 action_counts = twitter_openapi_python_generated.models.user_action_counts.UserActionCounts(
                     favorites_count = 56, ),
-                affiliates_highlighted_label = { },
+                affiliates_highlighted_label = twitter_openapi_python_generated.models.affiliates_highlighted_label.AffiliatesHighlightedLabel(
+                    label = twitter_openapi_python_generated.models.user_label.UserLabel(
+                        badge = twitter_openapi_python_generated.models.user_label_badge.UserLabelBadge(
+                            url = '', ), 
+                        description = '', 
+                        long_description = twitter_openapi_python_generated.models.user_label_text.UserLabelText(
+                            entities = [
+                                twitter_openapi_python_generated.models.user_label_text_entity.UserLabelTextEntity(
+                                    from_index = 56, 
+                                    ref = twitter_openapi_python_generated.models.user_label_text_entity_ref.UserLabelTextEntityRef(
+                                        mention_results = twitter_openapi_python_generated.models.user_label_mention_results.UserLabelMentionResults(
+                                            result = twitter_openapi_python_generated.models.user_label_mention_user.UserLabelMentionUser(
+                                                __typename = 'TimelineTweet', 
+                                                core = twitter_openapi_python_generated.models.user_label_mention_user_core.UserLabelMentionUserCore(
+                                                    screen_name = '', ), 
+                                                rest_id = '4', ), ), 
+                                        screen_name = '', 
+                                        type = 'TimelineRichTextMention', ), 
+                                    to_index = 56, )
+                                ], 
+                            text = '', ), 
+                        url = twitter_openapi_python_generated.models.user_label_url.UserLabelUrl(
+                            url = '', 
+                            url_type = 'DeepLink', ), 
+                        user_label_display_type = 'Badge', 
+                        user_label_type = 'AutomatedLabel', ), ),
                 avatar = twitter_openapi_python_generated.models.user_avatar.UserAvatar(
                     image_url = '', ),
                 banner = twitter_openapi_python_generated.models.user_banner.UserBanner(
                     image_url = '', ),
-                business_account = { },
+                business_account = None,
                 core = twitter_openapi_python_generated.models.user_core.UserCore(
                     created_at = 'Sat Dec 31 23:59:59 +0000 2023', 
                     name = '', 
@@ -58,7 +83,11 @@ class TestUser(unittest.TestCase):
                         destination_language = '', 
                         entities = twitter_openapi_python_generated.models.entities.Entities(
                             hashtags = [
-                                { }
+                                twitter_openapi_python_generated.models.hashtag.Hashtag(
+                                    indices = [
+                                        56
+                                        ], 
+                                    text = '', )
                                 ], 
                             media = [
                                 twitter_openapi_python_generated.models.media.Media(
@@ -152,11 +181,17 @@ class TestUser(unittest.TestCase):
                                         56
                                         ], 
                                     tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                                        info = { }, ), 
+                                        info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
                                     text = '', )
                                 ], 
                             symbols = [
-                                { }
+                                twitter_openapi_python_generated.models.symbol.Symbol(
+                                    indices = [
+                                        56
+                                        ], 
+                                    tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                        info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
+                                    text = '', )
                                 ], 
                             timestamps = [
                                 twitter_openapi_python_generated.models.timestamp.Timestamp(
@@ -176,7 +211,14 @@ class TestUser(unittest.TestCase):
                                     url = '', )
                                 ], 
                             user_mentions = [
-                                { }
+                                twitter_openapi_python_generated.models.user_mention.UserMention(
+                                    id = '4', 
+                                    id_str = '4', 
+                                    indices = [
+                                        56
+                                        ], 
+                                    name = '', 
+                                    screen_name = '', )
                                 ], ), 
                         source_language = '', 
                         translation = '', ), 
@@ -201,7 +243,27 @@ class TestUser(unittest.TestCase):
                     default_profile = True, 
                     default_profile_image = True, 
                     description = '', 
-                    entities = { }, 
+                    entities = twitter_openapi_python_generated.models.profile_bio_entities.ProfileBioEntities(
+                        description = twitter_openapi_python_generated.models.profile_bio_entities_urls.ProfileBioEntitiesUrls(
+                            urls = [
+                                twitter_openapi_python_generated.models.url.Url(
+                                    display_url = '', 
+                                    expanded_url = '', 
+                                    indices = [
+                                        56
+                                        ], 
+                                    url = '', )
+                                ], ), 
+                        url = twitter_openapi_python_generated.models.profile_bio_entities_urls.ProfileBioEntitiesUrls(
+                            urls = [
+                                twitter_openapi_python_generated.models.url.Url(
+                                    display_url = '', 
+                                    expanded_url = '', 
+                                    indices = [
+                                        56
+                                        ], 
+                                    url = '', )
+                                ], ), ), 
                     fast_followers_count = 56, 
                     favourites_count = 56, 
                     follow_request_sent = True, 
@@ -271,6 +333,7 @@ class TestUser(unittest.TestCase):
                             id = 56, 
                             name = '', )
                         ], 
+                    id = '', 
                     professional_type = 'Business', 
                     rest_id = '4', ),
                 profile_bio = twitter_openapi_python_generated.models.profile_bio.ProfileBio(

@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.deepsearch_header import DeepsearchHeader
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,7 +30,7 @@ class GrokShareAttachmentItem(BaseModel):
     GrokShareAttachmentItem
     """ # noqa: E501
     analysis_post_id_results: Optional[AnalysisResults] = None
-    deepsearch_headers: Optional[List[Dict[str, Any]]] = None
+    deepsearch_headers: Optional[List[DeepsearchHeader]] = None
     media_urls: List[StrictStr]
     message: StrictStr
     __properties: ClassVar[List[str]] = ["analysis_post_id_results", "deepsearch_headers", "media_urls", "message"]
@@ -76,6 +77,12 @@ class GrokShareAttachmentItem(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of analysis_post_id_results
         if self.analysis_post_id_results:
             _dict['analysis_post_id_results'] = self.analysis_post_id_results.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in deepsearch_headers (list)
+        _items = []
+        if self.deepsearch_headers:
+            for _item_deepsearch_headers in self.deepsearch_headers:
+                _items.append(_item_deepsearch_headers.to_dict() if _item_deepsearch_headers is not None else None)
+            _dict['deepsearch_headers'] = _items
         return _dict
 
     @classmethod
@@ -89,7 +96,7 @@ class GrokShareAttachmentItem(BaseModel):
 
         _obj = cls.model_validate({
             "analysis_post_id_results": AnalysisResults.from_dict(obj["analysis_post_id_results"]) if obj.get("analysis_post_id_results") is not None else None,
-            "deepsearch_headers": obj.get("deepsearch_headers"),
+            "deepsearch_headers": [DeepsearchHeader.from_dict(_item) for _item in obj["deepsearch_headers"]] if obj.get("deepsearch_headers") is not None else None,
             "media_urls": obj.get("media_urls"),
             "message": obj.get("message")
         })

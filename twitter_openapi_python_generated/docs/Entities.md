@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hashtags** | **List[Dict[str, object]]** |  | [optional] 
+**hashtags** | [**List[Hashtag]**](Hashtag.md) |  | [optional] 
 **media** | [**List[Media]**](Media.md) |  | [optional] 
 **smarttags** | [**List[Smarttag]**](Smarttag.md) |  | [optional] 
-**symbols** | **List[Dict[str, object]]** |  | [optional] 
+**symbols** | [**List[Symbol]**](Symbol.md) |  | [optional] 
 **timestamps** | [**List[Timestamp]**](Timestamp.md) |  | [optional] 
 **urls** | [**List[Url]**](Url.md) |  | [optional] 
-**user_mentions** | **List[Dict[str, object]]** |  | [optional] 
+**user_mentions** | [**List[UserMention]**](UserMention.md) |  | [optional] 
 
 ## Example
 

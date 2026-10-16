@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **grok_translated_post_with_availability** | [**GrokTranslatedPostWithAvailability**](GrokTranslatedPostWithAvailability.md) |  | [optional] 
 **has_birdwatch_notes** | **bool** |  | [optional] 
 **is_translatable** | **bool** |  | [optional] 
+**jetfuel_attachment** | [**JetfuelAttachment**](JetfuelAttachment.md) |  | [optional] 
 **legacy** | [**TweetLegacy**](TweetLegacy.md) |  | [optional] 
 **nested_quoted_tweet_results** | [**ItemResult**](ItemResult.md) |  | [optional] 
 **note_tweet** | [**NoteTweet**](NoteTweet.md) |  | [optional] 
@@ -39,7 +40,7 @@ Name | Type | Description | Notes
 **super_follows_reply_user_result** | [**SuperFollowsReplyUserResult**](SuperFollowsReplyUserResult.md) |  | [optional] 
 **trend_results** | [**TrendResults**](TrendResults.md) |  | [optional] 
 **unified_card** | [**UnifiedCard**](UnifiedCard.md) |  | [optional] 
-**unmention_data** | **Dict[str, object]** |  | [optional] 
+**unmention_data** | **object** |  | [optional] 
 **views** | [**TweetView**](TweetView.md) |  | [optional] 
 
 ## Example

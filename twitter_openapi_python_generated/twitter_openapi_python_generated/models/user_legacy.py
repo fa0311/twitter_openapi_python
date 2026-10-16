@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.profile_bio_entities import ProfileBioEntities
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -37,7 +38,7 @@ class UserLegacy(BaseModel):
     default_profile: StrictBool
     default_profile_image: StrictBool
     description: StrictStr
-    entities: Dict[str, Any]
+    entities: ProfileBioEntities
     fast_followers_count: StrictInt
     favourites_count: StrictInt
     follow_request_sent: Optional[StrictBool] = None
@@ -135,6 +136,9 @@ class UserLegacy(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of entities
+        if self.entities:
+            _dict['entities'] = self.entities.to_dict()
         return _dict
 
     @classmethod
@@ -155,7 +159,7 @@ class UserLegacy(BaseModel):
             "default_profile": obj.get("default_profile"),
             "default_profile_image": obj.get("default_profile_image"),
             "description": obj.get("description"),
-            "entities": obj.get("entities"),
+            "entities": ProfileBioEntities.from_dict(obj["entities"]) if obj.get("entities") is not None else None,
             "fast_followers_count": obj.get("fast_followers_count"),
             "favourites_count": obj.get("favourites_count"),
             "follow_request_sent": obj.get("follow_request_sent"),

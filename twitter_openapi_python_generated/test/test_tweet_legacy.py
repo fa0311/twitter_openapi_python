@@ -38,7 +38,13 @@ class TestTweetLegacy(unittest.TestCase):
             return TweetLegacy(
                 bookmark_count = 56,
                 bookmarked = True,
-                conversation_control = { },
+                conversation_control = twitter_openapi_python_generated.models.conversation_control.ConversationControl(
+                    conversation_owner_results = twitter_openapi_python_generated.models.conversation_owner_results.ConversationOwnerResults(
+                        result = twitter_openapi_python_generated.models.conversation_owner.ConversationOwner(
+                            __typename = 'TimelineTweet', 
+                            core = twitter_openapi_python_generated.models.conversation_owner_core.ConversationOwnerCore(
+                                screen_name = '', ), ), ), 
+                    policy = '', ),
                 conversation_id_str = '4',
                 created_at = 'Sat Dec 31 23:59:59 +0000 2023',
                 display_text_range = [
@@ -46,7 +52,11 @@ class TestTweetLegacy(unittest.TestCase):
                     ],
                 entities = twitter_openapi_python_generated.models.entities.Entities(
                     hashtags = [
-                        { }
+                        twitter_openapi_python_generated.models.hashtag.Hashtag(
+                            indices = [
+                                56
+                                ], 
+                            text = '', )
                         ], 
                     media = [
                         twitter_openapi_python_generated.models.media.Media(
@@ -140,11 +150,17 @@ class TestTweetLegacy(unittest.TestCase):
                                 56
                                 ], 
                             tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                                info = { }, ), 
+                                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
                             text = '', )
                         ], 
                     symbols = [
-                        { }
+                        twitter_openapi_python_generated.models.symbol.Symbol(
+                            indices = [
+                                56
+                                ], 
+                            tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
+                            text = '', )
                         ], 
                     timestamps = [
                         twitter_openapi_python_generated.models.timestamp.Timestamp(
@@ -164,7 +180,14 @@ class TestTweetLegacy(unittest.TestCase):
                             url = '', )
                         ], 
                     user_mentions = [
-                        { }
+                        twitter_openapi_python_generated.models.user_mention.UserMention(
+                            id = '4', 
+                            id_str = '4', 
+                            indices = [
+                                56
+                                ], 
+                            name = '', 
+                            screen_name = '', )
                         ], ),
                 extended_entities = twitter_openapi_python_generated.models.extended_entities.ExtendedEntities(
                     media = [

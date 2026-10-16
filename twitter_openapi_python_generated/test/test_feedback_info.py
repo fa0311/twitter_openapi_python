@@ -36,16 +36,20 @@ class TestFeedbackInfo(unittest.TestCase):
         model = FeedbackInfo()
         if include_optional:
             return FeedbackInfo(
-                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                client_event_info = twitter_openapi_python_generated.models.feedback_client_event_info.FeedbackClientEventInfo(
+                    action = '', 
                     component = '', 
-                    details = { }, 
                     element = '', ),
                 feedback_keys = [
                     ''
-                    ]
+                    ],
+                feedback_metadata = ''
             )
         else:
             return FeedbackInfo(
+                feedback_keys = [
+                    ''
+                    ],
         )
         """
 

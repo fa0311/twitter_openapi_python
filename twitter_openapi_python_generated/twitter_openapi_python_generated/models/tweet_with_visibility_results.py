@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.limited_action_results import LimitedActionResults
 from twitter_openapi_python_generated.models.media_visibility_results import MediaVisibilityResults
 from twitter_openapi_python_generated.models.tweet_interstitial import TweetInterstitial
 from twitter_openapi_python_generated.models.type_name import TypeName
@@ -32,7 +33,7 @@ class TweetWithVisibilityResults(BaseModel):
     TweetWithVisibilityResults
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
-    limited_action_results: Optional[Dict[str, Any]] = Field(default=None, alias="limitedActionResults")
+    limited_action_results: Optional[LimitedActionResults] = Field(default=None, alias="limitedActionResults")
     media_visibility_results: Optional[MediaVisibilityResults] = Field(default=None, alias="mediaVisibilityResults")
     tweet: Tweet
     tweet_interstitial: Optional[TweetInterstitial] = Field(default=None, alias="tweetInterstitial")
@@ -77,6 +78,9 @@ class TweetWithVisibilityResults(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of limited_action_results
+        if self.limited_action_results:
+            _dict['limitedActionResults'] = self.limited_action_results.to_dict()
         # override the default output from pydantic by calling `to_dict()` of media_visibility_results
         if self.media_visibility_results:
             _dict['mediaVisibilityResults'] = self.media_visibility_results.to_dict()
@@ -99,7 +103,7 @@ class TweetWithVisibilityResults(BaseModel):
 
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
-            "limitedActionResults": obj.get("limitedActionResults"),
+            "limitedActionResults": LimitedActionResults.from_dict(obj["limitedActionResults"]) if obj.get("limitedActionResults") is not None else None,
             "mediaVisibilityResults": MediaVisibilityResults.from_dict(obj["mediaVisibilityResults"]) if obj.get("mediaVisibilityResults") is not None else None,
             "tweet": Tweet.from_dict(obj["tweet"]) if obj.get("tweet") is not None else None,
             "tweetInterstitial": TweetInterstitial.from_dict(obj["tweetInterstitial"]) if obj.get("tweetInterstitial") is not None else None

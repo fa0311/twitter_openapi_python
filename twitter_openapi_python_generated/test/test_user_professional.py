@@ -42,12 +42,12 @@ class TestUserProfessional(unittest.TestCase):
                         id = 56, 
                         name = '', )
                     ],
+                id = '',
                 professional_type = 'Business',
                 rest_id = '4'
             )
         else:
             return UserProfessional(
-                professional_type = 'Business',
                 rest_id = '4',
         )
         """

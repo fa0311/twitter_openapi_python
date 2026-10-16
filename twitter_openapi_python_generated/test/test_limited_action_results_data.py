@@ -36,11 +36,11 @@ class TestLimitedActionResultsData(unittest.TestCase):
         model = LimitedActionResultsData()
         if include_optional:
             return LimitedActionResultsData(
-                action = 'Reply'
+                action = ''
             )
         else:
             return LimitedActionResultsData(
-                action = 'Reply',
+                action = '',
         )
         """
 

@@ -73,6 +73,12 @@
 
 * `APIIMAGE` (value: `'ApiImage'`)
 
+* `APIMEDIA` (value: `'ApiMedia'`)
+
+* `COMMUNITYUSERDEFAULTMODERATIONSTATE` (value: `'CommunityUserDefaultModerationState'`)
+
+* `CTALIMITEDACTIONPROMPT` (value: `'CtaLimitedActionPrompt'`)
+
 * `TIMELINERICHTEXTUSER` (value: `'TimelineRichTextUser'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

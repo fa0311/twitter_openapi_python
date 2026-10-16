@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **component** | **str** |  | [optional] 
-**details** | **Dict[str, object]** |  | [optional] 
+**details** | [**ClientEventInfoDetails**](ClientEventInfoDetails.md) |  | [optional] 
 **element** | **str** |  | [optional] 
 
 ## Example

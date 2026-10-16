@@ -50,7 +50,8 @@ class TestCommunityRelationship(unittest.TestCase):
                     unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
                         __typename = 'TimelineTweet', ), ),
                 id = '',
-                moderation_state = { },
+                moderation_state = twitter_openapi_python_generated.models.community_moderation_state.CommunityModerationState(
+                    __typename = 'TimelineTweet', ),
                 rest_id = '4'
             )
         else:
@@ -69,7 +70,8 @@ class TestCommunityRelationship(unittest.TestCase):
                     unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
                         __typename = 'TimelineTweet', ), ),
                 id = '',
-                moderation_state = { },
+                moderation_state = twitter_openapi_python_generated.models.community_moderation_state.CommunityModerationState(
+                    __typename = 'TimelineTweet', ),
                 rest_id = '4',
         )
         """

@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo
+from twitter_openapi_python_generated.models.feedback_client_event_info import FeedbackClientEventInfo
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,9 +29,10 @@ class FeedbackInfo(BaseModel):
     """
     FeedbackInfo
     """ # noqa: E501
-    client_event_info: Optional[ClientEventInfo] = Field(default=None, alias="clientEventInfo")
-    feedback_keys: Optional[List[StrictStr]] = Field(default=None, alias="feedbackKeys")
-    __properties: ClassVar[List[str]] = ["clientEventInfo", "feedbackKeys"]
+    client_event_info: Optional[FeedbackClientEventInfo] = Field(default=None, alias="clientEventInfo")
+    feedback_keys: List[StrictStr] = Field(alias="feedbackKeys")
+    feedback_metadata: Optional[StrictStr] = Field(default=None, alias="feedbackMetadata")
+    __properties: ClassVar[List[str]] = ["clientEventInfo", "feedbackKeys", "feedbackMetadata"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -87,8 +88,9 @@ class FeedbackInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "clientEventInfo": ClientEventInfo.from_dict(obj["clientEventInfo"]) if obj.get("clientEventInfo") is not None else None,
-            "feedbackKeys": obj.get("feedbackKeys")
+            "clientEventInfo": FeedbackClientEventInfo.from_dict(obj["clientEventInfo"]) if obj.get("clientEventInfo") is not None else None,
+            "feedbackKeys": obj.get("feedbackKeys"),
+            "feedbackMetadata": obj.get("feedbackMetadata")
         })
         return _obj
 

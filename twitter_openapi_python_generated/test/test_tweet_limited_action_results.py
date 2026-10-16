@@ -38,14 +38,14 @@ class TestTweetLimitedActionResults(unittest.TestCase):
             return TweetLimitedActionResults(
                 limited_actions = [
                     twitter_openapi_python_generated.models.limited_action_results_data.LimitedActionResultsData(
-                        action = 'Reply', )
+                        action = '', )
                     ]
             )
         else:
             return TweetLimitedActionResults(
                 limited_actions = [
                     twitter_openapi_python_generated.models.limited_action_results_data.LimitedActionResultsData(
-                        action = 'Reply', )
+                        action = '', )
                     ],
         )
         """

@@ -42,7 +42,15 @@ class TestTweetCard(unittest.TestCase):
                             key = '', 
                             value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data.TweetCardLegacyBindingValueData(
                                 boolean_value = True, 
-                                image_color_value = { }, 
+                                image_color_value = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
+                                    palette = [
+                                        twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
+                                            percentage = 1.337, 
+                                            rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
+                                                blue = 56, 
+                                                green = 56, 
+                                                red = 56, ), )
+                                        ], ), 
                                 image_value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data_image.TweetCardLegacyBindingValueDataImage(
                                     alt = '', 
                                     height = 56, 

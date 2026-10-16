@@ -6,8 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created_at** | **int** |  | 
+**custom_banner_media** | [**ListBannerMedia**](ListBannerMedia.md) |  | [optional] 
+**custom_banner_media_results** | [**ListBannerMediaResults**](ListBannerMediaResults.md) |  | [optional] 
 **default_banner_media** | [**ListBannerMedia**](ListBannerMedia.md) |  | 
-**default_banner_media_results** | **Dict[str, object]** |  | 
+**default_banner_media_results** | [**ListBannerMediaResults**](ListBannerMediaResults.md) |  | 
 **description** | **str** |  | 
 **facepile_urls** | **List[str]** |  | 
 **followers_context** | **str** |  | [optional] 

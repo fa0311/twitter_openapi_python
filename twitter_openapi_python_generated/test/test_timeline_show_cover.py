@@ -38,7 +38,13 @@ class TestTimelineShowCover(unittest.TestCase):
             return TimelineShowCover(
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                     component = '', 
-                    details = { }, 
+                    details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                        conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                            conversation_section = 'HighQuality', ), 
+                        timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                            controller_data = '', 
+                            injection_type = '', 
+                            source_data = '', ), ), 
                     element = '', ),
                 cover = twitter_openapi_python_generated.models.timeline_half_cover.TimelineHalfCover(
                     dismissible = True, 
@@ -90,7 +96,13 @@ class TestTimelineShowCover(unittest.TestCase):
             return TimelineShowCover(
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                     component = '', 
-                    details = { }, 
+                    details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                        conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                            conversation_section = 'HighQuality', ), 
+                        timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                            controller_data = '', 
+                            injection_type = '', 
+                            source_data = '', ), ), 
                     element = '', ),
                 cover = twitter_openapi_python_generated.models.timeline_half_cover.TimelineHalfCover(
                     dismissible = True, 

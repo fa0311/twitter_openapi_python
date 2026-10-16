@@ -39,10 +39,24 @@ class TestTimelineTimelineItem(unittest.TestCase):
                 typename = 'TimelineTweet',
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                     component = '', 
-                    details = { }, 
+                    details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                        conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                            conversation_section = 'HighQuality', ), 
+                        timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                            controller_data = '', 
+                            injection_type = '', 
+                            source_data = '', ), ), 
                     element = '', ),
                 entry_type = 'TimelineTimelineItem',
-                feedback_info = { },
+                feedback_info = twitter_openapi_python_generated.models.feedback_info.FeedbackInfo(
+                    client_event_info = twitter_openapi_python_generated.models.feedback_client_event_info.FeedbackClientEventInfo(
+                        action = '', 
+                        component = '', 
+                        element = '', ), 
+                    feedback_keys = [
+                        ''
+                        ], 
+                    feedback_metadata = '', ),
                 item_content = None
             )
         else:

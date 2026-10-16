@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **display_type** | [**DisplayType**](DisplayType.md) |  | 
 **entry_type** | [**ContentEntryType**](ContentEntryType.md) |  | 
 **feedback_info** | [**FeedbackInfo**](FeedbackInfo.md) |  | [optional] 
-**footer** | **Dict[str, object]** |  | [optional] 
-**header** | **Dict[str, object]** |  | [optional] 
+**footer** | [**ModuleFooter**](ModuleFooter.md) |  | [optional] 
+**header** | [**ModuleHeader**](ModuleHeader.md) |  | [optional] 
 **items** | [**List[ModuleItem]**](ModuleItem.md) |  | [optional] 
-**metadata** | **Dict[str, object]** |  | [optional] 
+**metadata** | [**ModuleMetadata**](ModuleMetadata.md) |  | [optional] 
 
 ## Example
 

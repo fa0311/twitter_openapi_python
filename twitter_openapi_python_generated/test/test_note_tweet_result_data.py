@@ -38,7 +38,11 @@ class TestNoteTweetResultData(unittest.TestCase):
             return NoteTweetResultData(
                 entity_set = twitter_openapi_python_generated.models.entities.Entities(
                     hashtags = [
-                        { }
+                        twitter_openapi_python_generated.models.hashtag.Hashtag(
+                            indices = [
+                                56
+                                ], 
+                            text = '', )
                         ], 
                     media = [
                         twitter_openapi_python_generated.models.media.Media(
@@ -132,11 +136,17 @@ class TestNoteTweetResultData(unittest.TestCase):
                                 56
                                 ], 
                             tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                                info = { }, ), 
+                                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
                             text = '', )
                         ], 
                     symbols = [
-                        { }
+                        twitter_openapi_python_generated.models.symbol.Symbol(
+                            indices = [
+                                56
+                                ], 
+                            tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
+                            text = '', )
                         ], 
                     timestamps = [
                         twitter_openapi_python_generated.models.timestamp.Timestamp(
@@ -156,7 +166,14 @@ class TestNoteTweetResultData(unittest.TestCase):
                             url = '', )
                         ], 
                     user_mentions = [
-                        { }
+                        twitter_openapi_python_generated.models.user_mention.UserMention(
+                            id = '4', 
+                            id_str = '4', 
+                            indices = [
+                                56
+                                ], 
+                            name = '', 
+                            screen_name = '', )
                         ], ),
                 id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=',
                 media = twitter_openapi_python_generated.models.note_tweet_result_media.NoteTweetResultMedia(
@@ -180,7 +197,11 @@ class TestNoteTweetResultData(unittest.TestCase):
             return NoteTweetResultData(
                 entity_set = twitter_openapi_python_generated.models.entities.Entities(
                     hashtags = [
-                        { }
+                        twitter_openapi_python_generated.models.hashtag.Hashtag(
+                            indices = [
+                                56
+                                ], 
+                            text = '', )
                         ], 
                     media = [
                         twitter_openapi_python_generated.models.media.Media(
@@ -274,11 +295,17 @@ class TestNoteTweetResultData(unittest.TestCase):
                                 56
                                 ], 
                             tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                                info = { }, ), 
+                                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
                             text = '', )
                         ], 
                     symbols = [
-                        { }
+                        twitter_openapi_python_generated.models.symbol.Symbol(
+                            indices = [
+                                56
+                                ], 
+                            tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
+                            text = '', )
                         ], 
                     timestamps = [
                         twitter_openapi_python_generated.models.timestamp.Timestamp(
@@ -298,7 +325,14 @@ class TestNoteTweetResultData(unittest.TestCase):
                             url = '', )
                         ], 
                     user_mentions = [
-                        { }
+                        twitter_openapi_python_generated.models.user_mention.UserMention(
+                            id = '4', 
+                            id_str = '4', 
+                            indices = [
+                                56
+                                ], 
+                            name = '', 
+                            screen_name = '', )
                         ], ),
                 id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=',
                 text = '',

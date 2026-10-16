@@ -36,11 +36,21 @@ class TestConversationControl(unittest.TestCase):
         model = ConversationControl()
         if include_optional:
             return ConversationControl(
-                mode = 'Community'
+                conversation_owner_results = twitter_openapi_python_generated.models.conversation_owner_results.ConversationOwnerResults(
+                    result = twitter_openapi_python_generated.models.conversation_owner.ConversationOwner(
+                        __typename = 'TimelineTweet', 
+                        core = twitter_openapi_python_generated.models.conversation_owner_core.ConversationOwnerCore(
+                            screen_name = '', ), ), ),
+                policy = ''
             )
         else:
             return ConversationControl(
-                mode = 'Community',
+                conversation_owner_results = twitter_openapi_python_generated.models.conversation_owner_results.ConversationOwnerResults(
+                    result = twitter_openapi_python_generated.models.conversation_owner.ConversationOwner(
+                        __typename = 'TimelineTweet', 
+                        core = twitter_openapi_python_generated.models.conversation_owner_core.ConversationOwnerCore(
+                            screen_name = '', ), ), ),
+                policy = '',
         )
         """
 

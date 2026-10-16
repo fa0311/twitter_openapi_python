@@ -49,11 +49,11 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                             media_id = '4', 
                                             media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
                                                 __typename = 'TimelineTweet', 
-                                                color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
+                                                color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
                                                     palette = [
-                                                        twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
+                                                        twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
                                                             percentage = 1.337, 
-                                                            rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
+                                                            rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
                                                                 blue = 56, 
                                                                 green = 56, 
                                                                 red = 56, ), )
@@ -72,11 +72,11 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                 media_id = '4', 
                                                 media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
                                                     __typename = 'TimelineTweet', 
-                                                    color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
+                                                    color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
                                                         palette = [
-                                                            twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
+                                                            twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
                                                                 percentage = 1.337, 
-                                                                rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
+                                                                rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
                                                                     blue = 56, 
                                                                     green = 56, 
                                                                     red = 56, ), )
@@ -164,7 +164,15 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                             key = '', 
                                             value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data.TweetCardLegacyBindingValueData(
                                                 boolean_value = True, 
-                                                image_color_value = { }, 
+                                                image_color_value = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
+                                                    palette = [
+                                                        twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
+                                                            percentage = 1.337, 
+                                                            rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
+                                                                blue = 56, 
+                                                                green = 56, 
+                                                                red = 56, ), )
+                                                        ], ), 
                                                 image_value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data_image.TweetCardLegacyBindingValueDataImage(
                                                     alt = '', 
                                                     height = 56, 
@@ -211,7 +219,8 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                     unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
                                         __typename = 'TimelineTweet', ), ), 
                                 id = '', 
-                                moderation_state = { }, 
+                                moderation_state = twitter_openapi_python_generated.models.community_moderation_state.CommunityModerationState(
+                                    __typename = 'TimelineTweet', ), 
                                 rest_id = '4', ), 
                             community_results = twitter_openapi_python_generated.models.community_result.CommunityResult(
                                 result = null, ), 
@@ -263,11 +272,11 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                 media_id = '4', 
                                                                 media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
                                                                     __typename = 'TimelineTweet', 
-                                                                    color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
+                                                                    color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
                                                                         palette = [
-                                                                            twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
+                                                                            twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
                                                                                 percentage = 1.337, 
-                                                                                rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
+                                                                                rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
                                                                                     blue = 56, 
                                                                                     green = 56, 
                                                                                     red = 56, ), )
@@ -286,11 +295,11 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                     media_id = '4', 
                                                                     media_info = twitter_openapi_python_generated.models.article_cover_media_info.ArticleCoverMediaInfo(
                                                                         __typename = 'TimelineTweet', 
-                                                                        color_info = twitter_openapi_python_generated.models.article_cover_media_color_info.ArticleCoverMediaColorInfo(
+                                                                        color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
                                                                             palette = [
-                                                                                twitter_openapi_python_generated.models.article_cover_media_color_info_palette.ArticleCoverMediaColorInfoPalette(
+                                                                                twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
                                                                                     percentage = 1.337, 
-                                                                                    rgb = twitter_openapi_python_generated.models.article_cover_media_color_info_palette_rgb.ArticleCoverMediaColorInfoPaletteRGB(
+                                                                                    rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
                                                                                         blue = 56, 
                                                                                         green = 56, 
                                                                                         red = 56, ), )
@@ -378,7 +387,15 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                 key = '', 
                                                                 value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data.TweetCardLegacyBindingValueData(
                                                                     boolean_value = True, 
-                                                                    image_color_value = { }, 
+                                                                    image_color_value = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
+                                                                        palette = [
+                                                                            twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
+                                                                                percentage = 1.337, 
+                                                                                rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
+                                                                                    blue = 56, 
+                                                                                    green = 56, 
+                                                                                    red = 56, ), )
+                                                                            ], ), 
                                                                     image_value = twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data_image.TweetCardLegacyBindingValueDataImage(
                                                                         alt = '', 
                                                                         height = 56, 
@@ -425,7 +442,8 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                         unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
                                                             __typename = 'TimelineTweet', ), ), 
                                                     id = '', 
-                                                    moderation_state = { }, 
+                                                    moderation_state = twitter_openapi_python_generated.models.community_moderation_state.CommunityModerationState(
+                                                        __typename = 'TimelineTweet', ), 
                                                     rest_id = '4', ), 
                                                 community_results = twitter_openapi_python_generated.models.community_result.CommunityResult(
                                                     result = null, ), 
@@ -464,11 +482,15 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                     is_image_editable_by_grok = True, ), 
                                                 grok_translated_post_with_availability = twitter_openapi_python_generated.models.grok_translated_post_with_availability.GrokTranslatedPostWithAvailability(
                                                     data = twitter_openapi_python_generated.models.grok_translated_post.GrokTranslatedPost(
-                                                        associated_data = { }, 
+                                                        associated_data = twitter_openapi_python_generated.models.associated_data.associated_data(), 
                                                         destination_language = '', 
                                                         entities = twitter_openapi_python_generated.models.entities.Entities(
                                                             hashtags = [
-                                                                { }
+                                                                twitter_openapi_python_generated.models.hashtag.Hashtag(
+                                                                    indices = [
+                                                                        56
+                                                                        ], 
+                                                                    text = '', )
                                                                 ], 
                                                             media = [
                                                                 twitter_openapi_python_generated.models.media.Media(
@@ -560,11 +582,17 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                         56
                                                                         ], 
                                                                     tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                                                                        info = { }, ), 
+                                                                        info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
                                                                     text = '', )
                                                                 ], 
                                                             symbols = [
-                                                                { }
+                                                                twitter_openapi_python_generated.models.symbol.Symbol(
+                                                                    indices = [
+                                                                        56
+                                                                        ], 
+                                                                    tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                                                        info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
+                                                                    text = '', )
                                                                 ], 
                                                             timestamps = [
                                                                 twitter_openapi_python_generated.models.timestamp.Timestamp(
@@ -584,7 +612,14 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                     url = '', )
                                                                 ], 
                                                             user_mentions = [
-                                                                { }
+                                                                twitter_openapi_python_generated.models.user_mention.UserMention(
+                                                                    id = '4', 
+                                                                    id_str = '4', 
+                                                                    indices = [
+                                                                        56
+                                                                        ], 
+                                                                    name = '', 
+                                                                    screen_name = '', )
                                                                 ], ), 
                                                         preview_translation = '', 
                                                         source_language = '', 
@@ -592,10 +627,19 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                     is_available = True, ), 
                                                 has_birdwatch_notes = True, 
                                                 is_translatable = True, 
+                                                jetfuel_attachment = twitter_openapi_python_generated.models.jetfuel_attachment.JetfuelAttachment(
+                                                    height = 56, 
+                                                    payload = '', ), 
                                                 legacy = twitter_openapi_python_generated.models.tweet_legacy.TweetLegacy(
                                                     bookmark_count = 56, 
                                                     bookmarked = True, 
-                                                    conversation_control = { }, 
+                                                    conversation_control = twitter_openapi_python_generated.models.conversation_control.ConversationControl(
+                                                        conversation_owner_results = twitter_openapi_python_generated.models.conversation_owner_results.ConversationOwnerResults(
+                                                            result = twitter_openapi_python_generated.models.conversation_owner.ConversationOwner(
+                                                                __typename = 'TimelineTweet', 
+                                                                core = twitter_openapi_python_generated.models.conversation_owner_core.ConversationOwnerCore(
+                                                                    screen_name = '', ), ), ), 
+                                                        policy = '', ), 
                                                     conversation_id_str = '4', 
                                                     created_at = 'Sat Dec 31 23:59:59 +0000 2023', 
                                                     display_text_range = [
@@ -603,7 +647,11 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                         ], 
                                                     entities = twitter_openapi_python_generated.models.entities.Entities(
                                                         hashtags = [
-                                                            { }
+                                                            twitter_openapi_python_generated.models.hashtag.Hashtag(
+                                                                indices = [
+                                                                    56
+                                                                    ], 
+                                                                text = '', )
                                                             ], 
                                                         media = [
                                                             twitter_openapi_python_generated.models.media.Media(
@@ -695,11 +743,17 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                     56
                                                                     ], 
                                                                 tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                                                                    info = { }, ), 
+                                                                    info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
                                                                 text = '', )
                                                             ], 
                                                         symbols = [
-                                                            { }
+                                                            twitter_openapi_python_generated.models.symbol.Symbol(
+                                                                indices = [
+                                                                    56
+                                                                    ], 
+                                                                tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                                                    info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
+                                                                text = '', )
                                                             ], 
                                                         timestamps = [
                                                             twitter_openapi_python_generated.models.timestamp.Timestamp(
@@ -719,7 +773,14 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                 url = '', )
                                                             ], 
                                                         user_mentions = [
-                                                            { }
+                                                            twitter_openapi_python_generated.models.user_mention.UserMention(
+                                                                id = '4', 
+                                                                id_str = '4', 
+                                                                indices = [
+                                                                    56
+                                                                    ], 
+                                                                name = '', 
+                                                                screen_name = '', )
                                                             ], ), 
                                                     extended_entities = twitter_openapi_python_generated.models.extended_entities.ExtendedEntities(
                                                         media = [
@@ -845,7 +906,11 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                         result = twitter_openapi_python_generated.models.note_tweet_result_data.NoteTweetResultData(
                                                             entity_set = twitter_openapi_python_generated.models.entities.Entities(
                                                                 hashtags = [
-                                                                    { }
+                                                                    twitter_openapi_python_generated.models.hashtag.Hashtag(
+                                                                        indices = [
+                                                                            56
+                                                                            ], 
+                                                                        text = '', )
                                                                     ], 
                                                                 media = [
                                                                     twitter_openapi_python_generated.models.media.Media(
@@ -937,11 +1002,17 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                             56
                                                                             ], 
                                                                         tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                                                                            info = { }, ), 
+                                                                            info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
                                                                         text = '', )
                                                                     ], 
                                                                 symbols = [
-                                                                    { }
+                                                                    twitter_openapi_python_generated.models.symbol.Symbol(
+                                                                        indices = [
+                                                                            56
+                                                                            ], 
+                                                                        tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                                                            info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
+                                                                        text = '', )
                                                                     ], 
                                                                 timestamps = [
                                                                     twitter_openapi_python_generated.models.timestamp.Timestamp(
@@ -961,7 +1032,14 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                         url = '', )
                                                                     ], 
                                                                 user_mentions = [
-                                                                    { }
+                                                                    twitter_openapi_python_generated.models.user_mention.UserMention(
+                                                                        id = '4', 
+                                                                        id_str = '4', 
+                                                                        indices = [
+                                                                            56
+                                                                            ], 
+                                                                        name = '', 
+                                                                        screen_name = '', )
                                                                     ], ), 
                                                             id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                                                             media = twitter_openapi_python_generated.models.note_tweet_result_media.NoteTweetResultMedia(
@@ -1027,12 +1105,22 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                     rest_id = '4', ), 
                                                 unified_card = twitter_openapi_python_generated.models.unified_card.UnifiedCard(
                                                     card_fetch_state = 'NoCard', ), 
-                                                unmention_data = { }, 
+                                                unmention_data = twitter_openapi_python_generated.models.unmention_data.unmention_data(), 
                                                 views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                                                     count = '4', 
                                                     state = 'Enabled', ), ), ), 
                                         deepsearch_headers = [
-                                            { }
+                                            twitter_openapi_python_generated.models.deepsearch_header.DeepsearchHeader(
+                                                steps = [
+                                                    twitter_openapi_python_generated.models.deepsearch_step.DeepsearchStep(
+                                                        web_results = [
+                                                            twitter_openapi_python_generated.models.deepsearch_web_result.DeepsearchWebResult(
+                                                                url = '', )
+                                                            ], 
+                                                        x_post_ids = [
+                                                            '4'
+                                                            ], )
+                                                    ], )
                                             ], 
                                         media_urls = [
                                             ''
@@ -1041,11 +1129,15 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                     ], ), 
                             grok_translated_post_with_availability = twitter_openapi_python_generated.models.grok_translated_post_with_availability.GrokTranslatedPostWithAvailability(
                                 data = twitter_openapi_python_generated.models.grok_translated_post.GrokTranslatedPost(
-                                    associated_data = { }, 
+                                    associated_data = twitter_openapi_python_generated.models.associated_data.associated_data(), 
                                     destination_language = '', 
                                     entities = twitter_openapi_python_generated.models.entities.Entities(
                                         hashtags = [
-                                            { }
+                                            twitter_openapi_python_generated.models.hashtag.Hashtag(
+                                                indices = [
+                                                    56
+                                                    ], 
+                                                text = '', )
                                             ], 
                                         media = [
                                             twitter_openapi_python_generated.models.media.Media(
@@ -1137,11 +1229,17 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                     56
                                                     ], 
                                                 tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                                                    info = { }, ), 
+                                                    info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
                                                 text = '', )
                                             ], 
                                         symbols = [
-                                            { }
+                                            twitter_openapi_python_generated.models.symbol.Symbol(
+                                                indices = [
+                                                    56
+                                                    ], 
+                                                tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                                    info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
+                                                text = '', )
                                             ], 
                                         timestamps = [
                                             twitter_openapi_python_generated.models.timestamp.Timestamp(
@@ -1161,7 +1259,14 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                 url = '', )
                                             ], 
                                         user_mentions = [
-                                            { }
+                                            twitter_openapi_python_generated.models.user_mention.UserMention(
+                                                id = '4', 
+                                                id_str = '4', 
+                                                indices = [
+                                                    56
+                                                    ], 
+                                                name = '', 
+                                                screen_name = '', )
                                             ], ), 
                                     preview_translation = '', 
                                     source_language = '', 
@@ -1169,10 +1274,19 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                 is_available = True, ), 
                             has_birdwatch_notes = True, 
                             is_translatable = True, 
+                            jetfuel_attachment = twitter_openapi_python_generated.models.jetfuel_attachment.JetfuelAttachment(
+                                height = 56, 
+                                payload = '', ), 
                             legacy = twitter_openapi_python_generated.models.tweet_legacy.TweetLegacy(
                                 bookmark_count = 56, 
                                 bookmarked = True, 
-                                conversation_control = { }, 
+                                conversation_control = twitter_openapi_python_generated.models.conversation_control.ConversationControl(
+                                    conversation_owner_results = twitter_openapi_python_generated.models.conversation_owner_results.ConversationOwnerResults(
+                                        result = twitter_openapi_python_generated.models.conversation_owner.ConversationOwner(
+                                            __typename = 'TimelineTweet', 
+                                            core = twitter_openapi_python_generated.models.conversation_owner_core.ConversationOwnerCore(
+                                                screen_name = '', ), ), ), 
+                                    policy = '', ), 
                                 conversation_id_str = '4', 
                                 created_at = 'Sat Dec 31 23:59:59 +0000 2023', 
                                 display_text_range = [
@@ -1180,7 +1294,11 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                     ], 
                                 entities = twitter_openapi_python_generated.models.entities.Entities(
                                     hashtags = [
-                                        { }
+                                        twitter_openapi_python_generated.models.hashtag.Hashtag(
+                                            indices = [
+                                                56
+                                                ], 
+                                            text = '', )
                                         ], 
                                     media = [
                                         twitter_openapi_python_generated.models.media.Media(
@@ -1272,11 +1390,17 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                 56
                                                 ], 
                                             tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                                                info = { }, ), 
+                                                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
                                             text = '', )
                                         ], 
                                     symbols = [
-                                        { }
+                                        twitter_openapi_python_generated.models.symbol.Symbol(
+                                            indices = [
+                                                56
+                                                ], 
+                                            tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
+                                            text = '', )
                                         ], 
                                     timestamps = [
                                         twitter_openapi_python_generated.models.timestamp.Timestamp(
@@ -1296,7 +1420,14 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                             url = '', )
                                         ], 
                                     user_mentions = [
-                                        { }
+                                        twitter_openapi_python_generated.models.user_mention.UserMention(
+                                            id = '4', 
+                                            id_str = '4', 
+                                            indices = [
+                                                56
+                                                ], 
+                                            name = '', 
+                                            screen_name = '', )
                                         ], ), 
                                 extended_entities = twitter_openapi_python_generated.models.extended_entities.ExtendedEntities(
                                     media = [
@@ -1422,7 +1553,11 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                     result = twitter_openapi_python_generated.models.note_tweet_result_data.NoteTweetResultData(
                                         entity_set = twitter_openapi_python_generated.models.entities.Entities(
                                             hashtags = [
-                                                { }
+                                                twitter_openapi_python_generated.models.hashtag.Hashtag(
+                                                    indices = [
+                                                        56
+                                                        ], 
+                                                    text = '', )
                                                 ], 
                                             media = [
                                                 twitter_openapi_python_generated.models.media.Media(
@@ -1514,11 +1649,17 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                         56
                                                         ], 
                                                     tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                                                        info = { }, ), 
+                                                        info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
                                                     text = '', )
                                                 ], 
                                             symbols = [
-                                                { }
+                                                twitter_openapi_python_generated.models.symbol.Symbol(
+                                                    indices = [
+                                                        56
+                                                        ], 
+                                                    tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
+                                                        info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
+                                                    text = '', )
                                                 ], 
                                             timestamps = [
                                                 twitter_openapi_python_generated.models.timestamp.Timestamp(
@@ -1538,7 +1679,14 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                     url = '', )
                                                 ], 
                                             user_mentions = [
-                                                { }
+                                                twitter_openapi_python_generated.models.user_mention.UserMention(
+                                                    id = '4', 
+                                                    id_str = '4', 
+                                                    indices = [
+                                                        56
+                                                        ], 
+                                                    name = '', 
+                                                    screen_name = '', )
                                                 ], ), 
                                         id = 'zA9LCSLv1C1ylmgd0/Y2TA5TkIRHRRA401iz1CiIykN3HUO6XMsJPGh8AsaLONiNuo2ZPKNpkAmJHONf1Elbsh0SR//=', 
                                         media = twitter_openapi_python_generated.models.note_tweet_result_media.NoteTweetResultMedia(
@@ -1604,7 +1752,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                 rest_id = '4', ), 
                             unified_card = twitter_openapi_python_generated.models.unified_card.UnifiedCard(
                                 card_fetch_state = 'NoCard', ), 
-                            unmention_data = { }, 
+                            unmention_data = twitter_openapi_python_generated.models.unmention_data.unmention_data(), 
                             views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                                 count = '4', 
                                 state = 'Enabled', ), ), ), )

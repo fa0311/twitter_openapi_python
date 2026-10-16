@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | [optional] 
-**color_info** | [**ArticleCoverMediaColorInfo**](ArticleCoverMediaColorInfo.md) |  | 
+**color_info** | [**MediaColorInfo**](MediaColorInfo.md) |  | 
 **original_img_height** | **int** |  | 
 **original_img_url** | **str** |  | 
 **original_img_width** | **int** |  | 

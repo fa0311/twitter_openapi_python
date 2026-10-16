@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.conversation_control import ConversationControl
 from twitter_openapi_python_generated.models.entities import Entities
 from twitter_openapi_python_generated.models.extended_entities import ExtendedEntities
 from twitter_openapi_python_generated.models.quoted_status_permalink import QuotedStatusPermalink
@@ -36,7 +37,7 @@ class TweetLegacy(BaseModel):
     """ # noqa: E501
     bookmark_count: StrictInt
     bookmarked: StrictBool
-    conversation_control: Optional[Dict[str, Any]] = None
+    conversation_control: Optional[ConversationControl] = None
     conversation_id_str: Annotated[str, Field(strict=True)]
     created_at: Annotated[str, Field(strict=True)] = Field(json_schema_extra={"examples": ["Sat Dec 31 23:59:59 +0000 2023"]})
     display_text_range: List[StrictInt]
@@ -174,6 +175,9 @@ class TweetLegacy(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of conversation_control
+        if self.conversation_control:
+            _dict['conversation_control'] = self.conversation_control.to_dict()
         # override the default output from pydantic by calling `to_dict()` of entities
         if self.entities:
             _dict['entities'] = self.entities.to_dict()
@@ -206,7 +210,7 @@ class TweetLegacy(BaseModel):
         _obj = cls.model_validate({
             "bookmark_count": obj.get("bookmark_count"),
             "bookmarked": obj.get("bookmarked"),
-            "conversation_control": obj.get("conversation_control"),
+            "conversation_control": ConversationControl.from_dict(obj["conversation_control"]) if obj.get("conversation_control") is not None else None,
             "conversation_id_str": obj.get("conversation_id_str"),
             "created_at": obj.get("created_at"),
             "display_text_range": obj.get("display_text_range"),

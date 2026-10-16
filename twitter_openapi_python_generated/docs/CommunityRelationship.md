@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **actions** | [**CommunityActions**](CommunityActions.md) |  | 
 **id** | **str** |  | 
-**moderation_state** | **Dict[str, object]** |  | 
+**moderation_state** | [**CommunityModerationState**](CommunityModerationState.md) |  | 
 **rest_id** | **str** |  | 
 
 ## Example
