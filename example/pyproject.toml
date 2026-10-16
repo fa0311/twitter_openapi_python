@@ -1,3 +1,11 @@
+[project]
+name = "example"
+version = "0.0.0"
+requires-python = ">=3.9"
+dependencies = ["twitter-openapi-python>=0.0.44", "tweepy-authlib"]
+
+[tool.uv]
+package = false
 
 [tool.pyright]
 reportPrivateImportUsage = false

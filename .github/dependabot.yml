@@ -1,11 +1,11 @@
 version: 2
 updates:
-  - package-ecosystem: pip
+  - package-ecosystem: uv
     directory: /twitter_openapi_python
     schedule:
       interval: weekly
 
-  - package-ecosystem: pip
+  - package-ecosystem: uv
     directory: /twitter_openapi_python_generated
     schedule:
       interval: weekly

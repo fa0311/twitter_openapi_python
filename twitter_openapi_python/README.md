@@ -2,7 +2,7 @@
 
 Twitter scraping with data validation by pydantic.
 
-![1691572735537](docs/image/README/1691572735537.png)
+![1691572735537](https://raw.githubusercontent.com/fa0311/twitter_openapi_python/refs/heads/master/twitter_openapi_python/docs/image/README/1691572735537.png)
 
 ## Setup
 
@@ -79,6 +79,16 @@ client = TwitterOpenapiPython()
 client.additional_api_headers = {
   "sec-ch-ua-platform": '"Windows"',
 };
+```
+
+## Development
+
+```shell
+cd twitter_openapi_python
+uv sync
+uv run pytest test/api
+uv build
+uv publish
 ```
 
 ## License
