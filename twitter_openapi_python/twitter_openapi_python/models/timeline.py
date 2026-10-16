@@ -34,6 +34,11 @@ class UserApiUtilsData(BaseModel):
     user: models.User = Field()
 
 
+class CommunityApiUtilsData(BaseModel):
+    raw: models.TimelineCommunity = Field()
+    community: models.Community = Field()
+
+
 class TimelineApiUtilsResponse(BaseModel, Generic[T]):
     raw: ApiUtilsRaw = Field()
     cursor: CursorApiUtilsResponse = Field()

@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
+**grouped_trends** | [**List[GroupedTrend]**](GroupedTrend.md) |  | [optional] 
 **images** | [**List[TrendImage]**](TrendImage.md) |  | [optional] 
 **is_ai_trend** | **bool** |  | [optional] 
 **item_type** | [**ContentItemType**](ContentItemType.md) |  | [optional] 

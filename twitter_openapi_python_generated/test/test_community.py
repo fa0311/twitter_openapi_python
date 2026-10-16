@@ -104,6 +104,7 @@ class TestCommunity(unittest.TestCase):
                     __typename = 'TimelineTweet', 
                     message = '', 
                     reason = 'Unavailable', ),
+                is_nsfw = True,
                 is_pinned = True,
                 join_policy = 'Open',
                 join_requests_result = twitter_openapi_python_generated.models.community_join_requests_result.CommunityJoinRequestsResult(

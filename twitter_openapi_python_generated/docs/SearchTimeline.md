@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**timeline** | [**Timeline**](Timeline.md) |  | 
+**timeline** | [**Timeline**](Timeline.md) |  | [optional] 
 
 ## Example
 

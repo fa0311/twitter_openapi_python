@@ -164,3 +164,164 @@ class PostApiUtils:
             _headers=get_headers(self.flag["UnfavoriteTweet"], self.ct),
         )
         return build_response(res, res.data)
+
+    def post_create_bookmark(
+        self,
+        tweet_id: str,
+    ) -> ResponseType[models.CreateBookmarkResponse]:
+        variables = non_nullable(
+            twitter.PostCreateBookmarkRequestVariables.from_dict(self.flag["CreateBookmark"]["variables"])
+        )
+        variables.tweet_id = tweet_id
+
+        res = self.api.post_create_bookmark_with_http_info(
+            path_query_id=self.flag["CreateBookmark"]["queryId"],
+            post_create_bookmark_request=twitter.PostCreateBookmarkRequest(
+                queryId=self.flag["CreateBookmark"]["queryId"],
+                variables=variables,
+            ),
+            _headers=get_headers(self.flag["CreateBookmark"], self.ct),
+        )
+        return build_response(res, res.data)
+
+    def post_delete_bookmark(
+        self,
+        tweet_id: str,
+    ) -> ResponseType[models.DeleteBookmarkResponse]:
+        variables = non_nullable(
+            twitter.PostCreateBookmarkRequestVariables.from_dict(self.flag["DeleteBookmark"]["variables"])
+        )
+        variables.tweet_id = tweet_id
+
+        res = self.api.post_delete_bookmark_with_http_info(
+            path_query_id=self.flag["DeleteBookmark"]["queryId"],
+            post_delete_bookmark_request=twitter.PostDeleteBookmarkRequest(
+                queryId=self.flag["DeleteBookmark"]["queryId"],
+                variables=variables,
+            ),
+            _headers=get_headers(self.flag["DeleteBookmark"], self.ct),
+        )
+        return build_response(res, res.data)
+
+    def post_create_list(
+        self,
+        name: str,
+        description: str = "",
+        is_private: bool = False,
+    ) -> ResponseType[models.ListResponse]:
+        variables = non_nullable(twitter.PostCreateListRequestVariables.from_dict(self.flag["CreateList"]["variables"]))
+        features = non_nullable(twitter.PostCreateListRequestFeatures.from_dict(self.flag["CreateList"]["features"]))
+        variables.name = name
+        variables.description = description
+        variables.is_private = is_private
+
+        res = self.api.post_create_list_with_http_info(
+            path_query_id=self.flag["CreateList"]["queryId"],
+            post_create_list_request=twitter.PostCreateListRequest(
+                queryId=self.flag["CreateList"]["queryId"],
+                variables=variables,
+                features=features,
+            ),
+            _headers=get_headers(self.flag["CreateList"], self.ct),
+        )
+        return build_response(res, res.data)
+
+    def post_delete_list(
+        self,
+        list_id: str,
+    ) -> ResponseType[models.DeleteListResponse]:
+        variables = non_nullable(twitter.PostDeleteListRequestVariables.from_dict(self.flag["DeleteList"]["variables"]))
+        variables.list_id = list_id
+
+        res = self.api.post_delete_list_with_http_info(
+            path_query_id=self.flag["DeleteList"]["queryId"],
+            post_delete_list_request=twitter.PostDeleteListRequest(
+                queryId=self.flag["DeleteList"]["queryId"],
+                variables=variables,
+            ),
+            _headers=get_headers(self.flag["DeleteList"], self.ct),
+        )
+        return build_response(res, res.data)
+
+    def post_list_add_member(
+        self,
+        list_id: str,
+        user_id: str,
+    ) -> ResponseType[models.ListResponse]:
+        variables = non_nullable(
+            twitter.PostListAddMemberRequestVariables.from_dict(self.flag["ListAddMember"]["variables"])
+        )
+        features = non_nullable(twitter.PostCreateListRequestFeatures.from_dict(self.flag["ListAddMember"]["features"]))
+        variables.list_id = list_id
+        variables.user_id = user_id
+
+        res = self.api.post_list_add_member_with_http_info(
+            path_query_id=self.flag["ListAddMember"]["queryId"],
+            post_list_add_member_request=twitter.PostListAddMemberRequest(
+                queryId=self.flag["ListAddMember"]["queryId"],
+                variables=variables,
+                features=features,
+            ),
+            _headers=get_headers(self.flag["ListAddMember"], self.ct),
+        )
+        return build_response(res, res.data)
+
+    def post_list_remove_member(
+        self,
+        list_id: str,
+        user_id: str,
+    ) -> ResponseType[models.ListResponse]:
+        variables = non_nullable(
+            twitter.PostListAddMemberRequestVariables.from_dict(self.flag["ListRemoveMember"]["variables"])
+        )
+        features = non_nullable(
+            twitter.PostCreateListRequestFeatures.from_dict(self.flag["ListRemoveMember"]["features"])
+        )
+        variables.list_id = list_id
+        variables.user_id = user_id
+
+        res = self.api.post_list_remove_member_with_http_info(
+            path_query_id=self.flag["ListRemoveMember"]["queryId"],
+            post_list_remove_member_request=twitter.PostListRemoveMemberRequest(
+                queryId=self.flag["ListRemoveMember"]["queryId"],
+                variables=variables,
+                features=features,
+            ),
+            _headers=get_headers(self.flag["ListRemoveMember"], self.ct),
+        )
+        return build_response(res, res.data)
+
+    def post_create_draft_tweet(
+        self,
+        status: str,
+    ) -> ResponseType[models.CreateDraftTweetResponse]:
+        variables = non_nullable(
+            twitter.PostCreateDraftTweetRequestVariables.from_dict(self.flag["CreateDraftTweet"]["variables"])
+        )
+        variables.post_tweet_request.status = status
+
+        res = self.api.post_create_draft_tweet_with_http_info(
+            path_query_id=self.flag["CreateDraftTweet"]["queryId"],
+            post_create_draft_tweet_request=twitter.PostCreateDraftTweetRequest(
+                queryId=self.flag["CreateDraftTweet"]["queryId"],
+                variables=variables,
+            ),
+            _headers=get_headers(self.flag["CreateDraftTweet"], self.ct),
+        )
+        return build_response(res, res.data)
+
+    def post_delete_draft_tweets(
+        self,
+        draft_tweet_ids: list[str],
+    ) -> ResponseType[models.DeleteDraftTweetsResponse]:
+        variables = twitter.PostDeleteDraftTweetsRequestVariables(draft_tweet_ids=draft_tweet_ids)
+
+        res = self.api.post_delete_draft_tweets_with_http_info(
+            path_query_id=self.flag["DeleteDraftTweets"]["queryId"],
+            post_delete_draft_tweets_request=twitter.PostDeleteDraftTweetsRequest(
+                queryId=self.flag["DeleteDraftTweets"]["queryId"],
+                variables=variables,
+            ),
+            _headers=get_headers(self.flag["DeleteDraftTweets"], self.ct),
+        )
+        return build_response(res, res.data)

@@ -5,7 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**typename** | [**TypeName**](TypeName.md) |  | [optional] 
+**typename** | [**TypeName**](TypeName.md) |  | 
+**community_results** | [**CommunityResult**](CommunityResult.md) |  | 
+**item_type** | [**ContentItemType**](ContentItemType.md) |  | 
 
 ## Example
 

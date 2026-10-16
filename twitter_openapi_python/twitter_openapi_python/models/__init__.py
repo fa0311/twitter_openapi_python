@@ -15,6 +15,7 @@ from twitter_openapi_python.models.response import (
 )
 from twitter_openapi_python.models.timeline import (
     ApiUtilsRaw,
+    CommunityApiUtilsData,
     CursorApiUtilsResponse,
     TimelineApiUtilsResponse,
     TweetApiUtilsData,

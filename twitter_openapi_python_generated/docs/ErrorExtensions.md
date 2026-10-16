@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **int** |  | 
+**code** | **int** |  | [optional] 
 **kind** | **str** |  | 
 **name** | **str** |  | 
 **retry_after** | **int** |  | [optional] 

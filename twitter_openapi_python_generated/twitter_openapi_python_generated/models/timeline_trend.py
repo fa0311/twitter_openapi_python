@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.content_item_type import ContentItemType
+from twitter_openapi_python_generated.models.grouped_trend import GroupedTrend
 from twitter_openapi_python_generated.models.social_context_landing_url import SocialContextLandingUrl
 from twitter_openapi_python_generated.models.social_context_union import SocialContextUnion
 from twitter_openapi_python_generated.models.thumbnail_image import ThumbnailImage
@@ -37,6 +38,7 @@ class TimelineTrend(BaseModel):
     TimelineTrend
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
+    grouped_trends: Optional[List[GroupedTrend]] = None
     images: Optional[List[TrendImage]] = None
     is_ai_trend: Optional[StrictBool] = None
     item_type: Optional[ContentItemType] = Field(default=None, alias="itemType")
@@ -46,7 +48,7 @@ class TimelineTrend(BaseModel):
     thumbnail_image: Optional[ThumbnailImage] = None
     trend_metadata: TrendMetadata
     trend_url: SocialContextLandingUrl
-    __properties: ClassVar[List[str]] = ["__typename", "images", "is_ai_trend", "itemType", "name", "rank", "social_context", "thumbnail_image", "trend_metadata", "trend_url"]
+    __properties: ClassVar[List[str]] = ["__typename", "grouped_trends", "images", "is_ai_trend", "itemType", "name", "rank", "social_context", "thumbnail_image", "trend_metadata", "trend_url"]
 
     @field_validator('rank', mode="before")
     def rank_validate_regular_expression(cls, value):
@@ -97,6 +99,12 @@ class TimelineTrend(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in grouped_trends (list)
+        _items = []
+        if self.grouped_trends:
+            for _item_grouped_trends in self.grouped_trends:
+                _items.append(_item_grouped_trends.to_dict() if _item_grouped_trends is not None else None)
+            _dict['grouped_trends'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in images (list)
         _items = []
         if self.images:
@@ -128,6 +136,7 @@ class TimelineTrend(BaseModel):
 
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
+            "grouped_trends": [GroupedTrend.from_dict(_item) for _item in obj["grouped_trends"]] if obj.get("grouped_trends") is not None else None,
             "images": [TrendImage.from_dict(_item) for _item in obj["images"]] if obj.get("images") is not None else None,
             "is_ai_trend": obj.get("is_ai_trend"),
             "itemType": obj.get("itemType"),

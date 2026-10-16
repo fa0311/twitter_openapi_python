@@ -36,10 +36,17 @@ class TestTimelineCommunity(unittest.TestCase):
         model = TimelineCommunity()
         if include_optional:
             return TimelineCommunity(
-                typename = 'TimelineTweet'
+                typename = 'TimelineTweet',
+                community_results = twitter_openapi_python_generated.models.community_result.CommunityResult(
+                    result = null, ),
+                item_type = 'TimelineTweet'
             )
         else:
             return TimelineCommunity(
+                typename = 'TimelineTweet',
+                community_results = twitter_openapi_python_generated.models.community_result.CommunityResult(
+                    result = null, ),
+                item_type = 'TimelineTweet',
         )
         """
 

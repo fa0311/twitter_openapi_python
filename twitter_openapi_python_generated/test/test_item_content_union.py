@@ -81,6 +81,38 @@ class TestItemContentUnion(unittest.TestCase):
                 user_display_type = 'User',
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
                     result = null, ),
+                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                    component = '', 
+                    details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                        conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                            conversation_section = 'HighQuality', ), 
+                        timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                            controller_data = '', 
+                            injection_type = '', 
+                            source_data = '', ), ), 
+                    element = '', ),
+                content = twitter_openapi_python_generated.models.timeline_message_prompt_content.TimelineMessagePromptContent(
+                    body_rich_text = twitter_openapi_python_generated.models.timeline_message_prompt_rich_text.TimelineMessagePromptRichText(
+                        entities = [
+                            twitter_openapi_python_generated.models.timeline_message_prompt_rich_text_entity.TimelineMessagePromptRichTextEntity(
+                                from_index = 56, 
+                                ref = twitter_openapi_python_generated.models.timeline_message_prompt_rich_text_entity_ref.TimelineMessagePromptRichTextEntityRef(
+                                    type = 'TimelineUrl', 
+                                    url = '', 
+                                    url_type = 'ExternalUrl', ), 
+                                to_index = 56, )
+                            ], 
+                        text = '', ), 
+                    body_text = '', 
+                    content_type = 'TimelineInlinePrompt', 
+                    header_text = '', 
+                    primary_button_action = twitter_openapi_python_generated.models.timeline_message_prompt_button.TimelineMessagePromptButton(
+                        action = twitter_openapi_python_generated.models.timeline_message_prompt_button_action.TimelineMessagePromptButtonAction(
+                            dismiss_on_click = True, 
+                            url = '', ), 
+                        text = '', ), ),
+                community_results = twitter_openapi_python_generated.models.community_result.CommunityResult(
+                    result = null, ),
                 tombstone_display_type = 'Inline',
                 tombstone_info = twitter_openapi_python_generated.models.tombstone_info.TombstoneInfo(
                     rich_text = twitter_openapi_python_generated.models.tombstone_rich_text.TombstoneRichText(
@@ -96,6 +128,19 @@ class TestItemContentUnion(unittest.TestCase):
                         rtl = True, 
                         text = '', ), 
                     text = '', ),
+                grouped_trends = [
+                    twitter_openapi_python_generated.models.grouped_trend.GroupedTrend(
+                        name = '', 
+                        url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
+                            url_type = 'DeepLink', 
+                            urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
+                                request_params = [
+                                    twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
+                                        key = '', 
+                                        value = '', )
+                                    ], 
+                                title = '', ), ), )
+                    ],
                 images = [
                     twitter_openapi_python_generated.models.trend_image.TrendImage(
                         url = '', )
@@ -270,6 +315,38 @@ class TestItemContentUnion(unittest.TestCase):
                 value = '',
                 user_display_type = 'User',
                 user_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                    result = null, ),
+                client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
+                    component = '', 
+                    details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
+                        conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
+                            conversation_section = 'HighQuality', ), 
+                        timelines_details = twitter_openapi_python_generated.models.timelines_details.TimelinesDetails(
+                            controller_data = '', 
+                            injection_type = '', 
+                            source_data = '', ), ), 
+                    element = '', ),
+                content = twitter_openapi_python_generated.models.timeline_message_prompt_content.TimelineMessagePromptContent(
+                    body_rich_text = twitter_openapi_python_generated.models.timeline_message_prompt_rich_text.TimelineMessagePromptRichText(
+                        entities = [
+                            twitter_openapi_python_generated.models.timeline_message_prompt_rich_text_entity.TimelineMessagePromptRichTextEntity(
+                                from_index = 56, 
+                                ref = twitter_openapi_python_generated.models.timeline_message_prompt_rich_text_entity_ref.TimelineMessagePromptRichTextEntityRef(
+                                    type = 'TimelineUrl', 
+                                    url = '', 
+                                    url_type = 'ExternalUrl', ), 
+                                to_index = 56, )
+                            ], 
+                        text = '', ), 
+                    body_text = '', 
+                    content_type = 'TimelineInlinePrompt', 
+                    header_text = '', 
+                    primary_button_action = twitter_openapi_python_generated.models.timeline_message_prompt_button.TimelineMessagePromptButton(
+                        action = twitter_openapi_python_generated.models.timeline_message_prompt_button_action.TimelineMessagePromptButtonAction(
+                            dismiss_on_click = True, 
+                            url = '', ), 
+                        text = '', ), ),
+                community_results = twitter_openapi_python_generated.models.community_result.CommunityResult(
                     result = null, ),
                 name = '',
                 trend_metadata = twitter_openapi_python_generated.models.trend_metadata.TrendMetadata(

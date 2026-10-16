@@ -36,10 +36,53 @@ class TestTimelineMessagePrompt(unittest.TestCase):
         model = TimelineMessagePrompt()
         if include_optional:
             return TimelineMessagePrompt(
-                typename = 'TimelineTweet'
+                typename = 'TimelineTweet',
+                content = twitter_openapi_python_generated.models.timeline_message_prompt_content.TimelineMessagePromptContent(
+                    body_rich_text = twitter_openapi_python_generated.models.timeline_message_prompt_rich_text.TimelineMessagePromptRichText(
+                        entities = [
+                            twitter_openapi_python_generated.models.timeline_message_prompt_rich_text_entity.TimelineMessagePromptRichTextEntity(
+                                from_index = 56, 
+                                ref = twitter_openapi_python_generated.models.timeline_message_prompt_rich_text_entity_ref.TimelineMessagePromptRichTextEntityRef(
+                                    type = 'TimelineUrl', 
+                                    url = '', 
+                                    url_type = 'ExternalUrl', ), 
+                                to_index = 56, )
+                            ], 
+                        text = '', ), 
+                    body_text = '', 
+                    content_type = 'TimelineInlinePrompt', 
+                    header_text = '', 
+                    primary_button_action = twitter_openapi_python_generated.models.timeline_message_prompt_button.TimelineMessagePromptButton(
+                        action = twitter_openapi_python_generated.models.timeline_message_prompt_button_action.TimelineMessagePromptButtonAction(
+                            dismiss_on_click = True, 
+                            url = '', ), 
+                        text = '', ), ),
+                item_type = 'TimelineTweet'
             )
         else:
             return TimelineMessagePrompt(
+                typename = 'TimelineTweet',
+                content = twitter_openapi_python_generated.models.timeline_message_prompt_content.TimelineMessagePromptContent(
+                    body_rich_text = twitter_openapi_python_generated.models.timeline_message_prompt_rich_text.TimelineMessagePromptRichText(
+                        entities = [
+                            twitter_openapi_python_generated.models.timeline_message_prompt_rich_text_entity.TimelineMessagePromptRichTextEntity(
+                                from_index = 56, 
+                                ref = twitter_openapi_python_generated.models.timeline_message_prompt_rich_text_entity_ref.TimelineMessagePromptRichTextEntityRef(
+                                    type = 'TimelineUrl', 
+                                    url = '', 
+                                    url_type = 'ExternalUrl', ), 
+                                to_index = 56, )
+                            ], 
+                        text = '', ), 
+                    body_text = '', 
+                    content_type = 'TimelineInlinePrompt', 
+                    header_text = '', 
+                    primary_button_action = twitter_openapi_python_generated.models.timeline_message_prompt_button.TimelineMessagePromptButton(
+                        action = twitter_openapi_python_generated.models.timeline_message_prompt_button_action.TimelineMessagePromptButtonAction(
+                            dismiss_on_click = True, 
+                            url = '', ), 
+                        text = '', ), ),
+                item_type = 'TimelineTweet',
         )
         """
 

@@ -63,7 +63,6 @@ class TestErrorResponse(unittest.TestCase):
             )
         else:
             return ErrorResponse(
-                code = 56,
                 extensions = twitter_openapi_python_generated.models.error_extensions.ErrorExtensions(
                     code = 56, 
                     kind = '', 

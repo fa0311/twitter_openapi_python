@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **id_str** | **str** |  | [optional] 
 **invites_policy** | **str** |  | [optional] 
 **invites_result** | [**CommunityInvitesResult**](CommunityInvitesResult.md) |  | [optional] 
+**is_nsfw** | **bool** |  | [optional] 
 **is_pinned** | **bool** |  | [optional] 
 **join_policy** | **str** |  | [optional] 
 **join_requests_result** | [**CommunityJoinRequestsResult**](CommunityJoinRequestsResult.md) |  | [optional] 

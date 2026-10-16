@@ -1,5 +1,5 @@
 import json
-from typing import Any, Dict, List, Mapping, Optional, TypeGuard, TypeVar
+from typing import Any, Callable, Dict, List, Mapping, Optional, TypeGuard, TypeVar
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.models as models
@@ -7,7 +7,10 @@ from x_client_transaction import ClientTransaction
 
 from twitter_openapi_python.models import (
     ApiUtilsHeader,
+    ApiUtilsRaw,
+    CommunityApiUtilsData,
     CursorApiUtilsResponse,
+    TimelineApiUtilsResponse,
     TweetApiUtilsData,
     TwitterApiUtilsRaw,
     TwitterApiUtilsResponse,
@@ -198,17 +201,45 @@ def tweet_results_converter(tweetResults: models.ItemResult) -> Optional[models.
     raise Exception()
 
 
+def item_contents(item: List[models.TimelineAddEntry]) -> List[Any]:
+    """Every item of the entries, module items included (TimelineTweet, TimelineUser, TimelineTrend, ...)."""
+
+    def map_fn(x: models.TimelineAddEntry) -> List[Any]:
+        one_of = x.content.actual_instance
+        if isinstance(one_of, models.TimelineTimelineItem):
+            return [one_of.item_content.actual_instance]
+        elif isinstance(one_of, models.TimelineTimelineModule):
+            return [y.item.item_content.actual_instance for y in one_of.items or []]
+        return []
+
+    return flat(list(map(map_fn, item)))
+
+
 def user_entries_converter(
     item: list[models.TimelineAddEntry],
 ) -> list[models.UserResults]:
-    def map_fn(x: models.TimelineAddEntry) -> Optional[models.UserResults]:
-        one_of = x.content.actual_instance
-        if isinstance(one_of, models.TimelineTimelineItem):
-            item = one_of.item_content.actual_instance
-            if isinstance(item, models.TimelineUser):
-                return item.user_results
+    return [x.user_results for x in item_contents(item) if isinstance(x, models.TimelineUser)]
 
-    return non_nullable_list(list(map(map_fn, item)))
+
+def trend_entries_converter(item: List[models.TimelineAddEntry]) -> List[models.TimelineTrend]:
+    return [x for x in item_contents(item) if isinstance(x, models.TimelineTrend)]
+
+
+def notification_entries_converter(item: List[models.TimelineAddEntry]) -> List[models.TimelineNotification]:
+    return [x for x in item_contents(item) if isinstance(x, models.TimelineNotification)]
+
+
+def list_entries_converter(item: List[models.TimelineAddEntry]) -> List[models.TwitterList]:
+    return [x.list for x in item_contents(item) if isinstance(x, models.TimelineTwitterList)]
+
+
+def community_entries_converter(item: List[models.TimelineAddEntry]) -> List[CommunityApiUtilsData]:
+    def map_fn(x: models.TimelineCommunity) -> Optional[CommunityApiUtilsData]:
+        community = x.community_results.result.actual_instance
+        if isinstance(community, models.Community):
+            return CommunityApiUtilsData(raw=x, community=community)
+
+    return non_nullable_list([map_fn(x) for x in item_contents(item) if isinstance(x, models.TimelineCommunity)])
 
 
 def user_result_converter(item: list[models.UserResults]) -> List[UserApiUtilsData]:
@@ -268,6 +299,36 @@ def build_header(headers: Dict[str, str]) -> ApiUtilsHeader:
         twitter_response_tags=headers.get("x-twitter-response-tags"),
         xss_protection= int(headers["x-xss-protection"]) if headers.get("x-xss-protection") is not None else None,
     )
+
+
+def timeline_request(
+    api_fn: Callable[..., twitter.ApiResponse[T1]],
+    flag: ParamType,
+    ct: ClientTransaction,
+    convert_fn: Callable[[T1], List[models.InstructionUnion]],
+    param: ParamType,
+    items_fn: Callable[[List[models.TimelineAddEntry]], List[T2]],
+) -> TwitterApiUtilsResponse[TimelineApiUtilsResponse[T2]]:
+    res = api_fn(**get_kwargs(flag=flag, additional=param, ct=ct))
+    instruction = convert_fn(res.data)
+    entry = instruction_to_entry(instruction)
+    data = TimelineApiUtilsResponse[T2](
+        raw=ApiUtilsRaw(instruction=instruction, entry=entry),
+        cursor=entries_cursor(entry),
+        data=items_fn(entry),
+    )
+    return build_response(res, data)
+
+
+def data_request(
+    api_fn: Callable[..., twitter.ApiResponse[T1]],
+    flag: ParamType,
+    ct: ClientTransaction,
+    convert_fn: Callable[[T1], T2],
+    param: ParamType,
+) -> TwitterApiUtilsResponse[T2]:
+    res = api_fn(**get_kwargs(flag=flag, additional=param, ct=ct))
+    return build_response(res, convert_fn(res.data))
 
 
 def build_response(response: twitter.ApiResponse, data: T1) -> TwitterApiUtilsResponse[T1]:

@@ -19,7 +19,9 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
+from twitter_openapi_python_generated.models.content_item_type import ContentItemType
+from twitter_openapi_python_generated.models.timeline_message_prompt_content import TimelineMessagePromptContent
 from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,9 +31,10 @@ class TimelineMessagePrompt(BaseModel):
     """
     TimelineMessagePrompt
     """ # noqa: E501
-    typename: Optional[TypeName] = Field(default=None, alias="__typename")
-    additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["__typename"]
+    typename: TypeName = Field(alias="__typename")
+    content: TimelineMessagePromptContent
+    item_type: ContentItemType = Field(alias="itemType")
+    __properties: ClassVar[List[str]] = ["__typename", "content", "itemType"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -63,10 +66,8 @@ class TimelineMessagePrompt(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
-            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -74,11 +75,9 @@ class TimelineMessagePrompt(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
+        # override the default output from pydantic by calling `to_dict()` of content
+        if self.content:
+            _dict['content'] = self.content.to_dict()
         return _dict
 
     @classmethod
@@ -91,13 +90,10 @@ class TimelineMessagePrompt(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "__typename": obj.get("__typename")
+            "__typename": obj.get("__typename"),
+            "content": TimelineMessagePromptContent.from_dict(obj["content"]) if obj.get("content") is not None else None,
+            "itemType": obj.get("itemType")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

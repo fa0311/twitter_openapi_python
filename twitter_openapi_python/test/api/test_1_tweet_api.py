@@ -1,7 +1,8 @@
+import logging
 import unittest
 
 import twitter_openapi_python as api
-from test.api import get_client, get_user_id, print_tweet
+from test.api import get_client, get_user_id, print_tweet, print_user
 from twitter_openapi_python.models import TweetApiUtilsData
 
 
@@ -83,6 +84,52 @@ class TestTweetApi(unittest.TestCase):
         result = self.client.get_community_media_timeline(community_id="1489422448332197888")
         for tweet in list(filter(self.ad_fillter, result.data.data)):
             print_tweet(tweet)
+
+    def test_get_user_highlights_tweets(self):
+        result = self.client.get_user_highlights_tweets(user_id="44196397")
+        for tweet in list(filter(self.ad_fillter, result.data.data)):
+            print_tweet(tweet)
+
+    def test_get_user_reposts_timeline(self):
+        result = self.client.get_user_reposts_timeline(user_id="44196397")
+        for tweet in list(filter(self.ad_fillter, result.data.data)):
+            print_tweet(tweet)
+
+    def test_get_user_super_follow_tweets(self):
+        result = self.client.get_user_super_follow_tweets(user_id="44196397")
+        for tweet in list(filter(self.ad_fillter, result.data.data)):
+            print_tweet(tweet)
+
+    def test_get_explore_page(self):
+        result = self.client.get_explore_page()
+        for trend in result.data.data:
+            logging.info(trend.name)
+
+    def test_get_generic_timeline_by_id(self):
+        timeline_id = self.client.flag["GenericTimelineById"]["variables"]["timelineId"]
+        result = self.client.get_generic_timeline_by_id(timeline_id=timeline_id)
+        for trend in result.data.data:
+            logging.info(trend.name)
+
+    def test_get_notifications_timeline(self):
+        result = self.client.get_notifications_timeline()
+        for notification in result.data.data:
+            logging.info(notification.rich_message.text)
+
+    def test_get_community_discovery_timeline(self):
+        result = self.client.get_community_discovery_timeline()
+        for community in result.data.data:
+            logging.info(community.community.name)
+
+    def test_get_community_about_timeline(self):
+        result = self.client.get_community_about_timeline(community_id="1489422448332197888")
+        for user in result.data.data:
+            print_user(user)
+
+    def test_get_connect_tab_timeline(self):
+        result = self.client.get_connect_tab_timeline()
+        for user in result.data.data:
+            print_user(user)
 
 
 if __name__ == "__main__":

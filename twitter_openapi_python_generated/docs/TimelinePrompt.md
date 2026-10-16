@@ -5,7 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**typename** | [**TypeName**](TypeName.md) |  | [optional] 
+**typename** | [**TypeName**](TypeName.md) |  | 
+**client_event_info** | [**ClientEventInfo**](ClientEventInfo.md) |  | 
+**content** | [**TimelinePromptContent**](TimelinePromptContent.md) |  | 
+**item_type** | [**ContentItemType**](ContentItemType.md) |  | 
 
 ## Example
 

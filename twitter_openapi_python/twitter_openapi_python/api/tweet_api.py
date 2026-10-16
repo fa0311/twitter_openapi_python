@@ -5,22 +5,29 @@ import twitter_openapi_python_generated.models as models
 from x_client_transaction import ClientTransaction
 
 from twitter_openapi_python.models import (
-    ApiUtilsRaw,
+    CommunityApiUtilsData,
     TimelineApiUtilsResponse,
     TweetApiUtilsData,
     TwitterApiUtilsResponse,
+    UserApiUtilsData,
 )
 from twitter_openapi_python.utils import (
-    build_response,
-    entries_cursor,
+    community_entries_converter,
     error_check,
-    get_kwargs,
-    instruction_to_entry,
+    notification_entries_converter,
+    timeline_request,
+    trend_entries_converter,
     tweet_entries_converter,
+    user_entries_converter,
+    user_result_converter,
 )
 
 T = TypeVar("T")
 ResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[TweetApiUtilsData]]
+UserResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[UserApiUtilsData]]
+TrendResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[models.TimelineTrend]]
+NotificationResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[models.TimelineNotification]]
+CommunityResponseType = TwitterApiUtilsResponse[TimelineApiUtilsResponse[CommunityApiUtilsData]]
 ApiFnType = Callable[..., twitter.ApiResponse[T]]
 ParamType = dict[str, Any]
 
@@ -41,21 +48,7 @@ class TweetApiUtils:
         key: str,
         param: ParamType,
     ) -> ResponseType:
-        args = get_kwargs(flag=self.flag[key], additional=param, ct=self.ct)
-        res = apiFn(**args)
-        instruction = convertFn(res.data)
-        entry = instruction_to_entry(instruction)
-        tweet_list = tweet_entries_converter(entry)
-        raw = ApiUtilsRaw(
-            instruction=instruction,
-            entry=entry,
-        )
-        data = TimelineApiUtilsResponse[TweetApiUtilsData](
-            raw=raw,
-            cursor=entries_cursor(entry),
-            data=tweet_list,
-        )
-        return build_response(res, data)
+        return timeline_request(apiFn, self.flag[key], self.ct, convertFn, param, tweet_entries_converter)
 
     def get_tweet_detail(
         self,
@@ -100,7 +93,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_search_timeline_with_http_info,
-            convertFn=lambda e: error_check(e.data.search_by_raw_query, e.errors).search_timeline.timeline.instructions,
+            convertFn=lambda e: error_check(
+                error_check(e.data.search_by_raw_query, e.errors).search_timeline.timeline, e.errors
+            ).instructions,
             key="SearchTimeline",
             param=param,
         )
@@ -426,3 +421,218 @@ class TweetApiUtils:
             param=param,
         )
         return response
+
+    def get_user_highlights_tweets(
+        self,
+        user_id: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        param: ParamType = {"userId": user_id}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+
+        response = self.request(
+            apiFn=self.api.get_user_highlights_tweets_with_http_info,
+            convertFn=lambda e: error_check(e.data.user, e.errors).result.timeline.timeline.instructions,
+            key="UserHighlightsTweets",
+            param=param,
+        )
+        return response
+
+    def get_user_reposts_timeline(
+        self,
+        user_id: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        param: ParamType = {"userId": user_id}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+
+        response = self.request(
+            apiFn=self.api.get_user_reposts_timeline_with_http_info,
+            convertFn=lambda e: error_check(
+                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
+            ).instructions,
+            key="UserRepostsTimeline",
+            param=param,
+        )
+        return response
+
+    def get_user_super_follow_tweets(
+        self,
+        user_id: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> ResponseType:
+        """Subscriber-only posts; without a subscription the timeline only carries a TimelineMessagePrompt."""
+        param: ParamType = {"userId": user_id}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+
+        response = self.request(
+            apiFn=self.api.get_user_super_follow_tweets_with_http_info,
+            convertFn=lambda e: error_check(
+                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
+            ).instructions,
+            key="UserSuperFollowTweets",
+            param=param,
+        )
+        return response
+
+    def get_explore_page(
+        self,
+        cursor: Optional[str] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> TrendResponseType:
+        """Trends of the first explore tab; the other tabs are GenericTimelineById timelines."""
+        param: ParamType = {}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if extra_param is not None:
+            param.update(extra_param)
+
+        return timeline_request(
+            self.api.get_explore_page_with_http_info,
+            self.flag["ExplorePage"],
+            self.ct,
+            lambda e: error_check(e.data.explore_page.body.initial_timeline.timeline.timeline, e.errors).instructions,
+            param,
+            trend_entries_converter,
+        )
+
+    def get_generic_timeline_by_id(
+        self,
+        timeline_id: str,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> TrendResponseType:
+        """Explore tab timelines (trending, news, sports, ...)."""
+        param: ParamType = {"timelineId": timeline_id}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+
+        return timeline_request(
+            self.api.get_generic_timeline_by_id_with_http_info,
+            self.flag["GenericTimelineById"],
+            self.ct,
+            lambda e: error_check(e.data.timeline.timeline, e.errors).instructions,
+            param,
+            trend_entries_converter,
+        )
+
+    def get_notifications_timeline(
+        self,
+        timeline_type: Optional[Literal["All", "Verified", "Mentions"]] = None,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> NotificationResponseType:
+        """Notification items only; the tweets of the Mentions tab are in data.raw.entry (tweet_entries_converter)."""
+        param: ParamType = {}
+        if timeline_type is not None:
+            param["timeline_type"] = timeline_type
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+
+        return timeline_request(
+            self.api.get_notifications_timeline_with_http_info,
+            self.flag["NotificationsTimeline"],
+            self.ct,
+            lambda e: error_check(
+                e.data.viewer_v2.user_results.result.notification_timeline.timeline, e.errors
+            ).instructions,
+            param,
+            notification_entries_converter,
+        )
+
+    def get_community_discovery_timeline(
+        self,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> CommunityResponseType:
+        param: ParamType = {}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+
+        return timeline_request(
+            self.api.get_community_discovery_timeline_with_http_info,
+            self.flag["CommunityDiscoveryTimeline"],
+            self.ct,
+            lambda e: error_check(e.data.viewer.community_discovery_timeline.timeline, e.errors).instructions,
+            param,
+            community_entries_converter,
+        )
+
+    def get_community_about_timeline(
+        self,
+        community_id: str,
+        extra_param: Optional[ParamType] = None,
+    ) -> UserResponseType:
+        """Moderators and members of a community."""
+        param: ParamType = {"communityId": community_id}
+        if extra_param is not None:
+            param.update(extra_param)
+
+        return timeline_request(
+            self.api.get_community_about_timeline_with_http_info,
+            self.flag["CommunityAboutTimeline"],
+            self.ct,
+            lambda e: error_check(e.data.community_results.result.about_timeline.timeline, e.errors).instructions,
+            param,
+            lambda entry: user_result_converter(user_entries_converter(entry)),
+        )
+
+    def get_connect_tab_timeline(
+        self,
+        cursor: Optional[str] = None,
+        count: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> UserResponseType:
+        """Who to follow."""
+        param: ParamType = {}
+        if cursor is not None:
+            param["cursor"] = cursor
+        if count is not None:
+            param["count"] = count
+        if extra_param is not None:
+            param.update(extra_param)
+
+        return timeline_request(
+            self.api.get_connect_tab_timeline_with_http_info,
+            self.flag["ConnectTabTimeline"],
+            self.ct,
+            lambda e: error_check(e.data.connect_tab_timeline.timeline, e.errors).instructions,
+            param,
+            lambda entry: user_result_converter(user_entries_converter(entry)),
+        )

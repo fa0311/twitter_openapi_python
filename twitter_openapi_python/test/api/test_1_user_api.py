@@ -1,3 +1,4 @@
+import logging
 import unittest
 from test.api import get_client, print_user
 
@@ -18,6 +19,19 @@ class TestUserApi(unittest.TestCase):
     def test_get_user_by_rest_id(self):
         result = self.client.get_user_by_rest_id(user_id="44196397")
         print_user(result.data)
+
+    def test_get_viewer_badge_counts(self):
+        result = self.client.get_viewer_badge_counts()
+        logging.info(f"unread: {result.data.total_unread_count}")
+
+    def test_get_fetch_draft_tweets(self):
+        result = self.client.get_fetch_draft_tweets()
+        for draft in result.data:
+            logging.info(draft.tweet_create_request.status)
+
+    def test_get_fetch_scheduled_tweets(self):
+        result = self.client.get_fetch_scheduled_tweets()
+        logging.info(f"scheduled: {len(result.data)}")
 
 
 if __name__ == "__main__":

@@ -37,6 +37,19 @@ class TestTimelineTrend(unittest.TestCase):
         if include_optional:
             return TimelineTrend(
                 typename = 'TimelineTweet',
+                grouped_trends = [
+                    twitter_openapi_python_generated.models.grouped_trend.GroupedTrend(
+                        name = '', 
+                        url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
+                            url_type = 'DeepLink', 
+                            urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
+                                request_params = [
+                                    twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
+                                        key = '', 
+                                        value = '', )
+                                    ], 
+                                title = '', ), ), )
+                    ],
                 images = [
                     twitter_openapi_python_generated.models.trend_image.TrendImage(
                         url = '', )
