@@ -80,6 +80,23 @@ class UserApiUtils:
             param=param,
         )
 
+    def get_about_account_query(
+        self,
+        screen_name: str,
+        extra_param: Optional[ParamType] = None,
+    ) -> TwitterApiUtilsResponse[models.AboutAccountUser]:
+        """The "About this account" panel: join date, where the account is based, username changes, verification."""
+        param: ParamType = {"screenName": screen_name}
+        if extra_param is not None:
+            param.update(extra_param)
+        return data_request(
+            self.api.get_about_account_query_with_http_info,
+            self.flag["AboutAccountQuery"],
+            self.ct,
+            lambda e: error_check(e.data, e.errors).user_result_by_screen_name.result,
+            param,
+        )
+
     def get_viewer_badge_counts(
         self,
         extra_param: Optional[ParamType] = None,

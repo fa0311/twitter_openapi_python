@@ -72,3 +72,20 @@ class UsersApiUtils:
             lambda e: [x.result for x in error_check(e.data, e.errors).users_results],
             param,
         )
+
+    def get_sidebar_user_recommendations(
+        self,
+        profile_user_id: str,
+        extra_param: Optional[ParamType] = None,
+    ) -> TwitterApiUtilsResponse[list[models.SidebarUserRecommendation]]:
+        """Who to follow, shown in the sidebar of a profile, each with its recommendation token."""
+        param: ParamType = {"profileUserId": profile_user_id}
+        if extra_param is not None:
+            param.update(extra_param)
+        return data_request(
+            self.api.get_sidebar_user_recommendations_with_http_info,
+            self.flag["SidebarUserRecommendations"],
+            self.ct,
+            lambda e: error_check(e.data, e.errors).sidebar_user_recommendations,
+            param,
+        )

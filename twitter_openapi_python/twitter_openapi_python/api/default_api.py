@@ -153,3 +153,69 @@ class DefaultApiUtils:
             key="PinnedTimelines",
             param=param,
         )
+
+    def get_broadcast_query(
+        self,
+        id: str,
+        extra_param: Optional[ParamType] = None,
+    ) -> TwitterApiUtilsResponse[models.Broadcast]:
+        """A live video broadcast by id."""
+        param: ParamType = {"id": id}
+        if extra_param is not None:
+            param.update(extra_param)
+        return self.request(
+            apiFn=self.api.get_broadcast_query_with_http_info,
+            convertFn=lambda x: error_check(x.data, x.errors).broadcast,
+            key="BroadcastQuery",
+            param=param,
+        )
+
+    def get_audio_space_by_id(
+        self,
+        id: str,
+        extra_param: Optional[ParamType] = None,
+    ) -> TwitterApiUtilsResponse[models.AudioSpace]:
+        """A Space by id: metadata, participants and the announcing post."""
+        param: ParamType = {"id": id}
+        if extra_param is not None:
+            param.update(extra_param)
+        return self.request(
+            apiFn=self.api.get_audio_space_by_id_with_http_info,
+            convertFn=lambda x: error_check(x.data, x.errors).audio_space,
+            key="AudioSpaceById",
+            param=param,
+        )
+
+    def get_use_story_topic_query(
+        self,
+        rest_id: str = "For You",
+        limit: Optional[int] = None,
+        extra_param: Optional[ParamType] = None,
+    ) -> TwitterApiUtilsResponse[models.StoryTopic]:
+        """AI-written stories of an explore topic."""
+        param: ParamType = {"rest_id": rest_id}
+        if limit is not None:
+            param["limit"] = limit
+        if extra_param is not None:
+            param.update(extra_param)
+        return self.request(
+            apiFn=self.api.get_use_story_topic_query_with_http_info,
+            convertFn=lambda x: error_check(x.data, x.errors).story_topic,
+            key="useStoryTopicQuery",
+            param=param,
+        )
+
+    def get_grok_account_jwt_query(
+        self,
+        extra_param: Optional[ParamType] = None,
+    ) -> TwitterApiUtilsResponse[models.GrokAccountJwt]:
+        """Whether the account is linked to a Grok account."""
+        param: ParamType = {}
+        if extra_param is not None:
+            param.update(extra_param)
+        return self.request(
+            apiFn=self.api.get_grok_account_jwt_query_with_http_info,
+            convertFn=lambda x: error_check(x.data, x.errors).grok_account_jwt,
+            key="grokAccountJwtQuery",
+            param=param,
+        )

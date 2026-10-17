@@ -66,7 +66,9 @@ class UserListApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_followers_with_http_info,
-            convertFn=lambda e: error_check(e.data.user, e.errors).result.timeline.timeline.instructions,
+            convertFn=lambda e: (
+                error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline.instructions
+            ),
             key="Followers",
             param=param,
         )
@@ -87,7 +89,9 @@ class UserListApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_following_with_http_info,
-            convertFn=lambda e: error_check(e.data.user, e.errors).result.timeline.timeline.instructions,
+            convertFn=lambda e: (
+                error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline.instructions
+            ),
             key="Following",
             param=param,
         )
@@ -108,7 +112,9 @@ class UserListApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_followers_you_know_with_http_info,
-            convertFn=lambda e: error_check(e.data.user, e.errors).result.timeline.timeline.instructions,
+            convertFn=lambda e: (
+                error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline.instructions
+            ),
             key="FollowersYouKnow",
             param=param,
         )
@@ -129,9 +135,9 @@ class UserListApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_favoriters_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data.favoriters_timeline, e.errors).timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(error_check(e.data.favoriters_timeline, e.errors).timeline, e.errors).instructions
+            ),
             key="Favoriters",
             param=param,
         )
@@ -152,9 +158,9 @@ class UserListApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_retweeters_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data.retweeters_timeline, e.errors).timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(error_check(e.data.retweeters_timeline, e.errors).timeline, e.errors).instructions
+            ),
             key="Retweeters",
             param=param,
         )
@@ -175,7 +181,9 @@ class UserListApiUtils:
             param.update(extra_param)
         return self.request(
             apiFn=self.api.get_blue_verified_followers_with_http_info,
-            convertFn=lambda e: error_check(e.data.user, e.errors).result.timeline.timeline.instructions,
+            convertFn=lambda e: (
+                error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline.instructions
+            ),
             key="BlueVerifiedFollowers",
             param=param,
         )
@@ -282,7 +290,11 @@ class UserListApiUtils:
             self.api.get_list_ownerships_with_http_info,
             self.flag["ListOwnerships"],
             self.ct,
-            lambda e: error_check(error_check(e.data.user, e.errors).result.timeline.timeline, e.errors).instructions,
+            lambda e: (
+                error_check(
+                    error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline, e.errors
+                ).instructions
+            ),
             param,
             list_entries_converter,
         )
@@ -345,7 +357,11 @@ class UserListApiUtils:
             self.api.get_combined_lists_with_http_info,
             self.flag["CombinedLists"],
             self.ct,
-            lambda e: error_check(error_check(e.data.user, e.errors).result.timeline.timeline, e.errors).instructions,
+            lambda e: (
+                error_check(
+                    error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline, e.errors
+                ).instructions
+            ),
             param,
             list_entries_converter,
         )

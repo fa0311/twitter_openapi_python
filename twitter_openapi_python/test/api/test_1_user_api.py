@@ -15,7 +15,9 @@ class TestUserApi(unittest.TestCase):
         result = self.client.get_user_by_screen_name(screen_name="elonmusk")
         print_user(result.data)
 
-    @unittest.skip("X answers UserByRestId / UsersByRestIds with 403 outside a browser (Cloudflare), the parameters are the frontend's")
+    @unittest.skip(
+        "X answers UserByRestId / UsersByRestIds with 403 outside a browser (Cloudflare), the parameters are the frontend's"
+    )
     def test_get_user_by_rest_id(self):
         result = self.client.get_user_by_rest_id(user_id="44196397")
         print_user(result.data)
@@ -32,6 +34,13 @@ class TestUserApi(unittest.TestCase):
     def test_get_fetch_scheduled_tweets(self):
         result = self.client.get_fetch_scheduled_tweets()
         logging.info(f"scheduled: {len(result.data)}")
+
+    def test_get_about_account_query(self):
+        result = self.client.get_about_account_query(screen_name="elonmusk")
+        about = result.data.about_profile
+        logging.info(
+            f"{result.data.core.screen_name}: joined {result.data.core.created_at}, based in {about.account_based_in}"
+        )
 
 
 if __name__ == "__main__":
