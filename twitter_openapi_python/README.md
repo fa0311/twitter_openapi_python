@@ -81,6 +81,19 @@ client.additional_api_headers = {
 };
 ```
 
+### Endpoint
+
+The generated client accepts any host that keeps X's path shape (`/graphql/{queryId}/{operationName}`, `/1.1/...`, `/2/...` under `https://x.com/i/api`). Build the `ApiClient` yourself and hand it to `get_twitter_openapi_python_client`; the login helpers are not involved, so cookies and headers are then up to you (or to whatever answers at that host).
+
+```python
+import twitter_openapi_python_generated as twitter
+from twitter_openapi_python import TwitterOpenapiPython
+
+api_client = twitter.ApiClient(twitter.Configuration(host="http://localhost:3000/i/api"))
+client = TwitterOpenapiPython().get_twitter_openapi_python_client(api_client)
+response = client.get_user_api().get_user_by_screen_name(screen_name="elonmusk")
+```
+
 ## Development
 
 ```shell
