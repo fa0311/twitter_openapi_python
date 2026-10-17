@@ -41,7 +41,7 @@ class TestConversationControl(unittest.TestCase):
                         __typename = 'TimelineTweet', 
                         core = twitter_openapi_python_generated.models.conversation_owner_core.ConversationOwnerCore(
                             screen_name = '', ), ), ),
-                policy = ''
+                policy = 'ByInvitation'
             )
         else:
             return ConversationControl(
@@ -50,7 +50,7 @@ class TestConversationControl(unittest.TestCase):
                         __typename = 'TimelineTweet', 
                         core = twitter_openapi_python_generated.models.conversation_owner_core.ConversationOwnerCore(
                             screen_name = '', ), ), ),
-                policy = '',
+                policy = 'ByInvitation',
         )
         """
 

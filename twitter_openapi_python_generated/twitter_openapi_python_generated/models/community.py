@@ -104,8 +104,8 @@ class Community(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['NonMember']):
-            raise ValueError("must be one of enum values ('NonMember')")
+        if value not in set(['Member', 'Moderator', 'Admin', 'NonMember']):
+            raise ValueError("must be one of enum values ('Member', 'Moderator', 'Admin', 'NonMember')")
         return value
 
     model_config = ConfigDict(

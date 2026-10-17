@@ -38,6 +38,8 @@ class TestGrokEntityRef(unittest.TestCase):
             return GrokEntityRef(
                 display_url = '',
                 expanded_url = '',
+                id = '4',
+                screen_name = '',
                 text = '',
                 type = 'TimelineUrl',
                 url = '',

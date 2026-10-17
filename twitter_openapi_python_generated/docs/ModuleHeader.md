@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **display_type** | **str** |  | 
+**social_context** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
 **sticky** | **bool** |  | [optional] 
 **text** | **str** |  | 
 

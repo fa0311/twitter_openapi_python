@@ -42,7 +42,6 @@ class TestGrokImageAnnotation(unittest.TestCase):
         else:
             return GrokImageAnnotation(
                 prompt = '',
-                upsampled_prompt = '',
         )
         """
 

@@ -43,7 +43,56 @@ class TestCreateTweetResponseData(unittest.TestCase):
                             article = twitter_openapi_python_generated.models.article.Article(
                                 article_results = twitter_openapi_python_generated.models.article_results.ArticleResults(
                                     result = twitter_openapi_python_generated.models.article_result.ArticleResult(
-                                        content_state = { }, 
+                                        content_state = twitter_openapi_python_generated.models.article_content_state.ArticleContentState(
+                                            blocks = [
+                                                twitter_openapi_python_generated.models.article_content_block.ArticleContentBlock(
+                                                    data = twitter_openapi_python_generated.models.article_content_block_data.ArticleContentBlockData(
+                                                        mentions = [
+                                                            twitter_openapi_python_generated.models.article_content_text_range.ArticleContentTextRange(
+                                                                from_index = 56, 
+                                                                text = '', 
+                                                                to_index = 56, )
+                                                            ], 
+                                                        urls = [
+                                                            twitter_openapi_python_generated.models.article_content_text_range.ArticleContentTextRange(
+                                                                from_index = 56, 
+                                                                text = '', 
+                                                                to_index = 56, )
+                                                            ], ), 
+                                                    entity_ranges = [
+                                                        twitter_openapi_python_generated.models.article_content_entity_range.ArticleContentEntityRange(
+                                                            key = 56, 
+                                                            length = 56, 
+                                                            offset = 56, )
+                                                        ], 
+                                                    inline_style_ranges = [
+                                                        twitter_openapi_python_generated.models.article_content_inline_style_range.ArticleContentInlineStyleRange(
+                                                            length = 56, 
+                                                            offset = 56, 
+                                                            style = 'Bold', )
+                                                        ], 
+                                                    key = '', 
+                                                    text = '', 
+                                                    type = '', )
+                                                ], 
+                                            entity_map = [
+                                                twitter_openapi_python_generated.models.article_content_entity.ArticleContentEntity(
+                                                    key = '', 
+                                                    value = twitter_openapi_python_generated.models.article_content_entity_value.ArticleContentEntityValue(
+                                                        data = twitter_openapi_python_generated.models.article_content_entity_data.ArticleContentEntityData(
+                                                            caption = '', 
+                                                            entity_key = '', 
+                                                            media_items = [
+                                                                twitter_openapi_python_generated.models.article_content_media_item.ArticleContentMediaItem(
+                                                                    local_media_id = '', 
+                                                                    media_category = '', 
+                                                                    media_id = '4', )
+                                                                ], 
+                                                            tweet_id = '4', 
+                                                            url = '', ), 
+                                                        mutability = '', 
+                                                        type = 'MEDIA', ), )
+                                                ], ), 
                                         cover_media = twitter_openapi_python_generated.models.article_cover_media.ArticleCoverMedia(
                                             id = '', 
                                             media_id = '4', 
@@ -90,6 +139,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                             first_published_at_secs = 56, ), 
                                         preview_text = '', 
                                         rest_id = '4', 
+                                        summary_text = '', 
                                         title = '', ), ), ), 
                             author_community_relationship = twitter_openapi_python_generated.models.author_community_relationship.AuthorCommunityRelationship(
                                 community_results = twitter_openapi_python_generated.models.community_result.CommunityResult(
@@ -115,8 +165,8 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                             to_index = 56, )
                                         ], 
                                     text = '', ), 
-                                footer_icon_type = 'BirdwatchEyeOff', 
-                                icon_type = 'BirdwatchV1Icon', 
+                                footer_icon_type = '', 
+                                icon_type = '', 
                                 note = twitter_openapi_python_generated.models.birdwatch_pivot_note.BirdwatchPivotNote(
                                     grok_translated_community_note_with_availability = twitter_openapi_python_generated.models.grok_translated_community_note_with_availability.GrokTranslatedCommunityNoteWithAvailability(
                                         data = twitter_openapi_python_generated.models.grok_translated_community_note.GrokTranslatedCommunityNote(
@@ -127,6 +177,8 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                     ref = twitter_openapi_python_generated.models.grok_entity_ref.GrokEntityRef(
                                                         display_url = '', 
                                                         expanded_url = '', 
+                                                        id = '4', 
+                                                        screen_name = '', 
                                                         text = '', 
                                                         type = 'TimelineUrl', 
                                                         url = '', 
@@ -180,7 +232,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                     width = 56, ), 
                                                 scribe_key = '', 
                                                 string_value = '', 
-                                                type = '', 
+                                                type = 'STRING', 
                                                 user_value = twitter_openapi_python_generated.models.user_value.UserValue(
                                                     id_str = '4', 
                                                     path = [
@@ -190,7 +242,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                     card_platform = twitter_openapi_python_generated.models.tweet_card_platform_data.TweetCardPlatformData(
                                         platform = twitter_openapi_python_generated.models.tweet_card_platform.TweetCardPlatform(
                                             audience = twitter_openapi_python_generated.models.tweet_card_platform_audience.TweetCardPlatformAudience(
-                                                name = 'production', ), 
+                                                name = '', ), 
                                             device = twitter_openapi_python_generated.models.tweet_card_platform_device.TweetCardPlatformDevice(
                                                 name = '', 
                                                 version = '4', ), ), ), 
@@ -202,18 +254,19 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                 rest_id = '', ), 
                             cashtag_attachments = [
                                 twitter_openapi_python_generated.models.cashtag_attachment.CashtagAttachment(
-                                    rest_id = '', )
+                                    rest_id = '', 
+                                    size_variant = 56, )
                                 ], 
                             community_relationship = twitter_openapi_python_generated.models.community_relationship.CommunityRelationship(
                                 actions = twitter_openapi_python_generated.models.community_actions.CommunityActions(
                                     delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
                                         __typename = 'TimelineTweet', 
-                                        reason = 'Unavailable', ), 
+                                        reason = '', ), 
                                     join_action_result = null, 
                                     leave_action_result = twitter_openapi_python_generated.models.community_leave_action_result.CommunityLeaveActionResult(
                                         __typename = 'TimelineTweet', 
                                         message = '', 
-                                        reason = 'ViewerNotMember', ), 
+                                        reason = '', ), 
                                     pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
                                         __typename = 'TimelineTweet', ), 
                                     unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
@@ -266,7 +319,56 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                 article = twitter_openapi_python_generated.models.article.Article(
                                                     article_results = twitter_openapi_python_generated.models.article_results.ArticleResults(
                                                         result = twitter_openapi_python_generated.models.article_result.ArticleResult(
-                                                            content_state = { }, 
+                                                            content_state = twitter_openapi_python_generated.models.article_content_state.ArticleContentState(
+                                                                blocks = [
+                                                                    twitter_openapi_python_generated.models.article_content_block.ArticleContentBlock(
+                                                                        data = twitter_openapi_python_generated.models.article_content_block_data.ArticleContentBlockData(
+                                                                            mentions = [
+                                                                                twitter_openapi_python_generated.models.article_content_text_range.ArticleContentTextRange(
+                                                                                    from_index = 56, 
+                                                                                    text = '', 
+                                                                                    to_index = 56, )
+                                                                                ], 
+                                                                            urls = [
+                                                                                twitter_openapi_python_generated.models.article_content_text_range.ArticleContentTextRange(
+                                                                                    from_index = 56, 
+                                                                                    text = '', 
+                                                                                    to_index = 56, )
+                                                                                ], ), 
+                                                                        entity_ranges = [
+                                                                            twitter_openapi_python_generated.models.article_content_entity_range.ArticleContentEntityRange(
+                                                                                key = 56, 
+                                                                                length = 56, 
+                                                                                offset = 56, )
+                                                                            ], 
+                                                                        inline_style_ranges = [
+                                                                            twitter_openapi_python_generated.models.article_content_inline_style_range.ArticleContentInlineStyleRange(
+                                                                                length = 56, 
+                                                                                offset = 56, 
+                                                                                style = 'Bold', )
+                                                                            ], 
+                                                                        key = '', 
+                                                                        text = '', 
+                                                                        type = '', )
+                                                                    ], 
+                                                                entity_map = [
+                                                                    twitter_openapi_python_generated.models.article_content_entity.ArticleContentEntity(
+                                                                        key = '', 
+                                                                        value = twitter_openapi_python_generated.models.article_content_entity_value.ArticleContentEntityValue(
+                                                                            data = twitter_openapi_python_generated.models.article_content_entity_data.ArticleContentEntityData(
+                                                                                caption = '', 
+                                                                                entity_key = '', 
+                                                                                media_items = [
+                                                                                    twitter_openapi_python_generated.models.article_content_media_item.ArticleContentMediaItem(
+                                                                                        local_media_id = '', 
+                                                                                        media_category = '', 
+                                                                                        media_id = '4', )
+                                                                                    ], 
+                                                                                tweet_id = '4', 
+                                                                                url = '', ), 
+                                                                            mutability = '', 
+                                                                            type = 'MEDIA', ), )
+                                                                    ], ), 
                                                             cover_media = twitter_openapi_python_generated.models.article_cover_media.ArticleCoverMedia(
                                                                 id = '', 
                                                                 media_id = '4', 
@@ -313,6 +415,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                 first_published_at_secs = 56, ), 
                                                             preview_text = '', 
                                                             rest_id = '4', 
+                                                            summary_text = '', 
                                                             title = '', ), ), ), 
                                                 author_community_relationship = twitter_openapi_python_generated.models.author_community_relationship.AuthorCommunityRelationship(
                                                     community_results = twitter_openapi_python_generated.models.community_result.CommunityResult(
@@ -338,8 +441,8 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                 to_index = 56, )
                                                             ], 
                                                         text = '', ), 
-                                                    footer_icon_type = 'BirdwatchEyeOff', 
-                                                    icon_type = 'BirdwatchV1Icon', 
+                                                    footer_icon_type = '', 
+                                                    icon_type = '', 
                                                     note = twitter_openapi_python_generated.models.birdwatch_pivot_note.BirdwatchPivotNote(
                                                         grok_translated_community_note_with_availability = twitter_openapi_python_generated.models.grok_translated_community_note_with_availability.GrokTranslatedCommunityNoteWithAvailability(
                                                             data = twitter_openapi_python_generated.models.grok_translated_community_note.GrokTranslatedCommunityNote(
@@ -350,6 +453,8 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                         ref = twitter_openapi_python_generated.models.grok_entity_ref.GrokEntityRef(
                                                                             display_url = '', 
                                                                             expanded_url = '', 
+                                                                            id = '4', 
+                                                                            screen_name = '', 
                                                                             text = '', 
                                                                             type = 'TimelineUrl', 
                                                                             url = '', 
@@ -403,7 +508,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                         width = 56, ), 
                                                                     scribe_key = '', 
                                                                     string_value = '', 
-                                                                    type = '', 
+                                                                    type = 'STRING', 
                                                                     user_value = twitter_openapi_python_generated.models.user_value.UserValue(
                                                                         id_str = '4', 
                                                                         path = [
@@ -413,7 +518,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                         card_platform = twitter_openapi_python_generated.models.tweet_card_platform_data.TweetCardPlatformData(
                                                             platform = twitter_openapi_python_generated.models.tweet_card_platform.TweetCardPlatform(
                                                                 audience = twitter_openapi_python_generated.models.tweet_card_platform_audience.TweetCardPlatformAudience(
-                                                                    name = 'production', ), 
+                                                                    name = '', ), 
                                                                 device = twitter_openapi_python_generated.models.tweet_card_platform_device.TweetCardPlatformDevice(
                                                                     name = '', 
                                                                     version = '4', ), ), ), 
@@ -425,18 +530,19 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                     rest_id = '', ), 
                                                 cashtag_attachments = [
                                                     twitter_openapi_python_generated.models.cashtag_attachment.CashtagAttachment(
-                                                        rest_id = '', )
+                                                        rest_id = '', 
+                                                        size_variant = 56, )
                                                     ], 
                                                 community_relationship = twitter_openapi_python_generated.models.community_relationship.CommunityRelationship(
                                                     actions = twitter_openapi_python_generated.models.community_actions.CommunityActions(
                                                         delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
                                                             __typename = 'TimelineTweet', 
-                                                            reason = 'Unavailable', ), 
+                                                            reason = '', ), 
                                                         join_action_result = null, 
                                                         leave_action_result = twitter_openapi_python_generated.models.community_leave_action_result.CommunityLeaveActionResult(
                                                             __typename = 'TimelineTweet', 
                                                             message = '', 
-                                                            reason = 'ViewerNotMember', ), 
+                                                            reason = '', ), 
                                                         pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
                                                             __typename = 'TimelineTweet', ), 
                                                         unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
@@ -639,8 +745,13 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                                 __typename = 'TimelineTweet', 
                                                                 core = twitter_openapi_python_generated.models.conversation_owner_core.ConversationOwnerCore(
                                                                     screen_name = '', ), ), ), 
-                                                        policy = '', ), 
+                                                        policy = 'ByInvitation', ), 
                                                     conversation_id_str = '4', 
+                                                    coordinates = twitter_openapi_python_generated.models.tweet_legacy_point.TweetLegacyPoint(
+                                                        coordinates = [
+                                                            1.337
+                                                            ], 
+                                                        type = 'Point', ), 
                                                     created_at = 'Sat Dec 31 23:59:59 +0000 2023', 
                                                     display_text_range = [
                                                         56
@@ -872,6 +983,11 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                     favorite_count = 56, 
                                                     favorited = True, 
                                                     full_text = '', 
+                                                    geo = twitter_openapi_python_generated.models.tweet_legacy_point.TweetLegacyPoint(
+                                                        coordinates = [
+                                                            1.337
+                                                            ], 
+                                                        type = 'Point', ), 
                                                     id_str = '4', 
                                                     in_reply_to_screen_name = '', 
                                                     in_reply_to_status_id_str = '4', 
@@ -879,7 +995,23 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                     is_quote_status = True, 
                                                     lang = '', 
                                                     limited_actions = 'limited_replies', 
-                                                    place = { }, 
+                                                    place = twitter_openapi_python_generated.models.tweet_legacy_place.TweetLegacyPlace(
+                                                        bounding_box = twitter_openapi_python_generated.models.tweet_legacy_place_bounding_box.TweetLegacyPlaceBoundingBox(
+                                                            coordinates = [
+                                                                [
+                                                                    [
+                                                                        1.337
+                                                                        ]
+                                                                    ]
+                                                                ], 
+                                                            type = 'Polygon', ), 
+                                                        country = '', 
+                                                        country_code = '', 
+                                                        full_name = '', 
+                                                        id = '', 
+                                                        name = '', 
+                                                        place_type = '', 
+                                                        url = '', ), 
                                                     possibly_sensitive = True, 
                                                     possibly_sensitive_editable = True, 
                                                     quote_count = 56, 
@@ -1060,7 +1192,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                             text = '', ), ), ), 
                                                 post_cta = twitter_openapi_python_generated.models.tweet_post_cta.TweetPostCta(
                                                     display_locations = [
-                                                        'TweetDetails'
+                                                        ''
                                                         ], 
                                                     post_cta = twitter_openapi_python_generated.models.post_cta.PostCta(
                                                         action_url = '', 
@@ -1104,11 +1236,12 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                                 trend_results = twitter_openapi_python_generated.models.trend_results.TrendResults(
                                                     rest_id = '4', ), 
                                                 unified_card = twitter_openapi_python_generated.models.unified_card.UnifiedCard(
-                                                    card_fetch_state = 'NoCard', ), 
+                                                    card_fetch_state = '', ), 
                                                 unmention_data = twitter_openapi_python_generated.models.unmention_data.unmention_data(), 
                                                 views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                                                     count = '4', 
-                                                    state = 'Enabled', ), ), ), 
+                                                    state = 'Enabled', ), 
+                                                voice_info = twitter_openapi_python_generated.models.voice_info.voiceInfo(), ), ), 
                                         deepsearch_headers = [
                                             twitter_openapi_python_generated.models.deepsearch_header.DeepsearchHeader(
                                                 steps = [
@@ -1286,8 +1419,13 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                             __typename = 'TimelineTweet', 
                                             core = twitter_openapi_python_generated.models.conversation_owner_core.ConversationOwnerCore(
                                                 screen_name = '', ), ), ), 
-                                    policy = '', ), 
+                                    policy = 'ByInvitation', ), 
                                 conversation_id_str = '4', 
+                                coordinates = twitter_openapi_python_generated.models.tweet_legacy_point.TweetLegacyPoint(
+                                    coordinates = [
+                                        1.337
+                                        ], 
+                                    type = 'Point', ), 
                                 created_at = 'Sat Dec 31 23:59:59 +0000 2023', 
                                 display_text_range = [
                                     56
@@ -1519,6 +1657,11 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                 favorite_count = 56, 
                                 favorited = True, 
                                 full_text = '', 
+                                geo = twitter_openapi_python_generated.models.tweet_legacy_point.TweetLegacyPoint(
+                                    coordinates = [
+                                        1.337
+                                        ], 
+                                    type = 'Point', ), 
                                 id_str = '4', 
                                 in_reply_to_screen_name = '', 
                                 in_reply_to_status_id_str = '4', 
@@ -1526,7 +1669,23 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                 is_quote_status = True, 
                                 lang = '', 
                                 limited_actions = 'limited_replies', 
-                                place = { }, 
+                                place = twitter_openapi_python_generated.models.tweet_legacy_place.TweetLegacyPlace(
+                                    bounding_box = twitter_openapi_python_generated.models.tweet_legacy_place_bounding_box.TweetLegacyPlaceBoundingBox(
+                                        coordinates = [
+                                            [
+                                                [
+                                                    1.337
+                                                    ]
+                                                ]
+                                            ], 
+                                        type = 'Polygon', ), 
+                                    country = '', 
+                                    country_code = '', 
+                                    full_name = '', 
+                                    id = '', 
+                                    name = '', 
+                                    place_type = '', 
+                                    url = '', ), 
                                 possibly_sensitive = True, 
                                 possibly_sensitive_editable = True, 
                                 quote_count = 56, 
@@ -1707,7 +1866,7 @@ class TestCreateTweetResponseData(unittest.TestCase):
                                         text = '', ), ), ), 
                             post_cta = twitter_openapi_python_generated.models.tweet_post_cta.TweetPostCta(
                                 display_locations = [
-                                    'TweetDetails'
+                                    ''
                                     ], 
                                 post_cta = twitter_openapi_python_generated.models.post_cta.PostCta(
                                     action_url = '', 
@@ -1751,11 +1910,12 @@ class TestCreateTweetResponseData(unittest.TestCase):
                             trend_results = twitter_openapi_python_generated.models.trend_results.TrendResults(
                                 rest_id = '4', ), 
                             unified_card = twitter_openapi_python_generated.models.unified_card.UnifiedCard(
-                                card_fetch_state = 'NoCard', ), 
+                                card_fetch_state = '', ), 
                             unmention_data = twitter_openapi_python_generated.models.unmention_data.unmention_data(), 
                             views = twitter_openapi_python_generated.models.tweet_view.TweetView(
                                 count = '4', 
-                                state = 'Enabled', ), ), ), )
+                                state = 'Enabled', ), 
+                            voice_info = twitter_openapi_python_generated.models.voice_info.voiceInfo(), ), ), )
             )
         else:
             return CreateTweetResponseData(

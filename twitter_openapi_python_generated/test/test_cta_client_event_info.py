@@ -36,11 +36,11 @@ class TestCtaClientEventInfo(unittest.TestCase):
         model = CtaClientEventInfo()
         if include_optional:
             return CtaClientEventInfo(
-                action = 'primary_cta'
+                action = ''
             )
         else:
             return CtaClientEventInfo(
-                action = 'primary_cta',
+                action = '',
         )
         """
 

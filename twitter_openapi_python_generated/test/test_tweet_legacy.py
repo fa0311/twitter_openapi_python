@@ -44,8 +44,13 @@ class TestTweetLegacy(unittest.TestCase):
                             __typename = 'TimelineTweet', 
                             core = twitter_openapi_python_generated.models.conversation_owner_core.ConversationOwnerCore(
                                 screen_name = '', ), ), ), 
-                    policy = '', ),
+                    policy = 'ByInvitation', ),
                 conversation_id_str = '4',
+                coordinates = twitter_openapi_python_generated.models.tweet_legacy_point.TweetLegacyPoint(
+                    coordinates = [
+                        1.337
+                        ], 
+                    type = 'Point', ),
                 created_at = 'Sat Dec 31 23:59:59 +0000 2023',
                 display_text_range = [
                     56
@@ -281,6 +286,11 @@ class TestTweetLegacy(unittest.TestCase):
                 favorite_count = 56,
                 favorited = True,
                 full_text = '',
+                geo = twitter_openapi_python_generated.models.tweet_legacy_point.TweetLegacyPoint(
+                    coordinates = [
+                        1.337
+                        ], 
+                    type = 'Point', ),
                 id_str = '4',
                 in_reply_to_screen_name = '',
                 in_reply_to_status_id_str = '4',
@@ -288,7 +298,23 @@ class TestTweetLegacy(unittest.TestCase):
                 is_quote_status = True,
                 lang = '',
                 limited_actions = 'limited_replies',
-                place = { },
+                place = twitter_openapi_python_generated.models.tweet_legacy_place.TweetLegacyPlace(
+                    bounding_box = twitter_openapi_python_generated.models.tweet_legacy_place_bounding_box.TweetLegacyPlaceBoundingBox(
+                        coordinates = [
+                            [
+                                [
+                                    1.337
+                                    ]
+                                ]
+                            ], 
+                        type = 'Polygon', ), 
+                    country = '', 
+                    country_code = '', 
+                    full_name = '', 
+                    id = '', 
+                    name = '', 
+                    place_type = '', 
+                    url = '', ),
                 possibly_sensitive = True,
                 possibly_sensitive_editable = True,
                 quote_count = 56,

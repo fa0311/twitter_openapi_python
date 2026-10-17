@@ -38,13 +38,13 @@ class TestCommunityInvitesResult(unittest.TestCase):
             return CommunityInvitesResult(
                 typename = 'TimelineTweet',
                 message = '',
-                reason = 'Unavailable'
+                reason = ''
             )
         else:
             return CommunityInvitesResult(
                 typename = 'TimelineTweet',
                 message = '',
-                reason = 'Unavailable',
+                reason = '',
         )
         """
 

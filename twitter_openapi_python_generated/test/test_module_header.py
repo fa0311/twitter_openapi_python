@@ -36,13 +36,14 @@ class TestModuleHeader(unittest.TestCase):
         model = ModuleHeader()
         if include_optional:
             return ModuleHeader(
-                display_type = 'Classic',
+                display_type = '',
+                social_context = None,
                 sticky = True,
                 text = ''
             )
         else:
             return ModuleHeader(
-                display_type = 'Classic',
+                display_type = '',
                 text = '',
         )
         """

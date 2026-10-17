@@ -44,6 +44,8 @@ class TestGrokTranslatedCommunityNoteWithAvailability(unittest.TestCase):
                             ref = twitter_openapi_python_generated.models.grok_entity_ref.GrokEntityRef(
                                 display_url = '', 
                                 expanded_url = '', 
+                                id = '4', 
+                                screen_name = '', 
                                 text = '', 
                                 type = 'TimelineUrl', 
                                 url = '', 

@@ -38,10 +38,10 @@ class TestLimitedActionResults(unittest.TestCase):
             return LimitedActionResults(
                 limited_actions = [
                     twitter_openapi_python_generated.models.limited_action.LimitedAction(
-                        action = '', 
+                        action = 'Reply', 
                         prompt = twitter_openapi_python_generated.models.cta_limited_action_prompt.CtaLimitedActionPrompt(
                             __typename = 'TimelineTweet', 
-                            cta_type = 'SeeConversation', 
+                            cta_type = '', 
                             headline = twitter_openapi_python_generated.models.cta_limited_action_prompt_text.CtaLimitedActionPromptText(
                                 entities = [
                                     None
@@ -58,10 +58,10 @@ class TestLimitedActionResults(unittest.TestCase):
             return LimitedActionResults(
                 limited_actions = [
                     twitter_openapi_python_generated.models.limited_action.LimitedAction(
-                        action = '', 
+                        action = 'Reply', 
                         prompt = twitter_openapi_python_generated.models.cta_limited_action_prompt.CtaLimitedActionPrompt(
                             __typename = 'TimelineTweet', 
-                            cta_type = 'SeeConversation', 
+                            cta_type = '', 
                             headline = twitter_openapi_python_generated.models.cta_limited_action_prompt_text.CtaLimitedActionPromptText(
                                 entities = [
                                     None

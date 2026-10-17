@@ -37,8 +37,8 @@ class TestTimelinePromptContent(unittest.TestCase):
         if include_optional:
             return TimelinePromptContent(
                 confirmation = '',
-                content_type = 'TimelineRelevancePrompt',
-                display_type = 'Compact',
+                content_type = '',
+                display_type = '',
                 is_relevant_callback = twitter_openapi_python_generated.models.timeline_prompt_callback.TimelinePromptCallback(
                     endpoint = '', ),
                 is_relevant_text = '',
@@ -50,8 +50,8 @@ class TestTimelinePromptContent(unittest.TestCase):
         else:
             return TimelinePromptContent(
                 confirmation = '',
-                content_type = 'TimelineRelevancePrompt',
-                display_type = 'Compact',
+                content_type = '',
+                display_type = '',
                 is_relevant_callback = twitter_openapi_python_generated.models.timeline_prompt_callback.TimelinePromptCallback(
                     endpoint = '', ),
                 is_relevant_text = '',

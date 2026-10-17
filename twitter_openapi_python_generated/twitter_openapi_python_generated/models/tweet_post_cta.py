@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.post_cta import PostCta
 from typing import Optional, Set
@@ -33,14 +33,6 @@ class TweetPostCta(BaseModel):
     post_cta: PostCta
     scribe_id: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["display_locations", "post_cta", "scribe_id"]
-
-    @field_validator('display_locations')
-    def display_locations_validate_enum(cls, value):
-        """Validates the enum"""
-        for i in value:
-            if i not in set(['TweetDetails', 'ForYouTimeline', 'RepliesTimeline']):
-                raise ValueError("each list item must be one of ('TweetDetails', 'ForYouTimeline', 'RepliesTimeline')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

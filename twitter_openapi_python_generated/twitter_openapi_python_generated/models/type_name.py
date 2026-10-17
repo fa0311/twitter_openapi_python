@@ -33,6 +33,7 @@ class TypeName(str, Enum):
     TIMELINETWITTERLIST = 'TimelineTwitterList'
     TIMELINELABEL = 'TimelineLabel'
     TIMELINEEVENTSUMMARY = 'TimelineEventSummary'
+    AITREND = 'AiTrend'
     TIMELINETIMELINEITEM = 'TimelineTimelineItem'
     TIMELINEUSER = 'TimelineUser'
     TIMELINETIMELINECURSOR = 'TimelineTimelineCursor'

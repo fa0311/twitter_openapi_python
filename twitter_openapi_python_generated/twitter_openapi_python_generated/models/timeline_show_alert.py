@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.client_event_info import ClientEventInfo
 from twitter_openapi_python_generated.models.instruction_type import InstructionType
@@ -45,20 +45,6 @@ class TimelineShowAlert(BaseModel):
     type: InstructionType
     users_results: Optional[List[UserResults]] = Field(default=None, alias="usersResults")
     __properties: ClassVar[List[str]] = ["alertType", "clientEventInfo", "colorConfig", "displayDurationMs", "displayLocation", "iconDisplayInfo", "richText", "triggerDelayMs", "type", "usersResults"]
-
-    @field_validator('alert_type')
-    def alert_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['NewTweets']):
-            raise ValueError("must be one of enum values ('NewTweets')")
-        return value
-
-    @field_validator('display_location')
-    def display_location_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Top']):
-            raise ValueError("must be one of enum values ('Top')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**timeline** | [**TimelineResult**](TimelineResult.md) |  | 
+**timeline** | [**TimelineResult**](TimelineResult.md) |  | [optional] 
 
 ## Example
 

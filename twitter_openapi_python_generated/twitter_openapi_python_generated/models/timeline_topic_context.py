@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.social_context_union_type import SocialContextUnionType
 from twitter_openapi_python_generated.models.topic_context import TopicContext
@@ -34,16 +34,6 @@ class TimelineTopicContext(BaseModel):
     topic: Optional[TopicContext] = None
     type: Optional[SocialContextUnionType] = None
     __properties: ClassVar[List[str]] = ["functionalityType", "topic", "type"]
-
-    @field_validator('functionality_type')
-    def functionality_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Basic']):
-            raise ValueError("must be one of enum values ('Basic')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

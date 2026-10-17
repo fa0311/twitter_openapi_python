@@ -42,6 +42,7 @@ Name | Type | Description | Notes
 **unified_card** | [**UnifiedCard**](UnifiedCard.md) |  | [optional] 
 **unmention_data** | **object** |  | [optional] 
 **views** | [**TweetView**](TweetView.md) |  | [optional] 
+**voice_info** | **object** |  | [optional] 
 
 ## Example
 

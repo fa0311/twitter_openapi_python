@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.timeline_prompt_callback import TimelinePromptCallback
 from typing import Optional, Set
@@ -38,20 +38,6 @@ class TimelinePromptContent(BaseModel):
     not_relevant_text: StrictStr = Field(alias="notRelevantText")
     title: StrictStr
     __properties: ClassVar[List[str]] = ["confirmation", "contentType", "displayType", "isRelevantCallback", "isRelevantText", "notRelevantCallback", "notRelevantText", "title"]
-
-    @field_validator('content_type')
-    def content_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['TimelineRelevancePrompt']):
-            raise ValueError("must be one of enum values ('TimelineRelevancePrompt')")
-        return value
-
-    @field_validator('display_type')
-    def display_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Compact']):
-            raise ValueError("must be one of enum values ('Compact')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

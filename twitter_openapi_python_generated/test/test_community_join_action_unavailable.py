@@ -38,13 +38,13 @@ class TestCommunityJoinActionUnavailable(unittest.TestCase):
             return CommunityJoinActionUnavailable(
                 typename = 'TimelineTweet',
                 message = '',
-                reason = 'ViewerRequestRequired'
+                reason = ''
             )
         else:
             return CommunityJoinActionUnavailable(
                 typename = 'TimelineTweet',
                 message = '',
-                reason = 'ViewerRequestRequired',
+                reason = '',
         )
         """
 

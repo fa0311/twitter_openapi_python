@@ -78,7 +78,7 @@ class TestItemContentUnion(unittest.TestCase):
                     component = '', 
                     details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                         conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
-                            conversation_section = 'HighQuality', ), 
+                            conversation_section = '', ), 
                         notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
                             impression_id = '', 
                             metadata = '', ), 
@@ -100,7 +100,7 @@ class TestItemContentUnion(unittest.TestCase):
                             ], 
                         text = '', ), 
                     body_text = '', 
-                    content_type = 'TimelineInlinePrompt', 
+                    content_type = '', 
                     header_text = '', 
                     primary_button_action = twitter_openapi_python_generated.models.timeline_message_prompt_button.TimelineMessagePromptButton(
                         action = twitter_openapi_python_generated.models.timeline_message_prompt_button_action.TimelineMessagePromptButtonAction(
@@ -109,7 +109,7 @@ class TestItemContentUnion(unittest.TestCase):
                         text = '', ), ),
                 community_results = twitter_openapi_python_generated.models.community_result.CommunityResult(
                     result = null, ),
-                tombstone_display_type = 'Inline',
+                tombstone_display_type = '',
                 tombstone_info = twitter_openapi_python_generated.models.tombstone_info.TombstoneInfo(
                     rich_text = twitter_openapi_python_generated.models.tombstone_rich_text.TombstoneRichText(
                         entities = [
@@ -377,7 +377,7 @@ class TestItemContentUnion(unittest.TestCase):
                     component = '', 
                     details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                         conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
-                            conversation_section = 'HighQuality', ), 
+                            conversation_section = '', ), 
                         notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
                             impression_id = '', 
                             metadata = '', ), 
@@ -399,7 +399,7 @@ class TestItemContentUnion(unittest.TestCase):
                             ], 
                         text = '', ), 
                     body_text = '', 
-                    content_type = 'TimelineInlinePrompt', 
+                    content_type = '', 
                     header_text = '', 
                     primary_button_action = twitter_openapi_python_generated.models.timeline_message_prompt_button.TimelineMessagePromptButton(
                         action = twitter_openapi_python_generated.models.timeline_message_prompt_button_action.TimelineMessagePromptButtonAction(

@@ -36,10 +36,10 @@ class TestLimitedAction(unittest.TestCase):
         model = LimitedAction()
         if include_optional:
             return LimitedAction(
-                action = '',
+                action = 'Reply',
                 prompt = twitter_openapi_python_generated.models.cta_limited_action_prompt.CtaLimitedActionPrompt(
                     __typename = 'TimelineTweet', 
-                    cta_type = 'SeeConversation', 
+                    cta_type = '', 
                     headline = twitter_openapi_python_generated.models.cta_limited_action_prompt_text.CtaLimitedActionPromptText(
                         entities = [
                             None
@@ -53,7 +53,7 @@ class TestLimitedAction(unittest.TestCase):
             )
         else:
             return LimitedAction(
-                action = '',
+                action = 'Reply',
         )
         """
 

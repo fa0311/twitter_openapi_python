@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.feedback_client_event_info import FeedbackClientEventInfo
 from typing import Optional, Set
@@ -39,26 +39,6 @@ class FeedbackAction(BaseModel):
     icon: Optional[StrictStr] = None
     prompt: StrictStr
     __properties: ClassVar[List[str]] = ["childKeys", "clientEventInfo", "confirmation", "confirmationDisplayType", "feedbackType", "feedbackUrl", "hasUndoAction", "icon", "prompt"]
-
-    @field_validator('confirmation_display_type')
-    def confirmation_display_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['BottomSheet', 'Inline']):
-            raise ValueError("must be one of enum values ('BottomSheet', 'Inline')")
-        return value
-
-    @field_validator('icon')
-    def icon_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Frown']):
-            raise ValueError("must be one of enum values ('Frown')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

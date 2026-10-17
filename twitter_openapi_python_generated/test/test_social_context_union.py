@@ -52,7 +52,7 @@ class TestSocialContextUnion(unittest.TestCase):
                         title = '', ), ),
                 text = '',
                 type = 'TimelineGeneralContext',
-                functionality_type = 'Basic',
+                functionality_type = '',
                 topic = twitter_openapi_python_generated.models.topic_context.TopicContext(
                     description = '', 
                     following = True, 

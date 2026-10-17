@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**timeline** | [**UserHighlightsTweetsTimeline**](UserHighlightsTweetsTimeline.md) |  | 
+**timeline** | [**UserHighlightsTweetsTimeline**](UserHighlightsTweetsTimeline.md) |  | [optional] 
 
 ## Example
 

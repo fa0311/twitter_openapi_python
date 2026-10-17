@@ -36,11 +36,11 @@ class TestUnifiedCard(unittest.TestCase):
         model = UnifiedCard()
         if include_optional:
             return UnifiedCard(
-                card_fetch_state = 'NoCard'
+                card_fetch_state = ''
             )
         else:
             return UnifiedCard(
-                card_fetch_state = 'NoCard',
+                card_fetch_state = '',
         )
         """
 

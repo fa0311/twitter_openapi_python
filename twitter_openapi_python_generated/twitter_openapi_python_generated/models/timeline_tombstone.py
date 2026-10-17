@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.content_item_type import ContentItemType
 from twitter_openapi_python_generated.models.tombstone_info import TombstoneInfo
@@ -36,16 +36,6 @@ class TimelineTombstone(BaseModel):
     tombstone_display_type: Optional[StrictStr] = Field(default=None, alias="tombstoneDisplayType")
     tombstone_info: Optional[TombstoneInfo] = Field(default=None, alias="tombstoneInfo")
     __properties: ClassVar[List[str]] = ["__typename", "itemType", "tombstoneDisplayType", "tombstoneInfo"]
-
-    @field_validator('tombstone_display_type')
-    def tombstone_display_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Inline']):
-            raise ValueError("must be one of enum values ('Inline')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

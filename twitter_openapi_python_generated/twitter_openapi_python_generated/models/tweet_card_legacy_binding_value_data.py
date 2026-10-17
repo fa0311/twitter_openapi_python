@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.media_color_info import MediaColorInfo
 from twitter_openapi_python_generated.models.tweet_card_legacy_binding_value_data_image import TweetCardLegacyBindingValueDataImage
@@ -39,6 +39,13 @@ class TweetCardLegacyBindingValueData(BaseModel):
     type: StrictStr
     user_value: Optional[UserValue] = None
     __properties: ClassVar[List[str]] = ["boolean_value", "image_color_value", "image_value", "scribe_key", "string_value", "type", "user_value"]
+
+    @field_validator('type')
+    def type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['STRING', 'IMAGE', 'USER', 'BOOLEAN', 'IMAGE_COLOR']):
+            raise ValueError("must be one of enum values ('STRING', 'IMAGE', 'USER', 'BOOLEAN', 'IMAGE_COLOR')")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

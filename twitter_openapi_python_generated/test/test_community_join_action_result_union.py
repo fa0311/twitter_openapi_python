@@ -38,13 +38,13 @@ class TestCommunityJoinActionResultUnion(unittest.TestCase):
             return CommunityJoinActionResultUnion(
                 typename = 'TimelineTweet',
                 message = '',
-                reason = 'ViewerRequestRequired'
+                reason = ''
             )
         else:
             return CommunityJoinActionResultUnion(
                 typename = 'TimelineTweet',
                 message = '',
-                reason = 'ViewerRequestRequired',
+                reason = '',
         )
         """
 

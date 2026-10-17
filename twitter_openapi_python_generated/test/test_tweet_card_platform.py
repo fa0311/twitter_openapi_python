@@ -37,7 +37,7 @@ class TestTweetCardPlatform(unittest.TestCase):
         if include_optional:
             return TweetCardPlatform(
                 audience = twitter_openapi_python_generated.models.tweet_card_platform_audience.TweetCardPlatformAudience(
-                    name = 'production', ),
+                    name = '', ),
                 device = twitter_openapi_python_generated.models.tweet_card_platform_device.TweetCardPlatformDevice(
                     name = '', 
                     version = '4', )
@@ -45,7 +45,7 @@ class TestTweetCardPlatform(unittest.TestCase):
         else:
             return TweetCardPlatform(
                 audience = twitter_openapi_python_generated.models.tweet_card_platform_audience.TweetCardPlatformAudience(
-                    name = 'production', ),
+                    name = '', ),
                 device = twitter_openapi_python_generated.models.tweet_card_platform_device.TweetCardPlatformDevice(
                     name = '', 
                     version = '4', ),

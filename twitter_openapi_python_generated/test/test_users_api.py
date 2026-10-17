@@ -27,6 +27,12 @@ class TestUsersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_get_sidebar_user_recommendations(self) -> None:
+        """Test case for get_sidebar_user_recommendations
+
+        """
+        pass
+
     def test_get_users_by_rest_ids(self) -> None:
         """Test case for get_users_by_rest_ids
 

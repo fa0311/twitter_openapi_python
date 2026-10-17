@@ -32,11 +32,11 @@ class NoteTweetResultData(BaseModel):
     """
     NoteTweetResultData
     """ # noqa: E501
-    entity_set: Entities
+    entity_set: Optional[Entities] = None
     id: Annotated[str, Field(strict=True)]
     media: Optional[NoteTweetResultMedia] = None
     richtext: Optional[NoteTweetResultRichText] = None
-    text: StrictStr
+    text: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["entity_set", "id", "media", "richtext", "text"]
 
     @field_validator('id', mode="before")

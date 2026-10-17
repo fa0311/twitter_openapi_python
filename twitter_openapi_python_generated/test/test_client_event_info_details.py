@@ -37,7 +37,7 @@ class TestClientEventInfoDetails(unittest.TestCase):
         if include_optional:
             return ClientEventInfoDetails(
                 conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
-                    conversation_section = 'HighQuality', ),
+                    conversation_section = '', ),
                 notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
                     impression_id = '', 
                     metadata = '', ),

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.cta_limited_action_prompt import CtaLimitedActionPrompt
 from typing import Optional, Set
@@ -32,6 +32,13 @@ class LimitedAction(BaseModel):
     action: StrictStr
     prompt: Optional[CtaLimitedActionPrompt] = None
     __properties: ClassVar[List[str]] = ["action", "prompt"]
+
+    @field_validator('action')
+    def action_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['Reply', 'Retweet', 'QuoteTweet', 'Like', 'React', 'AddToBookmarks', 'AddToMoment', 'PinToProfile', 'ViewHiddenReplies', 'VoteOnPoll', 'ShowRetweetActionMenu', 'ReplyDownVote', 'SendViaDm', 'ViewPostEngagements', 'CopyLink', 'ShareTweetVia', 'Embed', 'HideCommunityTweet', 'ViewTweetActivity']):
+            raise ValueError("must be one of enum values ('Reply', 'Retweet', 'QuoteTweet', 'Like', 'React', 'AddToBookmarks', 'AddToMoment', 'PinToProfile', 'ViewHiddenReplies', 'VoteOnPoll', 'ShowRetweetActionMenu', 'ReplyDownVote', 'SendViaDm', 'ViewPostEngagements', 'CopyLink', 'ShareTweetVia', 'Embed', 'HideCommunityTweet', 'ViewTweetActivity')")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

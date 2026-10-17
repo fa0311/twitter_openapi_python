@@ -27,6 +27,12 @@ class TestUserApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_get_about_account_query(self) -> None:
+        """Test case for get_about_account_query
+
+        """
+        pass
+
     def test_get_fetch_draft_tweets(self) -> None:
         """Test case for get_fetch_draft_tweets
 

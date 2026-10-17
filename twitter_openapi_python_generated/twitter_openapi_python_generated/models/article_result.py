@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from twitter_openapi_python_generated.models.article_content_state import ArticleContentState
 from twitter_openapi_python_generated.models.article_cover_media import ArticleCoverMedia
 from twitter_openapi_python_generated.models.article_lifecycle_state import ArticleLifecycleState
 from twitter_openapi_python_generated.models.article_metadata import ArticleMetadata
@@ -32,7 +33,7 @@ class ArticleResult(BaseModel):
     """
     ArticleResult
     """ # noqa: E501
-    content_state: Optional[Dict[str, Any]] = None
+    content_state: Optional[ArticleContentState] = None
     cover_media: Optional[ArticleCoverMedia] = None
     id: StrictStr
     is_grok_summary_eligible: Optional[StrictBool] = None
@@ -41,8 +42,9 @@ class ArticleResult(BaseModel):
     metadata: ArticleMetadata
     preview_text: StrictStr
     rest_id: Annotated[str, Field(strict=True)]
+    summary_text: Optional[StrictStr] = None
     title: StrictStr
-    __properties: ClassVar[List[str]] = ["content_state", "cover_media", "id", "is_grok_summary_eligible", "lifecycle_state", "media_entities", "metadata", "preview_text", "rest_id", "title"]
+    __properties: ClassVar[List[str]] = ["content_state", "cover_media", "id", "is_grok_summary_eligible", "lifecycle_state", "media_entities", "metadata", "preview_text", "rest_id", "summary_text", "title"]
 
     @field_validator('rest_id', mode="before")
     def rest_id_validate_regular_expression(cls, value):
@@ -90,6 +92,9 @@ class ArticleResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of content_state
+        if self.content_state:
+            _dict['content_state'] = self.content_state.to_dict()
         # override the default output from pydantic by calling `to_dict()` of cover_media
         if self.cover_media:
             _dict['cover_media'] = self.cover_media.to_dict()
@@ -117,7 +122,7 @@ class ArticleResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "content_state": obj.get("content_state"),
+            "content_state": ArticleContentState.from_dict(obj["content_state"]) if obj.get("content_state") is not None else None,
             "cover_media": ArticleCoverMedia.from_dict(obj["cover_media"]) if obj.get("cover_media") is not None else None,
             "id": obj.get("id"),
             "is_grok_summary_eligible": obj.get("is_grok_summary_eligible"),
@@ -126,6 +131,7 @@ class ArticleResult(BaseModel):
             "metadata": ArticleMetadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None,
             "preview_text": obj.get("preview_text"),
             "rest_id": obj.get("rest_id"),
+            "summary_text": obj.get("summary_text"),
             "title": obj.get("title")
         })
         return _obj

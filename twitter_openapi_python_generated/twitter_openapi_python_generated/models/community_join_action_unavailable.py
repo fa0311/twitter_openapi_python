@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
@@ -33,13 +33,6 @@ class CommunityJoinActionUnavailable(BaseModel):
     message: StrictStr
     reason: StrictStr
     __properties: ClassVar[List[str]] = ["__typename", "message", "reason"]
-
-    @field_validator('reason')
-    def reason_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['ViewerRequestRequired']):
-            raise ValueError("must be one of enum values ('ViewerRequestRequired')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

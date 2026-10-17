@@ -37,7 +37,7 @@ class TestTweetPostCta(unittest.TestCase):
         if include_optional:
             return TweetPostCta(
                 display_locations = [
-                    'TweetDetails'
+                    ''
                     ],
                 post_cta = twitter_openapi_python_generated.models.post_cta.PostCta(
                     action_url = '', 
@@ -63,7 +63,7 @@ class TestTweetPostCta(unittest.TestCase):
         else:
             return TweetPostCta(
                 display_locations = [
-                    'TweetDetails'
+                    ''
                     ],
                 post_cta = twitter_openapi_python_generated.models.post_cta.PostCta(
                     action_url = '', 

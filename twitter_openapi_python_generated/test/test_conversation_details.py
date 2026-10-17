@@ -36,11 +36,11 @@ class TestConversationDetails(unittest.TestCase):
         model = ConversationDetails()
         if include_optional:
             return ConversationDetails(
-                conversation_section = 'HighQuality'
+                conversation_section = ''
             )
         else:
             return ConversationDetails(
-                conversation_section = 'HighQuality',
+                conversation_section = '',
         )
         """
 

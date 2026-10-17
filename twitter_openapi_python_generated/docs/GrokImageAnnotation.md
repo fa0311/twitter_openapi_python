@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **prompt** | **str** |  | 
-**upsampled_prompt** | **str** |  | 
+**upsampled_prompt** | **str** |  | [optional] 
 
 ## Example
 

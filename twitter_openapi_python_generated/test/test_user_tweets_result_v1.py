@@ -43,8 +43,6 @@ class TestUserTweetsResultV1(unittest.TestCase):
         else:
             return UserTweetsResultV1(
                 typename = 'TimelineTweet',
-                timeline = twitter_openapi_python_generated.models.timeline_result.TimelineResult(
-                    id = '', ),
         )
         """
 
