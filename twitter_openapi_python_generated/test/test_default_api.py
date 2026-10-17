@@ -27,8 +27,20 @@ class TestDefaultApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_get_audio_space_by_id(self) -> None:
+        """Test case for get_audio_space_by_id
+
+        """
+        pass
+
     def test_get_authenticate_periscope(self) -> None:
         """Test case for get_authenticate_periscope
+
+        """
+        pass
+
+    def test_get_broadcast_query(self) -> None:
+        """Test case for get_broadcast_query
 
         """
         pass
@@ -41,6 +53,12 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_get_data_saver_mode(self) -> None:
         """Test case for get_data_saver_mode
+
+        """
+        pass
+
+    def test_get_grok_account_jwt_query(self) -> None:
+        """Test case for get_grok_account_jwt_query
 
         """
         pass
@@ -65,6 +83,12 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_get_tweet_result_by_rest_id(self) -> None:
         """Test case for get_tweet_result_by_rest_id
+
+        """
+        pass
+
+    def test_get_use_story_topic_query(self) -> None:
+        """Test case for get_use_story_topic_query
 
         """
         pass

@@ -36,19 +36,19 @@ class TestCoverCta(unittest.TestCase):
         model = CoverCta()
         if include_optional:
             return CoverCta(
-                text = '',
-                button_style = 'Primary',
+                button_style = '',
                 callbacks = [
                     twitter_openapi_python_generated.models.callback.Callback(
                         endpoint = '', )
                     ],
                 client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
-                    action = 'primary_cta', ),
+                    action = '', ),
                 cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
                     type = 'TimelineCoverBehaviorDismiss', 
                     url = twitter_openapi_python_generated.models.timeline_cover_behavior_url.TimelineCoverBehaviorUrl(
                         url = '', 
-                        url_type = 'ExternalUrl', ), )
+                        url_type = 'ExternalUrl', ), ),
+                text = ''
             )
         else:
             return CoverCta(
@@ -57,12 +57,13 @@ class TestCoverCta(unittest.TestCase):
                         endpoint = '', )
                     ],
                 client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
-                    action = 'primary_cta', ),
+                    action = '', ),
                 cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
                     type = 'TimelineCoverBehaviorDismiss', 
                     url = twitter_openapi_python_generated.models.timeline_cover_behavior_url.TimelineCoverBehaviorUrl(
                         url = '', 
                         url_type = 'ExternalUrl', ), ),
+                text = '',
         )
         """
 

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.conversation_owner_results import ConversationOwnerResults
 from typing import Optional, Set
@@ -32,6 +32,13 @@ class ConversationControl(BaseModel):
     conversation_owner_results: ConversationOwnerResults
     policy: StrictStr
     __properties: ClassVar[List[str]] = ["conversation_owner_results", "policy"]
+
+    @field_validator('policy')
+    def policy_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['ByInvitation', 'Community', 'Co', 'Subscribers', 'Verified', 'MyNetwork']):
+            raise ValueError("must be one of enum values ('ByInvitation', 'Community', 'Co', 'Subscribers', 'Verified', 'MyNetwork')")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

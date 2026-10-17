@@ -37,7 +37,7 @@ class TestCtaLimitedActionPrompt(unittest.TestCase):
         if include_optional:
             return CtaLimitedActionPrompt(
                 typename = 'TimelineTweet',
-                cta_type = 'SeeConversation',
+                cta_type = '',
                 headline = twitter_openapi_python_generated.models.cta_limited_action_prompt_text.CtaLimitedActionPromptText(
                     entities = [
                         None
@@ -52,7 +52,7 @@ class TestCtaLimitedActionPrompt(unittest.TestCase):
         else:
             return CtaLimitedActionPrompt(
                 typename = 'TimelineTweet',
-                cta_type = 'SeeConversation',
+                cta_type = '',
                 headline = twitter_openapi_python_generated.models.cta_limited_action_prompt_text.CtaLimitedActionPromptText(
                     entities = [
                         None

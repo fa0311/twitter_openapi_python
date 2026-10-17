@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.2"
+__version__ = "0.1.3"
 
 # Define package exports
 __all__ = [
@@ -40,19 +40,41 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
+    "AboutAccountData",
+    "AboutAccountResponse",
+    "AboutAccountUser",
+    "AboutAccountUserResult",
+    "AboutAccountVerificationInfo",
+    "AboutAccountVerificationInfoReason",
     "AboutCommunityResult",
     "AboutCommunityResults",
     "AboutCommunityTweetData",
+    "AboutProfile",
+    "AboutProfileUsernameChanges",
     "AdMetadataContainer",
     "AdditionalMediaInfo",
     "AdditionalMediaInfoCallToActions",
     "AdditionalMediaInfoCallToActionsUrl",
     "AffiliatesHighlightedLabel",
+    "AiTrend",
+    "AiTrendCore",
+    "AiTrendResults",
+    "AiTrendSocialProof",
     "AllowDownloadStatus",
     "AnalysisResults",
     "ApiImage",
     "ApiMedia",
     "Article",
+    "ArticleContentBlock",
+    "ArticleContentBlockData",
+    "ArticleContentEntity",
+    "ArticleContentEntityData",
+    "ArticleContentEntityRange",
+    "ArticleContentEntityValue",
+    "ArticleContentInlineStyleRange",
+    "ArticleContentMediaItem",
+    "ArticleContentState",
+    "ArticleContentTextRange",
     "ArticleCoverMedia",
     "ArticleCoverMediaInfo",
     "ArticleLifecycleState",
@@ -60,6 +82,17 @@ __all__ = [
     "ArticlePreview",
     "ArticleResult",
     "ArticleResults",
+    "AudioSpace",
+    "AudioSpaceData",
+    "AudioSpaceMentionedUser",
+    "AudioSpaceMetadata",
+    "AudioSpaceParticipant",
+    "AudioSpaceParticipantUser",
+    "AudioSpaceParticipantUserResults",
+    "AudioSpaceParticipantVerification",
+    "AudioSpaceParticipants",
+    "AudioSpaceResponse",
+    "AudioSpaceSharings",
     "AuthenticatePeriscopeResponse",
     "AuthenticatePeriscopeResponseData",
     "AuthorCommunityRelationship",
@@ -95,6 +128,11 @@ __all__ = [
     "BookmarksResponse",
     "BookmarksResponseData",
     "BookmarksTimeline",
+    "Broadcast",
+    "BroadcastData",
+    "BroadcastEditedReplay",
+    "BroadcastPeriscopeUser",
+    "BroadcastResponse",
     "Callback",
     "CashtagAttachment",
     "CashtagInfo",
@@ -269,6 +307,9 @@ __all__ = [
     "GlobalCommunitiesPostSearch",
     "GlobalCommunitiesPostSearchTimelineResponse",
     "GlobalCommunitiesPostSearchTimelineResponseData",
+    "GrokAccountJwt",
+    "GrokAccountJwtData",
+    "GrokAccountJwtResponse",
     "GrokAnnotation",
     "GrokEntity",
     "GrokEntityRef",
@@ -293,6 +334,7 @@ __all__ = [
     "Highlight",
     "HomeTimelineHome",
     "HomeTimelineResponseData",
+    "IdentityProfileLabelsHighlightedLabel",
     "InstructionType",
     "InstructionUnion",
     "ItemContentUnion",
@@ -436,6 +478,9 @@ __all__ = [
     "SelfThread",
     "SensitiveMediaWarning",
     "Session",
+    "SidebarUserRecommendation",
+    "SidebarUserRecommendationsData",
+    "SidebarUserRecommendationsResponse",
     "SliceInfo",
     "Smarttag",
     "SmarttagTag",
@@ -443,6 +488,11 @@ __all__ = [
     "SocialContextLandingUrl",
     "SocialContextUnion",
     "SocialContextUnionType",
+    "StoryTopic",
+    "StoryTopicData",
+    "StoryTopicItem",
+    "StoryTopicResponse",
+    "StoryTopicStories",
     "SuperFollowUserProfile",
     "SuperFollowsReplyUserResult",
     "SuperFollowsReplyUserResultCore",
@@ -538,6 +588,9 @@ __all__ = [
     "TweetInterstitialTextEntity",
     "TweetInterstitialTextEntityRef",
     "TweetLegacy",
+    "TweetLegacyPlace",
+    "TweetLegacyPlaceBoundingBox",
+    "TweetLegacyPoint",
     "TweetLegacyScopes",
     "TweetLimitedActionResults",
     "TweetPostCta",
@@ -668,19 +721,41 @@ from twitter_openapi_python_generated.exceptions import ApiAttributeError as Api
 from twitter_openapi_python_generated.exceptions import ApiException as ApiException
 
 # import models into sdk package
+from twitter_openapi_python_generated.models.about_account_data import AboutAccountData as AboutAccountData
+from twitter_openapi_python_generated.models.about_account_response import AboutAccountResponse as AboutAccountResponse
+from twitter_openapi_python_generated.models.about_account_user import AboutAccountUser as AboutAccountUser
+from twitter_openapi_python_generated.models.about_account_user_result import AboutAccountUserResult as AboutAccountUserResult
+from twitter_openapi_python_generated.models.about_account_verification_info import AboutAccountVerificationInfo as AboutAccountVerificationInfo
+from twitter_openapi_python_generated.models.about_account_verification_info_reason import AboutAccountVerificationInfoReason as AboutAccountVerificationInfoReason
 from twitter_openapi_python_generated.models.about_community_result import AboutCommunityResult as AboutCommunityResult
 from twitter_openapi_python_generated.models.about_community_results import AboutCommunityResults as AboutCommunityResults
 from twitter_openapi_python_generated.models.about_community_tweet_data import AboutCommunityTweetData as AboutCommunityTweetData
+from twitter_openapi_python_generated.models.about_profile import AboutProfile as AboutProfile
+from twitter_openapi_python_generated.models.about_profile_username_changes import AboutProfileUsernameChanges as AboutProfileUsernameChanges
 from twitter_openapi_python_generated.models.ad_metadata_container import AdMetadataContainer as AdMetadataContainer
 from twitter_openapi_python_generated.models.additional_media_info import AdditionalMediaInfo as AdditionalMediaInfo
 from twitter_openapi_python_generated.models.additional_media_info_call_to_actions import AdditionalMediaInfoCallToActions as AdditionalMediaInfoCallToActions
 from twitter_openapi_python_generated.models.additional_media_info_call_to_actions_url import AdditionalMediaInfoCallToActionsUrl as AdditionalMediaInfoCallToActionsUrl
 from twitter_openapi_python_generated.models.affiliates_highlighted_label import AffiliatesHighlightedLabel as AffiliatesHighlightedLabel
+from twitter_openapi_python_generated.models.ai_trend import AiTrend as AiTrend
+from twitter_openapi_python_generated.models.ai_trend_core import AiTrendCore as AiTrendCore
+from twitter_openapi_python_generated.models.ai_trend_results import AiTrendResults as AiTrendResults
+from twitter_openapi_python_generated.models.ai_trend_social_proof import AiTrendSocialProof as AiTrendSocialProof
 from twitter_openapi_python_generated.models.allow_download_status import AllowDownloadStatus as AllowDownloadStatus
 from twitter_openapi_python_generated.models.analysis_results import AnalysisResults as AnalysisResults
 from twitter_openapi_python_generated.models.api_image import ApiImage as ApiImage
 from twitter_openapi_python_generated.models.api_media import ApiMedia as ApiMedia
 from twitter_openapi_python_generated.models.article import Article as Article
+from twitter_openapi_python_generated.models.article_content_block import ArticleContentBlock as ArticleContentBlock
+from twitter_openapi_python_generated.models.article_content_block_data import ArticleContentBlockData as ArticleContentBlockData
+from twitter_openapi_python_generated.models.article_content_entity import ArticleContentEntity as ArticleContentEntity
+from twitter_openapi_python_generated.models.article_content_entity_data import ArticleContentEntityData as ArticleContentEntityData
+from twitter_openapi_python_generated.models.article_content_entity_range import ArticleContentEntityRange as ArticleContentEntityRange
+from twitter_openapi_python_generated.models.article_content_entity_value import ArticleContentEntityValue as ArticleContentEntityValue
+from twitter_openapi_python_generated.models.article_content_inline_style_range import ArticleContentInlineStyleRange as ArticleContentInlineStyleRange
+from twitter_openapi_python_generated.models.article_content_media_item import ArticleContentMediaItem as ArticleContentMediaItem
+from twitter_openapi_python_generated.models.article_content_state import ArticleContentState as ArticleContentState
+from twitter_openapi_python_generated.models.article_content_text_range import ArticleContentTextRange as ArticleContentTextRange
 from twitter_openapi_python_generated.models.article_cover_media import ArticleCoverMedia as ArticleCoverMedia
 from twitter_openapi_python_generated.models.article_cover_media_info import ArticleCoverMediaInfo as ArticleCoverMediaInfo
 from twitter_openapi_python_generated.models.article_lifecycle_state import ArticleLifecycleState as ArticleLifecycleState
@@ -688,6 +763,17 @@ from twitter_openapi_python_generated.models.article_metadata import ArticleMeta
 from twitter_openapi_python_generated.models.article_preview import ArticlePreview as ArticlePreview
 from twitter_openapi_python_generated.models.article_result import ArticleResult as ArticleResult
 from twitter_openapi_python_generated.models.article_results import ArticleResults as ArticleResults
+from twitter_openapi_python_generated.models.audio_space import AudioSpace as AudioSpace
+from twitter_openapi_python_generated.models.audio_space_data import AudioSpaceData as AudioSpaceData
+from twitter_openapi_python_generated.models.audio_space_mentioned_user import AudioSpaceMentionedUser as AudioSpaceMentionedUser
+from twitter_openapi_python_generated.models.audio_space_metadata import AudioSpaceMetadata as AudioSpaceMetadata
+from twitter_openapi_python_generated.models.audio_space_participant import AudioSpaceParticipant as AudioSpaceParticipant
+from twitter_openapi_python_generated.models.audio_space_participant_user import AudioSpaceParticipantUser as AudioSpaceParticipantUser
+from twitter_openapi_python_generated.models.audio_space_participant_user_results import AudioSpaceParticipantUserResults as AudioSpaceParticipantUserResults
+from twitter_openapi_python_generated.models.audio_space_participant_verification import AudioSpaceParticipantVerification as AudioSpaceParticipantVerification
+from twitter_openapi_python_generated.models.audio_space_participants import AudioSpaceParticipants as AudioSpaceParticipants
+from twitter_openapi_python_generated.models.audio_space_response import AudioSpaceResponse as AudioSpaceResponse
+from twitter_openapi_python_generated.models.audio_space_sharings import AudioSpaceSharings as AudioSpaceSharings
 from twitter_openapi_python_generated.models.authenticate_periscope_response import AuthenticatePeriscopeResponse as AuthenticatePeriscopeResponse
 from twitter_openapi_python_generated.models.authenticate_periscope_response_data import AuthenticatePeriscopeResponseData as AuthenticatePeriscopeResponseData
 from twitter_openapi_python_generated.models.author_community_relationship import AuthorCommunityRelationship as AuthorCommunityRelationship
@@ -723,6 +809,11 @@ from twitter_openapi_python_generated.models.bookmark_search_timeline_response_d
 from twitter_openapi_python_generated.models.bookmarks_response import BookmarksResponse as BookmarksResponse
 from twitter_openapi_python_generated.models.bookmarks_response_data import BookmarksResponseData as BookmarksResponseData
 from twitter_openapi_python_generated.models.bookmarks_timeline import BookmarksTimeline as BookmarksTimeline
+from twitter_openapi_python_generated.models.broadcast import Broadcast as Broadcast
+from twitter_openapi_python_generated.models.broadcast_data import BroadcastData as BroadcastData
+from twitter_openapi_python_generated.models.broadcast_edited_replay import BroadcastEditedReplay as BroadcastEditedReplay
+from twitter_openapi_python_generated.models.broadcast_periscope_user import BroadcastPeriscopeUser as BroadcastPeriscopeUser
+from twitter_openapi_python_generated.models.broadcast_response import BroadcastResponse as BroadcastResponse
 from twitter_openapi_python_generated.models.callback import Callback as Callback
 from twitter_openapi_python_generated.models.cashtag_attachment import CashtagAttachment as CashtagAttachment
 from twitter_openapi_python_generated.models.cashtag_info import CashtagInfo as CashtagInfo
@@ -897,6 +988,9 @@ from twitter_openapi_python_generated.models.global_communities_latest_post_sear
 from twitter_openapi_python_generated.models.global_communities_post_search import GlobalCommunitiesPostSearch as GlobalCommunitiesPostSearch
 from twitter_openapi_python_generated.models.global_communities_post_search_timeline_response import GlobalCommunitiesPostSearchTimelineResponse as GlobalCommunitiesPostSearchTimelineResponse
 from twitter_openapi_python_generated.models.global_communities_post_search_timeline_response_data import GlobalCommunitiesPostSearchTimelineResponseData as GlobalCommunitiesPostSearchTimelineResponseData
+from twitter_openapi_python_generated.models.grok_account_jwt import GrokAccountJwt as GrokAccountJwt
+from twitter_openapi_python_generated.models.grok_account_jwt_data import GrokAccountJwtData as GrokAccountJwtData
+from twitter_openapi_python_generated.models.grok_account_jwt_response import GrokAccountJwtResponse as GrokAccountJwtResponse
 from twitter_openapi_python_generated.models.grok_annotation import GrokAnnotation as GrokAnnotation
 from twitter_openapi_python_generated.models.grok_entity import GrokEntity as GrokEntity
 from twitter_openapi_python_generated.models.grok_entity_ref import GrokEntityRef as GrokEntityRef
@@ -921,6 +1015,7 @@ from twitter_openapi_python_generated.models.hashtag import Hashtag as Hashtag
 from twitter_openapi_python_generated.models.highlight import Highlight as Highlight
 from twitter_openapi_python_generated.models.home_timeline_home import HomeTimelineHome as HomeTimelineHome
 from twitter_openapi_python_generated.models.home_timeline_response_data import HomeTimelineResponseData as HomeTimelineResponseData
+from twitter_openapi_python_generated.models.identity_profile_labels_highlighted_label import IdentityProfileLabelsHighlightedLabel as IdentityProfileLabelsHighlightedLabel
 from twitter_openapi_python_generated.models.instruction_type import InstructionType as InstructionType
 from twitter_openapi_python_generated.models.instruction_union import InstructionUnion as InstructionUnion
 from twitter_openapi_python_generated.models.item_content_union import ItemContentUnion as ItemContentUnion
@@ -1064,6 +1159,9 @@ from twitter_openapi_python_generated.models.search_timeline_response import Sea
 from twitter_openapi_python_generated.models.self_thread import SelfThread as SelfThread
 from twitter_openapi_python_generated.models.sensitive_media_warning import SensitiveMediaWarning as SensitiveMediaWarning
 from twitter_openapi_python_generated.models.session import Session as Session
+from twitter_openapi_python_generated.models.sidebar_user_recommendation import SidebarUserRecommendation as SidebarUserRecommendation
+from twitter_openapi_python_generated.models.sidebar_user_recommendations_data import SidebarUserRecommendationsData as SidebarUserRecommendationsData
+from twitter_openapi_python_generated.models.sidebar_user_recommendations_response import SidebarUserRecommendationsResponse as SidebarUserRecommendationsResponse
 from twitter_openapi_python_generated.models.slice_info import SliceInfo as SliceInfo
 from twitter_openapi_python_generated.models.smarttag import Smarttag as Smarttag
 from twitter_openapi_python_generated.models.smarttag_tag import SmarttagTag as SmarttagTag
@@ -1071,6 +1169,11 @@ from twitter_openapi_python_generated.models.smarttag_tag_info import SmarttagTa
 from twitter_openapi_python_generated.models.social_context_landing_url import SocialContextLandingUrl as SocialContextLandingUrl
 from twitter_openapi_python_generated.models.social_context_union import SocialContextUnion as SocialContextUnion
 from twitter_openapi_python_generated.models.social_context_union_type import SocialContextUnionType as SocialContextUnionType
+from twitter_openapi_python_generated.models.story_topic import StoryTopic as StoryTopic
+from twitter_openapi_python_generated.models.story_topic_data import StoryTopicData as StoryTopicData
+from twitter_openapi_python_generated.models.story_topic_item import StoryTopicItem as StoryTopicItem
+from twitter_openapi_python_generated.models.story_topic_response import StoryTopicResponse as StoryTopicResponse
+from twitter_openapi_python_generated.models.story_topic_stories import StoryTopicStories as StoryTopicStories
 from twitter_openapi_python_generated.models.super_follow_user_profile import SuperFollowUserProfile as SuperFollowUserProfile
 from twitter_openapi_python_generated.models.super_follows_reply_user_result import SuperFollowsReplyUserResult as SuperFollowsReplyUserResult
 from twitter_openapi_python_generated.models.super_follows_reply_user_result_core import SuperFollowsReplyUserResultCore as SuperFollowsReplyUserResultCore
@@ -1166,6 +1269,9 @@ from twitter_openapi_python_generated.models.tweet_interstitial_text import Twee
 from twitter_openapi_python_generated.models.tweet_interstitial_text_entity import TweetInterstitialTextEntity as TweetInterstitialTextEntity
 from twitter_openapi_python_generated.models.tweet_interstitial_text_entity_ref import TweetInterstitialTextEntityRef as TweetInterstitialTextEntityRef
 from twitter_openapi_python_generated.models.tweet_legacy import TweetLegacy as TweetLegacy
+from twitter_openapi_python_generated.models.tweet_legacy_place import TweetLegacyPlace as TweetLegacyPlace
+from twitter_openapi_python_generated.models.tweet_legacy_place_bounding_box import TweetLegacyPlaceBoundingBox as TweetLegacyPlaceBoundingBox
+from twitter_openapi_python_generated.models.tweet_legacy_point import TweetLegacyPoint as TweetLegacyPoint
 from twitter_openapi_python_generated.models.tweet_legacy_scopes import TweetLegacyScopes as TweetLegacyScopes
 from twitter_openapi_python_generated.models.tweet_limited_action_results import TweetLimitedActionResults as TweetLimitedActionResults
 from twitter_openapi_python_generated.models.tweet_post_cta import TweetPostCta as TweetPostCta

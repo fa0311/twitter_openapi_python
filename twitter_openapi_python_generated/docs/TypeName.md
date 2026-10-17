@@ -15,6 +15,8 @@
 
 * `TIMELINEEVENTSUMMARY` (value: `'TimelineEventSummary'`)
 
+* `AITREND` (value: `'AiTrend'`)
+
 * `TIMELINETIMELINEITEM` (value: `'TimelineTimelineItem'`)
 
 * `TIMELINEUSER` (value: `'TimelineUser'`)

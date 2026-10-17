@@ -46,7 +46,7 @@ class TestTimelineAddToModule(unittest.TestCase):
                                 component = '', 
                                 details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                                     conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
-                                        conversation_section = 'HighQuality', ), 
+                                        conversation_section = '', ), 
                                     notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
                                         impression_id = '', 
                                         metadata = '', ), 
@@ -81,7 +81,7 @@ class TestTimelineAddToModule(unittest.TestCase):
                                 component = '', 
                                 details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                                     conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
-                                        conversation_section = 'HighQuality', ), 
+                                        conversation_section = '', ), 
                                     notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
                                         impression_id = '', 
                                         metadata = '', ), 

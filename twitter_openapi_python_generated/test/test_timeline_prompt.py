@@ -41,7 +41,7 @@ class TestTimelinePrompt(unittest.TestCase):
                     component = '', 
                     details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                         conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
-                            conversation_section = 'HighQuality', ), 
+                            conversation_section = '', ), 
                         notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
                             impression_id = '', 
                             metadata = '', ), 
@@ -52,8 +52,8 @@ class TestTimelinePrompt(unittest.TestCase):
                     element = '', ),
                 content = twitter_openapi_python_generated.models.timeline_prompt_content.TimelinePromptContent(
                     confirmation = '', 
-                    content_type = 'TimelineRelevancePrompt', 
-                    display_type = 'Compact', 
+                    content_type = '', 
+                    display_type = '', 
                     is_relevant_callback = twitter_openapi_python_generated.models.timeline_prompt_callback.TimelinePromptCallback(
                         endpoint = '', ), 
                     is_relevant_text = '', 
@@ -70,7 +70,7 @@ class TestTimelinePrompt(unittest.TestCase):
                     component = '', 
                     details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                         conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
-                            conversation_section = 'HighQuality', ), 
+                            conversation_section = '', ), 
                         notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
                             impression_id = '', 
                             metadata = '', ), 
@@ -81,8 +81,8 @@ class TestTimelinePrompt(unittest.TestCase):
                     element = '', ),
                 content = twitter_openapi_python_generated.models.timeline_prompt_content.TimelinePromptContent(
                     confirmation = '', 
-                    content_type = 'TimelineRelevancePrompt', 
-                    display_type = 'Compact', 
+                    content_type = '', 
+                    display_type = '', 
                     is_relevant_callback = twitter_openapi_python_generated.models.timeline_prompt_callback.TimelinePromptCallback(
                         endpoint = '', ), 
                     is_relevant_text = '', 

@@ -40,12 +40,12 @@ class TestCommunity(unittest.TestCase):
                 actions = twitter_openapi_python_generated.models.community_actions.CommunityActions(
                     delete_action_result = twitter_openapi_python_generated.models.community_delete_action_result.CommunityDeleteActionResult(
                         __typename = 'TimelineTweet', 
-                        reason = 'Unavailable', ), 
+                        reason = '', ), 
                     join_action_result = null, 
                     leave_action_result = twitter_openapi_python_generated.models.community_leave_action_result.CommunityLeaveActionResult(
                         __typename = 'TimelineTweet', 
                         message = '', 
-                        reason = 'ViewerNotMember', ), 
+                        reason = '', ), 
                     pin_action_result = twitter_openapi_python_generated.models.community_pin_action_result.CommunityPinActionResult(
                         __typename = 'TimelineTweet', ), 
                     unpin_action_result = twitter_openapi_python_generated.models.community_unpin_action_result.CommunityUnpinActionResult(
@@ -103,7 +103,7 @@ class TestCommunity(unittest.TestCase):
                 invites_result = twitter_openapi_python_generated.models.community_invites_result.CommunityInvitesResult(
                     __typename = 'TimelineTweet', 
                     message = '', 
-                    reason = 'Unavailable', ),
+                    reason = '', ),
                 is_nsfw = True,
                 is_pinned = True,
                 join_policy = 'Open',
@@ -120,7 +120,7 @@ class TestCommunity(unittest.TestCase):
                     topic_id = '4', 
                     topic_name = '', ),
                 question = '',
-                role = 'NonMember',
+                role = 'Member',
                 rules = [
                     twitter_openapi_python_generated.models.community_rule.CommunityRule(
                         description = '', 

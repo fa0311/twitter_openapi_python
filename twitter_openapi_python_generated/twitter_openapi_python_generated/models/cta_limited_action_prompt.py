@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.cta_limited_action_prompt_text import CtaLimitedActionPromptText
 from twitter_openapi_python_generated.models.type_name import TypeName
@@ -35,13 +35,6 @@ class CtaLimitedActionPrompt(BaseModel):
     headline: CtaLimitedActionPromptText
     subtext: CtaLimitedActionPromptText
     __properties: ClassVar[List[str]] = ["__typename", "cta_type", "headline", "subtext"]
-
-    @field_validator('cta_type')
-    def cta_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['SeeConversation']):
-            raise ValueError("must be one of enum values ('SeeConversation')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

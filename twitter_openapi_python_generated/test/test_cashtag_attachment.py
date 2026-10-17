@@ -36,7 +36,8 @@ class TestCashtagAttachment(unittest.TestCase):
         model = CashtagAttachment()
         if include_optional:
             return CashtagAttachment(
-                rest_id = ''
+                rest_id = '',
+                size_variant = 56
             )
         else:
             return CashtagAttachment(

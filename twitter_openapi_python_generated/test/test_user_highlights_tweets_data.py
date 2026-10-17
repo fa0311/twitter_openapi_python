@@ -62,11 +62,11 @@ class TestUserHighlightsTweetsData(unittest.TestCase):
                                                     component = '', 
                                                     element = '', ), 
                                                 confirmation = '', 
-                                                confirmation_display_type = 'BottomSheet', 
+                                                confirmation_display_type = '', 
                                                 feedback_type = '', 
                                                 feedback_url = '', 
                                                 has_undo_action = True, 
-                                                icon = 'Frown', 
+                                                icon = '', 
                                                 prompt = '', ), )
                                         ], ), ), ), ), )
             )

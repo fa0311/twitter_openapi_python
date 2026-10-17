@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **display_url** | **str** |  | [optional] 
 **expanded_url** | **str** |  | [optional] 
+**id** | **str** |  | [optional] 
+**screen_name** | **str** |  | [optional] 
 **text** | **str** |  | [optional] 
 **type** | **str** |  | 
 **url** | **str** |  | [optional] 

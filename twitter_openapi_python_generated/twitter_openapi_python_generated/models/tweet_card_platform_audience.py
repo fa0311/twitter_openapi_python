@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,13 +30,6 @@ class TweetCardPlatformAudience(BaseModel):
     """ # noqa: E501
     name: StrictStr
     __properties: ClassVar[List[str]] = ["name"]
-
-    @field_validator('name')
-    def name_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['production']):
-            raise ValueError("must be one of enum values ('production')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

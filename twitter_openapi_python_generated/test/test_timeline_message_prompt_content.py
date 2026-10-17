@@ -48,7 +48,7 @@ class TestTimelineMessagePromptContent(unittest.TestCase):
                         ], 
                     text = '', ),
                 body_text = '',
-                content_type = 'TimelineInlinePrompt',
+                content_type = '',
                 header_text = '',
                 primary_button_action = twitter_openapi_python_generated.models.timeline_message_prompt_button.TimelineMessagePromptButton(
                     action = twitter_openapi_python_generated.models.timeline_message_prompt_button_action.TimelineMessagePromptButtonAction(
@@ -58,7 +58,7 @@ class TestTimelineMessagePromptContent(unittest.TestCase):
             )
         else:
             return TimelineMessagePromptContent(
-                content_type = 'TimelineInlinePrompt',
+                content_type = '',
                 header_text = '',
         )
         """

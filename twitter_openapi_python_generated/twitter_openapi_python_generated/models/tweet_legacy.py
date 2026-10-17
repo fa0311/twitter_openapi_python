@@ -26,6 +26,8 @@ from twitter_openapi_python_generated.models.entities import Entities
 from twitter_openapi_python_generated.models.extended_entities import ExtendedEntities
 from twitter_openapi_python_generated.models.quoted_status_permalink import QuotedStatusPermalink
 from twitter_openapi_python_generated.models.self_thread import SelfThread
+from twitter_openapi_python_generated.models.tweet_legacy_place import TweetLegacyPlace
+from twitter_openapi_python_generated.models.tweet_legacy_point import TweetLegacyPoint
 from twitter_openapi_python_generated.models.tweet_legacy_scopes import TweetLegacyScopes
 from typing import Optional, Set
 from typing_extensions import Self
@@ -39,6 +41,7 @@ class TweetLegacy(BaseModel):
     bookmarked: StrictBool
     conversation_control: Optional[ConversationControl] = None
     conversation_id_str: Annotated[str, Field(strict=True)]
+    coordinates: Optional[TweetLegacyPoint] = None
     created_at: Annotated[str, Field(strict=True)] = Field(json_schema_extra={"examples": ["Sat Dec 31 23:59:59 +0000 2023"]})
     display_text_range: List[StrictInt]
     entities: Optional[Entities] = None
@@ -46,6 +49,7 @@ class TweetLegacy(BaseModel):
     favorite_count: StrictInt
     favorited: StrictBool
     full_text: StrictStr
+    geo: Optional[TweetLegacyPoint] = None
     id_str: Annotated[str, Field(strict=True)]
     in_reply_to_screen_name: Optional[StrictStr] = None
     in_reply_to_status_id_str: Optional[Annotated[str, Field(strict=True)]] = None
@@ -53,7 +57,7 @@ class TweetLegacy(BaseModel):
     is_quote_status: StrictBool
     lang: StrictStr
     limited_actions: Optional[StrictStr] = None
-    place: Optional[Dict[str, Any]] = None
+    place: Optional[TweetLegacyPlace] = None
     possibly_sensitive: Optional[StrictBool] = None
     possibly_sensitive_editable: Optional[StrictBool] = None
     quote_count: StrictInt
@@ -66,7 +70,7 @@ class TweetLegacy(BaseModel):
     scopes: Optional[TweetLegacyScopes] = None
     self_thread: Optional[SelfThread] = None
     user_id_str: Annotated[str, Field(strict=True)]
-    __properties: ClassVar[List[str]] = ["bookmark_count", "bookmarked", "conversation_control", "conversation_id_str", "created_at", "display_text_range", "entities", "extended_entities", "favorite_count", "favorited", "full_text", "id_str", "in_reply_to_screen_name", "in_reply_to_status_id_str", "in_reply_to_user_id_str", "is_quote_status", "lang", "limited_actions", "place", "possibly_sensitive", "possibly_sensitive_editable", "quote_count", "quoted_status_id_str", "quoted_status_permalink", "reply_count", "retweet_count", "retweeted", "retweeted_status_result", "scopes", "self_thread", "user_id_str"]
+    __properties: ClassVar[List[str]] = ["bookmark_count", "bookmarked", "conversation_control", "conversation_id_str", "coordinates", "created_at", "display_text_range", "entities", "extended_entities", "favorite_count", "favorited", "full_text", "geo", "id_str", "in_reply_to_screen_name", "in_reply_to_status_id_str", "in_reply_to_user_id_str", "is_quote_status", "lang", "limited_actions", "place", "possibly_sensitive", "possibly_sensitive_editable", "quote_count", "quoted_status_id_str", "quoted_status_permalink", "reply_count", "retweet_count", "retweeted", "retweeted_status_result", "scopes", "self_thread", "user_id_str"]
 
     @field_validator('conversation_id_str', mode="before")
     def conversation_id_str_validate_regular_expression(cls, value):
@@ -178,12 +182,21 @@ class TweetLegacy(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of conversation_control
         if self.conversation_control:
             _dict['conversation_control'] = self.conversation_control.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of coordinates
+        if self.coordinates:
+            _dict['coordinates'] = self.coordinates.to_dict()
         # override the default output from pydantic by calling `to_dict()` of entities
         if self.entities:
             _dict['entities'] = self.entities.to_dict()
         # override the default output from pydantic by calling `to_dict()` of extended_entities
         if self.extended_entities:
             _dict['extended_entities'] = self.extended_entities.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of geo
+        if self.geo:
+            _dict['geo'] = self.geo.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of place
+        if self.place:
+            _dict['place'] = self.place.to_dict()
         # override the default output from pydantic by calling `to_dict()` of quoted_status_permalink
         if self.quoted_status_permalink:
             _dict['quoted_status_permalink'] = self.quoted_status_permalink.to_dict()
@@ -212,6 +225,7 @@ class TweetLegacy(BaseModel):
             "bookmarked": obj.get("bookmarked"),
             "conversation_control": ConversationControl.from_dict(obj["conversation_control"]) if obj.get("conversation_control") is not None else None,
             "conversation_id_str": obj.get("conversation_id_str"),
+            "coordinates": TweetLegacyPoint.from_dict(obj["coordinates"]) if obj.get("coordinates") is not None else None,
             "created_at": obj.get("created_at"),
             "display_text_range": obj.get("display_text_range"),
             "entities": Entities.from_dict(obj["entities"]) if obj.get("entities") is not None else None,
@@ -219,6 +233,7 @@ class TweetLegacy(BaseModel):
             "favorite_count": obj.get("favorite_count"),
             "favorited": obj.get("favorited"),
             "full_text": obj.get("full_text"),
+            "geo": TweetLegacyPoint.from_dict(obj["geo"]) if obj.get("geo") is not None else None,
             "id_str": obj.get("id_str"),
             "in_reply_to_screen_name": obj.get("in_reply_to_screen_name"),
             "in_reply_to_status_id_str": obj.get("in_reply_to_status_id_str"),
@@ -226,7 +241,7 @@ class TweetLegacy(BaseModel):
             "is_quote_status": obj.get("is_quote_status"),
             "lang": obj.get("lang"),
             "limited_actions": obj.get("limited_actions"),
-            "place": obj.get("place"),
+            "place": TweetLegacyPlace.from_dict(obj["place"]) if obj.get("place") is not None else None,
             "possibly_sensitive": obj.get("possibly_sensitive"),
             "possibly_sensitive_editable": obj.get("possibly_sensitive_editable"),
             "quote_count": obj.get("quote_count"),

@@ -38,7 +38,7 @@ class TestTimelineTombstone(unittest.TestCase):
             return TimelineTombstone(
                 typename = 'TimelineTweet',
                 item_type = 'TimelineTweet',
-                tombstone_display_type = 'Inline',
+                tombstone_display_type = '',
                 tombstone_info = twitter_openapi_python_generated.models.tombstone_info.TombstoneInfo(
                     rich_text = twitter_openapi_python_generated.models.tombstone_rich_text.TombstoneRichText(
                         entities = [

@@ -60,47 +60,17 @@ class TestUserHighlightsTweetsResult(unittest.TestCase):
                                             component = '', 
                                             element = '', ), 
                                         confirmation = '', 
-                                        confirmation_display_type = 'BottomSheet', 
+                                        confirmation_display_type = '', 
                                         feedback_type = '', 
                                         feedback_url = '', 
                                         has_undo_action = True, 
-                                        icon = 'Frown', 
+                                        icon = '', 
                                         prompt = '', ), )
                                 ], ), ), )
             )
         else:
             return UserHighlightsTweetsResult(
                 typename = 'TimelineTweet',
-                timeline = twitter_openapi_python_generated.models.user_highlights_tweets_timeline.UserHighlightsTweetsTimeline(
-                    timeline = twitter_openapi_python_generated.models.timeline.Timeline(
-                        instructions = [
-                            null
-                            ], 
-                        metadata = twitter_openapi_python_generated.models.timeline_metadata.TimelineMetadata(
-                            reader_mode_config = twitter_openapi_python_generated.models.reader_mode_config.ReaderModeConfig(
-                                is_reader_mode_available = True, ), 
-                            scribe_config = twitter_openapi_python_generated.models.scribe_config.ScribeConfig(
-                                page = '', ), ), 
-                        response_objects = twitter_openapi_python_generated.models.timeline_response_objects.TimelineResponseObjects(
-                            feedback_actions = [
-                                twitter_openapi_python_generated.models.feedback_action_entry.FeedbackActionEntry(
-                                    key = '', 
-                                    value = twitter_openapi_python_generated.models.feedback_action.FeedbackAction(
-                                        child_keys = [
-                                            ''
-                                            ], 
-                                        client_event_info = twitter_openapi_python_generated.models.feedback_client_event_info.FeedbackClientEventInfo(
-                                            action = '', 
-                                            component = '', 
-                                            element = '', ), 
-                                        confirmation = '', 
-                                        confirmation_display_type = 'BottomSheet', 
-                                        feedback_type = '', 
-                                        feedback_url = '', 
-                                        has_undo_action = True, 
-                                        icon = 'Frown', 
-                                        prompt = '', ), )
-                                ], ), ), ),
         )
         """
 

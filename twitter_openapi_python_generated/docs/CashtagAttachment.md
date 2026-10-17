@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **rest_id** | **str** |  | 
+**size_variant** | **int** |  | [optional] 
 
 ## Example
 

@@ -37,12 +37,12 @@ class TestCommunityDeleteActionResult(unittest.TestCase):
         if include_optional:
             return CommunityDeleteActionResult(
                 typename = 'TimelineTweet',
-                reason = 'Unavailable'
+                reason = ''
             )
         else:
             return CommunityDeleteActionResult(
                 typename = 'TimelineTweet',
-                reason = 'Unavailable',
+                reason = '',
         )
         """
 

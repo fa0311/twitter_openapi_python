@@ -93,9 +93,11 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_search_timeline_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data.search_by_raw_query, e.errors).search_timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(
+                    error_check(e.data.search_by_raw_query, e.errors).search_timeline.timeline, e.errors
+                ).instructions
+            ),
             key="SearchTimeline",
             param=param,
         )
@@ -162,9 +164,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_list_latest_tweets_timeline_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data.list, e.errors).tweets_timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(error_check(e.data.list, e.errors).tweets_timeline.timeline, e.errors).instructions
+            ),
             key="ListLatestTweetsTimeline",
             param=param,
         )
@@ -187,9 +189,11 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_tweets_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(
+                    error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline, e.errors
+                ).instructions
+            ),
             key="UserTweets",
             param=param,
         )
@@ -212,9 +216,11 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_originals_timeline_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(
+                    error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline, e.errors
+                ).instructions
+            ),
             key="UserOriginalsTimeline",
             param=param,
         )
@@ -237,9 +243,11 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_replies_timeline_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(
+                    error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline, e.errors
+                ).instructions
+            ),
             key="UserRepliesTimeline",
             param=param,
         )
@@ -262,9 +270,11 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_video_timeline_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(
+                    error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline, e.errors
+                ).instructions
+            ),
             key="UserVideoTimeline",
             param=param,
         )
@@ -287,9 +297,11 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_tweets_and_replies_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(
+                    error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline, e.errors
+                ).instructions
+            ),
             key="UserTweetsAndReplies",
             param=param,
         )
@@ -312,9 +324,11 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_media_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(
+                    error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline, e.errors
+                ).instructions
+            ),
             key="UserMedia",
             param=param,
         )
@@ -337,9 +351,11 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_likes_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(
+                    error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline, e.errors
+                ).instructions
+            ),
             key="Likes",
             param=param,
         )
@@ -361,9 +377,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_bookmarks_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data, e.errors).bookmark_timeline_v2.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(error_check(e.data, e.errors).bookmark_timeline_v2.timeline, e.errors).instructions
+            ),
             key="Bookmarks",
             param=param,
         )
@@ -389,9 +405,11 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_community_tweets_timeline_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data, e.errors).community_results.result.ranked_community_timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(
+                    error_check(e.data, e.errors).community_results.result.ranked_community_timeline.timeline, e.errors
+                ).instructions
+            ),
             key="CommunityTweetsTimeline",
             param=param,
         )
@@ -414,9 +432,11 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_community_media_timeline_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data, e.errors).community_results.result.community_media_timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(
+                    error_check(e.data, e.errors).community_results.result.community_media_timeline.timeline, e.errors
+                ).instructions
+            ),
             key="CommunityMediaTimeline",
             param=param,
         )
@@ -439,7 +459,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_highlights_tweets_with_http_info,
-            convertFn=lambda e: error_check(e.data.user, e.errors).result.timeline.timeline.instructions,
+            convertFn=lambda e: (
+                error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline.instructions
+            ),
             key="UserHighlightsTweets",
             param=param,
         )
@@ -462,9 +484,11 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_reposts_timeline_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(
+                    error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline, e.errors
+                ).instructions
+            ),
             key="UserRepostsTimeline",
             param=param,
         )
@@ -488,9 +512,11 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_user_super_follow_tweets_with_http_info,
-            convertFn=lambda e: error_check(
-                error_check(e.data.user, e.errors).result.timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(
+                    error_check(error_check(e.data.user, e.errors).result.timeline, e.errors).timeline, e.errors
+                ).instructions
+            ),
             key="UserSuperFollowTweets",
             param=param,
         )
@@ -564,9 +590,9 @@ class TweetApiUtils:
             self.api.get_notifications_timeline_with_http_info,
             self.flag["NotificationsTimeline"],
             self.ct,
-            lambda e: error_check(
-                e.data.viewer_v2.user_results.result.notification_timeline.timeline, e.errors
-            ).instructions,
+            lambda e: (
+                error_check(e.data.viewer_v2.user_results.result.notification_timeline.timeline, e.errors).instructions
+            ),
             param,
             notification_entries_converter,
         )
@@ -655,9 +681,9 @@ class TweetApiUtils:
 
         response = self.request(
             apiFn=self.api.get_bookmark_search_timeline_with_http_info,
-            convertFn=lambda e: error_check(
-                e.data.search_by_raw_query.bookmarks_search_timeline.timeline, e.errors
-            ).instructions,
+            convertFn=lambda e: (
+                error_check(e.data.search_by_raw_query.bookmarks_search_timeline.timeline, e.errors).instructions
+            ),
             key="BookmarkSearchTimeline",
             param=param,
         )

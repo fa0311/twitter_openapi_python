@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.social_context_union import SocialContextUnion
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,16 +30,10 @@ class ModuleHeader(BaseModel):
     ModuleHeader
     """ # noqa: E501
     display_type: StrictStr = Field(alias="displayType")
+    social_context: Optional[SocialContextUnion] = Field(default=None, alias="socialContext")
     sticky: Optional[StrictBool] = None
     text: StrictStr
-    __properties: ClassVar[List[str]] = ["displayType", "sticky", "text"]
-
-    @field_validator('display_type')
-    def display_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Classic']):
-            raise ValueError("must be one of enum values ('Classic')")
-        return value
+    __properties: ClassVar[List[str]] = ["displayType", "socialContext", "sticky", "text"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -79,6 +74,9 @@ class ModuleHeader(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of social_context
+        if self.social_context:
+            _dict['socialContext'] = self.social_context.to_dict()
         return _dict
 
     @classmethod
@@ -92,6 +90,7 @@ class ModuleHeader(BaseModel):
 
         _obj = cls.model_validate({
             "displayType": obj.get("displayType"),
+            "socialContext": SocialContextUnion.from_dict(obj["socialContext"]) if obj.get("socialContext") is not None else None,
             "sticky": obj.get("sticky"),
             "text": obj.get("text")
         })

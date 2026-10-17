@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.callback import Callback
 from twitter_openapi_python_generated.models.cta_client_event_info import CtaClientEventInfo
@@ -31,22 +31,12 @@ class CoverCta(BaseModel):
     """
     CoverCta
     """ # noqa: E501
-    text: Optional[StrictStr] = Field(default=None, alias="Text")
     button_style: Optional[StrictStr] = Field(default=None, alias="buttonStyle")
     callbacks: List[Callback]
     client_event_info: CtaClientEventInfo = Field(alias="clientEventInfo")
     cta_behavior: TimelineCoverBehavior = Field(alias="ctaBehavior")
-    __properties: ClassVar[List[str]] = ["Text", "buttonStyle", "callbacks", "clientEventInfo", "ctaBehavior"]
-
-    @field_validator('button_style')
-    def button_style_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Primary']):
-            raise ValueError("must be one of enum values ('Primary')")
-        return value
+    text: StrictStr
+    __properties: ClassVar[List[str]] = ["buttonStyle", "callbacks", "clientEventInfo", "ctaBehavior", "text"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -111,11 +101,11 @@ class CoverCta(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Text": obj.get("Text"),
             "buttonStyle": obj.get("buttonStyle"),
             "callbacks": [Callback.from_dict(_item) for _item in obj["callbacks"]] if obj.get("callbacks") is not None else None,
             "clientEventInfo": CtaClientEventInfo.from_dict(obj["clientEventInfo"]) if obj.get("clientEventInfo") is not None else None,
-            "ctaBehavior": TimelineCoverBehavior.from_dict(obj["ctaBehavior"]) if obj.get("ctaBehavior") is not None else None
+            "ctaBehavior": TimelineCoverBehavior.from_dict(obj["ctaBehavior"]) if obj.get("ctaBehavior") is not None else None,
+            "text": obj.get("text")
         })
         return _obj
 

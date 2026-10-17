@@ -30,7 +30,7 @@ class MediaResult(BaseModel):
     MediaResult
     """ # noqa: E501
     grok_image_annotation: Optional[GrokImageAnnotation] = None
-    media_key: StrictStr
+    media_key: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["grok_image_annotation", "media_key"]
 
     model_config = ConfigDict(

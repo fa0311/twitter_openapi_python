@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.timeline_message_prompt_button import TimelineMessagePromptButton
 from twitter_openapi_python_generated.models.timeline_message_prompt_rich_text import TimelineMessagePromptRichText
@@ -36,13 +36,6 @@ class TimelineMessagePromptContent(BaseModel):
     header_text: StrictStr = Field(alias="headerText")
     primary_button_action: Optional[TimelineMessagePromptButton] = Field(default=None, alias="primaryButtonAction")
     __properties: ClassVar[List[str]] = ["bodyRichText", "bodyText", "contentType", "headerText", "primaryButtonAction"]
-
-    @field_validator('content_type')
-    def content_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['TimelineInlinePrompt', 'TimelineCompactPrompt']):
-            raise ValueError("must be one of enum values ('TimelineInlinePrompt', 'TimelineCompactPrompt')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

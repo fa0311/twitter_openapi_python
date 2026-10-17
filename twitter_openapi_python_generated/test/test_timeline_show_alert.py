@@ -36,12 +36,12 @@ class TestTimelineShowAlert(unittest.TestCase):
         model = TimelineShowAlert()
         if include_optional:
             return TimelineShowAlert(
-                alert_type = 'NewTweets',
+                alert_type = '',
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                     component = '', 
                     details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                         conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
-                            conversation_section = 'HighQuality', ), 
+                            conversation_section = '', ), 
                         notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
                             impression_id = '', 
                             metadata = '', ), 
@@ -55,7 +55,7 @@ class TestTimelineShowAlert(unittest.TestCase):
                     border = '', 
                     text = '', ),
                 display_duration_ms = 56,
-                display_location = 'Top',
+                display_location = '',
                 icon_display_info = twitter_openapi_python_generated.models.timeline_show_alert_icon_display_info.TimelineShowAlertIconDisplayInfo(
                     icon = '', 
                     tint = '', ),
@@ -73,12 +73,12 @@ class TestTimelineShowAlert(unittest.TestCase):
             )
         else:
             return TimelineShowAlert(
-                alert_type = 'NewTweets',
+                alert_type = '',
                 client_event_info = twitter_openapi_python_generated.models.client_event_info.ClientEventInfo(
                     component = '', 
                     details = twitter_openapi_python_generated.models.client_event_info_details.ClientEventInfoDetails(
                         conversation_details = twitter_openapi_python_generated.models.conversation_details.ConversationDetails(
-                            conversation_section = 'HighQuality', ), 
+                            conversation_section = '', ), 
                         notification_details = twitter_openapi_python_generated.models.notification_details.NotificationDetails(
                             impression_id = '', 
                             metadata = '', ), 
@@ -92,7 +92,7 @@ class TestTimelineShowAlert(unittest.TestCase):
                     border = '', 
                     text = '', ),
                 display_duration_ms = 56,
-                display_location = 'Top',
+                display_location = '',
                 icon_display_info = twitter_openapi_python_generated.models.timeline_show_alert_icon_display_info.TimelineShowAlertIconDisplayInfo(
                     icon = '', 
                     tint = '', ),

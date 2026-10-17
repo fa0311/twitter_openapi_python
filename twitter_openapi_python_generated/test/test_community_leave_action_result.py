@@ -38,13 +38,13 @@ class TestCommunityLeaveActionResult(unittest.TestCase):
             return CommunityLeaveActionResult(
                 typename = 'TimelineTweet',
                 message = '',
-                reason = 'ViewerNotMember'
+                reason = ''
             )
         else:
             return CommunityLeaveActionResult(
                 typename = 'TimelineTweet',
                 message = '',
-                reason = 'ViewerNotMember',
+                reason = '',
         )
         """
 

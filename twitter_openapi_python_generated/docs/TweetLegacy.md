@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **bookmarked** | **bool** |  | 
 **conversation_control** | [**ConversationControl**](ConversationControl.md) |  | [optional] 
 **conversation_id_str** | **str** |  | 
+**coordinates** | [**TweetLegacyPoint**](TweetLegacyPoint.md) |  | [optional] 
 **created_at** | **str** |  | 
 **display_text_range** | **List[int]** |  | 
 **entities** | [**Entities**](Entities.md) |  | [optional] 
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 **favorite_count** | **int** |  | 
 **favorited** | **bool** |  | 
 **full_text** | **str** |  | 
+**geo** | [**TweetLegacyPoint**](TweetLegacyPoint.md) |  | [optional] 
 **id_str** | **str** |  | 
 **in_reply_to_screen_name** | **str** |  | [optional] 
 **in_reply_to_status_id_str** | **str** |  | [optional] 
@@ -23,7 +25,7 @@ Name | Type | Description | Notes
 **is_quote_status** | **bool** |  | 
 **lang** | **str** |  | 
 **limited_actions** | **str** |  | [optional] 
-**place** | **Dict[str, object]** |  | [optional] 
+**place** | [**TweetLegacyPlace**](TweetLegacyPlace.md) |  | [optional] 
 **possibly_sensitive** | **bool** |  | [optional] 
 **possibly_sensitive_editable** | **bool** |  | [optional] 
 **quote_count** | **int** |  | 

@@ -36,11 +36,11 @@ class TestTweetCardPlatformAudience(unittest.TestCase):
         model = TweetCardPlatformAudience()
         if include_optional:
             return TweetCardPlatformAudience(
-                name = 'production'
+                name = ''
             )
         else:
             return TweetCardPlatformAudience(
-                name = 'production',
+                name = '',
         )
         """
 

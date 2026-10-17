@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.timeline_result import TimelineResult
 from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
@@ -31,7 +31,7 @@ class UserTweetsResultV1(BaseModel):
     UserTweetsResultV1
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
-    timeline: TimelineResult
+    timeline: Optional[TimelineResult] = None
     __properties: ClassVar[List[str]] = ["__typename", "timeline"]
 
     model_config = ConfigDict(

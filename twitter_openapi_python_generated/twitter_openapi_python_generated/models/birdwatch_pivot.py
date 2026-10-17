@@ -45,23 +45,6 @@ class BirdwatchPivot(BaseModel):
     visual_style: Optional[StrictStr] = Field(default=None, alias="visualStyle")
     __properties: ClassVar[List[str]] = ["callToAction", "destinationUrl", "footer", "footerIconType", "iconType", "note", "shorttitle", "subtitle", "title", "titleDetail", "visualStyle"]
 
-    @field_validator('footer_icon_type')
-    def footer_icon_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['BirdwatchEyeOff', 'BirdwatchLevelLow']):
-            raise ValueError("must be one of enum values ('BirdwatchEyeOff', 'BirdwatchLevelLow')")
-        return value
-
-    @field_validator('icon_type')
-    def icon_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['BirdwatchV1Icon', 'BirdwatchCameraVideo']):
-            raise ValueError("must be one of enum values ('BirdwatchV1Icon', 'BirdwatchCameraVideo')")
-        return value
-
     @field_validator('visual_style')
     def visual_style_validate_enum(cls, value):
         """Validates the enum"""

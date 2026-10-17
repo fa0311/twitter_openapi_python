@@ -54,8 +54,8 @@ class TestBirdwatchPivot(unittest.TestCase):
                             to_index = 56, )
                         ], 
                     text = '', ),
-                footer_icon_type = 'BirdwatchEyeOff',
-                icon_type = 'BirdwatchV1Icon',
+                footer_icon_type = '',
+                icon_type = '',
                 note = twitter_openapi_python_generated.models.birdwatch_pivot_note.BirdwatchPivotNote(
                     grok_translated_community_note_with_availability = twitter_openapi_python_generated.models.grok_translated_community_note_with_availability.GrokTranslatedCommunityNoteWithAvailability(
                         data = twitter_openapi_python_generated.models.grok_translated_community_note.GrokTranslatedCommunityNote(
@@ -66,6 +66,8 @@ class TestBirdwatchPivot(unittest.TestCase):
                                     ref = twitter_openapi_python_generated.models.grok_entity_ref.GrokEntityRef(
                                         display_url = '', 
                                         expanded_url = '', 
+                                        id = '4', 
+                                        screen_name = '', 
                                         text = '', 
                                         type = 'TimelineUrl', 
                                         url = '', 
@@ -100,7 +102,7 @@ class TestBirdwatchPivot(unittest.TestCase):
         else:
             return BirdwatchPivot(
                 destination_url = '',
-                icon_type = 'BirdwatchV1Icon',
+                icon_type = '',
                 title = '',
         )
         """

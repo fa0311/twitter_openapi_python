@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,13 +30,6 @@ class UnifiedCard(BaseModel):
     """ # noqa: E501
     card_fetch_state: StrictStr
     __properties: ClassVar[List[str]] = ["card_fetch_state"]
-
-    @field_validator('card_fetch_state')
-    def card_fetch_state_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['NoCard']):
-            raise ValueError("must be one of enum values ('NoCard')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

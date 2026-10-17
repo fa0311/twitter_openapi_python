@@ -37,25 +37,25 @@ class TestTimelineHalfCover(unittest.TestCase):
         if include_optional:
             return TimelineHalfCover(
                 dismissible = True,
-                half_cover_display_type = 'Cover',
+                half_cover_display_type = '',
                 impression_callbacks = [
                     twitter_openapi_python_generated.models.callback.Callback(
                         endpoint = '', )
                     ],
                 primary_cover_cta = twitter_openapi_python_generated.models.cover_cta.CoverCta(
-                    text = '', 
-                    button_style = 'Primary', 
+                    button_style = '', 
                     callbacks = [
                         twitter_openapi_python_generated.models.callback.Callback(
                             endpoint = '', )
                         ], 
                     client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
-                        action = 'primary_cta', ), 
+                        action = '', ), 
                     cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
                         type = 'TimelineCoverBehaviorDismiss', 
                         url = twitter_openapi_python_generated.models.timeline_cover_behavior_url.TimelineCoverBehaviorUrl(
                             url = '', 
-                            url_type = 'ExternalUrl', ), ), ),
+                            url_type = 'ExternalUrl', ), ), 
+                    text = '', ),
                 primary_text = twitter_openapi_python_generated.models.text.Text(
                     entities = [
                         twitter_openapi_python_generated.models.text_entity.TextEntity(
@@ -83,25 +83,25 @@ class TestTimelineHalfCover(unittest.TestCase):
         else:
             return TimelineHalfCover(
                 dismissible = True,
-                half_cover_display_type = 'Cover',
+                half_cover_display_type = '',
                 impression_callbacks = [
                     twitter_openapi_python_generated.models.callback.Callback(
                         endpoint = '', )
                     ],
                 primary_cover_cta = twitter_openapi_python_generated.models.cover_cta.CoverCta(
-                    text = '', 
-                    button_style = 'Primary', 
+                    button_style = '', 
                     callbacks = [
                         twitter_openapi_python_generated.models.callback.Callback(
                             endpoint = '', )
                         ], 
                     client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
-                        action = 'primary_cta', ), 
+                        action = '', ), 
                     cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
                         type = 'TimelineCoverBehaviorDismiss', 
                         url = twitter_openapi_python_generated.models.timeline_cover_behavior_url.TimelineCoverBehaviorUrl(
                             url = '', 
-                            url_type = 'ExternalUrl', ), ), ),
+                            url_type = 'ExternalUrl', ), ), 
+                    text = '', ),
                 primary_text = twitter_openapi_python_generated.models.text.Text(
                     entities = [
                         twitter_openapi_python_generated.models.text_entity.TextEntity(

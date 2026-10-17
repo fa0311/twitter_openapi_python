@@ -58,7 +58,7 @@ class TestTweetCard(unittest.TestCase):
                                     width = 56, ), 
                                 scribe_key = '', 
                                 string_value = '', 
-                                type = '', 
+                                type = 'STRING', 
                                 user_value = twitter_openapi_python_generated.models.user_value.UserValue(
                                     id_str = '4', 
                                     path = [
@@ -68,7 +68,7 @@ class TestTweetCard(unittest.TestCase):
                     card_platform = twitter_openapi_python_generated.models.tweet_card_platform_data.TweetCardPlatformData(
                         platform = twitter_openapi_python_generated.models.tweet_card_platform.TweetCardPlatform(
                             audience = twitter_openapi_python_generated.models.tweet_card_platform_audience.TweetCardPlatformAudience(
-                                name = 'production', ), 
+                                name = '', ), 
                             device = twitter_openapi_python_generated.models.tweet_card_platform_device.TweetCardPlatformDevice(
                                 name = '', 
                                 version = '4', ), ), ), 

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,13 +30,6 @@ class ConversationDetails(BaseModel):
     """ # noqa: E501
     conversation_section: StrictStr = Field(alias="conversationSection")
     __properties: ClassVar[List[str]] = ["conversationSection"]
-
-    @field_validator('conversation_section')
-    def conversation_section_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['HighQuality']):
-            raise ValueError("must be one of enum values ('HighQuality')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

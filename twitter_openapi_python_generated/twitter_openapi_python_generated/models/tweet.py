@@ -88,7 +88,8 @@ class Tweet(BaseModel):
     unified_card: Optional[UnifiedCard] = None
     unmention_data: Optional[Dict[str, Any]] = None
     views: Optional[TweetView] = None
-    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "cashtag_attachments", "community_relationship", "community_results", "content_disclosure", "core", "edit_control", "edit_prespective", "grok_analysis_button", "grok_analysis_followups", "grok_annotations", "grok_share_attachment", "grok_translated_post_with_availability", "has_birdwatch_notes", "is_translatable", "jetfuel_attachment", "legacy", "nested_quoted_tweet_results", "note_tweet", "postCta", "post_image_description", "post_video_description", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views"]
+    voice_info: Optional[Dict[str, Any]] = Field(default=None, alias="voiceInfo")
+    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "cashtag_attachments", "community_relationship", "community_results", "content_disclosure", "core", "edit_control", "edit_prespective", "grok_analysis_button", "grok_analysis_followups", "grok_annotations", "grok_share_attachment", "grok_translated_post_with_availability", "has_birdwatch_notes", "is_translatable", "jetfuel_attachment", "legacy", "nested_quoted_tweet_results", "note_tweet", "postCta", "post_image_description", "post_video_description", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views", "voiceInfo"]
 
     @field_validator('rest_id', mode="before")
     def rest_id_validate_regular_expression(cls, value):
@@ -265,7 +266,8 @@ class Tweet(BaseModel):
             "trend_results": TrendResults.from_dict(obj["trend_results"]) if obj.get("trend_results") is not None else None,
             "unified_card": UnifiedCard.from_dict(obj["unified_card"]) if obj.get("unified_card") is not None else None,
             "unmention_data": obj.get("unmention_data"),
-            "views": TweetView.from_dict(obj["views"]) if obj.get("views") is not None else None
+            "views": TweetView.from_dict(obj["views"]) if obj.get("views") is not None else None,
+            "voiceInfo": obj.get("voiceInfo")
         })
         return _obj
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**content_state** | **Dict[str, object]** |  | [optional] 
+**content_state** | [**ArticleContentState**](ArticleContentState.md) |  | [optional] 
 **cover_media** | [**ArticleCoverMedia**](ArticleCoverMedia.md) |  | [optional] 
 **id** | **str** |  | 
 **is_grok_summary_eligible** | **bool** |  | [optional] 
@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **metadata** | [**ArticleMetadata**](ArticleMetadata.md) |  | 
 **preview_text** | **str** |  | 
 **rest_id** | **str** |  | 
+**summary_text** | **str** |  | [optional] 
 **title** | **str** |  | 
 
 ## Example

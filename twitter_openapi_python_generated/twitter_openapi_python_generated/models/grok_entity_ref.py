@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,17 +31,29 @@ class GrokEntityRef(BaseModel):
     """ # noqa: E501
     display_url: Optional[StrictStr] = None
     expanded_url: Optional[StrictStr] = None
+    id: Optional[Annotated[str, Field(strict=True)]] = None
+    screen_name: Optional[StrictStr] = None
     text: Optional[StrictStr] = None
     type: StrictStr
     url: Optional[StrictStr] = None
     url_type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["display_url", "expanded_url", "text", "type", "url", "url_type"]
+    __properties: ClassVar[List[str]] = ["display_url", "expanded_url", "id", "screen_name", "text", "type", "url", "url_type"]
+
+    @field_validator('id', mode="before")
+    def id_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]+$/")
+        return value
 
     @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['TimelineUrl', 'TimelineRichTextHashtag']):
-            raise ValueError("must be one of enum values ('TimelineUrl', 'TimelineRichTextHashtag')")
+        if value not in set(['TimelineUrl', 'TimelineRichTextHashtag', 'TimelineRichTextMention']):
+            raise ValueError("must be one of enum values ('TimelineUrl', 'TimelineRichTextHashtag', 'TimelineRichTextMention')")
         return value
 
     @field_validator('url_type')
@@ -106,6 +119,8 @@ class GrokEntityRef(BaseModel):
         _obj = cls.model_validate({
             "display_url": obj.get("display_url"),
             "expanded_url": obj.get("expanded_url"),
+            "id": obj.get("id"),
+            "screen_name": obj.get("screen_name"),
             "text": obj.get("text"),
             "type": obj.get("type"),
             "url": obj.get("url"),

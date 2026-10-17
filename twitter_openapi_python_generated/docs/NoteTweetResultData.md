@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entity_set** | [**Entities**](Entities.md) |  | 
+**entity_set** | [**Entities**](Entities.md) |  | [optional] 
 **id** | **str** |  | 
 **media** | [**NoteTweetResultMedia**](NoteTweetResultMedia.md) |  | [optional] 
 **richtext** | [**NoteTweetResultRichText**](NoteTweetResultRichText.md) |  | [optional] 
-**text** | **str** |  | 
+**text** | **str** |  | [optional] 
 
 ## Example
 

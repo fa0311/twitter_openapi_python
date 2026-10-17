@@ -47,6 +47,25 @@ class TestDefaultApi(unittest.TestCase):
         result = self.client.get_pinned_timelines()
         logging.info(f"pinned: {len(result.data.pinned_timelines)}")
 
+    def test_get_broadcast_query(self):
+        result = self.client.get_broadcast_query(id="1BRKjmPYymWxw")
+        logging.info(f"{result.data.status} ({result.data.state}, {result.data.total_watched} watched)")
+
+    def test_get_audio_space_by_id(self):
+        result = self.client.get_audio_space_by_id(id="1qxoNYAlYMXJv")
+        logging.info(
+            f"{result.data.metadata.title} ({result.data.metadata.state}, {result.data.participants.total} participants)"
+        )
+
+    def test_get_use_story_topic_query(self):
+        result = self.client.get_use_story_topic_query()
+        for item in result.data.stories.items:
+            logging.info(f"{item.trend_results.result.core.category}: {item.trend_results.result.core.name}")
+
+    def test_get_grok_account_jwt_query(self):
+        result = self.client.get_grok_account_jwt_query()
+        logging.info(result.data.status)
+
 
 if __name__ == "__main__":
     unittest.main()

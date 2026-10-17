@@ -38,7 +38,56 @@ class TestArticle(unittest.TestCase):
             return Article(
                 article_results = twitter_openapi_python_generated.models.article_results.ArticleResults(
                     result = twitter_openapi_python_generated.models.article_result.ArticleResult(
-                        content_state = { }, 
+                        content_state = twitter_openapi_python_generated.models.article_content_state.ArticleContentState(
+                            blocks = [
+                                twitter_openapi_python_generated.models.article_content_block.ArticleContentBlock(
+                                    data = twitter_openapi_python_generated.models.article_content_block_data.ArticleContentBlockData(
+                                        mentions = [
+                                            twitter_openapi_python_generated.models.article_content_text_range.ArticleContentTextRange(
+                                                from_index = 56, 
+                                                text = '', 
+                                                to_index = 56, )
+                                            ], 
+                                        urls = [
+                                            twitter_openapi_python_generated.models.article_content_text_range.ArticleContentTextRange(
+                                                from_index = 56, 
+                                                text = '', 
+                                                to_index = 56, )
+                                            ], ), 
+                                    entity_ranges = [
+                                        twitter_openapi_python_generated.models.article_content_entity_range.ArticleContentEntityRange(
+                                            key = 56, 
+                                            length = 56, 
+                                            offset = 56, )
+                                        ], 
+                                    inline_style_ranges = [
+                                        twitter_openapi_python_generated.models.article_content_inline_style_range.ArticleContentInlineStyleRange(
+                                            length = 56, 
+                                            offset = 56, 
+                                            style = 'Bold', )
+                                        ], 
+                                    key = '', 
+                                    text = '', 
+                                    type = '', )
+                                ], 
+                            entity_map = [
+                                twitter_openapi_python_generated.models.article_content_entity.ArticleContentEntity(
+                                    key = '', 
+                                    value = twitter_openapi_python_generated.models.article_content_entity_value.ArticleContentEntityValue(
+                                        data = twitter_openapi_python_generated.models.article_content_entity_data.ArticleContentEntityData(
+                                            caption = '', 
+                                            entity_key = '', 
+                                            media_items = [
+                                                twitter_openapi_python_generated.models.article_content_media_item.ArticleContentMediaItem(
+                                                    local_media_id = '', 
+                                                    media_category = '', 
+                                                    media_id = '4', )
+                                                ], 
+                                            tweet_id = '4', 
+                                            url = '', ), 
+                                        mutability = '', 
+                                        type = 'MEDIA', ), )
+                                ], ), 
                         cover_media = twitter_openapi_python_generated.models.article_cover_media.ArticleCoverMedia(
                             id = '', 
                             media_id = '4', 
@@ -85,13 +134,63 @@ class TestArticle(unittest.TestCase):
                             first_published_at_secs = 56, ), 
                         preview_text = '', 
                         rest_id = '4', 
+                        summary_text = '', 
                         title = '', ), )
             )
         else:
             return Article(
                 article_results = twitter_openapi_python_generated.models.article_results.ArticleResults(
                     result = twitter_openapi_python_generated.models.article_result.ArticleResult(
-                        content_state = { }, 
+                        content_state = twitter_openapi_python_generated.models.article_content_state.ArticleContentState(
+                            blocks = [
+                                twitter_openapi_python_generated.models.article_content_block.ArticleContentBlock(
+                                    data = twitter_openapi_python_generated.models.article_content_block_data.ArticleContentBlockData(
+                                        mentions = [
+                                            twitter_openapi_python_generated.models.article_content_text_range.ArticleContentTextRange(
+                                                from_index = 56, 
+                                                text = '', 
+                                                to_index = 56, )
+                                            ], 
+                                        urls = [
+                                            twitter_openapi_python_generated.models.article_content_text_range.ArticleContentTextRange(
+                                                from_index = 56, 
+                                                text = '', 
+                                                to_index = 56, )
+                                            ], ), 
+                                    entity_ranges = [
+                                        twitter_openapi_python_generated.models.article_content_entity_range.ArticleContentEntityRange(
+                                            key = 56, 
+                                            length = 56, 
+                                            offset = 56, )
+                                        ], 
+                                    inline_style_ranges = [
+                                        twitter_openapi_python_generated.models.article_content_inline_style_range.ArticleContentInlineStyleRange(
+                                            length = 56, 
+                                            offset = 56, 
+                                            style = 'Bold', )
+                                        ], 
+                                    key = '', 
+                                    text = '', 
+                                    type = '', )
+                                ], 
+                            entity_map = [
+                                twitter_openapi_python_generated.models.article_content_entity.ArticleContentEntity(
+                                    key = '', 
+                                    value = twitter_openapi_python_generated.models.article_content_entity_value.ArticleContentEntityValue(
+                                        data = twitter_openapi_python_generated.models.article_content_entity_data.ArticleContentEntityData(
+                                            caption = '', 
+                                            entity_key = '', 
+                                            media_items = [
+                                                twitter_openapi_python_generated.models.article_content_media_item.ArticleContentMediaItem(
+                                                    local_media_id = '', 
+                                                    media_category = '', 
+                                                    media_id = '4', )
+                                                ], 
+                                            tweet_id = '4', 
+                                            url = '', ), 
+                                        mutability = '', 
+                                        type = 'MEDIA', ), )
+                                ], ), 
                         cover_media = twitter_openapi_python_generated.models.article_cover_media.ArticleCoverMedia(
                             id = '', 
                             media_id = '4', 
@@ -138,6 +237,7 @@ class TestArticle(unittest.TestCase):
                             first_published_at_secs = 56, ), 
                         preview_text = '', 
                         rest_id = '4', 
+                        summary_text = '', 
                         title = '', ), ),
         )
         """

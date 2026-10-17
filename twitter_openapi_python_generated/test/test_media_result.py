@@ -43,7 +43,6 @@ class TestMediaResult(unittest.TestCase):
             )
         else:
             return MediaResult(
-                media_key = '',
         )
         """
 

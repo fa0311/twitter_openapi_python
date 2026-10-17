@@ -53,7 +53,7 @@ class TestTweetCardLegacyBindingValueData(unittest.TestCase):
                     width = 56, ),
                 scribe_key = '',
                 string_value = '',
-                type = '',
+                type = 'STRING',
                 user_value = twitter_openapi_python_generated.models.user_value.UserValue(
                     id_str = '4', 
                     path = [
@@ -62,7 +62,7 @@ class TestTweetCardLegacyBindingValueData(unittest.TestCase):
             )
         else:
             return TweetCardLegacyBindingValueData(
-                type = '',
+                type = 'STRING',
         )
         """
 

@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,7 +29,8 @@ class CashtagAttachment(BaseModel):
     CashtagAttachment
     """ # noqa: E501
     rest_id: StrictStr
-    __properties: ClassVar[List[str]] = ["rest_id"]
+    size_variant: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["rest_id", "size_variant"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -82,7 +83,8 @@ class CashtagAttachment(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "rest_id": obj.get("rest_id")
+            "rest_id": obj.get("rest_id"),
+            "size_variant": obj.get("size_variant")
         })
         return _obj
 
