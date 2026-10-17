@@ -83,7 +83,7 @@ client.additional_api_headers = {
 
 ### Endpoint
 
-The generated client accepts any host that keeps X's path shape (`/graphql/{queryId}/{operationName}`, `/1.1/...`, `/2/...` under `https://x.com/i/api`). Build the `ApiClient` yourself and hand it to `get_twitter_openapi_python_client`; the login helpers are not involved, so cookies and headers are then up to you (or to whatever answers at that host).
+The generated client accepts any host that keeps X's path shape (`/graphql/{queryId}/{operationName}`, `/1.1/...`, `/2/...` under `https://x.com/i/api`). Build the `ApiClient` yourself and hand it to `get_twitter_openapi_python_client`; the login helpers are not involved, so cookies and headers are then up to you (or to whatever answers at that host). For example, [twitter_api_safe_relay](https://github.com/fa0311/twitter_api_safe_relay) answers at `http://localhost:3000/i/api` with a logged-in browser session.
 
 ```python
 import twitter_openapi_python_generated as twitter
