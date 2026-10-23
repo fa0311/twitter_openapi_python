@@ -70,6 +70,7 @@ class UserApiUtils:
         user_id: str,
         extra_param: Optional[ParamType] = None,
     ) -> ResponseType:
+        """Deprecated: X answers 403 outside a browser since 2026-10."""
         param: ParamType = {"userId": user_id}
         if extra_param is not None:
             param.update(extra_param)
