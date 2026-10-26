@@ -6,7 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | [optional] 
+**additional_context** | [**NotificationAdditionalContext**](NotificationAdditionalContext.md) |  | [optional] 
 **from_users** | **List[object]** |  | [optional] 
+**show_all_link_text** | **str** |  | [optional] 
 **target_objects** | **List[object]** |  | [optional] 
 
 ## Example

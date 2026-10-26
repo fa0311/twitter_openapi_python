@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.rich_message_entity_ref import RichMessageEntityRef
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,10 +29,11 @@ class RichMessageEntity(BaseModel):
     """
     RichMessageEntity
     """ # noqa: E501
+    format: Optional[StrictStr] = None
     from_index: StrictInt = Field(alias="fromIndex")
-    ref: RichMessageEntityRef
+    ref: Optional[RichMessageEntityRef] = None
     to_index: StrictInt = Field(alias="toIndex")
-    __properties: ClassVar[List[str]] = ["fromIndex", "ref", "toIndex"]
+    __properties: ClassVar[List[str]] = ["format", "fromIndex", "ref", "toIndex"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -88,6 +89,7 @@ class RichMessageEntity(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "format": obj.get("format"),
             "fromIndex": obj.get("fromIndex"),
             "ref": RichMessageEntityRef.from_dict(obj["ref"]) if obj.get("ref") is not None else None,
             "toIndex": obj.get("toIndex")

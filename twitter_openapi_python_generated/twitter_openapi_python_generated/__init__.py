@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 
 # Define package exports
 __all__ = [
@@ -401,8 +401,11 @@ __all__ = [
     "NoteTweetResultMediaInlineMedia",
     "NoteTweetResultRichText",
     "NoteTweetResultRichTextTag",
+    "NotificationAdditionalContext",
     "NotificationDetails",
     "NotificationTemplate",
+    "NotificationUrl",
+    "NotificationUrtEndpointOptions",
     "NotificationsResult",
     "NotificationsTimelineData",
     "NotificationsTimelineResponse",
@@ -450,6 +453,11 @@ __all__ = [
     "PostListAddMemberRequestVariables",
     "PostListRemoveMemberRequest",
     "PostUnfavoriteTweetRequest",
+    "Preroll",
+    "PrerollCallToAction",
+    "PrerollMediaInfo",
+    "PrerollMetadata",
+    "PrerollVideoVariant",
     "PrimaryCommunityTopic",
     "ProfileBio",
     "ProfileBioEntities",
@@ -604,6 +612,9 @@ __all__ = [
     "TweetResultByRestIdResponse",
     "TweetRetweetersResponse",
     "TweetRetweetersResponseData",
+    "TweetSportsCompetitor",
+    "TweetSportsPostContext",
+    "TweetSportsRestId",
     "TweetTombstone",
     "TweetUnavailable",
     "TweetUnion",
@@ -1082,8 +1093,11 @@ from twitter_openapi_python_generated.models.note_tweet_result_media import Note
 from twitter_openapi_python_generated.models.note_tweet_result_media_inline_media import NoteTweetResultMediaInlineMedia as NoteTweetResultMediaInlineMedia
 from twitter_openapi_python_generated.models.note_tweet_result_rich_text import NoteTweetResultRichText as NoteTweetResultRichText
 from twitter_openapi_python_generated.models.note_tweet_result_rich_text_tag import NoteTweetResultRichTextTag as NoteTweetResultRichTextTag
+from twitter_openapi_python_generated.models.notification_additional_context import NotificationAdditionalContext as NotificationAdditionalContext
 from twitter_openapi_python_generated.models.notification_details import NotificationDetails as NotificationDetails
 from twitter_openapi_python_generated.models.notification_template import NotificationTemplate as NotificationTemplate
+from twitter_openapi_python_generated.models.notification_url import NotificationUrl as NotificationUrl
+from twitter_openapi_python_generated.models.notification_urt_endpoint_options import NotificationUrtEndpointOptions as NotificationUrtEndpointOptions
 from twitter_openapi_python_generated.models.notifications_result import NotificationsResult as NotificationsResult
 from twitter_openapi_python_generated.models.notifications_timeline_data import NotificationsTimelineData as NotificationsTimelineData
 from twitter_openapi_python_generated.models.notifications_timeline_response import NotificationsTimelineResponse as NotificationsTimelineResponse
@@ -1131,6 +1145,11 @@ from twitter_openapi_python_generated.models.post_list_add_member_request import
 from twitter_openapi_python_generated.models.post_list_add_member_request_variables import PostListAddMemberRequestVariables as PostListAddMemberRequestVariables
 from twitter_openapi_python_generated.models.post_list_remove_member_request import PostListRemoveMemberRequest as PostListRemoveMemberRequest
 from twitter_openapi_python_generated.models.post_unfavorite_tweet_request import PostUnfavoriteTweetRequest as PostUnfavoriteTweetRequest
+from twitter_openapi_python_generated.models.preroll import Preroll as Preroll
+from twitter_openapi_python_generated.models.preroll_call_to_action import PrerollCallToAction as PrerollCallToAction
+from twitter_openapi_python_generated.models.preroll_media_info import PrerollMediaInfo as PrerollMediaInfo
+from twitter_openapi_python_generated.models.preroll_metadata import PrerollMetadata as PrerollMetadata
+from twitter_openapi_python_generated.models.preroll_video_variant import PrerollVideoVariant as PrerollVideoVariant
 from twitter_openapi_python_generated.models.primary_community_topic import PrimaryCommunityTopic as PrimaryCommunityTopic
 from twitter_openapi_python_generated.models.profile_bio import ProfileBio as ProfileBio
 from twitter_openapi_python_generated.models.profile_bio_entities import ProfileBioEntities as ProfileBioEntities
@@ -1285,6 +1304,9 @@ from twitter_openapi_python_generated.models.tweet_result_by_rest_id_data import
 from twitter_openapi_python_generated.models.tweet_result_by_rest_id_response import TweetResultByRestIdResponse as TweetResultByRestIdResponse
 from twitter_openapi_python_generated.models.tweet_retweeters_response import TweetRetweetersResponse as TweetRetweetersResponse
 from twitter_openapi_python_generated.models.tweet_retweeters_response_data import TweetRetweetersResponseData as TweetRetweetersResponseData
+from twitter_openapi_python_generated.models.tweet_sports_competitor import TweetSportsCompetitor as TweetSportsCompetitor
+from twitter_openapi_python_generated.models.tweet_sports_post_context import TweetSportsPostContext as TweetSportsPostContext
+from twitter_openapi_python_generated.models.tweet_sports_rest_id import TweetSportsRestId as TweetSportsRestId
 from twitter_openapi_python_generated.models.tweet_tombstone import TweetTombstone as TweetTombstone
 from twitter_openapi_python_generated.models.tweet_unavailable import TweetUnavailable as TweetUnavailable
 from twitter_openapi_python_generated.models.tweet_union import TweetUnion as TweetUnion

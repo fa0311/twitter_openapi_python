@@ -5,8 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**format** | **str** |  | [optional] 
 **from_index** | **int** |  | 
-**ref** | [**RichMessageEntityRef**](RichMessageEntityRef.md) |  | 
+**ref** | [**RichMessageEntityRef**](RichMessageEntityRef.md) |  | [optional] 
 **to_index** | **int** |  | 
 
 ## Example

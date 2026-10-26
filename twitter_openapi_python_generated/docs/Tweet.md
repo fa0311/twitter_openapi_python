@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **quoted_status_result** | [**ItemResult**](ItemResult.md) |  | [optional] 
 **rest_id** | **str** |  | 
 **source** | **str** |  | [optional] 
+**sports_post_context** | [**TweetSportsPostContext**](TweetSportsPostContext.md) |  | [optional] 
 **super_follows_reply_user_result** | [**SuperFollowsReplyUserResult**](SuperFollowsReplyUserResult.md) |  | [optional] 
 **trend_results** | [**TrendResults**](TrendResults.md) |  | [optional] 
 **unified_card** | [**UnifiedCard**](UnifiedCard.md) |  | [optional] 

@@ -22,8 +22,8 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from twitter_openapi_python_generated.models.content_item_type import ContentItemType
 from twitter_openapi_python_generated.models.notification_template import NotificationTemplate
+from twitter_openapi_python_generated.models.notification_url import NotificationUrl
 from twitter_openapi_python_generated.models.rich_message import RichMessage
-from twitter_openapi_python_generated.models.social_context_landing_url import SocialContextLandingUrl
 from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
 from typing_extensions import Self
@@ -37,7 +37,7 @@ class TimelineNotification(BaseModel):
     id: StrictStr
     item_type: ContentItemType = Field(alias="itemType")
     notification_icon: StrictStr
-    notification_url: SocialContextLandingUrl
+    notification_url: NotificationUrl
     rich_message: RichMessage
     template: NotificationTemplate
     timestamp_ms: StrictStr
@@ -107,7 +107,7 @@ class TimelineNotification(BaseModel):
             "id": obj.get("id"),
             "itemType": obj.get("itemType"),
             "notification_icon": obj.get("notification_icon"),
-            "notification_url": SocialContextLandingUrl.from_dict(obj["notification_url"]) if obj.get("notification_url") is not None else None,
+            "notification_url": NotificationUrl.from_dict(obj["notification_url"]) if obj.get("notification_url") is not None else None,
             "rich_message": RichMessage.from_dict(obj["rich_message"]) if obj.get("rich_message") is not None else None,
             "template": NotificationTemplate.from_dict(obj["template"]) if obj.get("template") is not None else None,
             "timestamp_ms": obj.get("timestamp_ms")

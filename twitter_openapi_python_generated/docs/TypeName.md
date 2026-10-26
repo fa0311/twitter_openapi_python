@@ -17,6 +17,8 @@
 
 * `AITREND` (value: `'AiTrend'`)
 
+* `TIMELINERICHTEXT` (value: `'TimelineRichText'`)
+
 * `TIMELINETIMELINEITEM` (value: `'TimelineTimelineItem'`)
 
 * `TIMELINEUSER` (value: `'TimelineUser'`)

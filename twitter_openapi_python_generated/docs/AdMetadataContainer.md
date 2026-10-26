@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **destination_url_params** | [**List[KeyValue]**](KeyValue.md) |  | [optional] 
 **is_quick_promote** | **bool** |  | 
+**remove_promoted_attribution_for_preroll** | **bool** |  | [optional] 
 **render_legacy_website_card** | **bool** |  | 
 **render_sales_cta_website_card** | **bool** |  | 
 **show_overlay_on_first_card** | **bool** |  | [optional] 

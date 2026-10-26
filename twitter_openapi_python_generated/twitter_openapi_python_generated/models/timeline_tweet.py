@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.content_item_type import ContentItemType
 from twitter_openapi_python_generated.models.highlight import Highlight
 from twitter_openapi_python_generated.models.item_result import ItemResult
+from twitter_openapi_python_generated.models.preroll_metadata import PrerollMetadata
 from twitter_openapi_python_generated.models.promoted_metadata import PromotedMetadata
 from twitter_openapi_python_generated.models.social_context_union import SocialContextUnion
 from twitter_openapi_python_generated.models.type_name import TypeName
@@ -38,11 +39,12 @@ class TimelineTweet(BaseModel):
     has_moderated_replies: Optional[StrictBool] = Field(default=None, alias="hasModeratedReplies")
     highlights: Optional[Highlight] = None
     item_type: ContentItemType = Field(alias="itemType")
+    preroll_metadata: Optional[PrerollMetadata] = Field(default=None, alias="prerollMetadata")
     promoted_metadata: Optional[PromotedMetadata] = Field(default=None, alias="promotedMetadata")
     social_context: Optional[SocialContextUnion] = Field(default=None, alias="socialContext")
     tweet_display_type: StrictStr = Field(alias="tweetDisplayType")
     tweet_results: ItemResult
-    __properties: ClassVar[List[str]] = ["__typename", "hasModeratedReplies", "highlights", "itemType", "promotedMetadata", "socialContext", "tweetDisplayType", "tweet_results"]
+    __properties: ClassVar[List[str]] = ["__typename", "hasModeratedReplies", "highlights", "itemType", "prerollMetadata", "promotedMetadata", "socialContext", "tweetDisplayType", "tweet_results"]
 
     @field_validator('tweet_display_type')
     def tweet_display_type_validate_enum(cls, value):
@@ -93,6 +95,9 @@ class TimelineTweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of highlights
         if self.highlights:
             _dict['highlights'] = self.highlights.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of preroll_metadata
+        if self.preroll_metadata:
+            _dict['prerollMetadata'] = self.preroll_metadata.to_dict()
         # override the default output from pydantic by calling `to_dict()` of promoted_metadata
         if self.promoted_metadata:
             _dict['promotedMetadata'] = self.promoted_metadata.to_dict()
@@ -118,6 +123,7 @@ class TimelineTweet(BaseModel):
             "hasModeratedReplies": obj.get("hasModeratedReplies"),
             "highlights": Highlight.from_dict(obj["highlights"]) if obj.get("highlights") is not None else None,
             "itemType": obj.get("itemType"),
+            "prerollMetadata": PrerollMetadata.from_dict(obj["prerollMetadata"]) if obj.get("prerollMetadata") is not None else None,
             "promotedMetadata": PromotedMetadata.from_dict(obj["promotedMetadata"]) if obj.get("promotedMetadata") is not None else None,
             "socialContext": SocialContextUnion.from_dict(obj["socialContext"]) if obj.get("socialContext") is not None else None,
             "tweetDisplayType": obj.get("tweetDisplayType"),

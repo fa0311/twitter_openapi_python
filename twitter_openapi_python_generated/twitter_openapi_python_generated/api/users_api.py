@@ -375,9 +375,9 @@ class UsersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> UsersResponse:
-        """get_users_by_rest_ids
+        """(Deprecated) get_users_by_rest_ids
 
-        get users by rest ids
+        get users by rest ids. Deprecated: X answers 403 outside a browser since 2026-10
 
         :param path_query_id: (required)
         :type path_query_id: str
@@ -406,6 +406,7 @@ class UsersApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /graphql/{pathQueryId}/UsersByRestIds is deprecated.", DeprecationWarning)
 
         _param = self._get_users_by_rest_ids_serialize(
             path_query_id=path_query_id,
@@ -450,9 +451,9 @@ class UsersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[UsersResponse]:
-        """get_users_by_rest_ids
+        """(Deprecated) get_users_by_rest_ids
 
-        get users by rest ids
+        get users by rest ids. Deprecated: X answers 403 outside a browser since 2026-10
 
         :param path_query_id: (required)
         :type path_query_id: str
@@ -481,6 +482,7 @@ class UsersApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /graphql/{pathQueryId}/UsersByRestIds is deprecated.", DeprecationWarning)
 
         _param = self._get_users_by_rest_ids_serialize(
             path_query_id=path_query_id,
@@ -525,9 +527,9 @@ class UsersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """get_users_by_rest_ids
+        """(Deprecated) get_users_by_rest_ids
 
-        get users by rest ids
+        get users by rest ids. Deprecated: X answers 403 outside a browser since 2026-10
 
         :param path_query_id: (required)
         :type path_query_id: str
@@ -556,6 +558,7 @@ class UsersApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /graphql/{pathQueryId}/UsersByRestIds is deprecated.", DeprecationWarning)
 
         _param = self._get_users_by_rest_ids_serialize(
             path_query_id=path_query_id,

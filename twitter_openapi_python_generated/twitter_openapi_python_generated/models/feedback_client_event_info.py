@@ -28,9 +28,9 @@ class FeedbackClientEventInfo(BaseModel):
     """
     FeedbackClientEventInfo
     """ # noqa: E501
-    action: StrictStr
+    action: Optional[StrictStr] = None
     component: Optional[StrictStr] = None
-    element: StrictStr
+    element: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["action", "component", "element"]
 
     model_config = ConfigDict(

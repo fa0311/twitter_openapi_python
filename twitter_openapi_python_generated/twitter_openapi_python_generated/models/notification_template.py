@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from twitter_openapi_python_generated.models.notification_additional_context import NotificationAdditionalContext
 from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,9 +31,11 @@ class NotificationTemplate(BaseModel):
     NotificationTemplate
     """ # noqa: E501
     typename: Optional[TypeName] = Field(default=None, alias="__typename")
+    additional_context: Optional[NotificationAdditionalContext] = None
     from_users: Optional[List[Dict[str, Any]]] = None
+    show_all_link_text: Optional[StrictStr] = None
     target_objects: Optional[List[Dict[str, Any]]] = None
-    __properties: ClassVar[List[str]] = ["__typename", "from_users", "target_objects"]
+    __properties: ClassVar[List[str]] = ["__typename", "additional_context", "from_users", "show_all_link_text", "target_objects"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -73,6 +76,9 @@ class NotificationTemplate(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of additional_context
+        if self.additional_context:
+            _dict['additional_context'] = self.additional_context.to_dict()
         return _dict
 
     @classmethod
@@ -86,7 +92,9 @@ class NotificationTemplate(BaseModel):
 
         _obj = cls.model_validate({
             "__typename": obj.get("__typename"),
+            "additional_context": NotificationAdditionalContext.from_dict(obj["additional_context"]) if obj.get("additional_context") is not None else None,
             "from_users": obj.get("from_users"),
+            "show_all_link_text": obj.get("show_all_link_text"),
             "target_objects": obj.get("target_objects")
         })
         return _obj
