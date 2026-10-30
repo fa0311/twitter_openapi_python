@@ -45,6 +45,27 @@ class TestTimelineTweet(unittest.TestCase):
                             start_index = 56, )
                         ], ),
                 item_type = 'TimelineTweet',
+                preroll_metadata = twitter_openapi_python_generated.models.preroll_metadata.PrerollMetadata(
+                    preroll = twitter_openapi_python_generated.models.preroll.Preroll(
+                        dynamic_preroll_type = '', 
+                        media_info = twitter_openapi_python_generated.models.preroll_media_info.PrerollMediaInfo(
+                            advertiser_name = '', 
+                            advertiser_profile_image_url = '', 
+                            call_to_action = twitter_openapi_python_generated.models.preroll_call_to_action.PrerollCallToAction(
+                                call_to_action_type = '', 
+                                url = '', ), 
+                            duration_millis = 56, 
+                            publisher_results = twitter_openapi_python_generated.models.user_results.UserResults(
+                                result = null, ), 
+                            render_ad_by_advertiser_name = True, 
+                            uuid = '', 
+                            video_variants = [
+                                twitter_openapi_python_generated.models.preroll_video_variant.PrerollVideoVariant(
+                                    bitrate = 56, 
+                                    content_type = '', 
+                                    url = '', )
+                                ], ), 
+                        preroll_id = '', ), ),
                 promoted_metadata = twitter_openapi_python_generated.models.promoted_metadata.PromotedMetadata(
                     ad_metadata_container = twitter_openapi_python_generated.models.ad_metadata_container.AdMetadataContainer(
                         destination_url_params = [
@@ -53,6 +74,7 @@ class TestTimelineTweet(unittest.TestCase):
                                 value = '', )
                             ], 
                         is_quick_promote = True, 
+                        remove_promoted_attribution_for_preroll = True, 
                         render_legacy_website_card = True, 
                         render_sales_cta_website_card = True, 
                         show_overlay_on_first_card = True, 

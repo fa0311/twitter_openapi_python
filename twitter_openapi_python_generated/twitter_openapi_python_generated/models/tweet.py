@@ -39,6 +39,7 @@ from twitter_openapi_python_generated.models.tweet_edit_control import TweetEdit
 from twitter_openapi_python_generated.models.tweet_edit_prespective import TweetEditPrespective
 from twitter_openapi_python_generated.models.tweet_post_cta import TweetPostCta
 from twitter_openapi_python_generated.models.tweet_previous_counts import TweetPreviousCounts
+from twitter_openapi_python_generated.models.tweet_sports_post_context import TweetSportsPostContext
 from twitter_openapi_python_generated.models.tweet_view import TweetView
 from twitter_openapi_python_generated.models.type_name import TypeName
 from twitter_openapi_python_generated.models.unified_card import UnifiedCard
@@ -83,13 +84,14 @@ class Tweet(BaseModel):
     quoted_status_result: Optional[ItemResult] = None
     rest_id: Annotated[str, Field(strict=True)]
     source: Optional[StrictStr] = None
+    sports_post_context: Optional[TweetSportsPostContext] = None
     super_follows_reply_user_result: Optional[SuperFollowsReplyUserResult] = Field(default=None, alias="superFollowsReplyUserResult")
     trend_results: Optional[TrendResults] = None
     unified_card: Optional[UnifiedCard] = None
     unmention_data: Optional[Dict[str, Any]] = None
     views: Optional[TweetView] = None
     voice_info: Optional[Dict[str, Any]] = Field(default=None, alias="voiceInfo")
-    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "cashtag_attachments", "community_relationship", "community_results", "content_disclosure", "core", "edit_control", "edit_prespective", "grok_analysis_button", "grok_analysis_followups", "grok_annotations", "grok_share_attachment", "grok_translated_post_with_availability", "has_birdwatch_notes", "is_translatable", "jetfuel_attachment", "legacy", "nested_quoted_tweet_results", "note_tweet", "postCta", "post_image_description", "post_video_description", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views", "voiceInfo"]
+    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "cashtag_attachments", "community_relationship", "community_results", "content_disclosure", "core", "edit_control", "edit_prespective", "grok_analysis_button", "grok_analysis_followups", "grok_annotations", "grok_share_attachment", "grok_translated_post_with_availability", "has_birdwatch_notes", "is_translatable", "jetfuel_attachment", "legacy", "nested_quoted_tweet_results", "note_tweet", "postCta", "post_image_description", "post_video_description", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "sports_post_context", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views", "voiceInfo"]
 
     @field_validator('rest_id', mode="before")
     def rest_id_validate_regular_expression(cls, value):
@@ -206,6 +208,9 @@ class Tweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of quoted_status_result
         if self.quoted_status_result:
             _dict['quoted_status_result'] = self.quoted_status_result.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of sports_post_context
+        if self.sports_post_context:
+            _dict['sports_post_context'] = self.sports_post_context.to_dict()
         # override the default output from pydantic by calling `to_dict()` of super_follows_reply_user_result
         if self.super_follows_reply_user_result:
             _dict['superFollowsReplyUserResult'] = self.super_follows_reply_user_result.to_dict()
@@ -262,6 +267,7 @@ class Tweet(BaseModel):
             "quoted_status_result": ItemResult.from_dict(obj["quoted_status_result"]) if obj.get("quoted_status_result") is not None else None,
             "rest_id": obj.get("rest_id"),
             "source": obj.get("source"),
+            "sports_post_context": TweetSportsPostContext.from_dict(obj["sports_post_context"]) if obj.get("sports_post_context") is not None else None,
             "superFollowsReplyUserResult": SuperFollowsReplyUserResult.from_dict(obj["superFollowsReplyUserResult"]) if obj.get("superFollowsReplyUserResult") is not None else None,
             "trend_results": TrendResults.from_dict(obj["trend_results"]) if obj.get("trend_results") is not None else None,
             "unified_card": UnifiedCard.from_dict(obj["unified_card"]) if obj.get("unified_card") is not None else None,

@@ -43,6 +43,7 @@ class TestPromotedMetadata(unittest.TestCase):
                             value = '', )
                         ], 
                     is_quick_promote = True, 
+                    remove_promoted_attribution_for_preroll = True, 
                     render_legacy_website_card = True, 
                     render_sales_cta_website_card = True, 
                     show_overlay_on_first_card = True, 
@@ -67,6 +68,7 @@ class TestPromotedMetadata(unittest.TestCase):
                             value = '', )
                         ], 
                     is_quick_promote = True, 
+                    remove_promoted_attribution_for_preroll = True, 
                     render_legacy_website_card = True, 
                     render_sales_cta_website_card = True, 
                     show_overlay_on_first_card = True, 

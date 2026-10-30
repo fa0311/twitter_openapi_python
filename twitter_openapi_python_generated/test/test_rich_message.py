@@ -38,6 +38,7 @@ class TestRichMessage(unittest.TestCase):
             return RichMessage(
                 entities = [
                     twitter_openapi_python_generated.models.rich_message_entity.RichMessageEntity(
+                        format = '', 
                         from_index = 56, 
                         ref = twitter_openapi_python_generated.models.rich_message_entity_ref.RichMessageEntityRef(
                             id = '4', 

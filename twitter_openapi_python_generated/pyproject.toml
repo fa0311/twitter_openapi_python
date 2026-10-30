@@ -1,6 +1,6 @@
 [project]
 name = "twitter_openapi_python_generated"
-version = "0.1.3"
+version = "0.1.4"
 description = "Twitter OpenAPI"
 authors = [
   {name = "OpenAPI Generator Community",email = "yuki@yuki0311.com"},

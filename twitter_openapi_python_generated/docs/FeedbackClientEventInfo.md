@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** | **str** |  | 
+**action** | **str** |  | [optional] 
 **component** | **str** |  | [optional] 
-**element** | **str** |  | 
+**element** | **str** |  | [optional] 
 
 ## Example
 

@@ -1228,6 +1228,27 @@ class TestTweet(unittest.TestCase):
                                         __typename = 'TimelineTweet', ), 
                                     rest_id = '4', 
                                     source = '', 
+                                    sports_post_context = twitter_openapi_python_generated.models.tweet_sports_post_context.TweetSportsPostContext(
+                                        competitors = [
+                                            twitter_openapi_python_generated.models.tweet_sports_competitor.TweetSportsCompetitor(
+                                                abbreviation = '', 
+                                                dark_logo_url = '', 
+                                                is_active = True, 
+                                                is_winner = True, 
+                                                logo_url = '', 
+                                                name = '', 
+                                                score = '', 
+                                                team_rest_id = twitter_openapi_python_generated.models.tweet_sports_rest_id.TweetSportsRestId(
+                                                    rest_id = '4', ), )
+                                            ], 
+                                        game_id = twitter_openapi_python_generated.models.tweet_sports_rest_id.TweetSportsRestId(
+                                            rest_id = '4', ), 
+                                        league = '', 
+                                        scheduled_at_ms = '4', 
+                                        state = '', 
+                                        status_text = '', 
+                                        title = '', 
+                                        url = '', ), 
                                     super_follows_reply_user_result = twitter_openapi_python_generated.models.super_follows_reply_user_result.SuperFollowsReplyUserResult(
                                         result = twitter_openapi_python_generated.models.super_follows_reply_user_result_data.SuperFollowsReplyUserResultData(
                                             __typename = 'TimelineTweet', 
@@ -1912,6 +1933,27 @@ class TestTweet(unittest.TestCase):
                     result = null, ),
                 rest_id = '4',
                 source = '',
+                sports_post_context = twitter_openapi_python_generated.models.tweet_sports_post_context.TweetSportsPostContext(
+                    competitors = [
+                        twitter_openapi_python_generated.models.tweet_sports_competitor.TweetSportsCompetitor(
+                            abbreviation = '', 
+                            dark_logo_url = '', 
+                            is_active = True, 
+                            is_winner = True, 
+                            logo_url = '', 
+                            name = '', 
+                            score = '', 
+                            team_rest_id = twitter_openapi_python_generated.models.tweet_sports_rest_id.TweetSportsRestId(
+                                rest_id = '4', ), )
+                        ], 
+                    game_id = twitter_openapi_python_generated.models.tweet_sports_rest_id.TweetSportsRestId(
+                        rest_id = '4', ), 
+                    league = '', 
+                    scheduled_at_ms = '4', 
+                    state = '', 
+                    status_text = '', 
+                    title = '', 
+                    url = '', ),
                 super_follows_reply_user_result = twitter_openapi_python_generated.models.super_follows_reply_user_result.SuperFollowsReplyUserResult(
                     result = twitter_openapi_python_generated.models.super_follows_reply_user_result_data.SuperFollowsReplyUserResultData(
                         __typename = 'TimelineTweet', 

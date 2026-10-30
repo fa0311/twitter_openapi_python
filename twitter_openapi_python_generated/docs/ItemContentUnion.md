@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **has_moderated_replies** | **bool** |  | [optional] 
 **highlights** | [**Highlight**](Highlight.md) |  | [optional] 
 **item_type** | [**ContentItemType**](ContentItemType.md) |  | 
+**preroll_metadata** | [**PrerollMetadata**](PrerollMetadata.md) |  | [optional] 
 **promoted_metadata** | [**EventSummaryPromotedMetadata**](EventSummaryPromotedMetadata.md) |  | 
 **social_context** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
 **tweet_display_type** | **str** |  | 
@@ -38,7 +39,7 @@ Name | Type | Description | Notes
 **trend_url** | [**SocialContextLandingUrl**](SocialContextLandingUrl.md) |  | 
 **id** | **str** |  | 
 **notification_icon** | **str** |  | 
-**notification_url** | [**SocialContextLandingUrl**](SocialContextLandingUrl.md) |  | 
+**notification_url** | [**NotificationUrl**](NotificationUrl.md) |  | 
 **rich_message** | [**RichMessage**](RichMessage.md) |  | 
 **template** | [**NotificationTemplate**](NotificationTemplate.md) |  | 
 **timestamp_ms** | **str** |  | 

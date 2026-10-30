@@ -196,7 +196,7 @@ def tweet_results_converter(tweetResults: models.ItemResult) -> Optional[models.
         return properties
     elif isinstance(properties, models.TweetWithVisibilityResults):
         return properties.tweet
-    elif isinstance(properties, models.TweetTombstone):
+    elif isinstance(properties, (models.TweetTombstone, models.TweetUnavailable, models.TweetPreviewDisplay)):
         return None
     raise Exception()
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **item_type** | [**ContentItemType**](ContentItemType.md) |  | 
 **notification_icon** | **str** |  | 
-**notification_url** | [**SocialContextLandingUrl**](SocialContextLandingUrl.md) |  | 
+**notification_url** | [**NotificationUrl**](NotificationUrl.md) |  | 
 **rich_message** | [**RichMessage**](RichMessage.md) |  | 
 **template** | [**NotificationTemplate**](NotificationTemplate.md) |  | 
 **timestamp_ms** | **str** |  | 

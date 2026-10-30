@@ -40,19 +40,17 @@ class TestTimelineNotification(unittest.TestCase):
                 id = '',
                 item_type = 'TimelineTweet',
                 notification_icon = '',
-                notification_url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
+                notification_url = twitter_openapi_python_generated.models.notification_url.NotificationUrl(
                     url = '', 
-                    url_type = 'DeepLink', 
-                    urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
-                        request_params = [
-                            twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
-                                key = '', 
-                                value = '', )
-                            ], 
+                    url_type = 'ExternalUrl', 
+                    urt_endpoint_options = twitter_openapi_python_generated.models.notification_urt_endpoint_options.NotificationUrtEndpointOptions(
+                        cache_id = '', 
+                        subtitle = '', 
                         title = '', ), ),
                 rich_message = twitter_openapi_python_generated.models.rich_message.RichMessage(
                     entities = [
                         twitter_openapi_python_generated.models.rich_message_entity.RichMessageEntity(
+                            format = '', 
                             from_index = 56, 
                             ref = twitter_openapi_python_generated.models.rich_message_entity_ref.RichMessageEntityRef(
                                 id = '4', 
@@ -66,9 +64,16 @@ class TestTimelineNotification(unittest.TestCase):
                     text = '', ),
                 template = twitter_openapi_python_generated.models.notification_template.NotificationTemplate(
                     __typename = 'TimelineTweet', 
+                    additional_context = twitter_openapi_python_generated.models.notification_additional_context.NotificationAdditionalContext(
+                        __typename = 'TimelineTweet', 
+                        entities = [
+                            None
+                            ], 
+                        text = '', ), 
                     from_users = [
                         None
                         ], 
+                    show_all_link_text = '', 
                     target_objects = [
                         None
                         ], ),
@@ -80,19 +85,17 @@ class TestTimelineNotification(unittest.TestCase):
                 id = '',
                 item_type = 'TimelineTweet',
                 notification_icon = '',
-                notification_url = twitter_openapi_python_generated.models.social_context_landing_url.SocialContextLandingUrl(
+                notification_url = twitter_openapi_python_generated.models.notification_url.NotificationUrl(
                     url = '', 
-                    url_type = 'DeepLink', 
-                    urt_endpoint_options = twitter_openapi_python_generated.models.urt_endpoint_options.UrtEndpointOptions(
-                        request_params = [
-                            twitter_openapi_python_generated.models.urt_endpoint_request_params.UrtEndpointRequestParams(
-                                key = '', 
-                                value = '', )
-                            ], 
+                    url_type = 'ExternalUrl', 
+                    urt_endpoint_options = twitter_openapi_python_generated.models.notification_urt_endpoint_options.NotificationUrtEndpointOptions(
+                        cache_id = '', 
+                        subtitle = '', 
                         title = '', ), ),
                 rich_message = twitter_openapi_python_generated.models.rich_message.RichMessage(
                     entities = [
                         twitter_openapi_python_generated.models.rich_message_entity.RichMessageEntity(
+                            format = '', 
                             from_index = 56, 
                             ref = twitter_openapi_python_generated.models.rich_message_entity_ref.RichMessageEntityRef(
                                 id = '4', 
@@ -106,9 +109,16 @@ class TestTimelineNotification(unittest.TestCase):
                     text = '', ),
                 template = twitter_openapi_python_generated.models.notification_template.NotificationTemplate(
                     __typename = 'TimelineTweet', 
+                    additional_context = twitter_openapi_python_generated.models.notification_additional_context.NotificationAdditionalContext(
+                        __typename = 'TimelineTweet', 
+                        entities = [
+                            None
+                            ], 
+                        text = '', ), 
                     from_users = [
                         None
                         ], 
+                    show_all_link_text = '', 
                     target_objects = [
                         None
                         ], ),

@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 # **get_users_by_rest_ids**
 > UsersResponse get_users_by_rest_ids(path_query_id, variables, features)
 
-get users by rest ids
+get users by rest ids. Deprecated: X answers 403 outside a browser since 2026-10
 
 ### Example
 

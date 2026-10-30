@@ -37,9 +37,16 @@ class TestNotificationTemplate(unittest.TestCase):
         if include_optional:
             return NotificationTemplate(
                 typename = 'TimelineTweet',
+                additional_context = twitter_openapi_python_generated.models.notification_additional_context.NotificationAdditionalContext(
+                    __typename = 'TimelineTweet', 
+                    entities = [
+                        None
+                        ], 
+                    text = '', ),
                 from_users = [
                     None
                     ],
+                show_all_link_text = '',
                 target_objects = [
                     None
                     ]

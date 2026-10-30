@@ -42,8 +42,6 @@ class TestFeedbackClientEventInfo(unittest.TestCase):
             )
         else:
             return FeedbackClientEventInfo(
-                action = '',
-                element = '',
         )
         """
 

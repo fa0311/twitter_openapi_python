@@ -34,6 +34,7 @@ class TypeName(str, Enum):
     TIMELINELABEL = 'TimelineLabel'
     TIMELINEEVENTSUMMARY = 'TimelineEventSummary'
     AITREND = 'AiTrend'
+    TIMELINERICHTEXT = 'TimelineRichText'
     TIMELINETIMELINEITEM = 'TimelineTimelineItem'
     TIMELINEUSER = 'TimelineUser'
     TIMELINETIMELINECURSOR = 'TimelineTimelineCursor'

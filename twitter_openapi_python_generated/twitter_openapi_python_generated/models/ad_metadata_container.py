@@ -31,11 +31,12 @@ class AdMetadataContainer(BaseModel):
     """ # noqa: E501
     destination_url_params: Optional[List[KeyValue]] = Field(default=None, alias="destinationUrlParams")
     is_quick_promote: StrictBool = Field(alias="isQuickPromote")
+    remove_promoted_attribution_for_preroll: Optional[StrictBool] = None
     render_legacy_website_card: StrictBool = Field(alias="renderLegacyWebsiteCard")
     render_sales_cta_website_card: StrictBool = Field(alias="renderSalesCtaWebsiteCard")
     show_overlay_on_first_card: Optional[StrictBool] = Field(default=None, alias="showOverlayOnFirstCard")
     unified_card_override: Optional[StrictStr] = Field(default=None, alias="unifiedCardOverride")
-    __properties: ClassVar[List[str]] = ["destinationUrlParams", "isQuickPromote", "renderLegacyWebsiteCard", "renderSalesCtaWebsiteCard", "showOverlayOnFirstCard", "unifiedCardOverride"]
+    __properties: ClassVar[List[str]] = ["destinationUrlParams", "isQuickPromote", "remove_promoted_attribution_for_preroll", "renderLegacyWebsiteCard", "renderSalesCtaWebsiteCard", "showOverlayOnFirstCard", "unifiedCardOverride"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -96,6 +97,7 @@ class AdMetadataContainer(BaseModel):
         _obj = cls.model_validate({
             "destinationUrlParams": [KeyValue.from_dict(_item) for _item in obj["destinationUrlParams"]] if obj.get("destinationUrlParams") is not None else None,
             "isQuickPromote": obj.get("isQuickPromote"),
+            "remove_promoted_attribution_for_preroll": obj.get("remove_promoted_attribution_for_preroll"),
             "renderLegacyWebsiteCard": obj.get("renderLegacyWebsiteCard"),
             "renderSalesCtaWebsiteCard": obj.get("renderSalesCtaWebsiteCard"),
             "showOverlayOnFirstCard": obj.get("showOverlayOnFirstCard"),
