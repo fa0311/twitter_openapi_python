@@ -11,5 +11,6 @@ from twitter_openapi_python.client import (
     TwitterOpenapiPythonClient,
 )
 from twitter_openapi_python.models import *
+from twitter_openapi_python.utils.paginate import paginate
 
 # from twitter_openapi_python.utils import *

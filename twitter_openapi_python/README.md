@@ -81,6 +81,18 @@ client.additional_api_headers = {
 };
 ```
 
+### Pagination
+
+`paginate` walks any timeline call through its bottom cursor and yields the items: it stops at the end of the timeline or after `limit` items, and waits for the rate-limit window to reset when it is used up.
+
+```python
+from twitter_openapi_python import paginate
+
+tweets = paginate(lambda cursor: 𝕏.get_tweet_api().get_user_tweets(user_id="44196397", cursor=cursor), limit=100)
+for tweet in tweets:
+    print(tweet.tweet.legacy.full_text if tweet.tweet.legacy else None)
+```
+
 ### Endpoint
 
 The generated client accepts any host that keeps X's path shape (`/graphql/{queryId}/{operationName}`, `/1.1/...`, `/2/...` under `https://x.com/i/api`). Build the `ApiClient` yourself and hand it to `get_twitter_openapi_python_client`; the login helpers are not involved, so cookies and headers are then up to you (or to whatever answers at that host). For example, [twitter_api_safe_relay](https://github.com/fa0311/twitter_api_safe_relay) answers at `http://localhost:3000/i/api` with a logged-in browser session.
