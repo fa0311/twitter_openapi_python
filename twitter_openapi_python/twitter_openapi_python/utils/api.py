@@ -40,7 +40,7 @@ def non_nullable_list(x: List[Optional[T]]) -> List[T]:
     return list(filter(filter_fn, x))
 
 
-def get_kwargs(flag: ParamType, additional: ParamType, ct: ClientTransaction) -> ParamType:
+def get_kwargs(flag: ParamType, additional: ParamType, ct: Optional[ClientTransaction]) -> ParamType:
     assert flag is not None
     kwargs = {"path_query_id": flag["queryId"]}
     if flag.get("variables") is not None:
@@ -54,7 +54,9 @@ def get_kwargs(flag: ParamType, additional: ParamType, ct: ClientTransaction) ->
     return kwargs
 
 
-def get_headers(flag: ParamType, ct: ClientTransaction) -> Dict[str, str]:
+def get_headers(flag: ParamType, ct: Optional[ClientTransaction]) -> Dict[str, str]:
+    if ct is None:
+        return {}
     tid = ct.generate_transaction_id(flag["@method"], flag["@path"])
     return {"x-client-transaction-id": tid}
 
@@ -304,7 +306,7 @@ def build_header(headers: Dict[str, str]) -> ApiUtilsHeader:
 def timeline_request(
     api_fn: Callable[..., twitter.ApiResponse[T1]],
     flag: ParamType,
-    ct: ClientTransaction,
+    ct: Optional[ClientTransaction],
     convert_fn: Callable[[T1], List[models.InstructionUnion]],
     param: ParamType,
     items_fn: Callable[[List[models.TimelineAddEntry]], List[T2]],
@@ -323,7 +325,7 @@ def timeline_request(
 def data_request(
     api_fn: Callable[..., twitter.ApiResponse[T1]],
     flag: ParamType,
-    ct: ClientTransaction,
+    ct: Optional[ClientTransaction],
     convert_fn: Callable[[T1], T2],
     param: ParamType,
 ) -> TwitterApiUtilsResponse[T2]:

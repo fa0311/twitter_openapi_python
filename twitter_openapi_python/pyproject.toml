@@ -1,6 +1,6 @@
 [project]
 name = "twitter_openapi_python"
-version = "0.1.4"
+version = "0.1.5"
 description = "Twitter OpenAPI"
 authors = [{ name = "fa0311", email = "yuki@yuki0311.com" }]
 readme = "README.md"

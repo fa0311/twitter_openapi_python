@@ -29,7 +29,7 @@ class UserListApiUtils:
     api: twitter.UserListApi
     flag: ParamType
 
-    def __init__(self, api: twitter.UserListApi, flag: ParamType, ct: ClientTransaction):
+    def __init__(self, api: twitter.UserListApi, flag: ParamType, ct: Optional[ClientTransaction]):
         self.api = api
         self.flag = flag
         self.ct = ct

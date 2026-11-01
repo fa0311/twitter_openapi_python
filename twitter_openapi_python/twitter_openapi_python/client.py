@@ -1,6 +1,6 @@
 import json
 import re
-from typing import Any
+from typing import Any, Optional
 
 import twitter_openapi_python_generated as twitter
 import twitter_openapi_python_generated.configuration as conf
@@ -29,7 +29,7 @@ class TwitterOpenapiPythonClient:
     api: twitter.ApiClient
     placeholder: ParamType
 
-    def __init__(self, api: twitter.ApiClient, placeholder: ParamType, ct: ClientTransaction):
+    def __init__(self, api: twitter.ApiClient, placeholder: ParamType, ct: Optional[ClientTransaction]):
         self.api = api
         self.placeholder = placeholder
         self.ct = ct
@@ -136,6 +136,18 @@ class TwitterOpenapiPython:
         flag = http.request("GET", self.placeholder_url.format(hash=self.hash))
         ct = get_tid()
         return TwitterOpenapiPythonClient(api, json.loads(flag.data), ct)
+
+    def get_client_from_endpoint(
+        self,
+        host: str,
+        headers: dict[str, str] = {},
+    ) -> TwitterOpenapiPythonClient:
+        http = urllib3.PoolManager()
+        flag = http.request("GET", self.placeholder_url.format(hash=self.hash))
+        api_client = twitter.ApiClient(configuration=conf.Configuration(host=host))
+        for key, value in headers.items():
+            api_client.set_default_header(key, value)
+        return TwitterOpenapiPythonClient(api_client, json.loads(flag.data), None)
 
     def get_client_from_cookies(
         self,

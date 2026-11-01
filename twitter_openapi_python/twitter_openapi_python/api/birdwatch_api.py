@@ -26,7 +26,7 @@ class BirdwatchApiUtils:
     api: twitter.BirdwatchApi
     flag: ParamType
 
-    def __init__(self, api: twitter.BirdwatchApi, flag: ParamType, ct: ClientTransaction):
+    def __init__(self, api: twitter.BirdwatchApi, flag: ParamType, ct: Optional[ClientTransaction]):
         self.api = api
         self.flag = flag
         self.ct = ct

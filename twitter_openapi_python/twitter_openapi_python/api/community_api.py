@@ -24,7 +24,7 @@ class CommunityApiUtils:
     api: twitter.CommunityApi
     flag: ParamType
 
-    def __init__(self, api: twitter.CommunityApi, flag: ParamType, ct: ClientTransaction):
+    def __init__(self, api: twitter.CommunityApi, flag: ParamType, ct: Optional[ClientTransaction]):
         self.api = api
         self.flag = flag
         self.ct = ct
