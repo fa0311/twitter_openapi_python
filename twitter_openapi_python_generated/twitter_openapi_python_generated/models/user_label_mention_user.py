@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.type_name import TypeName
 from twitter_openapi_python_generated.models.user_label_mention_user_core import UserLabelMentionUserCore
@@ -32,13 +32,16 @@ class UserLabelMentionUser(BaseModel):
     UserLabelMentionUser
     """ # noqa: E501
     typename: TypeName = Field(alias="__typename")
-    core: UserLabelMentionUserCore
-    rest_id: Annotated[str, Field(strict=True)]
+    core: Optional[UserLabelMentionUserCore] = None
+    rest_id: Optional[Annotated[str, Field(strict=True)]] = None
     __properties: ClassVar[List[str]] = ["__typename", "core", "rest_id"]
 
     @field_validator('rest_id', mode="before")
     def rest_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if value is None:
+            return value
+
         if isinstance(value, str) and not re.match(r"^[0-9]+$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]+$/")
         return value

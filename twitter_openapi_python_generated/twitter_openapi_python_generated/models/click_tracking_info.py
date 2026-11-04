@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.key_value import KeyValue
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,8 +29,10 @@ class ClickTrackingInfo(BaseModel):
     """
     ClickTrackingInfo
     """ # noqa: E501
+    url_override: Optional[StrictStr] = Field(default=None, alias="urlOverride")
+    url_override_type: Optional[StrictStr] = Field(default=None, alias="urlOverrideType")
     url_params: List[KeyValue] = Field(alias="urlParams")
-    __properties: ClassVar[List[str]] = ["urlParams"]
+    __properties: ClassVar[List[str]] = ["urlOverride", "urlOverrideType", "urlParams"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -89,6 +91,8 @@ class ClickTrackingInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "urlOverride": obj.get("urlOverride"),
+            "urlOverrideType": obj.get("urlOverrideType"),
             "urlParams": [KeyValue.from_dict(_item) for _item in obj["urlParams"]] if obj.get("urlParams") is not None else None
         })
         return _obj
