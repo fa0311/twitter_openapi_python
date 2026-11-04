@@ -82,6 +82,8 @@ class TestTimelineTweet(unittest.TestCase):
                     advertiser_results = twitter_openapi_python_generated.models.user_results.UserResults(
                         result = null, ), 
                     click_tracking_info = twitter_openapi_python_generated.models.click_tracking_info.ClickTrackingInfo(
+                        url_override = '', 
+                        url_override_type = '', 
                         url_params = [
                             twitter_openapi_python_generated.models.key_value.KeyValue(
                                 key = '', 

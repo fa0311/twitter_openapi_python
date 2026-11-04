@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**core** | [**UserLabelMentionUserCore**](UserLabelMentionUserCore.md) |  | 
-**rest_id** | **str** |  | 
+**core** | [**UserLabelMentionUserCore**](UserLabelMentionUserCore.md) |  | [optional] 
+**rest_id** | **str** |  | [optional] 
 
 ## Example
 

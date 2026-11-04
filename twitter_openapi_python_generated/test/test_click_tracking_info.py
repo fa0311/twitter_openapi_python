@@ -36,6 +36,8 @@ class TestClickTrackingInfo(unittest.TestCase):
         model = ClickTrackingInfo()
         if include_optional:
             return ClickTrackingInfo(
+                url_override = '',
+                url_override_type = '',
                 url_params = [
                     twitter_openapi_python_generated.models.key_value.KeyValue(
                         key = '', 

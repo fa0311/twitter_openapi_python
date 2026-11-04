@@ -44,9 +44,6 @@ class TestUserLabelMentionUser(unittest.TestCase):
         else:
             return UserLabelMentionUser(
                 typename = 'TimelineTweet',
-                core = twitter_openapi_python_generated.models.user_label_mention_user_core.UserLabelMentionUserCore(
-                    screen_name = '', ),
-                rest_id = '4',
         )
         """
 

@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**url_override** | **str** |  | [optional] 
+**url_override_type** | **str** |  | [optional] 
 **url_params** | [**List[KeyValue]**](KeyValue.md) |  | 
 
 ## Example
