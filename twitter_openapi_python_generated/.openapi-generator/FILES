@@ -672,6 +672,7 @@ docs/UsersVerifiedAvatarsResponseData.md
 docs/V11GetApi.md
 docs/V11PostApi.md
 docs/V20GetApi.md
+docs/V20PostApi.md
 docs/VerifiedAvatarUser.md
 docs/VerifiedAvatarUserResults.md
 docs/ViewerBadgeCountsResponse.md
@@ -1355,6 +1356,7 @@ test/test_users_verified_avatars_response_data.py
 test/test_v11_get_api.py
 test/test_v11_post_api.py
 test/test_v20_get_api.py
+test/test_v20_post_api.py
 test/test_verified_avatar_user.py
 test/test_verified_avatar_user_results.py
 test/test_viewer_badge_counts_response.py
@@ -1377,6 +1379,7 @@ twitter_openapi_python_generated/api/users_api.py
 twitter_openapi_python_generated/api/v11_get_api.py
 twitter_openapi_python_generated/api/v11_post_api.py
 twitter_openapi_python_generated/api/v20_get_api.py
+twitter_openapi_python_generated/api/v20_post_api.py
 twitter_openapi_python_generated/api_client.py
 twitter_openapi_python_generated/api_response.py
 twitter_openapi_python_generated/configuration.py

@@ -36,7 +36,8 @@ class TestSmarttagTag(unittest.TestCase):
         model = SmarttagTag()
         if include_optional:
             return SmarttagTag(
-                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo()
+                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(),
+                rest_id = ''
             )
         else:
             return SmarttagTag(

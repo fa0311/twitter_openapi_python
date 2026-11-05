@@ -136,7 +136,8 @@ class TestNoteTweetResultData(unittest.TestCase):
                                 56
                                 ], 
                             tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
+                                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), 
+                                rest_id = '', ), 
                             text = '', )
                         ], 
                     symbols = [
@@ -145,7 +146,8 @@ class TestNoteTweetResultData(unittest.TestCase):
                                 56
                                 ], 
                             tag = twitter_openapi_python_generated.models.smarttag_tag.SmarttagTag(
-                                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), ), 
+                                info = twitter_openapi_python_generated.models.smarttag_tag_info.SmarttagTagInfo(), 
+                                rest_id = '', ), 
                             text = '', )
                         ], 
                     timestamps = [
