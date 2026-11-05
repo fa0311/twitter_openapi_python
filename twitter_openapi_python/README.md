@@ -16,25 +16,15 @@ pip install twitter-openapi-python
 import json
 import datetime
 
-from pathlib import Path
-from tweepy_authlib import CookieSessionUserHandler
 from twitter_openapi_python import TwitterOpenapiPython
 
-# login by tweepy_authlib
-if Path("cookie.json").exists():
-    with open("cookie.json", "r") as f:
-        cookies_dict = json.load(f)
-        if isinstance(cookies_dict, list):
-            cookies_dict = {k["name"]: k["value"] for k in cookies_dict}
-else:
-    auth_handler = CookieSessionUserHandler(
-        screen_name=input("screen_name: "),
-        password=input("password: "),
-    )
-    cookies_dict = auth_handler.get_cookies().get_dict()
+# cookies exported from the browser
+with open("cookie.json", "r") as f:
+    cookies_dict = json.load(f)
+    if isinstance(cookies_dict, list):
+        cookies_dict = {k["name"]: k["value"] for k in cookies_dict}
 
 # To extract cookies from Windows (Linux by default)
-# If you use tweepy_authlib, you must be on Windows
 client = TwitterOpenapiPython()
 client.additional_api_headers = {
     "sec-ch-ua-platform": '"Windows"',
