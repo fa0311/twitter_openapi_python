@@ -19,6 +19,7 @@ from twitter_openapi_python.api import (
     UsersApiUtils,
     V11GetApiUtils,
     V11PostApiUtils,
+    V20PostApiUtils,
 )
 from twitter_openapi_python.tid import get_tid
 
@@ -67,9 +68,12 @@ class TwitterOpenapiPythonClient:
     def get_v11_post_api(self) -> V11PostApiUtils:
         return V11PostApiUtils(twitter.V11PostApi(self.api), self.placeholder)
 
+    def get_v20_post_api(self) -> V20PostApiUtils:
+        return V20PostApiUtils(twitter.V20PostApi(self.api), self.placeholder)
+
 
 class TwitterOpenapiPython:
-    hash: str = "975196678177a65210cff715a1b93ddfc83584eb"
+    hash: str = "10a5fe81b6c8622361652574eecc3027733405f8"
     placeholder_url = "https://raw.githubusercontent.com/fa0311/twitter-openapi/{hash}/src/config/placeholder.json"
     header = "https://raw.githubusercontent.com/fa0311/latest-user-agent/refs/heads/main/header.json"
     access_token: str = (

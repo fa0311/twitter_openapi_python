@@ -632,7 +632,7 @@ wheels = [
 
 [[package]]
 name = "twitter-openapi-python"
-version = "0.1.6"
+version = "0.1.7"
 source = { editable = "." }
 dependencies = [
     { name = "pydantic" },
@@ -667,7 +667,7 @@ dev = [
 
 [[package]]
 name = "twitter-openapi-python-generated"
-version = "0.1.5"
+version = "0.1.6"
 source = { editable = "../twitter_openapi_python_generated" }
 dependencies = [
     { name = "pydantic" },

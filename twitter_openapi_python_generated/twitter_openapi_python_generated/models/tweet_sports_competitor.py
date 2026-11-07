@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.tweet_sports_rest_id import TweetSportsRestId
 from typing import Optional, Set
 from typing_extensions import Self
@@ -35,7 +35,7 @@ class TweetSportsCompetitor(BaseModel):
     is_winner: StrictBool
     logo_url: StrictStr
     name: StrictStr
-    score: StrictStr
+    score: Optional[StrictStr]
     team_rest_id: TweetSportsRestId
     __properties: ClassVar[List[str]] = ["abbreviation", "dark_logo_url", "is_active", "is_winner", "logo_url", "name", "score", "team_rest_id"]
 
@@ -81,6 +81,11 @@ class TweetSportsCompetitor(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of team_rest_id
         if self.team_rest_id:
             _dict['team_rest_id'] = self.team_rest_id.to_dict()
+        # set to None if score (nullable) is None
+        # and model_fields_set contains the field
+        if self.score is None and "score" in self.model_fields_set:
+            _dict['score'] = None
+
         return _dict
 
     @classmethod

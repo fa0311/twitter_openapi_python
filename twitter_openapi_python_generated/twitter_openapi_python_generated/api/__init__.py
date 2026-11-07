@@ -13,4 +13,5 @@ from twitter_openapi_python_generated.api.users_api import UsersApi
 from twitter_openapi_python_generated.api.v11_get_api import V11GetApi
 from twitter_openapi_python_generated.api.v11_post_api import V11PostApi
 from twitter_openapi_python_generated.api.v20_get_api import V20GetApi
+from twitter_openapi_python_generated.api.v20_post_api import V20PostApi
 

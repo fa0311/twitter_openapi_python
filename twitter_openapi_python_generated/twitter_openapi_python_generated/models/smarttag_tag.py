@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.smarttag_tag_info import SmarttagTagInfo
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +30,8 @@ class SmarttagTag(BaseModel):
     SmarttagTag
     """ # noqa: E501
     info: SmarttagTagInfo
-    __properties: ClassVar[List[str]] = ["info"]
+    rest_id: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["info", "rest_id"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -86,7 +87,8 @@ class SmarttagTag(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "info": SmarttagTagInfo.from_dict(obj["info"]) if obj.get("info") is not None else None
+            "info": SmarttagTagInfo.from_dict(obj["info"]) if obj.get("info") is not None else None,
+            "rest_id": obj.get("rest_id")
         })
         return _obj
 

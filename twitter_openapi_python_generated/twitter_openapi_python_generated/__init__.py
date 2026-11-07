@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.5"
+__version__ = "0.1.6"
 
 # Define package exports
 __all__ = [
@@ -31,6 +31,7 @@ __all__ = [
     "V11GetApi",
     "V11PostApi",
     "V20GetApi",
+    "V20PostApi",
     "ApiResponse",
     "ApiClient",
     "Configuration",
@@ -719,6 +720,7 @@ from twitter_openapi_python_generated.api.users_api import UsersApi as UsersApi
 from twitter_openapi_python_generated.api.v11_get_api import V11GetApi as V11GetApi
 from twitter_openapi_python_generated.api.v11_post_api import V11PostApi as V11PostApi
 from twitter_openapi_python_generated.api.v20_get_api import V20GetApi as V20GetApi
+from twitter_openapi_python_generated.api.v20_post_api import V20PostApi as V20PostApi
 
 # import ApiClient
 from twitter_openapi_python_generated.api_response import ApiResponse as ApiResponse

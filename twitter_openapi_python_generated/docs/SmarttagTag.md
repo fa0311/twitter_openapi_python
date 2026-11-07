@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **info** | [**SmarttagTagInfo**](SmarttagTagInfo.md) |  | 
+**rest_id** | **str** |  | [optional] 
 
 ## Example
 

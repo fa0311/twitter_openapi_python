@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.promoted_trend import PromotedTrend
 from twitter_openapi_python_generated.models.user_results import UserResults
 from typing import Optional, Set
@@ -35,7 +35,7 @@ class TrendPromotedMetadata(BaseModel):
     impression_id: StrictStr = Field(alias="impressionId")
     impression_string: StrictStr = Field(alias="impressionString")
     promoted_trend: PromotedTrend = Field(alias="promotedTrend")
-    promoted_trend_description: StrictStr = Field(alias="promotedTrendDescription")
+    promoted_trend_description: Optional[StrictStr] = Field(alias="promotedTrendDescription")
     promoted_trend_name: StrictStr = Field(alias="promotedTrendName")
     promoted_trend_query_term: StrictStr = Field(alias="promotedTrendQueryTerm")
     __properties: ClassVar[List[str]] = ["advertiser_results", "disclosureType", "impressionId", "impressionString", "promotedTrend", "promotedTrendDescription", "promotedTrendName", "promotedTrendQueryTerm"]
@@ -85,6 +85,11 @@ class TrendPromotedMetadata(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of promoted_trend
         if self.promoted_trend:
             _dict['promotedTrend'] = self.promoted_trend.to_dict()
+        # set to None if promoted_trend_description (nullable) is None
+        # and model_fields_set contains the field
+        if self.promoted_trend_description is None and "promoted_trend_description" in self.model_fields_set:
+            _dict['promotedTrendDescription'] = None
+
         return _dict
 
     @classmethod
