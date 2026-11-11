@@ -5,11 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dismissible** | **bool** |  | 
+**dismissible** | **bool** |  | [optional] 
 **half_cover_display_type** | **str** |  | 
 **impression_callbacks** | [**List[Callback]**](Callback.md) |  | 
 **primary_cover_cta** | [**CoverCta**](CoverCta.md) |  | 
 **primary_text** | [**Text**](Text.md) |  | 
+**secondary_cover_cta** | [**CoverCta**](CoverCta.md) |  | [optional] 
 **secondary_text** | [**Text**](Text.md) |  | 
 **type** | **str** |  | 
 

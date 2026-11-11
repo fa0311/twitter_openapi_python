@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,8 +29,8 @@ class TimelineCoverBehaviorUrl(BaseModel):
     TimelineCoverBehaviorUrl
     """ # noqa: E501
     url: StrictStr
-    url_type: StrictStr
-    __properties: ClassVar[List[str]] = ["url", "url_type"]
+    url_type: StrictStr = Field(alias="urlType")
+    __properties: ClassVar[List[str]] = ["url", "urlType"]
 
     @field_validator('url_type')
     def url_type_validate_enum(cls, value):
@@ -91,7 +91,7 @@ class TimelineCoverBehaviorUrl(BaseModel):
 
         _obj = cls.model_validate({
             "url": obj.get("url"),
-            "url_type": obj.get("url_type")
+            "urlType": obj.get("urlType")
         })
         return _obj
 

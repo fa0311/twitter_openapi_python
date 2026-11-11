@@ -145,6 +145,20 @@ class TestInstructionUnion(unittest.TestCase):
                                 to_index = 56, )
                             ], 
                         text = '', ), 
+                    secondary_cover_cta = twitter_openapi_python_generated.models.cover_cta.CoverCta(
+                        button_style = '', 
+                        callbacks = [
+                            twitter_openapi_python_generated.models.callback.Callback(
+                                endpoint = '', )
+                            ], 
+                        client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
+                            action = '', ), 
+                        cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
+                            type = 'TimelineCoverBehaviorDismiss', 
+                            url = twitter_openapi_python_generated.models.timeline_cover_behavior_url.TimelineCoverBehaviorUrl(
+                                url = '', 
+                                url_type = 'ExternalUrl', ), ), 
+                        text = '', ), 
                     secondary_text = twitter_openapi_python_generated.models.text.Text(
                         entities = [
                             twitter_openapi_python_generated.models.text_entity.TextEntity(
@@ -264,6 +278,20 @@ class TestInstructionUnion(unittest.TestCase):
                                     url_type = 'ExternalUrl', ), 
                                 to_index = 56, )
                             ], 
+                        text = '', ), 
+                    secondary_cover_cta = twitter_openapi_python_generated.models.cover_cta.CoverCta(
+                        button_style = '', 
+                        callbacks = [
+                            twitter_openapi_python_generated.models.callback.Callback(
+                                endpoint = '', )
+                            ], 
+                        client_event_info = twitter_openapi_python_generated.models.cta_client_event_info.CtaClientEventInfo(
+                            action = '', ), 
+                        cta_behavior = twitter_openapi_python_generated.models.timeline_cover_behavior.TimelineCoverBehavior(
+                            type = 'TimelineCoverBehaviorDismiss', 
+                            url = twitter_openapi_python_generated.models.timeline_cover_behavior_url.TimelineCoverBehaviorUrl(
+                                url = '', 
+                                url_type = 'ExternalUrl', ), ), 
                         text = '', ), 
                     secondary_text = twitter_openapi_python_generated.models.text.Text(
                         entities = [
