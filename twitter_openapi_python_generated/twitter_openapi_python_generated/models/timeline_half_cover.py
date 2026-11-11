@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.callback import Callback
 from twitter_openapi_python_generated.models.cover_cta import CoverCta
 from twitter_openapi_python_generated.models.text import Text
@@ -31,14 +31,15 @@ class TimelineHalfCover(BaseModel):
     """
     TimelineHalfCover
     """ # noqa: E501
-    dismissible: StrictBool
+    dismissible: Optional[StrictBool] = None
     half_cover_display_type: StrictStr = Field(alias="halfCoverDisplayType")
     impression_callbacks: List[Callback] = Field(alias="impressionCallbacks")
     primary_cover_cta: CoverCta = Field(alias="primaryCoverCta")
     primary_text: Text = Field(alias="primaryText")
+    secondary_cover_cta: Optional[CoverCta] = Field(default=None, alias="secondaryCoverCta")
     secondary_text: Text = Field(alias="secondaryText")
     type: StrictStr
-    __properties: ClassVar[List[str]] = ["dismissible", "halfCoverDisplayType", "impressionCallbacks", "primaryCoverCta", "primaryText", "secondaryText", "type"]
+    __properties: ClassVar[List[str]] = ["dismissible", "halfCoverDisplayType", "impressionCallbacks", "primaryCoverCta", "primaryText", "secondaryCoverCta", "secondaryText", "type"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -98,6 +99,9 @@ class TimelineHalfCover(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of primary_text
         if self.primary_text:
             _dict['primaryText'] = self.primary_text.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of secondary_cover_cta
+        if self.secondary_cover_cta:
+            _dict['secondaryCoverCta'] = self.secondary_cover_cta.to_dict()
         # override the default output from pydantic by calling `to_dict()` of secondary_text
         if self.secondary_text:
             _dict['secondaryText'] = self.secondary_text.to_dict()
@@ -118,6 +122,7 @@ class TimelineHalfCover(BaseModel):
             "impressionCallbacks": [Callback.from_dict(_item) for _item in obj["impressionCallbacks"]] if obj.get("impressionCallbacks") is not None else None,
             "primaryCoverCta": CoverCta.from_dict(obj["primaryCoverCta"]) if obj.get("primaryCoverCta") is not None else None,
             "primaryText": Text.from_dict(obj["primaryText"]) if obj.get("primaryText") is not None else None,
+            "secondaryCoverCta": CoverCta.from_dict(obj["secondaryCoverCta"]) if obj.get("secondaryCoverCta") is not None else None,
             "secondaryText": Text.from_dict(obj["secondaryText"]) if obj.get("secondaryText") is not None else None,
             "type": obj.get("type")
         })
