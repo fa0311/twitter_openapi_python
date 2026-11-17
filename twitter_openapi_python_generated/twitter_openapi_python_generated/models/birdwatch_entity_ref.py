@@ -38,8 +38,8 @@ class BirdwatchEntityRef(BaseModel):
     @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['TimelineUrl', 'TimelineRichTextHashtag']):
-            raise ValueError("must be one of enum values ('TimelineUrl', 'TimelineRichTextHashtag')")
+        if value not in set(['TimelineUrl', 'TimelineRichTextHashtag', 'TimelineRichTextCashtag']):
+            raise ValueError("must be one of enum values ('TimelineUrl', 'TimelineRichTextHashtag', 'TimelineRichTextCashtag')")
         return value
 
     @field_validator('url_type')

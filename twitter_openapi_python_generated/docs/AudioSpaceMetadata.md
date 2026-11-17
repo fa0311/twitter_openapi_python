@@ -26,10 +26,10 @@ Name | Type | Description | Notes
 **scheduled_start** | **int** |  | [optional] 
 **started_at** | **int** |  | 
 **state** | **str** |  | 
-**title** | **str** |  | 
+**title** | **str** |  | [optional] 
 **total_live_listeners** | **int** |  | 
 **total_replay_watched** | **int** |  | 
-**tweet_results** | [**ItemResult**](ItemResult.md) |  | 
+**tweet_results** | [**ItemResult**](ItemResult.md) |  | [optional] 
 **updated_at** | **int** |  | 
 
 ## Example

@@ -54,7 +54,6 @@ class TestTweetSportsCompetitor(unittest.TestCase):
                 is_winner = True,
                 logo_url = '',
                 name = '',
-                score = '',
                 team_rest_id = twitter_openapi_python_generated.models.tweet_sports_rest_id.TweetSportsRestId(
                     rest_id = '4', ),
         )

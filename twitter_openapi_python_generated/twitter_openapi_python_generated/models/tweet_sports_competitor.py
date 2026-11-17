@@ -35,7 +35,7 @@ class TweetSportsCompetitor(BaseModel):
     is_winner: StrictBool
     logo_url: StrictStr
     name: StrictStr
-    score: Optional[StrictStr]
+    score: Optional[StrictStr] = None
     team_rest_id: TweetSportsRestId
     __properties: ClassVar[List[str]] = ["abbreviation", "dark_logo_url", "is_active", "is_winner", "logo_url", "name", "score", "team_rest_id"]
 
@@ -81,11 +81,6 @@ class TweetSportsCompetitor(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of team_rest_id
         if self.team_rest_id:
             _dict['team_rest_id'] = self.team_rest_id.to_dict()
-        # set to None if score (nullable) is None
-        # and model_fields_set contains the field
-        if self.score is None and "score" in self.model_fields_set:
-            _dict['score'] = None
-
         return _dict
 
     @classmethod

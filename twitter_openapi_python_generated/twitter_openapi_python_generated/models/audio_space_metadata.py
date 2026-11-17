@@ -53,10 +53,10 @@ class AudioSpaceMetadata(BaseModel):
     scheduled_start: Optional[StrictInt] = None
     started_at: StrictInt
     state: StrictStr
-    title: StrictStr
+    title: Optional[StrictStr] = None
     total_live_listeners: StrictInt
     total_replay_watched: StrictInt
-    tweet_results: ItemResult
+    tweet_results: Optional[ItemResult] = None
     updated_at: StrictInt
     __properties: ClassVar[List[str]] = ["content_type", "conversation_controls", "created_at", "creator_results", "disallow_join", "ended_at", "is_employee_only", "is_locked", "is_muted", "is_space_available_for_clipping", "is_space_available_for_replay", "max_admin_capacity", "max_guest_sessions", "media_key", "mentioned_users", "narrow_cast_space_type", "no_incognito", "rest_id", "scheduled_start", "started_at", "state", "title", "total_live_listeners", "total_replay_watched", "tweet_results", "updated_at"]
 

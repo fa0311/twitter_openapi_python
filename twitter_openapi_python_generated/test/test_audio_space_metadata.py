@@ -89,12 +89,8 @@ class TestAudioSpaceMetadata(unittest.TestCase):
                 rest_id = '',
                 started_at = 56,
                 state = '',
-                title = '',
                 total_live_listeners = 56,
                 total_replay_watched = 56,
-                tweet_results = twitter_openapi_python_generated.models.item_result.ItemResult(
-                    __typename = 'TimelineTweet', 
-                    result = null, ),
                 updated_at = 56,
         )
         """
