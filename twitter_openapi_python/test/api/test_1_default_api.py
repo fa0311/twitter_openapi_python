@@ -52,7 +52,7 @@ class TestDefaultApi(unittest.TestCase):
         logging.info(f"{result.data.status} ({result.data.state}, {result.data.total_watched} watched)")
 
     def test_get_audio_space_by_id(self):
-        result = self.client.get_audio_space_by_id(id="1qxoNYAlYMXJv")
+        result = self.client.get_audio_space_by_id(id="1yNGabwXqXnJj")
         logging.info(
             f"{result.data.metadata.title} ({result.data.metadata.state}, {result.data.participants.total} participants)"
         )

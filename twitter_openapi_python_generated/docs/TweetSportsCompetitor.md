@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **is_winner** | **bool** |  | 
 **logo_url** | **str** |  | 
 **name** | **str** |  | 
-**score** | **str** |  | 
+**score** | **str** |  | [optional] 
 **team_rest_id** | [**TweetSportsRestId**](TweetSportsRestId.md) |  | 
 
 ## Example
