@@ -73,7 +73,7 @@ class TwitterOpenapiPythonClient:
 
 
 class TwitterOpenapiPython:
-    hash: str = "d31ab31b5ddce12cb2175f8c5eaefbabca312143"
+    hash: str = "0773fc8a1d338431ec9e9577fffd4f7eb1cdef87"
     placeholder_url = "https://raw.githubusercontent.com/fa0311/twitter-openapi/{hash}/src/config/placeholder.json"
     header = "https://raw.githubusercontent.com/fa0311/latest-user-agent/refs/heads/main/header.json"
     access_token: str = (
