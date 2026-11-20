@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **str** |  | 
 **entities** | [**ProfileBioEntities**](ProfileBioEntities.md) |  | [optional] 
+**with_held_scope** | **str** |  | [optional] 
 **withheld_in_countries** | **List[str]** |  | [optional] 
 
 ## Example

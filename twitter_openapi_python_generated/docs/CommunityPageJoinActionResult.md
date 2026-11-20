@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **is_community_join_action_result** | **str** |  | 
 **typename** | [**TypeName**](TypeName.md) |  | 
+**message** | **str** |  | [optional] 
+**reason** | **str** |  | [optional] 
 
 ## Example
 

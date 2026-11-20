@@ -37,6 +37,7 @@ class TestAboutAccountVerificationInfo(unittest.TestCase):
         if include_optional:
             return AboutAccountVerificationInfo(
                 id = '',
+                is_identity_verified = True,
                 reason = twitter_openapi_python_generated.models.about_account_verification_info_reason.AboutAccountVerificationInfoReason(
                     override_verified_year = 56, 
                     verified_since_msec = '-80728', )

@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.8"
+__version__ = "0.1.9"
 
 # Define package exports
 __all__ = [
@@ -214,6 +214,7 @@ __all__ = [
     "ContentItemType",
     "ContentUnion",
     "ConversationControl",
+    "ConversationControlDetails",
     "ConversationDetails",
     "ConversationMetadata",
     "ConversationOwner",
@@ -907,6 +908,7 @@ from twitter_openapi_python_generated.models.content_entry_type import ContentEn
 from twitter_openapi_python_generated.models.content_item_type import ContentItemType as ContentItemType
 from twitter_openapi_python_generated.models.content_union import ContentUnion as ContentUnion
 from twitter_openapi_python_generated.models.conversation_control import ConversationControl as ConversationControl
+from twitter_openapi_python_generated.models.conversation_control_details import ConversationControlDetails as ConversationControlDetails
 from twitter_openapi_python_generated.models.conversation_details import ConversationDetails as ConversationDetails
 from twitter_openapi_python_generated.models.conversation_metadata import ConversationMetadata as ConversationMetadata
 from twitter_openapi_python_generated.models.conversation_owner import ConversationOwner as ConversationOwner

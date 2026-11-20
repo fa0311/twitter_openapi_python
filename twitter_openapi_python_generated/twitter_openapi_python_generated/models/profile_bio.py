@@ -31,8 +31,9 @@ class ProfileBio(BaseModel):
     """ # noqa: E501
     description: StrictStr
     entities: Optional[ProfileBioEntities] = None
+    with_held_scope: Optional[StrictStr] = None
     withheld_in_countries: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["description", "entities", "withheld_in_countries"]
+    __properties: ClassVar[List[str]] = ["description", "entities", "with_held_scope", "withheld_in_countries"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -90,6 +91,7 @@ class ProfileBio(BaseModel):
         _obj = cls.model_validate({
             "description": obj.get("description"),
             "entities": ProfileBioEntities.from_dict(obj["entities"]) if obj.get("entities") is not None else None,
+            "with_held_scope": obj.get("with_held_scope"),
             "withheld_in_countries": obj.get("withheld_in_countries")
         })
         return _obj

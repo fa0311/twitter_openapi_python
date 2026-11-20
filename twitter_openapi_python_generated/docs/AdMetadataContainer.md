@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**allow_spine_clicks** | **bool** |  | [optional] 
 **destination_url_params** | [**List[KeyValue]**](KeyValue.md) |  | [optional] 
 **is_quick_promote** | **bool** |  | 
 **remove_promoted_attribution_for_preroll** | **bool** |  | [optional] 

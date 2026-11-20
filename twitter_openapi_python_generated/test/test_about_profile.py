@@ -38,6 +38,7 @@ class TestAboutProfile(unittest.TestCase):
             return AboutProfile(
                 account_based_in = '',
                 affiliate_username = '',
+                created_country_accurate = True,
                 learn_more_url = '',
                 location_accurate = True,
                 source = '',
@@ -47,11 +48,8 @@ class TestAboutProfile(unittest.TestCase):
             )
         else:
             return AboutProfile(
-                account_based_in = '',
-                affiliate_username = '',
                 learn_more_url = '',
                 location_accurate = True,
-                source = '',
                 username_changes = twitter_openapi_python_generated.models.about_profile_username_changes.AboutProfileUsernameChanges(
                     count = '4', 
                     last_changed_at_msec = '4', ),

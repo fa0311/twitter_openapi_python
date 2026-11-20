@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
+**is_identity_verified** | **bool** |  | [optional] 
 **reason** | [**AboutAccountVerificationInfoReason**](AboutAccountVerificationInfoReason.md) |  | 
 
 ## Example

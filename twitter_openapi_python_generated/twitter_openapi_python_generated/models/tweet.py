@@ -28,6 +28,7 @@ from twitter_openapi_python_generated.models.cashtag_attachment import CashtagAt
 from twitter_openapi_python_generated.models.community_relationship import CommunityRelationship
 from twitter_openapi_python_generated.models.community_result import CommunityResult
 from twitter_openapi_python_generated.models.content_disclosure import ContentDisclosure
+from twitter_openapi_python_generated.models.conversation_control_details import ConversationControlDetails
 from twitter_openapi_python_generated.models.grok_annotation import GrokAnnotation
 from twitter_openapi_python_generated.models.grok_translated_post_with_availability import GrokTranslatedPostWithAvailability
 from twitter_openapi_python_generated.models.jetfuel_attachment import JetfuelAttachment
@@ -61,6 +62,7 @@ class Tweet(BaseModel):
     community_relationship: Optional[CommunityRelationship] = None
     community_results: Optional[CommunityResult] = None
     content_disclosure: Optional[ContentDisclosure] = None
+    conversation_control_details: Optional[ConversationControlDetails] = None
     core: Optional[UserResultCore] = None
     edit_control: Optional[TweetEditControl] = None
     edit_prespective: Optional[TweetEditPrespective] = None
@@ -91,7 +93,7 @@ class Tweet(BaseModel):
     unmention_data: Optional[Dict[str, Any]] = None
     views: Optional[TweetView] = None
     voice_info: Optional[Dict[str, Any]] = Field(default=None, alias="voiceInfo")
-    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "cashtag_attachments", "community_relationship", "community_results", "content_disclosure", "core", "edit_control", "edit_prespective", "grok_analysis_button", "grok_analysis_followups", "grok_annotations", "grok_share_attachment", "grok_translated_post_with_availability", "has_birdwatch_notes", "is_translatable", "jetfuel_attachment", "legacy", "nested_quoted_tweet_results", "note_tweet", "postCta", "post_image_description", "post_video_description", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "sports_post_context", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views", "voiceInfo"]
+    __properties: ClassVar[List[str]] = ["__typename", "article", "author_community_relationship", "birdwatch_pivot", "card", "cashtag_attachments", "community_relationship", "community_results", "content_disclosure", "conversation_control_details", "core", "edit_control", "edit_prespective", "grok_analysis_button", "grok_analysis_followups", "grok_annotations", "grok_share_attachment", "grok_translated_post_with_availability", "has_birdwatch_notes", "is_translatable", "jetfuel_attachment", "legacy", "nested_quoted_tweet_results", "note_tweet", "postCta", "post_image_description", "post_video_description", "previous_counts", "quick_promote_eligibility", "quotedRefResult", "quoted_status_result", "rest_id", "source", "sports_post_context", "superFollowsReplyUserResult", "trend_results", "unified_card", "unmention_data", "views", "voiceInfo"]
 
     @field_validator('rest_id', mode="before")
     def rest_id_validate_regular_expression(cls, value):
@@ -166,6 +168,9 @@ class Tweet(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of content_disclosure
         if self.content_disclosure:
             _dict['content_disclosure'] = self.content_disclosure.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of conversation_control_details
+        if self.conversation_control_details:
+            _dict['conversation_control_details'] = self.conversation_control_details.to_dict()
         # override the default output from pydantic by calling `to_dict()` of core
         if self.core:
             _dict['core'] = self.core.to_dict()
@@ -244,6 +249,7 @@ class Tweet(BaseModel):
             "community_relationship": CommunityRelationship.from_dict(obj["community_relationship"]) if obj.get("community_relationship") is not None else None,
             "community_results": CommunityResult.from_dict(obj["community_results"]) if obj.get("community_results") is not None else None,
             "content_disclosure": ContentDisclosure.from_dict(obj["content_disclosure"]) if obj.get("content_disclosure") is not None else None,
+            "conversation_control_details": ConversationControlDetails.from_dict(obj["conversation_control_details"]) if obj.get("conversation_control_details") is not None else None,
             "core": UserResultCore.from_dict(obj["core"]) if obj.get("core") is not None else None,
             "edit_control": TweetEditControl.from_dict(obj["edit_control"]) if obj.get("edit_control") is not None else None,
             "edit_prespective": TweetEditPrespective.from_dict(obj["edit_prespective"]) if obj.get("edit_prespective") is not None else None,

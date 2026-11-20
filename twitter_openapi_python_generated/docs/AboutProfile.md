@@ -5,11 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account_based_in** | **str** |  | 
-**affiliate_username** | **str** |  | 
+**account_based_in** | **str** |  | [optional] 
+**affiliate_username** | **str** |  | [optional] 
+**created_country_accurate** | **bool** |  | [optional] 
 **learn_more_url** | **str** |  | 
 **location_accurate** | **bool** |  | 
-**source** | **str** |  | 
+**source** | **str** |  | [optional] 
 **username_changes** | [**AboutProfileUsernameChanges**](AboutProfileUsernameChanges.md) |  | 
 
 ## Example
