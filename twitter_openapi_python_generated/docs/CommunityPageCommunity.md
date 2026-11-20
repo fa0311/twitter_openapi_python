@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **admin_results** | [**CommunityIdUserResults**](CommunityIdUserResults.md) |  | 
 **created_at** | **int** |  | 
 **creator_results** | [**CommunityIdUserResults**](CommunityIdUserResults.md) |  | 
-**custom_banner_media** | [**CommunityBannerMedia**](CommunityBannerMedia.md) |  | 
+**custom_banner_media** | [**CommunityBannerMedia**](CommunityBannerMedia.md) |  | [optional] 
 **default_banner_media** | [**CommunityBannerMedia**](CommunityBannerMedia.md) |  | 
 **description** | **str** |  | 
 **id** | **str** |  | 
@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **members_facepile_results** | [**List[CommunityIdUserResults]**](CommunityIdUserResults.md) |  | 
 **moderator_count** | **int** |  | 
 **name** | **str** |  | 
+**primary_community_topic** | [**PrimaryCommunityTopic**](PrimaryCommunityTopic.md) |  | [optional] 
+**question** | **str** |  | [optional] 
 **role** | **str** |  | 
 **rules** | [**List[CommunityRelayRule]**](CommunityRelayRule.md) |  | 
 **search_tags** | **List[str]** |  | 

@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.about_account_verification_info_reason import AboutAccountVerificationInfoReason
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,8 +30,9 @@ class AboutAccountVerificationInfo(BaseModel):
     AboutAccountVerificationInfo
     """ # noqa: E501
     id: StrictStr
+    is_identity_verified: Optional[StrictBool] = None
     reason: AboutAccountVerificationInfoReason
-    __properties: ClassVar[List[str]] = ["id", "reason"]
+    __properties: ClassVar[List[str]] = ["id", "is_identity_verified", "reason"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -88,6 +89,7 @@ class AboutAccountVerificationInfo(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
+            "is_identity_verified": obj.get("is_identity_verified"),
             "reason": AboutAccountVerificationInfoReason.from_dict(obj["reason"]) if obj.get("reason") is not None else None
         })
         return _obj

@@ -45,7 +45,9 @@ class TestCommunityPageCommunity(unittest.TestCase):
                     id = '', 
                     join_action_result = twitter_openapi_python_generated.models.community_page_join_action_result.CommunityPageJoinActionResult(
                         __is_community_join_action_result = '', 
-                        __typename = 'TimelineTweet', ), 
+                        __typename = 'TimelineTweet', 
+                        message = '', 
+                        reason = '', ), 
                     leave_action_result = twitter_openapi_python_generated.models.community_page_leave_action_result.CommunityPageLeaveActionResult(
                         __is_community_leave_action_result = '', 
                         __typename = 'TimelineTweet', 
@@ -125,6 +127,10 @@ class TestCommunityPageCommunity(unittest.TestCase):
                     ],
                 moderator_count = 56,
                 name = '',
+                primary_community_topic = twitter_openapi_python_generated.models.primary_community_topic.PrimaryCommunityTopic(
+                    topic_id = '4', 
+                    topic_name = '', ),
+                question = '',
                 role = '',
                 rules = [
                     twitter_openapi_python_generated.models.community_relay_rule.CommunityRelayRule(
@@ -152,7 +158,9 @@ class TestCommunityPageCommunity(unittest.TestCase):
                     id = '', 
                     join_action_result = twitter_openapi_python_generated.models.community_page_join_action_result.CommunityPageJoinActionResult(
                         __is_community_join_action_result = '', 
-                        __typename = 'TimelineTweet', ), 
+                        __typename = 'TimelineTweet', 
+                        message = '', 
+                        reason = '', ), 
                     leave_action_result = twitter_openapi_python_generated.models.community_page_leave_action_result.CommunityPageLeaveActionResult(
                         __is_community_leave_action_result = '', 
                         __typename = 'TimelineTweet', 
@@ -168,27 +176,6 @@ class TestCommunityPageCommunity(unittest.TestCase):
                 creator_results = twitter_openapi_python_generated.models.community_id_user_results.CommunityIdUserResults(
                     id = '', 
                     result = null, ),
-                custom_banner_media = twitter_openapi_python_generated.models.community_banner_media.CommunityBannerMedia(
-                    id = '', 
-                    media_info = twitter_openapi_python_generated.models.community_banner_media_info.CommunityBannerMediaInfo(
-                        __typename = 'TimelineTweet', 
-                        color_info = twitter_openapi_python_generated.models.media_color_info.MediaColorInfo(
-                            palette = [
-                                twitter_openapi_python_generated.models.media_color_info_palette.MediaColorInfoPalette(
-                                    percentage = 1.337, 
-                                    rgb = twitter_openapi_python_generated.models.media_color_info_palette_rgb.MediaColorInfoPaletteRGB(
-                                        blue = 56, 
-                                        green = 56, 
-                                        red = 56, ), )
-                                ], ), 
-                        original_img_height = 56, 
-                        original_img_url = '', 
-                        original_img_width = 56, 
-                        salient_rect = twitter_openapi_python_generated.models.media_salient_rect.MediaSalientRect(
-                            height = 56, 
-                            left = 56, 
-                            top = 56, 
-                            width = 56, ), ), ),
                 default_banner_media = twitter_openapi_python_generated.models.community_banner_media.CommunityBannerMedia(
                     id = '', 
                     media_info = twitter_openapi_python_generated.models.community_banner_media_info.CommunityBannerMediaInfo(

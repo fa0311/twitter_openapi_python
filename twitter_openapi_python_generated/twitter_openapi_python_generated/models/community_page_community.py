@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from twitter_openapi_python_generated.models.community_banner_media import CommunityBannerMedia
 from twitter_openapi_python_generated.models.community_id_user_results import CommunityIdUserResults
@@ -28,6 +28,7 @@ from twitter_openapi_python_generated.models.community_page_actions import Commu
 from twitter_openapi_python_generated.models.community_page_invites_result import CommunityPageInvitesResult
 from twitter_openapi_python_generated.models.community_relay_rule import CommunityRelayRule
 from twitter_openapi_python_generated.models.community_viewer_relationship import CommunityViewerRelationship
+from twitter_openapi_python_generated.models.primary_community_topic import PrimaryCommunityTopic
 from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
 from typing_extensions import Self
@@ -42,7 +43,7 @@ class CommunityPageCommunity(BaseModel):
     admin_results: CommunityIdUserResults
     created_at: StrictInt
     creator_results: CommunityIdUserResults
-    custom_banner_media: CommunityBannerMedia
+    custom_banner_media: Optional[CommunityBannerMedia] = None
     default_banner_media: CommunityBannerMedia
     description: StrictStr
     id: StrictStr
@@ -57,11 +58,13 @@ class CommunityPageCommunity(BaseModel):
     members_facepile_results: List[CommunityIdUserResults]
     moderator_count: StrictInt
     name: StrictStr
+    primary_community_topic: Optional[PrimaryCommunityTopic] = None
+    question: Optional[StrictStr] = None
     role: StrictStr
     rules: List[CommunityRelayRule]
     search_tags: List[StrictStr]
     viewer_relationship: CommunityViewerRelationship
-    __properties: ClassVar[List[str]] = ["__typename", "actions", "admin_results", "created_at", "creator_results", "custom_banner_media", "default_banner_media", "description", "id", "id_str", "invites_policy", "invites_result", "is_nsfw", "is_pinned", "join_policy", "join_requests_result", "member_count", "members_facepile_results", "moderator_count", "name", "role", "rules", "search_tags", "viewer_relationship"]
+    __properties: ClassVar[List[str]] = ["__typename", "actions", "admin_results", "created_at", "creator_results", "custom_banner_media", "default_banner_media", "description", "id", "id_str", "invites_policy", "invites_result", "is_nsfw", "is_pinned", "join_policy", "join_requests_result", "member_count", "members_facepile_results", "moderator_count", "name", "primary_community_topic", "question", "role", "rules", "search_tags", "viewer_relationship"]
 
     @field_validator('id_str', mode="before")
     def id_str_validate_regular_expression(cls, value):
@@ -136,6 +139,9 @@ class CommunityPageCommunity(BaseModel):
             for _item_members_facepile_results in self.members_facepile_results:
                 _items.append(_item_members_facepile_results.to_dict() if _item_members_facepile_results is not None else None)
             _dict['members_facepile_results'] = _items
+        # override the default output from pydantic by calling `to_dict()` of primary_community_topic
+        if self.primary_community_topic:
+            _dict['primary_community_topic'] = self.primary_community_topic.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in rules (list)
         _items = []
         if self.rules:
@@ -177,6 +183,8 @@ class CommunityPageCommunity(BaseModel):
             "members_facepile_results": [CommunityIdUserResults.from_dict(_item) for _item in obj["members_facepile_results"]] if obj.get("members_facepile_results") is not None else None,
             "moderator_count": obj.get("moderator_count"),
             "name": obj.get("name"),
+            "primary_community_topic": PrimaryCommunityTopic.from_dict(obj["primary_community_topic"]) if obj.get("primary_community_topic") is not None else None,
+            "question": obj.get("question"),
             "role": obj.get("role"),
             "rules": [CommunityRelayRule.from_dict(_item) for _item in obj["rules"]] if obj.get("rules") is not None else None,
             "search_tags": obj.get("search_tags"),

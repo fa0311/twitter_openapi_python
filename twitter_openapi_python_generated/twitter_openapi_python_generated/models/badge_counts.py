@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,11 +29,13 @@ class BadgeCounts(BaseModel):
     BadgeCounts
     """ # noqa: E501
     dm_unread_count: StrictInt
+    grok_bot_primary_unread_count: Optional[StrictInt] = None
+    grok_bot_unread_conversations: Optional[StrictInt] = None
     is_from_urt: StrictBool
     ntab_unread_count: StrictInt
     total_unread_count: StrictInt
     xchat_unread_count: StrictInt
-    __properties: ClassVar[List[str]] = ["dm_unread_count", "is_from_urt", "ntab_unread_count", "total_unread_count", "xchat_unread_count"]
+    __properties: ClassVar[List[str]] = ["dm_unread_count", "grok_bot_primary_unread_count", "grok_bot_unread_conversations", "is_from_urt", "ntab_unread_count", "total_unread_count", "xchat_unread_count"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -87,6 +89,8 @@ class BadgeCounts(BaseModel):
 
         _obj = cls.model_validate({
             "dm_unread_count": obj.get("dm_unread_count"),
+            "grok_bot_primary_unread_count": obj.get("grok_bot_primary_unread_count"),
+            "grok_bot_unread_conversations": obj.get("grok_bot_unread_conversations"),
             "is_from_urt": obj.get("is_from_urt"),
             "ntab_unread_count": obj.get("ntab_unread_count"),
             "total_unread_count": obj.get("total_unread_count"),

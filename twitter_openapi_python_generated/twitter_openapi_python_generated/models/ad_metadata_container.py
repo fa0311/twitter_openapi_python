@@ -29,6 +29,7 @@ class AdMetadataContainer(BaseModel):
     """
     AdMetadataContainer
     """ # noqa: E501
+    allow_spine_clicks: Optional[StrictBool] = Field(default=None, alias="allowSpineClicks")
     destination_url_params: Optional[List[KeyValue]] = Field(default=None, alias="destinationUrlParams")
     is_quick_promote: StrictBool = Field(alias="isQuickPromote")
     remove_promoted_attribution_for_preroll: Optional[StrictBool] = None
@@ -36,7 +37,7 @@ class AdMetadataContainer(BaseModel):
     render_sales_cta_website_card: StrictBool = Field(alias="renderSalesCtaWebsiteCard")
     show_overlay_on_first_card: Optional[StrictBool] = Field(default=None, alias="showOverlayOnFirstCard")
     unified_card_override: Optional[StrictStr] = Field(default=None, alias="unifiedCardOverride")
-    __properties: ClassVar[List[str]] = ["destinationUrlParams", "isQuickPromote", "remove_promoted_attribution_for_preroll", "renderLegacyWebsiteCard", "renderSalesCtaWebsiteCard", "showOverlayOnFirstCard", "unifiedCardOverride"]
+    __properties: ClassVar[List[str]] = ["allowSpineClicks", "destinationUrlParams", "isQuickPromote", "remove_promoted_attribution_for_preroll", "renderLegacyWebsiteCard", "renderSalesCtaWebsiteCard", "showOverlayOnFirstCard", "unifiedCardOverride"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -95,6 +96,7 @@ class AdMetadataContainer(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "allowSpineClicks": obj.get("allowSpineClicks"),
             "destinationUrlParams": [KeyValue.from_dict(_item) for _item in obj["destinationUrlParams"]] if obj.get("destinationUrlParams") is not None else None,
             "isQuickPromote": obj.get("isQuickPromote"),
             "remove_promoted_attribution_for_preroll": obj.get("remove_promoted_attribution_for_preroll"),

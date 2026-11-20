@@ -6,6 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **dm_unread_count** | **int** |  | 
+**grok_bot_primary_unread_count** | **int** |  | [optional] 
+**grok_bot_unread_conversations** | **int** |  | [optional] 
 **is_from_urt** | **bool** |  | 
 **ntab_unread_count** | **int** |  | 
 **total_unread_count** | **int** |  | 
