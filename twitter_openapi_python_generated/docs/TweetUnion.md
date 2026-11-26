@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **community_relationship** | [**CommunityRelationship**](CommunityRelationship.md) |  | [optional] 
 **community_results** | [**CommunityResult**](CommunityResult.md) |  | [optional] 
 **content_disclosure** | [**ContentDisclosure**](ContentDisclosure.md) |  | [optional] 
+**conversation_control_details** | [**ConversationControlDetails**](ConversationControlDetails.md) |  | [optional] 
 **core** | [**UserResultCore**](UserResultCore.md) |  | [optional] 
 **edit_control** | [**TweetEditControl**](TweetEditControl.md) |  | [optional] 
 **edit_prespective** | [**TweetEditPrespective**](TweetEditPrespective.md) |  | [optional] 

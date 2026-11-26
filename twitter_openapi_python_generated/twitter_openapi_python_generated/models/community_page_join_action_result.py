@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.type_name import TypeName
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,9 @@ class CommunityPageJoinActionResult(BaseModel):
     """ # noqa: E501
     is_community_join_action_result: StrictStr = Field(alias="__isCommunityJoinActionResult")
     typename: TypeName = Field(alias="__typename")
-    __properties: ClassVar[List[str]] = ["__isCommunityJoinActionResult", "__typename"]
+    message: Optional[StrictStr] = None
+    reason: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["__isCommunityJoinActionResult", "__typename", "message", "reason"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -85,7 +87,9 @@ class CommunityPageJoinActionResult(BaseModel):
 
         _obj = cls.model_validate({
             "__isCommunityJoinActionResult": obj.get("__isCommunityJoinActionResult"),
-            "__typename": obj.get("__typename")
+            "__typename": obj.get("__typename"),
+            "message": obj.get("message"),
+            "reason": obj.get("reason")
         })
         return _obj
 

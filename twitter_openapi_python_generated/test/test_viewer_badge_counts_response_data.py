@@ -42,6 +42,8 @@ class TestViewerBadgeCountsResponseData(unittest.TestCase):
                             __typename = 'TimelineTweet', 
                             badge_counts = twitter_openapi_python_generated.models.badge_counts.BadgeCounts(
                                 dm_unread_count = 56, 
+                                grok_bot_primary_unread_count = 56, 
+                                grok_bot_unread_conversations = 56, 
                                 is_from_urt = True, 
                                 ntab_unread_count = 56, 
                                 total_unread_count = 56, 
@@ -55,6 +57,8 @@ class TestViewerBadgeCountsResponseData(unittest.TestCase):
                             __typename = 'TimelineTweet', 
                             badge_counts = twitter_openapi_python_generated.models.badge_counts.BadgeCounts(
                                 dm_unread_count = 56, 
+                                grok_bot_primary_unread_count = 56, 
+                                grok_bot_unread_conversations = 56, 
                                 is_from_urt = True, 
                                 ntab_unread_count = 56, 
                                 total_unread_count = 56, 

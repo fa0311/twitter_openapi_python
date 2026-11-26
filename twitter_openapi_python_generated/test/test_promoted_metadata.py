@@ -37,6 +37,7 @@ class TestPromotedMetadata(unittest.TestCase):
         if include_optional:
             return PromotedMetadata(
                 ad_metadata_container = twitter_openapi_python_generated.models.ad_metadata_container.AdMetadataContainer(
+                    allow_spine_clicks = True, 
                     destination_url_params = [
                         twitter_openapi_python_generated.models.key_value.KeyValue(
                             key = '', 
@@ -64,6 +65,7 @@ class TestPromotedMetadata(unittest.TestCase):
         else:
             return PromotedMetadata(
                 ad_metadata_container = twitter_openapi_python_generated.models.ad_metadata_container.AdMetadataContainer(
+                    allow_spine_clicks = True, 
                     destination_url_params = [
                         twitter_openapi_python_generated.models.key_value.KeyValue(
                             key = '', 

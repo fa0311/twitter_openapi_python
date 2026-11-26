@@ -68,6 +68,7 @@ class TestTimelineTweet(unittest.TestCase):
                         preroll_id = '', ), ),
                 promoted_metadata = twitter_openapi_python_generated.models.promoted_metadata.PromotedMetadata(
                     ad_metadata_container = twitter_openapi_python_generated.models.ad_metadata_container.AdMetadataContainer(
+                        allow_spine_clicks = True, 
                         destination_url_params = [
                             twitter_openapi_python_generated.models.key_value.KeyValue(
                                 key = '', 

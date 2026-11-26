@@ -361,6 +361,7 @@ class TestUser(unittest.TestCase):
                                         ], 
                                     url = '', )
                                 ], ), ), 
+                    with_held_scope = '', 
                     withheld_in_countries = [
                         ''
                         ], ),

@@ -37,7 +37,9 @@ class TestCommunityPageJoinActionResult(unittest.TestCase):
         if include_optional:
             return CommunityPageJoinActionResult(
                 is_community_join_action_result = '',
-                typename = 'TimelineTweet'
+                typename = 'TimelineTweet',
+                message = '',
+                reason = ''
             )
         else:
             return CommunityPageJoinActionResult(

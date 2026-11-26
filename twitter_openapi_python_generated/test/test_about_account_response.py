@@ -44,6 +44,7 @@ class TestAboutAccountResponse(unittest.TestCase):
                             about_profile = twitter_openapi_python_generated.models.about_profile.AboutProfile(
                                 account_based_in = '', 
                                 affiliate_username = '', 
+                                created_country_accurate = True, 
                                 learn_more_url = '', 
                                 location_accurate = True, 
                                 source = '', 
@@ -119,6 +120,7 @@ class TestAboutAccountResponse(unittest.TestCase):
                                 verified_type = 'Business', ), 
                             verification_info = twitter_openapi_python_generated.models.about_account_verification_info.AboutAccountVerificationInfo(
                                 id = '', 
+                                is_identity_verified = True, 
                                 reason = twitter_openapi_python_generated.models.about_account_verification_info_reason.AboutAccountVerificationInfoReason(
                                     override_verified_year = 56, 
                                     verified_since_msec = '-80728', ), ), ), ), ),
@@ -160,6 +162,7 @@ class TestAboutAccountResponse(unittest.TestCase):
                             about_profile = twitter_openapi_python_generated.models.about_profile.AboutProfile(
                                 account_based_in = '', 
                                 affiliate_username = '', 
+                                created_country_accurate = True, 
                                 learn_more_url = '', 
                                 location_accurate = True, 
                                 source = '', 
@@ -235,6 +238,7 @@ class TestAboutAccountResponse(unittest.TestCase):
                                 verified_type = 'Business', ), 
                             verification_info = twitter_openapi_python_generated.models.about_account_verification_info.AboutAccountVerificationInfo(
                                 id = '', 
+                                is_identity_verified = True, 
                                 reason = twitter_openapi_python_generated.models.about_account_verification_info_reason.AboutAccountVerificationInfoReason(
                                     override_verified_year = 56, 
                                     verified_since_msec = '-80728', ), ), ), ), ),

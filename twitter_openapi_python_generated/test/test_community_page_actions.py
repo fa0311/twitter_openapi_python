@@ -43,7 +43,9 @@ class TestCommunityPageActions(unittest.TestCase):
                 id = '',
                 join_action_result = twitter_openapi_python_generated.models.community_page_join_action_result.CommunityPageJoinActionResult(
                     __is_community_join_action_result = '', 
-                    __typename = 'TimelineTweet', ),
+                    __typename = 'TimelineTweet', 
+                    message = '', 
+                    reason = '', ),
                 leave_action_result = twitter_openapi_python_generated.models.community_page_leave_action_result.CommunityPageLeaveActionResult(
                     __is_community_leave_action_result = '', 
                     __typename = 'TimelineTweet', 
@@ -62,7 +64,9 @@ class TestCommunityPageActions(unittest.TestCase):
                 id = '',
                 join_action_result = twitter_openapi_python_generated.models.community_page_join_action_result.CommunityPageJoinActionResult(
                     __is_community_join_action_result = '', 
-                    __typename = 'TimelineTweet', ),
+                    __typename = 'TimelineTweet', 
+                    message = '', 
+                    reason = '', ),
                 leave_action_result = twitter_openapi_python_generated.models.community_page_leave_action_result.CommunityPageLeaveActionResult(
                     __is_community_leave_action_result = '', 
                     __typename = 'TimelineTweet', 

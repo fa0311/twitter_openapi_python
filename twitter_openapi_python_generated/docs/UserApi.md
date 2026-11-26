@@ -201,7 +201,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.UserApi(api_client)
-    path_query_id = 'XRqGa7EeokUU5kppkh13EA' # str |  (default to 'XRqGa7EeokUU5kppkh13EA')
+    path_query_id = 'TzOG2twZEfhr9KmClvVVqA' # str |  (default to 'TzOG2twZEfhr9KmClvVVqA')
     variables = '{"screenName": "elonmusk"}' # str |  (default to '{"screenName": "elonmusk"}')
 
     try:
@@ -219,7 +219,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;XRqGa7EeokUU5kppkh13EA&#39;]
+ **path_query_id** | **str**|  | [default to &#39;TzOG2twZEfhr9KmClvVVqA&#39;]
  **variables** | **str**|  | [default to &#39;{&quot;screenName&quot;: &quot;elonmusk&quot;}&#39;]
 
 ### Return type
@@ -1362,7 +1362,7 @@ configuration.api_key['AcceptEncoding'] = os.environ["API_KEY"]
 with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = twitter_openapi_python_generated.UserApi(api_client)
-    path_query_id = 'q4Npr1-FYRWyXsRzPckwEA' # str |  (default to 'q4Npr1-FYRWyXsRzPckwEA')
+    path_query_id = 'I7FbT7Bfw_If9nT5q6PUQQ' # str |  (default to 'I7FbT7Bfw_If9nT5q6PUQQ')
     variables = '{}' # str |  (default to '{}')
 
     try:
@@ -1380,7 +1380,7 @@ with twitter_openapi_python_generated.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path_query_id** | **str**|  | [default to &#39;q4Npr1-FYRWyXsRzPckwEA&#39;]
+ **path_query_id** | **str**|  | [default to &#39;I7FbT7Bfw_If9nT5q6PUQQ&#39;]
  **variables** | **str**|  | [default to &#39;{}&#39;]
 
 ### Return type

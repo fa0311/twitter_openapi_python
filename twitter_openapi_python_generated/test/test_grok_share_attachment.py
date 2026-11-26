@@ -285,6 +285,8 @@ class TestGrokShareAttachment(unittest.TestCase):
                                         ai_generated_detection_source = 'C2paClient', 
                                         can_edit = True, 
                                         has_ai_generated_media = True, ), ), 
+                                conversation_control_details = twitter_openapi_python_generated.models.conversation_control_details.ConversationControlDetails(
+                                    mode = '', ), 
                                 core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
                                     user_results = twitter_openapi_python_generated.models.user_results.UserResults(), ), 
                                 edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(
@@ -1285,6 +1287,8 @@ class TestGrokShareAttachment(unittest.TestCase):
                                         ai_generated_detection_source = 'C2paClient', 
                                         can_edit = True, 
                                         has_ai_generated_media = True, ), ), 
+                                conversation_control_details = twitter_openapi_python_generated.models.conversation_control_details.ConversationControlDetails(
+                                    mode = '', ), 
                                 core = twitter_openapi_python_generated.models.user_result_core.UserResultCore(
                                     user_results = twitter_openapi_python_generated.models.user_results.UserResults(), ), 
                                 edit_control = twitter_openapi_python_generated.models.tweet_edit_control.TweetEditControl(

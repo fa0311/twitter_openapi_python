@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from twitter_openapi_python_generated.models.about_profile_username_changes import AboutProfileUsernameChanges
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,13 +29,14 @@ class AboutProfile(BaseModel):
     """
     AboutProfile
     """ # noqa: E501
-    account_based_in: StrictStr
-    affiliate_username: StrictStr
+    account_based_in: Optional[StrictStr] = None
+    affiliate_username: Optional[StrictStr] = None
+    created_country_accurate: Optional[StrictBool] = None
     learn_more_url: StrictStr
     location_accurate: StrictBool
-    source: StrictStr
+    source: Optional[StrictStr] = None
     username_changes: AboutProfileUsernameChanges
-    __properties: ClassVar[List[str]] = ["account_based_in", "affiliate_username", "learn_more_url", "location_accurate", "source", "username_changes"]
+    __properties: ClassVar[List[str]] = ["account_based_in", "affiliate_username", "created_country_accurate", "learn_more_url", "location_accurate", "source", "username_changes"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -93,6 +94,7 @@ class AboutProfile(BaseModel):
         _obj = cls.model_validate({
             "account_based_in": obj.get("account_based_in"),
             "affiliate_username": obj.get("affiliate_username"),
+            "created_country_accurate": obj.get("created_country_accurate"),
             "learn_more_url": obj.get("learn_more_url"),
             "location_accurate": obj.get("location_accurate"),
             "source": obj.get("source"),

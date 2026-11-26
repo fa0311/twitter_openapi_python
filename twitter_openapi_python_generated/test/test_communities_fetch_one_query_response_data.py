@@ -48,7 +48,9 @@ class TestCommunitiesFetchOneQueryResponseData(unittest.TestCase):
                             id = '', 
                             join_action_result = twitter_openapi_python_generated.models.community_page_join_action_result.CommunityPageJoinActionResult(
                                 __is_community_join_action_result = '', 
-                                __typename = 'TimelineTweet', ), 
+                                __typename = 'TimelineTweet', 
+                                message = '', 
+                                reason = '', ), 
                             leave_action_result = twitter_openapi_python_generated.models.community_page_leave_action_result.CommunityPageLeaveActionResult(
                                 __is_community_leave_action_result = '', 
                                 __typename = 'TimelineTweet', 
@@ -128,6 +130,10 @@ class TestCommunitiesFetchOneQueryResponseData(unittest.TestCase):
                             ], 
                         moderator_count = 56, 
                         name = '', 
+                        primary_community_topic = twitter_openapi_python_generated.models.primary_community_topic.PrimaryCommunityTopic(
+                            topic_id = '4', 
+                            topic_name = '', ), 
+                        question = '', 
                         role = '', 
                         rules = [
                             twitter_openapi_python_generated.models.community_relay_rule.CommunityRelayRule(
@@ -158,7 +164,9 @@ class TestCommunitiesFetchOneQueryResponseData(unittest.TestCase):
                             id = '', 
                             join_action_result = twitter_openapi_python_generated.models.community_page_join_action_result.CommunityPageJoinActionResult(
                                 __is_community_join_action_result = '', 
-                                __typename = 'TimelineTweet', ), 
+                                __typename = 'TimelineTweet', 
+                                message = '', 
+                                reason = '', ), 
                             leave_action_result = twitter_openapi_python_generated.models.community_page_leave_action_result.CommunityPageLeaveActionResult(
                                 __is_community_leave_action_result = '', 
                                 __typename = 'TimelineTweet', 
@@ -238,6 +246,10 @@ class TestCommunitiesFetchOneQueryResponseData(unittest.TestCase):
                             ], 
                         moderator_count = 56, 
                         name = '', 
+                        primary_community_topic = twitter_openapi_python_generated.models.primary_community_topic.PrimaryCommunityTopic(
+                            topic_id = '4', 
+                            topic_name = '', ), 
+                        question = '', 
                         role = '', 
                         rules = [
                             twitter_openapi_python_generated.models.community_relay_rule.CommunityRelayRule(

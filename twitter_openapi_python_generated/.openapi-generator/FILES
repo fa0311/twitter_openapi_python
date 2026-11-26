@@ -178,6 +178,7 @@ docs/ContentEntryType.md
 docs/ContentItemType.md
 docs/ContentUnion.md
 docs/ConversationControl.md
+docs/ConversationControlDetails.md
 docs/ConversationDetails.md
 docs/ConversationMetadata.md
 docs/ConversationOwner.md
@@ -862,6 +863,7 @@ test/test_content_entry_type.py
 test/test_content_item_type.py
 test/test_content_union.py
 test/test_conversation_control.py
+test/test_conversation_control_details.py
 test/test_conversation_details.py
 test/test_conversation_metadata.py
 test/test_conversation_owner.py
@@ -1558,6 +1560,7 @@ twitter_openapi_python_generated/models/content_entry_type.py
 twitter_openapi_python_generated/models/content_item_type.py
 twitter_openapi_python_generated/models/content_union.py
 twitter_openapi_python_generated/models/conversation_control.py
+twitter_openapi_python_generated/models/conversation_control_details.py
 twitter_openapi_python_generated/models/conversation_details.py
 twitter_openapi_python_generated/models/conversation_metadata.py
 twitter_openapi_python_generated/models/conversation_owner.py

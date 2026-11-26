@@ -36,6 +36,7 @@ class TestAdMetadataContainer(unittest.TestCase):
         model = AdMetadataContainer()
         if include_optional:
             return AdMetadataContainer(
+                allow_spine_clicks = True,
                 destination_url_params = [
                     twitter_openapi_python_generated.models.key_value.KeyValue(
                         key = '', 
